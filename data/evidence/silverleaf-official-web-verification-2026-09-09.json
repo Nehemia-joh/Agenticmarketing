@@ -1,0 +1,66 @@
+{
+  "checked_on": "2026-09-09",
+  "purpose": "Current-source verification for campaign positioning and eligibility gates",
+  "sources": [
+    {
+      "url": "https://www.silverleaf.co.tz/admissions",
+      "page_title": "Admissions",
+      "verified_claims": [
+        "Applications for the 2027 school year are open.",
+        "Grades offered are Daycare, Pre-Primary KG1-KG2 and Primary G1-G7.",
+        "Daycare and Pre-Primary enrolment is rolling.",
+        "Primary enrolment windows are October-December for a January start and June-July for a post-mid-year start.",
+        "The page publishes the main contact numbers +255 769 486 660 and +255 676 104 342."
+      ],
+      "campaign_conditions": [
+        "Confirm campus-specific availability before naming a campus.",
+        "Do not place fee figures in 2027 campaign copy until the 2027 fee structure has internal approval, even though current figures are published on the page."
+      ]
+    },
+    {
+      "url": "https://www.silverleaf.co.tz/our-model",
+      "page_title": "Our Model",
+      "verified_claims": [
+        "Silverleaf describes English as its language of instruction.",
+        "Silverleaf describes technology as integrated into teaching and learning.",
+        "The public value offering includes English mastery, academic attainment, digital fluency, student wellness and co-curricular enrichment."
+      ],
+      "campaign_conditions": [
+        "Prefer these durable value pillars to mutable statistics.",
+        "Do not use performance percentages without reconciling the source-of-truth metric."
+      ]
+    },
+    {
+      "url": "https://www.silverleaf.co.tz/our-schools",
+      "page_title": "Our Network of Schools",
+      "verified_claims": [
+        "The public site lists Usa River, Arusha City, Kijenge, Ilboru and Boma campuses.",
+        "Usa River and Arusha City list primary provision.",
+        "Kijenge, Ilboru and Boma list early-years provision and do not list primary provision on the network page."
+      ],
+      "campaign_conditions": [
+        "Route by age or grade and travel area before recommending a campus.",
+        "Confirm availability with admissions before a direct invitation or visit offer."
+      ]
+    },
+    {
+      "url": "https://www.silverleaf.co.tz/",
+      "page_title": "Silverleaf Academy",
+      "verified_claims": [
+        "The current public positioning includes affordable schools and technology-powered education.",
+        "The current public contact email is info@silverleaf.co.tz."
+      ],
+      "campaign_conditions": [
+        "Use the approved brand name Silverleaf Academy on first mention.",
+        "Avoid outcome percentages until the metrics reconciliation is complete."
+      ]
+    }
+  ],
+  "excluded_from_campaign_copy": [
+    "Performance, retention and social-emotional-development percentages",
+    "Teacher graduate counts",
+    "Claims about campus capacity or open places",
+    "Discounts, subsidies, referral rewards or employer benefits that are not approved",
+    "2027 fee figures before internal sign-off"
+  ]
+}

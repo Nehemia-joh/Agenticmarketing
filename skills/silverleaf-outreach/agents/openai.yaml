@@ -1,0 +1,6 @@
+interface:
+  display_name: "Silverleaf Outreach Strategy and Copy"
+  short_description: "Evidence-based Silverleaf partnership messages"
+  default_prompt: "Use $silverleaf-outreach to develop the strategy and personalize Silverleaf partnership drafts from the master intelligence database."
+policy:
+  allow_implicit_invocation: true

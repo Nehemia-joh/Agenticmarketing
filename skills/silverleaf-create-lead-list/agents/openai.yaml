@@ -1,0 +1,4 @@
+interface:
+  display_name: "Silverleaf Create Lead List"
+  short_description: "Build a sourced Silverleaf lead database"
+  default_prompt: "Use $silverleaf-create-lead-list to create a new sourced lead list and review-ready workbook."

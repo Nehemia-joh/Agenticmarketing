@@ -1,0 +1,47 @@
+node/282581634|-3.380039|36.698846|Pamoja Expedition Lodge|guest_house||||
+node/894160585|-3.347746|37.344449|Precision Air|travel_agency||||
+node/2494028801|-3.348706|37.345384|Fastjet ticket office Shuttlebus|travel_agency||||
+node/2516074740|-3.356184|37.340538|Tintintours|travel_agency||||
+node/2534727404|-3.346557|37.348609|Kili Star Tours|travel_agency||||
+node/2551998758|-3.367610|36.682879|Dar Express Booking Office|travel_agency||||Chagga Avenue
+node/2552014411|-3.367496|36.682814|Mtey Booking Office|travel_agency||||
+node/2552076053|-3.347960|37.341662|Lim Safaris Booking Office|travel_agency||||
+node/3147591945|-3.385770|36.705273|JM Tours|travel_agency||||
+node/3174639553|-3.377890|36.704981|Leopard Tours Ltd.|company||||
+node/3182461207|-3.366496|36.686583|Monjes Tours & Lodges Office|guest_house||||
+node/3652903232|-3.355316|37.342334|Zara Tours|travel_agency||||Ghala Road
+node/4295739592|-3.367123|36.684977|Basecamp Tanzania|travel_agency||||
+node/4298205389|-3.367093|36.684573|Access 2 Tanzania|travel_agency||||
+node/4299809789|-3.377075|36.700882|Roy Safaris|travel_agency||||
+node/4300710390|-3.353939|36.609723|Duma Explorers|travel_agency||||
+node/4326987993|-3.325268|37.341555|trekkingandsafariadventures|travel_agency|+255672475320|www.trekkingandsafariadventures.com|simonbabuu@gmail.com|Uru Road
+node/4468045705|-3.356754|37.341401|Nyange Adventures Ltd.|travel_agency|+255 717 385 304|https://nyangeadventures.com/|praise@nyangeadventures.com|Mtaa wa Viwanda
+node/4809822821|-3.346354|36.655950|Africa VIP Travel|travel_agency|+255732510422|https://www.africaviptravel.com/|info@africaviptravel.com|Oloirien Olosiva
+node/4975029421|-3.346001|37.331265|Ahsante Tours|travel_agency|+255 27 275 0248|https://ahsantetours.com/|info@ahsantetours.com|Sekou Toure Way
+node/4984366322|-3.373247|36.691907|Kipepeo|travel_agency|+255755753576|||
+node/4986137722|-3.366546|36.686006|Meru Mountain Treks & Safari Ltd.|travel_agency|+255784474440|https://www.merutreks.co.tz/|info@merutreks.com|Levolosi Street
+node/5009423865|-3.384998|36.720144|Tropical Trails|company||https://tropicaltrails.com/||
+node/5130865142|-3.390328|36.583614|Shadows of Africa Ltd|travel_agency||https://www.shadowsofafrica.com/|info@shadowsofafrica.com|
+node/5541596121|-3.352997|37.331972|Monkey Adventures|travel_agency||||
+node/5917151415|-3.348635|37.337924|Boker Adventures|guide||https://www.bokeradventure.com/||Aga Khan Road
+node/6244370986|-3.371207|36.858383|Usa River Booking Office|travel_agency||||
+node/6416144987|-3.374472|36.701087|Nale Moru experiential travel|travel_agency||||
+node/6782817087|-3.356935|37.341254|Summit 2 Sand Safaris|travel_agency||||
+node/6892795786|-3.354990|37.341311|Gazelle Adventures|travel_agency|0255759728967|||
+node/7161464785|-3.371903|36.774024|Top Of Africa Treks and Safaris LTD|company|+255767393718|https://topafricatrek.com/|bookings@topafricatrek.com|TOA Road
+node/7487189045|-3.304623|37.330490|Kkikalora Saccos|bank||||
+node/9406899849|-3.537320|37.325874|Tcp Saccos Ltp Milling Machine||255686587232|||Lengasai
+node/9913794261|-3.427835|36.720282|ATA Safaris - Travel & Tour Operators in Arusha|travel_agency|+255 755 989175|http://www.atasafaris.com|safaris@atasafaris.com|Njiro - Mtoni kwa ATA
+node/11204103637|-3.367768|36.685815|Kilimanjaro Bliss Safaris|travel_agency||||
+node/11365697055|-3.358296|37.337440|Explore Active|travel_agency|+255625695158|https://exploreactive.com/|info@exploreactive.com|Mission Street
+node/12054146086|-3.343405|37.380519|Roving Africa Safaris|guide|+25 57 5366 6660|https://www.rovingafricasafaris.com/|rovingafricasafaris@gmail.com|Mnazi Street
+node/13123285522|-3.325633|37.349718|Tanzania Hugos Safaris|guide|+255 680 853 664|https://tanzaniahugossafaris.com/|tanzaniahugossafaris@gmail.com|
+node/13302603933|-3.393234|36.630745|Dorobo Safaris|guide||https://www.dorobosafaris.com/||Plot 2534 Oloresho, Olasiti, Arusha
+node/13572133101|-3.367022|36.751563|Arusha Tours|attraction|+255786233938|https://www.ArushaTours.com||
+node/13575073296|-3.383829|36.612797|Tanzanian Pioneers|travel_agent;travel_agency;information|+49 179 2448621||info@tanzanian-pioneers.com|JJ87+94 Arusha
+way/246423702|-3.347715|37.344908|Kessy Brothers|travel_agency||||
+way/247016485|-3.353736|37.338747|Coastal Aviation Booking Office|travel_agency|+255 785500729|||
+way/696402131|-3.333491|37.347893|Enosa Expedition|guide||||
+way/715057459|-3.358335|36.653980|Nihapa Tours|travel_agency|+255 786 261 927|https://nihapatours.com|info@nihapatours.com|Meru Spring Plaza, Plot 690 Block D
+way/859749196|-3.353395|37.340984|Gladys Adventure & Safaris|||||Hill Street
+relation/17487017|-3.368559|36.625163|Auric Air|travel_agency||https://www.auricair.com/||

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Silverleaf Update Lead List"
+  short_description: "Safely expand the Silverleaf lead database"
+  default_prompt: "Use $silverleaf-update-lead-list to add new researched leads without losing or duplicating existing records."

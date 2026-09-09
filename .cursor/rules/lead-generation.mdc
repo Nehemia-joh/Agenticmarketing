@@ -1,0 +1,22 @@
+---
+description: Silverleaf lead generation, master database, evidence, and outreach rules
+globs:
+  - "data/**/*"
+  - "scripts/**/*"
+  - "skills/**/*"
+  - "docs/strategy/**/*"
+alwaysApply: true
+---
+
+# Silverleaf lead-generation rules
+
+- Read `AGENTS.md` and the relevant skill before making changes.
+- Use `outputs/master/Silverleaf Master Database.sqlite` as the source of truth; regenerate the workbook from it.
+- Use `skills/silverleaf-create-lead-list/SKILL.md` for a separate list and `skills/silverleaf-update-lead-list/SKILL.md` for an existing master.
+- Preserve stable IDs, original source records, URLs, locators, dates, evidence excerpts, and field-level conflicts.
+- Auto-merge exact identifiers only. Put similar names and conflicting claims in the review queue.
+- Collect public business routes and deliberately published enquiry contact details. Do not infer private contact details or personal status.
+- Personalised hooks are optional. Keep one only when the exact claim has a source URL and verification date.
+- Keep outreach as drafts and automation recipes disabled.
+- Validate intake, preflight updates, use a transaction, rebuild the workbook, and run `python scripts/master/verify_master.py`.
+- Never commit dependencies, caches, inspection dumps, previews, journals, credentials, or backup snapshots.

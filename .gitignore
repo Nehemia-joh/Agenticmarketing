@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+vendor/
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated working files
+runtime/
+tmp/
+temp/
+*.log
+*.inspect.ndjson
+outputs/previews/
+outputs/backups/
+outputs/exports/
+/outputs/**/*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite-journal
+~$*.xlsx
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini

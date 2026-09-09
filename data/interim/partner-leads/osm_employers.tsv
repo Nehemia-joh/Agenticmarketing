@@ -1,0 +1,242 @@
+name	kind	campus	km	band	phone	email	web
+Exim bank	amenity:bank	Usa River	0.1	0-5 km			
+Ilboru Safari Lodge	tourism:hotel	Ilboru	0.1	0-5 km			
+Usa RC Health Centre	amenity:hospital	Usa River	0.1	0-5 km			
+Wild Mind Travel Company	office:company	Arusha City (Sakina)	0.3	0-5 km			
+Citylink Hotel	tourism:hotel	Kijenge	0.4	0-5 km			
+Saruni River Lodge	tourism:hotel	Kijenge	0.4	0-5 km			
+Makeseni Lodge	tourism:hotel	Usa River	0.5	0-5 km			
+Tanzanite City Park Lodge	tourism:hotel	Kijenge	0.6	0-5 km			
+Gran Melia Arusha	tourism:hotel	Kijenge	0.6	0-5 km			
+AAR Clinic	amenity:hospital	Kijenge	0.6	0-5 km	+255 739 900 910		http://www.aarhealth.com/aar_tz/
+Mt. Meru Game Lodge	tourism:hotel	Usa River	0.7	0-5 km			
+Mango Bed & Breakfast	tourism:hotel	Boma Ngombe	0.7	0-5 km			
+Maji Water & Irrigation Authority	office:government	Boma Ngombe	0.7	0-5 km			https://www.maji.go.tz
+CRDB Bank	amenity:bank	Boma Ngombe	0.7	0-5 km			
+Njake Oil	office:government	Usa River	0.8	0-5 km			
+NMB Bank	amenity:bank	Boma Ngombe	0.8	0-5 km			https://www.nmbbank.co.tz
+Rivertrees Country Inn	tourism:hotel	Usa River	0.8	0-5 km	+255 20743600160	info@rivertrees.com	https://rivertrees.com/
+Club Afriko	tourism:hotel	Kijenge	0.9	0-5 km			
+SNV (Netherlands Development Organisation)	office:ngo	Kijenge	0.9	0-5 km			www.snvworld.org
+Mzunguu's hotel, bar & restaurant	tourism:hotel	Usa River	1	0-5 km			
+Moon Shine Hotel	tourism:hotel	Ilboru	1	0-5 km			
+La Bella Luna Hotel	tourism:hotel	Kijenge	1	0-5 km			
+L'Oasis	tourism:hotel	Kijenge	1.1	0-5 km			
+Karama Lodge & Spa	tourism:hotel	Kijenge	1.1	0-5 km	+255 754 475 188	reservationkaramalodge@gmail.com	www.karama-lodge.com
+Bay Leaf	tourism:hotel	Kijenge	1.1	0-5 km			
+Tulia Retreat Hotel	tourism:hotel	Kijenge	1.1	0-5 km			
+Le Jacaranda	tourism:hotel	Kijenge	1.2	0-5 km			
+The Charity Hotel	tourism:hotel	Arusha City (Sakina)	1.2	0-5 km			
+Leopard Tours Ltd.	office:company	Kijenge	1.2	0-5 km			
+Impala Hotel Arusha	tourism:hotel	Kijenge	1.2	0-5 km			
+Oikos East Africa	office:ngo	Kijenge	1.2	0-5 km			
+Lush Garden Business Hotel	tourism:hotel	Kijenge	1.3	0-5 km	+255 786 401 140		
+Kijenge RC Dispensary	amenity:hospital	Kijenge	1.3	0-5 km			
+Avinta Care Specialized Polyclinic	amenity:hospital	Kijenge	1.3	0-5 km	+255 786 619 797	avintacare@gmail.com	
+Greenside Hotel Arusha	tourism:hotel	Kijenge	1.3	0-5 km	+255 765 111 119		
+Serengeti Villa	tourism:hotel	Kijenge	1.3	0-5 km			
+Tanzanian Postal Bank	amenity:bank	Usa River	1.4	0-5 km			
+FBME Arusha	amenity:bank	Kijenge	1.4	0-5 km			
+New Way Hotel	tourism:hotel	Boma Ngombe	1.4	0-5 km	+255 748 755 355	info@newwayhotel.co.tz	https://newwayhotel.co.tz
+AICC Hospital	amenity:hospital	Kijenge	1.5	0-5 km			
+The East African Hotel All Suites	tourism:hotel	Kijenge	1.5	0-5 km			
+Green Mountain Hotel	tourism:hotel	Kijenge	1.5	0-5 km		info@greenmountainhotel.co.tz	https://www.greenmountainhotel.co.tz
+Gemsa Specialized Polyclinic	amenity:hospital	Kijenge	1.5	0-5 km			
+Health 4 All	amenity:hospital	Kijenge	1.5	0-5 km			
+African Tulip	tourism:hotel	Kijenge	1.5	0-5 km			
+Gold Crest Hotel	tourism:hotel	Kijenge	1.5	0-5 km	+255 677 014 957	reservations@goldcresthotel.com	
+Barclays	amenity:bank	Kijenge	1.6	0-5 km			
+Lush Garden Hotel	tourism:hotel	Arusha City (Sakina)	1.6	0-5 km	+255787884466	reservation@lushgardenhotels.com	https://lushgardenhotels.co.tz/
+Freedom Lodge	tourism:hotel	Arusha City (Sakina)	1.6	0-5 km			
+Ahadi Lodge	tourism:hotel	Arusha City (Sakina)	1.6	0-5 km			
+Mazda	office:company	Usa River	1.6	0-5 km			
+Osim Bnb	tourism:hotel	Arusha City (Sakina)	1.6	0-5 km	+255 758 758 995		
+Kibo Palace Hotel	tourism:hotel	Kijenge	1.6	0-5 km			
+Mazingira Technologies Ltd.	office:company	Arusha City (Sakina)	1.7	0-5 km		info@mazingira.co.tz	https://mazingira.co.tz
+Saleka Guest House	tourism:hotel	Ilboru	1.7	0-5 km			
+Usa-River Rehabilitation Centre	office:educational_institution	Usa River	1.7	0-5 km			
+Oloirien Community Dispensary	amenity:hospital	Kijenge	1.7	0-5 km			
+East African Community	office:government	Kijenge	1.7	0-5 km			
+Naura Springs Hotel	tourism:hotel	Ilboru	1.8	0-5 km			
+Green leaf lodge	tourism:hotel	Ilboru	1.8	0-5 km			
+Ecobank	amenity:bank	Kijenge	1.8	0-5 km			
+Old Arusha Health Center	amenity:hospital	Kijenge	1.8	0-5 km			
+SainCraft Technologies	office:it	Kijenge	1.8	0-5 km			
+Arusha Technical College	amenity:college	Arusha City (Sakina)	1.8	0-5 km			
+Tanzania Conservation Resource Centre	office:ngo	Kijenge	1.8	0-5 km			https://www.tzcrc.org/
+NSSF	office:government	Kijenge	1.8	0-5 km			
+Kituo cha Polisi Baraa	office:government	Kijenge	1.8	0-5 km			
+Esri Eastern Africa	office:it	Ilboru	1.9	0-5 km			
+Tropical Trails	office:company	Kijenge	1.9	0-5 km			https://tropicaltrails.com/
+Superdoll	office:company	Kijenge	1.9	0-5 km			
+Mwanama Village Office	office:government	Kijenge	1.9	0-5 km			
+R&D Polyclinic	amenity:hospital	Kijenge	1.9	0-5 km	+255 674 515 366	rndpolyclinic@gmail.com	
+Nature Tree Lodge	tourism:hotel	Ilboru	1.9	0-5 km			
+Lutheran Center	office:government	Kijenge	1.9	0-5 km			
+New Safari Hotel	tourism:hotel	Kijenge	1.9	0-5 km			
+Palace Hotel	tourism:hotel	Kijenge	1.9	0-5 km			
+Silver Palm	tourism:hotel	Ilboru	1.9	0-5 km			
+Immigration office	office:government	Kijenge	2	0-5 km			
+VisionFund Tz MF Bank (HQ)	amenity:bank	Kijenge	2	0-5 km	+255 27 254 8218		https://www.vftz.co.tz/
+Ngorongoro Information Center	office:government	Kijenge	2	0-5 km			
+Commercial Bank of Africa	amenity:bank	Kijenge	2	0-5 km			
+Ngorongoro Conservation Area Authority (NCAA)	office:government	Kijenge	2	0-5 km			
+Azania Bank	amenity:bank	Ilboru	2	0-5 km			
+Senator Hotel	tourism:hotel	Arusha City (Sakina)	2	0-5 km			
+Mount Meru Regional Hospital	amenity:hospital	Kijenge	2	0-5 km			
+Arusha District Commissioner's Office	office:government	Kijenge	2	0-5 km			
+ARUSHA HOTEL	tourism:hotel	Kijenge	2	0-5 km			
+St. Elizabeth Hospital	amenity:hospital	Arusha City (Sakina)	2	0-5 km			
+Graceland Hotel	tourism:hotel	Arusha City (Sakina)	2	0-5 km			
+Naaz Hotel & Restaurant	tourism:hotel	Kijenge	2.1	0-5 km			
+Snow Crest Hotel	tourism:hotel	Kijenge	2.1	0-5 km			
+Tigo Store	office:telecommunication	Ilboru	2.1	0-5 km			
+Isamilo Express booking office	office:company	Ilboru	2.1	0-5 km			
+Adventist Development Agency	office:ngo	Usa River	2.1	0-5 km			
+Stereo Hotel	tourism:hotel	Ilboru	2.1	0-5 km			
+KCB Bank	amenity:bank	Kijenge	2.1	0-5 km			
+Arusha Lutheran Medical Centre	amenity:hospital	Ilboru	2.1	0-5 km			
+AM Hotel	tourism:hotel	Ilboru	2.1	0-5 km			
+Briston Hotel	tourism:hotel	Ilboru	2.1	0-5 km			
+Sttlers executive Inn	tourism:hotel	Arusha City (Sakina)	2.1	0-5 km			
+St. Augustine University of Tanzania - Arusha Campus	amenity:university	Arusha City (Sakina)	2.1	0-5 km		admission@sautarusha.ac.tz	https://sautarusha.ac.tz
+Dik Dik Hotel	tourism:hotel	Usa River	2.2	0-5 km			
+MS Training Centre for Development Cooperation	office:educational_institution	Usa River	2.2	0-5 km			https://mstcdc.or.tz/
+Tanesco Regional Office	office:government	Kijenge	2.2	0-5 km			
+New Annex Hotel	tourism:hotel	Ilboru	2.2	0-5 km			
+Cradle of Love Children's Home	office:ngo	Usa River	2.2	0-5 km			
+Henkel	office:company	Kijenge	2.2	0-5 km			
+Boma Masai Garden	tourism:hotel	Boma Ngombe	2.2	0-5 km			
+VODACOM SERVICE CENTER	office:telecommunication	Kijenge	2.2	0-5 km			
+GMV Lodge	tourism:hotel	Arusha City (Sakina)	2.2	0-5 km			
+TRA (Tanzania Revenue Authority)	office:government	Kijenge	2.2	0-5 km			
+Premier Palace Hotel	tourism:hotel	Arusha City (Sakina)	2.2	0-5 km			
+Tanzania National Parks Authority (TANAPA)	office:government	Arusha City (Sakina)	2.2	0-5 km			
+National Bank of Commerce (NBC)	amenity:bank	Kijenge	2.3	0-5 km			
+Jevas Hotel	tourism:hotel	Arusha City (Sakina)	2.3	0-5 km			
+Davos Hotel	tourism:hotel	Arusha City (Sakina)	2.3	0-5 km			
+Arumeru River Lodge	tourism:hotel	Usa River	2.3	0-5 km			https://www.arumerulodge.com/
+Venice Hotel	tourism:hotel	Arusha City (Sakina)	2.3	0-5 km	+255 742 856 357	info@venicehotel.co.tz	https://www.venicehotel.co.tz/
+Tengeru Institute of Community Development	amenity:college	Kijenge	2.3	0-5 km			
+Kaloleni Hospital	amenity:hospital	Ilboru	2.3	0-5 km			
+Arusha Crown Hotel	tourism:hotel	Ilboru	2.4	0-5 km			https://www.arushacrownhotel.com/
+7 11 Hotel	tourism:hotel	Ilboru	2.4	0-5 km			
+Levolosi Health Centre	amenity:hospital	Arusha City (Sakina)	2.4	0-5 km			
+Arusha Centre Tourist Inn	tourism:hotel	Ilboru	2.5	0-5 km		atihotel@habari.co.tz	http://arushacenterinn.com
+Exim Bank (T) Ltd	amenity:bank	Arusha City (Sakina)	2.5	0-5 km			
+Tanganyika Farmers Association	office:ngo	Arusha City (Sakina)	2.5	0-5 km			
+National Housing Association	office:government	Kijenge	2.5	0-5 km			
+KCB	amenity:bank	Arusha City (Sakina)	2.5	0-5 km			
+Natron Palace Hotel	tourism:hotel	Ilboru	2.5	0-5 km			
+The Aga Khan University Hospital	amenity:hospital	Ilboru	2.5	0-5 km			
+Rich Hotel	tourism:hotel	Ilboru	2.5	0-5 km			
+White House	tourism:hotel	Kijenge	2.6	0-5 km			
+Amana Bank	amenity:bank	Ilboru	2.6	0-5 km			
+Akiba Commercial Bank	amenity:bank	Arusha City (Sakina)	2.6	0-5 km			
+Temesa	office:government	Arusha City (Sakina)	2.6	0-5 km			
+AUWASA	office:government	Arusha City (Sakina)	2.6	0-5 km			
+Tanzania Wildlife Management Authority	office:government	Kijenge	2.6	0-5 km			
+Aquiline Hotel	tourism:hotel	Ilboru	2.6	0-5 km			
+Diamond Trust Bank	amenity:bank	Kijenge	2.6	0-5 km			
+Ithna-asheri Hospital	amenity:hospital	Arusha City (Sakina)	2.6	0-5 km			
+Ngare Sero Mountain Retreat	tourism:hotel	Usa River	2.7	0-5 km			
+Meru House Inn	tourism:hotel	Arusha City (Sakina)	2.7	0-5 km	+255754037819	annammbaga40@gmail.com	
+Arusha Tourist Inn	tourism:hotel	Arusha City (Sakina)	2.7	0-5 km			
+Davis & Shirtliff	office:company	Arusha City (Sakina)	2.7	0-5 km			
+B-More Comfort Stay	tourism:hotel	Boma Ngombe	2.7	0-5 km	+255784355368		
+NMB Arusha Market	office:financial	Ilboru	2.7	0-5 km			
+Shree Hindu Hospital	amenity:hospital	Kijenge	2.7	0-5 km			
+Tanta Dental Clinic	amenity:hospital	Kijenge	2.7	0-5 km			
+TANZANIA POSTAL BANK	amenity:bank	Arusha City (Sakina)	2.8	0-5 km			
+Hotel Pallsons	tourism:hotel	Ilboru	2.8	0-5 km			
+Arusha Backpackers	tourism:hotel	Arusha City (Sakina)	2.8	0-5 km	+255 715 377795		http://www.arushabackpackers.co.tz/
+Tanzania Commercial Bank	amenity:bank	Kijenge	2.8	0-5 km			
+Arusha Meru International School	office:educational_institution	Arusha City (Sakina)	2.9	0-5 km			
+Equity Bank	amenity:bank	Ilboru	2.9	0-5 km			
+Arusha Coffee Lodge (Elewana)	tourism:hotel	Arusha City (Sakina)	3	0-5 km	+255 27 250 0630	info@elewana.com	https://www.elewanacollection.com/
+Ndoro Lodge	tourism:hotel	Usa River	3.2	0-5 km			https://ndorolodge.com/
+Sunflag Tanzania Limited	office:company	Kijenge	3.2	0-5 km			
+NSK Hospital Arusha	amenity:hospital	Kijenge	3.3	0-5 km			
+Ngurdoto Mountain Lodge	tourism:hotel	Usa River	3.3	0-5 km			
+Chemical Industry Ltd	office:company	Kijenge	3.4	0-5 km			
+Tumaini University Makumira Offices	office:government	Usa River	3.6	0-5 km			
+Emayani vulnerable people's center	office:ngo	Arusha City (Sakina)	3.7	0-5 km			
+Onsea House	tourism:hotel	Kijenge	3.8	0-5 km			
+Hanspaul Group	office:company	Kijenge	3.8	0-5 km	+255 75 6888864	info@hanspaul.co.tz	https://www.hanspaul.co.tz
+Israel community office	office:company	Kijenge	3.8	0-5 km			
+Ofisi ya CCM Tawi la Engutoto	office:government	Kijenge	3.9	0-5 km			
+SUNOLA refined sunflower oil industry	office:company	Kijenge	3.9	0-5 km			
+Tanzania Crop Care Limited	office:company	Kijenge	3.9	0-5 km			
+East Africa Travel Company	office:company	Boma Ngombe	4	0-5 km	+255784411852		https://eastafricatravelcompany.com
+Selian Lutheran Hospital Ngaramtoni	amenity:hospital	Arusha City (Sakina)	4	0-5 km			
+Dhariwal Trading Co	office:company	Kijenge	4.1	0-5 km			
+Economists (T) Investment Group	office:financial	Kijenge	4.2	0-5 km			
+Olasiti Lodge	tourism:hotel	Arusha City (Sakina)	4.3	0-5 km			
+Arusha Villa	tourism:hotel	Usa River	4.3	0-5 km	+255 784 356 225	info@arushavilla.co.tz	https://arushavilla.co.tz/
+PAG Church Njiro	office:ngo	Kijenge	4.4	0-5 km			
+A1 Hotel and Resort	tourism:hotel	Arusha City (Sakina)	4.5	0-5 km	+255 765 061 525		http://www.a1hotelandresort.co.tz/
+Tanzania Wildlife Research Institute (TAWIRI)	office:research	Kijenge	4.7	0-5 km			https://tawiri.or.tz/
+Kahawa House	tourism:hotel	Arusha City (Sakina)	4.8	0-5 km			
+United African American Community Center (UAACC)	office:ngo	Usa River	4.9	0-5 km			
+Institute of Accountancy Arusha (IAA)	amenity:college	Kijenge	4.9	0-5 km			
+Moivaro Coffee Lodge	tourism:hotel	Kijenge	4.9	0-5 km			
+Samaki Feeds and Fingerlings	office:company	Usa River	5.1	6-10 km	0759022648		
+CRDB Bank branch	amenity:bank	Kijenge	5.1	6-10 km			
+African View Lodge	tourism:hotel	Usa River	5.3	6-10 km	+255 784 419 232	info@africanview.co.tz	https://www.african-view.com/
+National Identification Authority (NIDA)	office:government	Arusha City (Sakina)	5.3	6-10 km			
+Haradali Home	tourism:hotel	Arusha City (Sakina)	5.3	6-10 km	+255767773877	bookings@haradalihome.com	https://haradalihome.com/
+Spiritan Missionary Seminary Institute of Philosophy	amenity:college	Kijenge	5.5	6-10 km			
+University of Arusha	amenity:university	Usa River	5.6	6-10 km			
+Office ya Kijiji Maji ya Chai	office:government	Usa River	5.7	6-10 km			
+African Grand Hotel	tourism:hotel	Kijenge	5.9	6-10 km			
+Fun Retreat Resort Hotel	tourism:hotel	Kijenge	5.9	6-10 km			
+Meru View Lodge	tourism:hotel	Usa River	6	6-10 km			
+Tanzania Wildlife Authority (TAWA) Northern Zone HQ	office:government	Kijenge	6	6-10 km			northernzone@tawa.go.tz
+Hotel Mr. Bodo	tourism:hotel	Usa River	6	6-10 km			https://mr-bodo.com/
+Regional Air Head Office	office:company	Arusha City (Sakina)	6.1	6-10 km	+255 675 285 753		https://www.regionaltanzania.com
+Seedco Tanzania Head Office	office:company	Arusha City (Sakina)	6.1	6-10 km	+255 739 210 909		https://www.seedcogroup.com/tz/
+Woodtech 2008 (T) Ltd Arusha	office:ngo	Kijenge	6.2	6-10 km			
+Amani Villa	tourism:hotel	Usa River	6.2	6-10 km			https://www.amani.villas/
+Maternity Africa Arusha	amenity:hospital	Arusha City (Sakina)	6.2	6-10 km			
+Njiro Ebenezer Retreat Lodge	tourism:hotel	Kijenge	6.4	6-10 km			
+Olerai Lodge	tourism:hotel	Arusha City (Sakina)	6.6	6-10 km	+255 747 021 135	info@owc-africa.com	https://owc-africa.com/olerai-lodge/
+Golden Rose	tourism:hotel	Arusha City (Sakina)	6.7	6-10 km			
+CCoHAS College	amenity:college	Kijenge	6.7	6-10 km			
+Methodist Theological College	amenity:college	Kijenge	6.7	6-10 km			
+Twiga Lodge	tourism:hotel	Usa River	6.7	6-10 km			
+Meru Mbega Lodge	tourism:hotel	Usa River	6.7	6-10 km	+255784613335	christopher@baobabvillage.com	https://www.mt-meru.com/
+St. Mbaaga Spiritual Formation Centre	amenity:college	Kijenge	6.8	6-10 km			
+Nkoaranga Hospital	amenity:hospital	Usa River	6.8	6-10 km			
+Mong'are Teachers' College	amenity:college	Boma Ngombe	6.8	6-10 km			
+Top Of Africa Treks and Safaris LTD	office:company	Kijenge	6.9	6-10 km	+255767393718	bookings@topafricatrek.com	https://topafricatrek.com/
+Njiro Legacy	tourism:hotel	Kijenge	6.9	6-10 km			
+Kigongoni Lodge	tourism:hotel	Kijenge	7	6-10 km			www.kigongoni.net
+Rijk Zwaan Q-sem	office:company	Kijenge	7.1	6-10 km			
+Arusha Farm House	tourism:hotel	Kijenge	7.4	6-10 km	+255 758 030 499	reservations@arushafarmhouse.com	https://arushafarmhouse.com/
+Mountain Village Hotel	tourism:hotel	Usa River	7.4	6-10 km			
+Nelson Mandela African Institution of Science and Technology (NM-AIST)	amenity:university	Usa River	7.5	6-10 km			http://www.nm-aist.ac.tz
+Lake Duluti Lodge	tourism:hotel	Usa River	7.8	6-10 km			https://www.lakedulutilodge.com/
+Meru Hospital	amenity:hospital	Usa River	7.9	6-10 km			
+Forest Hill Hotel	tourism:hotel	Arusha City (Sakina)	8.1	6-10 km			
+Njiro Climax Resort Hotel	tourism:hotel	Kijenge	8.5	6-10 km	+255754323213	njiroclimaxresorts@gmail.com	http://www.climaxresort.com
+Mrimba Palm Hotel	tourism:hotel	Kijenge	8.6	6-10 km	+255767395672	info@mrimbapalmhotel.co.tz	
+Oltrument Hospital	amenity:hospital	Arusha City (Sakina)	8.9	6-10 km			
+Korona Villa Hotel	tourism:hotel	Kijenge	9	6-10 km	+255687666808		https://koronavilla.com/
+Moyoni Airport Lodge	tourism:hotel	Boma Ngombe	9	6-10 km			https://www.moyoni-airport-lodge.com/
+St. Joshua College	amenity:college	Kijenge	9.3	6-10 km			
+CCM office Kiserian	office:government	Kijenge	9.4	6-10 km			
+Pazuri Inn Lodge	tourism:hotel	Arusha City (Sakina)	9.6	6-10 km	+255763411686	info@pazuriinn.com	https://pazuriinn.com
+Canossa Spirituality Centre	office:ngo	Kijenge	9.7	6-10 km			
+Canossa Dispensary	amenity:hospital	Kijenge	9.8	6-10 km			
+VETA Hotel and Tourism Training Institute	office:educational_institution	Kijenge	10.7	11-15 km			
+Tanzania Atomic Energy Commission (TAEC)	office:government	Kijenge	11.3	11-15 km			
+KIA Lodge	tourism:hotel	Boma Ngombe	11.9	11-15 km	+255 754 324193		https://www.moivaro.com/lodges/tanzania/kia-lodge/
+Airport Planet Lodge	tourism:hotel	Boma Ngombe	12.5	11-15 km			
+Royal Hotel	tourism:hotel	Boma Ngombe	12.7	11-15 km			
+Aishi Machame Hotel	tourism:hotel	Boma Ngombe	12.8	11-15 km	+255758904777	booking@aishi-machame.com	https://www.aishi-machame.com/
+Narumu Ward Office	office:government	Boma Ngombe	13.7	11-15 km			
+Weru Weru River Lodge	tourism:hotel	Boma Ngombe	13.9	11-15 km			
+Mahakama Ya Mwanzo Nduruma	office:government	Usa River	14.1	11-15 km			
+Ofisi Ya Kata Nduruma	office:government	Usa River	14.2	11-15 km			
+Makiba Ward Building	office:government	Usa River	18.3	16-20 km			
+Next Life Foundation	office:educational_institution	Usa River	20.1	21-25 km			https://nextlifefound.org

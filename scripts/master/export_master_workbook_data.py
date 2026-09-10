@@ -93,6 +93,62 @@ def main() -> int:
     }
     payload = {
         "report": report,
+        "organisations": rows(connection, """
+            SELECT
+              o.organisation_id,o.name,o.segment,o.priority,o.campus,o.locality,o.distance_km,
+              o.geocode_precision,o.phone,o.email,o.website,o.address,o.headcount,o.size_evidence,
+              o.education_angle,o.desk_tier,o.desk_score,o.verification,o.strategy_id,
+              '' AS owner,o.outreach_status,o.next_action,o.next_action_date,
+              (
+                SELECT group_concat(message_id,' | ')
+                FROM (
+                  SELECT m.message_id
+                  FROM messages m
+                  WHERE m.target_type='organisation' AND m.target_id=o.organisation_id
+                  ORDER BY m.message_id
+                )
+              ) AS message_ids,
+              (
+                SELECT group_concat(record_id,' | ')
+                FROM (
+                  SELECT es.record_id
+                  FROM entity_sources es
+                  WHERE es.entity_type='organisation' AND es.entity_id=o.organisation_id
+                  ORDER BY es.record_id
+                )
+              ) AS source_record_ids,
+              o.source_url
+            FROM organisations o
+            ORDER BY o.name,o.organisation_id
+        """),
+        "contacts": rows(connection, """
+            SELECT
+              c.contact_id,c.name,c.organisation_id,c.role,c.campus,c.named_email,
+              c.published_role_email,c.role_phone,c.shared_email,c.organisation_phone,
+              c.contact_route,c.verification,o.name AS organisation_name,
+              (
+                SELECT group_concat(message_id,' | ')
+                FROM (
+                  SELECT m.message_id
+                  FROM messages m
+                  WHERE m.target_type='contact' AND m.target_id=c.contact_id
+                  ORDER BY m.message_id
+                )
+              ) AS message_ids,
+              c.source_url,
+              (
+                SELECT group_concat(record_id,' | ')
+                FROM (
+                  SELECT es.record_id
+                  FROM entity_sources es
+                  WHERE es.entity_type='contact' AND es.entity_id=c.contact_id
+                  ORDER BY es.record_id
+                )
+              ) AS source_record_ids
+            FROM contacts c
+            JOIN organisations o USING(organisation_id)
+            ORDER BY o.name,c.name,c.contact_id
+        """),
         "positioning_evidence": rows(connection, "SELECT * FROM positioning_evidence ORDER BY evidence_id"),
         "campaigns": rows(connection, "SELECT * FROM campaigns ORDER BY campaign_id"),
         "campaign_touchpoints": rows(connection, "SELECT * FROM campaign_touchpoints ORDER BY campaign_id,touchpoint_order"),

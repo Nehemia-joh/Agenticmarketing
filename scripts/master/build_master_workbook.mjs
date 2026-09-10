@@ -107,6 +107,37 @@ replaceSheet(
 );
 
 replaceSheet(
+  'Organisations',
+  `${counts.organisations} organisations in the canonical database. Use source records and verification fields before outreach.`,
+  ['organisation_id', 'name', 'segment', 'priority', 'campus', 'locality', 'distance_km', 'geocode_precision', 'phone', 'email', 'website', 'address', 'headcount', 'size_evidence', 'education_angle', 'desk_tier', 'desk_score', 'verification', 'strategy_id', 'owner', 'outreach_status', 'next_action', 'next_action_date', 'message_ids', 'source_record_ids', 'source_url'],
+  data.organisations.map(row => [
+    row.organisation_id, row.name, row.segment, row.priority, row.campus, row.locality,
+    row.distance_km, row.geocode_precision, row.phone, row.email, row.website, row.address,
+    row.headcount, row.size_evidence, row.education_angle, row.desk_tier, row.desk_score,
+    row.verification, row.strategy_id, row.owner, row.outreach_status, row.next_action,
+    row.next_action_date, row.message_ids, row.source_record_ids, row.source_url,
+  ]),
+  [20, 38, 24, 14, 24, 32, 14, 22, 24, 34, 44, 48, 14, 50, 70, 16, 14, 54, 28, 18, 25, 45, 20, 35, 80, 60],
+  82,
+  'TOrganisationsRefresh',
+);
+
+replaceSheet(
+  'Contacts',
+  `${counts.contacts} published business contacts. Named people are professional routes only; they are not evidence of parent status.`,
+  ['contact_id', 'name', 'organisation_id', 'role', 'campus', 'named_email', 'published_role_email', 'role_phone', 'shared_email', 'organisation_phone', 'contact_route', 'verification', 'organisation_name', 'message_ids', 'source_url', 'source_record_ids'],
+  data.contacts.map(row => [
+    row.contact_id, row.name, row.organisation_id, row.role, row.campus, row.named_email,
+    row.published_role_email, row.role_phone, row.shared_email, row.organisation_phone,
+    row.contact_route, row.verification, row.organisation_name, row.message_ids, row.source_url,
+    row.source_record_ids,
+  ]),
+  [20, 30, 20, 48, 24, 34, 34, 28, 34, 28, 42, 66, 44, 38, 70, 88],
+  96,
+  'TContactsRefresh',
+);
+
+replaceSheet(
   'Messages',
   'Source-backed message copy with independent acquisition-track controls. Recipient hooks appear only where their exact claims were verified.',
   ['message_id', 'target_name', 'organisation_name', 'target_type', 'segment', 'acquisition_track_id', 'value_module_ids', 'subject_v3', 'hook_status', 'hook', 'first_message_v2', 'campaign_message_v3', 'follow_up_1_v3', 'follow_up_2_v3', 'campaign_evidence', 'campaign_copy_status', 'contact_channel', 'channel_attribution', 'acquisition_version', 'strategy_scope', 'strategy_id', 'conditions', 'source_record_id'],

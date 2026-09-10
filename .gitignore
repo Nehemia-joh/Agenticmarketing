@@ -28,6 +28,8 @@ outputs/exports/
 *.sqlite-shm
 *.sqlite-journal
 ~$*.xlsx
+~$*.pptx
+~$*.docx
 
 # Credentials and local configuration
 .env

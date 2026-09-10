@@ -46,6 +46,24 @@ python scripts/master/verify_master.py
 
 For another machine, obtain the database from the approved private artifact store and place it at the same repository-relative path. Verify its SHA-256 before use. The database used for this repository reorganisation has SHA-256 `895e3ebabba3f9a7d710bbb6cb820a71beca1d7a72fa99d6fa55408e37fdcf7c`.
 
+On macOS or Linux, restore a privately supplied copy from the repository root:
+
+```bash
+mkdir -p outputs/master
+cp "/path/to/Silverleaf Master Database.sqlite" \
+  "outputs/master/Silverleaf Master Database.sqlite"
+
+# macOS
+shasum -a 256 "outputs/master/Silverleaf Master Database.sqlite"
+
+# Linux
+sha256sum "outputs/master/Silverleaf Master Database.sqlite"
+
+python3 scripts/master/verify_master.py
+```
+
+Replace `/path/to/` with the approved private artifact location. Do not commit the SQLite file.
+
 ## Choose the workflow
 
 - Start a separate lead database with `skills/silverleaf-create-lead-list/SKILL.md`.
@@ -56,7 +74,9 @@ SQLite remains authoritative. Do not maintain an independent workbook-only lead 
 
 ## Set up the local tools
 
-From PowerShell:
+Install Python 3, Node.js, and npm before running the repository workflows.
+
+From Windows PowerShell:
 
 ```powershell
 cd C:\Work\silverleaf-agentic-marketing
@@ -66,6 +86,19 @@ python -m pip install -r requirements.txt
 npm install
 python scripts/master/verify_master.py
 ```
+
+From macOS or Linux using Bash or zsh:
+
+```bash
+cd /path/to/silverleaf-agentic-marketing
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+npm install
+python3 scripts/master/verify_master.py
+```
+
+Use `python3` in the commands below on macOS and Linux. If your environment maps `python` to Python 3, either command name works.
 
 The Python lead-list skills use the standard library. `openpyxl` supports the retained partner-list builder, while `@oai/artifact-tool` rebuilds the consolidated workbook. Dependencies and generated runtime files are ignored by Git.
 
@@ -78,8 +111,16 @@ Use this workflow when new organisations, public business contacts, public paren
 Copy the complete intake header:
 
 ```powershell
-New-Item -ItemType Directory -Force -Path runtime\intake | Out-Null
+New-Item -ItemType Directory -Force -Path runtime\intake,runtime\artifacts | Out-Null
 Copy-Item skills\silverleaf-create-lead-list\assets\lead-intake-template.csv runtime\intake\master-update.csv
+```
+
+macOS or Linux:
+
+```bash
+mkdir -p runtime/intake runtime/artifacts
+cp skills/silverleaf-create-lead-list/assets/lead-intake-template.csv \
+  runtime/intake/master-update.csv
 ```
 
 Add one row per organisation, contact, or enquiry. Follow `skills/silverleaf-create-lead-list/references/lead-list-data-contract.md`. Every row needs a precise source locator, acquisition date, verification date, evidence basis, and evidence excerpt. Do not infer private contact details or personal status.
@@ -92,6 +133,14 @@ python skills/silverleaf-create-lead-list/scripts/validate_intake.py `
   --report runtime\artifacts\intake-validation.json
 ```
 
+macOS or Linux:
+
+```bash
+python3 skills/silverleaf-create-lead-list/scripts/validate_intake.py \
+  runtime/intake/master-update.csv \
+  --report runtime/artifacts/intake-validation.json
+```
+
 Resolve every validation error before continuing. Warnings identify duplicate exact keys or review points and require inspection.
 
 ### 3. Preflight against the master
@@ -101,6 +150,15 @@ python skills/silverleaf-update-lead-list/scripts/preflight_update.py `
   "outputs/master/Silverleaf Master Database.sqlite" `
   runtime\intake\master-update.csv `
   --report runtime\artifacts\update-preflight.json
+```
+
+macOS or Linux:
+
+```bash
+python3 skills/silverleaf-update-lead-list/scripts/preflight_update.py \
+  "outputs/master/Silverleaf Master Database.sqlite" \
+  runtime/intake/master-update.csv \
+  --report runtime/artifacts/update-preflight.json
 ```
 
 Review the proposed exact matches, inserts, missing organisations, and review items. Similar names are review signals, not automatic matches.
@@ -128,6 +186,14 @@ npm run build:workbook
 python scripts/master/verify_master.py
 ```
 
+macOS or Linux:
+
+```bash
+python3 scripts/master/refresh_acquisition_metadata.py
+npm run build:workbook
+python3 scripts/master/verify_master.py
+```
+
 The export writes `runtime/artifacts/workbook-input.json`. The builder refreshes `outputs/master/Silverleaf Master Database - Consolidated.xlsx`, writes visual previews under `runtime/previews/`, and records workbook checks in `outputs/reports/workbook-verification.json`.
 
 An update is complete when database integrity and foreign-key checks pass, counts reconcile, every outreach plan has an acquisition track, all active hooks are supported, and all automations remain disabled.
@@ -146,6 +212,15 @@ New-Item -ItemType Directory -Force -Path "data/runs/$runId","outputs/runs/$runI
 Copy-Item skills/silverleaf-create-lead-list/assets/lead-intake-template.csv "data/runs/$runId/intake.csv"
 ```
 
+macOS or Linux:
+
+```bash
+run_id='arusha-employers-2026-09'
+mkdir -p "data/runs/$run_id" "outputs/runs/$run_id"
+cp skills/silverleaf-create-lead-list/assets/lead-intake-template.csv \
+  "data/runs/$run_id/intake.csv"
+```
+
 Before research, record the campaign objective, campuses or localities, radius, lead types, channels, recency window, and stopping rule. Then populate the intake with sourced organisations, contacts, and enquiries.
 
 ### 2. Validate and initialise the new database
@@ -158,6 +233,18 @@ python skills/silverleaf-create-lead-list/scripts/validate_intake.py `
 python skills/silverleaf-create-lead-list/scripts/initialize_lead_db.py `
   "data/runs/$runId/intake.csv" `
   "outputs/runs/$runId/lead-database.sqlite"
+```
+
+macOS or Linux:
+
+```bash
+python3 skills/silverleaf-create-lead-list/scripts/validate_intake.py \
+  "data/runs/$run_id/intake.csv" \
+  --report "outputs/runs/$run_id/intake-validation.json"
+
+python3 skills/silverleaf-create-lead-list/scripts/initialize_lead_db.py \
+  "data/runs/$run_id/intake.csv" \
+  "outputs/runs/$run_id/lead-database.sqlite"
 ```
 
 The initializer refuses to overwrite an existing database. Supply `--replace` only when the user explicitly requests a rebuild of that run.
@@ -177,4 +264,4 @@ Keep separate-run outputs under `outputs/runs/<run-id>/`. Do not merge them into
 
 ## Current verified master
 
-The verified master at the time of the repository reorganisation contains 955 organisations, 342 contacts, 32 enquiries, 927 messages and outreach plans, 959 campaign assignments, 139 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` for current counts.
+The current verified master contains 955 organisations, 353 contacts, 32 enquiries, 927 messages and outreach plans, 959 campaign assignments, 139 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.

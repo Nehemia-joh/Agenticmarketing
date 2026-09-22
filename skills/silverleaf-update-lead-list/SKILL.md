@@ -18,7 +18,7 @@ When the update needs new research, follow [research-rate-limits.md](../silverle
 - Budget web searches across agents, since the session cap is shared.
 - Record anything not reached in a coverage log.
 
-Welfare-run records wait for Phase 0 of `plans/b2b-welfare-leads-plan.md` before they merge into this master. Without it, `refresh_acquisition_metadata.py` would reassign them the employer value modules.
+Welfare-run records wait for Phase 0 of `plans/b2b-welfare-leads-plan.md` before they merge into this master. Without it, `refresh_acquisition_metadata.py` would reassign them the employer value modules. Government-run records also wait for Phase 0 and migration 0003 of `plans/b2b-government-leads-plan.md`. Their Master Triage sheet lists proposed corrections to the master's `office:government` records; apply those here, through the normal preflight, only when the user asks.
 
 ## Preflight before mutation
 

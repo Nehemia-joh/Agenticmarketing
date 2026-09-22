@@ -1,0 +1,239 @@
+{
+ "run_id": "arusha-government-2026-09",
+ "research_date": "2026-09-23",
+ "research_period": "22–23 September 2026",
+ "lead_track": "government_convener",
+ "catchment_km": 25,
+ "bbox": [
+  -3.62,
+  36.42,
+  -3.1,
+  37.4
+ ],
+ "census": {
+  "report_title": "2022 Population and Housing Census: Administrative Units Population Distribution Report, Tanzania Mainland, Volume 1b (National Bureau of Statistics)",
+  "report_url": "https://www.nbs.go.tz/nbs/takwimu/Census2022/Administrative_units_Population_Distribution_Report_Tanzania_Mainland_volume1b.pdf",
+  "councils": [
+   "Arusha City Council",
+   "Arusha District Council",
+   "Meru District Council",
+   "Monduli District Council",
+   "Longido District Council",
+   "Hai District Council",
+   "Siha District Council",
+   "Moshi District Council",
+   "Moshi Municipal Council",
+   "Simanjiro District Council"
+  ]
+ },
+ "councils": [
+  {
+   "name": "Arusha City Council",
+   "name_sw": "Halmashauri ya Jiji la Arusha",
+   "host": "arushacc.go.tz",
+   "region": "Arusha",
+   "admin_district": "Arusha",
+   "osm_district": "Arusha Municipal",
+   "core": true,
+   "urban": true,
+   "wikipedia_district_names": [
+    "Arusha City Council",
+    "Arusha Urban District",
+    "Arusha City",
+    "Arusha District",
+    "Arusha Municipal Council",
+    "Arusha Municipality"
+   ]
+  },
+  {
+   "name": "Arusha District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Arusha",
+   "host": "arushadc.go.tz",
+   "region": "Arusha",
+   "admin_district": "Arumeru",
+   "osm_district": "Arusha",
+   "core": true,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Arusha District",
+    "Arusha Rural District",
+    "Arumeru District",
+    "Arusha District Council"
+   ]
+  },
+  {
+   "name": "Meru District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Meru",
+   "host": "merudc.go.tz",
+   "region": "Arusha",
+   "admin_district": "Arumeru",
+   "osm_district": "Meru",
+   "core": true,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Meru District",
+    "Arumeru District",
+    "Meru District Council"
+   ]
+  },
+  {
+   "name": "Hai District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Hai",
+   "host": "haidc.go.tz",
+   "region": "Kilimanjaro",
+   "admin_district": "Hai",
+   "osm_district": "Hai",
+   "core": true,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Hai District",
+    "Hai District Council"
+   ]
+  },
+  {
+   "name": "Siha District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Siha",
+   "host": "sihadc.go.tz",
+   "region": "Kilimanjaro",
+   "admin_district": "Siha",
+   "osm_district": "Siha",
+   "core": false,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Siha District",
+    "Siha District Council"
+   ]
+  },
+  {
+   "name": "Moshi District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Moshi",
+   "host": "moshidc.go.tz",
+   "region": "Kilimanjaro",
+   "admin_district": "Moshi",
+   "osm_district": "Moshi Rural",
+   "core": false,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Moshi Rural District",
+    "Moshi District",
+    "Moshi District Council"
+   ]
+  },
+  {
+   "name": "Moshi Municipal Council",
+   "name_sw": "Halmashauri ya Manispaa ya Moshi",
+   "host": "moshimc.go.tz",
+   "region": "Kilimanjaro",
+   "admin_district": "Moshi",
+   "osm_district": "Moshi Urban",
+   "core": false,
+   "urban": true,
+   "wikipedia_district_names": [
+    "Moshi Urban District",
+    "Moshi District",
+    "Moshi Municipal Council",
+    "Moshi Municipality"
+   ]
+  },
+  {
+   "name": "Monduli District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Monduli",
+   "host": "mondulidc.go.tz",
+   "region": "Arusha",
+   "admin_district": "Monduli",
+   "osm_district": "Monduli",
+   "core": false,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Monduli District",
+    "Monduli District Council"
+   ]
+  },
+  {
+   "name": "Longido District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Longido",
+   "host": "longidodc.go.tz",
+   "region": "Arusha",
+   "admin_district": "Longido",
+   "osm_district": "Longido",
+   "core": false,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Longido District",
+    "Longido District Council"
+   ]
+  },
+  {
+   "name": "Simanjiro District Council",
+   "name_sw": "Halmashauri ya Wilaya ya Simanjiro",
+   "host": "simanjirodc.go.tz",
+   "region": "Manyara",
+   "admin_district": "Simanjiro",
+   "osm_district": "Simanjiro",
+   "core": false,
+   "urban": false,
+   "wikipedia_district_names": [
+    "Simanjiro District",
+    "Simanjiro District Council"
+   ]
+  }
+ ],
+ "regions": [
+  {
+   "name": "Arusha Regional Secretariat",
+   "name_sw": "Sekretarieti ya Mkoa wa Arusha",
+   "host": "arusha.go.tz",
+   "region": "Arusha"
+  },
+  {
+   "name": "Kilimanjaro Regional Secretariat",
+   "name_sw": "Sekretarieti ya Mkoa wa Kilimanjaro",
+   "host": "kilimanjaro.go.tz",
+   "region": "Kilimanjaro"
+  },
+  {
+   "name": "Manyara Regional Secretariat",
+   "name_sw": "Sekretarieti ya Mkoa wa Manyara",
+   "host": "manyara.go.tz",
+   "region": "Manyara"
+  }
+ ],
+ "wikipedia_categories": [
+  "Category:Wards of Arusha Region",
+  "Category:Wards of Kilimanjaro Region",
+  "Category:Wards of Manyara Region"
+ ],
+ "scope": "Local government offices and posts that can convene community meetings (barazas) within about 25 km of Silverleaf's five campuses, with 2022 census ward populations, so that Silverleaf can meet parents at official community forums. Research only.",
+ "readme_notes": [
+  "No web searches were used: the session's search budget had already been spent on the welfare run. Everything comes from official APIs and documents (council and regional websites, the 2022 census report), OpenStreetMap and Wikipedia, collected by the scripts in scripts/government/ within the documented rate limits.",
+  "Census: ward populations for 10 councils (221 wards) come from the NBS 2022 administrative-units report, volume 1b. Every council's ward rows add up to its printed total. The report has no village or mtaa populations.",
+  "Ward locations are estimates. OpenStreetMap has no ward boundaries here, so each ward gets one reference point: a mapped ward office, a Wikipedia ward point checked against the council's district (corroborated by OpenStreetMap where possible), or OpenStreetMap places named like the ward. 15 wards in the four core councils have no reference point; their offices are listed with transport_band = unknown and no score.",
+  "Named officials: each council's chairperson or mayor and director, and each region's commissioner and administrative secretary, from the official websites' leadership profiles. Ward councillors are named only where the council publishes a list: Hai District Council (web page and spreadsheet) and Arusha District Council (a scanned 2025-2030 list with phone numbers, transcribed on 23 September 2026 and marked needs_review until someone checks it against the scan).",
+  "Not published online: ward-by-ward councillor lists for Arusha City, Meru, Siha, Moshi District, Moshi Municipal, Monduli and Simanjiro; the names and phones of ward, village and mtaa executive officers; council phones and emails, except Moshi District and Moshi Municipal; and district commissioners' office details. Ask each council after the GA01 introduction.",
+  "Deliberately not copied: special-seat councillors and the constituency MP on Arusha District Council's list, because they do not convene ward meetings; party affiliation anywhere; CMS editor names and emails, officials' photos and biographies, and the text of council news stories.",
+  "Longido District Council publishes councillors with phone numbers but has no ward within 25 km of a campus, so it is outside this run.",
+  "Rate limits met: Wikipedia answered HTTP 429 at one request per second (now 2 s apart); Overpass answered 429 and 504 on back-to-back queries and the kumi.systems mirror completed the boundary query; the council sites answered every request at 1.5 s spacing.",
+  "Corrections for the company master (apply only through silverleaf-update-lead-list): the two CCM offices, the police station and the primary court are not conveners; Njake Oil, Lutheran Center and Tumaini University Makumira Offices are not government offices; six local administration offices can move to government_convener after verification."
+ ],
+ "joint_zones": {
+  "note": "OpenStreetMap's 'Arusha Municipal' polygon is smaller than the census city (Sakina ward and the Arusha City campus fall outside it), and the Moshi urban/rural line is similarly unreliable, so each pair is checked as one zone. Ward names still decide the council.",
+  "pairs": [
+   [
+    "Arusha City Council",
+    "Arusha District Council"
+   ],
+   [
+    "Moshi Municipal Council",
+    "Moshi District Council"
+   ]
+  ]
+ },
+ "campus_clusters": {
+  "Arusha City": "Arusha (Sakina, Kijenge, Ilboru)",
+  "Kijenge": "Arusha (Sakina, Kijenge, Ilboru)",
+  "Ilboru": "Arusha (Sakina, Kijenge, Ilboru)",
+  "Usa River": "Usa River",
+  "Boma Ngombe": "Boma Ng'ombe"
+ },
+ "location_disagreement_km": 5
+}

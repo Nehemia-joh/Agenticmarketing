@@ -10,6 +10,7 @@ Use `outputs/master/Silverleaf Master Database.sqlite` as the canonical lead dat
 - For additions or refreshes to this master, follow `skills/silverleaf-update-lead-list/SKILL.md`.
 - For partnership positioning, hooks, messages, or sequences, follow `skills/silverleaf-outreach/SKILL.md`.
 - For welfare institutions as paying customers (children's homes, care programmes, specialised centres, and their funders), follow `skills/silverleaf-welfare-leads/SKILL.md`. Its runs live in `data/runs/<run-id>/` and `outputs/runs/<run-id>/` and never modify the master.
+- For local government offices that can convene community meetings (barazas) where Silverleaf can meet parents, follow `skills/silverleaf-government-leads/SKILL.md`. Its runs are separate in the same way. They record officials only as officially published and never hold parent, resident or party data.
 
 Read the referenced data contract before creating fields or changing match rules.
 

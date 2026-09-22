@@ -1,0 +1,1543 @@
+{
+ "host": "haidc.go.tz",
+ "organisation": "Hai District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://haidc.go.tz",
+ "profiles": [
+  {
+   "id": 300,
+   "name": "Mhe. Edmund Rutaraka",
+   "title": "District Chairman",
+   "titleSwahili": "Mwenyekiti wa Halmashauri",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-04T09:45:46.875Z",
+   "updatedAt": "2026-04-22T07:04:25.592Z"
+  },
+  {
+   "id": 301,
+   "name": "Dionis Myinga ",
+   "title": "District Executive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-04T10:04:09.952Z",
+   "updatedAt": "2026-04-22T07:12:35.186Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Population",
+   "value": 269999,
+   "suffix": ""
+  },
+  {
+   "label": "Government Primary Schools",
+   "value": 140,
+   "suffix": ""
+  },
+  {
+   "label": "Government Secondary Schools",
+   "value": 35,
+   "suffix": ""
+  },
+  {
+   "label": "Health Centers",
+   "value": 9,
+   "suffix": ""
+  },
+  {
+   "label": "Villages",
+   "value": 62,
+   "suffix": ""
+  },
+  {
+   "label": "Wards",
+   "value": 17,
+   "suffix": ""
+  },
+  {
+   "label": "Dipensaries",
+   "value": 54,
+   "suffix": ""
+  },
+  {
+   "label": "Hospitals",
+   "value": 2,
+   "suffix": ""
+  },
+  {
+   "label": "Divisions/ Tarafa",
+   "value": 3,
+   "suffix": ""
+  },
+  {
+   "label": "Private Secondary Schools",
+   "value": 18,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Hai District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "vision-and-mission",
+     "title": "Vision and Mission",
+     "swTitle": "Dira na Dhima"
+    },
+    {
+     "url": "our-history",
+     "title": "Our History",
+     "swTitle": "Historia Yetu"
+    },
+    {
+     "url": "core-values",
+     "title": "Core Values",
+     "swTitle": "Maadili ya Msingi"
+    },
+    {
+     "url": "permanent-committees",
+     "title": "Permanent Commitee",
+     "swTitle": "Kamati za Kudumu"
+    },
+    {
+     "url": "organization-structure",
+     "title": "Organization Structure",
+     "swTitle": "Muundo wa Taasisi"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "https://safari.gov.go.tz/",
+     "title": "E-Vibali",
+     "swTitle": "Mfumo wa Vibali Safari za Nje"
+    },
+    {
+     "url": "https://ess.utumishi.go.tz/",
+     "title": "Employee  Self Service (ESS)",
+     "swTitle": "Watumishi Portal (ESS)"
+    },
+    {
+     "url": "https://nest.go.tz/",
+     "title": "Nest",
+     "swTitle": "Nest"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://utumishi.go.tz",
+     "title": "President's Office Public Service Management and Good Governance",
+     "swTitle": "Ofisi ya Rais Menejment ya Utumishi wa Umma na Utawala Bora"
+    },
+    {
+     "url": "https://www.moe.go.tz/",
+     "title": "Ministry of Education, Science and Technology",
+     "swTitle": "Wizara ya Elimu, Sayansi na Teknolojia"
+    },
+    {
+     "url": "https://www.ajira.go.tz/",
+     "title": "Public Service Recruitment Secretariat",
+     "swTitle": "Sekretarieti ya Ajira katika Utumishi wa Umma"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.5867081685305!2d37.14006407366406!3d-3.333023041285958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18376596c6068d81%3A0xc5f175ebcada40b7!2sHai%20District%20Directors%20Office!5e1!3m2!1sen!2stz!4v1772603103657!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.332878,
+   "lng": 37.143025,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "title_sw": "Dira na Dhima",
+   "slug": "vision-and-mission"
+  },
+  {
+   "path": "About Us > Core Value > Core Value",
+   "title": "Core Value",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "Administration > Units > ICT Unit",
+   "title": "ICT Unit",
+   "title_sw": "Kitengo cha TEHAMA",
+   "slug": "ict-unit"
+  },
+  {
+   "path": "Administration > Units > Internal Audit",
+   "title": "Internal Audit",
+   "title_sw": "Ukaguzi wa Ndani",
+   "slug": "internal-audit"
+  },
+  {
+   "path": "Administration > Units > Government Communication",
+   "title": "Government Communication",
+   "title_sw": "Mawasiliano Serikalini",
+   "slug": "government-communication"
+  },
+  {
+   "path": "Administration > Units > Election",
+   "title": "Election",
+   "title_sw": "Uchaguzi",
+   "slug": "election"
+  },
+  {
+   "path": "Administration > Units > Accounting and Finance",
+   "title": "Accounting and Finance",
+   "title_sw": "Fedha na Uhasibu",
+   "slug": "accounting-and-finance"
+  },
+  {
+   "path": "Administration > Units > Procurement Management",
+   "title": "Procurement Management",
+   "title_sw": "Usimamizi wa Manunuzi",
+   "slug": "procurement-management"
+  },
+  {
+   "path": "Administration > Units > Legal Services",
+   "title": "Legal Services",
+   "title_sw": "Huduma za Kisheria",
+   "slug": "legal-services"
+  },
+  {
+   "path": "Administration > Units > Culture, Arts and Sports",
+   "title": "Culture, Arts and Sports",
+   "title_sw": "Utamaduni, Sanaa na Michezo",
+   "slug": "culture-arts-and-sports"
+  },
+  {
+   "path": "Administration > Units > Monitoring and Evaluation",
+   "title": "Monitoring and Evaluation",
+   "title_sw": "Ufuatiliaji na Tathmini",
+   "slug": "monitoring-and-evaluation"
+  },
+  {
+   "path": "Administration > Units > Natural Resources and Environmental Conservation",
+   "title": "Natural Resources and Environmental Conservation",
+   "title_sw": "Maliasili na Uhifadhi wa Mazingira",
+   "slug": "natural-resource-and-environmental-conservation"
+  },
+  {
+   "path": "Administration > Units > Waste Management and Environmental Sanitation",
+   "title": "Waste Management and Environmental Sanitation",
+   "title_sw": "Usimamizi wa Taka na Usafi wa Mazingira",
+   "slug": "waste-management-and-environment-sanitation"
+  },
+  {
+   "path": "Administration > Divisions > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "title_sw": "Utawala na Usimamizi wa Rasilimali Watu",
+   "slug": "administration-and-human-resource-management"
+  },
+  {
+   "path": "Administration > Divisions > Pre-Primary and Primary",
+   "title": "Pre-Primary and Primary",
+   "title_sw": "Elimu ya Awali na Msingi",
+   "slug": "pre-primary-and-primary-education"
+  },
+  {
+   "path": "Administration > Divisions > Secondary Education",
+   "title": "Secondary Education",
+   "title_sw": "Elimu Sekondari",
+   "slug": "secondary-education"
+  },
+  {
+   "path": "Administration > Divisions > Community Development",
+   "title": "Community Development",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development"
+  },
+  {
+   "path": "Administration > Divisions > Health, Social Welfare and Nutrition",
+   "title": "Health, Social Welfare and Nutrition",
+   "title_sw": "Afya, Ustawi wa Jamii na Lishe",
+   "slug": "health-social-welfare-and-nutrition"
+  },
+  {
+   "path": "Administration > Divisions > Infrastructure and Rural and Urban Development",
+   "title": "Infrastructure and Rural and Urban Development",
+   "title_sw": "Miundombinu na Maendeleo Vijijini na Mijini",
+   "slug": "infrastructure-and-rural-and-urban-development"
+  },
+  {
+   "path": "Administration > Divisions > Agriculture, Livestock, and Fisheries",
+   "title": "Agriculture, Livestock, and Fisheries",
+   "title_sw": "Kilimo, Ufugaji na Uvuvi",
+   "slug": "agriculture-livestock-and-fisheries"
+  },
+  {
+   "path": "Administration > Divisions > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-coordination"
+  },
+  {
+   "path": "Administration > Divisions > Industry, Trade and Investment",
+   "title": "Industry, Trade and Investment",
+   "title_sw": "Viwanda, Biashara na Uwekezaji",
+   "slug": "industry-trade-and-investment"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Halmashauri",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Investment Opportunities > Tourism > Tourism Attractions",
+   "title": "Tourism Attractions",
+   "title_sw": "Vivutio vya Utalii",
+   "slug": "tourism"
+  },
+  {
+   "path": "Investment Opportunities > Agriculture > Agriculture Sector",
+   "title": "Agriculture Sector",
+   "title_sw": "Sekta ya Kilimo",
+   "slug": "agriculture-sector"
+  },
+  {
+   "path": "Our Services > Health > Health Services",
+   "title": "Health Services",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-services"
+  },
+  {
+   "path": "Our Services > Education > Education Services",
+   "title": "Education Services",
+   "title_sw": "Huduma za Elimu",
+   "slug": "education-services"
+  },
+  {
+   "path": "Our Services > Agriculture > Agricultute Services",
+   "title": "Agricultute Services",
+   "title_sw": "Huduma za Kilimo",
+   "slug": "agriculture-services"
+  },
+  {
+   "path": "Councillors > List of Councillors > List of Councillors",
+   "title": "List of Councillors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-concilors"
+  },
+  {
+   "path": "Councillors > PERMANENT COMMITTEES > Permanent Committees",
+   "title": "Permanent Committees",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "permanent-committees"
+  },
+  {
+   "path": "Projects > New Projects",
+   "title": "New Projects",
+   "title_sw": "Miradi Mipya",
+   "slug": "new-projects"
+  },
+  {
+   "path": "Projects > New Projects > New Projects",
+   "title": "New Projects",
+   "title_sw": "Miradi Mipya",
+   "slug": "new-projects"
+  },
+  {
+   "path": "Projects > Ongoing projects",
+   "title": "Ongoing projects",
+   "title_sw": "Miradi inayoendelea",
+   "slug": "ongoing-projects"
+  },
+  {
+   "path": "Projects > Ongoing projects > Ongoing Projects",
+   "title": "Ongoing Projects",
+   "title_sw": "Miradi Inayoendelea",
+   "slug": "ongoing-projects"
+  },
+  {
+   "path": "Projects > Completed projects > Completed projectsy",
+   "title": "Completed projectsy",
+   "title_sw": "Miradi iliyokamilika",
+   "slug": "completed-projects"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "api_url": "https://haidc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://haidc.go.tz/our-history",
+   "createdAt": "2026-03-04T07:38:22.937Z",
+   "updatedAt": "2026-03-04T07:38:22.937Z",
+   "text_en": "Background of Hai District Council\nHai District Council was established from the former Moshi District in 1975 under the provisions of the Local Government (District Authorities) Act of 1982. The district is administratively subdivided into three Divisions: Lyamungo, Machame, and Masama. It comprises 17 Wards, 62 Villages, and 294 Hamlets. Politically, it is a multi-party district where all registered political parties freely operate.",
+   "text_sw": "Historia ya Halmashauri ya Wilaya ya Hai\nHalmashauri ya Wilaya ya Hai ilianzishwa mwaka 1975 baada ya kutenganishwa na iliyokuwa Wilaya ya Moshi, kwa mujibu wa masharti ya Sheria ya Serikali za Mitaa (Mamlaka za Wilaya) ya mwaka 1982.\nKiutawala, wilaya imegawanywa katika Tarafa tatu ambazo ni Lyamungo, Machame na Masama.\nWilaya ina jumla ya Kata 17, Vijiji 62 na Vitongoji 294.\nKisiasa, Wilaya ya Hai inaendeshwa kwa mfumo wa vyama vingi vya siasa ambapo vyama vyote vya siasa vilivyosajiliwa vinafanya shughuli zake kwa uhuru kwa mujibu wa sheria.",
+   "attachments": []
+  },
+  {
+   "slug": "vision-and-mission",
+   "menu_path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "api_url": "https://haidc.go.tz/api/pages/slug/vision-and-mission",
+   "public_url": "https://haidc.go.tz/vision-and-mission",
+   "createdAt": "2026-03-04T07:44:17.992Z",
+   "updatedAt": "2026-03-04T07:44:17.992Z",
+   "text_en": "Vision\nTo be a leading Council with a robust, diversified economy that delivers high-quality, inclusive, and sustainable social services for all people of Hai District by 2031.\nMission\nTo foster sustainable socio-economic development and improve the quality of life for the people of Hai District through effective, efficient, and accountable public service delivery, in partnership with stakeholders and in harmony with national priorities.",
+   "text_sw": "Dira\nKuwa Halmashauri inayoongoza yenye uchumi imara na ulioboreshwa katika sekta mbalimbali, inayotoa huduma bora za kijamii zilizo jumuishi na endelevu kwa watu wote wa Wilaya ya Hai ifikapo mwaka 2031.\nDhima\nKukuza maendeleo endelevu ya kijamii na kiuchumi na kuboresha ubora wa maisha ya watu wa Wilaya ya Hai kupitia utoaji wa huduma za umma zilizo na ufanisi, tija na uwajibikaji, kwa kushirikiana na wadau mbalimbali na kwa kuzingatia vipaumbele vya kitaifa.",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Value > Core Value",
+   "title": "Core Values",
+   "api_url": "https://haidc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://haidc.go.tz/core-values",
+   "createdAt": "2026-03-04T07:48:46.624Z",
+   "updatedAt": "2026-03-04T07:48:46.624Z",
+   "text_en": "Core Values\nThe following core values shall guide the conduct, decisions, and culture of Hai District Council in fulfilling its mission:\n· Integrity: We uphold honesty, transparency, and ethical conduct in all our actions to build and maintain public trust.\n· Accountability: We take responsibility for our decisions, actions, and results, ensuring stewardship of public resources and responsiveness to citizens.\n· Customer Focus: We prioritize the needs and expectations of our community, striving to deliver timely, accessible, and quality services.\n· Team Spirit: We foster collaboration, mutual respect, and shared purpose within the Council and with our partners to achieve common goals.\n· Diligence: We commit to dedication, thoroughness, and continuous improvement in service delivery and performance.\n· Participation: We encourage and value inclusive engagement of citizens, stakeholders, and staff in planning, implementation, and oversight.\n· Courtesy: We treat all individuals with respect, professionalism, and dignity in every interaction.",
+   "text_sw": "Maadili ya Msingi\nMaadili yafuatayo yataongoza mwenendo, maamuzi na utamaduni wa Hai District Council katika kutekeleza dhima yake:\nUadilifu: Tunazingatia uaminifu, uwazi na maadili mema katika matendo yetu yote ili kujenga na kudumisha imani ya umma.\nUwajibikaji: Tunawajibika kwa maamuzi, matendo na matokeo yetu, tukihakikisha usimamizi mzuri wa rasilimali za umma na kuwajibika kwa wananchi.\nKumjali Mteja: Tunaweka kipaumbele kwa mahitaji na matarajio ya jamii yetu, tukijitahidi kutoa huduma kwa wakati, zenye kufikika kwa urahisi na zenye ubora.\nUshirikiano (Roho ya Timu): Tunakuza ushirikiano, kuheshimiana na mshikamano ndani ya Halmashauri na kwa washirika wetu ili kufikia malengo ya pamoja.\nBidii: Tunajizatiti kwa kujitoa, umakini na kuboresha utendaji na utoaji wa huduma kwa kuendelea.\nUshirikishwaji: Tunahamasisha na kuthamini ushiriki jumuishi wa wananchi, wadau na watumishi katika kupanga, kutekeleza na kufuatilia shughuli za maendeleo.\nUstaarabu: Tunawaheshimu watu wote kwa weledi, heshima na utu katika kila mawasiliano na mwingiliano.",
+   "attachments": []
+  },
+  {
+   "slug": "administration-and-human-resource-management",
+   "menu_path": "Administration > Divisions > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "api_url": "https://haidc.go.tz/api/pages/slug/administration-and-human-resource-management",
+   "public_url": "https://haidc.go.tz/administration-and-human-resource-management",
+   "createdAt": "2026-03-06T12:16:37.560Z",
+   "updatedAt": "2026-03-16T04:52:04.447Z",
+   "text_en": "The Administration and Human Resources Division is responsible for ensuring that all employment laws, procedures, and regulations are followed in order to maintain good governance and provide quality services to the people of Hai.\nAdministratively, the Hai District Council is led by the Executive Director . At the ward level, all ward responsibilities are overseen by the Ward Executive Officer , who is responsible for maintaining security, peace, and safety in the ward, as well as managing all administrative activities within the ward.\nAt the village level, the responsibility for maintaining peace and security lies with the Village Executive Officer , who also oversees all administrative activities within the village.\nServices Provided by the Division\nThe main responsibility of the Administration and Human Resources Department is to oversee all administrative activities within the Council. For example, ensuring that all statutory meetings from the village level up to the council level are conducted on time and in accordance with established rules and procedures.\nProviding administrative advice to the Executive Director on various administrative matters.\nEnsuring that all rights and benefits of employees are met, such as timely payment of salaries, leave entitlements, and other employee rights at the workplace.\nInterpreting policies, laws, regulations, and organizational structures related to employees and coordinating their implementation.\nEnsuring good relationships and cooperation among employees in the workplace.\nEnsuring that employees who have reached the end of their service for various reasons are removed from the payroll through the LAWSON system .\nManaging disciplinary matters for all employees in collaboration with Heads of Departments.\nEnsuring that the Council has adequate staff according to the staffing structure of each department, and overseeing the overall staff training program for Council employees.\nEnsuring that employees are confirmed in their positions and promoted on time.\nManaging Council assets and ensuring they are used properly, such as vehicles, offices, and equipment.\nPreparing the salary budget and wage estimates for employees of Hai District .\nEnsuring that employees work in a good working environment and are provided with the necessary tools and equipment, which are properly used and maintained in order to ensure quality service delivery to clients.\nAchievements\nThe department has made efforts to improve employee performance by providing both internal and external training .\nThe Council has successfully increased the number of employees according to the allocations provided by the government and in line with staffing needs for the respective year.",
+   "text_sw": "Divisheni ya utawala na utumishi ina jukumu la kuhakikisha kuwa sheria, taratibu na kanuni zote za kiutumishi zinafuatwa ili kuweza kudumisha utawala bora na utoaji huduma nzuri kwa jamii ya HAI.\nKiutawala halmashauri ya HAI inaongozwa na Mkurugenzi Mtendaji. Katika ngazi ya kata anayesimamia majukumu yote ya kata ni Afisa mtendaji kata hivyo ana jukumu la kusimamia ulinzi, amani na usalama katika kata pamoja na shughuli zote za kiutawala ndani ya kata. Katika ngazi ya vijiji, mwenye jukumu la kusimamia amani na ulinzi katika kijiji ni Mtendaji wa kijiji pamoja na shughuli zote za kiutawala ndani ya kijiji.\nHuduma zinazotolewa na Divisheni\nØ Kazi kubwa katika idara ya utawala na utumishi ni kusimamia shughuli zote za kiutawala ndani ya Halmashauri mfano kuhakikisha vikao vyote vya kisheria kuanzia ngazi ya kijiji mpaka halmashauri vinafanyika kwa wakati kwa kufuata kanuni na taratibu za vikao.\nØ Kutoa ushauri kwa Mkurugenzi Mtendaji kuhusu maswala ya kiutawala\nØ Kuhakikisha haki na stahiki zote za watumishi zinapatikana mfano watumishi wanapata mishahara yao kwa wakati, likizo kwa watumishi na haki zote za mtumishi mahalapa kazi.\nØ Kutafsiri sera, sheria na kanuni pamoja na miundo zinazohusu watumishi na kuratibu utekelezaji wake.\nKuhakisha kuna mahusiano mazuri pamoja na ushirikiano kati ya mtumishi na mtumishi mahala pakazi.\nKuhakikisha watumishi wote ambao muda wao umefikia ukomo kwa sababu mbali mbali wanaondolewa katika payroll kupitia mfumo wa LAWSON.\nKusimamia masuala ya nidhamu kwa watumishi wote kwa kushirikiana na Wakuu wa Idara.\nØ Kuhakikisha halmashauri inakuwa na watumishi wa kutosha kulingana na ikama ya kila idara, pia inasimamia mpango mzima wa mafunzo kwa watumishi wa Halmashauri.\nØ Kusimamia swala zima la watumishi kuwa wanathibitishwa na kupandishwa vyeo kwa wakati.\nØ Kusimamia mali za halmashauri na kuhakikisha zinatumika vizuri mfano magari, ofisi na mitambo.\nØ Kuandaa bajeti na makisio ya mishahara kwa watumishi wa wilaya HAI\nØ Pia kuhakikisha watumishi wanafanya kazi katika mazingira mazuri ya kazi na kuwapatia vitendea kazi vinavyohitajika na vitumike vizuri pamoja na kuhifadhiwa vizuri ili kudumisha huduma nzuri kwa wateja .\nMafanikio\nØ Idara imefanya juhudi za kuhakisha watumishi wanaongeza ufanisi katika utendaji kazi kwa kuwapatia mafunzo ya ndani na ya nje ya ofisi\nØ Halmashauri imefanikiwa kuongeza watumishi kwa kadri serikali ilivyotupangia pia kulingana na mahitaji ya watumishi kwa mwaka husika.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education",
+   "menu_path": "Administration > Divisions > Pre-Primary and Primary",
+   "title": "Pre Primary and Primary Education",
+   "api_url": "https://haidc.go.tz/api/pages/slug/pre-primary-and-primary-education",
+   "public_url": "https://haidc.go.tz/pre-primary-and-primary-education",
+   "createdAt": "2026-03-06T12:17:41.396Z",
+   "updatedAt": "2026-03-06T13:45:42.139Z",
+   "text_en": "DIVISION OF EARLY AND PRIMARY EDUCATION\nObjective:\nTo plan and manage the implementation of policies and programs related to the provision of early childhood education, primary education, special needs education, adult education, and non-formal education.\nResponsibilities:\nThis Division carries out the following responsibilities:\nPlanning the availability, distribution, and utilization of resources in primary schools.\nSupervising the management of continuous assessment and national examinations in primary schools.\nManaging the provision of adult education and non-formal education at early childhood and primary education levels.\nCoordinating life skills education in primary schools.\nConducting needs assessments for special needs education, adult education, and non-formal education.\nAdvising on the establishment and development of centers for special needs education, adult education, and non-formal education.\nMonitoring the implementation of primary education programs and plans.\nCoordinating and managing sports and recreational activities in primary schools.\nThe Division is headed by the Division Manager and has four sections:\nAcademic Section\nStatistics and Resources Section\nSpecial Needs Education Section\nAdult and Non-Formal Education Section\nAcademic Section\nThis section performs the following activities:\nCoordinating the implementation of policies, plans, guidelines, and programs for early childhood and primary education at the school level.\nCoordinating and managing continuous school assessments and national examinations for Standard Four and Standard Seven.\nSupervising and evaluating the implementation of early childhood and primary education programs.\nPreparing reports on the implementation of education development programs.\nCoordinating the provision of self-reliance education and managing income-generating projects in primary schools.\nStatistics and Resources Section\nThis section performs the following activities:\nCollecting, analyzing, and interpreting data for early childhood and primary education.\nCoordinating the availability, distribution, and utilization of educational resources in primary schools.\nManaging school registration data and related resources.\nPreparing reports on the progress of education development.\nIdentifying resource needs for schools within the Council.\nSpecial Needs Education Section\nThis section performs the following activities:\nPreparing and managing the implementation of special needs education programs in primary schools.\nIdentifying children with special needs and allocating them to appropriate schools.\nCollecting data on students with special needs and providing relevant guidance.\nCoordinating the availability, distribution, and utilization of special needs education resources.\nAdult and Non-Formal Education Section\nThis section performs the following activities:\nPreparing and managing the implementation of adult and non-formal education programs in primary schools.\nCoordinating life skills education.\nConducting needs assessments for adult and non-formal education.\nAdvising on the establishment and development of adult and non-formal education training centers.\nCoordinating the availability, distribution, and utilization of resources for adult and non-formal education.",
+   "text_sw": "DIVISHENI YA ELIMU YA AWALI NA MSINGI\nLengo\nKupanga na kusimamia utekelezaji wa sera na mijadala inayo husu utoaji wa elimu ya awali, msingi, mahitaji maalum na elimu isiyo rasmi.\nMajukumu\nDivisheni hii inatekeleza majukumu yafuatayo:-\nKupanga upatikanajai, usambazaji na utumiaji wa rasilimali katika shule za msingi,\nKusimamia usimamizi wa tathmini endelevu na mitihani ya Taifa ya shule za msingi;\nKusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi za elimu ya awali na msingi;\nKuratibu elimu ya stadi za maisha katika shule za msingi;\nKuendesha tathmini ya mahitaji kwa elimu ya mahitaji maaulum, watu wazima na elimu isiyo rasmi;\nKutoa ushauri kuhusu uanzishaji na uendelezaji wa vituo vya elimu ya mahitaji maalum, watu wazima na elimu isiyo rasmi;\nKufuatilia utekelezaji wa mipango na program za elimu ya msingi; na\nKuratibu na kusimamia shughuli za michezo na burudani katika shule za msingi.\nDivisheni hii inaongozwa na Mkuu wa Divisheni na ina sehemu nne kama ifuatavyo:-\nSehemu ya taaluma\nSehemu ya takwimu na vifaa;\nSehemu ya elimu ya mahitaji maalum;\nSehemu ya elimu ya watu wazima na elimu isiyo rasmi.\nSehemu ya Taaaluma.\nSehemu hii inatakeleza shughuli zifuatazo:-\nKuratibu utekelezaji wa sera, mipango, miongozo na mijadala ya elimu ya awali na msingi katika ngazi ya shule;\nKuratibu na kusimamia usimamizi wa tathmini endelevu za shule na mitihani ya Taifa ya darasa la nne na la saba;\nKusimamia na kutathmini utekelezaji wa mipango ya elimu ya awali na msingi;\nKuandaa taarifa za utekelezaji wa mipango na program za maendeleo ya elimu; na\nKuratibu utoaji wa elimu ya kujitegemea na usimamizi wa shughuli/miradi inayo zalisha mapato kwenye shule za msingi;\nSehemu ya Takwimu na Vifaa\nSehemu hii inatekeleza shughuli zifuatazo:-\nKukusanya, kuchambua na kutafsiri takwimu za elimu ya awali na msingi;\nKuratibu upatikanaji, usambazaji na utumiaji wa rasilimali za kielimu katika shule za msingi;\nKuratibu takwimu na vifaa vya uandikishwaji shuleni;\nKuandaa taarifa za utekelezaji wa maendeleo ya elimu; na\nKubainisha mahitaji ya rasilimali kwa shule zilizo ndanai ya Halmashauri;\nSehemu ya Mahitaji Maalum\nSehemu hii inatekeleza shughuli zifuatazo:-\nKuandaa na kusimamia utekelezaji wa mipango ya elimu ya mahitaji maalum kwa elimu ya msingi;\nKutambua watoto wenye mahitaji maalum na kuwagawa shuleni;\nKukusanya taarifa za wanafunzi wenye mahitaji maalum na kutoa ushauri ipasavyo;\nKuratibu upatikanaji, usambazaji na utumiaji wa rasilimali za elimu ya mahitaji maalum.\nSehemu ya Elimu ya Watu Wazima na Elimu Isiyo Rasmi\nSehemu hii inatekeleza shughuli zifuatazo:-\nKuandaa na kusimamia utekelezaji wa mipango ya elimu ya watu wazima na elimu isiyo rasmi kwa shule z msingi;\nKuratibu elimu ya stadi za maisha;\nKuendesha tathmini ya mahitaji ya elimu ya watu wazima ena elimu isiyo rasmi;\nKushauri kuhusu uanzishaji na uendelezaji wa vituo vya mafunzo ya elimu ya watu wazima na elimu isiyo rasmi; na\nKuratibu upatikanaji, usambazaji na utumiaji wa rasilimali za elimu ya watu wazima na elimu isiyo rasmi.",
+   "attachments": []
+  },
+  {
+   "slug": "secondary-education",
+   "menu_path": "Administration > Divisions > Secondary Education",
+   "title": "Secondary Education",
+   "api_url": "https://haidc.go.tz/api/pages/slug/secondary-education",
+   "public_url": "https://haidc.go.tz/secondary-education",
+   "createdAt": "2026-03-06T12:18:32.266Z",
+   "updatedAt": "2026-04-09T07:52:29.986Z",
+   "text_en": "The responsibilities of the Secondary Education Division in Hai District Council are as follows:\nRepresenting the Ministry of Education, Science, and Technology within the Council.\nInterpreting and overseeing the implementation of the National Education Policy and the Secondary Education Curriculum at both lower and upper levels in secondary schools within the Council.\nManaging the administrative and operational activities of secondary schools.\nPlanning and managing development plans and budgets for Secondary Education.\nSupervising and evaluating academic progress in schools by ensuring that essential teaching and learning resources are available in collaboration with the local community.\nManaging the discipline of teachers, non-teaching staff, and students in secondary schools.\nOverseeing the improvement of infrastructure for the delivery of secondary education services.\nAdvising the Council’s Chief Executive Officer on matters related to Secondary Education.",
+   "text_sw": "Majukumu ya Divisheni ya Elimu Sekondari katika Halmashauri ya Wilaya ya Hai ni kama ifuatavyo:-\nKuiwakilisha Wizara ya Elimu, Sayansi na Teknolojia katika Halmashauri.\nKutafsiri na kusimamia utekelezaji wa Sera ya Taifa ya Elimu na Mtaala wa Elimu Sekondari hatua ya chini na hatua ya juu katika shule za Sekondari zilizopo ndani ya Halmashauri\nKusimamia shughuli za utawala na uendeshaji wa shule za sekondari.\nKupanga na kusimamia mipango na bajeti ya maendeleo ya Elimu Sekondari\nKusimamia na kutoa tathimini ya maendeleo ya taaluma ya Shule kwa kuhakikisha mahitaji muhimu ya kufundishia na kujifunzia yanapatikana kwa kushirikiana na jamii katika maeneo husika.\nKusimamia nidhamu ya walimu, watumishi wasio walimu na wanafunzi wa shule za sekondari\nKusimamia uboreshaji wa miundo mbinu ya kutolea huduma ya elimu ya sekondari\nKusmshauri Mkurugenzi Mtendaji wa Halmashauri kuhusu masuala ya Elimu Sekondari",
+   "attachments": []
+  },
+  {
+   "slug": "community-development",
+   "menu_path": "Administration > Divisions > Community Development",
+   "title": "Community Development",
+   "api_url": "https://haidc.go.tz/api/pages/slug/community-development",
+   "public_url": "https://haidc.go.tz/community-development",
+   "createdAt": "2026-03-06T12:19:21.618Z",
+   "updatedAt": "2026-03-18T11:07:58.918Z",
+   "text_en": "The Department of Community Development is one of the important departments within the Council responsible for promoting social and economic development among citizens. The department aims to empower community members to actively participate in development activities, strengthen community welfare, and reduce poverty through various development programs and projects.\nThe Department of Community Development works in collaboration with different community groups such as women, youth, children, the elderly, and people with disabilities to ensure they have equal opportunities to participate in development and benefit from services provided by the government and development partners.\nResponsibilities of the Department of Community Development\nMobilizing and educating citizens to participate in social and economic development activities.\nCoordinating and supervising social and economic groups such as women’s groups, youth groups, and groups of people with disabilities .\nProviding community development education including issues of gender equality, good parenting, and family welfare .\nSupervising and monitoring the implementation of community development plans and projects within the Council.\nCoordinating the provision of 10% of the Council’s internal revenue loans allocated to women, youth, and people with disabilities.\nProtecting and promoting the rights and welfare of children, the elderly, and special groups within the community.\nCollaborating with government and non-governmental institutions in implementing community development programs.\nConducting research and collecting information related to the status of community development to support planning for development programs.",
+   "text_sw": "Idara ya Maendeleo ya Jamii ni mojawapo ya idara muhimu katika Halmashauri inayohusika na kuhamasisha maendeleo ya kijamii na kiuchumi kwa wananchi. Idara hii inalenga kuwawezesha wananchi kushiriki kikamilifu katika shughuli za maendeleo, kuimarisha ustawi wa jamii na kupunguza umaskini kupitia mipango na miradi mbalimbali ya maendeleo.\nIdara ya Maendeleo ya Jamii hufanya kazi kwa kushirikiana na makundi mbalimbali ya jamii kama vile wanawake, vijana, watoto, wazee na watu wenye ulemavu ili kuhakikisha wanapata fursa sawa za kushiriki katika maendeleo na kunufaika na huduma zinazotolewa na serikali pamoja na wadau wa maendeleo.\nMajukumu ya Idara ya Maendeleo ya Jamii ni pamoja na:\nKuhamasisha na kuelimisha wananchi kushiriki katika shughuli za maendeleo ya kijamii na kiuchumi.\nKuratibu na kusimamia vikundi vya kijamii na kiuchumi kama vile vikundi vya wanawake, vijana na watu wenye ulemavu.\nKutoa elimu ya maendeleo ya jamii ikiwemo masuala ya usawa wa kijinsia, malezi bora na ustawi wa familia.\nKusimamia na kufuatilia utekelezaji wa mipango na miradi ya maendeleo ya jamii katika Halmashauri.\nKuratibu utoaji wa mikopo ya asilimia 10 (10%) ya mapato ya ndani ya Halmashauri kwa wanawake, vijana na watu wenye ulemavu.\nKulinda na kuendeleza haki na ustawi wa watoto, wazee na makundi maalum katika jamii.\nKushirikiana na taasisi za serikali na zisizo za kiserikali katika kutekeleza programu za maendeleo ya jamii.\nKufanya tafiti na kukusanya taarifa zinazohusu hali ya maendeleo ya jamii ili kusaidia kupanga mipango ya maendeleo.",
+   "attachments": []
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition",
+   "menu_path": "Administration > Divisions > Health, Social Welfare and Nutrition",
+   "title": "Health, Social Welfare and Nutrition",
+   "api_url": "https://haidc.go.tz/api/pages/slug/health-social-welfare-and-nutrition",
+   "public_url": "https://haidc.go.tz/health-social-welfare-and-nutrition",
+   "createdAt": "2026-03-06T12:20:42.976Z",
+   "updatedAt": "2026-04-09T08:44:24.804Z",
+   "text_en": "The responsibilities of the Department of Health, Community Development, and Nutrition are aimed at improving the well-being of citizens through quality health services, community empowerment, and improved nutrition. The main responsibilities include overseeing health policies, strengthening maternal and child health services, providing nutrition education, preventing epidemic diseases, and promoting economic and social development.\nMain Responsibilities in Health and Well-being:\nHealth Services: Overseeing health centers, dispensaries, and hospitals to ensure access to quality medical care.\nDisease Prevention: Coordinating vaccination campaigns, community health education, and control of communicable and non-communicable diseases (such as HIV/AIDS and heart diseases).\nNutrition Management: Educating communities on proper nutrition, especially for children under two years and pregnant women, and addressing malnutrition.\nHealth Insurance: Supervising the implementation of Universal Health Insurance policies to improve citizens’ access to services.\nCommunity Development Responsibilities:\nEmpowerment: Supporting social groups (women, youth, and the elderly) economically through training and microloans.\nSocial Welfare: Protecting the rights of children, the elderly, and people with disabilities from abuse and neglect.\nEnvironmental Sanitation: Encouraging communities to maintain environmental cleanliness to prevent disease outbreaks.\nAnti-Corruption Efforts: Educating the public to avoid corrupt practices that hinder development.\nCoordination of Stakeholders and Data:\nOverseeing and monitoring the implementation of health and development projects.\nManaging databases and statistics related to health, social welfare, and nutrition.",
+   "text_sw": "Majukumu ya Idara ya Afya, Maendeleo ya Jamii, na Lishe yanalenga kuboresha ustawi wa wananchi kupitia huduma bora za afya, uwezeshaji wa jamii, na kuboresha lishe. Majukumu makuu ni pamoja na kusimamia sera za afya, kuimarisha huduma za mama na mtoto, kutoa elimu ya lishe, kuzuia magonjwa ya mlipuko, na kuwezesha maendeleo ya kiuchumi na kijamii.\nMajukumu Makuu ya Afya na Ustawi:\n· Huduma za Afya: Kusimamia vituo vya afya, zahanati, na hospitali ili kuhakikisha upatikanaji wa matibabu bora.\n· Kuzuia Magonjwa: Kuratibu kampeni za chanjo, elimu ya afya ya jamii, na udhibiti wa magonjwa ya kuambukiza na yasiyoambukiza (kama UKIMWI na magonjwa ya moyo).\n· Usimamizi wa Lishe: Kuelimisha jamii kuhusu lishe bora, hasa kwa watoto chini ya miaka miwili na mama wajawazito, na kudhibiti utapiamlo.\n· Bima ya Afya: Kusimamia utekelezaji wa sera ya Bima ya Afya kwa Wote ili kuongeza uwezo wa wananchi kupata huduma.\nMajukumu ya Maendeleo ya Jamii:\n· Uwezeshaji: Kuwezesha vikundi vya kijamii (wanawake, vijana, wazee) kiuchumi kupitia mafunzo na mikopo.\n· Ustawi wa Jamii: Kulinda haki za watoto, wazee, na watu wenye ulemavu dhidi ya unyanyasaji na kutelekezwa.\n· Usafi wa Mazingira: Kuhamasisha jamii kuzingatia usafi wa mazingira ili kuzuia magonjwa ya mlipuko.\n· Mapambano dhidi ya Rushwa: Kuelimisha jamii kuacha vitendo vya rushwa vinavyochelewesha maendeleo.\nKuratibu Wadau na Takwimu:\n· Kusimamia na kufuatilia utekelezaji wa miradi ya afya na maendeleo.\n· Kusimamia kanzidata na takwimu za afya, ustawi wa jamii, na lishe.",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-and-rural-and-urban-development",
+   "menu_path": "Administration > Divisions > Infrastructure and Rural and Urban Development",
+   "title": "Infrastructure and Rural and Urban Development",
+   "api_url": "https://haidc.go.tz/api/pages/slug/infrastructure-and-rural-and-urban-development",
+   "public_url": "https://haidc.go.tz/infrastructure-and-rural-and-urban-development",
+   "createdAt": "2026-03-06T12:22:09.617Z",
+   "updatedAt": "2026-03-18T11:13:41.765Z",
+   "text_en": "The Division of Infrastructure, Rural and Urban Development is responsible for managing and providing advice on all matters related to infrastructure development in the Council.\nIts main responsibilities include:\ni. Managing the implementation of policies, laws, and procedures related to the construction and infrastructure sector.\nii. Planning and coordinating infrastructure development in the Council.\niii. Conducting assessments and providing recommendations on contractor payment claims.\niv. Inspecting construction projects to ensure work quality is observed.\nv. Issuing completion certificates for construction projects in accordance with contracts.\nvi. Managing the construction and maintenance of roads in collaboration with TARURA.\nvii. Managing the development of rural and urban housing.\nviii. Participating in the resolution of land use conflicts.\nix. Managing the process of urban growth and sustainable housing development.\nSeparation of Responsibilities\nThis division is divided into three main sections which perform different functions, which are: Construction Section\ni. Manage construction projects of government buildings and other infrastructure.\nii. Prepare construction cost estimates.\niii. Prepare and manage construction contracts.\niv. Monitor the performance of contractors.\nv. Inspect the quality of buildings and infrastructure being constructed.\nRoads Section\ni. Identify and plan the construction of new roads.\nii. Prepare cost estimates for road construction.\niii. Manage road construction contracts.\niv. Monitor the quality of roads being built or repaired.\nv. Supervise the construction and maintenance of bus stations.\nRural and Urban Development Section\ni. Manage the development of rural and urban settlements.\nii. Coordinate urban planning and optimal land use.\niii. Supervise social and environmental services in settlements.\niv. Coordinate the development of areas growing from villages to towns\nv. Participate in resolving conflicts.\nvi. Participate in resolving land use conflicts.\nServices provided by the Division\nDivision offers various services to citizens and development stakeholders, including:\ni. Management of public building construction projects.\nii. Management of council roads construction and maintenance\niii. Preparation of cost estimates for construction projects.\niv. Professional advice on construction and infrastructure matters.\nv. Quality inspection of construction projects\nvi. Coordination of rural and urban housing development.\nvii. Management of infrastructure project contracts.\nOpportunities arising from the Department\nThrough this division, there are various development opportunities in the Hai District Council, including:\ni. Employment opportunities in the construction and infrastructure sector.\nii. Investment opportunities in construction projects and housing development.\niii. Improvement of road and public building infrastructure.\niv. Increase in economic activities due to infrastructure development.\nv. Collaboration",
+   "text_sw": "Divisheni ya Miundombinu, Maendeleo ya Vijijini na Mijini ina jukumu la kusimamia na kutoa\nushauri kuhusu masuala yote yanayohusu maendeleo ya miundombinu katika Halmashauri.\nMajukumu yake makuu ni pamoja na:\ni.Kusimamia utekelezaji wa sera, sheria na taratibu zinazohusu sekta ya ujenzi na\nmiundombinu.\nii.Kupanga na kuratibu maendeleo ya miundombinu katika Halmashauri.\niii. Kufanya tathmini na kutoa mapendekezo kuhusu madai ya malipo ya wakandarasi.\niv. Kukagua miradi ya ujenzi ili kuhakikisha ubora wa kazi unazingatiwa.\nv. Kutoa vyeti vya kukamilika kwa miradi ya ujenzi kwa mujibu wa mikataba.\nvi. Kusimamia ujenzi na ukarabati wa barabara kwa kushirikiana na TARURA.\nvii. Kusimamia maendeleo ya makazi ya vijijini na mijini.\nviii. Kushiriki katika utatuzi wa migogoro ya matumizi ya ardhi.\nix. Kusimamia mchakato wa ukuaji wa miji na maendeleo ya makazi endelevu.\nMgawanyo wa Majukumu\nDivisheni hii imegawanyika katika sehemu kuu tatu (3) ambazo zinatekeleza majukumu tofauti,\nambazo ni:\nSehemu cha Ujenzi\ni. Kusimamia miradi ya ujenzi wa majengo ya Serikali na miundombinu mingine.\nii.Kuandaa makadirio ya gharama za ujenzi.\niii. Kuandaa na kusimamia mikataba ya ujenzi.\niv. Kufuatilia utendaji wa wakandarasi.\nv. Kukagua ubora wa majengo na miundombinu inayojengwa.\nSehemu cha Barabara\ni. Kutambua na kupanga ujenzi wa barabara mpya.\nii. Kuandaa makadirio ya gharama za ujenzi wa barabara.\niii. Kusimamia mikataba ya ujenzi wa barabara.\niv. Kufuatilia ubora wa barabara zinazojengwa au kukarabatiwa.\nv. Kusimamia ujenzi na matengenezo ya vituo vya mabasi.\nSehemu cha Maendeleo ya Vijijini na Mijini\ni.Kusimamia maendeleo ya makazi ya vijijini na mijini.\nii. Kuratibu upangaji wa miji na matumizi bora ya ardhi.\niii. Kusimamia huduma za kijamii na mazingira katika makazi.\niv. Kuratibu maendeleo ya maeneo yanayokua kutoka vijiji hadi kuwa miji.\nv. Kushiriki katika kutatua migogoro ya matumizi ya ardhi.\nHuduma zinazotolewa na Divisheni\nDivisheni ya Miundombinu hutoa huduma mbalimbali kwa wananchi na wadau wa maendeleo\nikiwa ni pamoja na:\ni. Usimamizi wa miradi ya ujenzi wa majengo ya umma.\nii. Usimamizi wa ujenzi na matengenezo ya barabara za Halmashauri.\niii. Uandaaji wa makadirio ya gharama za miradi ya ujenzi.\niv. Ushauri wa kitaalam kuhusu masuala ya ujenzi na miundombinu.\nv. Ukaguzi wa ubora wa miradi ya ujenzi.\nvi. Kuratibu maendeleo ya makazi ya vijijini na mijini.\nvii. Kusimamia mikataba ya miradi ya miundombinu.\nFursa zitokanazo na Idara\nKupitia divisheni hii kuna fursa mbalimbali za maendeleo katika Halmashauri ya Wilaya ya Hai,\nzikiwemo:\ni. Fursa za ajira katika sekta ya ujenzi na miundombinu.\nii. Fursa za uwekezaji katika miradi ya ujenzi na maendeleo ya makazi.\niii. Kuimarika kwa miundombinu ya barabara na majengo ya umma.\niv. Kuongezeka kwa shughuli za kiuchumi kutokana na maendeleo ya miundombinu.\nv. Ushirikiano kati ya Halmashauri, sekta binafsi na wadau wa maendeleo katika utekelezaji wa miradi.\nMafanikio\nBaadhi ya mafanikio yaliyopatikana kupitia utekelezaji wa majukumu ya divisheni ni pamoja na:\ni. Ujenzi na ukarabati wa barabara katika maeneo mbalimbali ya Halmashauri.\nii. Ujenzi na ukarabati wa majengo ya umma kama vile shule, vituo vya afya na ofisi za\nSerikali.\niii. Kuimarika kwa usimamizi wa miradi ya maendeleo.\niv. Kuongezeka kwa ubora wa miundombinu ya kijamii na kiuchumi.\nv. Kuimarika kwa upangaji na maendeleo ya makazi ya vijijini na mijini.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-and-fisheries",
+   "menu_path": "Administration > Divisions > Agriculture, Livestock, and Fisheries",
+   "title": "Agriculture, Livestock and Fisheries",
+   "api_url": "https://haidc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries",
+   "public_url": "https://haidc.go.tz/agriculture-livestock-and-fisheries",
+   "createdAt": "2026-03-06T12:23:03.009Z",
+   "updatedAt": "2026-03-19T07:13:29.303Z",
+   "text_en": "The Agriculture, Livestock and Fisheries Division is responsible for overseeing the development of the agriculture, irrigation, livestock, and fisheries sectors within the Council. Its main responsibilities include:\ni. Interpreting, analyzing, and supervising the implementation of policies, laws, and regulations related to agriculture, livestock, and fisheries.\nii. Proposing standards and prices for goods and services derived from agriculture, livestock, and fisheries activities.\niii. Preparing short-term and long-term plans and programs for the development of agriculture, irrigation, livestock, and fisheries.\niv. Supervising the development and administration of cooperative societies within the Council.\nv. Providing professional advice to stakeholders in agriculture, livestock, and fisheries.\nvi. Preparing and submitting various development reports for these sectors.\nvii. Supervising the collection and control of revenues generated from agriculture, livestock, and fisheries activities.\n2. Division of Responsibilities\nThis division is divided into three (3) sections to facilitate the execution of its duties:\n(i) Agriculture Section\nThis section is responsible for:\nCoordinating the distribution of agricultural inputs such as fertilizers and seeds.\nConducting soil testing and providing advice on proper fertilizer use.\nTraining farmers on improved crop production, post-harvest handling, and value addition.\nCollecting data and conducting agricultural censuses.\nCoordinating demonstration farms and agricultural trials.\nSupervising irrigation projects and establishing water user associations.\nOverseeing the development and administration of cooperative societies within the Council.\nImplementing various agricultural development programs such as biogas and crop diversification.\n(ii) Livestock Section\nThis section is responsible for:\nSupervising the implementation of livestock policies, laws, and regulations.\nPreparing short-term and long-term livestock development plans.\nManaging the use and conservation of livestock resources.\nProviding professional services to livestock keepers.\nCoordinating and supervising livestock development projects.\n(iii) Fisheries Section\nThis section is responsible for:\nSupervising the implementation of fisheries policies, laws, and regulations.\nPreparing plans and programs for the development of fisheries resources.\nManaging the conservation and sustainable use of fisheries resources.\nProviding professional advice to fishers and stakeholders in the fisheries sector.\nCoordinating and supervising fisheries development projects.\n3. Services Provided by the Division\nThe Agriculture, Livestock and Fisheries Division provides various services to citizens and stakeholders, including:\nProfessional advice on agriculture, livestock, and fisheries.\nTraining for farmers, livestock keepers, and fishers on best production practices.\nCoordinating access to agricultural and livestock inputs.\nSoil testing and guidance on proper fertilizer use.\nManagement of irrigation and agricultural development projects.\nCollection and dissemination of data for agriculture, livestock, and fisheries sectors.\nCoordination of the formation and management of cooperative societies.\n4. Opportunities from the Division\nThis division provides various economic and development opportunities for citizens, including:\nEmployment and business opportunities in agriculture, livestock, and fisheries.\nInvestment opportunities in crop production, livestock keeping, and aquaculture.\nOpportunities for value addition in agricultural and livestock products.\nOpportunities to use modern agricultural and irrigation technologies.\nAccess to loans and grants through development projects in these sectors.\n5. Achievements of the Agriculture, Livestock and Fisheries Division – Hai District\nThrough the implementation of its responsibilities, Hai District has achieved significant progress in the agriculture, livestock, and fisheries sectors as follows:\n1. Strengthening of the Agriculture Sector\nApproximately 78% of Hai District’s economy depends on agriculture, and over 80% of its population is engaged in farming.\nMajor crops grown include maize, bananas, beans, rice, coffee, sunflower, as well as vegetables and fruits.\nMaize is the most widely cultivated crop, covering about 22,000 hectares, making Hai one of the leading maize-producing districts in the Kilimanjaro Region.\nAchievements include:\nIncreased production of food and cash crops.\nIncreased use of improved seeds, fertilizers, and modern farming technologies.\nGrowth in the cultivation of cash crops such as coffee and vanilla.\n2. Expansion of Irrigation Area\nThe government has invested more than TZS 844,000,000 in the construction and rehabilitation of irrigation canals in Hai District.\nThis investment has increased irrigated land from 9,666 hectares to 10,266 hectares, contributing to higher crop production.\nAchievements:\nIncreased production of rice, vegetables, and other irrigated crops.\nReduced dependence on rainfall alone for crop production.\n3. Strengthening of the Livestock Sector\nLivestock keeping is an important part of the agricultural production system in Hai District.\nThe district has a large number of livestock, including:\nOver 132,000 cattle\nOver 28,000 sheep\nOver 9,000 goats\nAchievements:\nIncreased production of milk and livestock products.\nImproved use of manure in farming.\nGrowth in modern livestock and dairy farming projects.\n4. Strengthening of Cooperative Societies\nHai District has a total of 76 cooperative societies engaged in various economic activities, including:\n27 agricultural cooperatives\n36 SACCOS\n13 dairy cooperatives\n2 irrigation cooperatives\nSACCOS in the district have:\nOver 19,400 members\nSavings exceeding TZS 8,900,900,000\nAchievements:\nIncreased access to loans for farmers and livestock keepers.\nImproved markets for agricultural and livestock products.\n5. Value Addition of Agricultural Products\nThe district has established a vanilla processing center with the capacity to produce 3 tons per season, valued at over TZS 255,000,000–270,000,000 annually.\nAchievements:\nIncreased value of farmers’ produce.\nGrowth in farmers’ incomes and the district economy.",
+   "text_sw": "Divisheni ya Kilimo, Mifugo na Uvuvi ina jukumu la kusimamia maendeleo ya sekta za kilimo, umwagiliaji, mifugo na uvuvi katika Halmashauri. Majukumu makuu ni pamoja na: -\ni. Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na kanuni zinazohusu sekta za kilimo, mifugo na uvuvi.\nii. Kupendekeza viwango na bei za bidhaa na huduma zitokanazo na shughuli za kilimo, mifugo na uvuvi.\niii. Kuandaa mipango na programu za muda mfupi na muda mrefu kwa ajili ya maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\niv. Kusimamia uendelezaji na utawala wa vyama vya ushirika ndani ya Halmashauri.\nv. Kutoa ushauri wa kitaalamu kwa wadau wa sekta za kilimo, mifugo na uvuvi.\nvi. Kuandaa na kuwasilisha taarifa mbalimbali za maendeleo ya sekta hizo.\nvii. Kusimamia ukusanyaji na udhibiti wa mapato yanayotokana na shughuli za kilimo, mifugo na uvuvi.\n2. Mgawanyo wa Majukumu\nDivisheni hii imegawanyika katika sehemu tatu (3) ili kurahisisha utekelezaji wa majukumu yake:\n(i) Sehemu ya Kilimo\nSehemu hii inahusika na:\nKuratibu usambazaji wa pembejeo za kilimo kama mbolea na mbegu.\nKufanya uchunguzi wa udongo na kutoa ushauri wa matumizi sahihi ya mbolea.\nKutoa mafunzo kwa wakulima kuhusu uzalishaji bora wa mazao, utunzaji baada ya mavuno na uongezaji thamani.\nKukusanya takwimu na kufanya sensa za kilimo.\nKuratibu mashamba darasa na majaribio ya kilimo.\nKusimamia miradi ya umwagiliaji na uanzishaji wa vyama vya watumia maji.\nKusimamia uendelezaji na utawala wa vyama vya ushirika ndani ya Halmashauri.\nKutekeleza programu mbalimbali za maendeleo ya kilimo kama vile biogas na mseto wa mazao.\n(ii) Sehemu ya Mifugo\nSehemu hii inahusika na:\nKusimamia utekelezaji wa sera, sheria na kanuni za sekta ya mifugo.\nKuandaa mipango ya maendeleo ya mifugo ya muda mfupi na muda mrefu.\nKusimamia matumizi na uhifadhi wa rasilimali za mifugo.\nKutoa huduma za kitaalamu kwa wafugaji.\nKuratibu na kusimamia miradi ya maendeleo ya mifugo.\n(iii) Sehemu ya Uvuvi\nSehemu hii inahusika na:\nKusimamia utekelezaji wa sera, sheria na kanuni za sekta ya uvuvi.\nKuandaa mipango na programu za maendeleo ya rasilimali za uvuvi.\nKusimamia uhifadhi na matumizi endelevu ya rasilimali za uvuvi.\nKutoa ushauri wa kitaalamu kwa wavuvi na wadau wa sekta ya uvuvi.\nKuratibu na kusimamia miradi ya maendeleo ya uvuvi.\n3. Huduma Zinazotolewa na Divisheni\nDivisheni ya Kilimo, Mifugo na Uvuvi hutoa huduma mbalimbali kwa wananchi na wadau ikiwa ni pamoja na:\nUshauri wa kitaalamu kuhusu kilimo, mifugo na uvuvi.\nMafunzo kwa wakulima, wafugaji na wavuvi kuhusu mbinu bora za uzalishaji.\nKuratibu upatikanaji wa pembejeo za kilimo na mifugo.\nUchunguzi wa udongo na ushauri wa matumizi sahihi ya mbolea.\nUsimamizi wa miradi ya umwagiliaji na maendeleo ya kilimo.\nUkusanyaji na utoaji wa takwimu za sekta za kilimo, mifugo na uvuvi.\nKuratibu uundaji na usimamizi wa vyama vya ushirika.\n4. Fursa Zitokanazo na Divisheni ya Kilimo, Mifugo na Uvuvi\nDivisheni hii inatoa fursa mbalimbali za kiuchumi na maendeleo kwa wananchi, ikiwa ni pamoja na:\nFursa za ajira na biashara katika sekta ya kilimo, mifugo na uvuvi.\nFursa za uwekezaji katika uzalishaji wa mazao, ufugaji na ufugaji wa samaki.\nFursa za uongezaji thamani wa mazao ya kilimo na mifugo.\nFursa za matumizi ya teknolojia mpya za kilimo na umwagiliaji.\nFursa za mikopo na ruzuku kupitia miradi ya maendeleo ya sekta hizi.\n5. Mafanikio ya Divisheni ya Kilimo, Mifugo na Uvuvi – Wilaya ya Hai\nKupitia utekelezaji wa majukumu ya Divisheni ya Kilimo, Mifugo na Uvuvi, Wilaya ya Hai imepata mafanikio mbalimbali katika maendeleo ya sekta za kilimo, mifugo na uvuvi kama ifuatavyo:\n1. Kuimarika kwa Sekta ya Kilimo\nTakribani asilimia 78 ya uchumi wa Wilaya ya Hai unategemea kilimo, na zaidi ya asilimia 80 ya wakazi wake wanajihusisha na kilimo cha mazao mbalimbali.\nMazao makuu yanayolimwa ni mahindi, ndizi, maharage, mpunga, kahawa, alizeti pamoja na mbogamboga na matunda.\nZao la mahindi hulimwa katika eneo kubwa zaidi na kutumiwa na watu wengi kama chakula ukilinganisha na mazao mengine katika Mkoa wa Kilimanjaro ambapo Wilaya ya Hai ni miongoni mwa wilaya zenye eneo kubwa la uzalishaji wa zao hilo, takribani hekta 22,000 hulimwa mahindi.\nMafanikio yaliyopatikana ni pamoja na:\nKuongezeka kwa uzalishaji wa mazao ya chakula na biashara.\nKuongezeka kwa matumizi ya mbegu bora, mbolea na teknolojia za kisasa za kilimo.\nKuimarika kwa kilimo cha mazao ya biashara kama kahawa na vanilla .\n2. Kuongezeka kwa Eneo la Umwagiliaji\nSerikali imewekeza zaidi ya TZS. 844,000,000.00 kwa ajili ya ujenzi na ukarabati wa mifereji ya umwagiliaji katika Wilaya ya Hai.\nUwekezaji huu umeongeza eneo la umwagiliaji kutoka hekta 9,666 hadi hekta 10,266, hali inayochangia kuongeza uzalishaji wa mazao.\nMafanikio:\nKuongezeka kwa uzalishaji wa mazao ya mpunga, mboga mboga na mazao mengine yanayolimwa kwa umwagiliaji.\nKupungua kwa utegemezi wa mvua pekee katika uzalishaji wa mazao.\n3. Kuimarika kwa Sekta ya Mifugo\nUfugaji ni sehemu muhimu ya mfumo wa uzalishaji wa kilimo katika Wilaya ya Hai.\nWilaya ina idadi kubwa ya mifugo ikiwemo:\nNg’ombe zaidi ya 132,000\nKondoo zaidi ya 28,000\nMbuzi zaidi ya 9,000\nMafanikio yaliyopatikana:\nKuongezeka kwa uzalishaji wa maziwa na bidhaa za mifugo.\nKuimarika kwa matumizi ya mbolea ya samadi katika mashamba ya wakulima.\nKuongezeka kwa miradi ya ufugaji wa kisasa na ufugaji wa maziwa.\n4. Kuimarika kwa Vyama vya Ushirika\nWilaya ya Hai ina jumla ya vyama vya ushirika 76 vinavyojihusisha na shughuli mbalimbali za kiuchumi.\nMiongoni mwa vyama hivyo:\n27 vyama vya ushirika wa mazao\n36 SACCOS\n13 vyama vya maziwa\n2 vyama vya umwagiliaji\nSACCOS katika wilaya vina:\nWanachama zaidi ya 19,400\nAkiba ya zaidi ya TZS. 8,900,900,000 . 00\nMafanikio:\nKuongezeka kwa upatikanaji wa mikopo kwa wakulima na wafugaji.\nKuimarika kwa masoko ya mazao na bidhaa za mifugo.\n5. Uongezaji Thamani wa Mazao\nWilaya imeanzisha kituo cha kusindika vanilla chenye uwezo wa kuzalisha tani 3 kwa msimu, chenye thamani ya zaidi ya TZS. 255,000,000.00 – 270,000,000.00 kwa mwaka.\nMafanikio:\nKuongezeka kwa thamani ya mazao ya wakulima.\nKuongezeka kwa kipato cha wakulima na uchumi wa wilaya.",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination",
+   "menu_path": "Administration > Divisions > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "api_url": "https://haidc.go.tz/api/pages/slug/planning-and-coordination",
+   "public_url": "https://haidc.go.tz/planning-and-coordination",
+   "createdAt": "2026-03-06T12:23:53.417Z",
+   "updatedAt": "2026-03-06T12:23:53.417Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "industry-trade-and-investment",
+   "menu_path": "Administration > Divisions > Industry, Trade and Investment",
+   "title": "Industry, Trade and Investment",
+   "api_url": "https://haidc.go.tz/api/pages/slug/industry-trade-and-investment",
+   "public_url": "https://haidc.go.tz/industry-trade-and-investment",
+   "createdAt": "2026-03-06T12:25:14.048Z",
+   "updatedAt": "2026-03-06T13:43:23.559Z",
+   "text_en": "DIVISION OF INDUSTRY, TRADE, AND INVESTMENT\nObjective:\nTo provide a conducive business environment for the development of industries, markets, and investment.\nResponsibilities:\nThis Division carries out the following responsibilities:\nCoordinating the implementation of policies, laws, regulations, and procedures related to industry, trade, markets, and investment.\nPromoting industries, trade, markets, and investment within the council.\nPlanning and establishing industrial areas and reserves in collaboration with other key stakeholders.\nDeveloping strategies to enhance industries, trade, markets, and investment.\nPromoting the growth of small and medium enterprises (SMEs).\nPreparing investment proposals and projects.\nFacilitating private sector development.\nEstablishing and managing a database for industries, trade, markets, and investment.\nManaging the one-stop business center.\nConducting studies to promote investment.\nCoordinating trade platforms.\nManaging markets and auction activities within the council.\nImplementing the Business Growth Strategy for small traders and microservice providers.\nProviding a conducive environment for business and investment to stimulate trade and investment.\nThe Division is headed by the Division Manager and is divided into two sections as follows:\nIndustry and Investment Development Section\nTrade and Markets Section\nIndustry and Investment Development Section\nThis section performs the following activities:\nCoordinating the implementation of policies, laws, regulations, and procedures related to industry and investment sectors.\nPromoting and coordinating public-private sector partnerships.\nAllocating, establishing, and monitoring industrial areas and reserves.\nAdvising on policy improvements for industries and coordinating sectoral meetings.\nPromoting the production of raw materials for industrial use.\nPreparing and maintaining industry and investment registers.\nPlanning and estimating taxes for small industries.\nPromoting private sector investment.\nDeveloping and reviewing investment profiles.\nCoordinating and advising investors.\nCreating a conducive environment for investment.\nThis section is led by the responsible officer.\nTrade and Markets Section\nThis section performs the following activities:\nManaging the implementation of policies, laws, regulations, and procedures related to trade and markets.\nProviding entrepreneurship skills to business communities.\nCoordinating and advising on business registration activities.\nAnalyzing trade and market information and providing relevant advice.\nCoordinating the Council’s trade platform.\nPromoting public-private sector partnerships.\nManaging markets and auction activities within the council.\nCollecting and disseminating market information on goods and services to interested stakeholders.\nImplementing the Business Development Strategy for small traders and microservice providers.\nProviding a conducive business environment.",
+   "text_sw": "DIVISHENI YA VIWANDA BIASHARA NA UWEKEZAJI\nLengo Kutoa mazingira mazuri ya biashara kwa maendeleo ya viwanda, masoko na uwekezaji\nMajukumu\nDivisheni hii inatekeleza majukumu yafuatayo:-\nKuratibu utekelezaji wa sera, sheria kanuni na taratibu zinazo husu viwanda , biashara, masoko na uwekezaji;\nKuhamasisha viwanda, biashara, masoko na uwekezaji ndani ya halmashauri;\nKupanga na kuanzisha maeneo na hifadhi za viwanda kwa kushirikiana na wadau wengine muhimu;\nKupanga mikakati ya kukuza viwanda, biashara, masoko na uwekezaji;\nKukuza maendeleo ya bisahara ndogondogo na za kati (SME’s);\nKuandaa mapendekezo na miradi ya uwekezaji;\nKuendeleza maendeleo ya sekta binafsi;\nKuanzisha na kusimamia kanzidata ya viwanda, biashara, masoko na uwekezaji;\nKusimamia usimamizi wa kituo kimoja cha biashara;\nKufanya tafiti za kukuza uwekezaji;\nKuratibu jukwaa la biashara;\nKusimamia minada na shughuli za masoko ndani ya halmashauri;\nKutekeleza Mkakati wa Ukuzaji wa Biashara kwa wachuuzi wadogo na watoa huduma za biashara wadogo; na\nKutoa mazingira mazuri ya biashara na uwekezaji ili kuhamasisha biashara na uwekezaji;\nDivisheni hii inaongozwa na Mkuu wa Divisheni na ina sehemu mbili kama ifuatavyo:-\nSehemu ya maendeleo ya viwanda na uwekezaji;\nSehemu ya biashara na masoko.\nSehemu ya Maendeleo ya Viwanda na Uwekezaji\nSehemu hii inafanya shughuli zifuatazo:-\nKuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazo husu sekta za Viwanda na Uwekezaji;\nKuhamasisha na kuratibu utekelezaji wa ushirikiano wa sekta binafsi ya umma;\nKutenga, kuanzisha na kufuatilia maeneo na hifadhi za viwanda;\nKutoa ushauri kuhusu uboreshaji wa sera za viwanda na kuratibu vikao vya kisekta;\nKuhamasisha uzalishaji wa malighafi mbalimbali kwa ajili ya matumizi ya viwandani;\nKuandaa na kutunza rejista za viwanda na uwekezaji;\nKupanga na kukadiria ushuru kwa viwanda vidogo;\nKuhamasisha uwekezaji wa sekta binafsi;\nKuendeleza na kupitia upya wasifu wa uwekezaji;\nKuratibu na kutoa ushauri kwa wawekezaji; na\nKutengeneza mazingira mazuri kwa ajili ya uwekezaji.\nSehemu hii inaongozwa na Afisa anaye husika.\nSehemu ya Biashara na Masoko\nSehemu hii inatekeleza shuguli zifuatazo:-\nKusimamia utekelezaji wa sera, sheria, kanuni na tartibu za biashara na masoko;\nKutoa ujuzi wa ujasiriamali kwa jumuia za wafanya biashara;\nKuratibu na kutoa ushauri kuhusu shughuli za kuandikisha biashara;\nKuchambua taarifa za biashara na masoko na kushauri ipasavyo;\nKuratibu jukwaa la biashara la Halmashauri;\nKukuza ushirikiano wa sekta binafsi ya umma;\nKusimamia minada na shughuli za masoko katika Halmashauri;\nKukusanya na kusambaza taarifa za masoko za bidhaa na huduma kwa wadau wanao vutiwa;\nKutekeleza Mkakati wa Maendeleo ya Biashara kwa wachuuzi wadogo na watoa huduma za bishara ndogondogo; na\nKutoa mazingira mazuri ya biashara.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "api_url": "https://haidc.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://haidc.go.tz/organization-structure",
+   "createdAt": "2026-03-05T09:07:53.171Z",
+   "updatedAt": "2026-03-06T07:35:31.020Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "list-of-concilors",
+   "menu_path": "Councillors > List of Councillors > List of Councillors",
+   "title": "List of Concilors ",
+   "api_url": "https://haidc.go.tz/api/pages/slug/list-of-concilors",
+   "public_url": "https://haidc.go.tz/list-of-concilors",
+   "createdAt": "2026-03-05T06:39:57.920Z",
+   "updatedAt": "2026-04-22T10:43:45.675Z",
+   "text_en": "Hai District Council has a total of 17 wards.\nThe following list shows the name of each ward and its respective Councilor :\nBomang’ombe Ward – Councilor: Hon. Evod Njau\nBondeni Ward – Councilor: Hon. Vicent S. Mamasita\nKia Ward – Councilor: Hon. Tehera K. Mollel\nMachame Kaskazini Ward – Councilor: Hon. Trael B. Mboya\nMachame Magharibi Ward – Councilor: Hon. Martin D. Munisi\nMachame Mashariki Ward – Councilor: Hon. Jordan C. Ngowi\nMachame Narumu Ward – Councilor: Hon. Patrick P. Munishi\nMachame Uroki Ward – Councilor: Hon. Zakina Mushi\nMasama Kati Ward – Councilor: Hon. Kandata A. Kimaro\nMasama Kusini Ward – Councilor: Hon. Cedrick B. Pangani\nMasama Magharibi Ward – Councilor: Hon. Eliufoo H. Christopher\nMasama Mashariki Ward – Councilor: Hon. Jublathe A. Ndosi\nMasama Rundugai Ward – Councilor: Hon. Simbano A. Waziri\nMnadani Ward – Councilor: Hon. Emmanuel M. Mgonja\nMuungano Ward – Councilor: Hon. Edmund Rutaraka\nRomu Ward – Councilor: Hon. Salim Mfoy\nWeruweru Ward – Councilor: Hon. Saimon M. Tarimo\nSpecial Seats Councilors\nHon. Lightness C. Laizer\nHon. Upendo Flenda\nHon. Julitha Mvungi\nHon. Irene R. Mlay\nHon. Hilda S. Shuma",
+   "text_sw": "HALMASHAURI YA WILAYA YA HAI INA JUMLA YA KATA 17\nORODHA IFUATAYO INAONYESHA JINA LA KATA NA DIWANI KATIKA KATA HIYO\nMHE. EVOD NJAU\nDIWANI KATA YA BOMANG'OMBE\nMHE. VICENT S. MAMASITA\nDIWANI KATA YA BONDENI\nMHE. TEHERA K. MOLLEL\nDIWANI KATA YA KIA\nMHE. TRAEL B. MBOYA\nDIWANI KATA YA MACHAME KASKAZINI\nMHE. MARTIN D. MUNISI\nDIWANI KATA YA MACHAME MAGHARIBI\nMHE. JORDAN C. NGOWI\nDIWANI KATA YA MACHAME MASHARIKI\nMHE. PATRICK P. MUNISHI\nDIWANI KATA YA MACHAME NARUMU\nMHE. ZAKINA A. MUSHI\nDIWANI KATA YA MACHAME UROKI\nMHE. KANDATA A. KIMARO\nDIWANI KATA YA MASAMA KAT I\nMHE. CEDRICK B. PANGANI\nDIWANI KATA YA MASAMA KUSINI\nMHE. ELIUFOO H. CHRISTOPHER\nDIWANI KATA YA MASAMA MAGHARIBI\nMHE. JUBLATHE A. NDOSI\nDIWANI KATA YA MASAMA MASHARIKI\nMHE. SIMBANO A. WAZIRI\nDIWANI KATA YA MASAMA RUNDUGAI\nMHE. EMMANUEL M. MGONJA\nDIWANI KATA YA MNADANI\nMHE. EDMUND RUTARAKA\nDIWANI KATA YA MUUNGANO\nMHE. SALIM A. MFOY\nDIWANI KATA YA ROMU\nMHE. SAIMON M. TARIMO\nDIWANI KATA YA WERUWERU\nDiwani wa Viti Maalumu\nMhe. Lightness C. Laizer\nMhe. Upendo Flenda\nMhe. Julitha Mvungi\nMhe. Irene R. Mlay\nMhe. Hilda S. Shuma",
+   "attachments": [
+    {
+     "file_name": "ORODHA YA MADIWANI.xlsx",
+     "url": "http://haidc.go.tz/minio/haidc.go.tz/attachments/1776403589511-ORODHA-YA-MADIWANI.xlsx",
+     "file_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     "file_size": "10408",
+     "sha256": "434822e1b3803eb2b147e746eb9a50c4cebe56f8ccb772ece9066895dc25d43a",
+     "bytes": 10408,
+     "status": "text_extracted",
+     "kind": "xlsx",
+     "text": "Sheet1 | HALMASHAURI YA WILAYA YA HAI INA JUMLA YA KATA 17\nSheet1 | ORODHA IFUATAYO INAONYESHA JINA LA KATA NA DIWANI KATIKA KATA HIYO\nSheet1 | S/N | KATA | JINA LA DIWANI\nSheet1 | 1 | BOMANG'OMBE | MHE. EVOD NJAU\nSheet1 | 2 | BONDENI | MHE. VICENT S MAMASITA\nSheet1 | 3 | KIA | MHE. TEHERA K. MOLLEL\nSheet1 | 4 | MACHAME KASKAZINI | MHE. TRAEL B. MBOYA\nSheet1 | 5 | MACHAME MAGHARIBI | MHE. MARTIN D. MUNISI\nSheet1 | 6 | MACHAME MASHARIKI | MHE. JORDAN C. NGOWI\nSheet1 | 7 | MACHAME NARUMU | MHE. PATRICK P. MUNISHI\nSheet1 | 8 | MACHAME UROKI | MHE. ZAKINA A. MUSHI\nSheet1 | 9 | MASAMA KATI | MHE. KANDATA A. KIMARO\nSheet1 | 10 | MASAMA KUSINI | MHE. CEDRICK B. PANGANI\nSheet1 | 11 | MASAMA MAGHARIBI | MHE. ELIUFOO H. CHRISTOPHER\nSheet1 | 12 | MASAMA MASHARIKI | MHE. JUBLATHE A. NDOSI\nSheet1 | 13 | MASAMA RUNDUGAI | MHE. SIMBANO A. WAZIRI\nSheet1 | 14 | MNADANI | MHE. EMMANUEL M. MGONJA\nSheet1 | 15 | MUUNGANO | MHE. EDMUND RUTARAKA\nSheet1 | 16 | ROMU | MHE. SALIM A. MFOY\nSheet1 | 17 | WERUWERU | SAIMON M. TARIMO\nSheet1 | Diwani wa Viti Maalumu\nSheet1 | Mhe. Lightness C. Laizer\nSheet1 | Mhe. Upendo Flenda\nSheet1 | Mhe. Julitha Mvungi\nSheet1 | Mhe. Irene R. Mlay\nSheet1 | Mhe. Hilda S. Shuma"
+    }
+   ]
+  },
+  {
+   "slug": "permanent-committees",
+   "menu_path": "Councillors > PERMANENT COMMITTEES > Permanent Committees",
+   "title": "Permanent Commitee",
+   "api_url": "https://haidc.go.tz/api/pages/slug/permanent-committees",
+   "public_url": "https://haidc.go.tz/permanent-committees",
+   "createdAt": "2026-03-10T09:14:07.289Z",
+   "updatedAt": "2026-03-19T06:12:23.131Z",
+   "text_en": "STANDING COMMITEES OF THE COUNCIL\nA. Education, Health, and Water Committee\nHon. Simbano A. Waziri – Chairperson\nHon. Edmund E. Rutaraka\nHon. Vicent S. Mamasita\nHon. Zakina A. Mushi\nHon. Jublathe A. Ndossi\nHon. Patrick P. Munishi\nHon. Evod F. Njau\nHon. Hilda S. Shuma\nHon. Saimon M. Tarimo\nHon. Salim A. Mfoy\nB. Economy, Construction, and Environment Committee\nHon. Kandata A. Kimaro – Chairperson\nHon. Edmund E. Rutaraka\nHon. Julitha E. Mvungi\nHon. Jordan C. Ngowi\nHon. Tehera K. Mollel\nHon. Emmanuel M. Mgonja\nHon. Lightness C. Laizer\nHon. Cedrick B. Pangani\nHon. Martin D. Munisi\nHon. Eliufoo H. Christopher\nC. Finance, Administration, and Planning Committee\nHon. Edmund E. Rutaraka – Chairperson\nHon. Trael B. Mboya\nHon. Saashisha E. Mafuwe\nHon. Julitha E. Mvungi\nHon. Irene R. Mlay\nHon. Kandata A. Kimaro\nHon. Jublathe A. Ndosi\nHon. Vicent Mamasita\nHon. Simbano A. Waziri\nHon. Tehera K. Mollel\nD. HIV/AIDS Control Committee\nHon. Trael B. Mboya – Chairperson\nHon. Edmund E. Rutaraka\nHon. Jordan C. Ngowi\nHon. Irene R. Mlay\nHon. Salim A. Mfoy\nHon. Upendo F. Sawe\nE. Ethics Committee\nHon. Vicent S. Mamasita – Chairperson\nHon. Edmund E. Rutaraka\nHon. Hilda S. Shuma\nHon. Patrick P. Munishi\nHon. Saimon M. Tarimo",
+   "text_sw": "KAMATI ZA KUDUMU ZA HALMASHAURI\nA. KAMATI YA ELIMU, AFYA NA MAJI\n1. MHE. SIMBANO A WAZIRI-MWENYEKITI\n2. MHE. EDMUND E RUTARAKA\n3. MHE VICENT S MAMASITA\n4. MHE. ZAKINA A MUSHI\n5. MHE. JUBLATHE A NDOSSI\n6. MHE. PATRICK P MUNISHI\n7. MHE. EVOD F NJAU\n8. MHE HILDA S SHUMA\n9. MHE. SAIMON M TARIMO\n10. MHE. SALIM A MFOY\nB. KAMATI YA UCHUMI, UJENZI NA MAZINGIRA\n1. MHE. KANDATA A KIMARO-MWENYEKITI\n2. MHE. EDMUND E RUTARAKA\n3. MHE. JULTHA E MVUNGI\n4. MHE. JORDAN C. NGOWI\n5. MHE. TEHERA K MOLLEL\n6. MHE. EMMANUEL M MGONJA\n7. MHE. LIGHTNES C LAIZER\n8. MHE. CEDRICK B PANGANI\n9. MHE. MARTIN D. MUNISI\n10. MHE. ELIUFOO H. CHRISTOPHER\nC. KAMATI YA FEDHA, UTAWALA NA MIPANGO\n1. MHE. EDMUND E RUTARAKA-MWENYEKITI\n2. MHE. TRAEL B MBOYA\n3. MHE. SAASHISHA E MAFUWE\n4. MHE. JULITHA E MVUNGI\n5. MHE. IRENE R MLAY\n6. MHE. KANDATA A KIMARO\n7. MHE. JUBLATHE A NDOSI\n8. MHE. VICENT MAMASITA\n9. MHE. SIMBANO A WAZIRI\n10. MHE. TEHERA K MOLLEL\nD. KAMATI YA KUDHIBITI UKIMWI\n1. MHE. TRAEL B MBOYA-MWENYEKITI\n2. MHE. EDMUND E RUTARAKA\n3. MHE, JORDAN C NGOWI\n4. MHE. IRENE R MLAY\n5. MHE. SALIM A MFOY\n6. MHE. UPENDO F SAWE\nE. KAMATI YA MAADILI\n1. MHE. VICENT S MAMASITA- MWENYEKITI\n2. MHE. EDMUND E RUTARAKA\n3. MHE. HILDA S SHUMA\n4. MHE. PATRICK P MUNISH\n5. MHE. SAIMON M TARIMO",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "KANUNI ZA KUDUMU YA HALMASHAURI YA WILAYA YA HAI YA MWAKA 2024).pdf",
+   "date": "2026-03-13T06:25:24.459Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1773383134545-KANUNI%20ZA%20KUDUMU%20YA%20HALMASHAURI%20YA%20WILAYA%20YA%20HAI%20YA%20MWAKA%202024).pdf",
+   "file_type": "application/pdf",
+   "size": "688979"
+  },
+  {
+   "name": "sheria ndogo ada na ushuru.pdf",
+   "date": "2026-03-13T06:24:36.115Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1773383086095-sheria%20ndogo%20ada%20na%20ushuru.pdf",
+   "file_type": "application/pdf",
+   "size": "488673"
+  },
+  {
+   "name": "sheria ya kudhibiti mifugo.pdf",
+   "date": "2026-03-13T06:24:18.715Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1773383068762-sheria%20ya%20kudhibiti%20mifugo.pdf",
+   "file_type": "application/pdf",
+   "size": "250072"
+  },
+  {
+   "name": "sheria ya uhifadhi wa misitu.pdf",
+   "date": "2026-03-13T06:24:08.131Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1773383057478-sheria%20ya%20uhifadhi%20wa%20misitu.pdf",
+   "file_type": "application/pdf",
+   "size": "282292"
+  },
+  {
+   "name": "uhufadhi wa mazingira.pdf",
+   "date": "2026-03-13T06:23:52.939Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1773383042559-uhufadhi%20wa%20mazingira.pdf",
+   "file_type": "application/pdf",
+   "size": "290100"
+  },
+  {
+   "name": "MWONGOZO WA MAVAZI KWA WATUMISHI WA UMMA (BANGO).pdf",
+   "date": "2026-03-06T10:27:04.748Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1772792689645-MWONGOZO%20WA%20MAVAZI%20KWA%20WATUMISHI%20WA%20UMMA%20(BANGO).pdf",
+   "file_type": "application/pdf",
+   "size": "2667171"
+  },
+  {
+   "name": "MWONGOZO WA KUJITOLEA KATIKA UTUMISHI WA UMMA.pdf",
+   "date": "2026-03-06T10:23:36.824Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1772792479916-MWONGOZO%20WA%20KUJITOLEA%20KATIKA%20UTUMISHI%20WA%20UMMA.pdf",
+   "file_type": "application/pdf",
+   "size": "396128"
+  },
+  {
+   "name": "MWONGOZO WA KUDHIBITI UKIMWI.pdf",
+   "date": "2026-03-06T10:23:12.338Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1772792455597-MWONGOZO%20WA%20KUDHIBITI%20UKIMWI.pdf",
+   "file_type": "application/pdf",
+   "size": "921094"
+  },
+  {
+   "name": "Strategic Planning",
+   "date": "2026-03-04T11:18:44.468Z",
+   "url": "http://haidc.go.tz/minio/haidc.go.tz/files/1772622989642-Hai_DC_SP_26_Submitted.doc",
+   "file_type": "application/msword",
+   "size": "1444864"
+  }
+ ],
+ "news": [
+  {
+   "id": 9208,
+   "title": "Elimu ya watu wazima yatajwa kuwa nyenzo ya kujikwamua kiuchumi",
+   "date": "2026-09-07",
+   "category": "Elimu",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1623,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9207,
+   "title": "DED Hai awataka watumishi kufanya kazi kwa weledi",
+   "date": "2026-09-08",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 832,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9032,
+   "title": "Kilosa yajifunza mfumo wa mawakala wa ukusanyaji wa mapato kutoka Hai",
+   "date": "2026-09-04",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2769,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8787,
+   "title": "Mkuu wa wilaya ya Hai Hassan Bomboko aridhishwa na ujenzi wa miradi",
+   "date": "2026-09-01",
+   "category": "Miundombinu",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1674,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8786,
+   "title": "Bomboko atoa rai kwa wananchi kuchukua tahadhari ya mvua za Eln Nino",
+   "date": "2026-09-01",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1787,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8594,
+   "title": "Wazazi watakiwa kutoa ushirikiano kwa wataam wa afya ili kufanikisha zoezi la chanjo ya polio",
+   "date": "2026-08-26",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2018,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8592,
+   "title": "MKUU WA MKOA AHIMIZA ASIACHWE MTOTO KWENYE ZOEZI LA CHANJO YA POLIO",
+   "date": "2026-08-26",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1362,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8465,
+   "title": "Wazazi na walezi wameshauriwa na wataalamu wa afya ili kuhakikisha watoto wanapata chanjo ya polio",
+   "date": "2026-08-24",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1534,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8463,
+   "title": "kampeni kuanza tarehe 27 Agost Wilayani Hai",
+   "date": "2026-08-24",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1159,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8460,
+   "title": "Mkuu wa wilaya ya Hai Hassan Bomboko awataka watendaji kuhamasisha chanjo ya polio,watoto 63,270 kuchanjwa",
+   "date": "2026-08-23",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1746,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event",
+    "officials_training",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8381,
+   "title": "Wazazi watakiwa kuwahakikiaha watoto chini ya miaka kumi wanapata chanjo ya polio",
+   "date": "2026-08-21",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1319,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8107,
+   "title": "Katibu Tawala wilaya ya Hai aitaka timu ya Halmashauri kuwa na nidhami SHIMISEMITA",
+   "date": "2026-08-14",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1064,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8105,
+   "title": "Halmashauri ya Hai yatoa mkopo wa zaidi ya shilingi milioni 900",
+   "date": "2026-08-14",
+   "category": "Uchumi",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1300,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8097,
+   "title": "Vijana watakiwa kulinda amani",
+   "date": "2026-08-13",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2642,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7870,
+   "title": "Madiwani Hai kuhamasisha kilimo cha kisasa",
+   "date": "2026-08-07",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1350,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7867,
+   "title": "Maafisa Kilimo kuanzisha shamba darasa kila kijiji",
+   "date": "2026-08-06",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 895,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7409,
+   "title": "Wadau watakiwa kutangaza utalii vivutio vya utalii",
+   "date": "2026-08-02",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1998,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7405,
+   "title": "Wafugaji watakiwa kufuga kisasa",
+   "date": "2026-08-02",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3280,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7044,
+   "title": "Vijana washauriwa kutambua nafasi zao katika kuchangia maendeleo ya taifa",
+   "date": "2026-07-27",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1642,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6993,
+   "title": "Tumieni fursa kutokana na mirad inayojengwa-Saashisha",
+   "date": "2026-07-24",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1394,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6992,
+   "title": "zaid ya wanachi 200 wapata mfunzo ya ujasiriamali",
+   "date": "2026-07-23",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2366,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6991,
+   "title": "Wazazi watakiwa kuzingatia lishe bora",
+   "date": "2026-07-21",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1973,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6990,
+   "title": "Wananchi Kata ya Muungano kunufaika na fursa ya mafunzo ya ujasiriamali",
+   "date": "2026-07-20",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1886,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6989,
+   "title": "Watoa huduma za usafiri wametakiwa kuzingatia haki ya wasafiri",
+   "date": "2026-07-17",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1931,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6987,
+   "title": "wananchi kijiji cha Mungushi wachangia familia iliyo unguliwa na nyumba",
+   "date": "2026-07-14",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1794,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6985,
+   "title": "Wananchi watakiwa kuunga mkono juhudi za serikali",
+   "date": "2026-07-13",
+   "category": "Elimu",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1719,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6983,
+   "title": "Viongozi wa vijiji watakiwa kuwatambua watoa huduma za tiba asili",
+   "date": "2026-07-10",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1334,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6241,
+   "title": "Hai yapata hati safi,Mkuu wa Mkoa awapongeza",
+   "date": "2026-07-08",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1802,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6100,
+   "title": "Mwang'onda awataka wananchi kuendelea kushirikiana na serikali",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2094,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6099,
+   "title": "Kiwanda cha vifungashio chenye thamani ya shilingi bilioni 13.9 kinajengwa wilaya ya Hai,kutoa ajira kwa wananchi 300",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1610,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6096,
+   "title": "Mradi wa maji wenye garama za shilingi 997,100,000 wazinduliwa",
+   "date": "2026-07-03",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 984,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6094,
+   "title": "Serikali kuendelea kutekeleza miradi ya maendeleo-Wazo Mwang'onda",
+   "date": "2026-07-03",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1297,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6093,
+   "title": "Shule ya sekondari Kwamkombozi yazinduliwa na kiongozi wa mbio za Mwenge wa Uhuru2026",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1386,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5903,
+   "title": "Wananchi washauriwa kula mlo kamili",
+   "date": "2026-06-30",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1869,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5901,
+   "title": "Wananchi waombwa kujitokeza kuupokea Mwenge wa Uhuru Julai 3,2026",
+   "date": "2026-06-30",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1340,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5839,
+   "title": "Mkuu wa wilaya ya Hai awaomba wananchi kujitokeza kuupokea Mwenge wa Uhuru",
+   "date": "2026-06-27",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1766,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5837,
+   "title": "Wananchi Watakiwa kufanya mazoezi kuelekea Mwenge wa Uhuru 2026",
+   "date": "2026-06-27",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1548,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5767,
+   "title": "Watumishi Hai wapewa mafunzo ya PEPMIS",
+   "date": "2026-06-25",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1714,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5766,
+   "title": "Rais Dkt Samia Suluhu Hassan azindua jengo la mionzi,awapongeza wadau",
+   "date": "2026-06-24",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 751,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5765,
+   "title": "Rais Dkt Samia Suluhu Hassan kuzindua jengo la mionzi tiba KCMC",
+   "date": "2026-06-23",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1117,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5323,
+   "title": "Fedha za ujenzi wa Kituo cha Afya Narumu,Mawasiliano ya TAMISEMI na wizara ya Afya yanaendelea",
+   "date": "2026-06-17",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1301,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5233,
+   "title": "Barabara ya Bomang'ombe,Cheki maji - TPC kuendelea kujengwa kwa kiwango cha lami",
+   "date": "2026-06-16",
+   "category": "Miundombinu",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 729,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5129,
+   "title": "Mikopo inayotolewa na Halmashauri inalenga kuwainua wananchi",
+   "date": "2026-06-13",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1224,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5127,
+   "title": "Wananchi watakiwa kujitokeza kuomba mikopo ya asilimia kumi ya mapato ya ndani",
+   "date": "2026-06-13",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1779,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5118,
+   "title": "Serikali yatatua mgogoro wa ardhi uliodumu kwa miaka 23,wananchi washukuru",
+   "date": "2026-06-11",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1914,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4202,
+   "title": "Wafugaji watakiwa kufuata kanuni za ufugaji",
+   "date": "2026-05-22",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1081,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4189,
+   "title": "Wananchi Bomang'ombe washukuru kwa mafunzo ya ujasiriamali",
+   "date": "2026-05-22",
+   "category": "Uchumi",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2356,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4152,
+   "title": "Ukitupa taka ovyo Sadala faini 30,000",
+   "date": "2026-05-20",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2395,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4140,
+   "title": "Serikali kufanya tathmini ya wanaotoa elimu ya afya bila vibali",
+   "date": "2026-05-20",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1570,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3954,
+   "title": "Hai yafanya vizuri katika ukusanyaji wa mapato",
+   "date": "2026-05-15",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1024,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3842,
+   "title": "Bodaboda watakiwa kutobadilisha milio na taa ya pikipiki",
+   "date": "2026-05-15",
+   "category": "Miundombinu",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 928,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3796,
+   "title": "Madiwani waridhishwa na utekelezaji wa miradi",
+   "date": "2026-05-13",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2203,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3792,
+   "title": "Waalimu wa michezo watakiwa kukuza michezo",
+   "date": "2026-05-12",
+   "category": "Elimu",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1431,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2765,
+   "title": "Mkuu wa Wilaya ya Hai Hassan Bomboko awataka wakandarasi kukamilisha kazi kwa wakati",
+   "date": "2026-04-22",
+   "category": "Miundombinu",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2509,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2751,
+   "title": "KCEO yapanda miti 1000 shule 6 wilayani Hai",
+   "date": "2026-04-22",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 3280,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2746,
+   "title": "Hai watakiwa kushiriki ujenzi wa miradi kuchochea maendeleo",
+   "date": "2026-04-22",
+   "category": "Elimu",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1576,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2336,
+   "title": "Vyama vya Ushirika Wilayani Hai vyatakiwa kuwekeza kwa tija",
+   "date": "2026-04-13",
+   "category": "Uchumi",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1537,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2030,
+   "title": "Mkuu wa wilaya ya Hai awataka wananchi kuchukua tahadhari kutokana na mvua zinaendelea kunyesha",
+   "date": "2026-03-28",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2551,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1724,
+   "title": "Bodi za maji wilayani Hai zaagizwa kutunza vyanzo maji",
+   "date": "2026-03-19",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2331,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1609,
+   "title": "Jamii yatakiwa kujikinga na magonjwa ya kinywa na meno",
+   "date": "2026-03-18",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1435,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1603,
+   "title": "Wanafunzi washauriwa kutunza Mazingira",
+   "date": "2026-03-17",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1502,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1180,
+   "title": "Wajasiriamali watakiwa kutumia fursa ya mikopo inayotolewa na serikali",
+   "date": "2026-03-13",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2330,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1176,
+   "title": "Serikali yawashukuru wadau kwa ujenzi wa miradi ya maendeleo.",
+   "date": "2026-03-13",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2358,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1120,
+   "title": "Milioni 163 zaleta matumaini kwa wazazi wanaojifungua watoto njiti katika hospitali ya Hai",
+   "date": "2026-03-12",
+   "category": "Afya",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1682,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1117,
+   "title": "CCM Wilaya ya Hai yaipongeza Serikali",
+   "date": "2026-03-12",
+   "category": "Habari",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1488,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1083,
+   "title": "Maadhimisho ya Siku ya Wanawake Duniani Mkoa wa Kilimanjaro yafanyika Wilaya ya Hai",
+   "date": "2026-03-10",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 400,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 980,
+   "title": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu ahimiza usawa",
+   "date": "2026-03-10",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1588,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 797,
+   "title": "Mkuu wa Wilaya ya Hai Hassan Bomboko Kuendelea Kusikilza Kero za wanchi Tarafa kwa Tarafa",
+   "date": "2026-03-06",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2416,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 710,
+   "title": "Mhe. HASSAN BOMBOKO AWAPONGEZA WALIMU",
+   "date": "2026-03-04",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1697,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 709,
+   "title": "Mratibu wa maadhimisho ya siku ya wanawake Hai awakaribisha wananchi kushiriki kikamilifu",
+   "date": "2026-03-04",
+   "category": "Matukio",
+   "listing_url": "https://haidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1096,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 769,
+   "title": "Mafunzo kwa vikundi vinavyotarajia kuomba mkopo",
+   "date": "2026-07-23",
+   "category": "Huduma",
+   "listing_url": "https://haidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 95,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA MKOPO AWAMU YA 1, 20262027.pdf"
+   ]
+  },
+  {
+   "id": 604,
+   "title": "Kuitwa kwenye usaili",
+   "date": "2026-06-10",
+   "category": "Ajira",
+   "listing_url": "https://haidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 141,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA USAILI-HAI.pdf"
+   ]
+  },
+  {
+   "id": 435,
+   "title": "Maadhimisho ya siku ya misitu kuhadhimishwa wilaya ya Hai",
+   "date": "2026-03-30",
+   "category": "Taarifa",
+   "listing_url": "https://haidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 239,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": [
+    "tangazo misitu.pdf"
+   ]
+  },
+  {
+   "id": 342,
+   "title": "Tangazo la Mikopo kwa vikundi vya Hai",
+   "date": "2026-03-16",
+   "category": "Huduma",
+   "listing_url": "https://haidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 161,
+   "convening_tags": [],
+   "attachments": [
+    "Tangazo la mikopo -Hai.pdf"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://haidc.go.tz/api/profiles": "7b4f4150aba2f93b7d9df3d40460a029b6fb066fc185e463aadcbc2293773ae1",
+  "https://haidc.go.tz/api/statistics": "c76591a77d943387873d7b9e43c275e4389bbeb9abe410babdceeb045dc92287",
+  "https://haidc.go.tz/api/footer": "aa5a28c461eb61c89f81c9aa697dae1847ab32f6d24f327187da616ef34bb9f5",
+  "https://haidc.go.tz/api/menus": "75b0d49fe68c08f5e9f9acd415ac6e9a32baf294f8f9903d0025cb1c43b16172",
+  "https://haidc.go.tz/api/pages/slug/our-history": "e68ef0cb1b57be485fd10b55ad00934e148bcc00c668b1b589b1c2ee4593b40c",
+  "https://haidc.go.tz/api/pages/slug/vision-and-mission": "1086348872911c9d889dd1962a13cb072a316e7246259169bf622a57bd6130c3",
+  "https://haidc.go.tz/api/pages/slug/core-values": "1d319bb7ed2d8a04c40274fb852110472e2fe314480268acb102f8bb82f4059e",
+  "https://haidc.go.tz/api/pages/slug/administration-and-human-resource-management": "1a535d0a81a67c52a99f5da7a2c4d2517b6eb2bdedddecb21868e4b8114c9b80",
+  "https://haidc.go.tz/api/pages/slug/pre-primary-and-primary-education": "4951bc1b57a055772b845a4570993106d86b126afa7750736b8319154c822552",
+  "https://haidc.go.tz/api/pages/slug/secondary-education": "4898cbf38bd8d5d90e7b255c2ee32f8d2c6689c9bbbddc92bb86553c2260dc29",
+  "https://haidc.go.tz/api/pages/slug/community-development": "363807ae19629e7a7dcc55ea39eb13e44d54b043413fcad798923174838786bc",
+  "https://haidc.go.tz/api/pages/slug/health-social-welfare-and-nutrition": "5b5ae83935868eacfccfb9781174256db521e2dc7f9980d57f5b6a67b4f8d022",
+  "https://haidc.go.tz/api/pages/slug/infrastructure-and-rural-and-urban-development": "79a240a1de631080337d6480ec31a1e34c731fff1e1ec5b80116a56824ebe40e",
+  "https://haidc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries": "146e5cbf027c170b8a44497933c1316a291febef25c70e0c7156777c019a691b",
+  "https://haidc.go.tz/api/pages/slug/planning-and-coordination": "c6e826b897795008e49c5a73b8296d811de7bb92d4159c63e9cbe636bf14649d",
+  "https://haidc.go.tz/api/pages/slug/industry-trade-and-investment": "ace3a792ecb46da6d074e227fa8c0621b0a529a7905406bc99ce2ccce8600f3b",
+  "https://haidc.go.tz/api/pages/slug/organization-structure": "d980fab7fcc3a99076c46feeb38e41a0831992a6d65df228358736c3572a3cbb",
+  "https://haidc.go.tz/api/pages/slug/list-of-concilors": "942f243e40ec1cff5eea03ced550425c18db7a2b466de6c0598152ca2f12b344",
+  "https://haidc.go.tz/api/pages/slug/permanent-committees": "02209a46b90b6345684d0236e36cfcd8994459bfcabd68183b4d1ba7c4b53f48",
+  "https://haidc.go.tz/api/files?page=1&limit=100": "1383777648f46df8c01a6762073864b9e8ea16f7aeb7b130ab265b91155be4f1",
+  "https://haidc.go.tz/api/news?page=1&limit=50": "1ea50af9124cf3986e42c258a7b819fb6c64eb4d2b580c3ebf70e0231f4e731e",
+  "https://haidc.go.tz/api/news?page=2&limit=50": "a2d9dca574ab8059bd9fe20c5284d3b2f07a9c10e380f2729be19f7c96e2e46b",
+  "https://haidc.go.tz/api/announcements?page=1&limit=50": "37817e8a1329ed96c32d603911eada4390819ad63fe1491200fe4bcc0b96155d"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

@@ -1,0 +1,4889 @@
+{
+ "host": "arusha.go.tz",
+ "organisation": "Arusha Regional Secretariat",
+ "retrieved": "2026-09-23",
+ "base_url": "https://arusha.go.tz",
+ "profiles": [
+  {
+   "id": 199,
+   "name": "Mhe. CPA AMOS GABRIEL MAKALLA",
+   "title": "Regional Commissioner",
+   "titleSwahili": "Mkuu wa Mkoa wa Arusha",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-02T13:08:25.399Z",
+   "updatedAt": "2026-03-12T15:32:47.437Z"
+  },
+  {
+   "id": 234,
+   "name": "Dkt Toba Alnason Nguvila",
+   "title": "Regional Administrative Secretary",
+   "titleSwahili": "Katibu Tawala Mkoa",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-03T06:06:12.552Z",
+   "updatedAt": "2026-03-09T12:53:15.666Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Idadi ya Anwani za Makazi",
+   "value": 485483,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Watu Mkoa wa Arusha kwa Mujibu wa Sensa ya watu na Makazi 2022",
+   "value": 2356255,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Tarafa",
+   "value": 23,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Kata",
+   "value": 158,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Mitaa",
+   "value": 154,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Vijiji",
+   "value": 393,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Vitongoji",
+   "value": 1471,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Shule za Msingi",
+   "value": 833,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Shule za Sekondari",
+   "value": 269,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Hospitali",
+   "value": 43,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Vituo vya Afya",
+   "value": 76,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Zahanati",
+   "value": 310,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Wabunge",
+   "value": 10,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Madiwani",
+   "value": 215,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Arusha Region Secretariat",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "core-values",
+     "title": "Core Values",
+     "swTitle": "Maadili ya msingi"
+    },
+    {
+     "url": "",
+     "title": "",
+     "swTitle": ""
+    },
+    {
+     "url": "",
+     "title": "",
+     "swTitle": ""
+    },
+    {
+     "url": "",
+     "title": "",
+     "swTitle": ""
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "",
+     "title": "Complains Resolution",
+     "swTitle": "Kusikiliza na Kutatua malalamiko"
+    },
+    {
+     "url": "",
+     "title": "Security and Safety",
+     "swTitle": "Ulinzi na Usalama"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://www.tamisemi.go.tz/",
+     "title": "Prime Minister's Office Regional Secretariat and Local Government ",
+     "swTitle": "Ofisi ya Waziri Mkuu Tawala za Mikoa na Serikali za Mitaa"
+    },
+    {
+     "url": "https://necta.go.tz/",
+     "title": "National Examination Coucil of Tanzania",
+     "swTitle": "Baraza la Mitihani la Taifa"
+    },
+    {
+     "url": "https://www.mawasiliano.go.tz/",
+     "title": "Ministry of Communications and Information Technology",
+     "swTitle": "Wizara ya Mawasiliano na Teknolojia ya Habari"
+    },
+    {
+     "url": "https://www.tanzaniaparks.go.tz/",
+     "title": "Tanzania National Parks",
+     "swTitle": "Hifadhi za Taifa za Tanzania"
+    },
+    {
+     "url": "https://www.ega.go.tz/",
+     "title": "eGovernment of Tanzania",
+     "swTitle": "Mamlaka ya Serikali Mtandao"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d9314.497035528304!2d36.689972083830845!3d-3.374443840175801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sramani%20ya%20arusha!5e0!3m2!1ssw!2stz!4v1773222998381!5m2!1ssw!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.36961,
+   "lng": 36.693711,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About us > Core Values > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "Arusha Investment Guideline",
+   "title": "Arusha Investment Guideline",
+   "title_sw": "Mwongozo wa Uwekezaji Arusha",
+   "slug": "investiment-guideline"
+  },
+  {
+   "path": "Administration > Sections > Administration and Human Resource",
+   "title": "Administration and Human Resource",
+   "title_sw": "Utawala na Usimamizi wa Rasilimali Watu",
+   "slug": "administration-and-human-resource"
+  },
+  {
+   "path": "Administration > Sections > Planning and Cordination",
+   "title": "Planning and Cordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-cordination"
+  },
+  {
+   "path": "Administration > Sections > Economic and Production Section",
+   "title": "Economic and Production Section",
+   "title_sw": "Uchumi na Uzalishaji",
+   "slug": "economic-production"
+  },
+  {
+   "path": "Administration > Sections > Miundominu",
+   "title": "Miundominu",
+   "title_sw": "Sehemu ya Miundombinu",
+   "slug": "infrastructure-and-technical-services-section-infrastructure-technical-services"
+  },
+  {
+   "path": "Administration > Sections > Monitoring, Management and Inspection Section",
+   "title": "Monitoring, Management and Inspection Section",
+   "title_sw": "Sehemu ya Usimamizi, Utawala na Ukaguzi",
+   "slug": "management-monitoring-and-inspection-section"
+  },
+  {
+   "path": "Administration > Sections > Healthy, Social Welfare and Nutrition",
+   "title": "Healthy, Social Welfare and Nutrition",
+   "title_sw": "Sehemu ya Afya, Ustawi wa Jamii na Lishe",
+   "slug": "healthy"
+  },
+  {
+   "path": "Administration > Sections > Section of Education and Vocational Training",
+   "title": "Section of Education and Vocational Training",
+   "title_sw": "Sehemu ya Elimu na Mafunzo ya Ufundi Stadi",
+   "slug": "section-of-education-and-vocational-training"
+  },
+  {
+   "path": "Administration > Sections > Industry, Trade and Investment Section",
+   "title": "Industry, Trade and Investment Section",
+   "title_sw": "Sehemu ya Viwanda, Biashara na Uwekezaji",
+   "slug": "industrial-and-trade-section"
+  },
+  {
+   "path": "Administration > Units > Finance and Accounts Unit",
+   "title": "Finance and Accounts Unit",
+   "title_sw": "Kitengo cha Fedha",
+   "slug": "finance-and-accounts-unit"
+  },
+  {
+   "path": "Administration > Units > Legal Unit",
+   "title": "Legal Unit",
+   "title_sw": "Kitengo cha Sheria",
+   "slug": "legal-unit-kitengo-cha-sheria"
+  },
+  {
+   "path": "Administration > Units > Internal Audit Unit",
+   "title": "Internal Audit Unit",
+   "title_sw": "Kitengo cha Ukaguzi wa Ndani",
+   "slug": "internal-audit-unit"
+  },
+  {
+   "path": "Administration > Units > Information and Communication Unit",
+   "title": "Information and Communication Unit",
+   "title_sw": "Kitengo cha TEHAMA",
+   "slug": "information-and-communication-unit"
+  },
+  {
+   "path": "Administration > Units > Monitoring and Evaluation Unit (M&E)",
+   "title": "Monitoring and Evaluation Unit (M&E)",
+   "title_sw": "Kitengo cha Usimamizi na Ufuatiliaji",
+   "slug": "monitoring-and-evaluation-unit"
+  },
+  {
+   "path": "Administration > Units > Procurement Management Unit",
+   "title": "Procurement Management Unit",
+   "title_sw": "Kitengo cha Manunuzi",
+   "slug": "procurement-management-unit"
+  },
+  {
+   "path": "Administration > Units > Community Development",
+   "title": "Community Development",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development-unit"
+  },
+  {
+   "path": "Administration > Units > Government Communication Unit",
+   "title": "Government Communication Unit",
+   "title_sw": "Kitengo cha Mawasiliano Serikalini",
+   "slug": "government-communication-unit"
+  },
+  {
+   "path": "Administration > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Investment Opportunities > Investment Opportunities > Investment Opportunities",
+   "title": "Investment Opportunities",
+   "title_sw": "Fursa za Uwekezaji",
+   "slug": "investments-opportunities"
+  },
+  {
+   "path": "Districts > Arusha City District > Arusha City District",
+   "title": "Arusha City District",
+   "title_sw": "Wilaya ya Jiji la Arusha",
+   "slug": "arusha-city-district"
+  },
+  {
+   "path": "Districts > Arumeru District",
+   "title": "Arumeru District",
+   "title_sw": "Wilaya ya Arumeru",
+   "slug": "arumeru-district"
+  },
+  {
+   "path": "Districts > Arumeru District > Arumeru District",
+   "title": "Arumeru District",
+   "title_sw": "Wilaya ya Arumeru",
+   "slug": "arumeru-district"
+  },
+  {
+   "path": "Districts > Longido District",
+   "title": "Longido District",
+   "title_sw": "Wilaya ya Longido",
+   "slug": "longido-district"
+  },
+  {
+   "path": "Districts > Longido District > Longido District",
+   "title": "Longido District",
+   "title_sw": "Wilaya ya Longido",
+   "slug": "longido-district"
+  },
+  {
+   "path": "Districts > Monduli District",
+   "title": "Monduli District",
+   "title_sw": "Wilaya ya Monduli",
+   "slug": "monduli-district"
+  },
+  {
+   "path": "Districts > Monduli District > Monduli District",
+   "title": "Monduli District",
+   "title_sw": "Wilaya ya Monduli",
+   "slug": "monduli-district"
+  },
+  {
+   "path": "Districts > Karatu District",
+   "title": "Karatu District",
+   "title_sw": "Wilaya ya Karatu",
+   "slug": "karatu-district"
+  },
+  {
+   "path": "Districts > Karatu District > Karatu District",
+   "title": "Karatu District",
+   "title_sw": "Wilaya ya Karatu",
+   "slug": "karatu-district"
+  },
+  {
+   "path": "Districts > Ngorongoro District",
+   "title": "Ngorongoro District",
+   "title_sw": "Wilaya ya Ngorongoro",
+   "slug": "ngorongoro-district"
+  },
+  {
+   "path": "Districts > Ngorongoro District > Ngorongoro District",
+   "title": "Ngorongoro District",
+   "title_sw": "Wilaya ya Ngorongoro",
+   "slug": "ngorongoro-district"
+  },
+  {
+   "path": "Councils",
+   "title": "Councils",
+   "title_sw": "Halmashauri",
+   "slug": "region-districts"
+  },
+  {
+   "path": "Councils > Arusha City Council",
+   "title": "Arusha City Council",
+   "title_sw": "Halmashauri ya Jiji la Arusha",
+   "slug": "city-council"
+  },
+  {
+   "path": "Councils > Arusha City Council > Arusha City Council",
+   "title": "Arusha City Council",
+   "title_sw": "Halmashauri ya Jiji la Arusha",
+   "slug": "city-council"
+  },
+  {
+   "path": "Councils > Meru DC > Meru DC",
+   "title": "Meru DC",
+   "title_sw": "Halmashauri ya Meru",
+   "slug": "meru-district-council"
+  },
+  {
+   "path": "Councils > Monduli DC",
+   "title": "Monduli DC",
+   "title_sw": "Halmashauri ya Monduli",
+   "slug": "monduli-district-council"
+  },
+  {
+   "path": "Councils > Monduli DC > Monduli DC",
+   "title": "Monduli DC",
+   "title_sw": "Halmashauri ya Monduli",
+   "slug": "monduli-district-council"
+  },
+  {
+   "path": "Councils > Ngorongoro DC",
+   "title": "Ngorongoro DC",
+   "title_sw": "Halmashauri ya Ngorongoro",
+   "slug": "ngorngoro-district-council"
+  },
+  {
+   "path": "Councils > Ngorongoro DC > Ngorongoro DC",
+   "title": "Ngorongoro DC",
+   "title_sw": "Halmashauri ya Ngorongoro",
+   "slug": "ngorngoro-district-council"
+  },
+  {
+   "path": "Councils > Longido DC",
+   "title": "Longido DC",
+   "title_sw": "Halmashauri ya Longido",
+   "slug": "longido-district-council"
+  },
+  {
+   "path": "Councils > Longido DC > Longido DC",
+   "title": "Longido DC",
+   "title_sw": "Halmashauri ya Longido",
+   "slug": "longido-district-council"
+  },
+  {
+   "path": "Councils > Arusha DC > Arusha DC",
+   "title": "Arusha DC",
+   "title_sw": "Halmashauri ya Arusha",
+   "slug": "arusha-district-council"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "mission-and-vision",
+   "menu_path": "About us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "api_url": "https://arusha.go.tz/api/pages/slug/mission-and-vision",
+   "public_url": "https://arusha.go.tz/mission-and-vision",
+   "createdAt": "2026-03-09T10:17:48.006Z",
+   "updatedAt": "2026-03-09T10:17:48.006Z",
+   "text_en": "VISION :\nAll LGAS in Arusha Region well managed for sustainable development aimed at poverty reduction and promotion of economic growth.\nMISSION\nThe Regional Secretarial shall strive to offer quality timely and sustainable services to its customers and provide a strong link between central Government, LGAS and other stakeholders while promoting the policy of Decentralization by Devolution.",
+   "text_sw": "MAONO:\nMitaa yote ya Manispaa na Halmashauri (LGAs) katika Mkoa wa Arusha iendeshwe vizuri kwa maendeleo endelevu yanayolenga kupunguza umaskini na kukuza ukuaji wa uchumi.\nDHIMA\nOfisi ya Mkoa itajitahidi kutoa huduma bora, kwa wakati na endelevu kwa wateja wake na kutoa kiunganishi imara kati ya Serikali Kuu, Mitaa na Halmashauri (LGAs) na wadau wengine huku ikikuza sera ya Utawala wa Kati kwa Uwezo wa Mitaa.",
+   "attachments": []
+  },
+  {
+   "slug": "our-history",
+   "menu_path": "About us > Our History > Our History",
+   "title": "Our History",
+   "api_url": "https://arusha.go.tz/api/pages/slug/our-history",
+   "public_url": "https://arusha.go.tz/our-history",
+   "createdAt": "2026-03-09T10:05:37.780Z",
+   "updatedAt": "2026-03-12T11:17:48.377Z",
+   "text_en": "Arusha Region is among 26 Regions in Tanzania and officially it was established in 1963 as an administrative Region in Tanzania.\nBefore 1963, the Arusha area was part of the Northern Province during the colonial period and early independence, after administrative adjustments of the Government, with its Headquarters in Arusha City.\nIn 1967, the First President of the United Republic of Tanzania, Mwl. Julius Kambarage Nyerere, declared the Ujamaa and Self-Reliance Policy through the Arusha Declaration, an event that made Arusha an important part of the nation's history and the Headquarters of the Arusha Declaration.\nArusha Region is located between Latitude 2.5 to 4.0 South and Longitude 35.5 to 37.8 East, covering an area of approximately 37,576 square kilometers, with much of the area being plains, mountains, and wildlife conservation areas.\nFurthermore, the Arusha Region has 6 Districts: Arusha, Arumeru, Monduli, Karatu, Longido, and Ngorongoro, and 7 Councils: Arusha City, Arusha, Meru, Monduli, Karatu, Longido, and Ngorongoro, along with 7 Electoral Constituencies. The Arusha Region has a total of 23 Divisions, 158 Wards, 154 Streets, 393 Villages, and 1,471 Hamlets, with the residents of the region being mainly from the Meru, Arusha (who are related to the Maasai community), and Maasai ethnic groups.\nThe economic activities of the inhabitants of the Arusha Region include livestock keeping, farming, tourism, large and small industries, trade, and entrepreneurship.\n﻿The Arusha Region has also been a hub of Diplomacy and Regional Cooperation. For example, the headquarters of the East African Community is in Arusha, and it also hosted the International Criminal Tribunal for Rwanda, which operated in Arusha after the Rwandan Genocide.\n﻿The Arusha Region is a major tourism center (close to Serengeti National Park and Ngorongoro Conservation Area) and a hub for international conferences in East Africa.",
+   "text_sw": "Mkoa wa Arusha ni kati ya Mikoa 26 Nchini Tanzania na rasmi Mkoa huu ulianzishwa mwaka 1963 kama Mkoa wa utawala nchini Tanzania.\nKabla ya mwaka 1963, eneo la Arusha lilikuwa sehemu ya Mkoa wa Kaskazini wakati wa enzi ya ukoloni na mwanzo wa uhuru, baada ya marekebisho ya kiutawala ya Serikali, na Makao Makuu yake yakiwa katika Jiji la Arusha.\nMwaka 1967, Rais wa Kwanza wa Jamhuri ya Muungano wa Tanzania, Mwl. Julius Kambarage Nyerere, alitangaza Sera ya Ujamaa na Kujitegemea kupitia Tamko la Arusha, tukio lililofanya Arusha kuwa sehemu muhimu ya historia ya taifa na Makao Makuu ya Tamko la Arusha.\nMkoa wa Arusha upo kati ya Latitudo 2.5 hadi 4.0 Kusini na Longitudo 35.5 hadi 37.8 Mashariki, ukiwa na eneo la takriban kilomita za mraba 37,576, ambapo sehemu kubwa ya eneo hilo ni misitu, milima, na maeneo ya uhifadhi wa wanyamapori.\nZaidi ya hayo, Mkoa wa Arusha una Wilaya 6: Arusha, Arumeru, Monduli, Karatu, Longido, na Ngorongoro, na Halmashauri 7: Jiji la Arusha, Arusha, Meru, Monduli, Karatu, Longido, na Ngorongoro, pamoja na Viti vya Uchaguzi 7. Mkoa wa Arusha una Jumla ya Mikoa 23, Kata 158, Mitaa 154, Vijiji 393, na Vitongoji 1,471, huku wakazi wa mkoa huo wakitokana hasa na makundi ya kabila la Meru, Arusha (ambayo ina uhusiano na jamii ya Maasai), na Maasai. Shughuli za kiuchumi za wakazi wa Mkoa wa Arusha ni pamoja na ufugaji wa mifugo, kilimo, utalii, viwanda vikubwa na vidogo, biashara, na ujasiriamali. Mkoa wa Arusha pia umekuwa kitovu cha Diplomasi na Ushirikiano wa Kanda. Kwa mfano, makao makuu ya Jumuiya ya Afrika Mashariki yapo Arusha, na pia ulikaribisha Mahakama ya Kimataifa ya Uhalifu ya Rwanda, iliyofanya kazi huko Arusha baada ya Mauaji ya Kimbari ya Rwanda.\n﻿ Mkoa wa Arusha ni kituo kikuu cha utalii (karibu na Hifadhi ya Taifa ya Serengeti na Eneo la Hifadhi la Ngorongoro) na kitovu cha mikutano ya kimataifa katika Afrika Mashariki",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About us > Core Values > Core Values",
+   "title": "Core Values",
+   "api_url": "https://arusha.go.tz/api/pages/slug/core-values",
+   "public_url": "https://arusha.go.tz/core-values",
+   "createdAt": "2026-03-09T10:22:17.985Z",
+   "updatedAt": "2026-03-09T10:22:17.985Z",
+   "text_en": "Core values - Important and enduring matters in the Arusha Regional Secretariat which are guided by rules, procedures, and laws in their daily work practices are as follows:\nTransparency\nQuality\nInnovation\nCustomer focus\nAccountability\nResponsiveness\nIntegrity\nCompetence\nEquity\nDirect responsibility",
+   "text_sw": "Maadili ya msingi - Mambo muhimu na ya kudumu katika Sekretarieti ya Mkoa wa Arusha ambayo inaongozwa na kanuni, Taratibu na Sheria katika utendaji wake wa kazi wa kila siku ni kama ifuatavyo:\nUwazi\nUbora\nUvumbuzi\nMtazamo wa mteja\nUwajibikaji\nUsikivu\nMaadili\nUstadi\nUsawa\nUajibikaji wa moja kwa moja",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-and-technical-services-section-infrastructure-technical-services",
+   "menu_path": "Administration > Sections > Miundominu",
+   "title": "Infrastructure and Technical Services Section (Infrastructure & Technical Services)",
+   "api_url": "https://arusha.go.tz/api/pages/slug/infrastructure-and-technical-services-section-infrastructure-technical-services",
+   "public_url": "https://arusha.go.tz/infrastructure-and-technical-services-section-infrastructure-technical-services",
+   "createdAt": "2026-03-12T07:05:20.737Z",
+   "updatedAt": "2026-03-12T09:34:45.656Z",
+   "text_en": "Duties of Infrastructure and Technical Services Section (Infrastructure & Technical Services)\n· Management of regional infrastructure development such as Roads, Water, Public Buildings, and Energy\n· Monitoring the quality of construction projects in the Council.\n· Coordinating engineers and technical experts in the Region.\n· Providing advice on the design and implementation of infrastructure projects.\n· Monitoring the proper use of funds for construction projects.",
+   "text_sw": "Majukumu ya Seksheni ya Miundombinu na Huduma za Kiufundi :-\n· Kusimamia maendeleo ya miundombinu ya Mkoa kama Barabara, Maji, Majengo ya Umma na Nishati\n· Kufuatilia ubora wa miradi ya ujenzi katika Halmashauri.\n· Kuratibu wahandisi na wataalamu wa kiufundi katika Mkoa.\n· Kutoa ushauri kuhusu usanifu na utekelezaji wa miradi ya miundombinu.\n· Kufuatilia matumizi sahihi ya fedha za miradi ya ujenzi.",
+   "attachments": []
+  },
+  {
+   "slug": "healthy",
+   "menu_path": "Administration > Sections > Healthy, Social Welfare and Nutrition",
+   "title": "Healthy, Social Welfare and Nutrition",
+   "api_url": "https://arusha.go.tz/api/pages/slug/healthy",
+   "public_url": "https://arusha.go.tz/healthy",
+   "createdAt": "2026-03-12T07:01:36.583Z",
+   "updatedAt": "2026-03-12T08:19:56.230Z",
+   "text_en": "Health, Social Welfare and Nutrition Section\n· Oversee the implementation of health policies and programs in the Region.\n· Coordinate health services in hospitals, health centers, and dispensaries.\n· Monitor nutrition and community health programs.\n· Manage social welfare services (children, the elderly, people with disabilities, etc.).\n· Coordinate public health campaigns such as vaccination and disease prevention.\n· Provide advice to the Council on improving health services.",
+   "text_sw": "Seksheni ya Afya, Ustawi wa Jamii na Lishe (Health, Social Welfare and Nutrition)\n· Kusimamia utekelezaji wa sera na mipango ya afya katika Mkoa.\n· Kuratibu huduma za afya katika hospitali, vituo vya afya na zahanati.\n· Kufuatilia programu za lishe na afya ya jamii.\n· Kusimamia huduma za ustawi wa jamii (watoto, wazee, watu wenye ulemavu n.k.).\n· Kuratibu kampeni za afya ya umma kama chanjo na kinga dhidi ya magonjwa.\n· Kutoa ushauri kwa Halmashauri kuhusu uboreshaji wa huduma za afya.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-unit",
+   "menu_path": "Administration > Units > Community Development",
+   "title": "Community Development Unit",
+   "api_url": "https://arusha.go.tz/api/pages/slug/community-development-unit",
+   "public_url": "https://arusha.go.tz/community-development-unit",
+   "createdAt": "2026-03-12T07:17:32.175Z",
+   "updatedAt": "2026-03-12T09:27:57.650Z",
+   "text_en": "Duties of Community Development Unit :-\n• Coordinate community development programs in the Region.\n• Promote citizen participation in development activities.\n• Supervise programs of women's, youth, and persons with disabilities' groups.\n• Help reduce poverty and improve community welfare.",
+   "text_sw": "Majukumu ya Kitengo cha Maendeleo ya Jamii :-\n· Kuratibu programu za maendeleo ya jamii katika Mkoa.\n· Kuhamasisha ushiriki wa wananchi katika shughuli za maendeleo.\n· Kusimamia programu za vikundi vya wanawake, vijana na watu wenye ulemavu.\n· Kusaidia kupunguza umaskini na kuboresha ustawi wa jamii.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization Structure",
+   "title": "Organization Structure",
+   "api_url": "https://arusha.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://arusha.go.tz/organization-structure",
+   "createdAt": "2026-03-12T08:27:52.075Z",
+   "updatedAt": "2026-03-12T13:05:59.271Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": [
+    {
+     "file_name": "WhatsApp Image 2026-03-12 at 11.13.48.png",
+     "url": "http://arusha.go.tz/minio/arusha.go.tz/attachments/1773304072079-WhatsApp%20Image%202026-03-12%20at%2011.13.48.png",
+     "file_type": "image/png",
+     "file_size": "1043673"
+    }
+   ]
+  },
+  {
+   "slug": "arusha-city-district",
+   "menu_path": "Districts > Arusha City District > Arusha City District",
+   "title": "Arusha City District",
+   "api_url": "https://arusha.go.tz/api/pages/slug/arusha-city-district",
+   "public_url": "https://arusha.go.tz/arusha-city-district",
+   "createdAt": "2026-03-16T05:24:16.123Z",
+   "updatedAt": "2026-03-16T05:24:16.123Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "arumeru-district",
+   "menu_path": "Districts > Arumeru District",
+   "title": "Arumeru District",
+   "api_url": "https://arusha.go.tz/api/pages/slug/arumeru-district",
+   "public_url": "https://arusha.go.tz/arumeru-district",
+   "createdAt": "2026-03-12T13:59:29.676Z",
+   "updatedAt": "2026-03-12T13:59:29.676Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "longido-district",
+   "menu_path": "Districts > Longido District",
+   "title": "Longido District",
+   "api_url": "https://arusha.go.tz/api/pages/slug/longido-district",
+   "public_url": "https://arusha.go.tz/longido-district",
+   "createdAt": "2026-03-12T14:00:03.004Z",
+   "updatedAt": "2026-03-12T14:00:03.004Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "monduli-district",
+   "menu_path": "Districts > Monduli District",
+   "title": "Monduli District",
+   "api_url": "https://arusha.go.tz/api/pages/slug/monduli-district",
+   "public_url": "https://arusha.go.tz/monduli-district",
+   "createdAt": "2026-03-12T14:02:23.740Z",
+   "updatedAt": "2026-03-12T14:02:23.740Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "karatu-district",
+   "menu_path": "Districts > Karatu District",
+   "title": "Karatu District",
+   "api_url": "https://arusha.go.tz/api/pages/slug/karatu-district",
+   "public_url": "https://arusha.go.tz/karatu-district",
+   "createdAt": "2026-03-12T14:00:52.552Z",
+   "updatedAt": "2026-03-12T14:00:52.552Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "ngorongoro-district",
+   "menu_path": "Districts > Ngorongoro District",
+   "title": "Ngorongoro District",
+   "api_url": "https://arusha.go.tz/api/pages/slug/ngorongoro-district",
+   "public_url": "https://arusha.go.tz/ngorongoro-district",
+   "createdAt": "2026-03-12T14:01:34.207Z",
+   "updatedAt": "2026-03-12T14:01:34.207Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "city-council",
+   "menu_path": "Councils > Arusha City Council",
+   "title": "City Council",
+   "api_url": "https://arusha.go.tz/api/pages/slug/city-council",
+   "public_url": "https://arusha.go.tz/city-council",
+   "createdAt": "2026-03-12T09:59:48.669Z",
+   "updatedAt": "2026-03-12T12:36:20.249Z",
+   "text_en": "The Arusha City Council is located in northern Tanzania, slightly south of Mount Meru at an altitude of 1,500 meters above sea level. The rapidly growing town of Arusha has long been a gateway to East Africa's famous tourist attractions such as National Parks and Maasai culture; it is now also a popular center for international meetings, gatherings, and conferences. For several years, Arusha has been a trading center for Tanzanite; a unique gemstone mined in northern Tanzania.\nThe town has a history that began in the 19th century when Captain Johannes built a fort at the foot of Mount Meru to facilitate German colonization of what later became known as Tanganyika. From the small fort, which still stands and has been converted into a natural history museum, the town of Arusha grew; initially as a trading center for the local people, and now into a popular center. Soma zaidi",
+   "text_sw": "Halmashauri ya Jiji la Arusha iko kaskazini mwa Tanzania, chini kidogo ya Mlima Meru kwenye mwinuko wa mita 1,500 juu ya usawa wa bahari. Mji unaokua kwa kasi wa Arusha kwa muda mrefu umekuwa lango bora la vivutio maarufu vya utalii vya Afrika Mashariki kama vile Mbuga za Kitaifa, utamaduni wa Wamasai; sasa pia ni kituo maarufu cha mikutano ya Kimataifa, mikusanyiko, na makongamano. Kwa miaka kadhaa Arusha imekuwa kituo cha biashara cha Tanzanite; Jiwe la kipekee la Vito linalochimbwa kaskazini mwa Tanzania .\nMji huu una historia iliyoanza katika Karne ya 19 wakati Kapteni Johannes alipojenga ngome chini ya Mlima Meru ili kuwezesha ukoloni wa Wajerumani wa kile ambacho baadaye kilijulikana kama Tanganyika. Kutoka kwa ngome ndogo, ambayo bado imesimama na imebadilishwa kuwa jumba la kumbukumbu la historia ya asili, mji wa Arusha ulikua; kwanza kama kituo cha biashara kwa watu wa eneo hilo, na sasa katika kituo maarufu cha shughuli mbalimbali za kimataifa.",
+   "attachments": []
+  },
+  {
+   "slug": "meru-district-council",
+   "menu_path": "Councils > Meru DC > Meru DC",
+   "title": "Meru District Council",
+   "api_url": "https://arusha.go.tz/api/pages/slug/meru-district-council",
+   "public_url": "https://arusha.go.tz/meru-district-council",
+   "createdAt": "2026-03-12T09:54:43.725Z",
+   "updatedAt": "2026-03-12T09:54:43.725Z",
+   "text_en": "The Meru District Council was officially established by Government Notice No. 353 of 2007 following the decision to split the former Arumeru District Council and establish two independent District Councils of Meru and Arusha.\nMeru District Council is located in the eastern part of Arusha Region and lies between latitudes 36°43’16’’ and 37°03’43’’; and longitude -3°04’30’’. Meru District Council borders Longido District to the north, Siha and Hai Districts to the east (Kilimanjaro Region), Simanjiro District to the south (Manyara Region), and Arusha District and Arusha District Council to the west.",
+   "text_sw": "Halmashauri ya wilaya ya Meru imeanzishwa rasmi kwa Tangazo la serikali Namba 353 ya mwaka 2007 kufuatia uamuzi wa kugawa iliyokuwa Halmashauri ya Wilaya ya Arumeru na kuanzisha Halmashauri mbili za Wilaya zinazojitegemea za Meru na Arusha\nHalmashauri ya Wilaya ya Meru ipo Mashariki mwa mkoa wa Arusha na imelala kati ya latitudi 36o43’16’’ na 37o 03’43’’; na Longitudi -3o04’30’’Halmashauri ya Wilaya ya Meru inapakana na Wilaya ya Longido kwa upande wa Kaskazini, Wilaya za Siha na Hai kwa upande wa Mashariki (Mkoa wa Kilimanjaro), Wilaya ya Simanjiro kwa upande wa Kusini (Mkoa wa Manyara), na Wilaya ya Arusha na Halmashauri ya Wilaya ya Arusha kwa upande wa Magharibi.",
+   "attachments": []
+  },
+  {
+   "slug": "monduli-district-council",
+   "menu_path": "Councils > Monduli DC",
+   "title": "Monduli District Council",
+   "api_url": "https://arusha.go.tz/api/pages/slug/monduli-district-council",
+   "public_url": "https://arusha.go.tz/monduli-district-council",
+   "createdAt": "2026-03-12T10:01:21.164Z",
+   "updatedAt": "2026-03-12T10:37:11.914Z",
+   "text_en": "History of Monduli District Council\nMonduli District is one of the six districts of Arusha Region in Tanzania. It is located in the northeastern part of the country. This district borders the country of Kenya to the north; to the east, it borders Kilimanjaro Region and Arumeru District; to the south, it borders Manyara Region; and to the west, it borders Ngorongoro District and Karatu District. Monduli Town is the administrative headquarters of the district.\n﻿ According to the 2002 National Census of Tanzania, the residents of Monduli District were 185,237. The name Monduli comes from the Monduli Juu Ward. It is said that there was a wealthy Maasai elder named Monduli who lived in that area during the German colonial period. The Germans ruled Tanzania in the 1880s and also introduced a European education system that taught subjects such as science, mathematics, engineering, and even the German language. Tanzania gained independence on December 9, 1961, under the leadership of the first President, Julius Nyerere.",
+   "text_sw": "Historia ya Halmashauri ya Wilaya ya Monduli\nWilaya ya Monduli ni mojawapo ya wilaya sita za Mkoa wa Arusha Region nchini Tanzania. Iko katika sehemu ya kaskazini mashariki ya nchi. Wilaya hii inapakana na nchi ya Kenya upande wa kaskazini; upande wa mashariki inapakana na Kilimanjaro Region pamoja na Wilaya ya Arumeru District; upande wa kusini inapakana na Manyara Region; na upande wa magharibi inapakana na Wilaya za Ngorongoro District na Karatu District. Mji wa Monduli Town ndio makao makuu ya kiutawala ya wilaya.\nKwa mujibu wa Sensa ya Taifa ya mwaka 2002 ya Tanzania, wakazi wa Wilaya ya Monduli walikuwa 185,237. Jina Monduli linatokana na Kata ya Monduli Juu. Inasemekana kuwa kulikuwa na babu tajiri wa Kimaasai aliyeitwa Monduli ambaye aliishi katika eneo hilo wakati wa ukoloni wa Wajerumani. Wajerumani waliitawala Tanzania katika miaka ya 1880, na waliinza pia mfumo wa elimu ya Ulaya uliokuwa ukifundisha masomo kama sayansi, hisabati, uhandisi na hata lugha ya Kijerumani. Tanzania ilipata uhuru tarehe 9 Desemba 1961 chini ya uongozi wa Rais wa kwanza, Julius Nyerere.",
+   "attachments": []
+  },
+  {
+   "slug": "ngorngoro-district-council",
+   "menu_path": "Councils > Ngorongoro DC",
+   "title": "Ngorongoro District Council",
+   "api_url": "https://arusha.go.tz/api/pages/slug/ngorngoro-district-council",
+   "public_url": "https://arusha.go.tz/ngorngoro-district-council",
+   "createdAt": "2026-03-12T10:02:18.254Z",
+   "updatedAt": "2026-03-12T10:57:36.349Z",
+   "text_en": "Origin of the area.\nNgorongoro District Council is one of the seven councils located in Arusha Region, Tanzania. The District Headquarters is in Loliondo Wasso, approximately 400 kilometers from the Regional Headquarters. This district was established in 1979 under Act No. 5 of the Local Government Authorities Act of 1982, having three divisions: Loliondo, Sale, and Ngorongoro. The Ngorongoro division is located within the Ngorongoro Conservation Area (NCA), which was established under Act Cap 413 of 1959 (NCA, CAP 284 (R.E.2002)).\nBorders of the Administrative Area.\nNgorongoro District borders the neighboring country of Kenya to the North, Serengeti District to the West, Monduli and Longido Districts to the East, and Karatu District to the South.\nArea Size\nNgorongoro District has an area of approximately 14,036 square kilometers which lies between 3°30’ south of the Equator and 35°42’ east of Greenwich, with an altitude of 1,009 to 3,645 meters above sea level.\nWeather conditions of the District: The Ngorongoro District has warm areas, especially in the Sale Ward, and a tropical climate. It experiences average rainfall of 800mm to 1,000mm and strong winds blowing from the East to the West. Large areas of the District have natural forests, mainly of the Acacia species, especially in the Central, Eastern, and Western zones. The Eastern and Western sides have a Rift Valley zone and large forests. The Southern part of the District is a famous area of the Ngorongoro Conservation Area, taking up 59% of the district and located in a single ward of Ngorongoro.\n﻿Native Vegetation\nThe district has four (4) registered natural forests which are:-\nLoliondo I Forest which is managed.\nLoliondo II Forest which is managed.\nSariani Community Forest.\nNgorongoro Highlands Forest.",
+   "text_sw": "Chimbuko la eneo.\nHalmashauri ya Wilaya Ngorongoro ni mojawapo kati ya Halmashauri saba zilizopo katika Mkoa wa Arusha nchini Tanzania. Makao Makuu ya Wilaya yapo Loliondo Wasso umbali wa takribani kilomita 400 kutoka Makao Makuu ya Mkoa. Wilaya hii ilianzishwa mwaka 1979 chini ya sheria namba 5 ya Mamlaka za Serikali za Mitaa ya Mwaka 1982 ikiwa na Tarafa tatu za Loliondo, Sale na Ngorongoro. Tarafa ya Ngorongoro imo kwenye eneo la Hifadhi ya Ngorongoro (NCA) iliyoanzishwa kwa Sheria Sura 413 ya mwaka1959 (NCA, CAP 284 (R.E.2002).\nMipaka ya Eneo la Utawala.\nWilaya ya Ngorongoro inapakana na Nchi jirani ya Kenya kwa upande wa Kaskazini, Wilaya ya Serengeti kwa upande wa Magharibi, Wilaya za Monduli na Longido kwa upande wa Mashariki na Wilaya ya Karatu kwa upande wa Kusini.\nUkubwa wa Eneo\nWilaya ya Ngorongoro ina eneo la kilometa za mraba zipatazo 14,036 ambalo lipo katika nyuzi 30030’ kusini mwa Ikweta na 35042’ Mashariki mwa Greenwich na urefu wa mita 1,009 hadi 3,645 kutoka usawa wa bahari.\nHali ya hewa ya Wilaya:-\nWilaya ya Ngorongoro ina maeneo ya joto la washastani hasa katika Tarafa ya Sale na hali ya Kitropikali, ina mvua za wastani wa 800mm hadi 1,000mm na upepo mkali unaovuma kutoka Mashariki kuelekea Magharibi. Maeneo makubwa ya Wilaya yana uoto wa asili jamii ya Akashia hasa ukanda wa Kati, Mashariki na Magharibi. Upande wa Mashariki na Magharibi kuna Ukanda wa bonde la Ufa na misitu Mkubwa. Upande wa Kusini mwa Wilaya ni eneo maarufu la Hifadhi ya Ngorongoro linalochukua asilimia 59 ya wilaya ambalo lipo katika Tarafa moja ya Ngorongoro.\nUoto wa Asili\nWilaya ina misitu minne (4) ya asili iliyosajiliwa ambayo ni:-\nMsitu wa Loliondo I unaosimamiwa.\nMsitu wa Loliondo II unaosimamiwa.\nMsitu wa Jamii wa Sariani.\nMsitu wa nyanda za Juu Ngorongoro \"Ngorongoro Highlind Forest\" .",
+   "attachments": []
+  },
+  {
+   "slug": "longido-district-council",
+   "menu_path": "Councils > Longido DC",
+   "title": "Longido District Council",
+   "api_url": "https://arusha.go.tz/api/pages/slug/longido-district-council",
+   "public_url": "https://arusha.go.tz/longido-district-council",
+   "createdAt": "2026-03-12T10:00:49.147Z",
+   "updatedAt": "2026-03-12T10:17:40.430Z",
+   "text_en": "History\nLongido District is one of the districts of Arusha Region, in northern Tanzania, officially established in 2007 after being split from Monduli District. The district borders Kenya to the northeast through the Namanga international border, which is a major gateway for trade and transportation between Tanzania and Kenya. Longido District is located in the northern part of Tanzania and lies along Mount Longido, among areas that are famous for their natural and historical significance to the Maasai community.\nThe area of Longido District covers approximately 7,885 square kilometers. The climate is arid and the average rainfall is low, which makes the main economic activity natural livestock keeping, practiced by the Maasai community. This livestock keeping involves cattle, goats, and sheep, and it greatly contributes to the income and livelihoods of the people of Longido. However, in recent years, efforts have been made to promote irrigation farming and horticulture, especially in water-abundant areas such as Ketumbeine and Engarenaibor.\nLongido District has a total of 20 wards, which are: Longido, Engikaret, Kimokouwa, Olmolog, Orbomba, Tingatinga, Gelai Lumbwa, Gelai Meirugoi, Ketumbeine, Elang’ata Dapash, Engarenaibor, Magadini, Kamwanga, Matale, Mundarara, Oltepesi, Sinoni, Ngereyani, Namanga, and Ilorienito. In each ward, there are villages with village government leadership, which collaborate with the district government to manage the development of the citizens. Its border with Kenya through Namanga makes Longido an important place for cross-border trade, tourism, and minor social and economic diplomatic activities.\nLongido District has health infrastructure that includes a district hospital which exists and provides all essential services to the citizens. This hospital has modern equipment and personnel specialized in various medical fields. Besides that hospital, the district has a number of health centers and dispensaries that provide basic services to the community in rural areas. The district government, in collaboration with development partners, has been improving health services and increasing the availability of medicines and friendly services for mothers and children.\nIn terms of education, Longido District has many primary and secondary schools, built through collaboration between the government, parents, and development stakeholders. These schools have continued to increase due to the demand for education among children from pastoralist communities, who previously lacked the opportunity to access education because of a nomadic lifestyle. The government has put in place robust strategies to ensure education reaches all children, including free primary education and the improvement of learning environments, especially for girls.\nApart from social and economic activities, Longido District is fortunate to have unique tourist attractions. Among these attractions are Mount Longido, the Enduimet Wildlife Sanctuary which is part of the elephant migration route from Amboseli (Kenya) to Tarangire National Park, beautiful natural scenery, and the Maasai culture, which attracts visitors from various parts of the world. Tourists are drawn to the traditional life of the Maasai community, their traditional clothing, traditional dances, and their system of customary leadership. Customary leaders such as Laigwanans and elders hold significant positions in the community and in preserving the traditional order of life\n﻿ Overall, the history of Longido District is built on the foundations of Maasai culture, social and economic development efforts, and unique geographical environments that provide its residents the opportunity to participate in various activities including livestock keeping, cross-border trade, tourism, and education. The Longido District Government, in collaboration with citizens and development stakeholders, continues to build a strong foundation for sustainable and democratic development to ensure a better life for the residents of Longido.",
+   "text_sw": "Historia\nWilaya ya Longido ni mojawapo ya wilaya za Mkoa wa Arusha, kaskazini mwa Tanzania, iliyoanzishwa rasmi mwaka 2007 baada ya kugawanywa kutoka Wilaya ya Monduli. Wilaya hii inapakana na Kenya upande wa kaskazini mashariki kupitia mpaka wa kimataifa wa Namanga, ambayo ni lango kuu la biashara na usafirishaji baina ya Tanzania na Kenya. Wilaya ya Longido ipo katika eneo la kaskazini mwa Tanzania na inapatikana kando ya Mlima wa Longido, miongoni mwa maeneo maarufu ya asili na kihistoria kwa jamii ya Kimasai.\nEneo la Wilaya ya Longido lina ukubwa wa takribani kilomita za mraba 7,885. Hali ya hewa ni ya ukame na wastani wa mvua ni mdogo, hali inayofanya shughuli kuu ya kiuchumi kuwa ni ufugaji wa asili, unaofanywa na jamii ya Wamasai. Ufugaji huu unahusisha ng’ombe, mbuzi, na kondoo, na unachangia pakubwa kipato na maisha ya wananchi wa Longido. Hata hivyo, kwa miaka ya hivi karibuni, jitihada zimekuwa zikifanyika kuhamasisha kilimo cha umwagiliaji na bustani hasa katika maeneo yenye maji kama vile Ketumbeine na Engarenaibor.\nWilaya ya Longido ina jumla ya kata 20 ambazo ni: Longido, Engikaret, Kimokouwa, Olmolog, Orbomba, Tingatinga, Gelai Lumbwa, Gelai Meirugoi, Ketumbeine, Elang’ata Dapash, Engarenaibor, Magadini, Kamwanga, Matale, Mundarara\n, Oltepesi, Sinoni, Ngereyani, Namanga, na Ilorienito. Katika kila kata kuna vijiji vyenye uongozi wa serikali ya kijiji, ambavyo vinashirikiana na serikali ya wilaya kusimamia maendeleo ya wananchi. Mpaka wake na Kenya kupitia Namanga huifanya Longido kuwa sehemu muhimu kwa biashara za mpakani, utalii, na shughuli za kidiplomasia ndogo ndogo za kijamii na kiuchumi.\nWilaya ya Longido ina miundombinu ya afya inayojumuisha hospitali ya wilaya ambayo ipo na inatoa huduma zote muhimu kwa wananchi. Hospitali hii ina vifaa vya kisasa na wahudumu waliobobea katika fani mbalimbali za tiba. Mbali na hospitali hiyo, wilaya ina jumla ya vituo kadhaa vya afya na zahanati zinazotoa huduma za msingi kwa jamii katika maeneo ya vijijini. Serikali ya wilaya kwa kushirikiana na wadau wa maendeleo imekuwa ikiboresha huduma za afya na kuongeza upatikanaji wa dawa na huduma rafiki kwa akina mama na watoto.\nKwa upande wa elimu, Wilaya ya Longido ina shule nyingi za msingi na sekondari, zilizojengwa kwa ushirikiano kati ya serikali, wazazi, na wadau wa maendeleo. Shule hizi zimeendelea kuongezeka kutokana na uhitaji wa elimu kwa watoto wa jamii ya kifugaji, ambao awali walikosa fursa ya kupata elimu kutokana na mtindo wa maisha wa kuhamahama. Serikali imeweka mikakati madhubuti ya kuhakikisha elimu inawafikia watoto wote, ikiwemo elimu ya msingi bila malipo na uboreshaji wa mazingira ya kujifunzia hasa kwa wasichana.\nMbali na shughuli za kijamii na kiuchumi, Wilaya ya Longido imebahatika kuwa na vivutio vya kipekee vya kitalii. Miongoni mwa vivutio hivyo ni pamoja na Mlima Longido, hifadhi ya wanyamapori ya Enduimet ambayo ni sehemu ya usafiri wa tembo kutoka Amboseli (Kenya) hadi hifadhi ya Tarangire, mandhari nzuri ya asili, na utamaduni wa Kimasai ambao huvutia wageni kutoka sehemu mbalimbali duniani. Watalii huvutiwa na maisha ya jadi ya jamii ya Kimasai, mavazi yao ya asili, ngoma za asili, na mfumo wao wa uongozi wa kimila. Viongozi wa kimila kama Laigwanan na wazee wa mila wana nafasi kubwa katika jamii na katika kutunza utaratibu wa maisha na ardhi ya kijadi.\nKwa ujumla, historia ya Wilaya ya Longido imejengwa juu ya misingi ya utamaduni wa Kimasai, jitihada za maendeleo ya kijamii na kiuchumi, na mazingira ya kipekee ya kijiografia yanayowapa wakazi wake fursa ya kushiriki katika shughuli mbalimbali ikiwemo ufugaji, biashara ya mpakani, utalii na elimu. Serikali ya Wilaya ya Longido kwa kushirikiana na wananchi na wadau wa maendeleo inaendelea kujenga msingi imara wa maendeleo endelevu na ya kidemokrasia ili kuhakikisha maisha bora kwa wakazi wa Longido.",
+   "attachments": []
+  },
+  {
+   "slug": "arusha-district-council",
+   "menu_path": "Councils > Arusha DC > Arusha DC",
+   "title": "Arusha District Council",
+   "api_url": "https://arusha.go.tz/api/pages/slug/arusha-district-council",
+   "public_url": "https://arusha.go.tz/arusha-district-council",
+   "createdAt": "2026-03-12T10:00:21.222Z",
+   "updatedAt": "2026-03-12T11:53:02.414Z",
+   "text_en": "HISTORY OF THE ARUSHA DISTRICT COUNCIL.\nWelcome to the Arusha District Council to learn about the brief history of this council including its origin, the size of the area and administrative areas including wards, villages, and hamlets, its boundaries, the geography of the location, administrative leadership, population, residents of Arusha Council, and the activities performed by the residents.\nCHIMBUKO LA HALMASHAURI YA ARUSHA:\nHalmshauri ya Wilaya ya Arusha ilianza rasmi tarehe 01.07.2007 baada ya kugawanywa iliyokuwa Halmashuri ya Meru na kuwa na Halmashauri mbili za Halmashauri ya Meru na Halmashauri ya Arusha. Halmashauri ya Arusha ni miongoni mwa Halmashauri saba za mkoa wa Arusha inayopatikana chini ya Mlima Meru ikiwa imepakana na halmashauri ya Meru kwa upande wa Mashariki, Halmashauri ya Monduli upande wa Magharibi, Halmashauri ya Longido upande wa Kaskazini Magharibi, Halmashauri ya Simanjiro mkoa wa Manyara kwa upande wa Kusini. Halmashauri ya Arusha imelizunguka jiji la Arusha kwa pande zake zote. Halmshauri ya Arusha ina eneo lenye ukubwa wa Kilomita za mraba 1446.692 inapatikana Magharibi mwa mlima Meru wenye urefu wa mita 4,562 kutoka usawa wa bahari ambao ni mlima wa pili kwa urefu Tanzania baada ya mlima Kilimanjaro wenye urefu wa mita 5,890.\nThe Arusha Council lies between Latitude 3°00'-3°40' South of Ikweta and Longitude 36°15'-36°55' East. AREA SIZE: The district has an area of 1,446.692 square kilometers. The main land uses in the district include: agriculture, residential areas, commerce, mining, livestock/pasture, nature tourism, and small industries and businesses, as well as forest reserves. The forest reserves cover an area of 54.17 square kilometers, land suitable for agriculture is 446.56 square kilometers, pasture covers an area of 506.01 square kilometers, and the remaining land, averaging 440.2 square kilometers, is used for other activities such as commerce, residential areas,\nADMINISTRATIVE AREA:\nArusha Council has three wards of Enaboishu, Moshono, and Mukulat with 27 villages of Bangata, Bwawani, Ikiding’a, Ilboru, Kimnyaki, Kiranyi, Kisongo, Kiutu, Laroi, Lemanyata, Matevesi, Mlangarini, Mwandet, Moivo, Musa, Nduruma\n﻿ Ofisi Za Makao Makuu ya Wilaya ya Arusha zipo Kata ya Kiutu Kijiji cha Engorika eneo la Sekei Mkabala na Hoteli ya Kimataifa ya Mount Meru umbali wa takribani mita 300 kutoka barabara kuu ya Moshi – Arusha- Namanga.",
+   "text_sw": "HISTORIA YA HALMASHAURI YA WILAYA YA ARUSHA.\nKaribu Halmashauri ya Wilaya ya Arusha kufahamu Historia fupi ya Halmashauri hii ikiwemo Chimbuko lake, ukubwa wa eneo na maeneo ya kiutawala ikiwemo Tarafa, Kata, Vijiji na Vitongoji, mipaka yake, Jiografia ya mahali ilipo, Uongozi kiutawala, Idadi ya watu, wenyeji wa halmashauri ya Arusha, shughuli wanazofanya wenyeji.\nCHIMBUKO LA HALMASHAURI YA ARUSHA:\nHalmshauri ya Wilaya ya Arusha ilianza rasmi tarehe 01.07.2007 baada ya kugawanywa iliyokuwa Halmashuri ya Meru na kuwa na Halmashauri mbili za Halmashauri ya Meru na Halmashauri ya Arusha. Halmashauri ya Arusha ni miongoni mwa Halmashauri saba za mkoa wa Arusha inayopatikana chini ya Mlima Meru ikiwa imepakana na halmashauri ya Meru kwa upande wa Mashariki, Halmashauri ya Monduli upande wa Magharibi, Halmashauri ya Longido upande wa Kaskazini Magharibi, Halmashauri ya Simanjiro mkoa wa Manyara kwa upande wa Kusini. Halmashauri ya Arusha imelizunguka jiji la Arusha kwa pande zake zote. Halmshauri ya Arusha ina eneo lenye ukubwa wa Kilomita za mraba 1446.692 inapatikana Magharibi mwa mlima Meru wenye urefu wa mita 4,562 kutoka usawa wa bahari ambao ni mlima wa pili kwa urefu Tanzania baada ya mlima Kilimanjaro wenye urefu wa mita 5,890.\nHalmashauri ya Arusha imelala kati ya Latitudo 3000- 3040’ Kusini mwa Ikweta na Longitudo 36015’-360 55’ Mashariki. UKUBWA WA ENEO: Wilaya ina eneo la kilomita za mraba 1,446.692. Matumizi makubwa ya ardhi katika Wilaya ni pamoja na: kilimo, makazi, biashara, madini, ufugaji / malisho, utalii wa asili na viwanda vidogo na biashara na hifadhi za misitu. Ambapo, hifadhi ya misitu ina eneo la kilomita za mraba 54.17, ardhi inayofaa kwa kilimo ni Kilomita za mraba 446.56, malisho huchukua eneo la Kilomita za mraba 506.01 sehemu ya ardhi iliyobaki yenye ukubwa wa wastani wa Kilomita za mraba 440.2 inatumika kwa shughuli nyingine kama vile biashara, makazi na madini.\nENEO LA UTAWALA:\nHalmashauri ya Arusha ina tarafa tatu za Enaboishu, Moshono na Mukulat ikiwa na kata 27 za Bangata, Bwawani, Ikiding’a, Ilboru, Kimnyaki, Kiranyi, Kisongo, Kiutu, Laroi, Lemanyata, Matevesi, Mlangarini, Mwandet, Moivo, Musa, Nduruma\nOfisi Za Makao Makuu ya Wilaya ya Arusha zipo Kata ya Kiutu Kijiji cha Engorika eneo la Sekei Mkabala na Hoteli ya Kimataifa ya Mount Meru umbali wa takribani mita 300 kutoka barabara kuu ya Moshi – Arusha- Namanga.",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "NATIONAL SUPPLY CHAIN POLICY 2025.pdf",
+   "date": "2026-05-06T02:23:21.313Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1778034210357-NATIONAL-SUPPLY-CHAIN-POLICY-2025.pdf",
+   "file_type": "application/pdf",
+   "size": "1567470"
+  },
+  {
+   "name": "SERA YA USIMAMIZI WA MNYORORO WA UGAVI 2025.pdf",
+   "date": "2026-05-06T02:22:29.566Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1778034158559-SERA-YA-USIMAMIZI-WA-MNYORORO-WA-UGAVI-2025.pdf",
+   "file_type": "application/pdf",
+   "size": "1582288"
+  },
+  {
+   "name": "MPANGO MKAKATI MKOA WA ARUSHA 2026_2030.pdf",
+   "date": "2026-05-06T02:15:57.240Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1778033791801-MPANGO-MKAKATI-MKOA-WA-ARUSHA-2026_2030.pdf",
+   "file_type": "application/pdf",
+   "size": "7277684"
+  },
+  {
+   "name": "GUIDELINES FOR THE SECURE AND ETHICAL USE OF ARTIFICAL INTELLIGENCE IN TANZANIA- DRAFT.pdf",
+   "date": "2026-03-17T10:18:06.162Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742686191-GUIDELINES%20FOR%20THE%20SECURE%20AND%20ETHICAL%20USE%20OF%20ARTIFICAL%20INTELLIGENCE%20IN%20TANZANIA-%20DRAFT.pdf",
+   "file_type": "application/pdf",
+   "size": "809230"
+  },
+  {
+   "name": "MWONGOZO WA MAVAZI KWA WATUMISHI WA UMMA_.pdf",
+   "date": "2026-03-17T10:17:48.817Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742668928-MWONGOZO%20WA%20MAVAZI%20KWA%20WATUMISHI%20WA%20UMMA_.pdf",
+   "file_type": "application/pdf",
+   "size": "1642295"
+  },
+  {
+   "name": "MWONGOZO WA KUDHIBITI UKIMWI,VVU NA MAGONJWA SUGU YASIOAMBUKIZWA MAHALI PA KAZI KATIKA UTUMISHI WA UMMA.pdf",
+   "date": "2026-03-17T10:17:40.313Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742660250-MWONGOZO%20WA%20KUDHIBITI%20UKIMWI%2CVVU%20NA%20MAGONJWA%20SUGU%20YASIOAMBUKIZWA%20MAHALI%20PA%20KAZI%20KATIKA%20UTUMISHI%20WA%20UMMA.pdf",
+   "file_type": "application/pdf",
+   "size": "342181"
+  },
+  {
+   "name": "MWONGOZO WA HATUA ZA KUFUATA BAADA YA TUKIO LA AJALI KAZINI.pdf",
+   "date": "2026-03-17T10:17:30.785Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742650682-MWONGOZO%20WA%20HATUA%20ZA%20KUFUATA%20BAADA%20YA%20TUKIO%20LA%20AJALI%20KAZINI.pdf",
+   "file_type": "application/pdf",
+   "size": "31542"
+  },
+  {
+   "name": "MWONGOZO WA PEPMIS NA PIPMIS.pdf",
+   "date": "2026-03-17T10:17:12.442Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742632416-MWONGOZO%20WA%20PEPMIS%20NA%20PIPMIS.pdf",
+   "file_type": "application/pdf",
+   "size": "687424"
+  },
+  {
+   "name": "MWONGOZO WA UANDISHI WA NYARAKA ZA SERIKALI.pdf",
+   "date": "2026-03-17T10:17:01.113Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742621309-MWONGOZO%20WA%20UANDISHI%20WA%20NYARAKA%20ZA%20SERIKALI.pdf",
+   "file_type": "application/pdf",
+   "size": "1838112"
+  },
+  {
+   "name": "e- Goverment  Act, 2019.pdf",
+   "date": "2026-03-17T10:16:46.178Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773742607431-e-%20Goverment%20%20Act%2C%202019.pdf",
+   "file_type": "application/pdf",
+   "size": "7039957"
+  },
+  {
+   "name": "SHERIA YA ULINZI WA TAARIFA BINAFSI.pdf",
+   "date": "2026-03-17T10:01:08.362Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773741622159-THE_PERSONAL_DATA_PROTECTION_ACT.pdf",
+   "file_type": "application/pdf",
+   "size": "835674"
+  },
+  {
+   "name": "MWONGOZO WA KINGA NA MAGONJWA YASIYOAMBBUKIZA.pdf",
+   "date": "2026-03-17T09:40:18.923Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773740419240-MWONGOZO%20WA%20KINGA%20NA%20MAGONJWA%20YASIYOAMBBUKIZA.pdf",
+   "file_type": "application/pdf",
+   "size": "340195"
+  },
+  {
+   "name": "Mwongozo wa Lishe kwa shule za Msingi.pdf",
+   "date": "2026-03-17T09:38:22.962Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773740308180-Mwongozo%20wa%20Lishe%20kwa%20shule%20za%20Msingi.pdf",
+   "file_type": "application/pdf",
+   "size": "8944484"
+  },
+  {
+   "name": "Mwongozo wa Utoaji wa Vibali vya Ujenzi na Usimamizi wa Ujenzi wa Majengo kweny Mamlaka za Serikali za Mitaa (1).pdf",
+   "date": "2026-03-17T09:38:14.450Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773740294481-Mwongozo%20wa%20Utoaji%20wa%20Vibali%20vya%20Ujenzi%20na%20Usimamizi%20wa%20Ujenzi%20wa%20Majengo%20kweny%20Mamlaka%20za%20Serikali%20za%20Mitaa%20(1).pdf",
+   "file_type": "application/pdf",
+   "size": "555228"
+  },
+  {
+   "name": "EXAM_REGULATIONS_2016.pdf",
+   "date": "2026-03-17T09:38:04.387Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773740284441-EXAM_REGULATIONS_2016.pdf",
+   "file_type": "application/pdf",
+   "size": "761950"
+  },
+  {
+   "name": "NECTA_ACT_RE_2019.pdf",
+   "date": "2026-03-17T09:37:54.947Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773740276231-NECTA_ACT_RE_2019.pdf",
+   "file_type": "application/pdf",
+   "size": "2918438"
+  },
+  {
+   "name": "MWONGOZO MDOGO WA BARABARA.pdf",
+   "date": "2026-03-17T09:32:03.339Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773739923677-MWONGOZO%20MDOGO%20WA%20BARABARA.pdf",
+   "file_type": "application/pdf",
+   "size": "1087583"
+  },
+  {
+   "name": "Mwongozo wa Postikodi.pdf",
+   "date": "2026-03-17T09:31:31.660Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773739892870-Mwongozo%20wa%20Postikodi.pdf",
+   "file_type": "application/pdf",
+   "size": "2284334"
+  },
+  {
+   "name": "Mwongozo wa Mfumo wa Anwani za Makazi.pdf",
+   "date": "2026-03-17T09:31:20.339Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773739882157-Mwongozo%20wa%20Mfumo%20wa%20Anwani%20za%20Makazi.pdf",
+   "file_type": "application/pdf",
+   "size": "4684029"
+  },
+  {
+   "name": "Mwongozo wa Utoaji Nambari za Anwani.pdf",
+   "date": "2026-03-17T09:29:52.444Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773739792620-Mwongozo%20wa%20Utoaji%20Nambari%20za%20Anwani.pdf",
+   "file_type": "application/pdf",
+   "size": "1170839"
+  },
+  {
+   "name": "DATA CENTER STANDARDS FOR PUBLIC INSTITUTIONS.pdf",
+   "date": "2026-03-12T12:40:21.264Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773319463380-DATA%20CENTER%20STANDARDS%20FOR%20PUBLIC%20INSTITUTIONS.pdf",
+   "file_type": "application/pdf",
+   "size": "9624339"
+  },
+  {
+   "name": "EPOCA. electronic and Postal Comm Act 2010.pdf",
+   "date": "2026-03-12T12:39:45.872Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773319188281-EPOCA.%20electronic%20and%20Postal%20Comm%20Act%202010.pdf",
+   "file_type": "application/pdf",
+   "size": "407531"
+  },
+  {
+   "name": "MWONGOZO USAJILI WA LINE ZA SIMU 11 SEPTEMBA 2019 (1).pdf",
+   "date": "2026-03-12T12:38:38.968Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773319151158-Cybercrime%20act%202015%20English%20Version.pdf",
+   "file_type": "application/pdf",
+   "size": "1863936"
+  },
+  {
+   "name": "MWONGOZO WA MATUMIZI BORA, SAHIHI NA SALAMA WA VIFAA, DATA NA MIFUMO YA TEHAMA SERIKALINI.pdf",
+   "date": "2026-03-12T12:37:33.120Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773319061255-MWONGOZO%20WA%20MATUMIZI%20BORA%2C%20SAHIHI%20NA%20SALAMA%20WA%20VIFAA%2C%20DATA%20NA%20MIFUMO%20YA%20TEHAMA%20SERIKALINI.pdf",
+   "file_type": "application/pdf",
+   "size": "712405"
+  },
+  {
+   "name": "THE e-GOVERNMENT GENERAL REGULATIONS, 2020.pdf",
+   "date": "2026-03-12T12:37:10.752Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773319033104-THE%20e-GOVERNMENT%20GENERAL%20REGULATIONS%2C%202020.pdf",
+   "file_type": "application/pdf",
+   "size": "519298"
+  },
+  {
+   "name": "Mwongozo wa Uwekezaji",
+   "date": "2026-03-12T06:49:56.500Z",
+   "url": "http://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+   "file_type": "application/pdf",
+   "size": "3827282"
+  }
+ ],
+ "news": [
+  {
+   "id": 9444,
+   "title": "SERIKALI YAAHIDI KUENDELEA KUSHIRIKIANA NA NGOs MKOA WA ARUSHA",
+   "date": "2026-08-31",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1761,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9443,
+   "title": "SERIKALI YAAHIDI KUENDELEA KUSHIRIKIANA NA NGOs MKOA WA ARUSHA",
+   "date": "2026-08-31",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1761,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9442,
+   "title": "SERIKALI YAAHIDI KUENDELEA KUSHIRIKIANA NA NGOs MKOA WA ARUSHA",
+   "date": "2026-08-31",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1761,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9441,
+   "title": "RAS ARUSHA AAGIZA HALMASHAURI ZA ARUMERU NA ARUSHA, KUJIPANGA NA UJIO WA MIKUTANO YA KIMATAIFA NA AFCON 2027*",
+   "date": "2026-08-31",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1978,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9439,
+   "title": "ARUSHA YATAKIWA KUJIANDAA KUNUFAIKA NA FURSA ZA MKUTANO WA IPU MWEZI OKTOBA 2026",
+   "date": "2026-08-29",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2065,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9438,
+   "title": "ARUSHA MGUU SAWA KUELEKEA BUNGE LA IPU NA MKUTANO WA HORTILOGISTICA AFRIKA",
+   "date": "2026-08-29",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2109,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9437,
+   "title": "TACAIDS YAPONGEZA SERIKALI KWA KUIMARISHA MFUKO WA UDHAMINJ WA MAPAMBANO DHIDI YA VVU",
+   "date": "2026-08-29",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1808,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9436,
+   "title": "DAS ARUSHA AAHIDI UTAYARI, UTEKELEZAJI MPANGO WA KUZUIA MAAMBUKIZI YA VVU WAKATI WA AFCON",
+   "date": "2026-08-29",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1788,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9435,
+   "title": "RAS ARUSHA ATAKA MPANGO WA PAMOJA WA KINGA YA VVU KUELEKEA MICHUANO YA AFCON 2027",
+   "date": "2026-08-29",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2091,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9434,
+   "title": "ARUSHA KUZIKUTANISHA NGO's 500 KWENYE JUKWAA LA MWAKA 2026",
+   "date": "2026-08-28",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1837,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9433,
+   "title": "RC MAKALLA AKAGUA UJENZI WA UPANUZI UWANJA WA NDEGE MANYARA",
+   "date": "2026-08-28",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1619,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9432,
+   "title": "DC ARUSHA ASHIRIKI ZOEZI LA CHANJO YA POLIO",
+   "date": "2026-08-27",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1074,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9431,
+   "title": "RAS ARUSHA AZINDUA ZOEZI LA UTOAJI CHANJO YA POLIO MKOA WA ARUSHA",
+   "date": "2026-08-27",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1835,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9430,
+   "title": "RC MAKALLA AAGIIZA KAMATI ZA MAAFA ARUSHA KUJIANDAA NA MVUA ZA EL NINO",
+   "date": "2026-08-26",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1926,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8534,
+   "title": "RC MAKALLA: UWEKAJI TAA UWANJA WA NDEGE ARUSHA UMEKAMILIKA",
+   "date": "2026-08-25",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1581,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8533,
+   "title": "WAKUU WA WILAYA ZA MKOA WA ARUSHA WAJIZATITI USIMAMIZI CHANJO YA POLIO KWA WATOTO",
+   "date": "2026-08-24",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1795,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8531,
+   "title": "WASIMAMIZI 4,567 WAPATIWA ELIMU ZOEZI LA UTOAJI CHANJO YA POLIO ARUSHA",
+   "date": "2026-08-24",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1759,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8530,
+   "title": "RC MAKALLA AHIMIZA USHIRIKI WA VIONGOZI NA WANANCHI KWENYE ZOEZI LA CHANJO YA POLIO",
+   "date": "2026-08-24",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1735,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8529,
+   "title": "PROF. SHEMDOE AWAASA VIONGOZI SERIKALI ZA MITAA KUEPUKA MIGOGORO ILI KUONGEZA UFANISI WA HUDUMA KWA WANANCHI",
+   "date": "2026-08-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2070,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8434,
+   "title": "RC MAKALLA APONGEZA TANZANIA SAFARI CHANNEL KUTANGAZA UTALII",
+   "date": "2026-08-24",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1495,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8433,
+   "title": "RAIS SAMIA AAGIZA WAKUU WA MIKOA KUJIANDAA NA UDHIBITI WA ATHARI ZA ELNINO",
+   "date": "2026-08-22",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1150,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8424,
+   "title": "DHAMIRA YA MAAFISA RASILIMALI WATU AFRIKA IWE NI KUIMARISHA NGUVU KAZI KWA NCHI ZA AFRIKA",
+   "date": "2026-08-19",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2098,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8423,
+   "title": "SERIKALI YAANZA UTEKELEZAJI WA UGAWAJI CHANJO YA POLIO KWA MIKOA SABA NCHINI",
+   "date": "2026-08-17",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1552,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8422,
+   "title": "WATOTO 774, 459 CHINI YA MIAKA 10 KUPATIWA CHANJO YA POLIO MKOANI ARUSHA",
+   "date": "2026-08-17",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2116,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 8079,
+   "title": "WAJASIRIAMALI NA WAKULIMA WATAKIWA KUJIANDAA KUNUFAIKA NA IPU NA AFCON 2027",
+   "date": "2026-08-14",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1749,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8078,
+   "title": "JUKWAA LA KIMATAIFA LA HORTILOGISTICA AFRIKA, KUFANYIKA MWEZI NOVEMBA ARUSHA",
+   "date": "2026-08-12",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1767,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8077,
+   "title": "RC ARUSHA AWATAKA VIONGOZI WA TAASISI ZA UMMA KUZINGATIA MAADILI KATIKA USIMAMIZI WA MIRADI YA MAENDELEO",
+   "date": "2026-08-11",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2101,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8076,
+   "title": "TAKUKURU YAFANYA WARSHA NA VIONGOZI WA TAASISISI ZA UMMA MKOA WA ARUSHA",
+   "date": "2026-08-10",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2247,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 8075,
+   "title": "RC ARUSHA ASISITIZA USHIRIKIANO NA MTAZAMO WA PAMOJA KATIKA USIMAMIZI WA MIRADI YA MAENDELEO",
+   "date": "2026-08-10",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2062,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7761,
+   "title": "RAS MANYARA: WAONESHAJI 446 WASHIRIKI MAONESHO YA 32 YA KILIMO NA MIFUGO KANDA YA KASKAZINI",
+   "date": "2026-08-08",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1824,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7760,
+   "title": "RC MAKALLA: MAONESHO YA NANENANE MWAKA UJAO YATAAMBATANA NA MASHINDANO YA AFCON 2027 🇹🇿",
+   "date": "2026-08-08",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1412,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7759,
+   "title": "RC MAKALLA AFUNGA MAONESHO YA NANENANE KANDA YA KASKAZINI",
+   "date": "2026-08-08",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2057,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7736,
+   "title": "KILIMO NA UFUGAJI WENYE TIJA VINAHITAJI UTAFITI, TEKNOLOJIA NA ZANA ZA KISASA",
+   "date": "2026-08-08",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1754,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7709,
+   "title": "MHE. KASPAR MMUYA AJENGEA WANANCHI UELEWA WA MGOGORO WA ARDHI DHIDI YA MWEKEZAJI NA WANANCHI",
+   "date": "2026-08-06",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2724,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7666,
+   "title": "WAZIRI OWM - TAMISEMI KUFUNGA MAONESHO YA 32 YA KILIMO NA MIFUGA NANENANE KANDA YA KASKAZINI",
+   "date": "2026-08-07",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 882,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7638,
+   "title": "DC LONGIDO AWATAKA WAKULIMA NA WAFUGAJI KUTEKA SOKO LA MAZAO LA KIMATAIFA",
+   "date": "2026-08-06",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2005,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7636,
+   "title": "RAS ARUSHA AKUTANA NA KUZUNGUMZA NA NAIBU WAZIRI WA ARDHI MHE. MMUYA",
+   "date": "2026-08-06",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 865,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7581,
+   "title": "SERIKALI YAAHIDI KUENDELEA KUWEKA MAZINGIRA RAFIKI KWA WAFUGAJI WA KANDA YA KASKAZINI",
+   "date": "2026-08-05",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2111,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7580,
+   "title": "MOSHI MGENI RASMI PAREDI YA MIFUGO NANENANE KANDA YA KASIKAZINI",
+   "date": "2026-08-04",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1425,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7529,
+   "title": "DC KARANGA AWATAKAA WAKULIMA KUNUFAIKA NA SOKO LA UTALII ARUSHA",
+   "date": "2026-08-04",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1941,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7461,
+   "title": "WAKULIMA NA WAFUGAJI WAKIRI KUPATA ELIMU YA UFUGAJI NA KILIMO BORA MAONESHO YA NANENANE KANDA YA KASKAZINI",
+   "date": "2026-08-04",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2064,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7437,
+   "title": "RC KILIMANJARO: MAONYESHO YA NANE NANE KANDA KASKAZINI YAMELETA TIJA KWA WAKULIMA NA WAFUGAJI",
+   "date": "2026-08-03",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1435,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7390,
+   "title": "NAIBU WAZIRI SILINDE AHIMIZA ULINZI WA AMANI KWA MAENDELEO YA KIUCHUMI NA UKUAJI WA SEKTA YA UTALII ARUSHA",
+   "date": "2026-08-02",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1769,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7389,
+   "title": "WAKULIMA KANDA YA KASKAZINI WATAKIWA KUJIANDAA NA FURSA ZA UJIO WA IPU NA AFCON 2027",
+   "date": "2026-08-02",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1964,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7388,
+   "title": "WAKULIMA NA WAFUGAJI WAHIMIZWA KUTAMBUA SOKO NA KUONGEZA TIJA YA MAZAO",
+   "date": "2026-08-02",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2729,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7387,
+   "title": "DC MKUDE AWAHAKIKISHIA USALAMA WASHIRIKI WA NANENANE KANDA YA KASKAZINI",
+   "date": "2026-08-01",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1982,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7386,
+   "title": "RAS ARUSHA: TAMBUA MAHITAJI YA SOKO KUTEKELEZA DIRA 2050",
+   "date": "2026-08-01",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1905,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7385,
+   "title": "WAONESHAJI ZAIDI YA 500 KUSHIRIKI MAONESHO YA 32 KANDA YA KASKAZINI",
+   "date": "2026-08-01",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1468,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7384,
+   "title": "MAZAO FUNIKA YAIBULIWA KAMA SULUHISHO LA KUREJESHA RUTUBA YA UDONGO KWA WAKULIMA",
+   "date": "2026-07-31",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1597,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7383,
+   "title": "TEKNOLOJIA ZA KISASA ZA UFUGAJI KUONESHWA KWENYE MAONESHO YA NANENANE KANDA YA KASKAZINI 2026",
+   "date": "2026-07-31",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1138,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7377,
+   "title": "ARUSHA DC YAHIMIZA WAKULIMA KUANZIA SOKONI, YAJIPANGA KUNG'ARA MAONESHO YA NANENANE 2026",
+   "date": "2026-07-31",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1927,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7376,
+   "title": "MAONESHO YA 32 YA NANENANE KANDA YA KASKAZINI KUFUNGULIWA AGOSTI MOSI,2026 ARUSHA",
+   "date": "2026-07-31",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1834,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7375,
+   "title": "VIJANA ARUSHA WAHIMIZWA KUCHANGAMKIA MIKOPO YA BILIONI 23 YA WIZARA YA KILIMO NA UVUVI",
+   "date": "2026-07-30",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2062,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7374,
+   "title": "RC ARUSHA AKAGUA UJENZI WA VIWANJA 5 KWAAJILI YA AFCON 2027",
+   "date": "2026-07-29",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1368,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7373,
+   "title": "RC MAKALLA ATAKA WALIOLIPWA FIDIA KUONDOKA KUPISHA UJENZI WA BARABARA ZA AFCON",
+   "date": "2026-08-01",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1661,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7372,
+   "title": "RC MAKALAA ASISITIZA UWAZI UGAWAJI WA VIZIMBA NA MADUKA SOKO JIPYA LA KILOMBERO",
+   "date": "2026-07-28",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1486,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7371,
+   "title": "RC MAKALLA AGIZA WAFANYABIASHARA WALIOPISHA UJENZI WA SOKO LA KILOMBERO KUPEWA KIPAUMBELE",
+   "date": "2026-07-28",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1255,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7370,
+   "title": "RC MAKALLA; KUKAMILIKA KWA STENDI YA MKOA KUPUNGUZA FOLENI JIJI LA ARUSHA",
+   "date": "2026-07-26",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1138,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7369,
+   "title": "WAKUU WA MIKOA YA KANDA YA KASKAZINI WAWAALIKA WANANCHI MAONESHO YA NANENANE 2026",
+   "date": "2026-07-27",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1816,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7368,
+   "title": "MAKAMU WA RAIS BALOZI DKT. NCHIMBI, ATEMBELEA UWANJA WA AFCON ARUSHA",
+   "date": "2026-07-26",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1383,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7367,
+   "title": "WAZIRI CHONGOLO AKAGUA MRADI WA UJENZI WA STENDI KUU JIJI LA ARUSHA, AMSHUKURU RAIS SAMIA KWA UWEKEZAJI WAKE",
+   "date": "2026-07-25",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1669,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7366,
+   "title": "WAZIRI CHONGOLO AKAGUA MRADI WA UJENZI WA STENDI KUU JIJI LA ARUSHA, AMSHUKURU RAIS SAMIA KWA UWEKEZAJI WAKE",
+   "date": "2026-07-25",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1669,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7365,
+   "title": "WAZIRI CHONGOLO APONGEZA UWEKEZAJI UWANJA WA AFCON ARUSHA, AHIMIZA WANANCHI KUTUMIA FURSA ZA AFCON 2027",
+   "date": "2026-07-25",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1840,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7364,
+   "title": "WAZAZI ARUSHA WAHIMIZWA KUWEKEZA KWENYE ELIMU YA WATOTO WAO",
+   "date": "2026-07-25",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1958,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7362,
+   "title": "WAZIRI CHONGOLO AWASILI WILAYA YA ARUSHA",
+   "date": "2026-07-25",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2146,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7358,
+   "title": "TIJA YA AFCON ARUSHA NI PAMOJA NA WANANCHI KUJENGEWA MIUNDOMBINU MUHIMU",
+   "date": "2026-07-24",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2088,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7356,
+   "title": "MITA 1000 KUONGEZWA KATIKA SKIMU YA UMWAGILIAJI KIPANDE NKOAVELE HALMASHAURI YA MERU",
+   "date": "2026-08-01",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1244,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7355,
+   "title": "WAZIRI CHONGOLO AAGIZA KUOGEZA KASI UKARABATI WA BARABARA YA ARUSHA - KIA ILI IKAMILIKE KWA WAKATI",
+   "date": "2026-07-24",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1546,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7354,
+   "title": "WAZIRI CHONGOLO AZINDUA MRADI WA UJENZI MIUNDOMBINU YA SHULE SEKONDARI MLANGARINI",
+   "date": "2026-07-24",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2079,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7353,
+   "title": "WAZIRI CHONGOLO AAHIDI KUPAMBANIA UFUNGAJI WA HUDUMA ZA XRAY KITUO CHA AFYA LOWASA SEPEKO",
+   "date": "2026-07-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2101,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7352,
+   "title": "WAZIRI CHONGOLO AIPA TPHPA WIKI MOJA, KUSHUGHULIKIA KUSINYAA KWA MIGOMBA MTO WA MBU",
+   "date": "2026-07-23",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1071,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7351,
+   "title": "WAZIRI CHONGOLO ASISITIZA UTUNZAJI WA MAZINGIRA MTO WA MBU, MONDULI",
+   "date": "2026-07-23",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1724,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7350,
+   "title": "ZAIDI YA WATU 2,000 KUNUFAIKA NA SKIMU YA UMWAGILIAJI MTO WA MBU",
+   "date": "2026-07-24",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1319,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7349,
+   "title": "WAZIRI CHONGOLO AWAPONGEZA WANANCHI WA SEPEKU KWA UJENZI WA KITUO CHA AFYA",
+   "date": "2026-07-23",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1915,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6923,
+   "title": "WAZIRI WA KILIMO AMEWASILI WILAYA MONDULI KWA ZIARA YA KIKAZI",
+   "date": "2026-07-23",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2115,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6834,
+   "title": "WAZIRI CHONGOLO APONGEZA UJENZI WA SHULE SEKONDARI LAKE EYAS",
+   "date": "2026-07-22",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2665,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6827,
+   "title": "ZAO LA VITUNGUU KUWA NA UTARATIBU RASMI WA UUZAJI KULINDA MASLAHI YA MKULIMA",
+   "date": "2026-07-22",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 3004,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6821,
+   "title": "WAZIRI WA KILIMO AGIZA KUKAMILISHA UJENZI WA SOKO LA VITUNGUU MANG'OLA",
+   "date": "2026-07-22",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2072,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6793,
+   "title": "WAZIRI WA KILIMO AMEWASILI WILAYA KARATU KWA ZIARA YA KIKAZI",
+   "date": "2026-07-22",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1276,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6792,
+   "title": "RC ARUSHA AKUTANA NA KUZUNGUMZA NA NAIBU BALOZI UTURUKI NCHINI TANZANIA",
+   "date": "2026-07-22",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 845,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6761,
+   "title": "DKT. NGUVILA AWAASA WANANCHI KUTOACHA KUFANYA MAZOEZI",
+   "date": "2026-07-19",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1093,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6760,
+   "title": "TAASISI ZA UMMA ARUSHA ZATAKIWA KUHARAKISHA UTEKELEZAJI MIUNDOMBINU ENEO LA UWANJA WA AFCON 2027",
+   "date": "2026-07-18",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1957,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6759,
+   "title": "MABORESHO NA UENDELEZAJI UWANJA WA NDEGE ARUSHA UKAMILIKE KWA WAKATI- DKT. NGUVILA",
+   "date": "2026-07-18",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1456,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6758,
+   "title": "RAS ARUSHA AZIPONGEZA TAASISI ZA UMMA, ASISITIZA USHIRIKIANO MIONGONI MWAO",
+   "date": "2026-07-18",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1779,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6757,
+   "title": "DKT. NGUVILA AMSHUKURU RAIS SAMIA KWA UTEKELEZAJI WA MIRADI YA MAENDELEO ARUSHA",
+   "date": "2026-07-21",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2103,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6609,
+   "title": "RAS ARUSHA AFUNGUA KIKAO KAZI CHA WATENDAJI WA SERIKALI MKOA WA ARUSHA",
+   "date": "2026-07-17",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1904,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6600,
+   "title": "RAS ARUSHA ASISITIZA USHIRIKIANO BAINA YA WATENDAJI WA SERIKALI KATIKA MKOA HUO",
+   "date": "2026-07-17",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2069,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6599,
+   "title": "AFRIKA YAUNGANISHA NGUVU KUKABILIANA NA MABADILIKO YA TABIANCHI, YAIMARISHA TAHADHARI ZA MAPEMA",
+   "date": "2026-07-17",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1745,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6561,
+   "title": "MAONESHO YA NANENANE KANDA YA KASKAZINI KUANZA AGOSTI MOSI, 2026",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1709,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6560,
+   "title": "Serikali yaiasa sekta ya habari kuongoza mapinduzi ya matumizi ya nishati safi ya kupikia.",
+   "date": "2026-07-16",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2009,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6559,
+   "title": "DIRA YA TAIFA 2050 INAHITAJI MFUMO IMARA WA SHERIA NA TAASISI ZINAZOLINDA MASLAHI YA TAIFA- RAIS SAMIA",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1995,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6558,
+   "title": "MAKALLA AKABIDHI MWENGE WA UHURU 2026 MKOA WA MANYARA",
+   "date": "2026-07-15",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1679,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6557,
+   "title": "WANANCHI TENGERU WAISHUKURU SERIKALI UJENZI WA BARABARA",
+   "date": "2026-07-16",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1399,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6556,
+   "title": "BARABARA YA LAMI KIKWE - NAMBALA YAONGEZA HADHI YA MJI WA TENGERU",
+   "date": "2026-07-15",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1062,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6555,
+   "title": "MWENGE WA UHURU WAUNGANISHA WATANZANIA NA WAGENI",
+   "date": "2026-07-15",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1567,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6552,
+   "title": "MERU YAANZA MAANDALIZI MAPOKEZI YA KIDATO CHA KWANZA 2028",
+   "date": "2026-07-15",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1472,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6551,
+   "title": "DED MERU DC MWL.ZAINABU MWAKINYA APOKEA MWENGE WA UHURU 2026",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2061,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6550,
+   "title": "VIJANA MOISHA GROUP - ILBORU WAKOPESHWA MILIONI 101",
+   "date": "2026-07-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2129,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6549,
+   "title": "RAS ARUSHA AKUTANA NA KUZUNGUMZA NA KAMISHNA MWISHAWA WA TANAPA🇹🇿",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 544,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6548,
+   "title": "UWEKEZAJI WA VIWANDA UMERAHISISHA UPATIKANJI WA BIDHAA NCHINI🇹🇿",
+   "date": "2026-07-16",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1417,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6547,
+   "title": "RAIS DKT. SAMIA ANAWEKA HISTORIA YA KUJENGA UKUMBI MKUBWA AFRIKA- RC MAKALLA",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2107,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6545,
+   "title": "WANANCHI WA KIJIJI CHA MUNGUSHI WAISHUKURU SERIKALI MRADI WA MAJI MUNGUSHI🇹🇿",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1702,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6543,
+   "title": "WANANCHI WA KATA YA BWAWANI WAPONGEZWA UJENZI WA OFISI YA KATA🇹🇿",
+   "date": "2026-07-16",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1726,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6540,
+   "title": "DC MWINYI APOKEA MWENGE WA UHURU ARUMERU 🇹🇿",
+   "date": "2026-07-16",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1131,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6538,
+   "title": "MWENGE WA UHURU WAWEKA JIWE LA MSINGI UJENZI JENGO LA UPASUAJI WA DAHRURA MOIVO🇹🇿",
+   "date": "2026-07-15",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1194,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6537,
+   "title": "VIJANA ARUSHA WAGEUZA BIASHARA YA UJI KUWA MRADI WA MILIONI 76.7",
+   "date": "2026-07-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1164,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6536,
+   "title": "BARABARA YA GIRIKI - SAKINA KUONDOA KERO YA MAFURIKO",
+   "date": "2026-07-15",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1866,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6534,
+   "title": "RC ARUSHA AMSHUKURU RAIS SAMIA KWA UWEZESHAJI WA VIJANA KIUCHUMI",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2111,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6532,
+   "title": "PROGRAMU YA BILIONI 200 YAZINDULIWA ARUSHA, VIKUNDI VITATU VYANUFAIKA NA MILIONI 730",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1599,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6531,
+   "title": "RAS NGUVILA ATAKA MATOKEO CHANYA MRADI WA HER FUTURE MKOANI ARUSHA🇹🇿",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2098,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6529,
+   "title": "WANAWAKE KIMINDOROSI WAMSHUKURU MAMA SAMIA KUPATA HUDUMA YA MAJI SAFI NA SALAMA",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1948,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6528,
+   "title": "NANAUKA AZITAKA TAASISI ZA UMMA KUTENGA 30% YA BAJETI YA MANUNUZI KWA MAKUNDI MAALUMU",
+   "date": "2026-07-15",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2091,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6527,
+   "title": "DC ARUSHA MHE.JOSEPH MKUDE APOKEA MWENGE WA UHURU 2026🇹🇿",
+   "date": "2026-07-16",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1937,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6526,
+   "title": "HALMASHAURI YA WILAYA YA MONDULI YAPONGEZWA KWA MATUMIZI YA NISHATI SAFI🇹🇿",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2049,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6508,
+   "title": "MONDULI YAJIANDAA KUPOKEA WANAFUNZI WA KIDATO CHA KWANZA 2028🇹🇿",
+   "date": "2026-07-16",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2143,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6505,
+   "title": "TAASISI ZA SERIKALI ZAKUMBUSHWA KUTENGA 30% YA MANUNUZI KWA MAKUNDI MAALUMU",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1335,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6504,
+   "title": "WANAFUNZI WATAKIWA KUJIUNGA NA KLABU ZA WAPINGA RUSHWA SHULENI",
+   "date": "2026-07-15",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1599,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6503,
+   "title": "WANAFUNZI WATAKIWA KUJIUNGA NA KLABU ZA WAPINGA RUSHWA SHULENI",
+   "date": "2026-07-15",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1599,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6501,
+   "title": "MWENGE WA UHURU WAWASILI MONDULI",
+   "date": "2026-07-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1899,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6500,
+   "title": "‎ARUSHA KUWA MWENEJI MKUTANO WA UCHAVUSHAJI AFRIKA, KUWEKA DIRA YA KULINDA WACHAVUSHAJI NA KUIMARISHA KILIMO ‎",
+   "date": "2026-07-16",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2087,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6499,
+   "title": "TANESCO YAPONGEZWA KUHAMASISHA MATUMUZI YA NISHATI SAFI YA KUPIKIA",
+   "date": "2026-07-16",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1768,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6498,
+   "title": "WANAKIJIJI CHA CHANGARAWE WAPONGEZWA UJENZI WA OFISI",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2124,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6497,
+   "title": "WANAKIJIJI CHA CHANGARAWE WAPONGEZWA UJENZI WA OFISI",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2124,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6496,
+   "title": "WATALII WASHUHUDIA MWENGE WA UHURU UKIMULIKA MAAJABU YA NGORONGORO.",
+   "date": "2026-07-16",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1716,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6495,
+   "title": "NGORONGORO YAPONGEZWA MATUMIZI YA NISHATI SAFI YA KUPIKIA.",
+   "date": "2026-07-16",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1289,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6494,
+   "title": "MWENGE WA UHURU 2026 WAWASILI WILAYA YA KARATU",
+   "date": "2026-07-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2047,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6493,
+   "title": "DARAJA LA JEMA KUFUNGUA FURSA ZA KIJAMII NA KIUCHUMI NGORONGORO",
+   "date": "2026-07-15",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1993,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6492,
+   "title": "WANANCHI ENGARESERO WAISHUKURU SERIKALI UJENZI WA JENGO LA MAMA NA MTOTO🇹🇿",
+   "date": "2026-07-16",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1913,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6491,
+   "title": "WANANCHI SALE WASHIRIKIANA NA SERIKALI KUJENGA KITUO CHA POLISI",
+   "date": "2026-07-15",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1654,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6490,
+   "title": "SERIKALI IMEWEKA MAZINGIRA RAFIKI KWA WADAU WA MAENDELEO KUWEKEZA🇹🇿",
+   "date": "2026-07-05",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1965,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6489,
+   "title": "MWENGE WA UHURU WAWEKA JIWE LA MSINGI MRADI WA UJENZI WA KITUO CHA MICHEZO NA MAPUMZIKO LONGIDO",
+   "date": "2026-07-15",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1298,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6488,
+   "title": "BARABARA YA LONGIDO - LONGIDO SAMIA GIRLS YAWEKWA JIWE LA MSINGI",
+   "date": "2026-07-15",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1845,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6487,
+   "title": "WANANCHI 1,986 WANUFAIKA NA MRADI WA MAJI KIJIJI CHA TINGATINGA",
+   "date": "2026-07-15",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2081,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6486,
+   "title": "WAZAZI LONGIDO WAHIMIZWA KUWAPELEKA WATOTO SHULE",
+   "date": "2026-07-05",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1465,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6485,
+   "title": "RC MAKALLA APOKEA MWENGE WA UHURU 2026 MKOA WA ARUSHA",
+   "date": "2026-07-05",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1880,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6129,
+   "title": "MWENGE WA UHURU KUPOKELEWA LONGIDO MKOANI ARUSHA KESHO TAREHE 5/7//2026🇹🇿",
+   "date": "2026-07-04",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1774,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6125,
+   "title": "TANZANIA IPO TAYARI KUELEKEA AFCON 2027.",
+   "date": "2026-07-04",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 3049,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6124,
+   "title": "RC ARUSHA AWATAKA WANANCHI KUCHANGAMKIA FURSA ZA UJIO WA BUNGE LA DUNIA (IPU) NA AFCON",
+   "date": "2026-07-03",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2348,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6123,
+   "title": "KIWANDA CHA MAZIWA DEMAMS DIRAY PRODUCTS",
+   "date": "2026-07-03",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1169,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6122,
+   "title": "MAONESHO YA SABASABA SIO KUUZA TU: BALI NI KUITANGAZA TANZANIA",
+   "date": "2026-07-03",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1925,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6121,
+   "title": "SASASABA IMENIKUTANISHA NA WATU WA MATAIFA MENGINE",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1725,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6120,
+   "title": "WAZIRI CHONGOLO AITAKA TINGATINGA KUWA KITOVU CHA MALISHO YA MIFUGO",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1732,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6119,
+   "title": "SERIKALI KUANZA UJENZI WA BWAWA LA UMWAGILIAJI TINGATINGA WILAYA YA LONGIDO 🇹🇿",
+   "date": "2026-07-02",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1672,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6118,
+   "title": "WAJASIRIAMLI ARUSHA WAMSHUKURU MAMA SAMIA KWA FURSA ZA KIBIASHARA NDANI NA NJE YA NCHI",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2040,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6117,
+   "title": "SERIKALI YATOA FURSA KWA WAJASIRIAMALI KUPITIA MAPATO YA NDANI",
+   "date": "2026-07-03",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1984,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6116,
+   "title": "MKOA WA ARUSHA WASHIRIKI MAONESHO YA 50 YA BIASHARA YA KIMATAIFA",
+   "date": "2026-07-01",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 870,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6115,
+   "title": "RC ARUSHA APOKEA MAOMBI YA HALMASHAURI YA MERU NA ARUSHA DC KUWA MANISPAA",
+   "date": "2026-07-01",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1872,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6114,
+   "title": "RC MAKALLA AWATAKA MADIWANI ARUSHA DC KUHAMASISHA KAMPENI YA USAFI",
+   "date": "2026-07-01",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 2388,
+   "convening_tags": [
+    "public_meeting",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5968,
+   "title": "WAKUU WA MIKOA WAAGIZWA KUSIMAMIA NA KUREJESHA KAMPENI ZA USAFI KILA JUMAMOSI YA MWISHO MWEZI",
+   "date": "2026-07-01",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1770,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5895,
+   "title": "RC ARUSHA AKABIDHI MAGARI YA UFUATILIAJI UTALII NA MAPATO HALMASHAURI YA MONDULI",
+   "date": "2026-06-30",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "text_chars": 1992,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5891,
+   "title": "BARAZA LA MADIWANI HALMASHAURI YA KARATU LAJADILI HOJA ZA CAG 2024/2025",
+   "date": "2026-06-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1143,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5859,
+   "title": "RC ARUSHA ATAKA WILAYA YA KARATU KUWEKA MKAKATI WA KUKUZA UTALII",
+   "date": "2026-06-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1979,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5858,
+   "title": "RC ARUSHA ATAKA WILAYA YA KARATU KUWEKA MKAKATI WA KUKUZA UTALII",
+   "date": "2026-06-29",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1977,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5857,
+   "title": "BARAZA LA MADIWANI HALMASHAURI YA NGORONGORO LAKUTANA KUJADILI HOJA ZA CAG 2024/2025",
+   "date": "2026-06-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1118,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5856,
+   "title": "RC ARUSHA: UJENZI WA BARABARA YA LUDUARE- SERENGETI UMEANZA NA HATUA ZA KUUNGANISHA NGORONGORO NA MONDULI ZIMEANZA",
+   "date": "2026-06-28",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2290,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5775,
+   "title": "BARAZA LA MADIWANI HALMASHAURI YA LONGIDO LAKUTANA KUJADILI HOJA ZA CAG 2024/2025",
+   "date": "2026-06-26",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2069,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5759,
+   "title": "RC MAKALLA AIPONGEZA HALMASHAURI YA LONGIDO NA HALMASHAURI ZA ARUSHA KWA KUPATA HATI SAFI",
+   "date": "2026-06-26",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2056,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5727,
+   "title": "MAAFISA LISHE WATAKIWA KUTOA ELIMU YA ULAJI BORA KULINDA AFYA, KUJENGA RASILIMALI WATU IMARA",
+   "date": "2026-06-26",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2061,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5691,
+   "title": "RC MAKALLA; ULINZI, USALAMA NA USAFI WA MAZINGIRA VITACHANGIA KUKUA KWA UTALII, NA KUFANIKISHA MIKUTANO YA KIMATAIFA NA AFCON 2027",
+   "date": "2026-06-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1943,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5673,
+   "title": "KUELEKEA AFCON, UJENZI WA BARABARA YA MBAUDA- LOSINYAI - LOSINYAI - TANGANYIKA PACKERS WASHIKA KASI",
+   "date": "2026-06-24",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2068,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5671,
+   "title": "RC MAKALLA: MAONESHO YA NANENANE KANDA YA KASKAZINI KUFUNGULIWA TAREHE 1/8/ 2026 VIWANJA VYA THEMI- NJIRO",
+   "date": "2026-06-23",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2043,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5670,
+   "title": "RC MAKALLA AWATAKA WENYEVITI WA MITAA KUSIMAMIA ULINZI, USAFI, MIRADI NA UTATUZI WA KERO KATIKA MAENEO YAO",
+   "date": "2026-06-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1970,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5668,
+   "title": "RC MAKALLA; MRADI WA TAA UWANJA WA NDEGE ARUSHA UKAMILIKE AUGUST 2026",
+   "date": "2026-06-22",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1952,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5666,
+   "title": "RAS ARUSHA AWATAKA WANANCHI WA LONGIDO KUHAKIKISHA WATOTO WANASOMA",
+   "date": "2026-06-19",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1310,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5665,
+   "title": "DKT. NGUVILA ASISITIZA UMOJA, MSHIKAMANO LONGIDO",
+   "date": "2026-06-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1750,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5664,
+   "title": "WANANCHI WA NGORONGORO WAELIMISHWE KUHUSU BIMA YA AFYA KWA WOTE- DKT. NGUVILA",
+   "date": "2026-06-24",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1552,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5662,
+   "title": "RAS ARUSHA ATAKA KASI NA USIMAMIZI MADHUBUTI MAKUSANYO YA HALMASHAURI YA NGORONGORO",
+   "date": "2026-06-24",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1538,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5660,
+   "title": "RAS ARUSHA ATETA NA WATUMISHI NGORONGORO DC",
+   "date": "2026-06-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2035,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5443,
+   "title": "RAS ATEMBELEA NA KUKAGUA HOSPITALI YA WILAYA NGORONGORO",
+   "date": "2026-06-19",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1427,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5440,
+   "title": "PROGRAMU YA TAKUKURU RAFIKI YATAMBULISHWA KWA MADIWANI WA JIJI LA ARUSHA🇹🇿",
+   "date": "2026-06-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2258,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5439,
+   "title": "RC MAKALA ATOA SALAMU ZA SIKU YA MTOTO WA AFRIKA",
+   "date": "2026-06-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 922,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5143,
+   "title": "WAZIRI SHEMDOE AAGIZA UJENZI WA BARABARA ZA AFCON KUJENGWA USIKU NA MCHANA",
+   "date": "2026-06-13",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2093,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5098,
+   "title": "WANAUSHIRIKA ARUSHA WAKUTANA KUTATHMINI MWENENDO WA SEKTA HIYO MUHIMU NCHINI",
+   "date": "2026-06-11",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2019,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5095,
+   "title": "TAKUKURU ARUSHA YASISITIZA UADILIFU KWA VYAMA VYA USHIRIKA MKOA WA ARUSHA",
+   "date": "2026-06-11",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2021,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5094,
+   "title": "VYAMA VYA USHIRIKA NI MUHIMU KATIKA UTEKELEZAJI WA DIRA 2050",
+   "date": "2026-06-11",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2097,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5093,
+   "title": "SERIKALI YAIMARISHA USIMAMIZI WA VYAMA VYA USHIRIKA MKOANI ARUSHA",
+   "date": "2026-06-10",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2157,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5092,
+   "title": "CHAMPIONI WA UFUATILIAJI NA TATHMINI MKOA WA ARUSHA WAPATIWA MAFUNZO🇹🇿",
+   "date": "2026-06-10",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2854,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5090,
+   "title": "MHE. MAKAMBA AFUNGUA KONGAMANO LA MWAKA LA NISHATI SAFI MKOANI ARUSHA",
+   "date": "2026-06-11",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2081,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4829,
+   "title": "JUKWA LA UHAMASISHAJI DHIDI YA UDANGANYIFU KATIKA SEKTA YA UMMA KUFANYIKA ARUSHA",
+   "date": "2026-06-06",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 926,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4826,
+   "title": "JUKWA LA KIMATAIFA LA VIJANA WANAOPINGA MATUMIZI YA DAWA ZA KULEVYA LAFANYIKA ARUSHA",
+   "date": "2026-06-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1346,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4825,
+   "title": "MAELFU WAMIMINIKA MAONESHO YA KARIBU- KILI FAIR MKOANI ARUSHA",
+   "date": "2026-06-05",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1496,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4824,
+   "title": "SERIKALI YAWATAKA WANANCHI KUENDELEZA VIWANJA WALIVYONUNUA AFCON ARUSHA",
+   "date": "2026-06-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2034,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4823,
+   "title": "RC MAKALLA AKUTANA NA BALOZI KAREMU WA KENYA",
+   "date": "2026-06-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 397,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4822,
+   "title": "WAHADZABE WATUA KWA MKUU WA MKOA WA ARUSHA, KUNOGESHA MAONESHO YA KILIFAIR",
+   "date": "2026-06-04",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1449,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4821,
+   "title": "MAONESHO YA KARIBU- KILI FAIR YAZINDULIWA, SERIKALI IKIELEZA MIKAKATI KUKUZA SEKTA YA UTALII",
+   "date": "2026-06-04",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1416,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4820,
+   "title": "TAKUKURU ARUSHA YAMKAMATA TAPELI, AKIJIFANYA AFISA WA TAKUKURU🇹🇿",
+   "date": "2026-06-04",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1709,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4819,
+   "title": "KIHONGOZI ARIDHISHWA NA UTEKELEZAJI WA UJEZNI WA WODI ZA MTOTO NA WANAWAKE KARATU",
+   "date": "2026-06-06",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2098,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4818,
+   "title": "KIHONGOSI: TULINDENI MIUNDOMBINU YA AFYA, FEDHA ZIWAHUDUMIE WANANCHI ZAIDI",
+   "date": "2026-06-06",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1388,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4817,
+   "title": "LONGIDO YATOA MIKOPO YA SHILINGI MILIONI 180 KWA WANAWAKE, VIJANA NA WATU WENYE ULEMAVU",
+   "date": "2026-06-04",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2061,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4816,
+   "title": "DC KALLI AINGILIA KATI KERO ZA MADEREVA WA MALORI LONGIDO",
+   "date": "2026-06-07",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2133,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4815,
+   "title": "KRA KUONGEZA MUDA WA KAZI WA SCANNER NAMANGA KUPUNGUZA FOLENI YA MALORI",
+   "date": "2026-06-02",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2094,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4814,
+   "title": "KRA KUONGEZA MUDA WA KAZI WA SCANNER NAMANGA KUPUNGUZA FOLENI YA MALORI",
+   "date": "2026-06-02",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2094,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4813,
+   "title": "RC MAKALLA AZINDUA KAMATI SABA ZA MKOA, MAANDALIZI YA BUNGE LA IPU",
+   "date": "2026-06-02",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2423,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4812,
+   "title": "HALMASHAURI ZA MERU, ARUSHA NA JIJI LA ARUSHA ZANG'ARA TUZO ZA ELIMU 2026🇹🇿",
+   "date": "2026-06-01",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1236,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4811,
+   "title": "RASIMU YA MPANGO MKAKATI WA ELIMU MKOA WA ARUSHA, IMELENGA KUTOA ELIMU BORA, JUMUISHI NA SHINDANI",
+   "date": "2026-06-01",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1769,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4810,
+   "title": "RAS ARUSHA AMSHUKURU RAIS SAMIA KWA UWEKEZAJI WAKE MKUBWA KATIKA MIUNDOMBINU YA ELIMU MKOA WA ARUSHA🇹🇿",
+   "date": "2026-06-01",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1944,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4809,
+   "title": "RC MAKALLA AZINDUA KONGAMANO LA ELIMU MKOA WA ARUSHA",
+   "date": "2026-06-06",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2007,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4808,
+   "title": "RAS ARUSHA AAGIZA KUANZISHWA VITUO VYA KUENDELEZA WATOTO KIMICHEZO",
+   "date": "2026-05-30",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 2116,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4504,
+   "title": "RAS ARUSHA AFUNGA SEMINA YA VIONGOZI NA WATENDAJI WA SERIKALI",
+   "date": "2026-05-29",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1869,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4503,
+   "title": "MJENGA ATOA ELIMU YA AINA ZA UONGOZI, AKITAKA KILA MMOJA KUJITATHIMINI🇹🇿",
+   "date": "2026-05-28",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=4&limit=50",
+   "text_chars": 1305,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4502,
+   "title": "TAKUKURU YAREJESHA VIWANJA VYA BILIONI 3 BAADA YA KUBAINI NYARAKA ZA UONGO",
+   "date": "2026-05-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 3019,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4479,
+   "title": "RC MAKALLA AFUNGUA MAFUNZO YA KUWAJENGEA UWEZO WATENDAJI WA SERIKALI🇹🇿",
+   "date": "2026-05-28",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1909,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4477,
+   "title": "RAS NGUVILA ASISITIZA UMUHIMU WA MAFUNZO KWA VIONGOZI NA WATENDAJI WA ARUSHA",
+   "date": "2026-05-28",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1764,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4476,
+   "title": "RAS ARUSHA AWATAKA UMALITA KUJIANDAA NA UJIO WA IPU NA MICHUANO YA AFCON 2027",
+   "date": "2026-05-25",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 2027,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4475,
+   "title": "RAS ARUSHA AMSHUKURU RAIS SAMIA KWA UWEKEZAJI MKUBWA, HOSPITALI YA MOUNT MERU",
+   "date": "2026-05-25",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1973,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4474,
+   "title": "SERIKALI KUENDELEA KULINDA NA KUIMARISHA USALAMA WA RASILIMALI KWA MAENDELEO-RC MAKALLA",
+   "date": "2026-05-29",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1909,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4473,
+   "title": "MAANDALIZI YA MAONESHO YA NANENANE KANDA YA KASKAZINI YAANZA RASMI ARUSHA🇹🇿",
+   "date": "2026-05-23",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1516,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4472,
+   "title": "RAS ARUSHA ASISITIZA UTUNZAJI WA MAZINGIRA NA MATUMIZI YA NISHATI SAFI YA KUPIKIA🇹🇿",
+   "date": "2026-05-22",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1419,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4471,
+   "title": "WAZIRI MASAUNI AHIMIZA UTUNZAJI MAZINGIRA NA UWEKEZAJI KWENYE KUREJELEZA TAKA🇹🇿",
+   "date": "2026-05-29",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1302,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4235,
+   "title": "WAZIRI MHANDISI MASAUNI AWASILI WILAYA YA ARUSHA; KUSHIRIKI SHUGHULI ZA UTUNZAJI WA MAZINGIRA🇹🇿",
+   "date": "2026-05-22",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1051,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4229,
+   "title": "MHE.BALOZI DKT. NCHIMBI AONDOKA ARUSHA.🇹🇿",
+   "date": "2026-05-22",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 630,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4228,
+   "title": "SERIKALI INATAMBUA MCHANGO WA WAANDISHI WAENDESHA OFISI- MAKAMU WA RAIS🇹🇿",
+   "date": "2026-05-21",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1035,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4227,
+   "title": "WAZIRI KIKWETE AMSHUKURU MHE. MAKALLA KWA MAPOKEZI MAZURI YA WANATAPSEA MKOANI ARUSHA🇹🇿",
+   "date": "2026-05-21",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1053,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4226,
+   "title": "RC MAKALLA AKARIBISHA TAASISI NA MASHIRIKA KUFANYA MIKUTANO ARUSHA🇹🇿",
+   "date": "2026-05-21",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1624,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4225,
+   "title": "RAS NGUVILA NI MFANO WA KUIGWA KATIKA KUJALI WATUMISHI- KATIBU MKUU UTUMISHI",
+   "date": "2026-05-21",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1380,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4223,
+   "title": "WANACHAMA ZAIDI YA 5, 000 WASHIRIKI MKUTANO WA 13 WA TAPSEA MKOANI ARUSHA",
+   "date": "2026-05-23",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 569,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4064,
+   "title": "MAKAMU WA RAIS AWASILI ARUSHA, KUFUNGUA MKUTANO WA MWAKA WA TAPSEA",
+   "date": "2026-05-20",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 869,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4057,
+   "title": "MAAFISA MAENDELEO YA JAMII NA USTAWI WAKUTANA, UIMARISHAJI WA VIKUNDI VYA MALEZI🇹🇿",
+   "date": "2026-05-19",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 2043,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4020,
+   "title": "RAS ARUSHA ASISITIZA WATUMISHI KUHESHIMU MIPAKA YA KIUONGOZI🇹🇿",
+   "date": "2026-05-19",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1669,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4014,
+   "title": "WANANCHI WA KIJIJI CHA ORBOMBA WAMSHUKURU DKT. SAMIA KWA UJENZI WA MADARASA",
+   "date": "2026-05-19",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 2090,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4013,
+   "title": "RAS ARUSHA ATETA NA WATUMISHI HALMASHAURI YA LONGIDO🇹🇿",
+   "date": "2026-05-19",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1974,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4012,
+   "title": "RAS ARUSHA AAGIZA LONGIDO DC KUKAMILISHA UJENZI WA JENGO LA VYUMBA 3 VYA MADARASA S/MSINGI OLDORKO🇹🇿",
+   "date": "2026-05-19",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1974,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4011,
+   "title": "RAS AKAGUA UJENZI WA VYUMBA VYA MADARASA SHULE YA MSINGI OLDORKO🇹🇿",
+   "date": "2026-05-19",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1820,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4010,
+   "title": "RAS ARUSHA AWASILI LONGIDO KWA ZIARA YA KIKAZI🇹🇿",
+   "date": "2026-05-19",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1257,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3969,
+   "title": "RAS ARUSHA ATETA NA WATUMISHI MERU DC🇹🇿",
+   "date": "2026-05-18",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1422,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3968,
+   "title": "MERU DC YAFANYA VIZURI UTEKELEZAJI WA SHUGHULI ZA MAENDELEO🇹🇿",
+   "date": "2026-05-18",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1799,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3967,
+   "title": "DKT. NGUVILA AAGIZA UJENZI WA OFISI YA DC ARUMERU KUKAMILIKA MWISHONI MWA JUNI 2026🇹🇿",
+   "date": "2026-05-18",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1490,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3966,
+   "title": "RAS ARUSHA ARIDHISHWA NA MAENDELEO YA UJENZI WA OFISI YA MKUU WA WILAYA YA ARUMERU🇹🇿",
+   "date": "2026-05-18",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1774,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3965,
+   "title": "RAS ARUSHA AWASILI WILAYA YA ARUMERU KWA ZIARA YA KIKAZI🇹🇿",
+   "date": "2026-05-18",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 862,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3870,
+   "title": "RC MAKALLA AFANYA MAZUNGUMZO NA WAZIRI WA UCHUMI NA MAENDELEO WA URUSI🇹🇿",
+   "date": "2026-05-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1913,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3865,
+   "title": "ATCL KUANZA SAFARI ZA URUSI MWISHONI MWA MWEZI JUNI 2026",
+   "date": "2026-05-16",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1429,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3864,
+   "title": "ARUSHA INAYOONGOZA BARANI AFRIKA KWA UTALII WA MIKUTANO 🇹🇿",
+   "date": "2026-05-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 829,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3856,
+   "title": "DKT. CHAYA: SERIKALI IMEDHAMIRIA KUENDELEZA MAGEUZI YA UWEKEZAJI NA BIASHARA🇹🇿",
+   "date": "2026-05-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1731,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3855,
+   "title": "RAS ARUSHA AWAKARIBISHA RAIA WA URUSI KUWEKEZA NA KUTEMBELEA VIVUTIO VYA UTALII ARUSHA",
+   "date": "2026-05-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1580,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3845,
+   "title": "WAZIRI WA MALIASILI NA UTALII ATINGA BUNGENI WA CHABA NA DUDUKWE🇹🇿",
+   "date": "2026-05-15",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 802,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3843,
+   "title": "MAONESHO YA KARIBU - KILIFAIR KUANZA JUNI 2026 ARUSHA; NCHI 40 KUSHIRIKI 🇹🇿",
+   "date": "2026-05-14",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1403,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3839,
+   "title": "RC MAKALLA AKUTANA NA WAZIRI WA MAMBO YA NJE, WAZIRI WA UWEKEZAJI NA WAZIRI WA HABARI",
+   "date": "2026-05-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1151,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3760,
+   "title": "MAAFISA UTALII NA MAZINGIRA WA HALMASHAURI WAKUTANA, MAANDALIZI MKAKATI WA UKUZAJI UTALII ARUSHA 🇹🇿",
+   "date": "2026-05-13",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1685,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3713,
+   "title": "RAS ARUSHA AZUNGUMZA NA MANAIBU MAWAZIRI WA OR -UTUMISHI NA OWM- TAMISEMI",
+   "date": "2026-05-12",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 988,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3642,
+   "title": "WATUMISHI WA UMMA ARUSHA TUMIENI FURSA ZA MIKUTANO KUKUZA UCHUMI WENU- DKT. NGUVILA",
+   "date": "2026-05-11",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1858,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3639,
+   "title": "ARUSHA YAANZA MAFUNZO YA UANDAAJI WA WASIFU WA MKOA",
+   "date": "2026-05-10",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1201,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3638,
+   "title": "RAS ARUSHA AHIMIZA WATUMISHI WA UMMA MKOA WA ARUSHA KUJIENDELEZA KIELIMU",
+   "date": "2026-05-11",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1603,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3637,
+   "title": "RAS ARUSHA AWAKABDIHI VYETI WAFANYAKAZI HODARI OFISI YA MKUU WA MKOA ARUSHA",
+   "date": "2026-05-11",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 921,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3461,
+   "title": "MSIGWA: MAAFISA MAWASILIANO SERIKALINI; ELIMISHENI WANANCHI FURSA ZA AFCON NA MISS WORLD 2027 🇹🇿",
+   "date": "2026-05-07",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1559,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3460,
+   "title": "NAIBU KATIBU MKUU UTUMISHI AKEMEA MIUNGUWATU KWA MAAFISA RASILIMALIWATU NA UTUMISHI",
+   "date": "2026-05-07",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1299,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3459,
+   "title": "DCEA ARUSHA YATOA VITANDA NA MAGODORO 160 KWA NYUMBA ZA WARAIBU WA DAWA ZA KULEVYA",
+   "date": "2026-05-07",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1922,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3426,
+   "title": "WATUMISHI WENYE SIFA YA KUPANDISHWA VYEO; WASICHELEWESHWE 🇹🇿",
+   "date": "2026-05-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1398,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3404,
+   "title": "RAS ARUSHA AMPONGEZA WAZIRI KIKWETE KWA MAGEUZI MAKUBWA KWENYE UTUMISHI",
+   "date": "2026-05-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1164,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3400,
+   "title": "MAAFISA RASILIMALIWATU WATAKIWA KUZINGATIA SHERIA NA SERA ZA UTUMISHI WA UMMA",
+   "date": "2026-05-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 1818,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3330,
+   "title": "RC MAKALLA ARIDHISHWA NA UJENZI UWANJA NA BARABARA ZA AFCON",
+   "date": "2026-05-05",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "text_chars": 2047,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3329,
+   "title": "RC ARUSHA ARUHUSU MGOGORO WA MWEKEZAJI NA MPANGAJI KARATU UTATULIWE MAHAKAMANI🇹🇿",
+   "date": "2026-05-05",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1787,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3224,
+   "title": "SALAMU ZA RC MAKALLA KWA WANAFUNZI WA KIDATO CHA SITA 2026🇹🇿",
+   "date": "2026-05-03",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 299,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3223,
+   "title": "SALAMU ZA RAS ARUSHA KWA WANAFUNZI WA KIDATO CHA SITA 2026",
+   "date": "2026-05-03",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 301,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3219,
+   "title": "WANAFUNZI 5,361 KUFANYA MTIHANI WA KIDATO CHA SITA MKOA WA ARUSHA🇹🇿",
+   "date": "2026-05-02",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2068,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3194,
+   "title": "RC MAKALLA AKABIDHI ZAWADI KWA WAFANYAKAZI HODARI SEKRETARIETI YA MKOA WA ARUSHA 🇹🇿",
+   "date": "2026-05-01",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 450,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3185,
+   "title": "RC MAKALLA AWATAKA WAAJIRI KUWASILISHA KWA WAKATI MICHANGO YA WAFANYAKAZI KWENYE MIFUKO YA HIFADHI YA JAMII",
+   "date": "2026-04-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2153,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3174,
+   "title": "RAS ARUSHA ATOA SALAMU KWA WAFANYAKAZI WA MKOA WA ARUSHA 🇹🇿",
+   "date": "2026-04-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 482,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3173,
+   "title": "RC MAKALLA MGENI RASMI MEI MOSI MKOA WA ARUSHA🇹🇿",
+   "date": "2026-05-01",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 456,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3133,
+   "title": "RC MAKALLA ATAKA MAAFISA ARDHI KUTATUA MIGOGORO YA ARDHI*🇹🇿",
+   "date": "2026-04-29",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1784,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2922,
+   "title": "KINA MAMA MONDULI WAMSHUKURU MAMA SAMIA WODI YA WATOTO NA WATOTO NJITI🇹🇿",
+   "date": "2026-04-24",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2119,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2920,
+   "title": "RAS NGUVILA AMUAGIZA DED MONDULI KULIPA MADAI YA UHAMISHO YA WATENDAJI WA KATA NA VIJIJI 🇹🇿",
+   "date": "2026-04-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2065,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2919,
+   "title": "RAS ARUSHA AAGIZA KUKAMILIKA UKARABATI WA JENGO LA OFISI YA DC MONDULI",
+   "date": "2026-04-23",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2076,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2918,
+   "title": "RAS NGUVILA AWAFARIJI WATOTO WAGONJWA HOSPITALI YA WILAYA YA MONDULI🇹🇿",
+   "date": "2026-04-24",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 820,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2891,
+   "title": "MILIONI 30.3 ZAKARABATI WODI YA WATOTO NJITI 🇹🇿",
+   "date": "2026-04-23",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1083,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2887,
+   "title": "RAS ARUSHA APONGEZA HALI YA UTOAJI HUDUMA HOSPITALI YA WILAYA YA MONDULI🇹🇿",
+   "date": "2026-04-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2112,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2886,
+   "title": "RAS ARUSHA AWASILI WILAYA YAMONDULI 🇹🇿",
+   "date": "2026-04-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 848,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2849,
+   "title": "MTWALE: VIONGOZI ALAT SHIRIKIANENI ILI KUTIMIZA MALENGO WALIYOJIWEKEA",
+   "date": "2026-04-23",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1375,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2812,
+   "title": "PROF. SHEMDOE AMSHUKURU RAIS KWA FEDHA NYINGI ZA MIRADI KWENYE HALMASHAURI.",
+   "date": "2026-04-22",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1171,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2807,
+   "title": "TRILIONI 1.48 ZATEKELEZA MIRADI YA MAENDELEO ARUSHA.",
+   "date": "2026-04-22",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1281,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2788,
+   "title": "WAJUMBE WA ALAT WATAKIWA KUEPUKE MIGOGORO NA MIZOZO",
+   "date": "2026-04-21",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2142,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2775,
+   "title": "WAZIRI MKUU AWASILI ARUSHA🇹🇿",
+   "date": "2026-04-22",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 925,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2744,
+   "title": "SERIKALI YATENGA BILIONI 52.25 KUBORESHA MIUNDOMBINU YA HOSPITALI 105 NCHINI- DKT. SEIF",
+   "date": "2026-04-21",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1266,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2743,
+   "title": "SERIKALI YAKABIDHI BILIONI 94.1 KWA WAFANYA BIASHARA WADOGO WAKIWEMO BABALISHE NA MAMA LISHE NCHINI",
+   "date": "2026-04-21",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 659,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2742,
+   "title": "RC MAKALLA AMPA ZAWADI RAMADHAN CHOBWEDO NYOTA WA TRA UNITED",
+   "date": "2026-04-22",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2126,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2741,
+   "title": "MHESHIMIWA RAIS DKT. SAMIA AFUNGUA KONGAMANO LA KITAIFA LA BABA NA MAMA LISHE🇹🇿",
+   "date": "2026-04-21",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1630,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2624,
+   "title": "RC MAKALLA AKUTANA NA KUZUNGUMZA NA GAVANA WA ISTANBUL, NCHINI UTURUKI",
+   "date": "2026-04-20",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 613,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2578,
+   "title": "TIMU YA KUKABILIANA NA MAAFA MKOA ARUSHA YATAKIWA KUTUMIA UJUZI NA MAARIFA KUKABILIANA NA MAJANGA🇹🇿",
+   "date": "2026-04-18",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2086,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2572,
+   "title": "WANAWAKE INJINI YA UCHUMI WA TAIFA LA TANZANIA 🇹🇿",
+   "date": "2026-04-18",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2230,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2564,
+   "title": "WAZIRI WA UJENZI ATOA MWELEKEO AFCON 2027: MIRADI YA BARABARA KUKAMILIKA KWA WAKATI🇹🇿",
+   "date": "2026-04-18",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2071,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2553,
+   "title": "MAAFISA MIPANGO HALMASHAURI WATAKIWA KUSIMAMIA MATUMIZI YA BAJETI YA LISHE🇹🇿",
+   "date": "2026-04-17",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2099,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2552,
+   "title": "UJENZI WA BARABARA KWA AJILI YA MASHINDANO YA AFCON 2027; KUNUFAISHA WANANCHI WA ARUSHA🇹🇿",
+   "date": "2026-04-17",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1544,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2547,
+   "title": "WAZIRI MKUU AMTAKA MKANDARASI WA BARABARA ZA KUELEKEA AFCON KUONGEZA KASI🇹🇿",
+   "date": "2026-04-17",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1998,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2543,
+   "title": "DKT. MWIGULU AKAGUA MAENDELEO YA UJENZI WA UWANJA MPIRA WA MIGUU, ARUSHA🇹🇿",
+   "date": "2026-04-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 239,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2542,
+   "title": "DKT. MWIGULU AKIPOKEA TAARIFA YA MAENDELEO YA UJENZI WA UWANJA MPIRA WA MIGUU, ARUSHA🇹🇿",
+   "date": "2026-04-17",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 391,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2538,
+   "title": "🌍 UGENI: WAZIRI MKUU AWASILI ARUSHA 🇹🇿",
+   "date": "2026-04-17",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 835,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2525,
+   "title": "BAADHI YA TEKNOLOJIA ZINAZOTUMIKA KUDHIBITI MIGONGANO KATI YA BINADAMU NA TEMBO🇹🇿",
+   "date": "2026-04-17",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1086,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2482,
+   "title": "RC MAKALLA ASHIRIKI MKUTANO WA 152 WA IPU JIJINI ISTANBUL NCHINI UTURUKI🇹🇿",
+   "date": "2026-04-15",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1943,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2481,
+   "title": "NAIBU SPIKA, RC MAKALLA NA RAS NGUVILA KWENYE BANDA LA TANZANIA JIJINI INSTABUL - UTURUKI",
+   "date": "2026-04-14",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 804,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2479,
+   "title": "WATUMISHI WAPYA OFISI YA TAIFA YA MASHTAKA WAFUNDWA",
+   "date": "2026-04-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1803,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2465,
+   "title": "WATALAMU MKOA WA ARUSHA WAPEWA MAFUNZO YA MAAFA 🇹🇿",
+   "date": "2026-04-13",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 774,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2340,
+   "title": "SERIKALI YAKABIDHI MAGARI NA BAJAJI KWA TANESCO MKOA WA ARUSHA🇹🇿",
+   "date": "2026-04-13",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1494,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2338,
+   "title": "WASIMAMIZI WA USAILI WA AJIRA WATAKIWA KUZINGATIA MAADILI NA UADILIFU🇹🇿",
+   "date": "2026-04-13",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2126,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2337,
+   "title": "SERIKALI YAPONGEZWA KWA MABORESHO YA MFUMO WA KIDIJITALI WA USAHILI🇹🇿",
+   "date": "2026-04-13",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1882,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2296,
+   "title": "DC LONGIDO AZINDUA JENGO JIPYA CHAMA CHA WALIMU - CWT🇹🇿",
+   "date": "2026-04-11",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1918,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2295,
+   "title": "WAFUGAJI LONGIDO NA NGORONGORO BEGA KWA BEGA KWENYE UHIFADHI",
+   "date": "2026-04-12",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 1909,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2221,
+   "title": "WATENGENEZA MAUDHUI MTANDAONI ARUSHA WAPEWA MAFUNZO🇹🇿",
+   "date": "2026-04-09",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 2319,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2176,
+   "title": "KUMBUKIZI YA MIAKA 54 YA KIFO CHA HAYATI SHEIKH ABEID AMANI KARUME🇹🇿",
+   "date": "2026-04-07",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 452,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2175,
+   "title": "SALAMU ZA MHE.RAIS MIAKA 54 YA KUMBUKIZI YA KIFO CHA HAYATI SHEIKH ABEID AMANI KARUME",
+   "date": "2026-04-06",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 452,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2174,
+   "title": "SALAMU ZA MHE.RAIS MIAKA 54 YA KUMBUKIZI YA KIFO CHA HAYATI SHEIKH ABEID AMANI KARUME",
+   "date": "2026-04-06",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 452,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2154,
+   "title": "RAS ARUSHA ATOA SALAMU ZA PASAKA🇹🇿",
+   "date": "2026-04-05",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
+   "text_chars": 800,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2151,
+   "title": "RC MAKALLA ATOA SALAMU ZA SIKUKUU YA PASAKA 2026🇹🇿",
+   "date": "2026-04-03",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 832,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2150,
+   "title": "SALAMU ZA SIKUKUU YA PASAKA",
+   "date": "2026-04-04",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 563,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2147,
+   "title": "UPATIKANAJI WA DAWA WAIMARIKA NCHINI OWM-TAMISEMI🇹🇿",
+   "date": "2026-04-02",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1374,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2146,
+   "title": "RAIS DKT. MWINYI AZINDUA MBIO ZA MWENGE WA UHURU 2026, ASISITIZA AMANI, UZALENDO NA UWAJIBIKAJI🇹🇿",
+   "date": "2026-04-02",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1362,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2145,
+   "title": "UTEKELEZAJI WA DIRA 2050 UANZE - DKT. MWIGULU🇹🇿",
+   "date": "2026-04-01",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2116,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2144,
+   "title": "RAS ARUSHA ASISITIZA MOTISHA KWA WATUMISHI WA UMMA🇹🇿",
+   "date": "2026-03-31",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1991,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2143,
+   "title": "RAS ARUSHA AHIMIZA KASI YA UKUSANYAJI WA MAPATO KARATU DC🇹🇿",
+   "date": "2026-04-02",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1698,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2142,
+   "title": "DC KARATU AWAPONGEZA WATUMISHI WA HALMASHAURI YA KARATU🇹🇿",
+   "date": "2026-03-31",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1764,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2141,
+   "title": "RAS ARUSHA AWAFUNDA WATUMISHI WA KARATU🇹🇿",
+   "date": "2026-03-31",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1901,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2140,
+   "title": "RC MAKALLA AKUTANA NA VIONGOZI WA DINI MKOA WA ARUSHA🇹🇿",
+   "date": "2026-03-31",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2130,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2072,
+   "title": "MHE. RAIS DKT SAMIA SULUHU HASSAN AKIPOKEA RIPOTI YA CAG",
+   "date": "2026-03-29",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 339,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2063,
+   "title": "RC MAKALLA AKUTANA NA BABA ASKOFU WA JIMBO KATOLIKI ARUSHA🇹🇿",
+   "date": "2026-03-30",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1945,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1993,
+   "title": "MWITIKIO HAFIFU WA WAZAZI KIKWAZO CHA WATOTO KUPATA CHAKULA CHA MCHANA SHULENI🇹🇿",
+   "date": "2026-03-26",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2212,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1917,
+   "title": "TAKUKURU ARUSHA YATAHADHARISHA MATAPELI; WANAOJITAMBULISHA NI MAOFISA WA TAKUKURU🇹🇿",
+   "date": "2026-03-25",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 730,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1916,
+   "title": "WAANDAA VIPINDI VYA ELIMU KWA UMMA WATAKIWA KUANDAA MAUDHUI KWA LUGHA INAYOELEWEKA🇹🇿",
+   "date": "2026-03-25",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1205,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1907,
+   "title": "WILAYA YA LONGIDO WAKABIDHIWA GARI LA KISASA LA ZIMAMOTO KUIMARISHA UOKOAJI🇹🇿",
+   "date": "2026-03-24",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2067,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1906,
+   "title": "MAAFISA MAWASILIANO SERIKALINI WATAKIWA KUTUMIA TAALUMA ZAO KUUNGANISHA WATANZANIA🇹🇿",
+   "date": "2026-03-24",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1383,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1903,
+   "title": "WAZIRI MKUU AMLILIA LUKUVI, AMUOMBEA PUMZIKO JEMA🙏🏻",
+   "date": "2026-03-25",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1025,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1899,
+   "title": "RC MAKALLA: KUFANYIKA KWA MIKUTANO ARUSHA NI FURSA YA KIUCHUMI KWA WANANCHI🇹🇿",
+   "date": "2026-03-25",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2077,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1898,
+   "title": "RC MAKALLA ATOA SALAMU ZA EID EL FITR🇹🇿",
+   "date": "2026-03-21",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 625,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1897,
+   "title": "TAKUKURU ARUSHA YARIDHISHWA NA MATUMIZI YA FEDHA ZA MIRADI 5 YA MAENDELEO🇹🇿",
+   "date": "2026-03-19",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2106,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1896,
+   "title": "ARUSHA YAWEKA MKAZO MALEZI YA AWALI YA MTOTO KUANZIA UJAUZITO🇹🇿",
+   "date": "2026-03-19",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1796,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1894,
+   "title": "WAZAZI, WALEZI NA JAMII KUSHURIKIANA MALEZI NA MAKUZI YA WATOTO🇹🇿",
+   "date": "2026-03-18",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2123,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1893,
+   "title": "WADAU NA WATALAMU WA SEKTA MTAMBUKA YA MAKUZI NA MALEZI YA MTOTO MKOA WA ARUSHA WAKUTANA🇹🇿",
+   "date": "2026-03-18",
+   "category": "Afya",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2161,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1892,
+   "title": "WABUNGE KAMATI YA BUNHE TAMISEMI WAKARIBISHWA KUWEKEZA ARUSHA 🇹🇿",
+   "date": "2026-03-17",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1246,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1891,
+   "title": "KAMATI YA BUNGE TAMISEMI YAPONGEZA UTEKELEZAJI WA MIRADI YA TACTIC ARUSHA 🇹🇿",
+   "date": "2026-03-17",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2104,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1890,
+   "title": "KAMATI YA BUNGE TAMISEMI YAIPONGEZA UTEKELEZAJI MZURI WA MIRADI YA TACTIC ARUSHA 🇹🇿",
+   "date": "2026-03-25",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2200,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1889,
+   "title": "MRADI WA BUSTANI YA MAPUMZIKO THEMI, UNAAKISI UTALII WA ARUSHA🇹🇿",
+   "date": "2026-03-17",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1775,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1888,
+   "title": "WAFANYA BIASHARA WA MASOKO WAUNGANISHWE NA MIKOPO YA 10% INAYOTOLEWA NA SERIKALI🇹🇿",
+   "date": "2026-03-17",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1688,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1887,
+   "title": "KAMATI YA KUDUMU YA BUNGE TAMISEMI YATEMBELEA UJENZI WA SOKO LA MROMBO 🇹🇿",
+   "date": "2026-03-17",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1672,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1886,
+   "title": "KAMATI YA BUNGE TAMISEMI YAMPONGEZA MHE. RAIS DKT. SAMIA KUWAPA TABASAMU WANANCHI WA ARUSHA 🇹🇿",
+   "date": "2026-03-18",
+   "category": "Uchumi",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2086,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1885,
+   "title": "KAMATI YA BUNGE TAMISEMI YASHAURI UJENZI WA UZIO NA MABWENI SHULE ZA MAENEO YA USHOROBA🇹🇿",
+   "date": "2026-03-17",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1832,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1429,
+   "title": "KAMATI YA BUNGE TAMISEMI YASHAURI UJENZI WA UZIO NA MABWENI SHULE ZA MAENEO YA USHOROBA",
+   "date": "2026-03-17",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1921,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1427,
+   "title": "WAZIRI TAMISEMI AAGIZA HALMASHAURI KUKAMILISHA MABOMA YALIYOJENGWA NA WANANCHI",
+   "date": "2026-03-17",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2084,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1419,
+   "title": "KAMATI YA BUNGE TAMISEMI YARIDHISHWA NA MRADI WA UJENZI SHULE YA WASICHANA LONGIDO SAMIA GIRLS HIGH SCHOOL",
+   "date": "2026-03-16",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2130,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1418,
+   "title": "KAMATI YA KUDUMU YA BUNGE TAMISEMI YAWASILI LONGIDO SAMIA GIRLS SECONDARY SCHOOL",
+   "date": "2026-03-15",
+   "category": "Elimu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1487,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1417,
+   "title": "KAMATI YA KUDUMU YA BUNGE TAMISEMI YATUA ARUSHA",
+   "date": "2026-03-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1614,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1415,
+   "title": "RAS ARUSHA APIGA MARUFUKU WENYEVITI WA MITAA NA VIJIJI KUKAA NA MIHURI",
+   "date": "2026-03-16",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1387,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1413,
+   "title": "RAS ARUSHA AKAGUA MRADI WA UKARABATI OFISI YA DC ARUSHA",
+   "date": "2026-03-13",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1758,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1412,
+   "title": "RAS ARUSHA AAGIZA MKANDARASI ANAYEJENGA UKUMBI WA MIKUTANO JIJI LA ARUSHA KUONGEZA KASI",
+   "date": "2026-03-13",
+   "category": "Miundombinu",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2184,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1098,
+   "title": "VIVUTIO VYA UTALII MKOA WA ARUSHA",
+   "date": "2026-03-10",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2288,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1097,
+   "title": "RAIS SAMIA AMUASILI MTOTO MCHANGA ALIYETELEKEZWA NZEGA",
+   "date": "2026-03-11",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1230,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 916,
+   "title": "RAIS SAMIA NI MWANAMKE HODARI NA MCHAPAKAZI- RC MAKALLA",
+   "date": "2026-03-05",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1834,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 915,
+   "title": "DKT. TOBA NGUVILA ATOA PONGEZI KWA WANAWAKE WA MKOA WA ARUSHA",
+   "date": "2026-03-05",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1456,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 912,
+   "title": "WAZIRI MKUU APIGA MARUFUKU RUMBESA NCHINI",
+   "date": "2026-03-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2186,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 909,
+   "title": "WAZIRI MKUU AWEKA JIWE LA MSINGI SKIMU YA UMWAGILIAJI BONDE LA EYASI WILAYA YA KARATU",
+   "date": "2026-03-06",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1739,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 903,
+   "title": "RC MAKALLA AHIMIZA USHIRIKIANO, UTEKELEZAJI WA MAONO YA RAIS SAMIA MKOANI ARUSHA",
+   "date": "2026-03-09",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 2635,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 896,
+   "title": "RC MAKALLA AKABIDHIWA JEZI YA TRA UNITED",
+   "date": "2026-03-10",
+   "category": "Habari",
+   "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
+   "text_chars": 1136,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 786,
+   "title": "NAIBU WAZIRI WA KILIMO MGENI RASMI MAONESHO YA 32 YA KILIMO NANENANE KANDA YA KASKAZINI",
+   "date": "2026-08-01",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 845,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": [
+    "FB_IMG_1785712046194.jpg"
+   ]
+  },
+  {
+   "id": 785,
+   "title": "MAONESHO YA 32 YA KILIMO NA MIFUGO NA SHEREHE ZA WAKULIMA NANENANE KANDA YA KASKAZINI KUANZA RASMI AGOSTI 01-09,2026",
+   "date": "2026-07-20",
+   "category": "Matukio",
+   "listing_url": "https://arusha.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 934,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": [
+    "IMG-20260724-WA0011(1).jpg"
+   ]
+  },
+  {
+   "id": 351,
+   "title": "Mnada",
+   "date": "2026-03-17",
+   "category": "Mnada",
+   "listing_url": "https://arusha.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 16,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA MNADA MARCH 11.pdf"
+   ]
+  },
+  {
+   "id": 250,
+   "title": "MAADHIMISHO YA SIKU YA WANAWAKE DUNIANI MKOA WA ARUSHA 05 MACHI,2026",
+   "date": "2026-03-04",
+   "category": "Government",
+   "listing_url": "https://arusha.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 385,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": [
+    "rs_mkoa_arusha-20260310-0022.jpg.jpeg"
+   ]
+  },
+  {
+   "id": 248,
+   "title": "WAZIRI MKUU DKT. MWIGULU KUFANYA ZIARA KARATU NA MONDULI",
+   "date": "2026-03-06",
+   "category": "Government",
+   "listing_url": "https://arusha.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 533,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": [
+    "rs_mkoa_arusha-20260310-0021.jpg.jpeg"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [
+  {
+   "url": "https://arusha.go.tz/api/pages/slug/region-districts",
+   "error": "<HTTPError 404: 'Not Found'>"
+  }
+ ],
+ "response_sha256": {
+  "https://arusha.go.tz/api/profiles": "3d2b5a6fefa35da3839040de304d27172a6f4a6618ef55ee862ba4b2ebd6d2c2",
+  "https://arusha.go.tz/api/statistics": "2812f79004918cdee069c1bfe8804c8ec3275241523525b0150f3609b637c393",
+  "https://arusha.go.tz/api/footer": "bf82eabfa39e4bec5cbdc36f1ad111ec4311c32a8603457ae50fc52720590d01",
+  "https://arusha.go.tz/api/menus": "753c7674289a92a8ad0e5d4da365301955798b6d897af5c0f08fb9a02e0a3d58",
+  "https://arusha.go.tz/api/pages/slug/mission-and-vision": "6d24404d3d77f44ab5340a25d380e572003807f9cfe2c8632e1a4fb6a35c82f2",
+  "https://arusha.go.tz/api/pages/slug/our-history": "9ce8cbaffaf24f9791a0918c03a1d16196bd797ba853bf30f1a299ea5f317074",
+  "https://arusha.go.tz/api/pages/slug/core-values": "dcb6bc40b560f4b083d33537ae50affa80a10a982ffbe28deec0b10b62c92066",
+  "https://arusha.go.tz/api/pages/slug/infrastructure-and-technical-services-section-infrastructure-technical-services": "e18632f3dcfdcf10b104eb04621ac437775843507e64d979a1eec27a6c4d7be3",
+  "https://arusha.go.tz/api/pages/slug/healthy": "425e4e7434e46101fc58e01f9fffd366938e8d94897676a1297b4566c6693ed8",
+  "https://arusha.go.tz/api/pages/slug/community-development-unit": "6a57d298df3a268c317c9fad24d016cdb34f960d8cda81a41e341e9f9c5e1673",
+  "https://arusha.go.tz/api/pages/slug/organization-structure": "ea0502de96b0bab69140accdf7bd57dc4d7d342439f9780b1bfe71f06178eb5f",
+  "https://arusha.go.tz/api/pages/slug/arusha-city-district": "ecbb875ecabff46a2b66ecf80fdf6bc2b3fcb8b3539c214f6fe4591c2600bd85",
+  "https://arusha.go.tz/api/pages/slug/arumeru-district": "f911d119f678e27f532457853756831f647dfce86d34aac401104ca0bf86d110",
+  "https://arusha.go.tz/api/pages/slug/longido-district": "bac0bb44ceb4da085e48017093db644c81156ba49754549bf0eedf2c8ecf3e25",
+  "https://arusha.go.tz/api/pages/slug/monduli-district": "5a682d60b466e16f50d1d7894e1db6aa038c4b8f7c818096982b1b3216fc21a2",
+  "https://arusha.go.tz/api/pages/slug/karatu-district": "cb4c6831ce6fb53786ed49fc18338c0403db61c1c1727b92ff85d12b6b3afca3",
+  "https://arusha.go.tz/api/pages/slug/ngorongoro-district": "b0ab07b2bcbb3bae976cff1f2859851935465fd17f0852a4f1f3593d180ea624",
+  "https://arusha.go.tz/api/pages/slug/region-districts": "",
+  "https://arusha.go.tz/api/pages/slug/city-council": "b6bd1535651452353c25e6c4e0d9030701e5e7524024e336c656beff3f6c54f1",
+  "https://arusha.go.tz/api/pages/slug/meru-district-council": "6f89438cfaf787e900199dfcd76e64407bf9cb4ab6fd944b60a81339c3455f31",
+  "https://arusha.go.tz/api/pages/slug/monduli-district-council": "ac93cb07b95552841d6b5ae361a969647051f9616f764c6e8006db268a397846",
+  "https://arusha.go.tz/api/pages/slug/ngorngoro-district-council": "7a5e99a3cc661aa098ec884676ed10ae6605c2083457baf08cf14ad2dcdb2714",
+  "https://arusha.go.tz/api/pages/slug/longido-district-council": "a1b5aa398970877fd8ebb1b97414134930d5be07dba53af76217478c47e47983",
+  "https://arusha.go.tz/api/pages/slug/arusha-district-council": "58072777ee957c40a8658031dff405b195d1efd0dfbd9d63eda89ba313c24f00",
+  "https://arusha.go.tz/api/files?page=1&limit=100": "5d9414a1f9fdc25c3cad2251419a33214541d1c42e1e15820f51d7f252924321",
+  "https://arusha.go.tz/api/news?page=1&limit=50": "4f72060ad4831c3cc293cb3281ce3013089e301a623ab878b7cc907ea4bb3c20",
+  "https://arusha.go.tz/api/news?page=2&limit=50": "c97ffa4e4b5b00a3f5dd759a691aafccad88a78999dde83b914e2ad577dbfdc2",
+  "https://arusha.go.tz/api/news?page=3&limit=50": "b45314fded672ef503bb82c8a25b88f5a674159d7ad78600d35210976354f8bd",
+  "https://arusha.go.tz/api/news?page=4&limit=50": "39fae8f61464fde687fb52489d3abb21ddeb5b2c5aa33753e062829352852856",
+  "https://arusha.go.tz/api/news?page=5&limit=50": "bf4efaee6b5202fda8b34a94f6d3aa3633ffd8e0d881c4535b7bd2ff6ca59e6a",
+  "https://arusha.go.tz/api/news?page=6&limit=50": "3e8c7e5ea0bfbe7959902d961169ea5ceab6e809bd908dc3764d37aada47a972",
+  "https://arusha.go.tz/api/news?page=7&limit=50": "c5a7ae71de397523129ec64882b535d9896e35db9743e017a8185a7c1cdacb06",
+  "https://arusha.go.tz/api/announcements?page=1&limit=50": "7d50e4763d3f5b35c9c14d093d9efb42e8d132e40a21466668e1d2235c9e3ff0"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

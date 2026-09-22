@@ -39,7 +39,7 @@ Read [references/research-rate-limits.md](references/research-rate-limits.md) be
 - **When the cap is reached:** continue only with WebFetch on URLs already found. Never route searches through WebFetch or a browser.
 - **Pacing and blocks:** pace fetches, respect 403, 429 and login walls, and record every unsearched area in a coverage log so the next run can continue.
 
-For welfare institutions, use the `silverleaf-welfare-leads` skill, which bakes these limits into its scripts and prompts.
+For welfare institutions, use the `silverleaf-welfare-leads` skill, which bakes these limits into its scripts and prompts. For local government convening offices, use the `silverleaf-government-leads` skill, which needs no web search and enforces the council-site, census, Wikipedia and Overpass limits in its scripts.
 
 ## Resolve identity and provenance
 

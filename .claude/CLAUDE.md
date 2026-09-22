@@ -23,6 +23,12 @@ Welfare leads (children's homes, care programmes, specialised centres, funders) 
 python scripts/welfare/run_pipeline.py --run-id <run-id> --rebuild-db
 ```
 
+Government leads (local offices that can convene community meetings where Silverleaf meets parents) use `../skills/silverleaf-government-leads/SKILL.md`. Each run is also separate from the master:
+
+```powershell
+python scripts/government/run_pipeline.py --run-id <run-id> --rebuild-db
+```
+
 Research is rate-limited; read `../skills/silverleaf-create-lead-list/references/research-rate-limits.md` first.
 - WebSearch has a per-session cap shared by all subagents: plan budgets with `scripts/welfare/plan_research.py`.
 - Run deterministic collectors first, and launch at most four research agents per wave.

@@ -21,6 +21,7 @@ alwaysApply: true
 - Keep outreach as drafts and automation recipes disabled.
 - Validate intake, preflight updates, use a transaction, rebuild the workbook, and run `python scripts/master/verify_master.py`.
 - Use `skills/silverleaf-welfare-leads/SKILL.md` for welfare institutions; its runs stay separate from the master.
+- Use `skills/silverleaf-government-leads/SKILL.md` for local government convening offices; its runs stay separate from the master and hold no parent data.
 - Respect research rate limits (`skills/silverleaf-create-lead-list/references/research-rate-limits.md`):
   - The web-search cap is per session and shared by subagents; budget searches per agent.
   - Run deterministic collectors first, and use at most four research agents at a time.

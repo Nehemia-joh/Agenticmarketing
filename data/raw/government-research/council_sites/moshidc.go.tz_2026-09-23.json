@@ -1,0 +1,1336 @@
+{
+ "host": "moshidc.go.tz",
+ "organisation": "Moshi District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://moshidc.go.tz",
+ "profiles": [
+  {
+   "id": 306,
+   "name": "Hon. John Mapato Meela",
+   "title": "District Council Chairperson",
+   "titleSwahili": "Mwenyekiti wa Halmashauri",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-04T12:10:44.699Z",
+   "updatedAt": "2026-03-04T12:15:41.781Z"
+  },
+  {
+   "id": 308,
+   "name": "Ndg. Shadrack Mohamed Mhagama",
+   "title": "District Executive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-04T12:21:47.464Z",
+   "updatedAt": "2026-03-13T06:41:53.524Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "District Hospital",
+   "value": 1,
+   "suffix": ""
+  },
+  {
+   "label": "Health Centres",
+   "value": 9,
+   "suffix": ""
+  },
+  {
+   "label": "Dispensaries",
+   "value": 54,
+   "suffix": ""
+  },
+  {
+   "label": "Secondary Schools",
+   "value": 107,
+   "suffix": ""
+  },
+  {
+   "label": "Primary Schools",
+   "value": 275,
+   "suffix": ""
+  },
+  {
+   "label": "Population",
+   "value": 535803,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Kata",
+   "value": 32,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Majimbo",
+   "value": 2,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Wabunge",
+   "value": 2,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Moshi District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "vision-and-mission",
+     "title": "Vision and Mission",
+     "swTitle": "Dira na Dhamira"
+    }
+   ],
+   "keyServices": [
+    {
+     "email": "ded@moshidc.go.tz",
+     "phone": null,
+     "poBox": "PO.BOX 3003 MOSHI"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://ess.utumishi.go.tz/sessions/signin",
+     "title": "President’s Office Public Service Management and Good Governance",
+     "swTitle": "Ofisi ya Rais - Menejimenti ya Utumishi wa Umma na Utawala Bora"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.938856542919!2d37.41239317497207!3d-3.3651217966095577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1839d1004ce5e4e1%3A0x48e6d6b791d67a6f!2sHALMASHAURI%20YA%20WILAYA%20YA%20MOSHI!5e0!3m2!1sen!2stz!4v1772534385807!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.364993275952282,
+   "lng": 3741495200674615,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "title_sw": "Dira na Dhamira",
+   "slug": "vision-and-mission"
+  },
+  {
+   "path": "About Us > Core Value > Core Value",
+   "title": "Core Value",
+   "title_sw": "Misingi ya Maadili",
+   "slug": "core-value"
+  },
+  {
+   "path": "Stategies > Strategies",
+   "title": "Strategies",
+   "title_sw": "Mikakati",
+   "slug": "strategies"
+  },
+  {
+   "path": "Stategies > Strategies > Stategies",
+   "title": "Stategies",
+   "title_sw": "Mikakati",
+   "slug": "strategies"
+  },
+  {
+   "path": "Administration > Division",
+   "title": "Division",
+   "title_sw": "Divisheni",
+   "slug": "divisions-and-units"
+  },
+  {
+   "path": "Administration > Division > Human Resource Management and Administration Division",
+   "title": "Human Resource Management and Administration Division",
+   "title_sw": "Idara ya Usimamizi wa Rasilimali Watu na Utawala",
+   "slug": "divisions-and-units"
+  },
+  {
+   "path": "Administration > Division > Planning and Coordination Division",
+   "title": "Planning and Coordination Division",
+   "title_sw": "Idara ya Mipango na Uratibu",
+   "slug": "planning-and-coordination-division"
+  },
+  {
+   "path": "Administration > Division > Health, Social Welfare and Nutrition Services Division",
+   "title": "Health, Social Welfare and Nutrition Services Division",
+   "title_sw": "Idara ya Afya, Ustawi wa Jamii na Huduma za Lishe",
+   "slug": "health-social-welfare-and-nutrition-services-division"
+  },
+  {
+   "path": "Administration > Division > Pre-Primary and Primary Education Division",
+   "title": "Pre-Primary and Primary Education Division",
+   "title_sw": "Idara ya Elimu ya Awali na Msingi",
+   "slug": "pre-primary-and-primary-education-division"
+  },
+  {
+   "path": "Administration > Division > Secondary Education Division",
+   "title": "Secondary Education Division",
+   "title_sw": "Idara ya Elimu Sekondari",
+   "slug": "secondary-education-division"
+  },
+  {
+   "path": "Administration > Division > Community Development Division",
+   "title": "Community Development Division",
+   "title_sw": "Idara ya Maendeleo ya Jamii",
+   "slug": "community-development-division"
+  },
+  {
+   "path": "Administration > Division > Industry, Trade and Investments Division",
+   "title": "Industry, Trade and Investments Division",
+   "title_sw": "Idara ya Viwanda, Biashara na Uwekezaji",
+   "slug": "industry-trade-and-investments-division"
+  },
+  {
+   "path": "Administration > Division > Agriculture, Livestock and Fisheries Division",
+   "title": "Agriculture, Livestock and Fisheries Division",
+   "title_sw": "Idara ya Kilimo, Mifugo na Uvuvi",
+   "slug": "agriculture-livestock-and-fisheries-division"
+  },
+  {
+   "path": "Administration > Division > Infrastructure, Rural, and Urban Development Division",
+   "title": "Infrastructure, Rural, and Urban Development Division",
+   "title_sw": "Idara ya Miundombinu, Mijini na Vijijini",
+   "slug": "infrastructure-rural-and-urban-development-division"
+  },
+  {
+   "path": "Administration > Units > Finance and Accounts Unit",
+   "title": "Finance and Accounts Unit",
+   "title_sw": "Kitengo cha Fedha na Uhasibu",
+   "slug": "finance-and-accounts-unit"
+  },
+  {
+   "path": "Administration > Units > Government Communication Unit",
+   "title": "Government Communication Unit",
+   "title_sw": "Kitengo cha Mawasiliano Serikalini",
+   "slug": "government-communication-unit"
+  },
+  {
+   "path": "Administration > Units > ICT Unit",
+   "title": "ICT Unit",
+   "title_sw": "Kitengo cha TEHAMA",
+   "slug": "ict-unit"
+  },
+  {
+   "path": "Administration > Units > Legal Services Unit",
+   "title": "Legal Services Unit",
+   "title_sw": "Kitengo cha Huduma za Sheria",
+   "slug": "legal-services-unit"
+  },
+  {
+   "path": "Administration > Units > Internal Audit Unit",
+   "title": "Internal Audit Unit",
+   "title_sw": "Kitengo cha Ukaguzi wa ndani",
+   "slug": "internal-audit-unit"
+  },
+  {
+   "path": "Administration > Units > Procurement Management unit",
+   "title": "Procurement Management unit",
+   "title_sw": "Kitengo cha Manunuzi na Ugavi",
+   "slug": "procurement-management-unit"
+  },
+  {
+   "path": "Administration > Units > Sports, Culture and Arts Unit",
+   "title": "Sports, Culture and Arts Unit",
+   "title_sw": "Kitengo cha Michezo, Utamaduni na Sanaa",
+   "slug": "sports-culture-and-arts-unit"
+  },
+  {
+   "path": "Administration > Units > Natura Resources and Environment Conservation Unit",
+   "title": "Natura Resources and Environment Conservation Unit",
+   "title_sw": "Kitengo cha Maliasili na Uhifadhi wa Mazingira",
+   "slug": "natura-resources-and-environment-conservation-unit"
+  },
+  {
+   "path": "Administration > Units > Waste Management and Sanitation Unit",
+   "title": "Waste Management and Sanitation Unit",
+   "title_sw": "Kitengo cha Udhibiti Taka na Usafi wa Mazingira",
+   "slug": "waste-management-and-sanitation-unit"
+  },
+  {
+   "path": "Administration > Units > Monitoring and Evaluation Unit",
+   "title": "Monitoring and Evaluation Unit",
+   "title_sw": "Kitengo cha Ufuatiliaji na Tathimini",
+   "slug": "monitoring-and-evaluation-unit"
+  },
+  {
+   "path": "Administration > Units > Election Unit",
+   "title": "Election Unit",
+   "title_sw": "Kitengo cha Uchaguzi",
+   "slug": "election-unit"
+  },
+  {
+   "path": "Councilors > List of Councilors",
+   "title": "List of Councilors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councilors"
+  },
+  {
+   "path": "Councilors > List of Councilors > List of Councilors",
+   "title": "List of Councilors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councilors"
+  },
+  {
+   "path": "Councilors > Permanent Committees",
+   "title": "Permanent Committees",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "permanent-committees"
+  },
+  {
+   "path": "Councilors > Permanent Committees > Permanent Committees",
+   "title": "Permanent Committees",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "permanent-committees"
+  },
+  {
+   "path": "Our Services > Education > Education",
+   "title": "Education",
+   "title_sw": "Elimu",
+   "slug": "our-services"
+  },
+  {
+   "path": "Our Services > Health > Health",
+   "title": "Health",
+   "title_sw": "Afya",
+   "slug": "health"
+  },
+  {
+   "path": "Investment Opportunities > Investment Opportunities",
+   "title": "Investment Opportunities",
+   "title_sw": "Fursa za Uwekezaji",
+   "slug": "agriculture"
+  },
+  {
+   "path": "Investment Opportunities > Investment Opportunities > Agriculture",
+   "title": "Agriculture",
+   "title_sw": "Kilimo",
+   "slug": "agriculture"
+  },
+  {
+   "path": "Investment Opportunities > Investment Opportunities > Agriculture > Agriculture",
+   "title": "Agriculture",
+   "title_sw": "Kilimo",
+   "slug": "agriculture"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History",
+   "title": "Our History",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://moshidc.go.tz/our-history",
+   "createdAt": "2026-03-04T07:51:06.186Z",
+   "updatedAt": "2026-03-04T07:51:06.186Z",
+   "text_en": "Moshi District Council was established in January, 1984 by provisions of section 8 and 9 of the Local Government (District Authorities) Act 1982 with 45 Councilors in Number, of which 27 were elected, 1 each from the Wards within the Council, 5 were elected by the Council from the persons nominated by party Organizations and 3 were appointed by the Minister .1 Member of Parliament represented the consistency (Moshi Rural) and 9 were elected by the Council from amongst the villages Chairmen.",
+   "text_sw": "Halmashauri ya Wilaya ya Moshi iliundwa Januari, 1984 kwa mujibu wa kifungu cha 8 na 9 cha Sheria ya Serikali za Mitaa (Mamlaka za Wilaya) ya 1982 ikiwa na wanachama 45, kati yao 27 walioteuliwa kwa kupigiwa kura, mmoja kutoka kila kata ndani ya Halmashauri, 5 walioteuliwa na Halmashauri kutoka kwa watu waliopendekezwa na mashirika ya vyama vya siasa, na 3 walioteuliwa na Waziri. Mbunge mmoja aliwakilisha jimbo la Moshi Vijijini na 9 walioteuliwa na Halmashauri kutoka kati ya wakuu wa vijiji.",
+   "attachments": []
+  },
+  {
+   "slug": "vision-and-mission",
+   "menu_path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/vision-and-mission",
+   "public_url": "https://moshidc.go.tz/vision-and-mission",
+   "createdAt": "2026-03-31T09:57:11.616Z",
+   "updatedAt": "2026-03-31T09:57:11.616Z",
+   "text_en": "Vision\nTo be a council with stable economy and efficient services delivery for improved\ncommunity livelihood.\nMission\nTo provide quality socio-economic services through proper utilization of available\nresources for improving community livelihood.",
+   "text_sw": "Dira\nKuwa Halmashauri yenye Uchumi imara na yenye utoaji wa huduma bora kwa ajili ya uboreshaji wa maisha ya jamii.\nDhamira\nKutoa huduma bora za kiuchumi na kijamii kwa kuwa na matumizi sahihi ya rasilimali zilizopo ili kuboresha maisha ya jamii.",
+   "attachments": []
+  },
+  {
+   "slug": "core-value",
+   "menu_path": "About Us > Core Value > Core Value",
+   "title": "Core Value",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/core-value",
+   "public_url": "https://moshidc.go.tz/core-value",
+   "createdAt": "2026-03-04T08:59:19.592Z",
+   "updatedAt": "2026-03-04T08:59:19.592Z",
+   "text_en": "Integrity, High Commitment in Service Delivery, Accountability, Teamwork Spirit, and Efficiency and Effectiveness in the Use of Available Resources, which collectively underpin ethical conduct, professionalism, transparency, and results-oriented public service delivery.",
+   "text_sw": "Uadilifu, Dhamira kubwa katika utoaji huduma,Uwajibikaji, Kufanya kazi kwa pamoja na Ufanisi katika matumizi ya rasilimali zilizopo kwa kuzingatia miongozo ya kimaadili ambayo ni weledi, uwazi, na utoaji wa huduma za umma zinazolenga matokeo.",
+   "attachments": []
+  },
+  {
+   "slug": "divisions-and-units",
+   "menu_path": "Administration > Division",
+   "title": "Human Resource Management and Administration Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/divisions-and-units",
+   "public_url": "https://moshidc.go.tz/divisions-and-units",
+   "createdAt": "2026-03-04T10:04:50.172Z",
+   "updatedAt": "2026-03-06T08:18:24.380Z",
+   "text_en": "Objective\nTo provide expertise and services in human resource management and administrative matters to the Council and to coordinate all issues related to General and Local Government Authorities (LGAs) elections in the Council.\nFunctions\nThis Division will perform the following functions:\n(i) To interpret Public Service Regulations, Standing Orders and other labour laws;\n(ii) To oversee the implementation of ethics and value promotion activities, including corruption prevention education;\n(iii) To administer and oversee the implementation of activities such as recruitment, selection, orientation, training and employee development, promotion, discipline, retention, motivation, performance management and general staff welfare;\n(iv) To ensure optimal, efficient and effective management and utilization of human resources;\n(v) To coordinate Workers’ Council and Trade Union affairs;\n(vi) To oversee the development and implementation of effective policies, procedures and guidelines for recruitment, training and development, deployment, retention of staff, promotions and performance management;\n(vii) To conduct regular human resources audits and maintain an inventory of current and required skills;\n(viii) To provide registry, messenger and courier services, and manage office records;\n(ix) To handle protocol matters;\n(x) To facilitate the provision of security services, transport and general utilities;\n(xi) To facilitate the maintenance of office equipment, buildings and grounds;\n(xii) To coordinate the implementation of ethics and value promotion activities;\n(xiii) To coordinate the implementation of diversity issues;\n(xiv) To coordinate the implementation of Private Sector Participation, Business Process Improvement and the Client Service Charter;\n(xv) To provide advice on the organizational efficiency of the Office;\n(xvi) To coordinate election activities in the Council; and\n(xvii) To supervise General and Local Government Authorities elections.\nThis Division will be led by a Head and will comprise two (2) Sections as follows:\n(i) Human Resource Management Section; and\n(ii) Administration Section.\nHuman Resource Management Section\nThe Section will perform the following activities:\n(i) Interpret and ensure adherence to Public Service Regulations, Standing Orders and other labour laws;\n(ii) Carry out human resource planning and development;\n(iii) Coordinate staff recruitment, selection, orientation, placement, confirmation, training and employee development, promotion, motivation and transfer;\n(iv) Prepare annual Personnel Emoluments estimates and administer salaries and payroll processing;\n(v) Coordinate the implementation of the employee performance management system (PEPMIS)\n(vi) Oversee employee benefits (pension, allowances, retirement, resignation, deaths, etc.) and other entitlements;\n(vii) Oversee services related to separation from service (retirement, resignation, etc.);\n(viii) Facilitate employee relations and welfare including employee health and safety, sports and cultural activities;\n(ix) Process and update leave records such as vacation, sick leave, maternity leave, study leave and terminal leave;\n(x) Coordinate complaints and grievance handling;\n(xi) Serve as the Secretariat to the Appointment Committee; and\n(xii) Coordinate Workers’ Council and Trade Union affairs.\nThis Section will be led by an Officer In Charge.\nAdministration Section\nThe Section will perform the following activities:\n(i) Facilitate the maintenance of office equipment, buildings and grounds;\n(ii) Coordinate the implementation of ethics and value promotion activities including prevention of corrupt practices;\n(iii) Coordinate the implementation of diversity issues;\n(iv) Provide registry, messenger and courier services and manage office records;\n(v) Handle protocol matters;\n(vi) Facilitate the provision of security services, transport and general utilities;\n(vii) Coordinate the implementation of Private Sector Participation, Business Process Improvement and the Client Service Charter in the Office;\n(viii) Provide advice on the organizational efficiency of the Office;\n(ix) Monitor the implementation of principles of good governance.\nThis Section will be led by an Officer In Charge.",
+   "text_sw": "Lengo\nKutoa utaalamu na huduma katika usimamizi wa rasilimali watu na masuala ya utawala kwa Halmashauri, pamoja na kuratibu masuala yote yanayohusiana na uchaguzi wa Serikali Kuu na Serikali za Mitaa katika Halmashauri.\nMajukumu\nIdara hii itatekeleza majukumu yafuatayo:\n(i) Kutafsiri Kanuni za Utumishi wa Umma, Standing Orders na sheria nyingine za kazi;\n(ii) Kusimamia utekelezaji wa shughuli za maadili na kukuza tunu ikiwa ni pamoja na elimu ya kuzuia rushwa;\n(iii) Kusimamia na kuratibu utekelezaji wa shughuli kama vile uajiri, uteuzi, mafunzo elekezi, mafunzo na maendeleo ya watumishi, upandishaji vyeo, nidhamu, uhifadhi wa watumishi, motisha, usimamizi wa utendaji kazi na ustawi wa watumishi kwa ujumla;\n(iv) Kuhakikisha usimamizi na matumizi bora, yenye ufanisi na tija ya rasilimali watu;\n(v) Kuratibu masuala ya Baraza la Wafanyakazi na Vyama vya Wafanyakazi;\n(vi) Kusimamia uandaaji na utekelezaji wa sera, taratibu na miongozo madhubuti ya ajira, mafunzo na maendeleo, upangaji na uhamisho wa watumishi, uhifadhi wa watumishi, upandishaji vyeo na usimamizi wa utendaji kazi;\n(vii) Kufanya ukaguzi wa mara kwa mara wa rasilimali watu na tathmini ya ujuzi uliopo na unaohitajika;\n(viii) Kutoa huduma za rejesta, ujumbe na usafirishaji wa nyaraka pamoja na kusimamia kumbukumbu za ofisi;\n(ix) Kushughulikia masuala ya itifaki;\n(x) Kuratibu upatikanaji wa huduma za ulinzi, usafiri na huduma nyingine za msingi;\n(xi) Kuratibu matengenezo ya vifaa vya ofisi, majengo na mazingira;\n(xii) Kuratibu utekelezaji wa shughuli za maadili na kukuza tunu;\n(xiii) Kuratibu utekelezaji wa masuala ya usawa na ujumuishaji (diversity);\n(xiv) Kuratibu utekelezaji wa Ushirikishwaji wa Sekta Binafsi, Maboresho ya Mchakato wa Kazi (Business Process Improvement) na Hati ya Huduma kwa Mteja;\n(xv) Kutoa ushauri kuhusu ufanisi wa kiutendaji wa Ofisi;\n(xvi) Kuratibu shughuli za uchaguzi katika Halmashauri; na\n(xvii) Kusimamia uchaguzi wa Serikali Kuu na Serikali za Mitaa.\nIdara hii itaongozwa na Mkuu wa Idara na itakuwa na Sehemu mbili (2) kama ifuatavyo:\n(i) Sehemu ya Usimamizi wa Rasilimali Watu; na\n(ii) Sehemu ya Utawala.\nSehemu ya Usimamizi wa Rasilimali Watu\nSehemu hii itatekeleza shughuli zifuatazo:\n(i) Kutafsiri na kuhakikisha utekelezaji wa Kanuni za Utumishi wa Umma, Standing Orders na sheria nyingine za kazi;\n(ii) Kufanya mipango ya rasilimali watu na maendeleo yake;\n(iii) Kuratibu uajiri, uteuzi, mafunzo elekezi, upangaji wa kazi, uthibitisho kazini, mafunzo na maendeleo ya watumishi, upandishaji vyeo, motisha na uhamisho;\n(iv) Kuandaa makadirio ya mwaka ya mishahara na marupurupu ya watumishi na kusimamia malipo ya mishahara pamoja na uendeshaji wa orodha ya mishahara (payroll);\n(v) Kuratibu utekelezaji wa Mfumo wa usimamizi wa utendaji kazi kwa watumishi (PEPMIS);\n(vi) Kusimamia mafao ya watumishi kama vile pensheni, posho, kustaafu, kujiuzulu, vifo na stahiki nyingine;\n(vii) Kusimamia masuala yanayohusiana na kuacha utumishi kama vile kustaafu na kujiuzulu;\n(viii) Kuratibu mahusiano na ustawi wa watumishi ikiwa ni pamoja na afya na usalama kazini, michezo na shughuli za utamaduni;\n(ix) Kushughulikia na kusasisha kumbukumbu za likizo kama vile likizo ya kawaida, ugonjwa, uzazi, masomo na likizo ya mwisho wa utumishi;\n(x) Kuratibu kushughulikia malalamiko na migogoro ya watumishi;\n(xi) Kuhudumu kama Sekretarieti ya Kamati ya Uteuzi; na\n(xii) Kuratibu masuala ya Baraza la Wafanyakazi na Vyama vya Wafanyakazi.\nSehemu hii itaongozwa na Afisa Mkuu anayehusika (Officer In Charge).\nSehemu ya Utawala\nSehemu hii itatekeleza shughuli zifuatazo:\n(i) Kuratibu matengenezo ya vifaa vya ofisi, majengo na mazingira;\n(ii) Kuratibu utekelezaji wa shughuli za maadili na kukuza tunu ikiwa ni pamoja na kuzuia vitendo vya rushwa;\n(iii) Kuratibu utekelezaji wa masuala ya usawa na ujumuishaji;\n(iv) Kutoa huduma za rejesta, ujumbe na usafirishaji wa nyaraka pamoja na kusimamia kumbukumbu za ofisi;\n(v) Kushughulikia masuala ya itifaki;\n(vi) Kuratibu upatikanaji wa huduma za ulinzi, usafiri na huduma nyingine za msingi;\n(vii) Kuratibu utekelezaji wa Ushirikishwaji wa Sekta Binafsi, Maboresho ya Mchakato wa Kazi na Hati ya Huduma kwa Mteja katika Ofisi;\n(viii) Kutoa ushauri kuhusu ufanisi wa kiutendaji wa Ofisi;\n(ix) Kufuatilia utekelezaji wa kanuni za utawala bora.\nSehemu hii itaongozwa na Afisa Mkuu anayehusika (Officer In Charge).",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination-division",
+   "menu_path": "Administration > Division > Planning and Coordination Division",
+   "title": "Planning and Coordination Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/planning-and-coordination-division",
+   "public_url": "https://moshidc.go.tz/planning-and-coordination-division",
+   "createdAt": "2026-03-06T08:22:45.232Z",
+   "updatedAt": "2026-03-31T12:32:44.152Z",
+   "text_en": "Objective\nTo provide expertise and services in planning, budgeting, monitoring, and evaluation within the Local Government Authority (LGA).\nFunctions of the Division\nThe Division shall perform the following functions:\nPrepare mid-term and long-term strategies, plans, and budgets.\nMonitor and evaluate the implementation of strategies, plans, and budgets.\nPrepare and review the LGA’s socio-economic profile.\nCoordinate private sector participation initiatives.\nCoordinate data collection, analysis, interpretation, and storage within the LGA.\nProvide technical advice on monitoring and evaluation processes.\nCoordinate Council Disaster Management activities.\nCoordinate LGA activities implemented by other institutions, such as those related to land and water.\nStructure of the Division\nThe Division will be headed by a Head of Division and will comprise two (2) sections:\nPlanning and Budgeting Section\nMonitoring and Evaluation Section\nPlanning and Budgeting Section\nFunctions\nThe Planning and Budgeting Section shall perform the following activities:\nCoordinate implementation of economic and productive sector policies.\nInterpret and disseminate policies from the Central Government and sector ministries to the LGA.\nCoordinate mid-year and annual performance reviews.\nCoordinate the formulation and preparation of LGA plans and budgets.\nCompile reports on projects, programmes, and action plans and develop strategies for resource mobilization.\nProvide technical guidance and support to institutionalize the strategic planning and budgeting process within the LGA.\nCoordinate preparation of reports on the implementation of the Ruling Party Manifesto.\nThis section will be led by an Officer in Charge.\nMonitoring and Evaluation Section\nFunctions\nThe Monitoring and Evaluation Section shall perform the following activities:\nMonitor and evaluate the implementation of LGA plans.\nPrepare periodic performance reports.\nProvide inputs in the preparation of plans, programmes, and budgets, including the establishment of performance targets and indicators.\nProvide technical advice on monitoring and evaluation processes.\nConduct impact studies on plans, projects, and programmes undertaken by the LGA.\nCoordinate the production of routine data and statistics across all sectors.\nCollaborate with the National Bureau of Statistics (NBS) in data collection, coding/entry, analysis, and interpretation.\nCoordinate the preparation and dissemination of socio-economic profiles.\nDevelop and design data collection instruments.\nProvide statistical support during planning and budget preparation.\nCoordinate implementation of performance contracting.\nConduct service delivery surveys.\nThis section will also be led by an Officer in Charge.",
+   "text_sw": "Lengo\nKutoa utaalamu na huduma katika mipango, uandaaji wa bajeti, ufuatiliaji na tathmini ndani ya Mamlaka ya Serikali za Mitaa (LGA).\nMajukumu ya Kitengo\nKitengo hiki kitafanya majukumu yafuatayo:\nKuandaa mikakati, mipango na bajeti ya muda wa kati na muda mrefu.\nKufuatilia na kutathmini utekelezaji wa mikakati, mipango na bajeti.\nKuandaa na kupitia wasifu wa kijamii na kiuchumi wa Halmashauri.\nKuratibu ushiriki wa sekta binafsi katika shughuli za maendeleo.\nKuratibu ukusanyaji, uchambuzi, tafsiri na uhifadhi wa takwimu za Halmashauri.\nKutoa ushauri wa kitaalamu kuhusu ufuatiliaji na tathmini.\nKuratibu usimamizi wa maafa wa Halmashauri.\nKuratibu shughuli za Halmashauri zinazotekelezwa na taasisi nyingine, kama vile sekta za ardhi na maji.\nMuundo wa Kitengo\nKitengo hiki kitaongozwa na Mkuu wa Kitengo na kitakuwa na sehemu mbili (2) zifuatazo:\nSehemu ya Mipango na Bajeti\nSehemu ya Ufuatiliaji na Tathmini\nS ehemu ya Mipango na Bajeti\nMajukumu\nSehemu hii itafanya shughuli zifuatazo:\nKuratibu utekelezaji wa sera za sekta za uchumi na uzalishaji.\nKutafsiri na kusambaza sera kutoka Serikali Kuu na Wizara za kisekta kwa Halmashauri.\nKuratibu mapitio ya utendaji ya katikati ya mwaka na ya kila mwaka.\nKuratibu uundaji na uandaaji wa mipango na bajeti za Halmashauri.\nKukusanya taarifa za miradi, programu na mipango ya utekelezaji, pamoja na kuandaa mikakati ya upatikanaji wa rasilimali.\nKutoa mwongozo wa kitaalamu katika kuimarisha mchakato wa mipango ya kimkakati na uandaaji wa bajeti ndani ya Halmashauri.\nKuratibu uandaaji wa taarifa za utekelezaji wa Ilani ya Chama Tawala.\nSehemu hii itaongozwa na Afisa Anayesimamia (Officer in Charge).\nSehemu ya Ufuatiliaji na Tathmini\nMajukumu\nSehemu hii itafanya shughuli zifuatazo:\nKufuatilia na kutathmini utekelezaji wa mipango ya Halmashauri.\nKuandaa taarifa za utendaji za mara kwa mara.\nKutoa mchango katika uandaaji wa mipango, programu na bajeti, ikiwemo kuweka malengo na viashiria vya utendaji.\nKutoa ushauri wa kitaalamu kuhusu mifumo ya ufuatiliaji na tathmini.\nKufanya tafiti za athari (impact studies) za mipango, miradi na programu zinazotekelezwa na Halmashauri.\nKuratibu uzalishaji wa takwimu za kawaida katika sekta zote.\nKushirikiana na Ofisi ya Taifa ya Takwimu (NBS) katika ukusanyaji, uingizaji wa takwimu, uchambuzi na tafsiri ya data.\nKuratibu uandaaji na usambazaji wa wasifu wa kijamii na kiuchumi.\nKuandaa na kubuni zana za ukusanyaji wa data.\nKutoa msaada wa kitaalamu wa takwimu wakati wa uandaaji wa mipango na bajeti.\nKuratibu utekelezaji wa mikataba ya utendaji kazi (performance contracting).\nKufanya tafiti za utoaji wa huduma kwa wananchi (service delivery surveys).\nSehemu hii pia itaongozwa na Afisa Anayesimamia.",
+   "attachments": []
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition-services-division",
+   "menu_path": "Administration > Division > Health, Social Welfare and Nutrition Services Division",
+   "title": "Health, Social Welfare and Nutrition Services Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services-division",
+   "public_url": "https://moshidc.go.tz/health-social-welfare-and-nutrition-services-division",
+   "createdAt": "2026-03-08T18:16:46.090Z",
+   "updatedAt": "2026-03-08T18:16:46.090Z",
+   "text_en": "Objective\nTo provide quality health, social welfare, and nutrition services for the well-being of the community.\nFunctions of the Division\nThe Division performs the following functions:\nTo supervise the implementation of policies, laws, and procedures related to health, social welfare, and nutrition services.\nTo prepare short-term and long-term plans and programs for the health sector within the Council.\nTo promote the participation of various stakeholders in health, social welfare, and nutrition activities.\nTo prepare and submit reports on health, social welfare, and nutrition services to relevant authorities.\nTo develop strategies for controlling communicable and non-communicable diseases.\nTo manage health, social welfare, and nutrition projects.\nTo manage databases related to health, social welfare, and nutrition services.\nStructure of the Division\nThe Division is led by a Head , who also serves as the Council Medical Officer of Health (CMoH) .\nThe Division consists of three (3) sections:\nHealth Services Section\nSocial Welfare Section\nNutrition Services Section\nHealth Services Section\nThis section performs the following activities:\nAnalyze, interpret, and supervise the implementation of policies, laws, and procedures related to health services.\nProvide advice on coordination and capacity building in health services.\nPrepare short-term and long-term plans and programs for health services.\nProvide technical advice to stakeholders on health service issues.\nConduct epidemiological monitoring and evaluation, and prevent communicable, non-communicable, and emerging diseases in health facilities, communities, and entry points.\nThis section is led by an Officer in Charge .\nSocial Welfare Section\nThis section performs the following activities:\nAnalyze, interpret, and manage the implementation of policies, laws, and procedures for improving social welfare.\nPrepare short-term and long-term plans and projects for social welfare.\nSupervise the implementation of social welfare plans and projects.\nCoordinate and manage all projects related to social welfare.\nPrepare reports related to social welfare.\nThis section is led by an Officer in Charge .\nNutrition Services Section\nThis section performs the following activities:\nAnalyze, interpret, and manage the implementation of policies, laws, and procedures related to nutrition improvement.\nPrepare short-term and long-term plans and projects for nutrition.\nSupervise the implementation of nutrition plans and projects.\nCoordinate and manage all projects related to nutrition.\nPrepare reports related to nutrition.\nEducate and sensitize the community on nutrition issues.\nMonitor and evaluate the provision of nutrition services within the Council.\nCollect and analyze reports related to nutrition services.\nProvide nutrition services to children, adults, and people with special needs.\nThis section is led by an Officer in Charge .",
+   "text_sw": "Lengo\nKutoa huduma bora za afya, ustawi wa jamii na lishe kwa ajili ya ustawi wa jamii.\nMajukumu ya Idara\nIdara itatekeleza majukumu yafuatayo:\nKusimamia utekelezaji wa sera, sheria na taratibu zinazohusu utoaji wa huduma za afya, ustawi wa jamii na lishe.\nKuandaa mipango na programu za muda mfupi na muda mrefu kwa sekta ya afya katika Halmashauri.\nKuhamasisha ushiriki wa wadau mbalimbali katika shughuli za afya, ustawi wa jamii na lishe.\nKuandaa na kuwasilisha taarifa kuhusu huduma za afya, ustawi wa jamii na lishe kwa mamlaka husika.\nKuandaa mikakati ya kudhibiti magonjwa ya kuambukiza na yasiyo ya kuambukiza.\nKusimamia miradi ya afya, ustawi wa jamii na lishe.\nKusimamia hifadhidata (database) ya taarifa zinazohusiana na huduma za afya, ustawi wa jamii na lishe.\nMuundo wa Idara\nIdara hii itaongozwa na Mkuu wa Idara , ambaye pia atakuwa Mganga Mkuu wa Halmashauri (Council Medical Officer of Health – CMoH) .\nIdara itakuwa na sehemu tatu (3) zifuatazo:\nSehemu ya Huduma za Afya\nSehemu ya Ustawi wa Jamii\nSehemu ya Huduma za Lishe\nSehemu ya Huduma za Afya\nSehemu hii itatekeleza shughuli zifuatazo:\nKuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu za huduma za afya.\nKutoa ushauri kuhusu uratibu na uimarishaji wa uwezo katika huduma za afya.\nKuandaa mipango na programu za muda mfupi na muda mrefu kwa huduma za afya.\nKutoa ushauri wa kitaalamu kwa wadau kuhusu masuala ya huduma za afya.\nKufanya ufuatiliaji na tathmini ya magonjwa (epidemiolojia), pamoja na kuzuia magonjwa yasiyo ya kuambukiza, ya kuambukiza na magonjwa mapya katika vituo vya afya, jamii na maeneo ya kuingilia nchini.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge).\nSehemu ya Ustawi wa Jamii\nSehemu hii itatekeleza shughuli zifuatazo:\nKuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu za kuboresha ustawi wa jamii.\nKuandaa mipango na miradi ya muda mfupi na muda mrefu ya ustawi wa jamii.\nKusimamia utekelezaji wa mipango na miradi ya ustawi wa jamii.\nKuratibu na kusimamia miradi yote inayohusiana na ustawi wa jamii.\nKuandaa taarifa zinazohusiana na ustawi wa jamii.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.\nSehemu ya Huduma za Lishe\nSehemu hii itatekeleza shughuli zifuatazo:\nKuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu za kuboresha lishe.\nKuandaa mipango na miradi ya muda mfupi na muda mrefu ya lishe.\nKusimamia utekelezaji wa mipango na miradi ya lishe.\nKuratibu na kusimamia miradi yote inayohusiana na lishe.\nKuandaa taarifa zinazohusiana na lishe.\nKuelimisha jamii kuhusu masuala ya lishe.\nKufuatilia na kutathmini utoaji wa huduma za lishe katika Halmashauri.\nKukusanya na kuchambua taarifa za huduma za lishe.\nKutoa huduma za lishe kwa watoto, watu wazima na watu wenye mahitaji maalum.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education-division",
+   "menu_path": "Administration > Division > Pre-Primary and Primary Education Division",
+   "title": "Pre-Primary and Primary Education Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/pre-primary-and-primary-education-division",
+   "public_url": "https://moshidc.go.tz/pre-primary-and-primary-education-division",
+   "createdAt": "2026-03-08T18:36:50.489Z",
+   "updatedAt": "2026-03-08T18:36:50.489Z",
+   "text_en": "Objective\nTo plan and supervise the implementation of policies, laws, and circulars related to the provision of pre-primary, primary, special needs, and non-formal education.\nFunctions of the Division\nThe Division performs the following functions:\nPlan for the acquisition, distribution, and use of resources in primary schools.\nSupervise the administration of continuous assessments and national examinations for primary schools.\nSupervise the delivery of adult and non-formal education at the pre-primary and primary levels.\nCoordinate life skills education in primary schools.\nConduct needs assessments for special needs education, adult education, and non-formal education.\nProvide advice on the establishment and maintenance of special needs, adult, and non-formal education centers.\nMonitor the implementation of primary education plans and programs.\nCreate and maintain databases for pre-primary and primary education.\nCoordinate and supervise sports and games activities in primary schools.\nStructure of the Division\nThe Division is led by a Head and consists of four (4) sections:\nAcademic Section\nStatistics and Logistics Section\nSpecial Needs Education Section\nAdult and Non-Formal Education Section\nAcademic Section\nThis section performs the following activities:\nCoordinate the implementation of pre-primary and primary education policies, plans, circulars, and guidelines at the school level.\nCoordinate and supervise the administration of continuous assessments and national Standard Four and Standard Seven examinations.\nMonitor and evaluate the implementation of pre-primary and primary education plans.\nPrepare reports on the implementation of education development plans and programs.\nCoordinate the provision of education for self-reliance and manage income-generating activities or projects in primary schools.\nThis section is led by an Officer in Charge .\nStatistics and Logistics Section\nThis section performs the following activities:\nCollect, analyze, and interpret statistics related to pre-primary and primary education.\nCoordinate the acquisition, distribution, and use of educational resources in primary schools.\nCoordinate enrollment statistics and logistics for schools.\nPrepare implementation reports on education development.\nDetermine resource needs for schools in the Council.\nThis section is led by an Officer in Charge .\nSpecial Needs Education Section\nThis section performs the following activities:\nPrepare and supervise special needs education implementation plans for primary education.\nIdentify children with special needs and allocate them to appropriate schools.\nCollect information on pupils with special needs and provide appropriate advice.\nCoordinate the acquisition, distribution, and use of resources for special needs education.\nThis section is led by an Officer in Charge .\nAdult and Non-Formal Education Section\nThis section performs the following activities:\nPrepare and supervise adult and non-formal education implementation plans for primary education.\nCoordinate life skills education.\nConduct needs assessments for adult and non-formal education.\nProvide advice on the establishment and maintenance of adult and non-formal training centers.\nCoordinate the acquisition, distribution, and use of resources for adult and non-formal education.\nThis section is led by an Officer in Charge .",
+   "text_sw": "Lengo\nKupanga na kusimamia utekelezaji wa sera, sheria na waraka (circulars) zinazohusu utoaji wa elimu ya awali, elimu ya msingi, elimu maalum na elimu isiyo rasmi.\nMajukumu ya Idara\nIdara itatekeleza majukumu yafuatayo:\nKupanga upatikanaji, usambazaji na matumizi ya rasilimali katika shule za msingi.\nKusimamia uendeshaji wa tathmini endelevu (continuous assessment) na mitihani ya taifa ya shule za msingi.\nKusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya elimu ya awali na msingi.\nKuratibu utoaji wa elimu ya stadi za maisha katika shule za msingi.\nKufanya tathmini ya mahitaji ya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi.\nKutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi.\nKufuatilia utekelezaji wa mipango na programu za elimu ya msingi.\nKuunda na kutunza hifadhidata ya elimu ya awali na msingi.\nKuratibu na kusimamia shughuli za michezo na michezo ya shule za msingi.\nMuundo wa Idara\nIdara itaongozwa na Mkuu wa Idara na itakuwa na sehemu nne (4) zifuatazo:\nSehemu ya Taaluma (Academic Section)\nSehemu ya Takwimu na Ugavi (Statistics and Logistics Section)\nSehemu ya Elimu Maalum (Special Needs Education Section)\nSehemu ya Elimu ya Watu Wazima na Elimu Isiyo Rasmi (Adult and Non-Formal Education Section)\nSehemu ya Taaluma\nSehemu hii itafanya shughuli zifuatazo:\nKuratibu utekelezaji wa sera, mipango, waraka na miongozo ya elimu ya awali na msingi katika ngazi ya shule.\nKuratibu na kusimamia uendeshaji wa tathmini endelevu za shule pamoja na mitihani ya taifa ya darasa la nne na darasa la saba.\nKufuatilia na kutathmini utekelezaji wa mipango ya elimu ya awali na msingi.\nKuandaa taarifa za utekelezaji wa mipango na programu za maendeleo ya elimu.\nKuratibu utoaji wa elimu ya kujitegemea na usimamizi wa shughuli au miradi ya kuzalisha kipato katika shule za msingi.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge).\nSehemu ya Takwimu na Ugavi\nSehemu hii itafanya shughuli zifuatazo:\nKukusanya, kuchambua na kutafsiri takwimu za elimu ya awali na msingi.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali za elimu katika shule za msingi.\nKuratibu takwimu za uandikishaji wa wanafunzi na ugavi wa vifaa shuleni.\nKuandaa taarifa za utekelezaji wa maendeleo ya elimu.\nKubaini mahitaji ya rasilimali kwa shule zilizo katika Halmashauri.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.\nSehemu ya Elimu Maalum\nSehemu hii itafanya shughuli zifuatazo:\nKuandaa na kusimamia mipango ya utekelezaji wa elimu maalum katika elimu ya msingi.\nKutambua watoto wenye mahitaji maalum na kuwapeleka katika shule husika.\nKukusanya taarifa za wanafunzi wenye mahitaji maalum na kutoa ushauri unaofaa.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa ajili ya elimu maalum.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.\nSehemu ya Elimu ya Watu Wazima na Elimu Isiyo Rasmi\nSehemu hii itafanya shughuli zifuatazo:\nKuandaa na kusimamia mipango ya utekelezaji wa elimu ya watu wazima na elimu isiyo rasmi katika elimu ya msingi.\nKuratibu utoaji wa elimu ya stadi za maisha.\nKufanya tathmini ya mahitaji ya elimu ya watu wazima na elimu isiyo rasmi.\nKutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya mafunzo ya elimu ya watu wazima na elimu isiyo rasmi.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa ajili ya elimu ya watu wazima na elimu isiyo rasmi.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.",
+   "attachments": []
+  },
+  {
+   "slug": "secondary-education-division",
+   "menu_path": "Administration > Division > Secondary Education Division",
+   "title": "Secondary Education Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/secondary-education-division",
+   "public_url": "https://moshidc.go.tz/secondary-education-division",
+   "createdAt": "2026-03-08T18:52:22.544Z",
+   "updatedAt": "2026-03-08T18:52:22.544Z",
+   "text_en": "Objective\nTo coordinate the implementation of secondary education policies, plans, laws, circulars, and guidelines.\nFunctions of the Division\nThe Division performs the following functions:\nSupervise the administration of continuous assessments and national Form Two, Form Four, and Form Six examinations.\nConduct monitoring and evaluation of the implementation of secondary education plans and programs.\nSupervise the delivery of adult and non-formal education at the secondary level.\nCreate and maintain a database on secondary education.\nCoordinate life skills education in secondary schools.\nCoordinate and supervise sports and games in secondary schools.\nConduct needs assessments for special needs education, adult education, and non-formal education.\nProvide advice on the establishment and maintenance of special needs, adult, and non-formal education centers.\nStructure of the Division\nThe Division is led by a Head and consists of four (4) sections:\nAcademic Section\nStatistics and Logistics Section\nSpecial Needs Education Section\nAdult and Non-Formal Education Section\nAcademic Section\nThis section performs the following activities:\nSupervise the implementation of secondary education policies, plans, circulars, and guidelines in secondary schools.\nSupervise the improvement of academic performance in secondary schools.\nCoordinate and supervise the administration of continuous assessments and national Form Two, Form Four, and Form Six examinations.\nMonitor and evaluate the implementation of secondary education plans and assess their strengths and weaknesses.\nCoordinate and supervise sports and games in secondary schools.\nThis section is led by an Officer in Charge .\nStatistics and Logistics Section\nThis section performs the following activities:\nCollect, analyze, and interpret statistics related to secondary education.\nCoordinate the acquisition, distribution, and use of educational resources in secondary schools.\nCoordinate enrollment statistics and logistics for schools.\nPrepare implementation reports on education development.\nDetermine resource needs for schools within the Council.\nThis section is led by an Officer in Charge .\nSpecial Needs Education Section\nThis section performs the following activities:\nPrepare and supervise special needs education implementation plans for secondary education.\nIdentify children with special needs and allocate them to appropriate schools.\nCollect information on students with special needs and provide appropriate advice.\nCoordinate the acquisition, distribution, and use of resources for special needs education.\nThis section is led by an Officer in Charge .\nAdult and Non-Formal Education Section\nThis section performs the following activities:\nPrepare and supervise adult and non-formal education implementation plans for secondary education.\nCoordinate life skills education.\nConduct needs assessments for adult and non-formal education.\nProvide advice on the establishment and maintenance of adult and non-formal education centers.\nCoordinate the acquisition, distribution, and use of resources for adult and non-formal education.\nThis section is led by an Officer in Charge .",
+   "text_sw": "Lengo\nKuratibu utekelezaji wa sera, mipango, sheria, waraka (circulars) na miongozo ya elimu ya sekondari.\nMajukumu ya Idara\nIdara itatekeleza majukumu yafuatayo:\nKusimamia uendeshaji wa tathmini endelevu na mitihani ya taifa ya darasa la pili (Form Two), la nne (Form Four) na la sita (Form Six).\nKufanya ufuatiliaji na tathmini ya utekelezaji wa mipango na programu za elimu ya sekondari.\nKusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya sekondari.\nKuunda na kutunza hifadhidata ya elimu ya sekondari.\nKuratibu elimu ya stadi za maisha katika shule za sekondari.\nKuratibu na kusimamia michezo na shughuli za michezo shuleni.\nKufanya tathmini ya mahitaji ya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi.\nKutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi.\nMuundo wa Idara\nIdara itaongozwa na Mkuu wa Idara na itakuwa na sehemu nne (4):\nSehemu ya Taaluma (Academic Section)\nSehemu ya Takwimu na Ugavi (Statistics and Logistics Section)\nSehemu ya Elimu Maalum (Special Needs Education Section)\nSehemu ya Elimu ya Watu Wazima na Isiyo Rasmi (Adult and Non-Formal Education Section)\nSehemu ya Taaluma\nSehemu hii itafanya shughuli zifuatazo:\nKusimamia utekelezaji wa sera, mipango, waraka na miongozo ya elimu ya sekondari katika shule za sekondari.\nKusimamia maendeleo ya utendaji wa kitaaluma katika shule za sekondari.\nKuratibu na kusimamia uendeshaji wa tathmini endelevu na mitihani ya taifa ya Form Two, Form Four na Form Six.\nKufuatilia na kutathmini utekelezaji wa mipango ya elimu ya sekondari na kubaini nguvu na udhaifu wake.\nKuratibu na kusimamia michezo na shughuli za michezo katika shule za sekondari.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge).\nSehemu ya Takwimu na Ugavi\nSehemu hii itafanya shughuli zifuatazo:\nKukusanya, kuchambua na kutafsiri takwimu za elimu ya sekondari.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali za elimu katika shule za sekondari.\nKuratibu takwimu za uandikishaji wa wanafunzi na ugavi wa vifaa shuleni.\nKuandaa taarifa za utekelezaji wa maendeleo ya elimu.\nKubaini mahitaji ya rasilimali kwa shule zilizoko katika Halmashauri.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.\nSehemu ya Elimu Maalum\nSehemu hii itafanya shughuli zifuatazo:\nKuandaa na kusimamia mipango ya utekelezaji wa elimu maalum katika elimu ya sekondari.\nKutambua watoto wenye mahitaji maalum na kuwapeleka katika shule husika.\nKukusanya taarifa za wanafunzi wenye mahitaji maalum na kutoa ushauri unaofaa.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa ajili ya elimu maalum.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.\nSehemu ya Elimu ya Watu Wazima na Isiyo Rasmi\nSehemu hii itafanya shughuli zifuatazo:\nKuandaa na kusimamia mipango ya utekelezaji wa elimu ya watu wazima na elimu isiyo rasmi katika elimu ya sekondari.\nKuratibu elimu ya stadi za maisha.\nKufanya tathmini ya mahitaji ya elimu ya watu wazima na elimu isiyo rasmi.\nKutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya mafunzo ya watu wazima na elimu isiyo rasmi.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa ajili ya elimu ya watu wazima na isiyo rasmi.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-division",
+   "menu_path": "Administration > Division > Community Development Division",
+   "title": "Community Development Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/community-development-division",
+   "public_url": "https://moshidc.go.tz/community-development-division",
+   "createdAt": "2026-03-09T04:59:11.215Z",
+   "updatedAt": "2026-03-09T05:02:54.353Z",
+   "text_en": "Objective\nTo supervise community development activities within the Local Government Authority (LGA).\nMain Functions of the Division\nThe Division performs several key responsibilities:\nPolicy Implementation\nAnalyze, interpret, and supervise the implementation of policies, laws, and procedures related to community development.\nCommunity Empowerment\nFacilitate communities to initiate, plan, implement, and evaluate their own development programs and projects.\nPlanning\nPrepare short-term and long-term community development plans and projects at the LGA level.\nResearch and Problem Solving\nConduct research and recommend solutions to development challenges in collaboration with the Ministry responsible for community development and other stakeholders.\nMicrofinance Regulation\nRegulate and supervise Tier 4 microfinance service providers according to directives from the Bank of Tanzania.\nEconomic Empowerment\nCoordinate economic development activities for:\nWomen\nChildren\nPersons with disabilities\nTraining and Social Programs\nCoordinate training programs on:\nPoverty alleviation\nHIV/AIDS awareness\nDrug abuse prevention\nGender equality\nNGOs and CBOs Coordination\nMonitor and coordinate activities of Non-Governmental Organizations (NGOs) and Community-Based Organizations (CBOs) involved in community development.\nGeneral Coordination\nManage and coordinate all community development activities within the LGA.\nStructure of the Community Development Division\nThe Division is headed by a Head of Division and consists of two sections:\nCross-cutting Issues Coordination Section\nNGOs and CBOs Coordination Section\nCross-cutting Issues Coordination Section\nMain Activities\nThis section focuses on policy implementation, social development, and community participation.\nKey activities include:\nAnalyzing and supervising community development policies and laws.\nSupervising implementation of community development plans and projects.\nPreparing short- and long-term development plans.\nConducting research on development challenges.\nCoordinating development programs for:\nWomen\nChildren\nPersons with disabilities\nCoordinating training programs related to:\nPoverty reduction\nHIV/AIDS awareness\nDrug abuse prevention\nGender equality\nPromoting community participation and volunteerism in development projects.\nConducting community awareness and sensitization programs.\nEncouraging community involvement in:\nPlanning\nDecision-making\nImplementation\nEvaluation of projects.\nResearching factors that hinder community development.\nThis section is led by an Officer in Charge.\nNGOs and CBOs Coordination Section\nMain Activities\nThis section focuses on partnerships, monitoring organizations, and managing development projects.\nKey responsibilities include:\nCoordinating registration and monitoring of NGOs and CBOs.\nProviding citizenship education to the community.\nEstablishing partnerships with local and international organizations working on community development.\nCoordinating and managing community development projects.\nManaging agreements related to community development activities.\nPreparing regular community development reports.\nSupervising Tier 4 microfinance service providers according to directives from the Bank of Tanzania.\nThis section is also led by an Officer in Charge.",
+   "text_sw": "Lengo\nLengo kuu la kitengo hiki ni kusimamia shughuli za maendeleo ya jamii katika Halmashauri ya Serikali za Mitaa (LGA).\nMajukumu ya Kitengo\nKitengo hiki kinafanya majukumu yafuatayo:\nKuchambua na kusimamia sera\nKuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na taratibu zinazohusu maendeleo ya jamii.\nKuwezesha jamii\nKusaidia jamii kuanzisha, kupanga, kutekeleza na kutathmini programu na miradi yao ya maendeleo.\nMipango ya maendeleo\nKuandaa mipango ya muda mfupi na muda mrefu ya maendeleo ya jamii katika ngazi ya Halmashauri.\nUtafiti wa maendeleo\nKufanya tafiti na kutoa mapendekezo ya namna ya kutatua changamoto mbalimbali za maendeleo kwa kushirikiana na Wizara husika na wadau wengine.\nUsimamizi wa huduma ndogo za kifedha\nKusimamia na kudhibiti watoa huduma wa microfinance wa daraja la nne (Tier 4) kwa kufuata maelekezo ya Bank of Tanzania.\nMaendeleo ya makundi maalum\nKuratibu shughuli za maendeleo ya kiuchumi kwa:\nWanawake\nWatoto\nWatu wenye ulemavu\nMafunzo kwa jamii\nKuratibu mafunzo kuhusu:\nKupunguza umaskini\nUKIMWI\nMatumizi ya dawa za kulevya\nUsawa wa kijinsia\nUratibu wa NGOs na CBOs\nKuratibu na kufuatilia shughuli za NGOs na CBOs zinazofanya kazi za maendeleo ya jamii.\nUratibu wa shughuli za maendeleo\nKuratibu na kusimamia shughuli zote za maendeleo ya jamii katika Halmashauri.\nMuundo wa Kitengo\nKitengo hiki kinaongozwa na Mkuu wa Kitengo na kina sehemu mbili kuu:\nSehemu ya Uratibu wa Masuala Mtambuka\nSehemu ya Uratibu wa NGOs na CBOs\n1. Sehemu ya Uratibu wa Masuala Mtambuka\n( Cross-cutting Issues Coordination Section )\nMajukumu yake ni pamoja na:\nKuchambua na kusimamia utekelezaji wa sera na sheria za maendeleo ya jamii.\nKusimamia utekelezaji wa mipango na miradi ya maendeleo ya jamii.\nKuandaa mipango ya muda mfupi na muda mrefu ya maendeleo.\nKufanya tafiti kuhusu changamoto za maendeleo.\nKuratibu maendeleo ya:\nWanawake\nWatoto\nWatu wenye ulemavu\nKuratibu mafunzo ya:\nKupunguza umaskini\nUKIMWI\nDawa za kulevya\nUsawa wa kijinsia\nKuhamasisha ushiriki wa jamii na kujitolea katika miradi ya maendeleo.\nKutoa elimu na uhamasishaji kuhusu ushiriki wa jamii katika maendeleo.\nKuhamasisha wananchi kushiriki katika:\nkupanga\nkufanya maamuzi\nkutekeleza\nkutathmini miradi ya maendeleo.\nKufanya tafiti kuhusu vikwazo vinavyozuia maendeleo ya jamii.\nSehemu hii inaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge).\n2. Sehemu ya Uratibu wa NGOs na CBOs\n( NGOs and CBOs Coordination Section )\nMajukumu yake ni:\nKuratibu usajili wa NGOs na CBOs na kufuatilia shughuli zao katika maendeleo ya jamii.\nKuratibu utoaji wa elimu ya uraia kwa jamii.\nKuanzisha na kudumisha ushirikiano na taasisi na mashirika ya ndani na nje ya nchi yanayoshughulika na maendeleo ya jamii.\nKuratibu na kusimamia miradi ya maendeleo ya jamii.\nKusimamia utekelezaji wa mikataba inayohusiana na maendeleo ya jamii.\nKuandaa ripoti za mara kwa mara kuhusu maendeleo ya jamii.\nKusimamia na kudhibiti watoa huduma wa microfinance wa daraja la nne kwa kufuata maelekezo ya Bank of Tanzania.\nSehemu hii pia inaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge).",
+   "attachments": []
+  },
+  {
+   "slug": "industry-trade-and-investments-division",
+   "menu_path": "Administration > Division > Industry, Trade and Investments Division",
+   "title": "Industry, Trade and Investments Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/industry-trade-and-investments-division",
+   "public_url": "https://moshidc.go.tz/industry-trade-and-investments-division",
+   "createdAt": "2026-03-08T18:26:06.773Z",
+   "updatedAt": "2026-03-08T18:26:06.773Z",
+   "text_en": "Objective\nTo provide a favorable business environment for industrialization, trade, marketing, and investment development.\nFunctions of the Division\nThe Division performs the following functions:\nCoordinate the implementation of policies, laws, regulations, and procedures related to industry, trade, marketing, and investment.\nPromote industrial development, trade, marketing, and investment within the Council.\nPlan and develop industrial sites and industrial parks in collaboration with other stakeholders.\nPlan incentives to promote industry, trade, marketing, and investment.\nPromote the development of Small and Medium Enterprises (SMEs).\nDevelop investment proposals and projects.\nPromote measures for private sector development.\nEstablish and manage databases for industry, trade, marketing, and investment.\nOversee the management of one-stop business centers.\nConduct research on investment promotion.\nCoordinate business forums.\nAdminister auction and market activities within the Council.\nImplement business development strategies for small vendors and small business providers.\nProvide a conducive environment for business and investment development.\nStructure of the Division\nThe Division is led by a Head and consists of two (2) sections:\nIndustry Development and Investment Section\nTrade and Marketing Section\nIndustry Development and Investment Section\nThis section performs the following activities:\nCoordinate the implementation of policies, laws, regulations, and procedures in the industry and investment sectors.\nPromote and coordinate the implementation of Public–Private Partnerships (PPP).\nAllocate, develop, and monitor industrial sites and parks.\nProvide advice on improving industrial policies and coordinate sector meetings.\nPromote the production of various raw materials for industrial use.\nPrepare and maintain registers of industries and investments.\nPlan and estimate tariffs for small industries.\nDevelop and review the investment profile of the Council.\nPromote private sector investment.\nCoordinate and provide advice to investors.\nCreate a conducive environment for investment.\nThis section is led by an Officer in Charge .\nTrade and Marketing Section\nThis section performs the following activities:\nSupervise the implementation of trade and marketing policies, laws, rules, and regulations.\nProvide entrepreneurial skills and training to the business community.\nCoordinate and provide advice on trade registration activities.\nAnalyze trade and marketing reports and provide appropriate advice.\nCoordinate District Business Council forums.\nPromote public–private sector partnerships.\nAdminister auction and market activities in the Council.\nCollect and distribute market information about goods and services to interested stakeholders.\nImplement business development strategies for small vendors and small business providers.\nProvide a conducive business environment.\nThis section is led by an Officer in Charge .",
+   "text_sw": "Lengo\nKutoa mazingira mazuri ya biashara ili kukuza maendeleo ya viwanda, biashara, masoko na uwekezaji.\nMajukumu ya Idara\nIdara itatekeleza majukumu yafuatayo:\nKuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazohusiana na viwanda, biashara, masoko na uwekezaji.\nKukuza maendeleo ya viwanda, biashara, masoko na uwekezaji katika Halmashauri.\nKupanga na kuendeleza maeneo ya viwanda na bustani za viwanda kwa kushirikiana na wadau wengine muhimu.\nKupanga motisha (incentives) kwa ajili ya kukuza viwanda, biashara, masoko na uwekezaji.\nKukuza maendeleo ya Biashara Ndogo na za Kati (SMEs).\nKuandaa mapendekezo ya uwekezaji na miradi ya uwekezaji.\nKukuza hatua za maendeleo ya sekta binafsi.\nKuanzisha na kusimamia hifadhidata ya viwanda, biashara, masoko na uwekezaji.\nKusimamia uendeshaji wa vituo vya huduma za biashara sehemu moja (One Stop Business Centres).\nKufanya tafiti kuhusu uhamasishaji wa uwekezaji.\nKuratibu mikutano ya wafanyabiashara (Business Forums).\nKusimamia shughuli za minada na masoko katika Halmashauri.\nKutekeleza mkakati wa maendeleo ya biashara kwa wachuuzi wadogo na watoa huduma za biashara ndogo.\nKutoa mazingira rafiki kwa biashara na uwekezaji ili kukuza shughuli za biashara na uwekezaji.\nMuundo wa Idara\nIdara itaongozwa na Mkuu wa Idara na itakuwa na sehemu mbili (2) zifuatazo:\nSehemu ya Maendeleo ya Viwanda na Uwekezaji\nSehemu ya Biashara na Masoko\nSehemu ya Maendeleo ya Viwanda na Uwekezaji\nSehemu hii itafanya shughuli zifuatazo:\nKuratibu utekelezaji wa sera, sheria, kanuni na taratibu za sekta ya viwanda na uwekezaji.\nKukuza na kuratibu utekelezaji wa ushirikiano kati ya sekta ya umma na sekta binafsi (Public Private Partnership – PPP).\nKugawa, kuendeleza na kufuatilia maeneo ya viwanda na bustani za viwanda.\nKutoa ushauri kuhusu kuboresha sera za viwanda na kuratibu mikutano ya sekta husika.\nKukuza uzalishaji wa malighafi mbalimbali kwa ajili ya matumizi ya viwandani.\nKuandaa na kutunza rejista za viwanda na uwekezaji.\nKupanga na kukadiria ushuru kwa viwanda vidogo.\nKuandaa na kupitia wasifu wa uwekezaji (investment profile).\nKukuza uwekezaji wa sekta binafsi.\nKuratibu na kutoa ushauri kwa wawekezaji.\nKuunda mazingira mazuri kwa ajili ya uwekezaji.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge).\nSehemu ya Biashara na Masoko\nSehemu hii itafanya shughuli zifuatazo:\nKusimamia utekelezaji wa sera, sheria, kanuni na taratibu za biashara na masoko.\nKutoa mafunzo ya ujasiriamali kwa jamii ya wafanyabiashara.\nKuratibu na kutoa ushauri kuhusu usajili wa biashara.\nKuchambua taarifa za biashara na masoko na kutoa ushauri unaofaa.\nKuratibu mikutano ya Baraza la Biashara la Wilaya (District Business Council).\nKukuza ushirikiano kati ya sekta ya umma na sekta binafsi.\nKusimamia shughuli za minada na masoko katika Halmashauri.\nKukusanya na kusambaza taarifa za masoko ya bidhaa na huduma kwa wadau husika.\nKutekeleza mkakati wa maendeleo ya biashara kwa wachuuzi wadogo na watoa huduma za biashara ndogo.\nKutoa mazingira mazuri ya biashara.\nSehemu hii itaongozwa na Afisa Mkuu wa Sehemu.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-and-fisheries-division",
+   "menu_path": "Administration > Division > Agriculture, Livestock and Fisheries Division",
+   "title": "Agriculture, Livestock and Fisheries Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries-division",
+   "public_url": "https://moshidc.go.tz/agriculture-livestock-and-fisheries-division",
+   "createdAt": "2026-03-09T05:21:06.437Z",
+   "updatedAt": "2026-03-09T05:21:06.437Z",
+   "text_en": "Objective\nTo promote the transformation and development of agriculture, irrigation, livestock, and fisheries so that these sectors contribute effectively to economic and community development.\nFunctions of the Division\nThe division performs the following functions:\nPolicy Implementation\nAnalyze, interpret, and supervise the implementation of policies, laws, and regulations related to agriculture, irrigation, livestock, and fisheries.\nStandards and Pricing\nPropose standards and prices for products and services produced in agriculture, livestock, and fisheries.\nPlanning\nPrepare short-term and long-term plans and programs for the development of agriculture, irrigation, livestock, and fisheries.\nCooperative Development\nOversee the promotion and proper management of cooperatives within the council.\nTechnical Support\nProvide technical advice to stakeholders involved in agriculture, irrigation, livestock, and fisheries.\nReporting\nPrepare reports concerning activities in agriculture, irrigation, livestock, and fisheries.\nRevenue Management\nSupervise the collection and control of revenue generated from agriculture, irrigation, livestock, and fisheries activities.\nStructure of the Division\nThe division is led by a Head of Division and consists of three sections:\nAgriculture Section\nLivestock Section\nFisheries Section\nEach section is led by an Officer in Charge .\n1. Agriculture Section\nThis section performs the following activities:\nPrepare and implement programs for fertilizer supply at different sales points.\nPrepare programs for distribution and storage of agricultural inputs.\nConduct soil testing of farmers’ field samples and provide advice.\nAdvise farmers on post-harvest handling, agro-processing, and value addition.\nEstimate crop yield and production of important crops.\nConduct agricultural statistics and census work.\nCarry out demonstration trials such as crop variety trials and fertilizer trials.\nPromote and supervise agricultural cooperatives.\nCoordinate fertilizer and plant protection supplies at the village level.\nOrganize farmer training programs at the village level.\nPrepare and implement crop diversification plans, especially in irrigated areas.\nImplement the Biogas Development Program.\nPlan, design, construct, and maintain irrigation schemes.\nFacilitate the formation of irrigators’ organizations.\nSupport the development and enforcement of irrigation by-laws.\nProvide support services to farmers in irrigation schemes.\nThe section is led by an Officer in Charge .\n2. Livestock Section\nThis section performs the following activities:\nInterpret and supervise the implementation of livestock policies, laws, and regulations.\nPrepare short-term and long-term plans for livestock development.\nEvaluate the conservation and use of livestock resources.\nPromote and supervise livestock cooperatives.\nProvide technical support to livestock stakeholders.\nCoordinate and supervise livestock development projects.\nThe section is led by an Officer in Charge .\n3. Fisheries Section\nThis section performs the following activities:\nInterpret and supervise the implementation of fisheries policies, laws, and regulations.\nPrepare short-term and long-term plans for fisheries resource development.\nEvaluate the conservation and use of fisheries resources.\nPromote and supervise fisheries cooperatives.\nProvide technical support to stakeholders in the fisheries sector.\nCoordinate and supervise fisheries development projects.\nThe section is also led by an Officer in Charge .",
+   "text_sw": "Lengo\nLengo la idara hii ni kuendeleza na kuboresha sekta za kilimo, umwagiliaji, mifugo na uvuvi ili kuchangia maendeleo ya uchumi na ustawi wa jamii.\nMajukumu ya Idara\nIdara itafanya majukumu yafuatayo:\nUtekelezaji wa Sera\nKuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na kanuni zinazohusu kilimo, umwagiliaji, mifugo na uvuvi.\nViwango na Bei\nKupendekeza viwango na bei za bidhaa na huduma zinazotokana na kilimo, mifugo na uvuvi.\nMipango ya Maendeleo\nKuandaa mipango na programu za muda mfupi na muda mrefu kwa ajili ya maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\nUsimamizi wa Vyama vya Ushirika\nKusimamia na kuhamasisha uanzishaji na uendeshaji mzuri wa vyama vya ushirika katika halmashauri.\nUshauri wa Kitaalamu\nKutoa ushauri wa kitaalamu kwa wadau wa kilimo, umwagiliaji, mifugo na uvuvi.\nUandaaji wa Taarifa\nKuandaa taarifa kuhusu shughuli za kilimo, umwagiliaji, mifugo na uvuvi.\nUsimamizi wa Mapato\nKusimamia ukusanyaji na udhibiti wa mapato yanayotokana na shughuli za kilimo, umwagiliaji, mifugo na uvuvi.\nMuundo wa Idara\nIdara inaongozwa na Mkuu wa Idara na ina sehemu tatu kuu:\nSehemu ya Kilimo\nSehemu ya Mifugo\nSehemu ya Uvuvi\nKila sehemu inaongozwa na Afisa Mkuu wa Sehemu (Officer in Charge) .\n1. Sehemu ya Kilimo\nSehemu hii hufanya shughuli zifuatazo:\nKuandaa na kutekeleza programu za usambazaji wa mbolea katika vituo mbalimbali vya mauzo.\nKuandaa programu za usambazaji na uhifadhi wa pembejeo za kilimo.\nKufanya uchunguzi wa udongo kutoka mashamba ya wakulima na kutoa ushauri.\nKutoa ushauri kwa wakulima kuhusu:\nUtunzaji wa mazao baada ya kuvuna\nUsindikaji wa mazao\nKuongeza thamani ya mazao\nKukadiria uzalishaji na mavuno ya mazao muhimu.\nKufanya takwimu na sensa za kilimo.\nKufanya majaribio ya mazao na mbolea (demonstration trials).\nKusimamia na kuhamasisha vyama vya ushirika wa wakulima.\nKuratibu upatikanaji wa mbolea na dawa za mimea katika vijiji.\nKuandaa mafunzo kwa wakulima katika ngazi ya kijiji.\nKuandaa na kutekeleza mpango wa mseto wa mazao, hasa katika maeneo ya umwagiliaji.\nKutekeleza programu ya maendeleo ya biogas.\nKupanga, kubuni, kujenga na kutunza miradi ya umwagiliaji.\nKusaidia kuanzisha vyama vya watumiaji wa umwagiliaji.\nKusaidia kutunga na kusimamia kanuni za umwagiliaji.\nKutoa huduma za usaidizi kwa wakulima katika miradi ya umwagiliaji.\nSehemu hii inaongozwa na Afisa Mkuu wa Sehemu .\n2. Sehemu ya Mifugo\nSehemu hii hufanya shughuli zifuatazo:\nKutafsiri na kusimamia utekelezaji wa sera, sheria na kanuni za mifugo.\nKuandaa mipango ya muda mfupi na mrefu ya maendeleo ya mifugo.\nKutathmini uhifadhi na matumizi ya rasilimali za mifugo.\nKusimamia na kuhamasisha vyama vya ushirika wa wafugaji.\nKutoa msaada wa kitaalamu kwa wadau wa sekta ya mifugo.\nKuratibu na kusimamia miradi ya maendeleo ya mifugo.\nSehemu hii inaongozwa na Afisa Mkuu wa Sehemu .\n3. Sehemu ya Uvuvi\nSehemu hii hufanya shughuli zifuatazo:\nKutafsiri na kusimamia utekelezaji wa sera, sheria na kanuni za uvuvi.\nKuandaa mipango ya muda mfupi na mrefu ya maendeleo ya rasilimali za uvuvi.\nKutathmini uhifadhi na matumizi ya rasilimali za uvuvi.\nKusimamia na kuhamasisha vyama vya ushirika wa wavuvi.\nKutoa msaada wa kitaalamu kwa wadau wa sekta ya uvuvi.\nKuratibu na kusimamia miradi ya maendeleo ya uvuvi.\nSehemu hii pia inaongozwa na Afisa Mkuu wa Sehemu .",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-rural-and-urban-development-division",
+   "menu_path": "Administration > Division > Infrastructure, Rural, and Urban Development Division",
+   "title": "Infrastructure, Rural, and Urban Development Division",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/infrastructure-rural-and-urban-development-division",
+   "public_url": "https://moshidc.go.tz/infrastructure-rural-and-urban-development-division",
+   "createdAt": "2026-03-08T17:54:16.603Z",
+   "updatedAt": "2026-03-08T17:54:16.603Z",
+   "text_en": "Objective:\nTo supervise and provide guidance on all infrastructure-related matters in the Council.\nFunctions of the Division:\nAdvise on matters related to the construction industry.\nPlan the development of infrastructure.\nAnalyze and recommend payments for contractor claims.\nInspect construction works undertaken by the Council to ensure quality.\nIssue certificates to contractors upon completion of contracts.\nCollaborate with TARURA to undertake road paving.\nEstablish and maintain cooperation with domestic and international institutions dealing with infrastructure.\nFacilitate the resolution of land-use conflicts.\nManage urbanization in collaboration with the Ministry responsible for land.\nOversee rural and urban settlement development in collaboration with the Ministry responsible for land.\nStructure of the Division:\nThe Division will be led by a Head and comprises the following three sections:\nWorks Section\nRoads Section\nRural and Urban Development Section\nDetailed Activities of Each Section:\n1. Works Section\nAdvise on laws, regulations, and procedures related to construction.\nAnalyze, interpret, and manage the implementation of construction policies, laws, and regulations.\nPrepare contracts for buildings and installations.\nEstimate construction costs.\nMonitor contractor performance.\nAnalyze and recommend contractor payment claims.\nInspect buildings to ensure quality.\nIssue completion certificates for contractors.\nSupervise operations of Council workshops.\n2. Roads Section\nAdvise on identifying and paving new roads.\nAnalyze, interpret, and manage the implementation of road paving policies, laws, and regulations.\nPave new roads in surveyed land.\nPrepare contracts for road paving projects.\nEstimate costs for paving roads.\nMonitor contractor performance.\nAnalyze and recommend contractor payment claims.\nInspect paved roads to ensure quality.\nSupervise construction and maintenance of bus terminals.\n3. Rural and Urban Development Section\nOversee the development of rural and urban settlements in collaboration with the Ministry responsible for land.\nManage environmental and social amenities.\nGuide urban development planning, housing, and sustainable land use.\nOversee and coordinate the management of antiquities and tourism.\nManage the urbanization process in collaboration with the Ministry responsible for land.\nCoordinate and support the evolution of emerging towns from villages to urban settlements.\nFacilitate the resolution of land use conflicts.\nThis Division will be led by a Head, and each section will be managed by an Officer in Charge.",
+   "text_sw": "Lengo:\nKusimamia na kutoa ushauri kuhusu masuala yote yanayohusiana na miundombinu katika Halmashauri.\nMajukumu ya Idara:\nKutoa ushauri kuhusu masuala ya sekta ya ujenzi.\nKupanga maendeleo ya miundombinu.\nKuchambua na kutoa mapendekezo ya malipo kwa madai ya wakandarasi.\nKukagua kazi za ujenzi zinazofanywa na Halmashauri ili kuhakikisha ubora.\nKutoa vyeti kwa wakandarasi kwa kazi zilizokamilika.\nKushirikiana na TARURA katika upigaji wa barabara mpya.\nKuanzisha na kudumisha ushirikiano na taasisi za ndani na nje ya nchi zinazohusiana na miundombinu.\nKusaidia kutatua migogoro ya matumizi ya ardhi.\nKusimamia mchakato wa miji na ushirikiano na Wizara inayohusika na ardhi.\nKusimamia maendeleo ya makazi ya vijijini na mijini kwa kushirikiana na Wizara inayohusika na ardhi.\nMuundo wa Idara:\nIdara hii itasimamiwa na Mkuu wa Idara na itajumuisha sehemu tatu (3) zifuatazo:\nSehemu ya Kazi\nSehemu ya Barabara\nSehemu ya Maendeleo ya Vijijini na Miji\nMajukumu ya Kila Sehemu:\n1. Sehemu ya Kazi\nKutoa ushauri kuhusu sheria, kanuni, na taratibu zinazohusiana na ujenzi.\nKuchambua, kutafsiri, na kusimamia utekelezaji wa sera, sheria, na kanuni za ujenzi.\nKuandaa mikataba ya ujenzi wa majengo na miundombinu.\nKukadiria gharama za ujenzi.\nKufuatilia utendaji wa wakandarasi.\nKuchambua na kutoa mapendekezo kuhusu madai ya malipo ya wakandarasi.\nKukagua majengo ili kuhakikisha ubora.\nKutoa vyeti kwa wakandarasi kwa kazi zilizokamilika.\nKusimamia shughuli za warsha za Halmashauri.\n2. Sehemu ya Barabara\nKutoa ushauri kuhusu masuala ya utambuzi na upigaji wa barabara mpya.\nKuchambua, kutafsiri, na kusimamia utekelezaji wa sera, sheria, na kanuni za ujenzi wa barabara.\nKupiga barabara mpya katika maeneo yaliyosajiliwa.\nKuandaa mikataba ya upigaji barabara.\nKukadiria gharama za kupiga barabara.\nKufuatilia utendaji wa wakandarasi.\nKuchambua na kutoa mapendekezo kuhusu madai ya malipo ya wakandarasi.\nKukagua barabara zilizopigwa ili kuhakikisha ubora.\nKusimamia ujenzi na matengenezo ya vituo vya mabasi.\n3. Sehemu ya Maendeleo ya Vijijini na Miji\nKusimamia maendeleo ya makazi ya vijijini na mijini kwa kushirikiana na Wizara inayohusika na ardhi.\nKusimamia huduma za mazingira na kijamii.\nKuongoza mpango wa maendeleo ya mijini, makazi, na matumizi endelevu ya ardhi.\nKusimamia na kuratibu usimamizi wa urithi wa kihistoria na utalii.\nKusimamia mchakato wa miji kwa kushirikiana na Wizara inayohusika na ardhi.\nKusaidia na kuratibu miji inayochipuka kutoka vijiji na kuwa makazi ya miji.\nKusaidia kutatua migogoro ya matumizi ya ardhi.\nIdara hii itasimamiwa na Mkuu wa Idara, na kila sehemu itasimamiwa na Afisa Mkuu wa Sehemu.",
+   "attachments": []
+  },
+  {
+   "slug": "list-of-councilors",
+   "menu_path": "Councilors > List of Councilors",
+   "title": "List of Councilors",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/list-of-councilors",
+   "public_url": "https://moshidc.go.tz/list-of-councilors",
+   "createdAt": "2026-03-06T09:23:18.765Z",
+   "updatedAt": "2026-03-06T09:23:18.765Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "permanent-committees",
+   "menu_path": "Councilors > Permanent Committees",
+   "title": "Permanent Committees",
+   "api_url": "https://moshidc.go.tz/api/pages/slug/permanent-committees",
+   "public_url": "https://moshidc.go.tz/permanent-committees",
+   "createdAt": "2026-03-06T11:32:59.873Z",
+   "updatedAt": "2026-03-06T11:34:06.871Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "MWONGOZO WA MAVAZI KWA WATUMISHI WA UMMA (BANGO).pdf",
+   "date": "2026-05-15T10:48:45.580Z",
+   "url": "http://moshidc.go.tz/minio/moshidc.go.tz/files/1778842126838-MWONGOZO-WA-MAVAZI-KWA-WATUMISHI-WA-UMMA-BANGO-.pdf",
+   "file_type": "application/pdf",
+   "size": "2667171"
+  },
+  {
+   "name": "MUONGOZO WA MTUMIAJI-TAASISI NUNUZI.pdf",
+   "date": "2026-05-15T10:48:13.004Z",
+   "url": "http://moshidc.go.tz/minio/moshidc.go.tz/files/1778842102833-MUONGOZO-WA-MTUMIAJI-TAASISI-NUNUZI.pdf",
+   "file_type": "application/pdf",
+   "size": "18160107"
+  },
+  {
+   "name": "STRATEGIC PLAN-MOSHI DC.pdf",
+   "date": "2026-03-12T06:12:59.751Z",
+   "url": "http://moshidc.go.tz/minio/moshidc.go.tz/files/1773295982621-STRATEGIC%20PLAN-MOSHI%20DC.pdf",
+   "file_type": "application/pdf",
+   "size": "9913957"
+  },
+  {
+   "name": "NAMNA YA KUJISAJILI KWENYE MFUMO WA TAUSI NA KUKATA LESENI KWENYE MFUMO",
+   "date": "2026-03-09T05:46:01.048Z",
+   "url": "http://moshidc.go.tz/minio/moshidc.go.tz/files/1773035018249-PowerPoint%20Presentation.pdf",
+   "file_type": "application/pdf",
+   "size": "4648687"
+  }
+ ],
+ "news": [
+  {
+   "id": 9874,
+   "title": "ELIMU YA FURSA ZA KIUCHUMI NA MIKOPO YAWAFIKIA VIJANA WA MABOGINI",
+   "date": "2026-09-22",
+   "category": "Elimu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1499,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9643,
+   "title": "SIKU YA USAFI DUNIANI",
+   "date": "2026-09-17",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 183,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9642,
+   "title": "VIJANA MOSHI DC WANOLEWA KUCHANGAMKIA FURSA ZA MIKOPO",
+   "date": "2026-09-17",
+   "category": "Uchumi",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1412,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9639,
+   "title": "MWEZI WA MAENDELEO YA JAMII: MSELE AWATAKA WANANCHI KUSHIRIKI, KUTUMIA FURSA NA KUIJENGA JAMII YENYE MAENDELEO",
+   "date": "2026-09-17",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2049,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9242,
+   "title": "HALMASHAURI YA WILAYA YA MOSHI YATOA HOMONI YA KUDHIBITI WADUDU WAHARIBIFU WA MATUNDA",
+   "date": "2026-09-08",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1822,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9236,
+   "title": "KATIBU TAWALA KILIMANJARO AWATAKA MADEREVA KUHESHIMU SHERIA ZA USALAMA BARABARANI",
+   "date": "2026-09-05",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1242,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9232,
+   "title": "MOSHI DC YAWAVALIA NJUGA WAFANYABIASHARA WA VILEO WASIO NA LESENI, MSAKO MKALI KUWABAINI",
+   "date": "2026-09-06",
+   "category": "Uchumi",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2007,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9221,
+   "title": "HALMASHAURI YA WILAYA YA KILOSA YATEMBELEA HALMASHAURI YA WILAYA YA MOSHI KUJIFUNZA UKUSANYAJI WA MAPATO",
+   "date": "2026-09-04",
+   "category": "Uchumi",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1664,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9115,
+   "title": "ITF YAKAMILISHA MSAADA WA VIFAA TIBA KWA ZAHANATI TATU MOSHI DC",
+   "date": "2026-08-30",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1965,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9111,
+   "title": "KIKAO CHA UJIRANI MWEMA KUJADILI MAENDELEO YA BWAWA LA NYUMBA YA MUNGU CHAFANYIKA LEO MOSHI DC",
+   "date": "2026-08-28",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1591,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9107,
+   "title": "DC MNZAVA AZINDUA ZOEZI LA CHANJO YA POLIO KWA WATOTO CHINI YA MIAKA 10 MOSHI",
+   "date": "2026-08-28",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1605,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9103,
+   "title": "TAARIFA KWA UMMA",
+   "date": "2026-08-24",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 77,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9097,
+   "title": "Mwenyekiti wa Halmashauri Mhe. John Mapato Meela (Chui) awasili Jijini Mbeya kuipa nguvu Timu ya Halmashauri kwenye mashindano ya SHIMISEMITA 2026.",
+   "date": "2026-08-22",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 630,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9094,
+   "title": "MOSHI DC YAADHIMISHA JUMA LA ELIMU YA WATU WAZIMA, SANAA YATUMIKA KUFIKISHA UJUMBE.",
+   "date": "2026-08-21",
+   "category": "Elimu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1112,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9091,
+   "title": "MOSHI DC YAWASILISHA TAARIFA MBELE YA KAMATI YA KUDUMU YA BUNGE YA HESABU ZA SERIKALI ZA MITAA (LAAC)",
+   "date": "2026-08-21",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1606,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9089,
+   "title": "MOSHI DC KUENDESHA KAMPENI YA CHANJO YA MATONE YA POLIO KWA WATOTO CHINI YA MIAKA 10",
+   "date": "2026-08-18",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1824,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9087,
+   "title": "UJENZI WA VYUMBA VIWILI VYA MADARASA WABORESHA UJIFUNZAJI NA UFUNDISHAJI SHULE YA MSINGI SANGO",
+   "date": "2026-08-17",
+   "category": "Elimu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 607,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9083,
+   "title": "MKURUGENZI MOSHI DC AWAAGA WANAMICHEZO WA SHIMISEMITA, AWATAKA KURUDI NA VIKOMBE.",
+   "date": "2026-08-14",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 807,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7954,
+   "title": "DED MHAGAMA AKUTANA NA WAANDAAJI KILI MARATHON",
+   "date": "2026-08-11",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 920,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7952,
+   "title": "KILI PLANTATIONS WAKABIDHI VIFAA VYA MICHEZO MOSHI DC",
+   "date": "2026-08-11",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1176,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7884,
+   "title": "NASEC AGRO ORGANIC YAIOMBA SERIKALI KUTOA RUZUKU KWA WAZALISHAJI WA MBOLEA ZA ASILI",
+   "date": "2026-08-09",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1381,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7883,
+   "title": "DIWANI AITAKA MOSHI DC KUWEKEZA KWA WABUNIFU",
+   "date": "2026-08-09",
+   "category": "Uchumi",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 902,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7786,
+   "title": "MOSHI DC YAIBUKA KINARA NANE NANE 2026",
+   "date": "2026-08-08",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 523,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7777,
+   "title": "MAADHIMISHO YA WIKI YA UNYONYESHAJI 2026",
+   "date": "2026-08-04",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 882,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7689,
+   "title": "MOSHI DC YAPOKEA KOMPYUTA MPAKATO 173 KUBORESHA ELIMU YA TEHAMA",
+   "date": "2026-08-03",
+   "category": "Elimu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 754,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7688,
+   "title": "HALMASHAURI YA WILAYA YA MOSHI YATOA MIKOPO YA SHILINGI MILIONI 873 KWA VIKUNDI 76",
+   "date": "2026-07-30",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1453,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7687,
+   "title": "HALMASHAURI YA WILAYA YA MOSHI YATOA MIKOPO YA SHILINGI MILIONI 873 KWA VIKUNDI 76",
+   "date": "2026-07-30",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1453,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7686,
+   "title": "HALMASHAURI YA WILAYA YA MOSHI YATOA MIKOPO YA SHILINGI MILIONI 873 KWA VIKUNDI 76",
+   "date": "2026-07-30",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1453,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7685,
+   "title": "ITF YATOA VIFAA TIBA, MFUMO WA UMEME WA JUA NA KUKARABATI MIUNDOMBINU ZA AFYA MOSHI DC",
+   "date": "2026-07-29",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2023,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7674,
+   "title": "MOSHI DC YAFANYA MAANDALIZI YA KUPOKEA WATALII KATIKA MAPOROMOKO YA MAMBORI",
+   "date": "2026-07-26",
+   "category": "Uchumi",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1069,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7672,
+   "title": "WALIMU 202 WAPATIWA TUZO ZA MOSHI DC SAMIA TEACHERS AWARD",
+   "date": "2026-07-26",
+   "category": "Elimu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1145,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7671,
+   "title": "DAKTARI BINGWA WA MAGONJWA YA WANAWAKE NA UZAZI HOSPITALI YA KIBOSHO AONGOZA TIMU YA WATAALAMU KUTOA ELIMU YA UZAZI NA KUKAGUA VIFAA TIBA",
+   "date": "2026-07-24",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1320,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7401,
+   "title": "MNZAVA MGUU KWA MGUU KUSIKILIZA NA KUTATUA KERO ZA WANANCHI KIJIJI CHA RAU RIVER KATA YA KAHE MAGHARIBI",
+   "date": "2026-07-18",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 288,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7398,
+   "title": "DC MNZAVA AONGOZA MAJADILIANO KUMALIZA MGOGORO WA ARDHI WA HIFADHI YA BARABARA KIJIJI CHA UMBWE KATI",
+   "date": "2026-07-17",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1049,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7395,
+   "title": "MAKOI NA KOOLA WAWEKEZA KWENYE MIUNDOMBINU YA BARABARA, WANUNUA MAGREDA MAPYA MAWILI.",
+   "date": "2026-07-15",
+   "category": "Miundombinu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 797,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7392,
+   "title": "MAKUMBUSHO JUMUISHI YA MALIKALE, UTAMADUNI, UTALII NA UTAFITI YAZUNDULIWA, NI KATIKA MAJENGO YA KDC MOSHI KILIMANJARO",
+   "date": "2026-07-12",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 872,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7345,
+   "title": "SIKU YA KILIMANJARO YANOGESHA MAONYESHO YA SABABASABA DAR ES SALAAM 2026, YATOA FURSA ZA UWEKEZAJI KWENYE UTALII, UTAMADUNI NA VIWANDA",
+   "date": "2026-07-11",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1778,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7344,
+   "title": "MOSHI DC YAPATA HATI SAFI, YAVUKA LENGO MAKUSANYO, RC BABU AIPA KONGOLE",
+   "date": "2026-07-10",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2043,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7342,
+   "title": "WATUMISHI WAPYA MOSHI DC WAPEWA SEMINA ELEKEZI",
+   "date": "2026-07-09",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1747,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7341,
+   "title": "MWENGE WA UHURU WAWEKA JIWE LA MSINGI UJENZI WA VYUMBA VIWILI VYA MADARASA KIMOCHI SEKONDARI",
+   "date": "2026-07-01",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1382,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7340,
+   "title": "OFISI MPYA YA KIJIJI CHA SANGO YAZINDULIWA RASMI NA MWENGE WA UHURU 2026",
+   "date": "2026-07-01",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 909,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7332,
+   "title": "KIONGOZI WA MBIO ZA MWENGE 2026 AKOSHWA NA USHIRIKIANO WA SERIKALI NA WANANCHI UJENZI ZAHANATI YA GHONA, MOSHI DC",
+   "date": "2026-07-01",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 971,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7331,
+   "title": "KIONGOZI WA MBIO ZA MWENGE WA UHURU 2026 NDG.WAZO MICHAEL MWANG'ONDA AZINDUA KITUO CHA MAFUTA MAVOA.",
+   "date": "2026-07-01",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1102,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7329,
+   "title": "MWENGE WA UHURU 2026 WAZINDUA MRADI WA NISHATI SAFI YA KUPIKIA SHULE YA SEKONDARI MWIKA",
+   "date": "2026-07-01",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2875,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7328,
+   "title": "MATUKIO PICHA MBIO ZA MWENGE WA UHURU 2026",
+   "date": "2026-08-01",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 60,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6893,
+   "title": "KILIMANJARO KUANZISHA MAKUMBUSHO YA MKOA KUHIFADHI HISTORIA, UTAMADUNI NA KUKUZA UTALII",
+   "date": "2026-06-02",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2070,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6889,
+   "title": "MOSHI DC YAKUTANA NA NGOs KUJADILI USHIRIKI WA SIKU MAALUMU ZA KITAIFA IKIWEMO MBIO ZA MWENGE WA UHURU",
+   "date": "2026-07-23",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2072,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6828,
+   "title": "MAFUNZO YA CHANJO YAWAJENGEA UWEZO WAUGUZI WASAIDIZI KUBORESHA HUDUMA ZA AFYA YA JAMII MOSHI DC",
+   "date": "2026-05-16",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1548,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3810,
+   "title": "DC MOSHI ATEMBELEA NA KUKAGUA UJENZI WA HOSPITALI YA WILAYA YA MOSHI.",
+   "date": "2026-05-13",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 760,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3498,
+   "title": "MAFUNZO YA MFUMO MPYA WA UKAGUZI IFT-MIS YAFANYIKA MOSHI DC",
+   "date": "2026-05-07",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1101,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3497,
+   "title": "WADAU WA KIMATAIFA WACHOCHEA MABORESHO MAKUBWA YA SHULE NA ZAHANATI MOSHI",
+   "date": "2026-04-29",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2060,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3495,
+   "title": "DC MOSHI ATEMBELEA NA KUKAGUA MIRADI ILIYOPENDEKEZWA KUTEMBELEWA NA MBIO ZA MWENGE WA UHURU 2026.",
+   "date": "2026-05-05",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1360,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3493,
+   "title": "MOSHI DC YATOA MAFUNZO KWA VIKUNDI 46, YATENGA MIL 477.4 KUWEZESHA MIKOPO",
+   "date": "2026-05-07",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2051,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3492,
+   "title": "DC MOSHI APONGEZA HATUA YA TAASISI YA VIJANA KWANZA KUHUDUMIA WATOTO WENYE MAZINGIRA MAGUMU.",
+   "date": "2026-04-16",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2701,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1431,
+   "title": "MOSHI DC NA BODI YA KAHAWA KUSAMBAZA MICHE ZAIDI YA MILIONI 1 KUFUFUA KILIMO CHA KAHAWA",
+   "date": "2026-03-17",
+   "category": "Uchumi",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1668,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1344,
+   "title": "MILIONI 351,500,000/= ZATUMIKA KUFANYA UKARABATI WA MIUNDOMBINU YA SHULE YA MSINGI ONGOMA.",
+   "date": "2025-11-20",
+   "category": "Miundombinu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 3112,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1182,
+   "title": "DKT. MWIGULU AKAGUA UJENZI WA BARABARA YA SPENCON-MABOGINI-KAHE-CHEKERENI.",
+   "date": "2026-02-20",
+   "category": "Miundombinu",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 658,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1181,
+   "title": "BARAZA LA MADIWANI MOSHI DC LAPITISHA BAJETI NA MPANGO WA MAENDELEO 2026/2027",
+   "date": "2026-02-25",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1359,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1179,
+   "title": "MAAFISA AFYA MOSHI DC WAPIGWA MSASA MPANGO WA TAIFA WA BIMA YA AFYA KWA WOTE",
+   "date": "2026-03-12",
+   "category": "Afya",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1435,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1178,
+   "title": "RAIS WA JIJI LA KIEL BETTINA AUST ARIDHISHWA NA THAMANI YA MAJENGO NA DARAJA LA WAENDA KWA KWA MIGUU MOSHI DC",
+   "date": "2026-03-12",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1724,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1177,
+   "title": "MOSHI DC WAJITATHIMINI, WAJIPANGA KUINUA TAALUMA NA KUBORESHA UFAULU 2026",
+   "date": "2026-03-11",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1921,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 715,
+   "title": "RC BABU AFUNGUA MAFUNZO YA MADIWANI MOSHI DC, WAASWA KUZINGATIA KANUNI, SHERIA NA TARATIBU.",
+   "date": "2026-02-19",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1747,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 714,
+   "title": "PROF TUMAINI NAGU AKAGUA HUDUMA ZA AFYA MOSHI DC, ASISITIZA UBORA NA UWAJIBIKAJI",
+   "date": "2026-02-23",
+   "category": "Matukio",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 2949,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 712,
+   "title": "WAZIRI MKUU DKT MWIGULU NCHEMBA ARIDHISHWA NA UBORA WA JENGO LA UTAWALA HALMASHAURI YA WILAYA YA MOSHI",
+   "date": "2026-02-20",
+   "category": "Habari",
+   "listing_url": "https://moshidc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1765,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 927,
+   "title": "TAARIFA KWA UMMA",
+   "date": "2026-09-08",
+   "category": "Taarifa",
+   "listing_url": "https://moshidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 97,
+   "convening_tags": [],
+   "attachments": [
+    "mikopo Asilimia kumi.pdf"
+   ]
+  },
+  {
+   "id": 570,
+   "title": "TANGAZO LA KUITWA KWENYE USAILI HALMASHAURI YA WILAYA YA MOSHI",
+   "date": "2026-06-05",
+   "category": "Ajira",
+   "listing_url": "https://moshidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 294,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO USAILI MOSHI DC.pdf"
+   ]
+  },
+  {
+   "id": 487,
+   "title": "TANGAZO KWA UMMA KUHUSU MIKOPO INAYOTOLEWA KWA VIKUNDI VYA WANAWAKE, VIJANA NA WATU WENYE ULEMAVU",
+   "date": "2026-04-21",
+   "category": "Taarifa",
+   "listing_url": "https://moshidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 97,
+   "convening_tags": [],
+   "attachments": [
+    "mikopo123_0001.pdf"
+   ]
+  },
+  {
+   "id": 302,
+   "title": "TANGAZO LA MIKOPO KWA VIJANA (Pakua Fomu ya maombi)",
+   "date": "2026-03-13",
+   "category": "Taarifa",
+   "listing_url": "https://moshidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 309,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA MIKOPO KWA VIJANA NA FOMU YA KUJAZA.pdf"
+   ]
+  },
+  {
+   "id": 195,
+   "title": "TANGAZO KWA UMMA KUHUSU MIKOPO INAYOTOLEWA KWA VIKUNDI VYA WANAWAKE VIJANA NA WATU WENYE ULEMAVU",
+   "date": "2025-12-31",
+   "category": "Taarifa",
+   "listing_url": "https://moshidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 97,
+   "convening_tags": [],
+   "attachments": [
+    "tangazo-kwa-umma-kuhusu-mikopo-inayotolewa-kwa-vikundi-vya-wanawake-vijana-na-watu-wenye-ulemavu.pdf"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://moshidc.go.tz/api/profiles": "6f454d8efbd2c0f3de9c281b29aa8c8de503961e14d3d88aaf285ad6b6b15655",
+  "https://moshidc.go.tz/api/statistics": "36ce7cd57946866b6131ea66e90f02e2565fe849c80f5758adbd086520bf633d",
+  "https://moshidc.go.tz/api/footer": "94aabbd1643dc17aca99abd83913585fa62611db0ba25a18fa9d2add134d3106",
+  "https://moshidc.go.tz/api/menus": "5de9c68d875b9624dc0595e438a498cf74b6c2e129fca70ced53c6e659f26281",
+  "https://moshidc.go.tz/api/pages/slug/our-history": "1cf7da34bcfa7896b86d1d23e34c8ec72b16c85634e411fdb6d56a3d3b4293d4",
+  "https://moshidc.go.tz/api/pages/slug/vision-and-mission": "6893b3054b4d7b084a96fc756a23d34045d7ebe4f3df3b009c1666aa07eb87f4",
+  "https://moshidc.go.tz/api/pages/slug/core-value": "c31947e06eeb02c01b70085b7f87ee3d4779692e0e632fa71b1673cb9582963c",
+  "https://moshidc.go.tz/api/pages/slug/divisions-and-units": "c79e4112b6500a5eaa19e664b1faed05912a26d6233d39fecf585c125c49953a",
+  "https://moshidc.go.tz/api/pages/slug/planning-and-coordination-division": "483e383f3976929b33e0681e7a62198d49dd9b107dd6ae1b678396820d4f5d65",
+  "https://moshidc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services-division": "baf193acfec24d420d9dc980ac480e1ef010bcdbb76b7d335917500619278bb7",
+  "https://moshidc.go.tz/api/pages/slug/pre-primary-and-primary-education-division": "a7d9b49e7423ec84143891d9548e844c9b5ae8090b36d75957e709a53f93cadd",
+  "https://moshidc.go.tz/api/pages/slug/secondary-education-division": "6e68349b79b00a0998a7d8a4fae171f5f6e3e2ddcbc7f3e50a2ac8660c9df02f",
+  "https://moshidc.go.tz/api/pages/slug/community-development-division": "e9b4fd99929fbff5056295b45052dbe61d362c44216b212a6a7f1bac022ce067",
+  "https://moshidc.go.tz/api/pages/slug/industry-trade-and-investments-division": "ab3ebe482cc138971344ca244abff112e840954c828e8865d7799093ba1de7ee",
+  "https://moshidc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries-division": "0a6570bf3177778f3c2b53703f495edf827639e13bb3f0dad4e6cc3aa0920575",
+  "https://moshidc.go.tz/api/pages/slug/infrastructure-rural-and-urban-development-division": "953bf4315a5c359093322fb3823ef0a5b7669ddba8151000d9a0aae7251a8742",
+  "https://moshidc.go.tz/api/pages/slug/list-of-councilors": "c61f9afeae58af13d62f294944bbbd7c5cbe4604f1ed9c277dc0a519375b2e2a",
+  "https://moshidc.go.tz/api/pages/slug/permanent-committees": "64fed6621e22480d852b91dc450f6a4b51daa839a94c29359cd1464657cb1692",
+  "https://moshidc.go.tz/api/files?page=1&limit=100": "eead2f9df932f8b9ab17e2f3c74ad14881310f41685251a31d80327543fa32bf",
+  "https://moshidc.go.tz/api/news?page=1&limit=50": "beac362d171607aabea343c59d68afdb80f7ebdfa49f110755ed661a109f3a43",
+  "https://moshidc.go.tz/api/news?page=2&limit=50": "4a8c0193f0cd88838c1e1689bf1b4e3cf0dc876f2c287b66f905cff782551d45",
+  "https://moshidc.go.tz/api/announcements?page=1&limit=50": "88ba0cf5dfa02e969fb4a891ba5a3ca2d488a0740b6e7475665ad9c69126694f"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

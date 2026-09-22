@@ -1,0 +1,869 @@
+{
+ "host": "arushadc.go.tz",
+ "organisation": "Arusha District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://arushadc.go.tz",
+ "profiles": [
+  {
+   "id": 414,
+   "name": "Mh. Baraka Mesiaki",
+   "title": "Chairman Arusha DC",
+   "titleSwahili": "Mwenyekiti wa Halmashauri ya Wilaya ya Arusha ",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-11T10:25:50.981Z",
+   "updatedAt": "2026-03-12T12:53:10.930Z"
+  },
+  {
+   "id": 415,
+   "name": " Ndg. Seleman Msumi",
+   "title": "District Executive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji -Halmashauri ya Wilaya ya Arusha",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-11T10:29:18.277Z",
+   "updatedAt": "2026-03-12T12:56:58.733Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Tarafa",
+   "value": 3,
+   "suffix": ""
+  },
+  {
+   "label": "Kata",
+   "value": 27,
+   "suffix": ""
+  },
+  {
+   "label": "Vijiji",
+   "value": 67,
+   "suffix": ""
+  },
+  {
+   "label": "Vitongoji",
+   "value": 256,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Kaya",
+   "value": 72289,
+   "suffix": ""
+  },
+  {
+   "label": "Mamlaka ya Mji Mdogo",
+   "value": 1,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Watu",
+   "value": 449518,
+   "suffix": "Sensa 2022"
+  },
+  {
+   "label": "Hospitali",
+   "value": 1,
+   "suffix": "Hospitali ya Wilaya Oltrumet"
+  },
+  {
+   "label": "Zahanati",
+   "value": 62,
+   "suffix": ""
+  },
+  {
+   "label": "Vituo vya Afya",
+   "value": 8,
+   "suffix": ""
+  },
+  {
+   "label": "Shule za Msingi",
+   "value": 103,
+   "suffix": ""
+  },
+  {
+   "label": "Shule za Sekondari",
+   "value": 39,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Arusha District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "our-history",
+     "title": "Our History",
+     "swTitle": "Historia Yetu"
+    },
+    {
+     "url": "agriculture",
+     "title": "Llivestock Keeping",
+     "swTitle": "Kilimo"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "",
+     "title": "Business Licensees",
+     "swTitle": "Leseni za Biashara"
+    },
+    {
+     "url": "",
+     "title": "Application Forms",
+     "swTitle": "Fomu za maombi"
+    },
+    {
+     "url": "",
+     "title": "News Updates",
+     "swTitle": "Habari"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://www.pmo.go.tz/",
+     "title": "Prime Ministers Office",
+     "swTitle": "Ofisi ya Waziri Mkuu"
+    },
+    {
+     "url": "https://tamisemi.go.tz/",
+     "title": "TAMISEMI",
+     "swTitle": "TAMISEMI"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1408.1858792870735!2d36.707929419053954!3d-3.3621159090455404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371b7d63c95d83%3A0xfb1db1682ba2cd3e!2sHalmashauri%20ya%20Jiji%20la%20Arusha!5e0!3m2!1sen!2stz!4v1773149947958!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.362353,
+   "lng": 36.709356,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na Dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "Agriculture > farming and livestock keeping",
+   "title": "farming and livestock keeping",
+   "title_sw": "kilimo na ufugaji",
+   "slug": "agriculture"
+  },
+  {
+   "path": "Administration > Division > Industry,Trade and Investment",
+   "title": "Industry,Trade and Investment",
+   "title_sw": "Viwanda, Biashara na Uwekezaji",
+   "slug": "industry-trade-and-investment"
+  },
+  {
+   "path": "Administration > Division > Pre and Primary Education",
+   "title": "Pre and Primary Education",
+   "title_sw": "Elimu ya Awali na Msingi",
+   "slug": "pre-and-primary-education"
+  },
+  {
+   "path": "Administration > Division > Secondary Education",
+   "title": "Secondary Education",
+   "title_sw": "Elimu Sekondari",
+   "slug": "secondary-education"
+  },
+  {
+   "path": "Administration > Division > Health, Social Welfare and Nutrition Services",
+   "title": "Health, Social Welfare and Nutrition Services",
+   "title_sw": "Afya, Ustawai wa Jamii na Huduma za Lishe",
+   "slug": "health-social-welfare-and-nutrition-services"
+  },
+  {
+   "path": "Administration > Division > Community Development",
+   "title": "Community Development",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development"
+  },
+  {
+   "path": "Administration > Division > Agriculture, Livestock and Fisheries",
+   "title": "Agriculture, Livestock and Fisheries",
+   "title_sw": "Kilimo,Mifugo na Uvuvi",
+   "slug": "agriculture-livestock-and-fisheries"
+  },
+  {
+   "path": "Administration > Division > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-coordination"
+  },
+  {
+   "path": "Administration > Division > Human Resources Administration and Management",
+   "title": "Human Resources Administration and Management",
+   "title_sw": "Utawala na Usimamizi wa Rasilimali watu",
+   "slug": "human-resources-administration-and-management"
+  },
+  {
+   "path": "Administration > Units > Election",
+   "title": "Election",
+   "title_sw": "Uchaguzi",
+   "slug": "election"
+  },
+  {
+   "path": "Administration > Units > Information, Communication and Technology",
+   "title": "Information, Communication and Technology",
+   "title_sw": "TEHAMA",
+   "slug": "information-communication-and-technology"
+  },
+  {
+   "path": "Administration > Units > Government Communication",
+   "title": "Government Communication",
+   "title_sw": "Mawasiliano Serikalini",
+   "slug": "government-communication"
+  },
+  {
+   "path": "Administration > Units > Monitoring and Evaluation",
+   "title": "Monitoring and Evaluation",
+   "title_sw": "Ufuatiliaji na Tathimini",
+   "slug": "monitoring-and-evaluation"
+  },
+  {
+   "path": "Administration > Units > Solid Waste Management and Environmental Sanitation",
+   "title": "Solid Waste Management and Environmental Sanitation",
+   "title_sw": "Usimamizi wa Taka Ngumu na Usafi wa Mazingira",
+   "slug": "solid-waste-management-and-environmental-sanitation"
+  },
+  {
+   "path": "Administration > Units > Natural Resources and Environmental Conservation",
+   "title": "Natural Resources and Environmental Conservation",
+   "title_sw": "Maliasili na Uhifadhi wa Mazingira",
+   "slug": "natural-resources-and-environmental-conservation"
+  },
+  {
+   "path": "Administration > Units > Culture, Arts and Sports",
+   "title": "Culture, Arts and Sports",
+   "title_sw": "Utamaduni, Sanaa na Michezo",
+   "slug": "culture-arts-and-sports"
+  },
+  {
+   "path": "Administration > Units > Procurement management",
+   "title": "Procurement management",
+   "title_sw": "Usimamizi wa manunuzi",
+   "slug": "procurement-management"
+  },
+  {
+   "path": "Administration > Organization structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Uongozi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Councilors > List of Councillors > List of Councilors",
+   "title": "List of Councilors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councilors-and-their-ward"
+  },
+  {
+   "path": "Councilors > Standing District Committees > Standing Commitee",
+   "title": "Standing Commitee",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "standing-commitee"
+  },
+  {
+   "path": "Projects > infrastructure",
+   "title": "infrastructure",
+   "title_sw": "Miundombinu",
+   "slug": "infrastructure"
+  },
+  {
+   "path": "Projects > infrastructure > Infrastructure",
+   "title": "Infrastructure",
+   "title_sw": "Miundombinu",
+   "slug": "infrastructure"
+  },
+  {
+   "path": "Projects > Settlements",
+   "title": "Settlements",
+   "title_sw": "Makazi",
+   "slug": "settlements"
+  },
+  {
+   "path": "Projects > Settlements > Settlements",
+   "title": "Settlements",
+   "title_sw": "Makazi",
+   "slug": "settlements"
+  },
+  {
+   "path": "Area of investments > Infrastructure > Infrastructure",
+   "title": "Infrastructure",
+   "title_sw": "Miundombinu",
+   "slug": "infrastrucre"
+  },
+  {
+   "path": "Area of investments > Manufacturing > Manufucturing",
+   "title": "Manufucturing",
+   "title_sw": "Viwanda vidogo",
+   "slug": "manufacturing"
+  },
+  {
+   "path": "Area of investments > Trade and Services > Trade and Services",
+   "title": "Trade and Services",
+   "title_sw": "Biashara na Huduma",
+   "slug": "trade-and-services"
+  },
+  {
+   "path": "Area of investments > Agriculture > Agriculture",
+   "title": "Agriculture",
+   "title_sw": "Kilimo",
+   "slug": "agiculture-investment"
+  },
+  {
+   "path": "Area of investments > Tourism sector > Tourism sector",
+   "title": "Tourism sector",
+   "title_sw": "Uwekezaji kwenye Utalii",
+   "slug": "tourism-sector"
+  },
+  {
+   "path": "Area of investments > Modern Beekeeping > Beekeeping",
+   "title": "Beekeeping",
+   "title_sw": "Ufugaji wa Nyuki",
+   "slug": "beekeeping"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History",
+   "title": "Our History",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://arushadc.go.tz/our-history",
+   "createdAt": "2026-03-09T10:01:26.660Z",
+   "updatedAt": "2026-03-11T14:33:32.479Z",
+   "text_en": "HISTORY OF ARUSHA DISTRICT COUNCIL.\nWelcome to Arusha Council to learn a brief history of this council including the origin of the council, the size of the area and administrative areas including Wards, Villages, and Hamlets, its boundaries, the geography of its location, administrative leadership, population, residents of Arusha Council, activities that residents engage in, the location of the offices of the Arusha Council headquarters. Along with the Vision, Mission, Goals, and Strategies of the Council for a five-year period.\nHEADQUARTERS OF ARUSHA DISTRICT COUNCIL:\nThe offices of the Arusha District Council headquarters are located in Kiutu Ward, Engorika Village, Sekei area near the Mount Meru International Hotel, approximately 300 meters from the main Moshi – Arusha – Namanga road.\nORIGIN OF ARUSHA COUNCIL:\nThe Arusha District Council officially started on 01.07.2007 after being separated from the former Meru Council, resulting in two councils of the Council of",
+   "text_sw": "HISTORIA YA HALMASHAURI YA WILAYA YA ARUSHA.\nKaribu Halmashauri ya Wilaya ya Arusha kufahamu Historia fupi ya Halmashauri hii ikiwemo Chimbuko lake, ukubwa wa eneo na maeneo ya kiutawala ikiwemo Tarafa, Kata, Vijiji na Vitongoji, mipaka yake, Jiografia ya mahali ilipo, Uongozi kiutawala, Idadi ya watu, wenyeji wa halmashauri ya Arusha, shughuli wanazofanya wenyeji.\nCHIMBUKO LA HALMASHAURI YA ARUSHA:\nHalmshauri ya Wilaya ya Arusha ilianza rasmi tarehe 01.07.2007 baada ya kugawanywa iliyokuwa Halmashuri ya Meru na kuwa na Halmashauri mbili za Halmashauri ya Meru na Halmashauri ya Arusha. Halmashauri ya Arusha ni miongoni mwa Halmashauri saba za mkoa wa Arusha inayopatikana chini ya Mlima Meru ikiwa imepakana na halmashauri ya Meru kwa upande wa Mashariki, Halmashauri ya Monduli upande wa Magharibi, Halmashauri ya Longido upande wa Kaskazini Magharibi, Halmashauri ya Simanjiro mkoa wa Manyara kwa upande wa Kusini. Halmashauri ya Arusha imelizunguka jiji la Arusha kwa pande zake zote. Halmshauri ya Arusha ina eneo lenye ukubwa wa Kilomita za mraba 1446.692 inapatikana Magharibi mwa mlima Meru wenye urefu wa mita 4,562 kutoka usawa wa bahari ambao ni mlima wa pili kwa urefu Tanzania baada ya mlima Kilimanjaro wenye urefu wa mita 5,890.\nHalmashauri ya Arusha imelala kati ya Latitudo 3000- 3040’ Kusini mwa Ikweta na Longitudo 36015’-360 55’ Mashariki. UKUBWA WA ENEO: Wilaya ina eneo la kilomita za mraba 1,446.692. Matumizi makubwa ya ardhi katika Wilaya ni pamoja na: kilimo, makazi, biashara, madini, ufugaji / malisho, utalii wa asili na viwanda vidogo na biashara na hifadhi za misitu. Ambapo, hifadhi ya misitu ina eneo la kilomita za mraba 54.17, ardhi inayofaa kwa kilimo ni Kilomita za mraba 446.56, malisho huchukua eneo la Kilomita za mraba 506.01 sehemu ya ardhi iliyobaki yenye ukubwa wa wastani wa Kilomita za mraba 440.2 inatumika kwa shughuli nyingine kama vile biashara, makazi na madini.\nENEO LA UTAWALA:\nHalmashauri ya Arusha ina tarafa tatu za Enaboishu, Moshono na Mukulat ikiwa na kata 27 za Bangata, Bwawani, Ikiding’a, Ilboru, Kimnyaki, Kiranyi, Kisongo, Kiutu, Laroi, Lemanyata, Matevesi, Mlangarini, Mwandet, Moivo, Musa, Nduruma\nOfisi Za Makao Makuu ya Wilaya ya Arusha zipo Kata ya Kiutu Kijiji cha Engorika eneo la Sekei Mkabala na Hoteli ya Kimataifa ya Mount Meru umbali wa takribani mita 300 kutoka barabara kuu ya Moshi – Arusha- Namanga.",
+   "attachments": []
+  },
+  {
+   "slug": "mission-and-vision",
+   "menu_path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/mission-and-vision",
+   "public_url": "https://arushadc.go.tz/mission-and-vision",
+   "createdAt": "2026-03-10T07:56:13.183Z",
+   "updatedAt": "2026-03-11T15:17:11.010Z",
+   "text_en": "MISSION\nTo transform society by providing quality services and bringing about sustainable development for society by 2025.\nVISION:\nTo provide quality services by using available resources effectively to bring about productivity and sustainable development for society.",
+   "text_sw": "DIRA:\nKubadili Jamii kwa kutoa huduma bora na kuleta maendeleo endelevu kwa Jamii ifikapo 2025.\nDHIMA:\nKutoa huduma bora kwa kutumia rasilimali zilizopo kwa ufanisi ili kuleta tija na maendeleo endelevu kwa Jamii.",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://arushadc.go.tz/core-values",
+   "createdAt": "2026-03-10T08:00:05.072Z",
+   "updatedAt": "2026-03-11T14:25:05.772Z",
+   "text_en": "CORE VALUES\nWorking together – Working together.\nTransparency and accountability – making our vision and mission known, having a common understanding, building trust, being accountable to each other for our roles, etc.\nProductive and efficient use of resources – Using available resources wisely, sharing scarce resources.\nAnti-corruption – Making the Council a place free from the smell of corruption of any kind.\nExcellent customer/citizen service – using respectful and generous language, providing satisfactory services.\nProtection – having a sense of patriotism, and protecting Council assets.\nEvidence-based decisions – having accurate and timely information, evidence.\nHonesty and Confidentiality – Trusting each other and maintaining Council secrets.\nIntegrity and quality – being honest, caring and not giving up on customers is required, etc.",
+   "text_sw": "MAADILI YA MSINGI\nKufanya kazi kwa umoja – Kufanya kazi kwa ushirikiano.\nUwazi na uwajibikaji – kutangaza maono na dira yetu vijulikane, kuwa na uelewa wa pamoja, kujenga uaminifu, kuwajibika kwa kila kwa nafasi zetu nk.\nMatumizi ya rasilimali yenye tija na ufanisi–Kutumia rasilimali zilizopo kwa busara, kushirikiani kutumia rasilimali haba.\nKutokuwa na rushwa - Kufanya Halmashauri kuwa sehemu isiyo na harufu ya rushwa ya aina yoyote.\nHuduma bora kwa wateja/wananchi–kutumia lugha za staha na ukarimu, kutoa huduma zenye kuridhisha.\nUlinzi – kuwa na moya wa uzalendo, na ulinzi wa mali za Halmashauri.\nMaamuzi yenye ushahidi – kuwepo kwa taarifa sahihi na za wakati, ushahidi.\nUaminifu na Usiri – Kuaminiana na kutunza siri za Halmashauri.\nUadilifu na ubora–kuwa waadilifu, kujali na kutoamsaada kwa wateja unahitajika n.k.",
+   "attachments": []
+  },
+  {
+   "slug": "industry-trade-and-investment",
+   "menu_path": "Administration > Division > Industry,Trade and Investment",
+   "title": "Industry, Trade and Investment",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/industry-trade-and-investment",
+   "public_url": "https://arushadc.go.tz/industry-trade-and-investment",
+   "createdAt": "2026-03-12T08:35:30.171Z",
+   "updatedAt": "2026-03-12T08:35:30.171Z",
+   "text_en": "Objectives\nTo provide a business-friendly environment for the promotion of industries, trade, markets and investment development.\nResponsibilities:\ni. Coordinate the implementation of policies, laws, regulations and procedures relating to industries, trade, markets and investment.\nii. Promote industries, trade, markets and investment in the council.\niii. Plan and promote industrial and market areas in collaboration with other key stakeholders.\niv. Plan incentives to promote industries, trade, markets and investment.\nv. Promote and develop small and medium enterprises\nvi. Prepare investment proposals and investment projects.\nvii. Strengthen private sector development initiatives.\nviii. Establish and manage a database of industries, trade, markets and investment.\nix. Manage One Stop Business Centres.\nx. Conduct research on investment promotion.\nxi. Coordinate business platforms.\nxii. To manage auction and market activities in the council.\nxiii. To implement business development strategies for small traders and service providers.\nxiv. To provide an enabling business and investment environment to promote trade and investment.",
+   "text_sw": "Malengo\nKutoa mazingira rafiki ya biashara kwa ajili ya kukuza viwanda, biashara, masoko na maendeleo ya uwekezaji.\nMajukumu:\ni. Kuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazohusu viwanda, biashara, masoko na uwekezaji.\nii. Kukuza viwanda, biashara, masoko na uwekezaji katika halmashauri.\niii. Kupanga na kukuza maeneo ya viwanda na masoko kwa kushirikiana na wadau wengine muhimu.\niv. Kupanga vivutio kwa ajili ya kuhamasisha viwanda, biashara, masoko na uwekezaji.\nv. Kukuza na kuendeleza biashara ndogo na za kati\nvi. Kuandaa mapendekezo ya uwekezaji na miradi ya uwekezaji.\nvii. Kuimarisha hatua za maendeleo ya sekta binafsi.\nviii. Kuanzisha na kusimamia kanzidata (database) ya viwanda, biashara, masoko na uwekezaji.\nix. Kusimamia vituo vya huduma za biashara mahali pamoja (One Stop Business Centres).\nx. Kufanya tafiti kuhusu uhamasishaji wa uwekezaji.\nxi. Kuratibu majukwaa ya wafanyabiashara.\nxii. Kusimamia shughuli za minada na masoko katika halmashauri.\nxiii. Kutekeleza mikakati ya maendeleo ya biashara kwa wafanyabiashara wadogo na watoa huduma ndogo ndogo.\nxiv. Kutoa mazingira wezeshi ya biashara na uwekezaji ili kukuza biashara na uwekezaji.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-and-primary-education",
+   "menu_path": "Administration > Division > Pre and Primary Education",
+   "title": "Pre and Primary Education",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/pre-and-primary-education",
+   "public_url": "https://arushadc.go.tz/pre-and-primary-education",
+   "createdAt": "2026-03-12T08:38:27.166Z",
+   "updatedAt": "2026-03-12T08:38:27.166Z",
+   "text_en": "Objectives:\nTo plan and supervise the implementation of policies, laws and circulars relating to the provision of pre-primary education, primary education, special needs education and non-formal education.\nResponsibilities:\ni. To plan the availability, distribution and use of resources in primary schools.\nii. To supervise the implementation of continuous assessment and National Primary School Examinations.\niii. To supervise the provision of adult education and non-formal education at the primary and primary levels.\niv. To coordinate life skills education in primary schools.\nv. To carry out needs assessments for special needs education, adult education and non-formal education.\nvi. To advise on the establishment and maintenance of special needs education, adult education and non-formal education centres.\nvii. To monitor the implementation of primary education plans and programmes.\nviii. To create and maintain a database of pre-primary and primary education.\nix. Coordinate and manage sports activities in primary schools.",
+   "text_sw": "Malengo:\nKupanga na kusimamia utekelezaji wa sera, sheria na mizungumzo (circulars) inayohusu utoaji wa elimu ya awali, elimu ya msingi, elimu ya mahitaji maalumu na elimu isiyo rasmi.\nMajukumu:\ni. Kupanga upatikanaji, usambazaji na matumizi ya rasilimali katika shule za msingi.\nii. Kusimamia utendaji wa tathmini endelevu na Mitihani ya Kitaifa ya Shule za Msingi.\niii. Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya awali na msingi.\niv. Kuratibu elimu ya ujuzi wa maisha (life skills education) katika shule za msingi.\nv. Kufanya tathmini ya mahitaji ya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.\nvi. Kutoa ushauri kuhusu kuanzishwa na matengenezo ya vituo vya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.\nvii. Kufuatilia utekelezaji wa mipango na programu za elimu ya msingi.\nviii. Kuunda na kudumisha kanzidata (database) ya elimu ya awali na msingi.\nix. Kuratibu na kusimamia shughuli za michezo katika shule za msingi.",
+   "attachments": []
+  },
+  {
+   "slug": "secondary-education",
+   "menu_path": "Administration > Division > Secondary Education",
+   "title": "Secondary Education",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/secondary-education",
+   "public_url": "https://arushadc.go.tz/secondary-education",
+   "createdAt": "2026-03-12T08:40:32.150Z",
+   "updatedAt": "2026-03-12T08:40:32.150Z",
+   "text_en": "Objectives:\nCoordinate the implementation of policies, plans, laws and guidelines related to secondary education.\nResponsibilities:\ni. Supervise the implementation of continuous assessment and national examinations for Form Two, Four and Six.\nii. Monitor and evaluate the implementation of secondary education plans and programs.\niii. Supervise the provision of adult and non-formal education at the secondary level.\niv. Create and maintain a secondary education database.\nv. Coordinate life skills education in secondary schools.\nvi. Coordinate and supervise secondary school sports and games activities.\nvii. Conduct needs assessments for special needs education, adult and non-formal education.\nviii. Provide advice on the establishment and maintenance of special needs education, adult and non-formal education centers.",
+   "text_sw": "Malengo:\nKuratibu utekelezaji wa sera, mipango, sheria na miongozo inayohusiana na elimu ya sekondari.\nMajukumu:\ni. Kusimamia utendaji wa tathmini endelevu na mitihani ya kitaifa ya kidato cha pili, cha nne na cha sita.\nii. Kufanya ufuatiliaji na tathmini ya utekelezaji wa mipango na programu za elimu ya sekondari.\niii. Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya sekondari.\niv. Kuunda na kudumisha kanzidata (database) ya elimu ya sekondari.\nv. Kuratibu elimu ya ujuzi wa maisha (life skills education) katika shule za sekondari.\nvi. Kuratibu na kusimamia shughuli za michezo na michezo ya shule za sekondari.\nvii. Kufanya tathmini ya mahitaji ya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.\nviii. Kutoa ushauri kuhusu kuanzishwa na matengenezo ya vituo vya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.",
+   "attachments": []
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition-services",
+   "menu_path": "Administration > Division > Health, Social Welfare and Nutrition Services",
+   "title": "Health, Social Welfare and Nutrition Services",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services",
+   "public_url": "https://arushadc.go.tz/health-social-welfare-and-nutrition-services",
+   "createdAt": "2026-03-12T08:53:15.832Z",
+   "updatedAt": "2026-03-12T08:53:15.832Z",
+   "text_en": "Objectives:\nTo provide quality health, social welfare and nutrition services for the well-being of the community.\nResponsibilities:\ni. To oversee the implementation of policies, laws and procedures related to the provision of health, social welfare and nutrition services.\nii. To prepare short and long term plans and programs for the health sector in the Council.\niii. To promote the participation of various stakeholders in health, social welfare and nutrition activities.\niv. To prepare and submit reports on health, social welfare and nutrition services to the relevant authorities.\nv. To prepare strategies for the control of communicable and non-communicable diseases.\nvi. To manage health, social welfare and nutrition projects.\nvii. To manage and maintain a database related to health, social welfare and nutrition services.",
+   "text_sw": "Malengo:\nKutoa huduma bora za afya, ustawi wa jamii na lishe kwa ajili ya ustawi wa jamii.\nMajukumu:\ni. Kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na utoaji wa huduma za afya, ustawi wa jamii na lishe.\nii. Kuandaa mipango na programu za muda mfupi na mrefu kwa sekta ya afya katika Halmashauri.\niii. Kukuza ushiriki wa wadau mbalimbali katika shughuli za afya, ustawi wa jamii na lishe.\niv. Kuandaa na kuwasilisha ripoti kuhusu huduma za afya, ustawi wa jamii na lishe kwa mamlaka zinazohusika.\nv. Kuandaa mikakati ya udhibiti wa magonjwa yanayoambukiza na yasiyoambukiza.\nvi. Kusimamia miradi ya afya, ustawi wa jamii na lishe.\nvii. Kusimamia na kudumisha kanzidata (database) inayohusiana na huduma za afya, ustawi wa jamii na lishe.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development",
+   "menu_path": "Administration > Division > Community Development",
+   "title": "Community Development",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/community-development",
+   "public_url": "https://arushadc.go.tz/community-development",
+   "createdAt": "2026-03-12T08:55:51.861Z",
+   "updatedAt": "2026-03-12T08:55:51.861Z",
+   "text_en": "Objectives:\nTo oversee community development activities in Local Government Councils (LGAs).\nResponsibilities:\ni. To analyze, interpret and oversee the implementation of policies, laws and procedures related to community development.\nii. To enable communities to initiate, plan, implement and evaluate their own plans and projects.\niii. To prepare short and long term community development plans and projects at the local government authority level.\niv. To conduct research and make recommendations on how to address various development challenges in collaboration with the Ministry responsible for community development and other stakeholders.\nv. To regulate and supervise the activities of microfinance service providers (microfinance) level four under the instructions of the Bank of Tanzania (BOT).\nvi. To coordinate and supervise economic development activities for women, children and persons with disabilities.\nvii. To coordinate the provision of training on poverty alleviation, AIDS, drugs and gender equality.\nviii. Coordinate and monitor the activities of non-governmental organizations (NGOs) in community development.\nix. Coordinate and supervise community development activities in local government authorities.",
+   "text_sw": "Malengo:\nKusimamia shughuli za maendeleo ya jamii katika Halmashauri za Serikali za Mitaa (LGA).\nMajukumu:\ni. Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na maendeleo ya jamii.\nii. Kuwezesha jamii kuanzisha, kupanga, kutekeleza na kutathmini mipango na miradi yao wenyewe.\niii. Kuandaa mipango na miradi ya muda mfupi na mrefu ya maendeleo ya jamii katika ngazi ya mamlaka za serikali za mitaa.\niv. Kufanya tafiti na kutoa mapendekezo juu ya namna ya kushughulikia changamoto mbalimbali za maendeleo kwa kushirikiana na Wizara inayohusika na maendeleo ya jamii na wadau wengine.\nv. Kudhibiti na kusimamia shughuli za watoa huduma za mikopo midogomidogo (microfinance) daraja la nne chini ya maagizo ya Benki Kuu ya Tanzania (BOT).\nvi. Kuratibu na kusimamia shughuli za maendeleo ya kiuchumi kwa wanawake, watoto na watu wenye ulemavu.\nvii. Kuratibu utoaji wa mafunzo juu ya kupunguza umaskini, UKIMWI, dawa za kulevya na usawa wa kijinsia.\nviii. Kuratibu na kufuatilia shughuli za shughuli za mashirika yasiyo ya kiserikali (NGOs) katika maendeleo ya jamii.\nix. Kuratibu na kusimamia shughuli za maendeleo ya jamii katika mamlaka za serikali a mitaa.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-and-fisheries",
+   "menu_path": "Administration > Division > Agriculture, Livestock and Fisheries",
+   "title": "Agriculture, Livestock and Fisheries",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries",
+   "public_url": "https://arushadc.go.tz/agriculture-livestock-and-fisheries",
+   "createdAt": "2026-03-12T08:58:15.567Z",
+   "updatedAt": "2026-03-12T08:58:15.567Z",
+   "text_en": "Objectives:\nTo promote and encourage changes in the development of agriculture, irrigation, livestock and fisheries.\nResponsibilities:\ni. To analyze, interpret and supervise the implementation of policies, laws and regulations related to agriculture, irrigation, livestock and fisheries.\nii. To recommend standards and prices for goods and services derived from agriculture, irrigation, livestock and fisheries.\niii. To prepare short and long term plans and programs for the development of agriculture, irrigation, livestock and fisheries.\niv. To monitor the development and management of cooperatives in the Council.\nv. To provide technical advice to stakeholders related to agriculture, irrigation, livestock and fisheries.\nvi. To prepare reports on agriculture, irrigation, livestock and fisheries.\nvii. To supervise the collection and control of revenues derived from agriculture, irrigation, livestock and fisheries.",
+   "text_sw": "Malengo:\nKukuza na kuhamasisha mabadiliko katika maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\nMajukumu:\ni. Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na kanuni zinazohusiana na kilimo, umwagiliaji, mifugo na uvuvi.\nii. Kupendekeza viwango na bei za bidhaa na huduma zinazotokana na kilimo, umwagiliaji, mifugo na uvuvi.\niii. Kuandaa mipango na programu za muda mfupi na mrefu za maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\niv. Kufuatilia kukuza na utawala wa ushirika (cooperatives) katika Halmashauri.\nv. Kutoa ushauri wa kiufundi kwa wadau wanaohusiana na kilimo, umwagiliaji, mifugo na uvuvi.\nvi. Kuandaa ripoti kuhusu kilimo, umwagiliaji, mifugo na uvuvi.\nvii. Kusimamia ukusanyaji na udhibiti wa mapato yanayotokana na kilimo, umwagiliaji, mifugo na uvuvi.",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination",
+   "menu_path": "Administration > Division > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/planning-and-coordination",
+   "public_url": "https://arushadc.go.tz/planning-and-coordination",
+   "createdAt": "2026-03-12T09:02:20.777Z",
+   "updatedAt": "2026-03-12T09:02:20.777Z",
+   "text_en": "Objectives:\nTo provide expertise and services in planning, budgeting, monitoring and evaluation.\nResponsibilities:\ni. To prepare medium and long term strategies, plans, and budgets.\nii. To prepare and review the economic profile of the Local Government Authority.\niii. To coordinate the implementation of private sector participation.\niv. To coordinate disaster management in the Council.\nv. To coordinate the activities of the Local Government Authority implemented by other institutions such as the land and water sectors.\nvi. To prepare guidelines on research and innovation issues for the Local Government Authority.\nvii. To coordinate research and innovation issues for evidence-based decision-making.\nviii. To coordinate the management of innovation issues.\nix. To collaborate with national and international research institutions and statistical centers for the collection and exchange of research and innovation information.\nWould you like help translating the titles of planning officers or are there other departmental responsibilities you need to continue with?",
+   "text_sw": "Malengo:\nKutoa utaalamu na huduma katika mipango, upangaji wa bajeti, ufuatiliaji na tathmini.\nMajukumu:\ni. Kuandaa mikakati, mipango, na bajeti za muda wa kati na mrefu.\nii. Kuandaa na kupitia wasifu wa kiuchumi wa Mamlaka ya Serikali ya Mitaa.\niii. Kuratibu utekelezaji wa ushiriki wa sekta binafsi.\niv. Kuratibu usimamizi wa maafa katika Halmashauri.\nv. Kuratibu shughuli za Mamlaka ya Serikali ya Mitaa zinazotekelezwa na taasisi nyingine kama vile sekta za ardhi na maji.\nvi. Kuandaa miongozo kuhusu masuala ya utafiti na ubunifu kwa ajili ya Mamlaka ya Serikali ya Mitaa.\nvii. Kuratibu masuala ya utafiti na ubunifu kwa ajili ya kufanya maamuzi yenye ushahidi.\nviii. Kuratibu usimamizi wa masuala ya ubunifu.\nix. Kushirikiana na taasisi za utafiti za kitaifa na kimataifa pamoja na vituo vya takwimu kwa ajili ya kukusanya na kubadilishana taarifa za utafiti na ubunifu.\nJe, ungependa msaada wa kutafsiri vyeo vya maafisa wa mipango au kuna majukumu ya idara nyingine unahitaji kuendelea nayo?",
+   "attachments": []
+  },
+  {
+   "slug": "human-resources-administration-and-management",
+   "menu_path": "Administration > Division > Human Resources Administration and Management",
+   "title": "Human Resources Administration and Management",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/human-resources-administration-and-management",
+   "public_url": "https://arushadc.go.tz/human-resources-administration-and-management",
+   "createdAt": "2026-03-12T09:04:53.483Z",
+   "updatedAt": "2026-03-12T09:04:53.483Z",
+   "text_en": "Objectives:\nTo provide expertise and services on human resource management and administrative matters to the Council.\nResponsibilities:\ni. Interpret the Public Service Regulations, the Standing Rules of the Public Service and other labor laws.\nii. Supervise the implementation of activities to promote ethics and principles of practice, including providing education on preventing corruption.\niii. Supervise and conduct the implementation of activities such as recruitment, selection, orientation training, and staff development, promotion, discipline, motivation, performance management, and general staff welfare.\niv. Ensure the effective and efficient management and use of human resources.\nv. Coordinate the affairs of the Staff Council and trade unions.\nvi. Supervise the preparation and implementation of policies, procedures, and consistent guidelines for employment, training and development, job placement, staff care, promotion, and performance management.\nvii. Conduct regular reviews of human resources and a list of existing and required skills.\nviii. Provide clerical services, receipt and dispatch of mail/parcels, and manage office records.\nix. Handle protocol issues.\nx. Facilitate access to security, transportation, and other social services.\nxi. Facilitate maintenance of office equipment, buildings, and office environment.\nxii. Coordinate the implementation of activities to promote ethics and principles of practice.\nxiii. Coordinate the implementation of various issues\nxiv. Coordinate the implementation of private sector participation, improvement of operating systems and the Customer Service Agreement; and\nxv. Provide advice on the structural efficiency of the office.",
+   "text_sw": "Malengo:\nKutoa utaalamu na huduma kuhusu usimamizi wa rasilimali watu na masuala ya utawala kwa Halmashauri.\nMajukumu:\ni. Kufasiri Kanuni za Utumishi wa Umma, Kanuni za Kudumu za Utumishi wa Umma na sheria nyingine za kazi.\nii. Kusimamia utekelezaji wa shughuli za kukuza maadili na misingi ya kiutendaji, ikiwa ni pamoja na kutoa elimu ya kuzuia rushwa.\niii. Kusimamia na kuendesha utekelezaji wa shughuli kama vile ajira, uteuzi, mafunzo elekezi, na maendeleo ya wafanyakazi, upandishaji vyeo, nidhamu, motisha, usimamizi wa utendaji kazi, na ustawi wa wafanyakazi kwa ujumla.\niv. Kuhakikisha usimamizi na matumizi bora na yenye tija ya rasilimali watu.\nv. Kuratibu masuala ya Baraza la Wafanyakazi na vyama vya wafanyakazi.\nvi. Kusimamia uandaaji na utekelezaji wa sera, taratibu, na miongozo thabiti ya ajira, mafunzo na maendeleo, upangaji wa vituo vya kazi, utunzaji wa wafanyakazi, upandishaji vyeo, na usimamizi wa utendaji kazi.\nvii. Kufanya ukaguzi wa mara kwa mara wa rasilimali watu na orodha ya ujuzi uliopo na unaohitajika.\nviii. Kutoa huduma za masjala, upokeaji na usafirishaji wa barua/vifurushi, na kusimamia kumbukumbu za ofisi.\nix. Kushughulikia masuala ya itifaki.\nx. Kuwezesha upatikanaji wa huduma za ulinzi, usafiri, na huduma nyinginezo za kijamii.\nxi. Kuwezesha matengenezo ya vifaa vya ofisi, majengo, na mazingira ya ofisi.\nxii. Kuratibu utekelezaji wa shughuli za kukuza maadili na misingi ya kiutendaji.\nxiii. Kuratibu utekelezaji wa masuala anuai\nxiv. Kuratibu utekelezaji wa ushiriki wa sekta binafsi, uboreshaji wa mifumo ya utendaji kazi na Mkataba wa Huduma kwa Mteja; na\nxv. Kutoa ushauri kuhusu ufanisi wa kimuundo wa ofisi.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization structure > Organization Structure",
+   "title": "Organization Structure",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://arushadc.go.tz/organization-structure",
+   "createdAt": "2026-03-11T16:21:02.481Z",
+   "updatedAt": "2026-03-12T08:45:54.025Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": [
+    {
+     "file_name": "Organization Structure.docx",
+     "url": "http://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773246062485-Organization%20Structure.docx",
+     "file_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+     "file_size": "3415642"
+    },
+    {
+     "file_name": "Organization Structure.docx",
+     "url": "http://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773246184661-Organization%20Structure.docx",
+     "file_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+     "file_size": "3415642"
+    }
+   ]
+  },
+  {
+   "slug": "list-of-councilors-and-their-ward",
+   "menu_path": "Councilors > List of Councillors > List of Councilors",
+   "title": "List of Councilors ",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/list-of-councilors-and-their-ward",
+   "public_url": "https://arushadc.go.tz/list-of-councilors-and-their-ward",
+   "createdAt": "2026-03-11T08:58:00.918Z",
+   "updatedAt": "2026-03-12T11:43:45.305Z",
+   "text_en": "",
+   "text_sw": "Pakua nyaraka iliyoambatanishwa hapa kuwaona na kuwafahamu Madiwani na kata zao.",
+   "attachments": [
+    {
+     "file_name": "Madiwani HW Arusha 2025-30.pdf",
+     "url": "http://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773295393392-Madiwani%20HW%20Arusha%202025-30.pdf",
+     "file_type": "application/pdf",
+     "file_size": "1001011",
+     "sha256": "4eb797f38fb71293d6bb4db775e3ca1cdebe5c121b17012dd02e76bfab7d78f0",
+     "bytes": 1001011,
+     "status": "scanned_needs_transcription",
+     "kind": "pdf",
+     "pages": 2,
+     "text": "CamScanner\n\nCamScanner"
+    }
+   ]
+  },
+  {
+   "slug": "standing-commitee",
+   "menu_path": "Councilors > Standing District Committees > Standing Commitee",
+   "title": "Standing Commitee",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/standing-commitee",
+   "public_url": "https://arushadc.go.tz/standing-commitee",
+   "createdAt": "2026-03-12T06:42:19.694Z",
+   "updatedAt": "2026-03-12T06:44:36.439Z",
+   "text_en": "List of Standing Commitee",
+   "text_sw": "Orodha ya Kamati za Kudumu",
+   "attachments": [
+    {
+     "file_name": "Kamati za kudumu za Halmashauri.pdf",
+     "url": "http://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773297739697-Kamati%20za%20kudumu%20za%20Halmashauri.pdf",
+     "file_type": "application/pdf",
+     "file_size": "1630770",
+     "sha256": "988f07b03bf31b4a653f34f24d970cfc842fea006a3eccdf89c18166a3fdcbfe",
+     "bytes": 1630770,
+     "status": "text_extracted",
+     "kind": "pdf",
+     "pages": 4,
+     "text": "CamScanner\n\nCamScanner\n\nCamScanner\n\nCamScanner"
+    }
+   ]
+  },
+  {
+   "slug": "infrastructure",
+   "menu_path": "Projects > infrastructure",
+   "title": "Infrastructure ",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/infrastructure",
+   "public_url": "https://arushadc.go.tz/infrastructure",
+   "createdAt": "2026-03-12T15:40:24.927Z",
+   "updatedAt": "2026-03-12T18:51:49.054Z",
+   "text_en": "Key Infrastructure Construction Areas within Arusha District Council are as follows\n1 . Ngaramtoni Stand Improvement Project.\nProject Area: Ngaramtoni (1.8 Acres)\nTypes of Services, Businesses, and Other Critical Projects\ni. Stalls around the stand\nii. Toll collection offices\niii. Pay toilets and bathrooms.\n2. Modern Market Construction Project (Kisongo Modern Market)\nProject Area: Matevezi (8 Acres)\nTypes of Services, Businesses, and Other Critical Projects\ni. Market construction\nii. Construction of stalls around the market\niii. Pay toilets\niv. Market offices\n3. Construction of playgrounds Arusha Burka Council.\nProject Area: Olmot Ward Arusha city (8.5 Acres)\nTypes of Services, Businesses, and Other Critical Projects\n>This has found an investor",
+   "text_sw": "Maeneo muhimu ya ujenzi wa Miundombinu ndani ya Halmashauri ya Wilaya ya Arusha ni haya yafuatayo\n1. Mradi wa Uboreshaji wa Stendi ya Ngaramtoni.\nEneo la Mradi: Ngaramtoni (Ekari 1.8)\nAina za Huduma, Biashara, na Miradi mingine shinikizi\ni. Vibanda kuzunguka stendi\nii. Ofisi za kukatia ushuru\niii. Vyoo vya kulipia na Bafu.\n2. Mradi wa ujenzi wa soko la kisasa(Kisongo modern Market)\nEneo la Mradi: Matevezi ( Ekari 8)\nAina za Huduma, Biashara, na Miradi mingine shinikizi\ni. ujenzi wa soko\nii. ujenzi wa vibanda kuzunguka soko\niii. vyoo vya kulipia\niv. ofisi za soko\n3. ujenzi wa viwanja vya michezo Halmashauri ya Arusha Burka.\nEneo la Mradi: Kata ya Olmot Arusha jiji ( Ekari 8.5)\nAina za Huduma, Biashara, na Miradi mingine shinikizi\n>Hili limepata mwekezaji",
+   "attachments": []
+  },
+  {
+   "slug": "infrastrucre",
+   "menu_path": "Area of investments > Infrastructure > Infrastructure",
+   "title": "Infrastrucre",
+   "api_url": "https://arushadc.go.tz/api/pages/slug/infrastrucre",
+   "public_url": "https://arushadc.go.tz/infrastrucre",
+   "createdAt": "2026-03-12T18:33:41.125Z",
+   "updatedAt": "2026-03-12T19:26:59.771Z",
+   "text_en": "Investors can establish industrial and commercial parks, whereby projects entail construction of roads, utility systems, fencing and supporting administrative and service blocks. Infrastructure development opportunities vary from development of wholly owned private industrial and/or commercial parks to various forms of Private Public Partnerships (PPP) with Communities, Private Developer and Arusha District Council.\n> Construction of Modern Market at Sekei, the area for investment is owned by Arusha District Council, Sekei village and has 2.3 acres. The modern market’s expected to have seven storey building and it will cost an estimated amount of Tsh 35 billion. The area is surveyed and has title deed. Different socio-economic activities such as conference facilities, banking halls, departmental stores, restaurants, Curio shops, supermarkets and Car parking will be included when the project take off.",
+   "text_sw": "Wawekezaji wanaweza kuanzisha mbuga za viwanda na biashara, ambapo miradi inahusisha ujenzi wa barabara, mifumo ya huduma, uzio na vitalu vya kiutawala na huduma vinavyounga mkono. Fursa za maendeleo ya miundombinu hutofautiana kuanzia uundaji wa mbuga za viwanda na/au biashara zinazomilikiwa kikamilifu hadi aina mbalimbali za Ushirikiano wa Kibinafsi wa Umma (PPP) na Jamii, Waendelezaji Binafsi na Halmashauri ya Wilaya ya Arusha.\n> Ujenzi wa Soko la Kisasa huko Sekei, eneo la uwekezaji linamilikiwa na Halmashauri ya Wilaya ya Arusha, kijiji cha Sekei na lina ekari 2.3. Soko la kisasa linatarajiwa kuwa na jengo la ghorofa saba na litagharimu kiasi kinachokadiriwa cha Tsh bilioni 35. Eneo hilo limepimwa na lina hati miliki. Shughuli mbalimbali za kijamii na kiuchumi kama vile vifaa vya mikutano, kumbi za benki, maduka ya idara, migahawa, maduka ya Curio, maduka makubwa na maegesho ya magari zitajumuishwa wakati mradi utakapoanza.",
+   "attachments": []
+  }
+ ],
+ "files": [],
+ "news": [
+  {
+   "id": 3673,
+   "title": "MAFUNZO YA IFTMIS",
+   "date": "2026-05-11",
+   "category": "Matukio",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 296,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1953,
+   "title": "TUZUNGUMZE LUGHA MOJA",
+   "date": "2026-03-26",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1126,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1951,
+   "title": "NAIBU WAZIRI WA UJENZI MHA. GODFREY M. KASEKANYA AIMIZA UTUNZAJI WA MIUNDOMBINU YA BARABARA",
+   "date": "2026-03-26",
+   "category": "Miundombinu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1522,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1950,
+   "title": "MWENYEKITI WA CCM MKOA WA ARUSHA AIPA TANO ARUSHA DC",
+   "date": "2026-03-26",
+   "category": "Miundombinu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 788,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1949,
+   "title": "\"KAMILISHENI MIRAI KWA WAKATI\" KWAGWILA",
+   "date": "2026-03-26",
+   "category": "Miundombinu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1733,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1948,
+   "title": "KIKAO CHA MASHIRIKA YASIYO YA KISERIKALI ARUSHA DC",
+   "date": "2026-03-26",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1507,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1947,
+   "title": "DIWANI AKABIDHI VIFAA VYENYE THAMANI YA MILIONI 15",
+   "date": "2026-03-27",
+   "category": "Elimu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1489,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1743,
+   "title": "MKURUGENZI ARUSHA DC AKABIDHI VIFAA VYA MICHEZO",
+   "date": "2026-03-19",
+   "category": "Elimu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1704,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1696,
+   "title": "DED MSUMI AMKABIDHI MWALIMU MAHONA VIFAA MAALUMU VYA KAZI",
+   "date": "2026-03-18",
+   "category": "Elimu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1249,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1435,
+   "title": "VIKUNDI VYA MALEZI VYATAJWA KUPUNGUZA UKATILI",
+   "date": "2026-03-17",
+   "category": "Elimu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2218,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1390,
+   "title": "AFYA BORA YA AKILI NI MWANZO MPYA NA MABADILIKO KWENYE JAMII.",
+   "date": "2026-01-24",
+   "category": "Afya",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1267,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1386,
+   "title": "KAMATI YA FEDHA ARUSHA DC YAWATAKA WAKANDARASI KUMALIZA KAZI KWA WAKATI",
+   "date": "2026-02-16",
+   "category": "Miundombinu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2114,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1372,
+   "title": "WATUMISHI WA UMMA WATAKIWA KUFANYA KAZI KWA WELEDI",
+   "date": "2026-03-14",
+   "category": "Elimu",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1127,
+   "convening_tags": [
+    "exhibition_or_public_event",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1146,
+   "title": "DED MSUMI AKUTANA NA WADAU WA MAENDELEO",
+   "date": "2026-03-18",
+   "category": "Uchumi",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1097,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1141,
+   "title": "UPENDO WA MAMA",
+   "date": "2026-03-11",
+   "category": "Afya",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 355,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1140,
+   "title": "RAIS SAMIA APOKEA RIPOTI YA NGORONGORO",
+   "date": "2026-03-11",
+   "category": "Matukio",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 347,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 897,
+   "title": "ZIARA YA KUSIKILIZA NA KUTATUA KERO ZA WATUMISHI",
+   "date": "2026-06-03",
+   "category": "Matukio",
+   "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 965,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 456,
+   "title": "NAFASI 15 ZA KAZI ZA MKATABA",
+   "date": "2026-04-17",
+   "category": "Ajira",
+   "listing_url": "https://arushadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 242,
+   "convening_tags": [],
+   "attachments": [
+    "mkataba.pdf"
+   ]
+  },
+  {
+   "id": 445,
+   "title": "UHIFADHI WA MALIASILI",
+   "date": "2026-04-10",
+   "category": "Taarifa",
+   "listing_url": "https://arushadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 170,
+   "convening_tags": [],
+   "attachments": [
+    "Tangazo la Serikali la Uhifadhi Maliasili, ijumaa tarehe 10-4-2026.pdf"
+   ]
+  },
+  {
+   "id": 444,
+   "title": "MAOMBI YA LESENI YA BIASHARA",
+   "date": "2026-04-10",
+   "category": "Taarifa",
+   "listing_url": "https://arushadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 167,
+   "convening_tags": [],
+   "attachments": [
+    "Biashara .jpg"
+   ]
+  },
+  {
+   "id": 424,
+   "title": "TANGAZO LA MKOPO KWA WATUMISHI",
+   "date": "2026-03-26",
+   "category": "Taarifa",
+   "listing_url": "https://arushadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 73,
+   "convening_tags": [],
+   "attachments": [
+    "20260326_095937.jpg"
+   ]
+  },
+  {
+   "id": 249,
+   "title": "KUTATUA KERO",
+   "date": "2026-03-10",
+   "category": "Elimu",
+   "listing_url": "https://arushadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 351,
+   "convening_tags": [],
+   "attachments": [
+    "KERO.docx"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://arushadc.go.tz/api/profiles": "40f573cf202eb36ade78e34324e97145fcbd7b3ca8d72448ce93c68c5ef1ceca",
+  "https://arushadc.go.tz/api/statistics": "d8f5bea7815fdd14ca5f1459e124834640e30c638f2c8e6447d75e0501e5ee44",
+  "https://arushadc.go.tz/api/footer": "1db8ae14b2c5a8bfa1a05d6748de133933856b3882ab747c1e8729392edc2c3a",
+  "https://arushadc.go.tz/api/menus": "8113e5f28a455af1900d2341ed3b5aef36c94e0d1f271675e957799ec497a279",
+  "https://arushadc.go.tz/api/pages/slug/our-history": "300be9e1871ab88404fa3db7e662383994f7f4f229c363a5e13b4c60b7ac18a4",
+  "https://arushadc.go.tz/api/pages/slug/mission-and-vision": "63de2e3d75b4e3e9e6b1633b3c1c59f5ec685a177c2ff208d61a1ee9c8f1711b",
+  "https://arushadc.go.tz/api/pages/slug/core-values": "4a21449f260ad23783426dbf1fb3a9491a96c8d37c7244321c94642b0d39ea07",
+  "https://arushadc.go.tz/api/pages/slug/industry-trade-and-investment": "859de8526a290a28d3ccfbfc2371c928ceedca831d2a6d744abf194d13b8ecbe",
+  "https://arushadc.go.tz/api/pages/slug/pre-and-primary-education": "834b595fb4990ee65a68d0d9623ff661eadfce536bec547d37e6f1b6051e84fe",
+  "https://arushadc.go.tz/api/pages/slug/secondary-education": "772af3e88119392bf0da1b65e36f82dce1edc7442cfec6555377cb98996d6d81",
+  "https://arushadc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services": "d2b5d98227ea6f2f062121f5f4e5940ee37f4f5f1f708eb2dfb6f2ce69e4baa7",
+  "https://arushadc.go.tz/api/pages/slug/community-development": "140a1c36a64d5bc23c51695ae945410c36d565fb88b522e57f3a14ebacfe8b15",
+  "https://arushadc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries": "26ec2f11c71a3196ec4bdf4028badf1f2e4b5e09dc0e42a1dd5c9272c565071e",
+  "https://arushadc.go.tz/api/pages/slug/planning-and-coordination": "97f619de1e58cd7e66a3133b9513edcd166ca2a1caa77b4e7ac25159f3b2d312",
+  "https://arushadc.go.tz/api/pages/slug/human-resources-administration-and-management": "62004054eb9eabb439c3268aad529623c8f527a8a01f963bdc10dcca10229142",
+  "https://arushadc.go.tz/api/pages/slug/organization-structure": "82fa5953f07a3495c54ab15425dd5476467e267013b3f8b9669942770eb08f5d",
+  "https://arushadc.go.tz/api/pages/slug/list-of-councilors-and-their-ward": "d9d10a0cbd5d688f98537418b03a94f480b7650183c89e31a3cd2f02f0abd224",
+  "https://arushadc.go.tz/api/pages/slug/standing-commitee": "b82f416c6253e040d12bcfda065856855e7f2937c4528399dcb6c6fe5125e4bd",
+  "https://arushadc.go.tz/api/pages/slug/infrastructure": "6a1146dd24502c3706bd551634cab4041389d346a3629fbb3395574bbaf332a3",
+  "https://arushadc.go.tz/api/pages/slug/infrastrucre": "08bf00dc7e1e7fc04842398675d09a668a142005cd464a6f1cef4097cd1138ce",
+  "https://arushadc.go.tz/api/files?page=1&limit=100": "915a78c296b8f46bd4288a4d4f59fb8541024ec0c090bd41784aaf3e8707c43e",
+  "https://arushadc.go.tz/api/news?page=1&limit=50": "77fe48f8485e709f9763856fb4acd4322e166781e8906fb3e09df696605c961f",
+  "https://arushadc.go.tz/api/announcements?page=1&limit=50": "5b2c0c6d3e0be9d4af52646f6a84a86a8f921ab77f57063918d20d9cc23f2055"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

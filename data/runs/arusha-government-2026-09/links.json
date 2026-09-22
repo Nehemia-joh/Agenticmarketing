@@ -1,0 +1,37 @@
+{
+ "_about": "Reviewed curation for the arusha-government-2026-09 run. Each entry records a decision a person (or the agent, marked for review) took after checking the evidence. build_government_run.py applies them; nothing here is inferred automatically.",
+ "ward_aliases": {
+  "_about": "Spellings used by official rosters, Wikipedia titles or OpenStreetMap names, mapped to the census ward name, per council. Each was checked on 23 September 2026: the source names the same council or district, and no other ward in that council has a closer spelling.",
+  "Arusha City Council": {
+   "Sokoni I": "Sokon I"
+  },
+  "Arusha District Council": {
+   "OLTURUTO": "Olturoto",
+   "Oltroto": "Olturoto",
+   "Oltoroto": "Olturoto",
+   "OLMOTONY": "Olmotonyi",
+   "OLDONYOWAS": "Oldonyowass",
+   "Oldonyowas": "Oldonyowass",
+   "Oltrumet": "Olturumet",
+   "Mwandeti": "Mwandet",
+   "Kimnyaki": "Kimnyak",
+   "Mussa": "Musa",
+   "Oldonyosambo": "Oldonyosambu"
+  },
+  "Meru District Council": {
+   "Imbaseny": "Imbaseni"
+  },
+  "Siha District Council": {
+   "Garararua": "Gararagua"
+  }
+ },
+ "ward_locations": {},
+ "osm_office_links": {
+  "_about": "Reviewed links from OpenStreetMap offices to census wards when the mapped name differs from the census name.",
+  "node/9392131139": {
+   "council": "Hai District Council",
+   "ward": "Machame Narumu",
+   "note": "Mapped as 'Narumu Ward Office' inside Hai District; Hai's census and official councillor list have one Narumu ward, 'Machame Narumu'."
+  }
+ }
+}

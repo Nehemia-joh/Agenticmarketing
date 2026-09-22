@@ -12,6 +12,7 @@ Work only in `C:\Work\silverleaf-agentic-marketing` unless the user names anothe
 - To create an independent list, read `../skills/silverleaf-create-lead-list/SKILL.md`.
 - To revise positioning, hooks, outreach messages, or sequences, read `../skills/silverleaf-outreach/SKILL.md`.
 - To research welfare institutions as paying customers, read `../skills/silverleaf-welfare-leads/SKILL.md`. Its runs stay separate from the master.
+- To map local government offices that convene community meetings, read `../skills/silverleaf-government-leads/SKILL.md`. Its runs stay separate from the master.
 
 The canonical master is `../outputs/master/Silverleaf Master Database.sqlite`. Its workbook is generated and must not become an independent source of truth.
 

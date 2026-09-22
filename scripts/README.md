@@ -2,7 +2,7 @@
 
 Check this catalogue before writing a new script. Reusable scripts live under `scripts/<task>/`. Generated working files (caches, rendered prompts, intermediate JSON) go in `runtime/`, which Git ignores. When a session starts a task, look here first. If a script covers the task, run it or extend it here instead of writing a one-off in `runtime/`.
 
-Run every command from the repository root. Anything that calls the network follows `skills/silverleaf-create-lead-list/references/research-rate-limits.md`, and the welfare scripts enforce those limits in code.
+Run every command from the repository root. Anything that calls the network follows `skills/silverleaf-create-lead-list/references/research-rate-limits.md`, and the welfare and government scripts enforce those limits in code.
 
 ## Catalogue
 
@@ -26,6 +26,17 @@ Run every command from the repository root. Anything that calls the network foll
 | Welfare leads: build | `scripts/welfare/build_welfare_workbook.py` | Builds the review workbook from the run database only | None |
 | Welfare leads: build | `scripts/welfare/verify_welfare_run.py` | Runs 19 checks, including that the company master is untouched and the skill's script copy matches | None |
 | Shared library | `scripts/welfare/welfare_lib.py` | Normalisation, geography, run config and `polite_request` | Per-host limits in `HOST_LIMITS`; reuse `polite_request` for any new collector |
+| Government leads: collect | `scripts/government/collect_census_wards.py` | Ward populations from the 2022 census report, with page and row locators; fails unless wards add up to council totals | One cached 13 MB download |
+| Government leads: collect | `scripts/government/collect_ward_locations.py` | Wikipedia ward points, OpenStreetMap places and district boundaries for placing wards | Wikipedia 2 s apart; Overpass one query at a time, 5 s apart, mirror fallback |
+| Government leads: collect | `scripts/government/collect_osm_government.py` | OpenStreetMap government offices (tags and names) for triage and ward-office points | Overpass one query at a time, 5 s apart |
+| Government leads: collect | `scripts/government/collect_council_sites.py` | Council and regional websites through their JSON API: leaders, statistics, contacts, menus, pages, rosters, files, news; sanitised | One request per host at a time, 1.5 s apart, cached |
+| Government leads: build | `scripts/government/run_pipeline.py` | Runs every step below in order and stops at the first failure | None |
+| Government leads: build | `scripts/government/build_government_run.py` | Places wards, scores them, builds offices and posts, triages offices and master records, tags convening signals | None |
+| Government leads: build | `scripts/government/export_government_run.py` | Writes the intake CSV, interim tables and the raw-evidence manifest | None |
+| Government leads: build | `scripts/government/augment_government_db.py` | Adds administrative units, office profiles, official posts, community events (counts only), triage, signals, reviews and evidence files | None |
+| Government leads: build | `scripts/government/build_government_workbook.py` | Builds the review workbook from the run database only | None |
+| Government leads: build | `scripts/government/verify_government_run.py` | Runs 27 checks, including exclusions, data-protection guards, census reconciliation and master separation | None |
+| Shared library | `scripts/government/gov_lib.py` | Government run config, host limits, office levels, exclusion list, name keys, sanitising and district geometry | Registers council, census and Wikipedia hosts with `polite_request` |
 | Any list: intake | `skills/silverleaf-create-lead-list/scripts/validate_intake.py` | Validates an intake CSV against the shared contract | None; bundled with its skill |
 | Any list: new database | `skills/silverleaf-create-lead-list/scripts/initialize_lead_db.py` | Creates a separate run database from a validated intake | None; bundled with its skill |
 | Company master: update | `skills/silverleaf-update-lead-list/scripts/preflight_update.py` | Read-only exact-match preflight against the master | None; bundled with its skill |
@@ -43,16 +54,22 @@ Run every command from the repository root. Anything that calls the network foll
 
 ## Copies bundled with skills
 
-The welfare skill carries an identical copy of `scripts/welfare/` in `skills/silverleaf-welfare-leads/scripts/`, so the skill still works when it is installed on its own. `welfare_lib.py` finds the repository root by walking up to `AGENTS.md`, so the same file runs from either folder.
+Two skills carry an identical copy of their scripts, so each skill still works when it is installed on its own:
+- `skills/silverleaf-welfare-leads/scripts/` copies `scripts/welfare/`
+- `skills/silverleaf-government-leads/scripts/` copies `scripts/government/`
 
-Edit `scripts/welfare/` first, then refresh the copy:
+Both libraries find the repository root by walking up to `AGENTS.md`, so the same file runs from either folder. `gov_lib.py` always imports the canonical `scripts/welfare/welfare_lib.py`.
+
+Edit the `scripts/` folder first, then refresh the copy:
 
 ```bash
 cp scripts/welfare/*.py skills/silverleaf-welfare-leads/scripts/
+cp scripts/government/*.py skills/silverleaf-government-leads/scripts/
 ```
 
 ```powershell
 Copy-Item scripts/welfare/*.py skills/silverleaf-welfare-leads/scripts/
+Copy-Item scripts/government/*.py skills/silverleaf-government-leads/scripts/
 ```
 
-`verify_welfare_run.py` fails its `skill_script_copies_in_sync` check if the two folders differ.
+`verify_welfare_run.py` and `verify_government_run.py` each fail their `skill_script_copies_in_sync` check if the two folders differ.

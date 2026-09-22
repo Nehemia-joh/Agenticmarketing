@@ -1,0 +1,571 @@
+{
+ "host": "moshimc.go.tz",
+ "organisation": "Moshi Municipal Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://moshimc.go.tz",
+ "profiles": [
+  {
+   "id": 307,
+   "name": "HON..ZUBERI KIDUMO",
+   "title": "MOSHI MUNICIPAL MAYOR",
+   "titleSwahili": "MEYA WA MANISPAA YA MOSHI",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-04T12:16:50.164Z",
+   "updatedAt": "2026-03-04T12:16:50.164Z"
+  },
+  {
+   "id": 309,
+   "name": "Bi.Mwajuma Nasombe",
+   "title": "Municipal Director",
+   "titleSwahili": "Mkurugenzi Mtendaji",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-04T12:27:39.754Z",
+   "updatedAt": "2026-03-10T04:55:26.035Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "health Centre",
+   "value": 3,
+   "suffix": ""
+  },
+  {
+   "label": "Dispensaries",
+   "value": 11,
+   "suffix": ""
+  },
+  {
+   "label": "Secondary Schools",
+   "value": 17,
+   "suffix": ""
+  },
+  {
+   "label": "Primary Schools",
+   "value": 38,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Moshi Municipal Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "history",
+     "title": "History",
+     "swTitle": "Historia"
+    },
+    {
+     "url": "vision-and-mission",
+     "title": "Vision and Mission",
+     "swTitle": "Dhima na Dira"
+    },
+    {
+     "url": "education",
+     "title": "Education",
+     "swTitle": "Elimu"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "https://nest.go.tz/login",
+     "title": "NeST",
+     "swTitle": "NeST"
+    },
+    {
+     "url": "https://ffars.tamisemi.go.tz/",
+     "title": "FFARS",
+     "swTitle": "FFARS"
+    },
+    {
+     "url": "https://ess.utumishi.go.tz/sessions/signin",
+     "title": "Watumishi Portal",
+     "swTitle": "Watumishi Portal"
+    },
+    {
+     "url": "https://planrep.tamisemi.go.tz/",
+     "title": "PlanRep",
+     "swTitle": "PlanRep"
+    },
+    {
+     "email": "md@moshimc.go.tz",
+     "phone": "+255-027-274371/4",
+     "poBox": "P.O BOX 318 MOSHI"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://ess.utumishi.go.tz",
+     "title": "President’s Office Public Service Management and Good Governance",
+     "swTitle": "Ofisi ya Rais - Menejimenti ya Utumishi wa Umma na Utawala Bora"
+    },
+    {
+     "url": "https://www.jamii.go.tz/",
+     "title": "Ministry of Community Development,Gender,Women and Special Groups",
+     "swTitle": "Wizara ya maendeleo ya Jamii,Jinsia,Wanawake na Makundi Maalum"
+    },
+    {
+     "url": "https://www.moe.go.tz/",
+     "title": "Ministry of Education Science and Technology",
+     "swTitle": "Wizara ya Elimu,Sayansi na Teknolojia"
+    },
+    {
+     "url": "https://www.moh.go.tz/",
+     "title": "Ministry of Health",
+     "swTitle": "Wizara ya Afya"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d7966.000553280575!2d37.33730990066946!3d-3.350061853085407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1smoshi%20municipal%20council%20google%20maps!5e0!3m2!1sen!2stz!4v1772534615854!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.349516,
+   "lng": 37.33937,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "history"
+  },
+  {
+   "path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "title_sw": "Dira na Dhima",
+   "slug": "vision-and-mission"
+  },
+  {
+   "path": "Administration > Division > Human Resource Management and Administration.",
+   "title": "Human Resource Management and Administration.",
+   "title_sw": "Rasilimali watu na Utawala",
+   "slug": "human-resource-management-and-administration"
+  },
+  {
+   "path": "Administration > Division > Infrastructure,Rural and Urban Development",
+   "title": "Infrastructure,Rural and Urban Development",
+   "title_sw": "Maendeleo ya Miundombinu Mijini na Vijijini",
+   "slug": "infrastructure-rural-and-urban-development"
+  },
+  {
+   "path": "Administration > Division > Health, Social Welfare and Nutrition Services",
+   "title": "Health, Social Welfare and Nutrition Services",
+   "title_sw": "Huduma za Afya Ustawi wa Jamii na Lishe",
+   "slug": "health-social-welfare-and-nutrition-services"
+  },
+  {
+   "path": "Administration > Division > Industry, Trade and Investments",
+   "title": "Industry, Trade and Investments",
+   "title_sw": "Viwanda, Biashara na Uwekezaji",
+   "slug": "industry-trade-and-investments"
+  },
+  {
+   "path": "Administration > Division > Pre-Primary and Primary Education",
+   "title": "Pre-Primary and Primary Education",
+   "title_sw": "Elimu Ya Awali na Msingi",
+   "slug": "pre-primary-and-primary-education"
+  },
+  {
+   "path": "Administration > Division > Secondary Education",
+   "title": "Secondary Education",
+   "title_sw": "Elimu ya Sekondari",
+   "slug": "secondary-education"
+  },
+  {
+   "path": "Administration > Division > Community Development",
+   "title": "Community Development",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development"
+  },
+  {
+   "path": "Administration > Division > Agriculture, Livestock and Fisheries",
+   "title": "Agriculture, Livestock and Fisheries",
+   "title_sw": "Kilimo, Ufugaji na Uvuvi",
+   "slug": "agriculture-livestock-and-fisheries"
+  },
+  {
+   "path": "Administration > Division > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-coordination"
+  },
+  {
+   "path": "Administration > Units > Waste Management And Sanitation",
+   "title": "Waste Management And Sanitation",
+   "title_sw": "Usimamizi wa Usafi na Taka Ngumu",
+   "slug": "waste-management-and-sanitation"
+  },
+  {
+   "path": "Administration > Units > Natural Resources and Environment Conservation",
+   "title": "Natural Resources and Environment Conservation",
+   "title_sw": "Maliasilia na Uhifadhi wa Mazingira",
+   "slug": "natural-resources-and-environment-conservation"
+  },
+  {
+   "path": "Administration > Units > Sports Culture and Arts",
+   "title": "Sports Culture and Arts",
+   "title_sw": "Michezo  Utamaduni na Sanaa",
+   "slug": "sports-culture-and-arts"
+  },
+  {
+   "path": "Administration > Units > Finance and Accounts",
+   "title": "Finance and Accounts",
+   "title_sw": "Fedha na Uhasibu",
+   "slug": "finance-and-accounts"
+  },
+  {
+   "path": "Administration > Units > Legal Services",
+   "title": "Legal Services",
+   "title_sw": "Huduma za Sheria",
+   "slug": "legal-services"
+  },
+  {
+   "path": "Administration > Units > Internal Audit",
+   "title": "Internal Audit",
+   "title_sw": "Ukaguzi wa ndani",
+   "slug": "internal-audit"
+  },
+  {
+   "path": "Administration > Units > Procurement Management",
+   "title": "Procurement Management",
+   "title_sw": "Usimamizi wa manunuzi",
+   "slug": "procurement-management"
+  },
+  {
+   "path": "Administration > Units > Government Communication",
+   "title": "Government Communication",
+   "title_sw": "Mawasiliano Serikalini",
+   "slug": "government-communication"
+  },
+  {
+   "path": "Administration > Units > ICT",
+   "title": "ICT",
+   "title_sw": "TEHAMA",
+   "slug": "ict"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Stucture",
+   "title": "Organization Stucture",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organizational-stucture"
+  },
+  {
+   "path": "Investment Opportunities > Industry",
+   "title": "Industry",
+   "title_sw": "Viwanda",
+   "slug": "industries"
+  },
+  {
+   "path": "Investment Opportunities > Industry > Industry",
+   "title": "Industry",
+   "title_sw": "Viwanda",
+   "slug": "industries"
+  },
+  {
+   "path": "Investment Opportunities > Sports Culture and Arts",
+   "title": "Sports Culture and Arts",
+   "title_sw": "Michezo  Utamaduni na Sanaa",
+   "slug": "sports-culture-and-arts"
+  },
+  {
+   "path": "Investment Opportunities > Sports Culture and Arts > Sports Culture and Arts",
+   "title": "Sports Culture and Arts",
+   "title_sw": "Michezo Utamaduni na Sanaa",
+   "slug": "sports-culture-and-arts"
+  },
+  {
+   "path": "Our Services > Education > Education",
+   "title": "Education",
+   "title_sw": "Elimu",
+   "slug": "education"
+  },
+  {
+   "path": "Concellors > Concellors List",
+   "title": "Concellors List",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "concellors-list"
+  },
+  {
+   "path": "Concellors > Concellors List > Concellors List",
+   "title": "Concellors List",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "concellors-list"
+  },
+  {
+   "path": "Concellors > Permanent Commitee > Permanent Committee",
+   "title": "Permanent Committee",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "permanent-commitee"
+  },
+  {
+   "path": "Concellors > Commitees Timetable > Commitees Timetable",
+   "title": "Commitees Timetable",
+   "title_sw": "Ratiba ya Vikao",
+   "slug": "commitees-timetable"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "history",
+   "menu_path": "About Us > History > Our History",
+   "title": "History",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/history",
+   "public_url": "https://moshimc.go.tz/history",
+   "createdAt": "2026-03-04T08:00:33.091Z",
+   "updatedAt": "2026-03-04T08:55:10.325Z",
+   "text_en": "1.0 Introduction:\nMoshi Municipal Council is one of the seven Councils of Kilimanjaro Region. Moshi Town was established in 1892, and was relocated to its current location from Kolila Old Moshi (Moshi Rural) in 1911. In 1926 it was granted the status of a small town and in 1956 it was granted the status of a full-fledged city. It was granted the status of a Municipality in 1988.\n1.1 Boundaries and Area of ​​the Municipality :\nMoshi Municipality is surrounded by Moshi Rural District to the South, East and North, and to the West it borders Hai District. Moshi Town has an area of ​​58 square km, and lies between an altitude of 700 meters South to 950 meters North above sea level. Each square km. has a total population of about 3,165.\n1.2 Administration:\nMoshi Municipality is divided into 2 Divisions, 21 Wards and 60 Localities and has one electoral constituency. The Municipality has a total of 29 Councillors, of whom 21 are elected, 7 Special Seats and one elected Member of Parliament.\n1.3 Population:\nMoshi Municipality has grown from a small town with a population of 8,048 in 1948 to 184,292 according to the 2012 population and housing census which includes 95,118 females and 89,174 males.\nUnlike other cities in the country, an accurate population estimate should include more than 76,000 people who spend their daytime hours in the city for business activities and benefit from the resources of the Municipality but live in areas bordering Moshi Urban and Hai Municipality. These people are not included in the budget, especially for the LGCDG system and other programs that provide subsidies based on the number of people present.",
+   "text_sw": "1.0 Utangulizi:\nHalmashauri ya Manispaa ya Moshi ni miongoni mwa Halmashauri saba za Mkoa wa Kilimanjaro. Mji wa Moshi ulianzishwa 1892, ukahamishiwa mahali ulipo sasa toka Kolila Old Moshi (Moshi Vijijini) mwaka 1911. Mwaka 1926 ulipewa hadhi ya Mji mdogo na mwaka 1956 ukapewa hadhi ya Mji kamili. Ulipewa hadhi ya kuwa Manispaa mwaka 1988.\n1.1 Mipaka na eneo la Manispaa:\nManispaa ya Moshi imezungukwa na Wilaya ya Moshi Vijijini kwa upande wa Kusini, Mashariki na Kaskazini, upande wa Magharibi imepakana na Wilaya ya Hai. Mji wa Moshi una eneo la km za mraba 58, na upo kati ya mwinuko wa mita 700 Kusini hadi 950 Kaskazini toka usawa wa bahari. Kila km. moja ya mraba in jumla ya wakazi wapatao 3,165.\n1.2 Utawala:\nManispaa ya Moshi imegawanyika katika Tarafa 2, Kata 21 na Mitaa 60 na ina Jimbo moja la uchaguzi. Manispaa ina jumla ya Madiwani 29, kati yao 21 ni wa kuchaguliwa, Viti Maalum wako 7 na Mbunge mmoja wa kuchaguliwa.\n1.3 Idadi ya watu:\nManispaa ya Moshi imekua kutoka Mji mdogo uliokuwa na wakazi 8,048 mwaka 1948 na kufikia wakazi 184,292 Kulingana na sensa ya watu na makazi ya mwaka 2012 ambapo inajumuisha wanawake 95,118 na wanaume 89,174.\nTofauti na miji mingine nchini, makisio sahihi ya idadi ya watu yanapaswa kuhusisha watu zaidi ya 76,000 ambao wanatumia muda wa mchana mjini kwa shughuli za biashara na kufaidi rasilimali za Manispaa lakini wanaishi maeneo yanayopakana na Manispaa ya Moshi Vijijni na Hai. Watu hawa hawapo kwenye bajeti hasa kwa mfumo wa LGCDG na programu nyingine zinazotoa ruzuku kulingana na idadi ya watu waliopo.",
+   "attachments": []
+  },
+  {
+   "slug": "vision-and-mission",
+   "menu_path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/vision-and-mission",
+   "public_url": "https://moshimc.go.tz/vision-and-mission",
+   "createdAt": "2026-03-04T09:04:22.418Z",
+   "updatedAt": "2026-03-04T09:04:22.418Z",
+   "text_en": "Mission\nThe mission of Moshi Municipality is to provide “the best services to the stakeholders through involvement of all municipal stakeholders in decision making, prudent use of municipal resources, appropriate environmental management and public- private sector partnership in municipal development”.\nVision\nWith regard to the vision, Moshi Municipal Council aspires to become “a model municipality in the provision of quality economic and social services to its stakeholders’",
+   "text_sw": "Dhima\nDhamira ya Manispaa ya Moshi ni kutoa “huduma bora kwa wadau kwa kuwashirikisha wadau wote wa manispaa katika kufanya maamuzi, matumizi ya busara ya rasilimali za manispaa, usimamizi sahihi wa mazingira na ushirikiano wa sekta ya umma na binafsi katika maendeleo ya manispaa”.\nDira\nKuhusu dira hiyo, Halmashauri ya Manispaa ya Moshi inatarajia kuwa “manispaa ya mfano katika utoaji wa huduma bora za kiuchumi na kijamii kwa wadau wake”",
+   "attachments": []
+  },
+  {
+   "slug": "human-resource-management-and-administration",
+   "menu_path": "Administration > Division > Human Resource Management and Administration.",
+   "title": "Human Resource Management and Administration",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/human-resource-management-and-administration",
+   "public_url": "https://moshimc.go.tz/human-resource-management-and-administration",
+   "createdAt": "2026-03-06T11:46:37.501Z",
+   "updatedAt": "2026-03-09T11:04:15.509Z",
+   "text_en": "This Division will perform the following functions:-\n(i) To interpret Public Service Regulations; Standing Orders and other Labour\nlaws;\n(ii) To oversee the implementation of ethics and value promotion activities\nincluding corruption prevention education;\n(iii) To administer and oversee implementation of activities such as recruitment,\nselection, orientation, training and employee development, promotion,\ndiscipline, retention, motivation, performance management and general staff\nwelfare;\n(iv) To ensure optimal, efficient and effective management and utilization of human\nresource;\n(v) To coordinate Workers Council and Trade Union affairs;\n(vi) To oversee the development and implementation of effective policies,\nprocedures and guidelines for recruitment, training and development,\ndeployment, retention of staff, promotions, performance management;\n(vii) To conduct regular human resources audit and inventory of current and needed\nskills;\n(viii) To provide registry, messengerial and courier services; and manage Office\nrecords;\n28\n(ix) To handle protocol matters;\n(x) To facilitate provision of security services, transport and general utilities;\n(xi) To facilitate maintenance of Office equipment, buildings and grounds;\n(xii) To coordinate implementation of ethics and value promotion activities;\n(xiii) To coordinate implementation of diversity issues;\n(xiv) To coordinate implementation of Private Sector Participation, Business\nProcess Improvement and Client Service Charter; and\n(xv) To provided advice on organizational efficiency of the Office.\n(xvi) To coordinate election activities in Council; and\n(xvii) To supervise General and LGAs elections.\nThis Division will be led by a Head and will comprise of two (2) Sections as follows:-\n(i) Human Resource Management Section; and\n(ii) Administration Section.\n3.8.1 Human",
+   "text_sw": "TIdara hii inatekeleza majukumu yafuatayo: -\n(i) Kufasiri Kanuni za Utumishi wa Umma; Amri za Kudumu na sheria nyingine za Kazi;\n(ii) Kusimamia utekelezaji wa shughuli za kukuza maadili na thamani ikiwemo elimu ya kuzuia ufisadi;\n(iii) Kusimamia na kusimamia utekelezaji wa shughuli kama ajira, uchaguzi, mafunzo ya utangulizi, mafunzo na maendeleo ya wafanyakazi, kupandishwa cheo, nidhamu, uhifadhi, motisha, usimamizi wa utendaji na ustawi wa jumla wa wafanyakazi;\n(iv) Kuhakikisha usimamizi na matumizi bora, ufanisi na wa kuzingatia rasilimali watu;\n(v) Kuratibu masuala ya Baraza la Wafanyakazi na Vyama vya Kibiashara;\n(vi) Kusimamia maendeleo na utekelezaji wa sera, taratibu na miongozo madhubuti kwa ajili ya ajira, mafunzo na maendeleo, usambazaji, uhifadhi wa wafanyakazi, kupandishwa cheo na usimamizi wa utendaji;\n(vii) Kufanya ukaguzi wa rasilimali watu mara kwa mara na orodha ya ujuzi uliopo na unaohitajika;\n(viii) Kutoa huduma za rejista, utumishi wa ujumbe na usafirishaji, na kusimamia rekodi za Ofisi;\n(ix) Kushughulikia masuala ya itikadi na itikadi rasmi (protocol);\n(x) Kuwezesha utoaji wa huduma za usalama, usafirishaji na vifaa vya kawaida;\n(xi) Kuwezesha matengenezo ya vifaa vya ofisi, majengo na viwanja;\n(xii) Kuratibu utekelezaji wa shughuli za kukuza maadili na thamani;\n(xiii) Kuratibu utekelezaji wa masuala ya utofauti;\n(xiv) Kuratibu utekelezaji wa Ushiriki wa Sekta Binafsi, Maboresho ya Mchakato wa Biashara na Katiba ya Huduma kwa Wateja;\n(xv) Kutoa ushauri kuhusu ufanisi wa shirika wa Ofisi;\n(xvi) Kuratibu shughuli za uchaguzi katika Halmashauri; na\n(xvii) Kusimamia uchaguzi wa Jumla na wa Halmashauri za Mitaa (LGAs).",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-rural-and-urban-development",
+   "menu_path": "Administration > Division > Infrastructure,Rural and Urban Development",
+   "title": "Infrastructure, Rural and Urban Development",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/infrastructure-rural-and-urban-development",
+   "public_url": "https://moshimc.go.tz/infrastructure-rural-and-urban-development",
+   "createdAt": "2026-03-25T06:37:46.650Z",
+   "updatedAt": "2026-03-25T06:37:46.650Z",
+   "text_en": "Objective\nTo supervise and advise on all issues related to infrastructure in the Council\nThe Division will perform the following functions:-\n(i) To advise on matters related to construction industry;\n(ii) To plan development of infrastructure;\n(iii) To analyse and make recommendations on claims for payment of contractors;\n(iv) To inspect construction works performed by Council and ensure their quality;\n(v) To issue certificates to contractors for completed contracts;\n(vi) To undertake paving of new roads in collaboration with TARURA;\n(vii) To establish and maintain cooperation with Institutions outside and inside the\nCountry dealing with infrastructure issues;\n(viii) To participate in facilitating resolution of land use conflicts;\n(ix) To manage urbanization process in collaboration with Ministry responsible for\nland; and\n(x) To oversee development of rural and urban settlements in collaboration with\nMinistry responsible for land\nJukumu la Divisheni ni Kusimamia na kushauri masuala yote yanayohusu miundombinu katika Halmashauri.",
+   "text_sw": "Kazi\nDivisheni itafanya kazi zifuatazo:-\n(i) Kushauri kuhusu masuala ya sekta ya ujenzi;\n(ii) Kupanga maendeleo ya miundombinu;\n(iii) Kuchambua na kutoa mapendekezo ya madai ya malipo ya wakandarasi;\n(iv) Kukagua kazi za ujenzi zinazofanywa na Halmashauri na kuhakikisha ubora wake;\n(v) Kutoa vyeti kwa wakandarasi kwa mikataba iliyokamilika;\n(vi) Kufanya uwekaji lami wa barabara mpya kwa kushirikiana na TARURA;\n(vii) Kuanzisha na kudumisha ushirikiano na Taasisi za nje na ndani ya Nchi zinazoshughulikia masuala ya miundombinu;\n(viii) Kushiriki katika kuwezesha utatuzi wa migogoro ya matumizi ya ardhi;\n(ix) Kusimamia mchakato wa ukuaji wa miji kwa kushirikiana na Wizara yenye dhamana ya ardhi; na\n(x) Kusimamia maendeleo ya makazi vijijini na mijini kwa kushirikiana na Wizara yenye dhamana ya ardhi.",
+   "attachments": []
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition-services",
+   "menu_path": "Administration > Division > Health, Social Welfare and Nutrition Services",
+   "title": " Health, Social Welfare and Nutrition Services",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services",
+   "public_url": "https://moshimc.go.tz/health-social-welfare-and-nutrition-services",
+   "createdAt": "2026-03-06T12:50:17.360Z",
+   "updatedAt": "2026-03-09T11:43:22.528Z",
+   "text_en": "Objective\nTo provide quality health, social welfare and nutrition services for community well-being\nFunctions\nTo supervise implementation of policies, laws and procedures on provision of\nhealth, social welfare and nutrition services;\n(ii) To prepare short and long term plans and programs for health sector in the Council;\n(iii) To promote participation of various players in health, social welfare and nutrition\nactivities;\n(iv) To prepare and submit reports on health, social welfare and nutrition services to\nrelevant authorities;\n(v) To develop strategies for control of communicable and non-communicable\ndiseases;\n(vi) To manage health, social welfare and nutrition projects; and\n(vii) To manage database of for health, social welfare and nutrition services related\nmatters.",
+   "text_sw": "Lengo: Kutoa huduma bora za afya, ustawi wa jamii na lishe kwa ustawi wa jamii.\nKazi\nDivisheni itafanya kazi zifuatazo:-\n(i) Kusimamia utekelezaji wa sera, sheria na taratibu za utoaji wa huduma za afya, ustawi wa jamii na lishe;\n(ii) Kuandaa mipango na programu za muda mfupi na mrefu za sekta ya afya katika Halmashauri;\n(iii) Kukuza ushiriki wa wadau mbalimbali katika shughuli za afya, ustawi wa jamii na lishe;\n(iv) Kutayarisha na kuwasilisha taarifa za huduma za afya, ustawi wa jamii na lishe kwa mamlaka husika;\n(v) Kuweka mikakati ya kudhibiti magonjwa ya kuambukiza na yasiyoambukiza;\n(vi) Kusimamia miradi ya afya, ustawi wa jamii na lishe; na\n(vii) Kusimamia kanzidata ya masuala ya afya, ustawi wa jamii na huduma za lishe.\nDivisheni hii kitaongozwa na Mkuu ambaye pia atakuwa Mganga Mkuu wa Halmashauri (CMoH).\nDivisheni itakuwa na Sehemu tatu (3) kama ifuatavyo:-\n(i) Sehemu ya Huduma za Afya;\n(ii) Sehemu ya Ustawi wa Jamii; na\n(iii) Sehemu ya Huduma za Lishe .",
+   "attachments": []
+  },
+  {
+   "slug": "industry-trade-and-investments",
+   "menu_path": "Administration > Division > Industry, Trade and Investments",
+   "title": "Industry, Trade and Investments",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/industry-trade-and-investments",
+   "public_url": "https://moshimc.go.tz/industry-trade-and-investments",
+   "createdAt": "2026-03-06T12:53:33.296Z",
+   "updatedAt": "2026-03-09T11:10:37.527Z",
+   "text_en": "The Division will perform the following functions:-\n(i) To coordinate implementation of policies, laws, regulations and procedures\nrelated to industry, trade, marketing and investment;\n(ii) To promote industrial, trade, marketing and investments in the Council;\n(iii) To plan for and develop industrial sites and parks in collaboration with other key\nplayers;\n(iv) To plan incentives for industrial, trade, marketing and investment promotion;\n(v) To promote advancement of Small and Medium Enterprises (SMEs);\n(vi) To develop investment proposals and projects;\n(vii) To advance measures for private sector development;\n(viii) To establish and manage database for industrial, trade, marketing and\ninvestments;\n(ix) To oversee management of one stop business centres;\n(x) To undertake research on investment promotion;\n(xi) To coordinate business forum;\n(xii) To administer auctions and markets activities in the Council;\n(xiii) To implement Business Development Strategy for small vendors and small\nbusiness providers; and\n(xiv) To provide conducive Business and investment Environment in order to promote\nBusiness and Investment.",
+   "text_sw": "Idara inatekeleza majukumu yafuatayo:-\n(i) Kuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazohusiana na viwanda, biashara, masoko na uwekezaji;\n(ii) Kukuza viwanda, biashara, masoko na uwekezaji katika Halmashauri;\n(iii) Kupanga na kuendeleza maeneo na viwanja vya viwanda kwa kushirikiana na wadau wengine muhimu;\n(iv) Kupanga motisha na vivutio vya kukuza viwanda, biashara, masoko na uwekezaji;\n(v) Kukuza maendeleo ya Biashara Ndogo na Kati (SMEs);\n(vi) Kuandaa mapendekezo na miradi ya uwekezaji;\n(vii) Kukuza hatua za maendeleo ya sekta binafsi;\n(viii) Kuanzisha na kusimamia hifadhidata (database) ya viwanda, biashara, masoko na uwekezaji;\n(ix) Kusimamia uendeshaji wa vituo vya huduma za biashara (one stop business centres);\n(x) Kufanya utafiti juu ya kukuza uwekezaji;\n(xi) Kuratibu jukwaa la biashara (business forum);\n(xii) Kusimamia shughuli za mnada na masoko katika Halmashauri;\n(xiii) Kutekeleza Mkakati wa Maendeleo ya Biashara kwa wauzaji wadogo na watoa huduma wa biashara ndogo; na\n(xiv) Kutoa mazingira yanayofaa ya biashara na uwekezaji ili kukuza biashara na uwekezaji.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education",
+   "menu_path": "Administration > Division > Pre-Primary and Primary Education",
+   "title": "Pre-Primary and Primary Education",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/pre-primary-and-primary-education",
+   "public_url": "https://moshimc.go.tz/pre-primary-and-primary-education",
+   "createdAt": "2026-03-06T12:56:39.229Z",
+   "updatedAt": "2026-03-09T12:19:40.271Z",
+   "text_en": "Objective\nTo plan and supervise implementation of policies, laws and circulars on provision of preprimary,\nprimary, special needs and non-formal education\nFunctions\nThe Division will perform the following functions:-\n(i) To plan for acquisition, distribution and use of resources in primary schools;\n(ii) To supervise administration of continuous assessments and primary schools\nNational Examinations;\n(iii) To supervise the delivery of adult and non-formal education at pre – primary and primary\nlevel;\n(iv) To coordinate life skills education in primary schools;\n(v) To conduct needs assessment for special needs, adult and non-formal education;\n(vi) To provide advice on establishment and maintenance of special needs, adult and\nnon-formal education centres;\n(vii) To monitor implementation of primary education plans and programs;\n(viii) To create and maintain database on pre-primary and primary education; and\n(ix) To coordinate and supervise sports and games activities in primary schools",
+   "text_sw": "Jukumu :Kupanga na kusimamia utekelezaji wa sera, sheria na waraka kuhusu utoaji wa Elimu ya Awali, Msingi, Mahitaji Maalum na Elimu isiyo rasmi.\nKazi\nDivisheni itafanya kazi zifuatazo:-\n(i) Kupanga upatikanaji, usambazaji na matumizi ya rasilimali katika shule za msingi;\n(ii) Kusimamia upimaji endelevu na Mitihani ya Taifa ya shule za msingi;\n(iii) Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya awali na msingi;\n(iv) Kuratibu elimu ya stadi za maisha katika shule za msingi;\n(v) Kufanya tathmini ya mahitaji ya mahitaji maalum, elimu ya watu wazima na elimu isiyo rasmi;\n(vi) Kutoa ushauri kuhusu uanzishaji na matengenezo ya vituo vya elimu ya watu wazima na visivyo rasmi vyenye mahitaji maalum;\n(vii) Kufuatilia utekelezaji wa mipango na programu za elimu ya msingi;\n(viii) Kuunda na kutunza hifadhidata ya elimu ya awali na msingi; na\n(ix) Kuratibu na kusimamia shughuli za michezo na michezo katika shule za msingi.",
+   "attachments": []
+  },
+  {
+   "slug": "secondary-education",
+   "menu_path": "Administration > Division > Secondary Education",
+   "title": "Secondary Education",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/secondary-education",
+   "public_url": "https://moshimc.go.tz/secondary-education",
+   "createdAt": "2026-03-06T13:06:56.500Z",
+   "updatedAt": "2026-03-09T12:41:19.896Z",
+   "text_en": "Objective\nTo coordinate implementation of secondary education policies, plans, laws and\ncirculars and guidelines.\nFunctions\nThe Division will perform the following functions: -\n(i) To supervise the administration of continuous assessments and national form two,\nfour and six examinations;\n(ii) To conduct monitoring and evaluation on implementation of secondary education\nplans and programs;\n(iii) To supervise delivery of adult and non-formal education at secondary level;\n(iv) To create and maintain database on secondary education;\n(v) To coordinate life skills education in secondary schools;\n(vi) To coordinate and supervise secondary schools’ sports and games;\n(vii) To conduct needs assessment for special needs, adult and non-formal education;\nand\n(viii) To provide advice on establishment and maintenance of special needs, adult and\nnon-formal education centres.",
+   "text_sw": "Jukumu :Kuratibu utekelezaji wa sera, mipango, sheria na miongozo ya elimu ya sekondari.\nKazi\nDivisheni itafanya kazi zifuatazo:-\n(i) Kusimamia usimamizi wa upimaji endelevu na mitihani ya taifa ya kidato cha pili, cha nne na cha sita;\n(ii) Kufanya ufuatiliaji na tathmini ya utekelezaji wa mipango na programu za elimu ya sekondari;\n(iii) Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya sekondari;\n(iv) Kuunda na kutunza hifadhi data ya elimu ya sekon(vi) Kuratibu na kusimamia michezo na michezo ya shule za sekondari;\n(vii) Kufanya tathmini ya mahitaji ya mahitaji maalum, elimu ya watu wazima na elimu isiyo rasmi; na\n(viii) Kutoa ushauri juu ya uanzishaji na matengenezo ya vituo vya elimu ya watu wazima na visivyo rasmi.\nDivisheni hii itaongozwa na Mkuu na itajumuisha Sehemu nne (4) kama ifuatavyo:-\n(i) Sehemu ya Taaluma;\n(ii) Sehemu ya Takwimu na Lojistiki/Vielelezo;\n(iii) Sehemu ya Elimu ya Mahitaji Maalum; na\n(iv) Sehemu ya Elimu ya Watu Wazima na Wasio Rasmi.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development",
+   "menu_path": "Administration > Division > Community Development",
+   "title": "Community Development",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/community-development",
+   "public_url": "https://moshimc.go.tz/community-development",
+   "createdAt": "2026-03-06T13:11:18.197Z",
+   "updatedAt": "2026-03-09T12:05:14.377Z",
+   "text_en": "Objective\nTo supervise community development activities in LGA.\nFunctions\nThe Division will perform the following functions: -\n(i) To analyze, interpret and supervise implementation of policies, laws and\nprocedures related to community development;\n(ii) To facilitate communities to initiate, plan, implement and evaluate their own\nprograms and projects;\n(iii) To prepare short and long term plans and projects in community development\nat LGA level;\n(iv) To conduct research and recommend on how to deal with various problems of\ndevelopment that uphold community development in collaboration with the\nMinistry responsible with community development and other stakeholders;\n23\n(v) To regulate and supervise operations of Microfinance services providers tier\nfour under directives of Bank of Tanzania (BOT);\n(vi) To coordinate and manage economic development activities for women,\nchildren and persons with disabilities;\n(vii) To coordinate provision of training on poverty alleviation, AIDS, drugs and\ngender equality;\n(viii) To coordinate and monitor NGOs and CBOs activities in community\ndevelopment; and\n(ix) To coordinate and manage community development activities in LGA.\nThis Division will be led by a Head and will comprise of two (2) Sections as follows:-\n(i) Cross-cutting Issues Coordination Section; and\n(ii) NGOs and CBOs Coordination Section.\n3.6.1 Cross-cutting Issues Coordination Section\nThe Section will perform the following activities:-\n(i) Analyze, interpret and supervise implementation of policies, laws and\nprocedures related to community development;\n(ii) Supervise the implementation of plans and projects for Community\nDevelopment;\n(iii) Prepare short and long term plans and projects for Community Development;\n(iv) Conduct research and recommend on dealing with various development\nproblems;\n(v) Coordinate and manage the development of women and children; and persons\nwith disabilities;\n(vi) Coordinate and provide training methods, help liberate society from poverty,\nAIDS, drugs and advocating gender equality;\n(vii) Promote community participation and volunteerism in development\nproject/program;\n(viii) Coordinate and participate on awareness creation concerning community\nparticipation in",
+   "text_sw": "1.6 DIVISHENI YA MAENDELEO YA JAMII\nLengo : Kusimamia shughuli za Maendeleo ya Jamii katika Halmashauri.\nDivisheni itafanya kazi zifuatazo:-\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na maendeleo ya jamii;\n(ii) Kuwezesha jamii kuanzisha, kupanga, kutekeleza na kutathmini programu na miradi yao wenyewe;\n(iii) Kuandaa mipango na miradi ya muda mfupi na mrefu katika maendeleo ya jamii katika ngazi ya Halmashauri;\n(iv) Kufanya utafiti na kupendekeza namna ya kushughulikia matatizo mbalimbali ya maendeleo yanayosimamia maendeleo ya jamii kwa kushirikiana na Wizara yenye dhamana na maendeleo ya jamii na wadau wengine;\n(v) Kuratibu na kusimamia utendaji kazi wa watoa huduma wa Taasisi Ndogo za Fedha daraja la nne chini ya maelekezo ya Benki Kuu ya Tanzania (BOT);\n(vi) Kuratibu na kusimamia shughuli za maendeleo ya kiuchumi kwa wanawake, watoto na watu wenye ulemavu;\n(vii) Kuratibu utoaji wa mafunzo ya kuondoa umaskini, UKIMWI, dawa za kulevya na usawa wa kijinsia;\n(viii) Kuratibu na kufuatilia shughuli za NGOs na CBOs katika maendeleo ya jamii; na\n(ix) Kuratibu na kusimamia shughuli za Maendeleo ya Jamii katika Halmashauri.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-and-fisheries",
+   "menu_path": "Administration > Division > Agriculture, Livestock and Fisheries",
+   "title": "Agriculture, Livestock and Fisheries",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries",
+   "public_url": "https://moshimc.go.tz/agriculture-livestock-and-fisheries",
+   "createdAt": "2026-03-06T13:17:17.158Z",
+   "updatedAt": "2026-03-09T12:52:21.050Z",
+   "text_en": "Objective\nTo promote transformation and development of agriculture, irrigation, livestock, and\nfisheries.\nFunctions\nThe Division will perform the following functions:-\n(i) To analyze, interpret and supervise implementation of Policy, Laws and\nRegulation of agriculture, irrigation, Livestock and Fisheries;\n(ii) To propose standards and prices of products and services from agriculture,\nlivestock and fisheries;\n(iii) To prepare short and long plans and programs on development of agriculture,\nirrigation, livestock and fisheries;\n(iv) To oversee promotion and governance of cooperatives in the Council;\n(v) To provide technical advice to stakeholders concerned with agriculture, irrigation,\nlivestock and fisheries;\n(vi) To prepare reports on agriculture, irrigation, livestock and fisheries; and\n(vii) To supervise collection and control of revenue from agriculture, irrigation,\nlivestock and fisheries activities.",
+   "text_sw": "Lengo: Kukuza mageuzi na maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\nDivisheni itafanya kazi zifuatazo:-\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa Sera, Sheria na Udhibiti wa kilimo, umwagiliaji, Mifugo na Uvuvi;\n(ii) Kupendekeza viwango na bei za bidhaa na huduma zitokanazo na kilimo, mifugo na uvuvi;\n(iii) Kuandaa mipango na programu fupi na ndefu za maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi;\n(iv) Kusimamia uendelezaji na utawala bora wa vyama vya ushirika katika Halmashauri;\n(v) Kutoa ushauri wa kitaalamu kwa wadau wanaohusika na kilimo, umwagiliaji, mifugo na uvuvi;\n(vi) Kuandaa taarifa za kilimo, umwagiliaji, mifugo na uvuvi; na\n(vii) Kusimamia ukusanyaji na udhibiti wa mapato ya shughuli za kilimo, umwagiliaji, mifugo na uvuvi.",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination",
+   "menu_path": "Administration > Division > Planning and Coordination",
+   "title": "Planning and Coordination ",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/planning-and-coordination",
+   "public_url": "https://moshimc.go.tz/planning-and-coordination",
+   "createdAt": "2026-03-06T13:25:13.333Z",
+   "updatedAt": "2026-03-09T12:10:31.313Z",
+   "text_en": "Objective\nTo provide expertise and services in planning, budgeting, monitoring and evaluation.\nFunctions\n(i) To prepare mid and long term strategies, plans and budget;\n(ii) To monitor and evaluate implementation of strategies, plans and budget;\n(iii) To prepare and review LGA’s economic profile;\n(iv) To coordinate implementation of private sector participation;\n30\n(v) To coordinate data collection, analysis, interpretation and Storage to LGAs;\n(vi) To provide technical advice on monitoring and evaluation processes;\n(vii) Coordinate Council Disaster Management; and\n(viii) To coordinate LGA’s activities implemented by other institutions such as land\nand water.",
+   "text_sw": "Lengo :Kutoa utaalamu na huduma zinazohusiana na Mipango, Bajeti, Ufuatiliaji na Tathmini.\nDivisheni hii itafanya kazi zifuatazo: -\n(i) Kuandaa mikakati, mipango na bajeti ya muda wa kati na mrefu;\n(ii) Kusimamia na kutathmini utekelezaji wa mikakati, mipango na bajeti;\n(iii) Kutayarisha na kupitia upya wasifu wa kiuchumi wa Halmashauri;\n(iv) Kuratibu utekelezaji wa ushiriki wa sekta binafsi;\n(v) Kuratibu ukusanyaji, uchambuzi, tafsiri na Uhifadhi wa takwimu kwa Halmashauri;\n(vi) Kutoa ushauri wa kitaalamu kuhusu michakato ya ufuatiliaji na tathmini;\n(vii) Kuratibu Menejimenti ya Maafa ya Halmashauri; na\n(viii) Kuratibu shughuli za Halmashauri zinazotekelezwa na taasisi nyingine kama vile ardhi na maji.",
+   "attachments": []
+  },
+  {
+   "slug": "organizational-stucture",
+   "menu_path": "Administration > Organization Structure > Organization Stucture",
+   "title": "Organizational Stucture",
+   "api_url": "https://moshimc.go.tz/api/pages/slug/organizational-stucture",
+   "public_url": "https://moshimc.go.tz/organizational-stucture",
+   "createdAt": "2026-03-04T09:22:20.359Z",
+   "updatedAt": "2026-03-04T11:04:34.987Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": [
+    {
+     "file_name": "ORGANISATION STRUCTURE.pdf",
+     "url": "http://moshimc.go.tz/minio/moshimc.go.tz/attachments/1772616140365-ORGANISATION%20STRUCTURE.pdf",
+     "file_type": "application/pdf",
+     "file_size": "618179"
+    }
+   ]
+  }
+ ],
+ "files": [
+  {
+   "name": "Utaratibu wa Usimamizi wa Nyaraka za Ofisi",
+   "date": "2026-03-05T09:05:05.888Z",
+   "url": "http://moshimc.go.tz/minio/moshimc.go.tz/files/1772701505740-USER%20ACCSES%20FORM%20%20YA%20MIFUMO.pdf",
+   "file_type": "application/pdf",
+   "size": "100216"
+  }
+ ],
+ "news": [
+  {
+   "id": 3909,
+   "title": "Manispaa ya Moshi Yasaini Mkataba wa Bilioni 2.15 Kukamilisha Uwanja wa Majengo kwa Viwango vya FIFA",
+   "date": "2026-05-15",
+   "category": "Habari",
+   "listing_url": "https://moshimc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1199,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 774,
+   "title": "MKUU WA WILAYA AHIMIZA UWAJIBIKAJI KAZINI",
+   "date": "2026-03-04",
+   "category": "Matukio",
+   "listing_url": "https://moshimc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 178,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 953,
+   "title": "TANGAZO LA KUITWA KWENYE USAILI",
+   "date": "2026-09-15",
+   "category": "Ajira",
+   "listing_url": "https://moshimc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 295,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA KUITWA KWENYE USAILI AJIRA ZA MKATABA.pdf"
+   ]
+  },
+  {
+   "id": 844,
+   "title": "TANGAZO LA NAFASI 100 ZA KAZI YA MUDA YA KUKUSANYA MAPATO KATIKA VYA VYANZO MBALIMBALI VYA MAPATO.",
+   "date": "2026-08-14",
+   "category": "Taarifa",
+   "listing_url": "https://moshimc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 210,
+   "convening_tags": [],
+   "attachments": [
+    "Tangazo la nafasi 100 za Mkataba .pdf"
+   ]
+  },
+  {
+   "id": 609,
+   "title": "TANGAZO LA KUITWA KWENYE USAILI MANISPAA YA MOSHI",
+   "date": "2026-06-08",
+   "category": "Ajira",
+   "listing_url": "https://moshimc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 247,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA USAILI MANISPAA YA MOSHI - JUNE 2026.pdf"
+   ]
+  },
+  {
+   "id": 201,
+   "title": "ANNOUNCEMENT",
+   "date": "2026-03-06",
+   "category": "Ripoti",
+   "listing_url": "https://moshimc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 360,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://moshimc.go.tz/api/profiles": "6d1c4af3e05aa54ad74ec8801e6048150278c999b06bd0b9dafc265684d350dc",
+  "https://moshimc.go.tz/api/statistics": "2dd777d875111e8104373800e9e2f43b5e35f110baa3551dcbd8f80bad521cd2",
+  "https://moshimc.go.tz/api/footer": "64d8ba279480204820ce6e22cb94ec84edfc0d053a709b59c8b72a73375df8ba",
+  "https://moshimc.go.tz/api/menus": "8e1e46f76f6dd9678b02bd8e4ed895e57dad5b9b26c09b92f761a26bd2379bd5",
+  "https://moshimc.go.tz/api/pages/slug/history": "b641062c1106effe38da3b1b6c981d4d5c9dbabca833b5a15eae38ea2c86768a",
+  "https://moshimc.go.tz/api/pages/slug/vision-and-mission": "054119d1a29e310857a0a50bb66d8ef5b36d0f92498d0186e0c3a7aa19aff1aa",
+  "https://moshimc.go.tz/api/pages/slug/human-resource-management-and-administration": "d44841bff961c9c2adda5a6f5755d1556870fb7d37a7e99cca2468392fb9100d",
+  "https://moshimc.go.tz/api/pages/slug/infrastructure-rural-and-urban-development": "2747367416d6e3adf6ec6e24539bd2743f13528dc72532ec00abfcd0cc08aba6",
+  "https://moshimc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services": "e8b91901b90caca6301d62fbf1e0769d951b6eff3b00f91a92f88e87c3734c6b",
+  "https://moshimc.go.tz/api/pages/slug/industry-trade-and-investments": "732fcf8f1fe0285cd6672e2d60c360731cffa944514f0d85e7bf78af9a332c73",
+  "https://moshimc.go.tz/api/pages/slug/pre-primary-and-primary-education": "af913cabb4b3270e2fbb5978c6b472ce6c05865c793422f8c5d13f2a6f20325a",
+  "https://moshimc.go.tz/api/pages/slug/secondary-education": "2e973dd8136d8d8154f8bb3256e2f2856f81d95dbbef553ddafc4a77b8f0a880",
+  "https://moshimc.go.tz/api/pages/slug/community-development": "d8feae13ad7a1d3e0927b45c43a76a2ea1e2f7b72d676204c3cc358ab71bbaed",
+  "https://moshimc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries": "7b5aa831373ee8634d2e5ec93bc93db99029326376997df2ca4d4e137a2a3c72",
+  "https://moshimc.go.tz/api/pages/slug/planning-and-coordination": "4d8ea31f6c4d17e773a48b8c215834ad1630d3e34b80f9d363ddbaa4c5cf1d98",
+  "https://moshimc.go.tz/api/pages/slug/organizational-stucture": "63dcadc6754e231ffd4f610afe42e47d89f55e617427a4f74e4fc5995927d2e6",
+  "https://moshimc.go.tz/api/files?page=1&limit=100": "72941c279d893ae18a19f9f292c9d3b5e5e1d10f521bfbb3c1e1523a967a5d98",
+  "https://moshimc.go.tz/api/news?page=1&limit=50": "9dff2036461ca80bef6c9fb84b3f699a4c0e3505d4163ab25a88b85b7cc8651c",
+  "https://moshimc.go.tz/api/announcements?page=1&limit=50": "0e37a980e557d37b172cd2d51605f84238f11e0903c73fb5ff09c5dee70f264e"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

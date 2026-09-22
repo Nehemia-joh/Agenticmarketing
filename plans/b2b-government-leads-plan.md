@@ -2,7 +2,7 @@
 
 **Prepared:** 22 September 2026
 
-**Status:** Plan only. No code, schema or data has changed. Sending and automations remain disabled.
+**Status:** Plan. A first research run exists as a separate run (§10); the master, its schema and the shared intake contract are unchanged. Sending and automations remain disabled.
 
 **Method:** Structured on the Standard Feature Work Methodology shared on 22 September 2026: study, confirm scope, plan, implement, test, document, close the loop. That text is not currently in the repository; the welfare plan's Phase 0 proposes the infrastructure it assumes.
 
@@ -464,6 +464,39 @@ Finally, regenerate the schema snapshot and add any new learnings.
 7. **Elected leaders:** can they be primary contacts, or only through their executive officers?
 8. **Photography:** what is the policy at community events?
 9. **Test commands:** npm or Yarn? This is the same decision as in the welfare plan.
+
+## 10. First run (23 September 2026)
+
+**What exists now.** The first run, `arusha-government-2026-09`, was built as a separate run: its own database and workbook under `outputs/runs/arusha-government-2026-09/`, with the company master unchanged. Its scripts live in `scripts/government/`, with an identical copy bundled in the `silverleaf-government-leads` skill, and every input is committed, so the run rebuilds without network calls. It needed no web search.
+
+| Built | Count |
+|---|---:|
+| Convening offices | 149: 9 councils, 128 wards, 2 mapped village offices, 7 district and 3 regional offices |
+| Proposed GA01 (protocol introduction) | 4: Arusha City, Arusha District, Meru and Hai councils |
+| Official posts | 459, of which 66 name a holder as the office publishes it |
+| Wards with 2022 census population | 221 across 10 councils; 113 within 25 km of a campus (1.75 million residents), scored and ranked by campus cluster |
+| Office triage | 42 OpenStreetMap entries (7 exclusions logged) and the master's 29 `office:government` records, grouped as §2.1 proposes |
+| Review items | 63 |
+
+**How it differs from §5 and §7.** These choices keep the run separate until Phase 0 and migration 0003 exist:
+- The four tables in §5.2 live in the run database, added by `scripts/government/augment_government_db.py`, not by the create skill's initializer. Administrative units are a side table, not an intake record type.
+- Proposed GA tracks and VM14–VM18 sit in extra intake columns, because the shared validator accepts only AQ tracks and VM01–VM07.
+- Collectors live in `scripts/government/` rather than `scripts/collection/`. The council sites are read through their public JSON API, so no browser capture was needed.
+- Workbook sheets follow the create skill's layout: Organisations holds the government offices and Contacts the official posts, alongside Administrative Units and Community Events.
+- Ward locations are estimates, because OpenStreetMap has no ward boundaries here; the rules are in the skill's data contract.
+
+**Findings that change the plan.**
+- **Councillor lists.** Hai publishes its ward councillors, and Arusha District publishes a scanned 2025–2030 list with phone numbers. Arusha City, Meru, Siha, Moshi District, Moshi Municipal, Monduli and Simanjiro do not publish ward-by-ward lists.
+- **Executive officers.** No council publishes the names or phones of its ward, village or mtaa executive officers, so GA02 depends on the GA01 introduction.
+- **Council contacts.** Only Moshi District and Moshi Municipal publish an email or postal address. The other councils publish their office location, so the GA01 letter goes by hand.
+- **Siha, Moshi District, Moshi Municipal, Monduli and Simanjiro** have wards inside the catchment (§5.1 asked `campus_geo` to show this). They are included on hold, outside the pilot.
+- **Master corrections** for the update skill: exclude the two CCM offices, the police station and the primary court; reclassify Njake Oil, Lutheran Center and Tumaini University Makumira Offices; the six local administration offices can move to `government_convener` after verification.
+
+**Next steps.**
+- Decisions 1–9 in §9 still gate any contact.
+- Send the GA01 letters to the four core councils once the Kiswahili letter is reviewed.
+- Ask each council for its ward councillor and executive officer lists and its meeting calendars.
+- Resolve the 15 unlocated core-council wards.
 
 ## Sources
 

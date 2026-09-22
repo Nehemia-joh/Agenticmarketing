@@ -1,0 +1,1368 @@
+{
+ "host": "sihadc.go.tz",
+ "organisation": "Siha District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://sihadc.go.tz",
+ "profiles": [
+  {
+   "id": 302,
+   "name": "Mhe. Duncan Urassa",
+   "title": "Hon. Council Chair Person of Siha District",
+   "titleSwahili": "Mwenyekiti wa Halmashauri ya Wilaya ya Siha",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-04T10:19:55.459Z",
+   "updatedAt": "2026-04-23T10:45:36.513Z"
+  },
+  {
+   "id": 298,
+   "name": "Bi. Hellen E. Mwambeta",
+   "title": "District Executive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji Wilaya",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-04T09:13:59.729Z",
+   "updatedAt": "2026-04-27T18:22:19.140Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "HOSPITAL",
+   "value": 1,
+   "suffix": ""
+  },
+  {
+   "label": "SECONDARY SCHOOLS",
+   "value": 20,
+   "suffix": ""
+  },
+  {
+   "label": "SECONDARY SCHOOLS",
+   "value": 4,
+   "suffix": ""
+  },
+  {
+   "label": "PRE-PRIMARY AND PRIMARY SCHOOLS",
+   "value": 62,
+   "suffix": ""
+  },
+  {
+   "label": "PRE-PRIMARY AND PRIMARY SCHOOLS",
+   "value": 16,
+   "suffix": ""
+  },
+  {
+   "label": "HEALTH CENTERS",
+   "value": 3,
+   "suffix": ""
+  },
+  {
+   "label": "Dispensary",
+   "value": 17,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Siha District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "wards",
+     "title": "Wards",
+     "swTitle": ""
+    }
+   ],
+   "keyServices": [],
+   "usefulLinks": [
+    {
+     "url": "https://sihadc.go.tz/",
+     "title": "Siha District Council",
+     "swTitle": "Halmashauri ya Wilaya ya Siha"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d131161.4743685172!2d36.99453126420464!3d-3.263258143264633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1837458a2cbf8c09%3A0x2121729d72e18948!2sSiha!5e0!3m2!1sen!2stz!4v1772534519249!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.233093,
+   "lng": 37.101936,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "Health Sector",
+   "title": "Health Sector",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-sector"
+  },
+  {
+   "path": "Health Sector > Health Sector",
+   "title": "Health Sector",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-sector"
+  },
+  {
+   "path": "Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "Our History > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "Our History > Vission and Mission",
+   "title": "Vission and Mission",
+   "title_sw": "Dira na Dhamira",
+   "slug": "vission-and-mission"
+  },
+  {
+   "path": "Our History > Vission and Mission > Vission and Mission",
+   "title": "Vission and Mission",
+   "title_sw": "Dira na Dhamira",
+   "slug": "vission-and-mission"
+  },
+  {
+   "path": "Our History > Core Values",
+   "title": "Core Values",
+   "title_sw": "Misingi Muhimu",
+   "slug": "core-values"
+  },
+  {
+   "path": "Our History > Core Values > Core Values",
+   "title": "Core Values",
+   "title_sw": "Misingi Muhimu",
+   "slug": "core-values"
+  },
+  {
+   "path": "Administration",
+   "title": "Administration",
+   "title_sw": "Utawala",
+   "slug": "administration"
+  },
+  {
+   "path": "Administration > Division > Administration and Human resources management",
+   "title": "Administration and Human resources management",
+   "title_sw": "Divisheni ya utawala na Rasilimali watu",
+   "slug": "administration"
+  },
+  {
+   "path": "Administration > Division > Agriculture, Livestock & Fisheries Division",
+   "title": "Agriculture, Livestock & Fisheries Division",
+   "title_sw": "Divisheni ya Kilimo, Mifugo na Uvuvi",
+   "slug": "agriculture-livestock-fisheries-division"
+  },
+  {
+   "path": "Administration > Division > Community Development Division",
+   "title": "Community Development Division",
+   "title_sw": "Divisheni ya Maendeleo ya Jamii",
+   "slug": "community"
+  },
+  {
+   "path": "Administration > Division > Pre Primary & Primary Education Division",
+   "title": "Pre Primary & Primary Education Division",
+   "title_sw": "Divisheni ya Elimu ya Awali na Elimu Msingi",
+   "slug": "pre-primary-and-primary-education"
+  },
+  {
+   "path": "Administration > Division > Planning & Coordination Division",
+   "title": "Planning & Coordination Division",
+   "title_sw": "Divisheni ya Mipango na Ufatiliaji",
+   "slug": "planning"
+  },
+  {
+   "path": "Administration > Division > Infrastructure, Rural and Urban Development Division",
+   "title": "Infrastructure, Rural and Urban Development Division",
+   "title_sw": "Idara ya Miundombinu, Maendeleo ya Vijijini na Mijini",
+   "slug": "division"
+  },
+  {
+   "path": "Administration > Unit > Election Unit",
+   "title": "Election Unit",
+   "title_sw": "Kitengo cha Uchaguzi",
+   "slug": "unit"
+  },
+  {
+   "path": "Administration > Unit > Monitoring and Evaluation Unit",
+   "title": "Monitoring and Evaluation Unit",
+   "title_sw": "Kitengo cha Ufatiliaji na Tathimini",
+   "slug": "unit"
+  },
+  {
+   "path": "Administration > Unit > Waste Management and Sanitation Unit",
+   "title": "Waste Management and Sanitation Unit",
+   "title_sw": "Kitengo cha Usimamizi wa Taka na Usafi wa Mazingira.",
+   "slug": "unit"
+  },
+  {
+   "path": "Administration > Unit > Sport Culture and Arts Unit",
+   "title": "Sport Culture and Arts Unit",
+   "title_sw": "Kitengo cha Michezo, Utamaduni na Sanaa.",
+   "slug": "unit"
+  },
+  {
+   "path": "Investment Opportunities > Tourism",
+   "title": "Tourism",
+   "title_sw": "Utalii",
+   "slug": "tourism"
+  },
+  {
+   "path": "Investment Opportunities > Tourism > Tourism",
+   "title": "Tourism",
+   "title_sw": "Utalii",
+   "slug": "tourism"
+  },
+  {
+   "path": "Investment Opportunities > Farming > Farming Areas",
+   "title": "Farming Areas",
+   "title_sw": "Maeneo ya Kilimo",
+   "slug": "agriculture-livestock-fisheries-division"
+  },
+  {
+   "path": "Councilors > Councilors List",
+   "title": "Councilors List",
+   "title_sw": "Orodha ya Waheshimiwa Madiwani",
+   "slug": "councilors-list"
+  },
+  {
+   "path": "Councilors > Councilors List > Councilors List",
+   "title": "Councilors List",
+   "title_sw": "Orodha ya Waheshimiwa Madiwani",
+   "slug": "councilors-list"
+  },
+  {
+   "path": "Councilors > Permanent committees",
+   "title": "Permanent committees",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "permanent-commitee"
+  },
+  {
+   "path": "Councilors > Permanent committees > Permanent Committees",
+   "title": "Permanent Committees",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "permanent-commitee"
+  },
+  {
+   "path": "Our Services > Health Sector",
+   "title": "Health Sector",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-sector"
+  },
+  {
+   "path": "Our Services > Health Sector > Siha District Hospital",
+   "title": "Siha District Hospital",
+   "title_sw": "Hospitali ya Wilaya Siha",
+   "slug": "health-sector"
+  },
+  {
+   "path": "Projects > Complete project",
+   "title": "Complete project",
+   "title_sw": "Miradi iliyokamilika",
+   "slug": "complete-projects"
+  },
+  {
+   "path": "Projects > Complete project > WIRI PRE AND PRIMARY SCHOOL",
+   "title": "WIRI PRE AND PRIMARY SCHOOL",
+   "title_sw": "SHULE YA AWALI NA MSINGI WIRI",
+   "slug": "complete-projects"
+  },
+  {
+   "path": "Projects > Complete project > SANYA JUU PRE AND PRIMARY SCHOOL",
+   "title": "SANYA JUU PRE AND PRIMARY SCHOOL",
+   "title_sw": "SHULE MPYA YA AWALI NA MSINGI SANYA JUU",
+   "slug": "new-matadi-pre-and-primary-school"
+  },
+  {
+   "path": "Projects > Complete project > OLKOLILI PRE AND PRIMARY SCHOOL",
+   "title": "OLKOLILI PRE AND PRIMARY SCHOOL",
+   "title_sw": "SHULE YA AWALI NA MSINGI OLKOLILI",
+   "slug": "olkolili-pre-and-primary-school"
+  },
+  {
+   "path": "Projects > Complete project > SIKIRARI SEKONDARI SCHOOL",
+   "title": "SIKIRARI SEKONDARI SCHOOL",
+   "title_sw": "SHULE YA SEKONDARI SIKIRARI",
+   "slug": "sikirari-secondary-school"
+  },
+  {
+   "path": "Projects > Complete project > FUKA PRE AND PRIMARY SCHOO",
+   "title": "FUKA PRE AND PRIMARY SCHOO",
+   "title_sw": "SHULE YA AWALI NA MSINGI FUKA",
+   "slug": "fuka-pre-and-primary-school"
+  },
+  {
+   "path": "Projects > Complete project > SIHA ONE SEKONDARY SCHOOL",
+   "title": "SIHA ONE SEKONDARY SCHOOL",
+   "title_sw": "SHULE YA SEKONDARI SIHA ONE",
+   "slug": "siha-one-sekondary-school"
+  },
+  {
+   "path": "Projects > Ongoing Projects > ORMELLI OPD BUILDING (OPD - Outpatient Department",
+   "title": "ORMELLI OPD BUILDING (OPD - Outpatient Department",
+   "title_sw": "JENGO LA OPD KATA YA ORMELILI",
+   "slug": "ormelli-opd-building-opd-outpatient-department"
+  },
+  {
+   "path": "Magazine > Online Magazine",
+   "title": "Online Magazine",
+   "title_sw": "Jarida Mtandao",
+   "slug": "july-2026-online-magazine"
+  },
+  {
+   "path": "Magazine > Online Magazine > July 2026 Online Magazine",
+   "title": "July 2026 Online Magazine",
+   "title_sw": "Jarida Mtandao Julai 2026",
+   "slug": "july-2026-online-magazine"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "Our History",
+   "title": "Our History",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://sihadc.go.tz/our-history",
+   "createdAt": "2026-03-04T10:36:14.581Z",
+   "updatedAt": "2026-03-06T07:29:30.381Z",
+   "text_en": "Siha District was officially established on 1 July 2007 under the Local Government Act No. 7 of 1982. It was formed by splitting from Hai District to enhance administrative efficiency and service delivery. The name “Siha” is derived from a prominent local river, Mto wa Siha, which flows from Mount Kilimanjaro and has historically supported agriculture and settlement in the area. Siha encompasses the Shira Plateau, one of the three volcanic cones of Mount Kilimanjaro. This gives the district a unique ecological and touristic value, contributing to its nickname “West Kili.” The district headquarters is located in Sanya Juu, a growing town that serves as the administrative and commercial hub.\nGeographical Location\nSiha District is located on the western slopes of Mount Kilimanjaro in northern Tanzania, within Kilimanjaro Region. It borders Meru district in Arusha Region to the west and Hai and Rombo Districts to the east and northeast. Siha lies along the Arusha–Moshi highway, making it a transit corridor between Kilimanjaro and Arusha Regions. The district lies between Latitude of 3°11′11″ South and Longitude: 37°04′07″ East.",
+   "text_sw": "Wilaya ya Siha ilianzishwa rasmi tarehe 1 Julai 2007 kwa mujibu wa Sheria ya Serikali za Mitaa Na. 7 ya mwaka 1982. Iliundwa baada ya kugawanywa kutoka Wilaya ya Hai kwa lengo la kuboresha ufanisi wa kiutawala na utoaji wa huduma kwa wananchi. Jina “Siha” limetokana na mto maarufu wa eneo hilo unaoitwa Mto wa Siha, unaotiririka kutoka Mlima Kilimanjaro na ambao kwa muda mrefu umechangia shughuli za kilimo na makazi ya watu.\nWilaya ya Siha inajumuisha eneo la Tambarare za Shira, mojawapo ya koni tatu za volkeno za Mlima Kilimanjaro. Hali hii huipa wilaya umuhimu wa kipekee kiikolojia na kitalii, jambo linalochangia kuitwa kwa jina la utani “West Kili.” Makao makuu ya wilaya yapo Sanya Juu, mji unaokua kwa kasi ambao ni kitovu cha shughuli za kiutawala na kibiashara.\nEneo la Kijiografia\nWilaya ya Siha ipo kwenye miteremko ya magharibi ya Mlima Kilimanjaro, kaskazini mwa Tanzania, ndani ya Mkoa wa Kilimanjaro. Inapakana na Wilaya ya Meru (Mkoa wa Arusha) upande wa magharibi, na Wilaya za Hai na Rombo upande wa mashariki na kaskazini-mashariki. Siha ipo kandokando ya barabara kuu ya Arusha–Moshi, hivyo kuwa njia muhimu ya mawasiliano kati ya Mikoa ya Kilimanjaro na Arusha. Kijiografia, wilaya ipo katika latitudo 3°11′11″ Kusini na longitudo 37°04′07″ Mashariki.",
+   "attachments": []
+  },
+  {
+   "slug": "vission-and-mission",
+   "menu_path": "Our History > Vission and Mission",
+   "title": "Vission and Mission",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/vission-and-mission",
+   "public_url": "https://sihadc.go.tz/vission-and-mission",
+   "createdAt": "2026-03-04T10:42:46.404Z",
+   "updatedAt": "2026-03-04T10:42:46.404Z",
+   "text_en": "Vision Statement of SIHA DC\nThe vision statement of Siha District Council is to be a council with high quality services, for sustainable development.\nMission Statement of SIHA DC\nThe mission statement defines Siha District Council core purpose, operational focus and approach to fulfilling its vision. The Mission of Siha District Council is “To promote sustainable development through effective resources utilization, community participation, gender equality, environmental management, accountability and transparency.",
+   "text_sw": "Dira ya Halmashauri ya Wilaya ya Siha (SIHA DC)\nDira ya Halmashauri ya Wilaya ya Siha ni kuwa halmashauri inayotoa huduma bora zenye viwango vya juu kwa ajili ya kufanikisha maendeleo endelevu kwa jamii.\nDhima ya Halmashauri ya Wilaya ya Siha (SIHA DC)\nDhima ya Halmashauri ya Wilaya ya Siha inaeleza lengo kuu, mwelekeo wa utekelezaji na namna ya kufikia dira yake. Halmashauri inalenga kuhamasisha na kusimamia maendeleo endelevu kwa kutumia rasilimali zilizopo kwa ufanisi, kushirikisha wananchi katika maamuzi na utekelezaji, kuzingatia usawa wa kijinsia, kulinda na kutunza mazingira, pamoja na kuimarisha uwajibikaji na uwazi katika utoaji wa huduma.",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "Our History > Core Values",
+   "title": "Core Values",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://sihadc.go.tz/core-values",
+   "createdAt": "2026-03-04T10:49:36.457Z",
+   "updatedAt": "2026-03-04T10:49:36.457Z",
+   "text_en": "Core Values of SIHA DC\nThe core values guide Siha DC organizational culture, employee behavior, and decision making, ensuring consistency, integrity and excellence in service delivery. Siha DC is guided by core values that defines its organizational culture and direct the conduct of all employees. These values reflect our commitment to excellence, Integrity, accountability, transparency, effectiveness and efficiency, continuous learning in delivering high quality services. They serve as the foundation for achieving Siha DC vision and mission while fostering accountability, transparency and continuous improvement across all operations.\nIntegrity By conducting duties with honest, ethical behavior and respect for the law, ensuring that public trust is upheld at all time.\nAccountability Shall guide the way the district council will be discharging its responsibilities and therefore its accountability for the outcomes.\nTransparency Shall guide the practice of openness in decision making and the provision of services by the council.\nEffectiveness and efficiency Effectiveness by being output-oriented, striving to deliver high standards for work and aiming at choosing activities that delivery utility to customers and clients – doing the “right” things; Efficiency by consciously aiming at using resources in the most efficient way, saving to deliver services at minimum cost and time, and constantly improving the way it works – doing things “right”\nContinuous Learning Is a conviction of Siha District Council taking cognizant that knowledge will never be complete and this can be realized through collaborative and continuous learning from other organization and councils.",
+   "text_sw": "Maadili ya Msingi ya Halmashauri ya Wilaya ya Siha (SIHA DC)\nMaadili ya msingi ya Halmashauri ya Wilaya ya Siha yanaongoza utamaduni wa taasisi, mwenendo wa watumishi na mchakato wa maamuzi, ili kuhakikisha uwiano, uadilifu na ubora katika utoaji wa huduma. Maadili haya yanaakisi dhamira ya halmashauri katika kufikia viwango vya juu vya utendaji, kwa kuzingatia uadilifu, uwajibikaji, uwazi, ufanisi na kujifunza endelevu. Ni msingi muhimu wa kutekeleza dira na dhima ya halmashauri, huku yakihamasisha uwajibikaji na maboresho ya mara kwa mara katika shughuli zote.\n1. Uadilifu\nHalmashauri inatekeleza majukumu yake kwa uaminifu, maadili mema na kwa kuheshimu sheria, ili kulinda na kudumisha imani ya wananchi wakati wote.\n2. Uwajibikaji\nHalmashauri inaongozwa na wajibu wa kuwajibika kikamilifu kwa matokeo ya maamuzi na utekelezaji wa majukumu yake, kwa manufaa ya jamii inayohudumiwa.\n3. Uwazi\nHalmashauri inahakikisha kuwepo kwa uwazi katika mchakato wa kufanya maamuzi na katika utoaji wa huduma, ili wananchi wapate taarifa sahihi na kwa wakati.\n4. Ufanisi na Tija\nUfanisi : Halmashauri inalenga kufikia matokeo yaliyokusudiwa kwa kuzingatia viwango vya juu vya utendaji na kuchagua shughuli zenye manufaa kwa wateja na wananchi—yaani kufanya mambo sahihi.\nTija : Halmashauri hutumia rasilimali kwa umakini na kwa njia bora zaidi, ili kupunguza gharama na muda wa utoaji huduma, huku ikiendelea kuboresha utendaji wake—yaani kufanya mambo kwa usahihi.\n5. Kujifunza Endelevu\nHalmashauri inaamini kuwa maarifa hayana mwisho; hivyo inahimiza kujifunza kwa kushirikiana na taasisi na halmashauri nyingine ili kuboresha utendaji na kuongeza ubora wa huduma zinazotolewa.",
+   "attachments": []
+  },
+  {
+   "slug": "administration",
+   "menu_path": "Administration > Division > Administration and Human resources management",
+   "title": "Human Resource Management and Administration Division",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/administration",
+   "public_url": "https://sihadc.go.tz/administration",
+   "createdAt": "2026-03-06T13:18:04.091Z",
+   "updatedAt": "2026-03-16T12:34:08.387Z",
+   "text_en": "Introduction\nThe Division of Administration and Human Resources is responsible for ensuring that all public service laws, regulations, and procedures are followed . This helps maintain good governance and effective service delivery to the residents of Siha District.\nAdministratively, the Siha District Council is led by the Executive Director .\nAt the ward level , administrative responsibilities are managed by the Ward Executive Officer , who oversees peace, security, and administrative activities within the ward.\nAt the village level , the Village Executive Officer is responsible for maintaining peace, security, and all administrative operations within the village.\nServices Provided by the Division\nThe Division of Administration and Human Resources performs several key functions, including:\nSupervising all administrative activities within the council , such as ensuring that all statutory meetings from the village level to the district council are conducted on time and according to established rules and procedures.\nProviding administrative advice to the Executive Director .\nEnsuring that employees receive their rights and benefits , including:\nTimely salary payments\nLeave entitlements\nOther employment benefits.\nInterpreting policies, laws, regulations, and organizational structures related to public servants and coordinating their implementation.\nPromoting good working relationships and cooperation among employees in the workplace .\nEnsuring that employees who have reached the end of their service due to retirement or other reasons are removed from the payroll through the LAWSON system .\nHandling disciplinary matters of employees in collaboration with heads of departments.\nEnsuring that the council has adequate staff according to the approved staffing structure , while also coordinating staff training programs.\nSupervising the confirmation of employment and promotion of employees within the required timeframes.\nManaging and safeguarding council assets , including vehicles, offices, and equipment, and ensuring they are used properly.\nPreparing the salary budget and wage estimates for employees of Siha District Council.\nEnsuring employees work in a conducive working environment and are provided with necessary tools and equipment to deliver quality services to the public.\nCoordinating employee performance evaluation using the Open Performance Review and Appraisal System (OPRAS).\nAchievements\nThe division has achieved several milestones, including:\nImproving employee performance and efficiency through both internal and external training programs .\nSuccessfully increasing the number of staff members in accordance with government allocations and the council’s staffing requirements for each financial year.",
+   "text_sw": "DIVISHENI YA UTAWALA NA RASILIMALI WATU\nUtangulizi\nDivisheni ya utawala na utumishi ina jukumu la kuhakikisha kuwa sheria, taratibu na kanuni zote za kiutumishi zinafuatwa ili kuweza kudumisha utawala bora na utoaji huduma nzuri kwa jamii ya Siha.\nKiutawala halmashauri ya siha inaongozwa na Mkurugenzi Mtendaji. Katika ngazi ya kata anayesimamia majukumu yote ya kata ni Afisa mtendaji kata hivyo ana jukumu la kusimamia ulinzi, amani na usalama katika kata pamoja na shughuli zote za kiutawala ndani ya kata. Katika ngazi ya vijiji, mwenye jukumu la kusimamia amani na ulinzi katika kijiji ni Mtendaji wa kijiji pamoja na shughuli zote za kiutawala ndani ya kijiji.\nHuduma zinazotolewa na Divisheni\nØ Kazi kubwa katika idara ya utawala na utumishi ni kusimamia shughuli zote za kiutawala ndani ya Halmashauri mfano kuhakikisha vikao vyote vya kisheria kuanzia ngazi ya kijiji mpaka halmashauri vinafanyika kwa wakati kwa kufuata kanuni na taratibu za vikao.\nØ Kutoa ushauri kwa Mkurugenzi Mtendaji kuhusu maswala ya kiutawala\nØ Kuhakikisha haki na stahiki zote za watumishi zinapatikana mfano watumishi wanapata mishahara yao kwa wakati, likizo kwa watumishi na haki zote za mtumishi mahalapa kazi.\nØ Kutafsiri sera, sheria na kanuni pamoja na miundo zinazohusu watumishi na kuratibu utekelezaji wake.\nKuhakisha kuna mahusiano mazuri pamoja na ushirikiano kati ya mtumishi na mtumishi mahala pakazi.\nKuhakikisha watumishi wote ambao muda wao umefikia ukomo kwa sababu mbali mbali wanaondolewa katika payroll kupitia mfumo wa LAWSON.\nKusimamia masuala ya nidhamu kwa watumishi wote kwa kushirikiana na Wakuu wa Idara.\nØ Kuhakikisha halmashauri inakuwa na watumishi wa kutosha kulingana na ikama ya kila idara, pia inasimamia mpango mzima wa mafunzo kwa watumishi wa Halmashauri.\nØ Kusimamia swala zima la watumishi kuwa wanathibitishwa na kupandishwa vyeo kwa wakati.\nØ Kusimamia mali za halmashauri na kuhakikisha zinatumika vizuri mfano magari, ofisi na mitambo.\nØ Kuandaa bajeti na makisio ya mishahara kwa watumishi wa wilaya Siha\nØ Pia kuhakikisha watumishi wanafanya kazi katika mazingira mazuri ya kazi na kuwapatia vitendea kazi vinavyohitajika na vitumike vizuri pamoja na kuhifadhiwa vizuri ili kudumisha huduma nzuri kwa wateja .\nØ Kuratibu shughuli za upimaji wa utendaji kazi wa watumishi wa halmashauri kwa kutumia mfumo wa wazi na kupitia na kupima utendaji wa watumishi (OPRAS).\nMafanikio\nØ Idara imefanya juhudi za kuhakisha watumishi wanaongeza ufanisi katika utendaji kazi kwa kuwapatia mafunzo ya ndani na ya nje ya ofisi\nØ Halmashauri imefanikiwa kuongeza watumishi kwa kadri serikali ilivyotupangia pia kulingana na mahitaji ya watumishi kwa mwaka husika.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-fisheries-division",
+   "menu_path": "Administration > Division > Agriculture, Livestock & Fisheries Division",
+   "title": "Agriculture",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/agriculture-livestock-fisheries-division",
+   "public_url": "https://sihadc.go.tz/agriculture-livestock-fisheries-division",
+   "createdAt": "2026-03-06T12:48:35.488Z",
+   "updatedAt": "2026-03-06T13:42:45.484Z",
+   "text_en": "Introduction\nThe Siha District Council has a total of 53,268 hectares of land suitable for agriculture , of which 37,839 hectares are currently under cultivation . The main food crops grown in the district are maize and beans , while the major cash crops are coffee and barley . Other crops cultivated in the district include bananas, potatoes, fruits (especially avocados), vegetables (such as carrots, green peppers, tomatoes, peas, and other varieties), pigeon peas, and sunflower .\nDepartment of Agriculture, Irrigation and Cooperatives\nThe Division of Agriculture, Irrigation and Cooperatives is one of the thirteen (13) division within the Siha District Council. Its primary responsibility is to provide professional agricultural advisory services to citizens in order to improve agricultural productivity and efficiency. This support aims to ensure food security and increase household income for the community.\nThe department is organized into three main sections , namely:\nCrop Production (Agriculture)\nIrrigation\nCooperatives\nDivision Objective\nThe main objective of the department is to ensure adequate food availability and improve household income levels within the district.\nStrategies for Achieving the Objective\nTo achieve its objective, the department implements several strategies, including:\nCoordinating and supervising the implementation of community-initiated development projects aimed at addressing challenges faced by farmers.\nImproving irrigation infrastructure through the construction and rehabilitation of irrigation canals and dams to enhance water availability for farming. Examples of improved or rehabilitated projects include the Mitimirefu, Namwai, Wandri, Mese, Kasaisa, and Lawate main irrigation canals , as well as the construction of the Kishisha irrigation dam and canal and the Mowonjamu irrigation dam .\nEnhancing coffee production by establishing a large nursery capable of producing over 1,000,000 improved coffee seedlings annually .\nProviding training on improved agricultural practices for both food and cash crops through farmer field schools, demonstration plots, farmer field days, participation in Nanenane agricultural exhibitions , and educational study tours.\nPromoting agribusiness knowledge among farmer groups , including value addition to agricultural products and linking farmers to markets.\nCoordinating and supervising the distribution of government-subsidized agricultural inputs to beneficiary farmers. These inputs include improved maize seeds, basal fertilizer, and top-dressing fertilizer .\nEducating farmers on reducing post-harvest losses .\nCollecting and maintaining important agricultural production statistics .\nProviding training on sustainable land management practices .\nInspecting and supervising cooperative societies , including Agricultural Marketing Cooperative Societies (AMCOS) and Savings and Credit Cooperative Societies (SACCOS) .\nCollaborating with research institutions to introduce and distribute new agricultural technologies to farmers.\nWorking with non-governmental organizations (NGOs) to promote and disseminate improved agricultural technologies.\nChallenges Facing the Division\nThe department faces several challenges, including:\nInsufficient financial resources to implement all development projects proposed by farmers.\nLack of adequate working tools and equipment for extension officers at the village, ward, and district levels. These include transportation for field visits and soil testing kits for assessing soil health.\nShortage of agricultural extension officers and cooperative officers .\nProposed Solutions\nTo address these challenges, the following measures are proposed:\nAdvising the central government to increase the budget ceiling for the agricultural sector to support development projects and procurement of working tools for experts.\nEncouraging private organizations and stakeholders to allocate funds for implementing community-driven development projects.\nAllocating a portion of internally generated revenue by the council to support farmer-initiated development projects.\nDeveloping a human resource plan to address the shortage of professionals in different agricultural and cooperative fields.",
+   "text_sw": "DIVISHENI YA KILIMO, UMWAGILIAJI NA USHIRIKA\nUtangulizi\nHalmashauri ya Wilaya ya Siha ina ukubwa wa eneo la Hekta 53,268 zinazofaa kwa Kilimo ambapo hadi sasa eneo linalolimwa ni Hekta 37,839. Mazao makuu ya chakula yanayolimwa ni Mahindi na Maharage na Mazao makuu ya biashara ni Kahawa na Shayiri. Mazao mengine yanayolimwa ni pamoja na Ndizi,Viazi Mviringo, Matunda (Parachichi), Mboga (Karoti, Hoho, Nyanya, Njegere na aina nyingine za mboga), Mbaazi na Alizeti.\nDivisheni ya Kilimo Umwagiliaji na Ushirika\nDivisheni ya Kilimo, Umwagiliaji na Ushirika ni miongoni mwa Idara kumi na tatu (13) za Halmashauri ya Wilaya ya Siha ambayo wajibu wake ni kutoa ushauri wa kitaalam kwa Wananchi katika kuboresha uzalishaji na tija kwa mazao ya Kilimo ili kujitosheleza kwa chakula na kuongeza kipato kwa Kaya.\nIdara imegawanyika katika sehemu tatu ambazo ni sehemu ya Uzalishaji mazao (Kilimo), Umwagiliaji na Ushirika.\nLengo la Divisheni\nUpatikanaji wa chakula cha kutosha na ongezeko la kipato kwa kaya\nMikakati ya kufikia lengo\nKuratibu na kusimamia utekelezaji wa Miradi ya maendeleo iliyoibuliwa na wananchi ili kutatua changamoto wanazokabiliana nazo.\nMiradi hiyo ni pamoja na Ujenzi na ukarabati wa miundombinu ya umwagiliaji ili kuboresha upatikanaji wa maji ya umwagiliaji. Miradi iliyoboreshwa/kukarabatiwa ni Mfereji mkuu wa Umwagiliaji Mitimirefu, Mfereji mkuu wa umwagiliaji Namwai, Mfereji mkuu wa Umwagiliaji Wandri, Mfereji mkuu wa Umwagiliaji Mese, Mfereji mkuu wa Umwagiliaji Kasaisa, Mfereji mkuu wa Umwagiliaji Lawate, Ujenzi wa Bwawa na mfereji mkuu wa umwagiliaji Kishisha na Ujenzi wa Bwawa la Umwagiliaji Mowonjamu\nKuboresha uzalishaji zao la Kahawa kwa kuanzisha bustani kubwa itakayoweza kuzalisha zaidi ya miche bora 1,000,000 kwa mwaka\nKutoa mafunzo ya Kilimo bora cha mazao ya chakula na biashara kwa wakulima kupitia mashamba darasa, mashamba ya mfano, Kuandaa siku ya wakulima, kushiriki maonesho ya Nanenane na ziara za mafunzo\nKutoa elimu ya Kilimo biashara kwa vikundi vya wakulima (kuongeza thamani mazao ya Kilimo na kuwaunganisha wakulima na masoko)\nKuratibu na kusimamia usambazaji wa Pembejeo za Kilimo zenye ruzuku ya Serikali kwa wakulima wanufaika. Pembejeo zinazosambazwa ni pamoja na Mbegu bora za Mahindi, Mbolea ya kupandia na mbolea ya kukuzia\nKutoa elimu kwa wakulima juu ya kupunguza upotevu wa mazao baada ya kuvuna (Post harvest losses)\nKukusanya na kutunza Takwimu muhimu za uzalishaji wa mazao ya Kilimo\nKutoa elimu ya matumizi bora ya Ardhi (Sustainable Land Management)\nKukagua na kusimamia vyama vya Ushirika vya Mazao (AMCOS), Akiba na Mikopo (SACCOS)\nKushirikiana na vituo vya Utafiti kusambaza teknolojia mpya za Kilimo kwa wakulima\nKushirikiana na taasisi zisizokuwa za kiserikali (NGOs) katika usambazaji wa teknolojia mpya za Kilimo\nChangamoto zinazoikabili Divisheni\nUpungufu wa rasilimali fedha za kutosha kutekeleza miradi yote ya maendeleo inayoibuliwa na wakulima\nUpungufu wa vitendea kazi kwa wataalam, Ngazi ya Kijiji, Kata na Wilaya. Vitendea kazi hivyo ni pamoja na usafiri ili kuwafikia wakulima kwa urahisi na vifaa vya kupima afya ya udongo (Soil Test Kits)\nUpungufu wa Maafisa ugani na maafisa Ushirika\nUtatuzi wa Changamoto\nKushauri Serikali kuu kuongeza ukomo wa bajeti (Budget Ceiling) ya Sekta ya Kilimo ili kusaidia utekelezaji wa miradi na ununuzi wa vitendea kazi kwa wataalam\nKuhamasisha asasi binafsi kutenga fedha kwa ajili utekelezaji wa miradi inayoibuliwa na jamii\nHalmashauri kutenga sehemu ya fedha za mapato ya ndani kusaidia utekelezaji wa miradi inayoibuliwa na wakulima\nKuweka mpango wa mahitaji ya wataalam wa Kada mbalimbali",
+   "attachments": []
+  },
+  {
+   "slug": "community",
+   "menu_path": "Administration > Division > Community Development Division",
+   "title": "Community",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/community",
+   "public_url": "https://sihadc.go.tz/community",
+   "createdAt": "2026-03-06T13:39:03.820Z",
+   "updatedAt": "2026-03-06T13:57:04.488Z",
+   "text_en": "INTRODUCTION\nThe Division of Community Development and Social Welfare is one of the thirteen departments responsible for implementing and achieving the objectives of the Siha District Council in accordance with government guidelines, policies, and established strategies. The department implements both short-term and long-term plans aimed at improving and advancing the livelihoods of the people of Siha District.\nThe department consists of several units including:\nPlanning and Research\nGender and Children\nHIV/AIDS\nTASAF (Tanzania Social Action Fund)\nCommunity Economic Empowerment\nThe department employs Community Development and Social Welfare professionals at both district and ward levels. These staff members are responsible for implementing, supervising, monitoring, and evaluating the department’s goals in line with the Millennium Development Goals (MDGs), MKUKUTA (National Strategy for Growth and Reduction of Poverty), and the National Development Vision 2025.\nCore Values of the Division\nThe department operates under the following core values:\nCommitment and dedication\nIntegrity and accountability\nTeamwork\nJustice and fairness\nTransparency\nRespect\nEfficiency\nParticipatory management\nContinuous learning\nGuided by these principles, the department mobilizes, educates, and empowers communities to develop a strong motivation for socio-economic development. It helps communities identify their own problems and utilize available resources to improve their income and living standards. The department works in collaboration with the government, organizations, and various institutions to support community-driven development initiatives.\nIndicators Used to Measure Community Development\nThe department evaluates community development in Siha District using the following indicators:\nChanges in attitudes, cultural practices, and traditions within the community\nImprovement and expansion of social services such as housing, healthcare, education, nutrition, and clean and safe environments\nIncreased household income enabling families to meet their needs and save resources\nReduction in maternal and child mortality rates\nAdoption of modern technologies\nProper use and conservation of the environment\nBased on these indicators, the department aims to gradually reduce and ultimately eradicate poverty in Siha District and Tanzania as a whole.\nDEPARTMENTAL OBJECTIVES\n1. Strengthening Children’s Rights in 60 Villages by 2025\nStrategies\nIdentify vulnerable children in 60 villages and establish committees responsible for addressing their needs.\nProvide psychosocial support to vulnerable children (Most Vulnerable Children – MVC) and relevant village committees.\nProvide school uniforms for vulnerable primary and secondary school students.\nEducate communities on the negative impacts of harmful cultural practices such as female genital mutilation, child abuse, and early marriages.\nEstablish children’s councils at ward and district levels.\n2. Establishment and Strengthening of Social and Economic Groups by 2025\nStrategies\nMobilize communities to form and register socio-economic groups in 60 villages to improve income and reduce poverty.\nProvide entrepreneurship training to these groups.\nFacilitate and provide loans to social and economic groups.\n3. Reduction of HIV/AIDS Infections from 2.5% to 2.0% by 2025\nStrategies\nEncourage voluntary HIV testing among community members.\nEncourage people living with HIV/AIDS to openly declare their status and form support networks.\nProvide HIV/AIDS education to village and ward committees responsible for HIV prevention.\nCommemorate World AIDS Day annually.\n4. Strengthening Gender Issues in 17 Wards by 2025\nStrategies\nEncourage women to contest leadership positions.\nIncrease community awareness of gender issues.\nCelebrate International Women’s Day annually.\n5. Strengthening Non-Governmental Organizations by 2025\nStrategies\nIdentify NGOs operating within the district and their areas of operation.\nEstablish networks among NGOs.\nConduct performance evaluations and meetings for NGOs within the district.\n6. Community Mobilization to Form Community-Based Organizations (CBOs)\nCommunities in 60 villages are encouraged to establish CBOs to engage in small-scale income-generating activities.\n7. Strengthening the Division of Community Development and Social Welfare by 2025\nStrategies\nRecruit additional staff at ward and district levels.\nEnable staff to attend short-term and long-term professional training.\nEnsure availability of adequate working equipment and tools.\n8. Enhancing Participation of People with Disabilities in 60 Villages by 2025\nStrategies\nIdentify persons with disabilities and assess their needs.\nEstablish and register disability networks.\nProvide entrepreneurship training for people with disabilities.\n9. Promoting Appropriate and Simple Technology in 60 Villages by 2025\nStrategies\nEducate communities on the use of simple and appropriate technologies.\nEncourage environmental conservation.\nBuild community capacity through awareness on appropriate technology use.\n10. Strengthening the Rights of the Elderly by 2025\nStrategies\nIdentify elderly persons aged 60 years and above in 60 villages.\nEncourage the elderly to establish and register entrepreneurship groups.\nInvolve the elderly in decision-making meetings at village, ward, and district levels.\nFacilitate access to health insurance cards for the elderly.\n11. Improving Awareness of Good Governance Among Leaders\nStrategy\nEducate ward councils and village governments about the concept and importance of good governance for sustainable community development.\n12. Reducing Household Poverty by 2025\nStrategies\nIdentify poor households in 60 villages.\nEstablish committees to coordinate and supervise support for poor households.\nProvide financial resources to strengthen their economic and social capacity.\nOffer leadership training on good governance.\nEmpower communities to work hard with knowledge and discipline to generate income and improve their living standards using available resources.\nACHIEVEMENTS\nSince the establishment of Siha District in 2005, the Community Development Division has achieved significant progress. The department has been at the forefront of facilitating the implementation of various government policies, programs, strategies, and campaigns through participatory community development approaches. Communities are actively involved in decision-making processes such as planning, implementing, monitoring, and evaluating development initiatives affecting their economic, social, political, and administrative welfare.\nKey achievements include:\nIdentification and support of 4,144 vulnerable children who have received various social and economic services.\nEstablishment of village committees responsible for supporting vulnerable children.\nIncreased access to education for both boys and girls.\nReduction in female genital mutilation and early marriages.\nIncreased participation of children in decision-making processes affecting them.\nFormation and registration of 730 socio-economic groups .\n110 groups have received loans and entrepreneurship training.\nThe Community Development sector has strengthened other sectors within the council by motivating citizens to improve economic activities, reduce poverty, and promote good governance.\nCHALLENGES FACED BY THE COMMUNITY DEVELOPMENT DEPARTMENT\n1. Strengthening the Construction Unit\nThe unit plays a significant role in supporting citizens to build better houses and social infrastructure, particularly in rural areas. There is a need to strengthen the unit with adequate technical resources and equipment.\n2. Improving Motivation of Community Development Professionals\nDue to continuous social and global changes, these professionals require improved professional training, working environments, incentives, and resources to effectively address emerging community needs.\n3. Utilization of Community Development Centers\nCommunity centers should be constructed to support various social activities such as meetings, training for women on nutrition, home management, tailoring, sports, entertainment, and educational activities.\n4. Recognition of Community Contributions to Development\nCitizens contribute significantly to development projects such as the construction of schools, dispensaries, roads, water wells, and other infrastructure. However, these contributions are often not reflected in government budgets and accounts, making it difficult to accurately measure the country’s economic output. There is a need to include community contributions in government budgeting.\n5. Shortage of Community Development Experts\nCommunity development officers play a crucial role in mobilizing and empowering citizens to participate in their own development. Ideally, there should be at least one professional in every ward.\n6. Insufficient Working Tools and Equipment\nCommunity development work requires sufficient tools and equipment, including transportation, to effectively reach and support communities.\n7. Need for Positive Behavioral Change\nCommunities must adopt positive attitudes and behaviors to address emerging economic, political, and social challenges. The department continuously educates and mobilizes communities on the benefits and impacts of various societal issues.\n8. Strengthening the Fight Against Ignorance, Disease, and Poverty\nIgnorance, disease, and poverty remain major obstacles to development in Tanzania. Despite government efforts, many citizens still face income poverty and disease outbreaks. Community development professionals play a critical role in educating communities about environmental hygiene, disease prevention, and effective economic project planning to combat poverty.\nCOMMUNITY DEVELOPMENT PROJECTS IMPLEMENTED THROUGH PARTICIPATORY APPROACHES\nSeveral community-based projects have been implemented to promote self-reliance, including:\nConstruction of classrooms in several secondary and primary schools funded through TASAF.\nGoat farming projects for elderly groups.\nPoultry farming projects for people living with HIV/AIDS.\nDairy goat projects for orphaned children.\nThese projects have reached different stages of completion, with some completed fully and others in progress, depending on funding availability and implementation conditions.\nFor example:\nA dairy goat project for elderly people in Samaki Maini Village distributed 41 goats to 39 elderly beneficiaries and was completed successfully.\nA poultry project in Lawate Village distributed 200 chickens to 10 beneficiaries living with HIV/AIDS , and it was completed successfully.\nSeveral classroom construction projects in secondary and primary schools have reached completion levels ranging from 25% to 95% depending on the stage of construction.\nDespite some projects not fully completed due to funding delays or logistical challenges, many facilities are already being used due to shortages of classrooms and other community infrastructure.",
+   "text_sw": "UTANGULIZI\nDivisheni ya Maendeleo ya Jamii na Ustawi wa Jamii ni kati ya Idara 13 ambazo zinatekeleza na kutimiza malengo ya Halmashauri ya wilaya ya Siha kwa kuzingatia miongozo ya serikali, Sera na mikakati iliyowekwa.Idara ina mipango ya muda mfupi na muda mrefu ambayo inalenga kuendeleza nakuboresha maisha ya watu katika wilaya ya Siha. Idara ina vitengo ambavyo ni:-\nMipango na Utafiti, Jinsia na Watoto, UKIMWI, TASAF na Uwezeshaji wananchiki-uchumi. Idara ina watumishi wa fani ya Maendeleo ya Jamii na Ustawi wa Jamii ngazi ya wilaya na Kata ambao wanatekeleza, kusimamia, kufuatilia na kutathimini utekelezaji wa malengo hayo kwa kuzingatia malengo ya Milenia, MKUKUTA na Dira ya Mendeleo ya Taifa ya mwaka 2025.\nMaadili ya Msingi ya Divisheni ni haya yafuatayo:-\nKujitoa\nUadilifu na Uwajibikaji\nTimu ya kazi\nHaki\nUwazi\nHeshima\nUfanisi\nShirikishi ya usimamizi kuendelea\nKujifunza.\nKwa kuzingatia misingi hiyo idara inahamasisha , inaelimisha na kuwezesha Jamii kuwa na Ari ya kutamani maendeleo zaidi ki-uchumi na kijamii kwa kuziwezesha kutambua uwezo walionao wa kubaini matatizo na uwezo wao wa kutumia rasilimali zilizopo kujipatia na kujiongezea kipato cha kujiletea maisha bora zaidi kwa kushirikisha serikali, Mashirika na Taasisi mbalimbali kusaidia jitihada za Jamii katika kujiletea maendeleo yao.\nIdara inatekeleza kazi zake kwa kutathimini vigezo vya maendeleo ya Jamii ya Siha kwa kuangalia:-\nMabadiliko ya fikra, Mitazamo ya Utamadunina Mila za Jamii ya Siha.\nOngezeko la huduma za Jamii kama vile:- Nyumba bora, Afya, Elimu, Lishe bora, Mazingira Safi na salama.\nOngezeko la mapato ya kuwezesha Jamii kukidhi mahitaji ya familia na kuweka akiba ya kujiongezea rasilimali.\nKupungua kwa vifo vya watoto na wanawake katika uzazi.\nMahitaji ya teknolojia za kisasa.\nMatumizi na hifadhi ya mazingira.\nKwa kuzingatia vigezo hivi idara imekusudia kupunguza na baadaye kuondoa kabisa umaskini katika Jamii ya Siha na taifa letu kwa jumla.\nSHABAHA ZA DIVISHENI :-\nHaki za watoto kuimarishwa katika vijiji 60 kufikia mwaka 2025.\nMikakati:-\nKutambua watoto wanaoishi katika mazingira hatarishi katika vijiji 60 na kuunda kamati za kushughulikia watoto wanaoishi katika mazingira hatarishi.\nKutoa mafunzo ya kisaikolojia kwa watoto wanaoishi katika mazingira hatarishi (MVC) na kamati zinazoshughulikia watoto wanaoishi katika mazingira hatarishi katika vijiji 60.\nKutoa msaada was sare kwa watoto wa shule za msingi na sekondari wanaoishi mazingira hatarishi.\nKuhamasisha na kuelimisha Jamii madhara ya mila potofu dhidi ya watoto wa kike, unyanyasaji na ndoa za utotoni katika vijiji 60.\nKuunda mabaraza ya watoto katika ngazi ya kata na wilaya.\nVikundi vya kijamii na ki-uchumi kuanzishwa na kuimarishwa ifikapo mwaka 2025:-\nMikakati:-\nKuhamasisha Jamii kuunda na kusajili vikundi vya ki -uchumi na Kijamii katika vijiji 60 kwa ajili ya kujiongezea kipato na kupunguza umaskini.\nKutoa elimu na ujuzi wa Ujasiriamali wa vikundi vya ki – uchumi na kijamii\nKuwezesha na kutoa mikopo kwa vikundi vya ki – uchumi na kijamii.\nKupungua kwa maambukizi ya VVU/UKIMWI kutoka 2.5% hadi 2.0% ifikapo mwaka 2025\nKuhamasisha Jamii juu ya upimaji wa VVU/UKIMWI kwa hiyari\nKuhamasisha waathirika wa VVU/UKIMWI kujitangaza wenyewe kwa hiyari na kuunda vikundi vya mtandao wao na kuwasaidia.\nKutoa elimu ya VVU/UKIMWI kwa kamati za vijiji za kupambana na maambukizi ya UKIMWI ngazi Kata na Vijiji\nKufanya maadhimisho ya siku ya UKIMWI kila mwaka\nMasuala ya Jinsia katika Kata 17 kuimarishwa ifikapo mwaka 2025\nMikakati:-\nKuhamasisha wanawake kugombea nafasi za Uongozi\nKujengea Jamii uelewa kuhusu masuala ya Jinsia\nKufanya maadhimisho ya siku ya wanawake kila mwaka\nMashirika yasiyo ya kiserikali kuimarishwa ifikapo mwaka 2025\nMikakati:-\nKutambua mashirika yasiyo ya kiserikali na maeneo yao ya kazi\nKuanzisha mitandao ya Mashirika yasiyo ya Kiserikali\nKufanya tathmini utendaji kazi vikao vya Mashirika yasiyo yakiserikali ndani ya Wilaya\nUhamasishaji wa Jamii katika vijiji 60 ili kuunda vikundi vya Kijamii (CBO) kwa lengo la kufanya shughuli ndogondogo za kiuchumi\nIdara ya Maendeleo ya Jamii na Ustawi wa Jamii kuimarishwa ifikapo mwaka 2025\nMkakati:-\nKuajiri watumishi katika ngazi ya Kata na Wilaya\nKuwezesha watumishi wa idara kuhudhuria kozi muda mfupi na za muda mrefu\nKuhakikisha upatikanaji wa vitendea kazi katika idara\nUshiriki wa watu wenye ulemavu kuimarishwa katika vijiji 60 ifikapo mwaka 2025\nMikakati:-\nKutambua watu wenye ulemavu na kuchambua mahitaji yao\nKuunda na kusajili mtandao wa watu wenye ulemavu\nKuwezesha mafunzo ya ujasiriamali kwa walemavu\nMatumizi ya Teknolojia sahihi na rahisi kuimarishwa katika vijiji 60 ifikapo mwaka 2025\nMikakati:-\nKujenga uelewa kwa Jamii kuhudu matumizi ya teknolojia sahihi na rahisi katika vijiji 60\nKuhamasisha Jamii kuhusu kuhifadhi na utunzaji wa mazingira\nKujengea uwezo Jamii kwa kuwaelimisha umuhimu wa matumizi ya teknolojia Sahihi na Nyepesi\nHaki za Wazee kuimarishwa ifikapo mwaka 2025\nMikakati:-\nKutambua Wazee wenye umri wa miaka 60 na kuendelea katika vijiji 60\nKuhamasisha Wazee kuanzisha na kusajili vikundi vya ujasiriamali katika vijiji 60\nKuwashirikisha Wazee katika vikao na mikutano ya maamuzi katika ngazi ya wilaya, Kata na Vijiji\nKuwezesha Wazee kupata vitambulisho vya bima ya Afya\nUelewa wa Utawala bora kwa viongozi kuimarishwa katika vijiji 60 ifikapo mwaka 2025:-\nMkakati:-\nKuhamasisha, kuelimisha mabaraza ya kata na serikali za vijiji kuhusu dhana ya utawala bora na utekelezaji wake katika maendeleo endelevu ya Jamii ya Siha.\n11.0 Kupunguza umaskini katika Kaya za Jamii ifikapo 2025\nMikakati:-\nKutambua Kaya maskini katika vijiji 60\nKuunda Kamati za kusimamia na kuratibu Kaya maskini katika vijiji\nKuhaulisha fedha za kuwajengea uwezo kiuchumi na kijamii.\nKutoa mafunzo ya utawala bora kwa viongozi .\nKuwezesha Jamii kwa kufanya kazi kwa bidii, maarifa, nidhamu ili wawe na kipato cha kuwawezesha kuwa na maisha bora na kujitegemea kwa kutumia rasilimali walizonazo.\nMAFANIKIO:\nIdara ya maendeleo ya Jamii imepata mafanikio tangu Wilaya ya Siha kuanzishwa mwaka 2005 hadi sasa Idara imeendelea kuwa mstari wa mbele katika kuwezesha utekelezaji wa Sera, program, mikakati na kampeni za sekta mbalimbali kutokana na matumizi bora ya mbinu sh8irikishi Jamii kwa kuwezesha Jamii kushiriki katika kufanya maamuzi, kuhusu kupanga, kutekeleza, kufuatilia a kutathimini mipango ya masuala yanayohusu maendeleo yao, kiuchumi, kijamii, kisiasa na kiutawala.\nWatoto wanaoishi katika mazingira hatarishi 4144 wametambuliwa na kuwezeshwa huduma mbalimbali za kijamii na kiuchumi.\nKamati za kusimamia na kuratibu watoto wanaoishi mazingira hatarishi zimeundwa ngazi ya vijiji\nWatoto wa kike na wakiume wote wamepata furs asana ya kusoma\nUkeketaji na ndoa za utotoni zimepungua\nWatoto wanashirikishwa katika maamuzi mbalimbali yanayowahusu\nJumla ya vikundi vya kiuchimi na kijamii 730 vimeundwa na kusajiliwa\nJumla ya vikundo 110 vimepata mikopo na elimu ya ujasiriamali\nSekta ya maendeleo ya Jamii imeziwezesha sekta nyingine katika Halmashauri kuwawezesha wananchi kuongeza ari na nguvu katika kukuza uchumi, kupambana na umaskini na kuendeleza utawala bora\nCHANGAMOTO ZA UTENDAJI KAZI IDARA YA MAENDELEO YA JAMII:-\nUimarishaji wa kikosi cha Ujenzi:\nKikosi hiki kina mchango mkubwa kwa wananchi katika jitihada zao za kujijengea nyumba bora na miundombinu nyingine ya Kijamii hususani maeneo ya kijijini. Ipo haja ya kuanzisha na kuimarisha kwa nyenzo na rasilimali za kiufundi ili kukidhi matarajio ya wananchi.\nUimarishaji wa Ari ya utendaji kazi wa wataalamu wa maendeleo ya Jamii.\nKutokana na mabadiliko yanayotokea miongoni mwa jamii na duniani kote, wataalam hawa wanahitaji kuimarishwa kitaaluma, kimazingira,kimaslahi,kinyenzo nk ili waweze kukabiliana na mabadiliko ya mahitaji katika jamii.\nMatumizi ya majumba ya maendeleo :\nKujenga majumba ya maendeleo kwa madhumuni mbalimbali ya kijamii yakiwemo mikutano ya kijamii ya kupashana habari za kijamii,mafunzo kwa wanawake kuhusu lishe,utunzaji wa nyumba,ususi,michezo,burudani,kisomo chenye manufaa na kujiendeleza.\nUthaminishaji wa mchango wa Jamii katika shughuli za maendeleo:-\nWananchi wamekuwa wakichangia nguvu zao katika utekelezaji wa miradi mbalimbali ya maendeleo kama ujenzi wa shule, Zahanati, barabara, visima vya maji na miudombinu nyingine wakisaidiana na juhudi za serikali. Michango hii haionekani waziwazi katika bajeti na hesabu za serikali hivyo kutokuwa na picha sahihi ya pato la taifa ambalo ndilo kigezo kikuu cha kiwango cha maendeleo ya nchi. Ipo haja ya kuthaminisha mchangowa wananchi katika bajeti za serikali ili kuweza kupata picha ya maendeleo ya nchi yetu.\nUpatikanaji wa wataalamu wa Maendeleo ya Jamii wa kutosha:-\nWataalamu wa Maendeleo ya Jamii ndiyo waandaaji wa watu kwa ajili ya kuwawezesha kushiriki Maendeleo yao. Ili waweze kutimiza azma hiyo kunahitajika walao mtaalamu mmoja kila kata.\nUpatikanaji wa nyenzo na Vitendea kazi vya kutosha:-\n_ Msingi wa maendeleo ya Jamii unalenga katika kuwezesha watu, kujihudumia katika kujiletea maendeleo endelevu. Ili kutekeleza azma hii wataalamu wa maendeleo ya Jamii wanahitaji kuwezeshwa kinyenzo na vitendea kazi ikiwa ni pamoja na vyombo vya usafiri.\nKuwepo kwa mabadiliko chanya ya Tabia za watu:-\nJamii inahitaji kuwa na mabadiliko chanya ya kitabia ili kukabiliana na matukio na matatizo yanayojitokeza katika Jamii, kiuchumi, kisiasa na kiutawala. Idara ya maendeleo ya Jamii inaelimisha, inaraghbisha, inahamasisha na kushawishi Jamii kuhusu, manufaa na athari za matukio mbalimbali yanayoonekana katika maisha ya kawaida ya Jamii.\nUimarishaji wa vita dhidi ya Ujinga, Maradhi na Umaskini:-\nUjinga, Maradhi na Umaskini vinaendelea kuwa maadui wa Maendeleo ya wananchi wa Tanzania tangu tupate Uhuru. Pamoja na serikali kutilia mkazo vita dhidi ya maadui hao, hali ya maisha ya wananchi walio wengi imeendelea kukabiliwa na umaskini wa kipato na magonjwa ya mlipuko. Wataalamu wa maendeleo ya Jamii wanapaswa kuimarisha utoaji wa elimu kwa Jamii kuhusu usafi wa mazingira na kinga dhidi ya maradhi,mbinu bora za kuandaa miradi ya kiuchumi kupambana na umaskini wa kipato.\nMIRADI MBALIMBALI ILIYOTEKELEZWA NA JAMII KWA LENGO LA KUJITEGEMEA KWA DHANA YA KUSHIRIKI NA USHIRIKISHWAJI\nMradi wa ujenzi wa vyumba viwili vya Madarasa Suumu sekondari kipindi cha 2009/10 (TASAF).\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.19,425,142.50\nJengo hili lipo katika hatua ya umaliziaji sawa na 85% ya ujenzi\nMradi wa jamii wa ujenzi wa vyumba viwili vya Madarasa Kishisha sekondari kipindi cha 2009/10 (TASAF).\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.19,425,142.50\nJengo hili lipo katika hatua ya kupaua sawa na 60% ya utekelezaji\nMradi wa jamii wa ujenzi wa vyumba viwili vya Madarasa Sanya Juu sekondari kipindi cha 2009/10 (TASAF).\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.19,425,142.50\nJengo hili lipo katika hatua ya kufungwa lenta sawa na 55% ya ujenzi\nMradi wa jamii wa ujenzi wa vyumba viwili vya Madarasa Dahani sekondari kipindi cha 2009/10 (TASAF).\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.19,425,142.50\nJengo hili lipo katika hatua ya Msingi kama picha inavyoonesha sawa na 25% ya ujenzi\nMradi wa jamii wa ujenzi wa vyumba viwili vya Madarasa Dahani sekondari kipindi cha 2009/10 (TASAF).\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.19,425,142.50\nJengo hili lipo katika hatua ya Msingi kama picha inavyoonesha sawa na 25% ya ujenzi\nMradi wa jamii wa ufugaji Mbuzi wa maziwa kwa ajili ya kundi maalum la wazee katika Kijiji cha Samaki maini kipindi cha 2009/10.Jumla ya Mbuzi 41 wamegawanywa(madume 2 na majike 39).Idadi ya walengwa walionufaika na mradi huo ni wazee 39.\nKatika picha hiyo anaonekana mzee Vehaeli Mmari ambaye ni moja kati ya wazee walionufaika na mradi huo.Mradi umekamilika kwa 100%\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh 9,733,157.50\nMradi wa jamii wa ufugaji wa Kuku wa mayai kwa ajili ya kundi maalum la waathirika wa VVU/UKIMWI katika Kijiji cha Lawate kipindi cha 2009/10.Jumla ya kuku 200 waligawanywa kwa walengwa10,Ambapo kila mmoja alipewa kuku 20.Hapo ni nyumbani kwa Ndg.Amina J.Mhando. Mradi umekamilikakwa 100%\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.4,700,523.50\nMradi wa jamii wa ufugaji Mbuzi wa maziwa kwa ajili ya kundi maalum la watoto yatima katika Kijiji chaOlkolili Kipindi cha 2009/10.\nKatika picha hii linaonekana banda ambalo limekamilika,na zoezi la kutafuta Mbuzi wanaoweza kumudu mazingira ya eneo husika aina ya Toggenbarg linaendelea.Jumla ya watoto 10 watanufaika na mradi huo,ambapo kila mlengwa atapewa Mbuzi mmoja.\nMradi umekamilika kwa 80%\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.8,032,722.50\nMradi wa jamii wa ufugaji Mbuzi wa maziwa kundi maalum la wazee katika Kijiji cha Kyengia kipindi cha 2009/10\nMradi huo picha yake haionekani kutokana na kwamba utekelezaji bado haujaanza kutokana na sababu zifuatazo:-\n- Pesa kwa ajili ya utekelezaji zilichelewa\n- Kiasi cha fedha zilizoingia Halmashauri ni Tsh.9,575,610/=\n- Taratibu za kufungua akaunti namba zimekamilika\n- Taratibu kwa ajili ya kutoa mafunzo kwa kamati(CMC Training)zinaendelea\nMradi wa jamii wa ujenzi wa vyumba vitatu vya Madarasa katika shule ya sekondari Kilingi kipindi cha 2007/08 (TASAF).\nJengo hili limekamilika kwa 95%\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.29,550,620.00\nMradi wa jamii wa ujenzi wa vyumba vitatu vya Madarasa katika shule ya sekondari Magadini kipindi cha 2007/08 (TASAF).\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.29,550,620.00\nUmaliziaji(Finishing) katika jengo hilo haujakamilika kama picha inavyoonesha.\nJengo limekamilika kwa 85%\nMradi wa jamii wa ujenzi wa vyumba vinne vya Madarasa katika shule ya msingi Roseline kipindi cha 2007/08 (TASAF).\nUmaliziaji(Finishing) katika jengo hilo haujakamilika kama picha inavyoonesha.\nJengo limekamilika kwa 85%\nKiasi cha fedha zilizopokelewa kwa ajili ya utekelezaji ni Tsh.36,067,767.00\nJengo hilo linatumika kutokana na uhaba wa vyumba vya madarasa katika shule hiyo.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education",
+   "menu_path": "Administration > Division > Pre Primary & Primary Education Division",
+   "title": " Pre- & Primary Education Division",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/pre-primary-and-primary-education",
+   "public_url": "https://sihadc.go.tz/pre-primary-and-primary-education",
+   "createdAt": "2026-04-08T10:51:32.788Z",
+   "updatedAt": "2026-04-08T11:15:28.276Z",
+   "text_en": "Implementation of school construction projects in accordance with standards and ensuring value for money.\nCoordinating school health services.\nSupervising construction and rehabilitation of infrastructure in primary schools.\nPreparing documents, teaching aids, and essential instructional materials for schools.\nCoordinating special education.\nMonitoring and strengthening adult education in 8 MEMKWA centers.\nPreparing various departmental reports such as student data, infrastructure, furniture, and finances, and submitting them to the Regional Office and TAMISEMI.\nManaging and coordinating Standard 7 Mock and National Examinations.\nCoordinating and supervising the administration of the Standard 4 National Assessment.\nOverseeing policies, guidelines, and regulations of the Pre-Primary and Primary Education Division.\nRegistering candidates for SFNA and PSLE.\nMonitoring and improving academic performance in schools.",
+   "text_sw": "1. Utekelezaji wa Miradi ya Ujenzi Shuleni kwa Viwango na kwa kuzingatia thamani halisi ya fedha.\n2. Kuratibu afya shuleni .\n3. Usimamizi wa ujenzi na ukarabati wa miundombinu katika shule za msingi .\n4. Kuandaa nyaraka, vielelezo,na zana muhimu za kufundishia shuleni .\n5. Kuratibu Elimu maalum\n6. Ufuatiliaji na uimarishaji wa elimu ya watu wazima katika vituo 8 vya MEMKWA.\n7. Kuandaa taarifa mbalimbali za idara kama vile taarifa za wanafunzi ,miundombinu, samani ,fedha na kuwasilisha\nMkoani na OR TAMISEMI\n8. Kusimamia na kuratibu methane wa MOCK na wa Taifa wa darasa la 7\n9. Kuratibu na kusimamia ufanyikaji wa mtihani wa upimaji wa darasa la 4\n10. Kusimamia sera , miongozo na kanununi za Divisheni ya Elimu ya Awali na Msingi\n11. Kusajili watahiniwa wa SFNA na PSLE\n12. Ufuatiliaji na uimarishaji wa taaluma shuleni .",
+   "attachments": []
+  },
+  {
+   "slug": "planning",
+   "menu_path": "Administration > Division > Planning & Coordination Division",
+   "title": "Planning",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/planning",
+   "public_url": "https://sihadc.go.tz/planning",
+   "createdAt": "2026-03-06T13:31:08.321Z",
+   "updatedAt": "2026-03-16T11:56:13.315Z",
+   "text_en": "Introduction\nThe Planning, Statistics and Monitoring Division consists of two main sections:\nPolicy and Planning Section\nStatistics and Monitoring Section\nThe department is headed and supervised by the District Planning Officer , who serves as the Head of the Department.\nMain Objectives of the Division\nTo strengthen the implementation and effective monitoring of all development activities .\nTo encourage development partners and stakeholders to invest in industries while mobilizing resources for development.\nTo ensure that government policies, plans, and directives are effectively incorporated into the district development plans.\nStrategic Plans of the Division\nStrategic Plan I\nStrengthening good governance and service delivery to the community.\nStrategic Plan II\nImproving the availability of quality infrastructure and economic services .\nStrategic Plan III\nEnhancing access to social services and supporting infrastructure .\nStrategic Plan IV\nStrengthening disaster management and risk control systems .\nCore Functions of the Division\nCoordinating and supervising the preparation and analysis of the district annual budget in line with government policies, plans, and priorities.\nConducting monitoring and evaluation of budget performance to enhance accountability in implementation.\nPreparing quarterly reports on the implementation of development projects .\nCoordinating monitoring and evaluation activities for development projects on a quarterly basis.\nPreparing project proposals to mobilize financial resources from the government and other development partners.\nEnsuring the availability of accurate statistical data to support economic activities and overall development planning.",
+   "text_sw": "DIVISHENI YA MIPANGO TAKWIMU NA UFUATILIAJI\nUtangulizi\nIdara ya Mipango Takwimu na Ufuatiliaji imegawanyika katika sehemu kuu mbili; sehemu ya kwanza ni Sera na Mipango na sehemu ya Pili ni Takwimu na Ufuatiliaji. Idara inaongozwa na kusimamiwa na Mkuu wa Idara ambaye ni Afisa Mipango Wilaya.\nMalengo Makuu ya Divisheni\nIdara imedahmiaria kuendelea kuimarisha utekelezaji na ufuatiliaji thabiti wa shughuli zote za maendeleo\nKuhamasisha wadau mbalimbali wa maendeleo kuwekeza katika viwanda sambamba na utafutaji wa rasilmali mbalimbali kwa ajili ya maendeleo.\nKuhakikisha Sera, Mipango na maelekezo yote ya serikali yanatekelezwa kwa kuwekwa katika mipango ya maendeleo ya Wilaya\nMipango Mikakati ya Divisheni\nMpango Mkakati I\nKuimarisha Utawala bora na utoaji wa huduma kwa Jamii\nMpango Mkakati II\nKuboresha upatikaji wa miundombinu bora na huduma za kiuchumi\nMpango Mkakati III\nKuongeza viwango bora vya upatikanaji wa huduma za kijamii na miundombinu.\nMpango Mkakati IV\nKuimarisha usimamizi na udhibiti wa majanga na viashiria vyake.\nMajukumu Makuu ya Divisheni\nKuratibu na Kusimamia uandaaji na uchambuzi wa Bajeti ya Wilaya kwa Kila mwaka wa fedha wa serikali kwa kuzingatia sera, mipango na vipaumbele mbalimbali vya serikali.\nKufanya ufuatiliaji na tathmini ya mwenendo wa bajeti na kuimarisha uajibikaji katika utekelezaji\nKuandaa taarifa za utekelezaji wa miradi ya maendeleo kwa kila robo mwaka\nKuratibu ufuatiliaji na tathmini katika utekelezaji wa miradi ya maendeleo kwa kila robo mwaka.\nKuandaa maandiko ya miradi kwa lengo la kutafuta rasilmali fedha toka serikalini na kwa wadau wengine wa maendeleo.\nKuahakikisha upatikanaji wa Takwimu sahihi kwa ajili ya matumizi ya shughuli za kiuchumi na maendeleo kwa ujumla",
+   "attachments": []
+  },
+  {
+   "slug": "division",
+   "menu_path": "Administration > Division > Infrastructure, Rural and Urban Development Division",
+   "title": "Division",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/division",
+   "public_url": "https://sihadc.go.tz/division",
+   "createdAt": "2026-03-04T10:58:28.078Z",
+   "updatedAt": "2026-03-04T11:14:54.134Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "councilors-list",
+   "menu_path": "Councilors > Councilors List",
+   "title": "Councilors List",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/councilors-list",
+   "public_url": "https://sihadc.go.tz/councilors-list",
+   "createdAt": "2026-03-05T06:54:53.443Z",
+   "updatedAt": "2026-03-16T12:59:44.449Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "permanent-commitee",
+   "menu_path": "Councilors > Permanent committees",
+   "title": "Permanent Committeees",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/permanent-commitee",
+   "public_url": "https://sihadc.go.tz/permanent-commitee",
+   "createdAt": "2026-03-05T07:23:09.934Z",
+   "updatedAt": "2026-03-16T11:15:27.693Z",
+   "text_en": "SIHA DISTRICT COUNCIL\nFINANCE, ADMINISTRATION AND PLANNING COMMITTEE\nHon. Duncan B. Urassa – Chairperson\nHon. Stanley Nkini – Vice Chairperson\nHon. Zakaria Lukumay\nHon. Lucas W. Nkini\nHon. Christina P. Kavishe\nHon. Noel P. Mollel\nHon. Egine E. Nzao\nHon. Suzana F. Kihundwa\nHon. Samsoni Maseri\nGodwin Mollel (MB)\nEDUCATION, HEALTH AND WATER COMMITTEE\nHon. Zakaria Lukumay – Chairperson\nHon. Jane C. Kimaro\nHon. Juma H. Jani\nHon. Shabani Mwafute\nHon. Lwite Nsonu Ndosi\nHon. Samweli Swai\nHon. Lomnyaki Noijore\nHon. Joakimu Makundi\nHon. Ezekiel Lukumay\nHon. Duncan B. Urassa\nWORKS, ECONOMY AND ENVIRONMENT COMMITTEE\nHon. Lucas Nkini – Chairperson\nHon. Nsonu Lwite Ndosi\nHon. Shabani Mwafute\nHon. Tawida Naato Baso\nHon. Emanuel Saro\nHon. Vicent Kileo\nHon. Samwel E. Mmari\nHon. Restine Mwasha\nHon. Lilian Mollel\nHon. Duncan B. Urassa\nHIV/AIDS COMMITTEE\nHon. Stanley Nkini – Chairperson\nHon. Vicent Nkini\nHon. Joakimu Makundi\nHon. Jane C. Kimaro\nHon. Ezekiel Lukumay\nETHICS COMMITTEE\nHon. Christine P. Kavishe – Chairperson\nHon. Egine Nzao\nHon. Suzana Kihundwa\nHon. Samsoni Maseri\nHon. Samwel Swai\nHon. Emanuel Saro\nLAND COMMITTEE\nHon. Lomnyaki Noijore\nHon. Restine Mwasha\nEMPLOYMENT BOARD MEMBER\nHon. Juma Jani\nHEALTH BOARD MEMBER\nHon. Zakaria Lukumay\nCONSTITUENCY DEVELOPMENT FUND MEMBERS\nHon. Tawida Basso\nHon. Nsonu Lwite Ndosi\nALAT MEMBERS\nHon. Samwel Mmari\nHon. Liliani Mollel",
+   "text_sw": "HALMASHAURI YA WILAYA YA SIHA\nKAMATI YA FEDHA, UONGOZI NA MIPANGO\nMH. DUNCAN B. URASSA - MWENYEKITI\nMH. STANLEY NKINI - M/MWENYEKITI\nMH. ZAKARIA LUKUMAY\nMH. LUCAS W. NKINI\nMH. CHRISTINA P. KAVISHE\nMH. NOEL P. MOLLEL\nMH. EGINE E. NZAO\nMH. SUZANA F. KIHUNDWA\nMH. SAMSONI MASERI\nGODWIN MOLLEL (MB)\nELIMU AFYA NA MAJI\nMH. ZAKARIA LUKUMAY - MWENYEKITI\nMH. JANE C. KIMARO\nMH. JUMA H. JANI\nMH. SHABANI MWAFUTE\nMH. LWITE NSONU NDOSI\nMH. SAMWELI SWAI\nMH. LOMNYAKI NOIJORE\nMH. JOAKIMU MAKUNDI\nMH. EZEKIEL LUKUMAY\nMH. DUNCAN B. URASSA\nKAMATI YA UJENZI UCHUMI NA MAZINGIRA\nMH. LUCAS NKINI - MWENYEKITI\nMH. NSONU LWITE NDOSI\nMH. SHABANI MWAFUTE\nMH. TAWIDA NAATO BASO\nMH. EMANUEL SARO\nMH. VICENT KILEO\nMH. SAMWEL E. MMARI\nMH. RESTINE MWASHA\nMH. LILIAN MOLLEL\nMH. DUNCAN B. URASSA\nKAMATI YA UKIMWI\nMH. STANLEY NKINI - MWENYEKITI\nMH. VICENT NKINI\nMH. JOAKIMU MAKUNDI\nMH. JANE C. KIMARO\nMH. EZEKIEL LUKUMAY\nKAMATI YA MAADILI\nMH. CHRISTINE P. KAVISHE - MWENYEKITI\nMH. EGINE NZAO\nMH. SUZANA KIHUNDWA\nMH. SAMSONI MASERI\nMH. SAMWEL SWAI\nMH. EMANUEL SARO\nKAMATI YA ARDHI\n1 MH. LOMNYAKI NOIJORE\n2 MH. RESTINE MWASHA\nMJUMBE BODI YA AJIRA\n1 MH. JUMA JANI\nMJUMBE BODI YA AFYA\n1 MH. ZAKARIA LUKUMAY\nWAJUMBE MFUKO WA JIMBO\n1 MH. TAWIDA BASSO\n2 MH. NSONU LWITE NDOSI\nWAJUMBE WA ALAT\n1 MH. SAMWEL MMARI\n2 MH. LILIANI MOLLEL",
+   "attachments": []
+  },
+  {
+   "slug": "health-sector",
+   "menu_path": "Our Services > Health Sector > Siha District Hospital",
+   "title": "Health Sector",
+   "api_url": "https://sihadc.go.tz/api/pages/slug/health-sector",
+   "public_url": "https://sihadc.go.tz/health-sector",
+   "createdAt": "2026-03-16T08:42:06.972Z",
+   "updatedAt": "2026-04-09T11:57:33.064Z",
+   "text_en": "HEALTH AND SOCIAL WELFARE SERVICES\nTreatment of all diseases for Outpatients (OPD) and Inpatients (IPD)\nLaboratory Services\nPharmacy Services\nPhysiotherapy Services\nHealth Insurance Services (NHIF, ICHF)\nDental Services\nEye Care Services\nYouth-Friendly Services\nHealth Education\nCervical Cancer Screening\nExercise Services\nDiabetes Clinic\nHypertension Clinic\nFather, Mother and Child Clinic\nHIV Testing Services\nSurgical Services\nRadiology Services\nSocial Welfare Services",
+   "text_sw": "HUDUMA ZA AFYA NA USTAWI WA JAMII\nMatibabu ya Magonjwa wote wa nje na ndani ( OPD & IPD)\nMaabara\nHuduma ya Dawa\nTiba ya mafunzo\nBima ( NHIF, ICHF)\nMeno\nMacho\nHuduma rafiki kwa vijana\nElimu ya afya\nUchunguzi wa Saratani ya mlango wa Kizazi\nMazoezi\nKliniki ya Sukari\nKliniki ya Magonjwa ya shinikizo la damu\nKliniki ya Baba , Mama na Mtoto\nUpimaji wa VVU\nHuduma za Upasuaji\nHuduma za Mionzi\nHuduma za Ustawi wa Jamii",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "KANUNI ZA MAADILI YA UTENDAJI KATIKA UTUMISHI WA UMMA",
+   "date": "2026-07-16T06:38:44.711Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1784183925989-KANUNI-ZA-MAADILI-YA-UTENDAJI-KATIKA-UTUMISHI-WA-UMMA-2023-WEB.pdf",
+   "file_type": "application/pdf",
+   "size": "4129485"
+  },
+  {
+   "name": "MWONGOZO WA MAVAZI KWA WANAWAKE",
+   "date": "2026-07-16T06:39:10.791Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1772707540011-MAVAZI_WANAWAKE.pdf",
+   "file_type": "application/pdf",
+   "size": "13830028"
+  },
+  {
+   "name": "MWONGOZO WA HUDUMA KWA WATEJA",
+   "date": "2026-03-05T09:31:48.381Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1772703109032-MWONGOZO%20HUDUMA%20KWA%20WATEJA.pdf",
+   "file_type": "application/pdf",
+   "size": "2231365"
+  },
+  {
+   "name": "MWONGOZO WA KITAMBULISHO CHA MTUMISHI WA UMMA",
+   "date": "2026-03-05T09:31:21.959Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1772703084074-MWONGOZO%20WA%20KITAMBULISHO%20CHA%20KAZI.pdf",
+   "file_type": "application/pdf",
+   "size": "1217086"
+  },
+  {
+   "name": "MWONGOZO WA KUSHUGHULIKIA MALALAMIKO YA WANANCHI KATIKA UTUMISHI WA UMMA",
+   "date": "2026-03-05T09:29:17.743Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1772702957920-MWONGOZO_WA_MALALAMIKO.pdf",
+   "file_type": "application/pdf",
+   "size": "2026557"
+  },
+  {
+   "name": "MWONGOZO WA MAVAZI KWA WATUMISHI WA UMMA",
+   "date": "2026-03-05T09:28:16.864Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1772702898813-MWONGOZO%20WA%20MAVAZI.pdf",
+   "file_type": "application/pdf",
+   "size": "2667171"
+  },
+  {
+   "name": "System User Manual",
+   "date": "2026-03-03T12:19:19.763Z",
+   "url": "http://sihadc.go.tz/minio/sihadc.go.tz/files/1772540379328-eGA%20Guidelines.pdf",
+   "file_type": "application/pdf",
+   "size": "667606"
+  }
+ ],
+ "news": [
+  {
+   "id": 9384,
+   "title": "ZAIDI YA WANANCHI 250 WAFIKIWA NA KLINIKI YA MAENDELEO YA JAMII SIHA, ELIMU YA UJASIRIAMALI, MIKOPO NA MSAADA WA KISHERIA YATOLEWA.",
+   "date": "2026-09-10",
+   "category": "Uchumi",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1649,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9352,
+   "title": "BARAZA LA MADIWANI LAMPONGEZA MKURUGENZI MTENDAJI KWA KUVUKA MALENGO YA UKUSANYAJI WA MAPATO KWA ASILIMIA 108 KWA MWAKA WA FEDHA 2025/2026",
+   "date": "2026-09-08",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1539,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9351,
+   "title": "WATENDAJI KATA SIHA WAMZAWADIA DED SIHA ZAWADI YA PONGEZI YA KUTIMIZA MWAKA MMOJA WA UTENDAJI KAZI",
+   "date": "2026-09-04",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1317,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9348,
+   "title": "WAWAKILISHI WA WILAYA YA SIHA SHIMISEMITA 2026 WAPOKELEWA KISHUJAA, WAPATIWA MOTISHA YA SHILINGI MILIONI 3.5",
+   "date": "2026-09-02",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1692,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9340,
+   "title": "DC SIHA DKT. TIMBUKA AZINDUA KAMPENI YA UTOAJI WA CHANJO YA POLIO, WATOTO 42,049 KUFIKIWA",
+   "date": "2026-09-10",
+   "category": "Afya",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2011,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9336,
+   "title": "WAZIRI PRO. MKUMBO AKAGUA MASHAMBA YA SERIKALI SIHA",
+   "date": "2026-08-12",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1959,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9335,
+   "title": "RUWASA SIHA YAWAKUTANISHA WADAU WA MAJI KUJADILI MPANGO WA BIASHARA WA MIAKA MITATU WA BODI ZA MAJI",
+   "date": "2026-08-14",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1957,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 9334,
+   "title": "WALIMU WAKUU, WAKUU WA SHULE NA WAMILIKI WA SHULE BINAFSI WATAKIWA KUIMARISHA USALAMA DHIDI YA MAJANGA YA MOTO SHULENI",
+   "date": "2026-09-10",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1349,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9332,
+   "title": "MAONESHO YA NANE NANE 2026",
+   "date": "2026-08-07",
+   "category": "Uchumi",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1624,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9329,
+   "title": "WITO WATOLEWA KWA WANANCHI KUJITOKEZA KUPATA ELIMU YA KILIMO, UFUGAJI NANE NANE KUONGEZA TIJA",
+   "date": "2026-08-07",
+   "category": "Uchumi",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1190,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 9327,
+   "title": "DC SIHA DKT. TIMBUKA AWAKABIDHI MAAFISA MAENDELEO YA JAMII PIKIPIKI 2 ZENYE GHARAMA YA SHILINGI MILIONI 7.6",
+   "date": "2026-08-18",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1937,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7948,
+   "title": "CWT SIHA YAKABIDHI LITA 100 ZA MAFUTA KWA KAIMU DED KUWEZESHA KUSHIRIKI MASHINDANO YA SHIMISEMITA 2026, MBEYA",
+   "date": "2026-08-12",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1136,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7946,
+   "title": "WALIMU WAKUU, WAKUU WA SHULE NA WAMILIKI WA SHULE BINAFSI WATAKIWA KUIMARISHA USALAMA DHIDI YA MAJANGA YA MOTO SHULENI",
+   "date": "2026-08-11",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1345,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7784,
+   "title": "SIHA DC YAIBUKA MSHINDI WA KWANZA WA NG'OMBE BORA WA NYAMA",
+   "date": "2026-08-08",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 176,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7780,
+   "title": "DC SIHA ATEMBELEA BANDA LA MAONESHO LA HALMASHAURI YA WILAYA YA SIHA",
+   "date": "2026-08-06",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1624,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6869,
+   "title": "IDARA ZA ELIMU, KILIMO ZAHIMIZWA KUSIMAMIA ULIMAJI WA MBOGAMBOGA NA MAZAO YA CHAKULA SHULENI KUIMARISHA LISHE YA WATOTO",
+   "date": "2026-07-22",
+   "category": "Afya",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1648,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6868,
+   "title": "SIHA DC YATOA ASILIMIA 100 YA FEDHA ZILIZOTENGWA KUTEKELEZA AFUA ZA LISHE, ELIMU NA TATHMINI YA LISHE YATOLEWA KATA ZOTE 17",
+   "date": "2026-07-23",
+   "category": "Afya",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1584,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6848,
+   "title": "Waziri wa Mifugo na Uvuvi, Mhe. Balozi Dkt. Bashiru Ally amewahimiza viongozi wa kimila na wafugaji kuendelea kulinda amani na maadili katika jami",
+   "date": "2026-07-17",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1581,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6282,
+   "title": "RC KILIMANJARO AIPONGEZA SIHA KWA KUPATA HATI SAFI MIAKA MITATU MFULULIZO, ASISITIZA MAELEKEZO YA CAG KUFANYIWA KAZI",
+   "date": "2026-07-09",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1988,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6248,
+   "title": "WAKULIMA NGARENAIROBI WAPEWA MAFUNZO YA MATUMIZI SALAMA NA SAHIHI YA VIUATILIFU VYA KEMIKALI",
+   "date": "2026-07-07",
+   "category": "Uchumi",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1673,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6247,
+   "title": "DED SIHA AFANYA KIKAO KAZI NA WATENDAJI WA KATA NA VIJIJI, AWAHIMIZA KUSIKILIZA KERO ZA WANANCHI",
+   "date": "2026-07-07",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1717,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6195,
+   "title": "WANAFUNZI KIDATO CHA SITA SIHA WAFAULU KWA ASILIMIA 100, SHULE YA SEKONDARI MAGADINI YAONGOZA KIWILAYA",
+   "date": "2026-07-05",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1309,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5277,
+   "title": "WANANCHI 300 SIHA WANUFAIKA NA KLINIKI YA MAGONJWA YASIYOAMBUKIZA KATIKA HOSPITALI YA WILAYA YA SIHA",
+   "date": "2026-06-16",
+   "category": "Afya",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1745,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5204,
+   "title": "SIHA DC YAADHIMISHA SIKU YA MTOTO WA AFRIKA, WAZAZI WAHIMIZWA KUSHIRIKI KIKAMILIFU KATIKA MALEZI",
+   "date": "2026-06-15",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1586,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5115,
+   "title": "JESHI LA ZIMAMOTO LAFANYA MAJARIBIO YA KUKABILIANA NA MAJANGA YA MOTO KWA VITENDO NA KUTOA ELIMU KWA WANANCHI, SANYA JUU",
+   "date": "2026-06-10",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1305,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5114,
+   "title": "DC SIHA DKT. TIMBUKA ASHIRIKI UZINDUZI WA SHAMBA LA KUKU LA COBB EAST AFRICA- BIRIRI",
+   "date": "2026-06-08",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1443,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5113,
+   "title": "RAS KILIMANJARO AONGOZA KAMATI YA USALAMA NA WATAALAM MKOA KUKAGUA MIRADI ITAKAYOPITIWA NA MWENGE SIHA, ASISITIZA UWAJIBIKAJI",
+   "date": "2026-06-05",
+   "category": "Miundombinu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 560,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5110,
+   "title": "SIHA DC YAADHIMISHA SIKU YA MAZINGIRA KWA KUFANYA USAFI NA KUOTESHA MITI ZAIDI YA 100 SHULE YA SEKONDARI MITIREFU",
+   "date": "2026-06-04",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1404,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5108,
+   "title": "DED SIHA APOKEA VIKOMBE SITA VYA UMITASHUMTA, ANUNUA KILA KIKOMBE KWA SHILINGI 300,000",
+   "date": "2026-06-02",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1631,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5107,
+   "title": "DC SIHA AKAGUA ENEO LA MAKABIDHIANO YA MWENGE WA UHURU",
+   "date": "2026-06-02",
+   "category": "Miundombinu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 347,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5105,
+   "title": "TUWAPATIE WATOTO CHAKULA BORA SHULENI NA NYUMBANI - DKT TIMBUKA.",
+   "date": "2026-06-02",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1479,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5103,
+   "title": "DED SIHA AWAAGA WASHIRIKI UMISETA NGAZI YA MKOA, ASISITIZA NIDHAMU NA KUJITUMA",
+   "date": "2026-06-01",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 873,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5102,
+   "title": "SIHA YASHINDA MAKOMBE 6 UMITASHUMTA",
+   "date": "2026-05-26",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 822,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4052,
+   "title": "Ziara Mbunge wa Viti Maalum Mkoa wa Kilimanjaro kundi la wazazi kupitia Chama Cha Mapinduzi (CCM)",
+   "date": "2026-05-19",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 636,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4046,
+   "title": "MAFUNZO YA MWITIKIO WA HARAKA KUJIKINGA NA UVAMIZI WA WANYAMAPORI YATOLEWA KWA WANANCHI",
+   "date": "2026-05-14",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1083,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4044,
+   "title": "WIZARA YA MIFUGO NA UVUVI YAFANYA TATHMINI YA ATHARI YA MAZINGIRA NA KIJAMII WILAYA YA SIHA",
+   "date": "2026-05-13",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1202,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3863,
+   "title": "RC KILIMANJARO AZIKABIDHI KAYA 58‎ ZILIZOATHIRIWA NA MVUA KUBWA ZA MASIKA MSAADA WA CHAKULA",
+   "date": "2026-05-15",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1415,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3767,
+   "title": "WANAWAKE WAHIMIZWA KUJIUNGA NA VIKUNDI VYA UJASIRIAMALI KWA MAENDELEO YA KIUCHUMI",
+   "date": "2026-05-13",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 736,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3765,
+   "title": "UJENZI WA SHULE MPYA YA SEKONDARI MITIMIREFU",
+   "date": "2026-05-13",
+   "category": "Miundombinu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1126,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3677,
+   "title": "BARAZA LA MADIWANI SIHA DC LAMPONGEZA MKURUGENZI KWA UKUSANYAJI WA MAPATO YA NDANI",
+   "date": "2026-05-06",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1443,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3532,
+   "title": "WATENDAJI KATA, VIJIJI WAPATIWA MAFUNZO YA MFUMO WA GAMIS",
+   "date": "2026-05-07",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 544,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3531,
+   "title": "WAKUU WA IDARA, VITENGO SIHA DC WAPATIWA MAFUNZO YA MFUMO WA IFTMIS",
+   "date": "2026-05-07",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 976,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3257,
+   "title": "WATUMISHI HODARI WAKIPOKEA VYETI NA ZAWADI KWA MKUU WA MKOA KILIMANJARO",
+   "date": "2026-05-03",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 575,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3249,
+   "title": "MITI 3,500 YA MATUNDA IMEPANDWA HOSPITALI YA WILAYA YA SIHA",
+   "date": "2026-04-30",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 845,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3247,
+   "title": "WANAFUNZI WASHIRIKI UMISETA NGAZI YA WILAYA",
+   "date": "2026-04-29",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1093,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3246,
+   "title": "JESHI LA ZIMAMOTO SIHA LATOA ELIMU KWA WANANCHI KUKABILIANA NA MAJANGA.",
+   "date": "2026-04-29",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 807,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2493,
+   "title": "SERIKALI NA WAKULIMA WAWEKA MIKAKATI KUIMARISHA ULINZI DHIDI YA TEMBO",
+   "date": "2026-04-16",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1046,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2492,
+   "title": "UZIO WA MIZINGA YA NYUKI KUIMARISHA ULINZI WA MAZAO DHIDI YA TEMBO",
+   "date": "2026-04-16",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 700,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2212,
+   "title": "WATUNZA KUMBUKUMBU SIHA WAPATIWA MAFUNZO YA MFUMO WA KIDIGITALI",
+   "date": "2026-04-08",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 627,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1337,
+   "title": "RC KILIMANJARO AKABIDHI MAGARI MATATU YENYE THAMANI YA SHILINGI MILIONI 600",
+   "date": "2026-03-08",
+   "category": "Matukio",
+   "listing_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1905,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 753,
+   "title": "Ziara ya Waziri Mkuu wa Jamhuri ya Muungano wa Tanzania Mhe Dkt Mwigulu Lameck Nchemba Wilaya ya Siha",
+   "date": "2026-02-21",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 181,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 748,
+   "title": "ZIARA YA KAMATI YA FEDHA",
+   "date": "2026-01-16",
+   "category": "Miundombinu",
+   "listing_url": "https://sihadc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 343,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 747,
+   "title": "Mkuu wa WIilaya ya Siha Mhe Dkt Christopher Timbuka akizungumza na wafanyabiashara katika kituo cha Kia",
+   "date": "2026-03-04",
+   "category": "Habari",
+   "listing_url": "https://sihadc.go.tz/api/news?page=2&limit=50",
+   "text_chars": 1350,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 971,
+   "title": "TANGAZO LA BEI ZA MBOLEA ZENYE RUZUKU YA SERIKALI MSIMU 2026/2027",
+   "date": "2026-09-21",
+   "category": "Taarifa",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 98,
+   "convening_tags": [],
+   "attachments": [
+    "bei-za-mbolea_0001.pdf"
+   ]
+  },
+  {
+   "id": 970,
+   "title": "TANGAZO LA UTOAJI WA HUDUMA ZA MACHO WILAYA YA SIHA",
+   "date": "2026-09-21",
+   "category": "Huduma",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 235,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO-LA-UJIO-WA-WATAALAMU-WA-MACHO_0001_0001.pdf"
+   ]
+  },
+  {
+   "id": 910,
+   "title": "TANGAZO LA UKODISHAJI MASHAMBA MSIMU WA VULI OKTOBA - DESEMBA 20226",
+   "date": "2026-09-04",
+   "category": "Business",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 129,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA UKODISHAJI WA MASHAMBA MSIMU WA VULI-01.jpg"
+   ]
+  },
+  {
+   "id": 906,
+   "title": "TANGAZO LA NAFASI ZA KAZI YA MKATABA",
+   "date": "2026-09-03",
+   "category": "Ajira",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 183,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA NAFASI ZA KAZI YA MKATABA.pdf"
+   ]
+  },
+  {
+   "id": 756,
+   "title": "UTOAJI WA HUDUMA ZA MACHO WILAYA YA SIHA.",
+   "date": "2026-07-22",
+   "category": "Huduma",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 292,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA UJIO WA WATAALAMU WA MACHO_0001.pdf"
+   ]
+  },
+  {
+   "id": 598,
+   "title": "TANGAZO LA UWEPO WA KLINIKI YA MAGONJWA YASIYO YA KUAMBUKIZA",
+   "date": "2026-06-09",
+   "category": "Taarifa",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 141,
+   "convening_tags": [],
+   "attachments": [
+    "JCC_20260609_0001.pdf"
+   ]
+  },
+  {
+   "id": 577,
+   "title": "TANGAZO LA KUITWA KWENYE USAILI",
+   "date": "2026-06-06",
+   "category": "Ajira",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 287,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA USAILI SIHA DC.pdf"
+   ]
+  },
+  {
+   "id": 492,
+   "title": "TANGAZO YA MAADHIMISHO YA WIKI YA RASILIMALI WATU",
+   "date": "2026-05-11",
+   "category": "Taarifa",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 306,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": [
+    "WIKI YA RASILIMALI WATU.pdf"
+   ]
+  },
+  {
+   "id": 491,
+   "title": "KUTANGAZA UPYA VIWANJA AMBAVYO HAVIJAKAMILISHIWA MALIPO HADI IFIKAPO JUNI 30, 2026.",
+   "date": "2026-05-11",
+   "category": "Taarifa",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 263,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA KULIPIA VIWANJA.pdf"
+   ]
+  },
+  {
+   "id": 478,
+   "title": "MTIHANI MWEMA KIDATO CHA SITA",
+   "date": "2026-05-04",
+   "category": "Elimu",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 170,
+   "convening_tags": [],
+   "attachments": [
+    "DED.jpg"
+   ]
+  },
+  {
+   "id": 475,
+   "title": "TANGAZO LA MKUTANO WA BARAZA LA WAHESHIMIWA MADIWANI KIPINDI CHA ROBO YA TATU YA MWAKA WA FEDHA 2025/2026",
+   "date": "2026-04-29",
+   "category": "Taarifa",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 354,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": [
+    "TANGAZO LA BARAZA.pdf"
+   ]
+  },
+  {
+   "id": 469,
+   "title": "TANGAZO ,MAADHIMISHO YA WIKI YA RASILIMALI WATU",
+   "date": "2026-04-28",
+   "category": "Taarifa",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 306,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": [
+    "HR WEEK TANGAZO_0001.pdf"
+   ]
+  },
+  {
+   "id": 459,
+   "title": "TANGAZO LA NAFASI ZA WAJUMBE WA BODI YA AFYA YA HALMASHAURI NA KAMATI ZA USIMAMIZI HUDUMA ZA AFYA NGAZI YA HOSPITALI",
+   "date": "2026-04-23",
+   "category": "Ajira",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 228,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO_0001[1].pdf"
+   ]
+  },
+  {
+   "id": 455,
+   "title": "TANGAZO LA UJIO WA MADAKTARI BINGWA WA MACHO KWA AJILI YA UPIMAJI HUDUMA YA MIWANI KATIKA VITUO VYA AFYA WILAYA YA SIHA",
+   "date": "2026-04-16",
+   "category": "Huduma",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 382,
+   "convening_tags": [],
+   "attachments": [
+    "Madaktari Bingwa - Macho.pdf"
+   ]
+  },
+  {
+   "id": 450,
+   "title": "TANGAZO LA UJIO WA MADAKTARI BINGWA KATIKA HOSPITALI YA WILAYA YA SIHA",
+   "date": "2026-04-11",
+   "category": "Huduma",
+   "listing_url": "https://sihadc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 183,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO AFYA_0001.jpg"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://sihadc.go.tz/api/profiles": "23f181804dcf312150325f588f97cf49b18d3a51e0bc1276a8e6fea102962120",
+  "https://sihadc.go.tz/api/statistics": "5ed14755b6b7a49b6dea0af1b26f5d01a7408052bc512bd961a66915d91c5c5d",
+  "https://sihadc.go.tz/api/footer": "e479eaa5c2f57f6c4f6aa3143d6c940d28ad89b9d672c38efaa73564d980b173",
+  "https://sihadc.go.tz/api/menus": "b6b74888bcc98592845faf2aefc5abddcc0e9a325be4ec3e94ddb26f9be318bf",
+  "https://sihadc.go.tz/api/pages/slug/our-history": "4c5848f750267d3b4b4fd898853763278f967d1d2f80761af75fee2e8d6f8f05",
+  "https://sihadc.go.tz/api/pages/slug/vission-and-mission": "ae10e7a773100efb5a681e686cedba37c0efb7a166bee69ec0a606b420767c3d",
+  "https://sihadc.go.tz/api/pages/slug/core-values": "b98a0023e02c9cc589bdcfcf4eb96767e0888902d141a90e1ba6d8ce8deb3600",
+  "https://sihadc.go.tz/api/pages/slug/administration": "c63ab29d589c72e0902477fc388ccf5d63559ff31c1de9757cca989b6ed9f568",
+  "https://sihadc.go.tz/api/pages/slug/agriculture-livestock-fisheries-division": "6c0342d5cff6fe3041bd65af0b8c27e786da72a69764c3883a6476e263827e19",
+  "https://sihadc.go.tz/api/pages/slug/community": "90e9cd82e112486c93a2aa48a4ff69ad8a8042dd612663e5e7522e9677dfafe2",
+  "https://sihadc.go.tz/api/pages/slug/pre-primary-and-primary-education": "8298f49dc999b98fe8559084f98144666abe64ef447ea5a662778f72e001a3ff",
+  "https://sihadc.go.tz/api/pages/slug/planning": "2ffa4ece3806a1c3497ff570465c19314714726cb9cdaf5aa6850b85eab72600",
+  "https://sihadc.go.tz/api/pages/slug/division": "46dc80e03ce132eb6f1037f8967d5212491492e045a76498ca11d396f6ad4fbb",
+  "https://sihadc.go.tz/api/pages/slug/councilors-list": "035acf5f8ae299a830c0cac0ca05b7794efbde2c7b18b893d66725a947758773",
+  "https://sihadc.go.tz/api/pages/slug/permanent-commitee": "a19148f4e8d60561611b01e6d85c12a5d9a87784870d97b5892779b405c048e4",
+  "https://sihadc.go.tz/api/pages/slug/health-sector": "25cc5856958c8f19e83b65d3ebe84955de0c7bb497e0692f79da2557cd46ca92",
+  "https://sihadc.go.tz/api/files?page=1&limit=100": "6604f0d1c37fbecc75c20df84367ef5a2bf5ea5f71b45cfb434e9ac042af1abc",
+  "https://sihadc.go.tz/api/news?page=1&limit=50": "ec8d1a4da175c041e08aab629fc066462d30ee7f182dd741c6c3bbde0ed24f46",
+  "https://sihadc.go.tz/api/news?page=2&limit=50": "ed0aba9a4fd98dc424a4c43346d4125ffb296198bdb4d3ce80c9baee76ff0e80",
+  "https://sihadc.go.tz/api/announcements?page=1&limit=50": "f970182858f9176b6e8b93b2855f0bec9c15379f487128152a23d312c5917ba2"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

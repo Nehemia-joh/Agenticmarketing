@@ -1,0 +1,595 @@
+{
+ "host": "simanjirodc.go.tz",
+ "organisation": "Simanjiro District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://simanjirodc.go.tz",
+ "profiles": [
+  {
+   "id": 499,
+   "name": "Mh. KALEYA MELITA MOLLEL",
+   "title": "Mwenyekiti wa Halmashauri",
+   "titleSwahili": "Mwenyekiti wa Halmashauri, Halmashauri ya Wilaya ya Simanjiro",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-16T10:10:05.498Z",
+   "updatedAt": "2026-04-09T08:42:38.996Z"
+  },
+  {
+   "id": 506,
+   "name": "Bw.Gracian Makota",
+   "title": "District  Excecutive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji, Halmashauri ya Wilaya ya Simanjiro",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-16T12:14:11.469Z",
+   "updatedAt": "2026-04-09T08:41:57.555Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Vituo vya Afya",
+   "value": 8,
+   "suffix": ""
+  },
+  {
+   "label": "Hospitali",
+   "value": 1,
+   "suffix": ""
+  },
+  {
+   "label": "Zahanati",
+   "value": 46,
+   "suffix": ""
+  },
+  {
+   "label": "Secondary Schools",
+   "value": 23,
+   "suffix": ""
+  },
+  {
+   "label": "Vijiji",
+   "value": 56,
+   "suffix": ""
+  },
+  {
+   "label": "Kata",
+   "value": 18,
+   "suffix": ""
+  },
+  {
+   "label": "Miji Midogo",
+   "value": 2,
+   "suffix": ""
+  },
+  {
+   "label": "population",
+   "value": 291690,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Simanjiro District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [],
+   "keyServices": [],
+   "usefulLinks": []
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.7455259577705!2d37.1928485732379!3d-4.458353947317376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18487bc325731bbd%3A0xcc0f9b419d53f163!2sHalmashauri%20ya%20Wilaya%20Simanjiro!5e0!3m2!1sen!2stz!4v1773730148718!5m2!1sen!2stz",
+   "lat": -4.45806,
+   "lng": 37.195316,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History > Our  History",
+   "title": "Our  History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Mission and Vision > Mision",
+   "title": "Mision",
+   "title_sw": "Dira",
+   "slug": "mission"
+  },
+  {
+   "path": "About Us > Mission and Vision > Vission",
+   "title": "Vission",
+   "title_sw": "Dhima",
+   "slug": "mission-and-vission"
+  },
+  {
+   "path": "About Us > Core Value > Core  values",
+   "title": "Core  values",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "About Us > Institution Strategies",
+   "title": "Institution Strategies",
+   "title_sw": "Mikakati ya Halmashauri",
+   "slug": "our-strategies"
+  },
+  {
+   "path": "About Us > Institution Strategies > Our Strategies",
+   "title": "Our Strategies",
+   "title_sw": "Mikakati yetu",
+   "slug": "our-strategies"
+  },
+  {
+   "path": "About Us > Institution Strategies > Our Strategies > Our  Strategies",
+   "title": "Our  Strategies",
+   "title_sw": "Mikakati Yetu",
+   "slug": "our-strategies"
+  },
+  {
+   "path": "Administration > Departments > Department of Human Reource Management",
+   "title": "Department of Human Reource Management",
+   "title_sw": "Idara ya Utawala na Usimamizi wa Rasilimali Watu",
+   "slug": "human-resource-management"
+  },
+  {
+   "path": "Administration > Units > Government Communication Unit",
+   "title": "Government Communication Unit",
+   "title_sw": "Kitengo cha Mawasiliano Serikalini",
+   "slug": "government-communication"
+  },
+  {
+   "path": "Administration > Units > ICT  Unit",
+   "title": "ICT  Unit",
+   "title_sw": "Kitengo Cha TEHAMA",
+   "slug": "ict"
+  },
+  {
+   "path": "Investment Oportunities",
+   "title": "Investment Oportunities",
+   "title_sw": "Fursa  za Uwekezaji",
+   "slug": "viwanda-na-biashara"
+  },
+  {
+   "path": "Investment Oportunities > Tourist Attraction",
+   "title": "Tourist Attraction",
+   "title_sw": "Vivutio vya Utalii",
+   "slug": "tourism-atractions"
+  },
+  {
+   "path": "Investment Oportunities > Tourist Attraction > Kitwai North GCA (Kitwai North Game Controlled Area)",
+   "title": "Kitwai North GCA (Kitwai North Game Controlled Area)",
+   "title_sw": "Kitwai North GCA (Kitwai North Game Controlled Area)",
+   "slug": "tourism-atractions"
+  },
+  {
+   "path": "Investment Oportunities > Tourist Attraction > Kitwai South East GCA ( Kitwai South East Game Controlled Area)",
+   "title": "Kitwai South East GCA ( Kitwai South East Game Controlled Area)",
+   "title_sw": "Kitwai South East GCA ( Kitwai South East Game Controlled Area)",
+   "slug": "kitwai-south-east-gca-kitwai-south-east-game-controlled-area"
+  },
+  {
+   "path": "Investment Oportunities > Tourist Attraction > Kitwai South West GCA (Kitwai South West Game Controlled Area)",
+   "title": "Kitwai South West GCA (Kitwai South West Game Controlled Area)",
+   "title_sw": "Kitwai South West GCA (Kitwai South West Game Controlled Area)",
+   "slug": "kitwai-south-west-gca-kitwai-south-west-game-controlled-area"
+  },
+  {
+   "path": "Investment Oportunities > Tourist Attraction > Landanai Controlled area",
+   "title": "Landanai Controlled area",
+   "title_sw": "Landanai Controlled area",
+   "slug": "landanai-controlled-area"
+  },
+  {
+   "path": "Investment Oportunities > Agriculture > Sunflower and Maize  Crops",
+   "title": "Sunflower and Maize  Crops",
+   "title_sw": "Kilimo cha Alizeti na Maharage",
+   "slug": "mazao-yanayostawi-kwa-sana"
+  },
+  {
+   "path": "Investment Oportunities > Agriculture > Lemkuna Irrigation Scheme",
+   "title": "Lemkuna Irrigation Scheme",
+   "title_sw": "Lemkuna Irrigation Scheme",
+   "slug": "lemkuna-irrigation-scheme"
+  },
+  {
+   "path": "Investment Oportunities > Agriculture > Lemkuna Irrigation Ngage",
+   "title": "Lemkuna Irrigation Ngage",
+   "title_sw": "Skimu ya Umwagiliaji Ngage",
+   "slug": "ngage-irrigation-schime"
+  },
+  {
+   "path": "Investment Oportunities > Agriculture > Fursa za Ujenzi wa  Maghala ya Kuhifadhi mazao",
+   "title": "Fursa za Ujenzi wa  Maghala ya Kuhifadhi mazao",
+   "title_sw": "Fursa za Ujenzi wa  Maghala ya Kuhifadhi mazao",
+   "slug": "fursa-za-ujenzi-wa-maghala-ya-kuhifadhi-mazao"
+  },
+  {
+   "path": "Investment Oportunities > Agriculture > Fursa za Ujenzi wa  Viwanda vya Kuchakata  mazao",
+   "title": "Fursa za Ujenzi wa  Viwanda vya Kuchakata  mazao",
+   "title_sw": "Fursa za Ujenzi wa  Viwanda vya Kuchakata  mazao",
+   "slug": "fursa-za-ujenzi-wa-viwanda-vya-kuchakata-nafaka"
+  },
+  {
+   "path": "Investment Oportunities > LIvestocks > Rotiana Social Investment Limited",
+   "title": "Rotiana Social Investment Limited",
+   "title_sw": "Rotiana Social Investment Limited",
+   "slug": "rotiana-social-investment-limited"
+  },
+  {
+   "path": "Investment Oportunities > Fisheries > Fiheries  at Nyumba ya mungu and Kidawashi  Basins",
+   "title": "Fiheries  at Nyumba ya mungu and Kidawashi  Basins",
+   "title_sw": "Uvuvi katika Bwawa la Nyumba ya Mungu na Kidawashi",
+   "slug": "bwawa-la-nyumba-ya-mungu-na-kidawashi"
+  },
+  {
+   "path": "Investment Oportunities > MIneral Mining > Tanzanite City Mererani",
+   "title": "Tanzanite City Mererani",
+   "title_sw": "Tanzanite City Mererani",
+   "slug": "tanzanite-city-mererani"
+  },
+  {
+   "path": "Investment Oportunities > Investment   Areas",
+   "title": "Investment   Areas",
+   "title_sw": "Maeneo ya Uwekezaji",
+   "slug": "viwanda-na-biashara"
+  },
+  {
+   "path": "Councilors > list of councilors > List of Councilors",
+   "title": "List of Councilors",
+   "title_sw": "orodha ya madiwani",
+   "slug": "concilors-list"
+  },
+  {
+   "path": "Councilors > Standing Commetees > Finance ,Administration and Planning Commitee > Finance ,Administration and Planning Commitee",
+   "title": "Finance ,Administration and Planning Commitee",
+   "title_sw": "Kamati ya Fedha, Uongozi na Mipango",
+   "slug": "finance-administration-and-planning-commitee"
+  },
+  {
+   "path": "Councilors > Standing Commetees > Economic services,construction,Land and Natural resources and Environmental Commetee > Economic services,construction,Land and Natural resources and Environmental Commetee",
+   "title": "Economic services,construction,Land and Natural resources and Environmental Commetee",
+   "title_sw": "Kamati ya Huduma za Uchumi, Ujenzi, Ardhi, Malisili na Mazingira",
+   "slug": "economic-services-construction-land-natural-resources-and-environment-committee"
+  },
+  {
+   "path": "Councilors > Standing Commetees > Social services  Commitee > Social services Commitee(Aids)",
+   "title": "Social services Commitee(Aids)",
+   "title_sw": "Kamati ya Huduma za Jamii (Ukimwi)",
+   "slug": "social-services-cometee-aids"
+  },
+  {
+   "path": "Projects > SCALE",
+   "title": "SCALE",
+   "title_sw": "MRADI WA MADILIKO YA TABIA NCHI(SCALE)",
+   "slug": "scale"
+  },
+  {
+   "path": "Projects > SCALE > SCALE",
+   "title": "SCALE",
+   "title_sw": "MRADI WA MADILIKO YA TABIA NCHI(SCALE)",
+   "slug": "scale"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History > Our  History",
+   "title": "Our  History",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://simanjirodc.go.tz/our-history",
+   "createdAt": "2026-03-16T08:18:58.601Z",
+   "updatedAt": "2026-04-08T12:57:54.354Z",
+   "text_en": "The history of Simanjiro can be viewed in two main aspects: the origin of its name and its administrative development into a full district.\nBelow is a summary of that history:\n(1) Origin of the Name “Simanjiro”\nThe name originates from the Maasai (Maa) language, which is the main ethnic group in the area. It comes from the word “Simanjiro,” meaning “an area with plenty of grass” or “a place for grazing.”\nIt is said that this area had many cattle keepers (the Maasai), and this characteristic of owning large herds led to the area being given this honorable name, symbolizing wealth in livestock.\n(2) Administrative History\nBefore 1995: The Wanging’ombe area was part of Kiteto District within Manyara Region.\nEstablishment of the District: Simanjiro District was officially established in March 1995 (and became fully operational in 1996). This followed a government decision to divide Kiteto District.\nHeadquarters: The district headquarters are located in the town of Orkesumet.\n(3) People and Culture\nEthnic Groups: The main inhabitants of Simanjiro are the Maasai. However, due to historical and geographical interactions, there are also significant numbers of Pare, Chagga, and Rangi people.\nEconomic Activities: Historically and up to the present, the people of Simanjiro are well known for cattle keeping and farming crops such as maize, beans, and sunflower.\nIf you want, I can also help refine it into a more formal report or academic format.",
+   "text_sw": "Halmahauri ya Wilaya ya Simanjiro ni moja ya Halmashauri chache kongwe zenye utajiri na historia ambayo imechangia kuleta mabadiliko kisiasa, kiuchumi na kijamii Nchini.\nHalmahauri ya Wilaya ya Simanjiro ina eneo la ukubwa wa kilomita za mraba 20,591 iliundwa 1996 chini ya sheria ya Serikali za mitaa (mamlaka ya miji) ya mwaka1982.\nHalmahauri ya Wilaya ya Simanjiro ipo kusini mwa mkoa wa Dodoma ambapo Mashariki inapatikana na Wilaya ya Kilindi, Kusini inapakana na wilaya ya Kondoa iliyopo mkoa wa Dodoma na Kaskazini imepakana na Wilaya ya Arusha.\nSimanjiro ina jimbo moja la uchaguzi (Jimbo la Simanjiro) lenye idadi ya watu ni 178,693 kati yao wanawake ni 89,791 na wanaume ni 89,791.\nHistoria ya Simanjiro inaanza kutazamwa katika sura kuu mbili: chimbuko la jina lake na mabadiliko ya kiutawala hadi kuwa wilaya kamili.\nHapa kuna muhtasari wa historia hiyo:\n(1). Chimbuko la Jina \"Simanjiro\"\nJina hili linatokana na lugha ya Kimasai , ambalo ni kabila kuu la eneo hilo. Asili yake ni neno \" Simanjiro \" likimaanisha \"Eneo lenye nyasi nyingi au mahali pa Malisho\" .\n· Inasemekana kuwa eneo hili lilikuwa na wafugaji wengi wa ng'ombe (wamasai), na sifa hiyo ya kumiliki mifugo mingi ikafanya eneo hilo kuitwa kwa jina hilo la heshima kwa matajiri wa mifugo.\n(2). Historia ya Kiutawala\n· Kabla ya mwaka 1984: Eneo la Wanging'ombe lilikuwa sehemu ya Wilaya ya Kiteto ndani ya Mkoa wa Manyara .\n· Kuanzishwa kwa Wilaya: Wilaya ya Simanjiro ilianzishwa rasmi mnamo Machi 1995 (na kuanza kufanya kazi kikamilifu mwaka 1996). Hii ilitokana na uamuzi wa Serikali wa kugawa Wilaya ya Simanjiro.\n· Makao Makuu: Makao makuu ya wilaya hii yapo katika mji mdogo wa Orkesumet .\n(3). Watu na Utamaduni\n· Makabila: Wakazi wakuu wa Simanjiro ni Wamasai . Hata hivyo, kutokana na muingiliano wa kihistoria na kijiografia, kuna idadi kubwa ya Wapare,wachaga na warangi .\n· Shughuli za Kiuchumi: Kihistoria na hadi leo, watu wa Simanjiro ni maarufu kwa ufugaji wa ng’ombe na kilimo cha mahindi,maharage na alizeti",
+   "attachments": []
+  },
+  {
+   "slug": "mission",
+   "menu_path": "About Us > Mission and Vision > Mision",
+   "title": "Mission",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/mission",
+   "public_url": "https://simanjirodc.go.tz/mission",
+   "createdAt": "2026-03-22T16:23:50.574Z",
+   "updatedAt": "2026-03-22T16:41:51.850Z",
+   "text_en": "Our Mission is To deliver efficient, accountable, and inclusive public services through effective use\nof available resources; upholding good governance; and partnering with communities\nand stakeholders",
+   "text_sw": "Dira yetu ni Kutoa huduma bora kwa wananchi kwa kutumia kwa usahihi rasilimali zilizopo na kukuza utawala bora na ushirikiano katika jamii.",
+   "attachments": []
+  },
+  {
+   "slug": "mission-and-vission",
+   "menu_path": "About Us > Mission and Vision > Vission",
+   "title": " Vission",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/mission-and-vission",
+   "public_url": "https://simanjirodc.go.tz/mission-and-vission",
+   "createdAt": "2026-03-16T08:27:45.577Z",
+   "updatedAt": "2026-03-22T16:43:25.450Z",
+   "text_en": "Our Vission is To be A trusted and well-governed council with quality social services and sustainable\ncommunity development.",
+   "text_sw": "Dhima yetu ni kuwa taasisi inayoaminika na yenye uthabiti kwa kutoa huduma bora kwa jamii",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Value > Core  values",
+   "title": "Core  values",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://simanjirodc.go.tz/core-values",
+   "createdAt": "2026-03-16T08:35:40.401Z",
+   "updatedAt": "2026-03-22T16:50:00.107Z",
+   "text_en": "In executing its mandate and pursuing its Vision and Mission, the Simanjiro District\nCouncil shall be guided by the following core values:\nIntegrity and Ethical Conduct\n• Upholding honesty, fairness, impartiality, and professionalism in all decisions\nand actions;\nProfessionalism and Competence\n• Demonstrating technical excellence, diligence, innovation, and continuous\nlearning in service delivery\nTransparency and Accountability\n• Ensuring openness, responsibility, and prudent management of public\nresources, with clear reporting and answerability;\nInclusiveness and Equity\n• Promoting participation of all stakeholders, including women, youth, and\nvulnerable groups, in development processes\nExcellence\n• We achieve highest standards in everything we do.\nTeam Work and Collaboration\n• Fostering a culture of cooperation, mutual respect and partnership among staff,\nstakeholders as well as partners and donors to positivel impact our activities.\nInnovation\n• Encouraging creativity, adoption of appropriate technologies and continuous\nimprovement of systems and process.",
+   "text_sw": "Katika kutekeleza majukumu yake na kufuata Dira na Dhima yake, Halmashauri ya Wilaya ya Simanjiro itaongozwa na maadili ya msingi yafuatayo ya msingi:\nUadilifu na Maadili ya Kitaaluma\n* Kudumisha uaminifu, haki, kutopendelea upande wowote, na weledi katika maamuzi na vitendo vyote;\nUtaalamu na Uwezo\n* Kuonesha ubora wa kitaalamu, bidii, ubunifu, na kujifunza endelevu katika utoaji wa huduma;\nUwazi na Uwajibikaji\n* Kuhakikisha uwazi, uwajibikaji, na usimamizi makini wa rasilimali za umma, pamoja na utoaji wa taarifa zilizo wazi na zenye kuwajibika;\nUshirikishwaji na Usawa\n* Kukuza ushiriki wa wadau wote, wakiwemo wanawake, vijana, na makundi yaliyo katika mazingira hatarishi, katika michakato ya maendeleo;\nUbora\n* Tunafikia viwango vya juu zaidi katika kila tunachofanya;\nKazi ya Timu na Ushirikiano\n* Kukuza utamaduni wa ushirikiano, kuheshimiana, na ubia kati ya watumishi, wadau, pamoja na washirika na wafadhili ili kuboresha matokeo ya shughuli zetu;\nUbunifu\n* Kuhamasisha ubunifu, matumizi ya teknolojia sahihi, na uboreshaji endelevu wa mifumo na michakato.",
+   "attachments": []
+  },
+  {
+   "slug": "our-strategies",
+   "menu_path": "About Us > Institution Strategies",
+   "title": "Our  Strategies",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/our-strategies",
+   "public_url": "https://simanjirodc.go.tz/our-strategies",
+   "createdAt": "2026-03-22T15:47:18.842Z",
+   "updatedAt": "2026-03-23T15:53:30.644Z",
+   "text_en": "Our Strategies\nv Conduct community awareness and sensitization on HIV/AIDS prevention and control.\nv Strengthen planning and expenditure control. Budget performance rate increased\nv Enhance disaster recovery response systems.\nv Governance and Administrative Service enhanced\nv Improve social welfare, gender and community empowerment.\nv Quality and quantity of Socio – Economic Services increased\nv Social welfare, gender and community empowerment\nimproved.\nv Improve school Infrastructures\nv Improve Pupils, enrollment.\nv Improve Welfare of Teachers\nv Improve school, infrastructures\nv Enhance Reforestation, Programs.\nv Sensitization on Beekeeping\nv Enhance Training Support for entrepreneurs and Micro, small and Medium enterprises (MSMEs)\nv promote enabling infrastructure in designated industrial areas\nv rehabilitation, registration, construction and maintaining sport, arts and culture\ninfrastructure\nv promote and develop sports and arts talents among youth and community\nv Improve Infrastructure, Development and service Delivery\nv Improve road infrastructure\nv Agricultural Infrastructure Development\nv improve Agricultural extension service delivery\nv Organization structure and institution management\nimproved\nv Increase transparent and Proactive Public Communication\nv Strengthening E-Governance and Use of\nTechnology",
+   "text_sw": "Mikakati Yetu\n Kufanya uhamasishaji na uelimishaji wa jamii kuhusu kinga na udhibiti wa VVU/UKIMWI.\n Kuimarisha mipango na udhibiti wa matumizi ya fedha; kuongeza kiwango cha utekelezaji wa bajeti.\n Kuimarisha mifumo ya mwitikio wa uokoaji wakati wa majanga.\n Kuboresha utawala na huduma za kiutawala.\n Kuboresha ustawi wa jamii, usawa wa kijinsia na uwezeshaji wa jamii.\n Kuongeza ubora na wingi wa huduma za kijamii na kiuchumi.\n Kuboresha miundombinu ya shule.\n Kuongeza uandikishaji wa wanafunzi shuleni.\n Kuboresha ustawi wa walimu.\n Kuimarisha programu za upandaji miti (urejeshaji wa misitu).\n Kutoa uhamasishaji kuhusu ufugaji nyuki.\n Kuimarisha mafunzo na msaada kwa wajasiriamali na biashara ndogo, za kati na ndogo sana (MSMEs).\n Kukuza miundombinu wezeshi katika maeneo maalum ya viwanda.\n Kufanya ukarabati, usajili, ujenzi na matengenezo ya miundombinu ya michezo, sanaa na utamaduni.\n Kukuza na kuendeleza vipaji vya michezo na sanaa miongoni mwa vijana na jamii.\n Kuboresha maendeleo ya miundombinu na utoaji wa huduma.\n Kuboresha miundombinu ya barabara.\n Kuendeleza miundombinu ya kilimo.\n Kuboresha utoaji wa huduma za ugani wa kilimo.\n Kuboresha muundo wa shirika na usimamizi wa taasisi.\n Kuongeza uwazi na mawasiliano ya umma yenye kuwajibika.\n Kuimarisha utawala wa kielektroniki (e-Governance) na matumizi ya teknolojia.\nUkitaka, naweza pia kukusaidia kuipanga katika makundi (mfano: afya, elimu, miundombinu, uchumi) ili iwe rasmi zaidi kwa ripoti au mpango wa maendeleo.",
+   "attachments": [
+    {
+     "file_name": "Mpango Mkakati wa  Halmashauri.pdf",
+     "url": "http://simanjirodc.go.tz/minio/simanjirodc.go.tz/attachments/1774194438846-Mpango%20Mkakati%20wa%20%20Halmashauri.pdf",
+     "file_type": "application/pdf",
+     "file_size": "1042899"
+    }
+   ]
+  },
+  {
+   "slug": "rotiana-social-investment-limited",
+   "menu_path": "Investment Oportunities > LIvestocks > Rotiana Social Investment Limited",
+   "title": "Rotiana Social Investment Limited",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/rotiana-social-investment-limited",
+   "public_url": "https://simanjirodc.go.tz/rotiana-social-investment-limited",
+   "createdAt": "2026-03-22T14:23:57.889Z",
+   "updatedAt": "2026-03-22T14:23:57.889Z",
+   "text_en": "R otiana Social Investment Limited\nEneo hili liko katika kata ya NAberera ,Eneo linafaa kwa ajili ya shughuli mbalimbali za uzalishaji wa bidhaa za mifugo na viwanda zikiwemo:\nRanching\nKiwanda cha Uzalishaji wa Nyama Meat packing\nUfugaji wa Nyuki(Bee Keeping)\nKiwanda cha maziwa na bidhaa za maziwa(siagi na yabisi)",
+   "text_sw": "R otiana Social Investment Limited\nEneo hili liko katika kata ya NAberera ,Eneo linafaa kwa ajili ya shughuli mbalimbali za uzalishaji wa bidhaa za mifugo na viwanda zikiwemo:\nRanching\nKiwanda cha Uzalishaji wa Nyama Meat packing\nUfugaji wa Nyuki(Bee Keeping)\nKiwanda cha maziwa na bidhaa za maziwa(siagi na yabisi)",
+   "attachments": []
+  },
+  {
+   "slug": "concilors-list",
+   "menu_path": "Councilors > list of councilors > List of Councilors",
+   "title": "concilors list",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/concilors-list",
+   "public_url": "https://simanjirodc.go.tz/concilors-list",
+   "createdAt": "2026-03-26T14:43:41.533Z",
+   "updatedAt": "2026-03-26T14:43:41.533Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "finance-administration-and-planning-commitee",
+   "menu_path": "Councilors > Standing Commetees > Finance ,Administration and Planning Commitee > Finance ,Administration and Planning Commitee",
+   "title": "Finance ,Administration and Planning Commitee",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/finance-administration-and-planning-commitee",
+   "public_url": "https://simanjirodc.go.tz/finance-administration-and-planning-commitee",
+   "createdAt": "2026-03-26T14:53:04.570Z",
+   "updatedAt": "2026-03-26T14:53:04.570Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "economic-services-construction-land-natural-resources-and-environment-committee",
+   "menu_path": "Councilors > Standing Commetees > Economic services,construction,Land and Natural resources and Environmental Commetee > Economic services,construction,Land and Natural resources and Environmental Commetee",
+   "title": "Economic Services, Construction, Land, Natural Resources, and Environment Committee",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/economic-services-construction-land-natural-resources-and-environment-committee",
+   "public_url": "https://simanjirodc.go.tz/economic-services-construction-land-natural-resources-and-environment-committee",
+   "createdAt": "2026-03-26T14:57:15.421Z",
+   "updatedAt": "2026-03-26T14:57:15.421Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "social-services-cometee-aids",
+   "menu_path": "Councilors > Standing Commetees > Social services  Commitee > Social services Commitee(Aids)",
+   "title": "Social Services Cometee(Aids)",
+   "api_url": "https://simanjirodc.go.tz/api/pages/slug/social-services-cometee-aids",
+   "public_url": "https://simanjirodc.go.tz/social-services-cometee-aids",
+   "createdAt": "2026-03-26T15:05:01.113Z",
+   "updatedAt": "2026-03-26T15:05:01.113Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "Mpango Mkakati wa  Halmashauri",
+   "date": "2026-03-17T13:18:51.299Z",
+   "url": "http://simanjirodc.go.tz/minio/simanjirodc.go.tz/files/1773753492187-SP%20SIMANJIRO%20-%2028-2-26.pdf",
+   "file_type": "application/pdf",
+   "size": "1042899"
+  }
+ ],
+ "news": [
+  {
+   "id": 4177,
+   "title": "FURSA ZILIZOPO WILAYANI SIMANJIRO",
+   "date": "2026-05-18",
+   "category": "Uchumi",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 215,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4174,
+   "title": "WANANCHI WA OLCHORONYORI WATAKIWA KUWA MABALOZI KATIKA KUKABILIANA NA MABADILIKO YA TABIA NCHI",
+   "date": "2026-05-21",
+   "category": "Habari",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1431,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4173,
+   "title": "MKUTANO WA BARAZA LA MADIWANI",
+   "date": "2026-05-20",
+   "category": "Matukio",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 104,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3745,
+   "title": "MUUONEKANO WA SHULE YA SEKONDARI ENDONYONGIJAPE",
+   "date": "2026-05-12",
+   "category": "Matukio",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 217,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2204,
+   "title": "KARUME DAY,2026",
+   "date": "2026-04-08",
+   "category": "Habari",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 221,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1463,
+   "title": "OFISI YA DC SIMANJIRO WAFANYA UTALII WA NDANI TARANGIRE",
+   "date": "2026-03-16",
+   "category": "Uchumi",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2356,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1459,
+   "title": "DC FAKII AKAGUA VIFAA TIBA HOSPITALI YA WILAYA SIMANJIRO",
+   "date": "2026-03-16",
+   "category": "Afya",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2210,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1455,
+   "title": "Mkuu wa Usalama Barabarani wilaya ya Simanjiro, ASP Raphael Karani, aakiwafundisha wanafunzi wa shule ya Msingi Terrat sheria muhimu za usalama barabarani",
+   "date": "2026-03-16",
+   "category": "Matukio",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1677,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1395,
+   "title": "Moja ya kikundi cha akinamam wa jamii ya kimaasai wanaojihusisha na kupanda na kuvuna majani na mbegu za majani wilayani Simanjiro",
+   "date": "2026-03-15",
+   "category": "Uchumi",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 759,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1363,
+   "title": "Mafunzo Elekezi ya Madiwani",
+   "date": "2026-03-15",
+   "category": "Habari",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 301,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1358,
+   "title": "Kikao cha Kujadili Dira ya Maendeleo ya Taifa",
+   "date": "2026-03-16",
+   "category": "Habari",
+   "listing_url": "https://simanjirodc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3654,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 364,
+   "title": "Tangazo la Mgao wa Mitungi ya Gesi ya Kupikia",
+   "date": "2026-03-10",
+   "category": "Huduma",
+   "listing_url": "https://simanjirodc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 317,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 338,
+   "title": "Tangazo la Usafi",
+   "date": "2026-03-15",
+   "category": "Taarifa",
+   "listing_url": "https://simanjirodc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 207,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://simanjirodc.go.tz/api/profiles": "377ea97dfe72d44bbc278472d59622a432274fd1c2ad44f3412741ff42d55d57",
+  "https://simanjirodc.go.tz/api/statistics": "d833fafb3ccb15594b657409d421d04176e27fb04feb02e8144b4f8812a07acb",
+  "https://simanjirodc.go.tz/api/footer": "0a59e3a7e7818f1f27a9c55d49ea8687b9b020702bf0697d1def37de9fd6376d",
+  "https://simanjirodc.go.tz/api/menus": "150bce63355828d796bcf565bb3ba69defbc32006ed9472be00762ec09d5691f",
+  "https://simanjirodc.go.tz/api/pages/slug/our-history": "47204924226c40ec35bf917ba39a9a64462852c3d809869689e6c6078b9a800d",
+  "https://simanjirodc.go.tz/api/pages/slug/mission": "c1d83fc3ca83aaa5d4eb7541ea50d5163a04bcf4d66effff6c0f2856ed1e3d31",
+  "https://simanjirodc.go.tz/api/pages/slug/mission-and-vission": "7b37da3ab121cead8e8e58f4964ce1802fb23a365365d6389ce43f11f94751cb",
+  "https://simanjirodc.go.tz/api/pages/slug/core-values": "ee2e1cd01143f630c0e3ea3003116fcbe818a3e2c0d11c168c2b6746aaed44ce",
+  "https://simanjirodc.go.tz/api/pages/slug/our-strategies": "c889ae512fc1639f9268f406186797b3ccc0c60154c4a51df6edd5f099e00760",
+  "https://simanjirodc.go.tz/api/pages/slug/rotiana-social-investment-limited": "568f783c8971bd8a9492035ff39d3f3bb3c1ef2a7df932ca20907867c6bd6e68",
+  "https://simanjirodc.go.tz/api/pages/slug/concilors-list": "124f8d34a9bda5d8b21ef9b31f9235fa1b18cb21f79749468f58b290f44b0a2d",
+  "https://simanjirodc.go.tz/api/pages/slug/finance-administration-and-planning-commitee": "226feddfa0d5604b2fbdab181233f34943610c8032a0444785d6015a4de7cca4",
+  "https://simanjirodc.go.tz/api/pages/slug/economic-services-construction-land-natural-resources-and-environment-committee": "ec3f6360e01e14e6912eff8a8a76e14c1222d4668ec80206d3d4c521f9f8c5a8",
+  "https://simanjirodc.go.tz/api/pages/slug/social-services-cometee-aids": "62445c89840e0b94fbf18b55c7d78a7b01cb29c1b780eac6a965314a1f959b7b",
+  "https://simanjirodc.go.tz/api/files?page=1&limit=100": "38c902e069edd0d67f0147a1acde360d38c8185530a14a90137e853fbdeb14b9",
+  "https://simanjirodc.go.tz/api/news?page=1&limit=50": "74fdfe254101bc4bd3c2db7deb6320681c7301edd44339ff439bf10ad5eb00b3",
+  "https://simanjirodc.go.tz/api/announcements?page=1&limit=50": "b85f401a85d5d9013e963df3684dad3a065034e05adc0029039bfb454df400e7"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

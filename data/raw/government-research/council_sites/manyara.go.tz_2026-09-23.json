@@ -1,0 +1,527 @@
+{
+ "host": "manyara.go.tz",
+ "organisation": "Manyara Regional Secretariat",
+ "retrieved": "2026-09-23",
+ "base_url": "https://manyara.go.tz",
+ "profiles": [
+  {
+   "id": 504,
+   "name": "Mhe. Queen Cuthbert Sendiga",
+   "title": "Manyara Regional Commissioner",
+   "titleSwahili": "Mkuu wa Mkoa wa Manyara",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-16T10:22:19.742Z",
+   "updatedAt": "2026-03-24T10:51:18.753Z"
+  },
+  {
+   "id": 505,
+   "name": "Bi. Maryam Ahmed Muhaji",
+   "title": "Regional Administrative Secretary",
+   "titleSwahili": "Katibu Tawala Mkoa wa Manyara",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-16T10:25:11.071Z",
+   "updatedAt": "2026-03-24T11:01:07.532Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Wilaya",
+   "value": 5,
+   "suffix": ""
+  },
+  {
+   "label": "Halmashauri",
+   "value": 7,
+   "suffix": ""
+  },
+  {
+   "label": "Tarafa",
+   "value": 27,
+   "suffix": ""
+  },
+  {
+   "label": "Kata",
+   "value": 142,
+   "suffix": ""
+  },
+  {
+   "label": "Vijiji",
+   "value": 448,
+   "suffix": ""
+  },
+  {
+   "label": "Watu",
+   "value": 1892502,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Manyara Region Secretariat",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [],
+   "keyServices": [],
+   "usefulLinks": []
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3979.025252198652!2d35.71469902450733!3d-4.215329045841997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sManyara%20Regional%20office!5e0!3m2!1sen!2stz!4v1773733639303!5m2!1sen!2stz",
+   "lat": -4.213911,
+   "lng": 35.718164,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our Background > Background",
+   "title": "Background",
+   "title_sw": "Historia",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Vision and Mission > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na Dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About Us > Core Values > Core valus",
+   "title": "Core valus",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "our-core-values"
+  },
+  {
+   "path": "About Us > Strategies > Strategies",
+   "title": "Strategies",
+   "title_sw": "Miakakati",
+   "slug": "our-strategies"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Administration > Divisions > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "title_sw": "Utawala na Rasilimali Watu",
+   "slug": "administration-and-human-resource-management"
+  },
+  {
+   "path": "Administration > Divisions > Administration and Human Resource Management > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "title_sw": "Utawala na Rasilimali watu",
+   "slug": "administration-and-human-resource-management"
+  },
+  {
+   "path": "Administration > Divisions > Panning and Coordination",
+   "title": "Panning and Coordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-coordination"
+  },
+  {
+   "path": "Administration > Divisions > Economic and Productive Sectors Coordination",
+   "title": "Economic and Productive Sectors Coordination",
+   "title_sw": "Uchumi na Uzalishaji",
+   "slug": "economic-and-productive-sectors-coordination"
+  },
+  {
+   "path": "Administration > Divisions > Management, Monitoring and Inspection",
+   "title": "Management, Monitoring and Inspection",
+   "title_sw": "Usimamizi, ufuatiliaji na Ukaguzi",
+   "slug": "management-monitoring-and-inspection"
+  },
+  {
+   "path": "Administration > Divisions > Infrastructure",
+   "title": "Infrastructure",
+   "title_sw": "Miundombinu",
+   "slug": "infrastructure"
+  },
+  {
+   "path": "Administration > Divisions > Education And Vocational Training",
+   "title": "Education And Vocational Training",
+   "title_sw": "Elimu na Mafunzo ya Ufundi",
+   "slug": "education-and-vocational-training"
+  },
+  {
+   "path": "Administration > Divisions > Industry, Trade and Investment Section",
+   "title": "Industry, Trade and Investment Section",
+   "title_sw": "Viwanda, Biashara na Uwekezaji",
+   "slug": "industry-trade-and-investment-section"
+  },
+  {
+   "path": "Administration > Units > ICT UNIT",
+   "title": "ICT UNIT",
+   "title_sw": "TEHAMA",
+   "slug": "ict-unit"
+  },
+  {
+   "path": "Administration > Units > Finance and Accounts Unit",
+   "title": "Finance and Accounts Unit",
+   "title_sw": "Fedha na Uhasibu",
+   "slug": "finance-and-accounts-unit"
+  },
+  {
+   "path": "Administration > Units > Legal Services Unit",
+   "title": "Legal Services Unit",
+   "title_sw": "Huduma za Kisheria",
+   "slug": "legal-services-unit"
+  },
+  {
+   "path": "Administration > Units > Procurement Management Unit",
+   "title": "Procurement Management Unit",
+   "title_sw": "Usimamizi wa Manunuzi",
+   "slug": "procurement-management-unit"
+  },
+  {
+   "path": "Administration > Units > Internal Audit Unit",
+   "title": "Internal Audit Unit",
+   "title_sw": "Ukaguzi wa Ndani",
+   "slug": "internal-audit-unit"
+  },
+  {
+   "path": "Administration > Units > Community Development Unit",
+   "title": "Community Development Unit",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development-unit"
+  },
+  {
+   "path": "Administration > Units > Government Communication Unit",
+   "title": "Government Communication Unit",
+   "title_sw": "Mawasiliano Serikali",
+   "slug": "government-communication-unit"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our Background > Background",
+   "title": "Our History",
+   "api_url": "https://manyara.go.tz/api/pages/slug/our-history",
+   "public_url": "https://manyara.go.tz/our-history",
+   "createdAt": "2026-03-16T08:33:07.324Z",
+   "updatedAt": "2026-03-16T08:54:32.844Z",
+   "text_en": "Coming soon",
+   "text_sw": "Tawekwa hivi punde....",
+   "attachments": []
+  },
+  {
+   "slug": "mission-and-vision",
+   "menu_path": "About Us > Vision and Mission > Mission and Vision",
+   "title": " Mission and Vision ",
+   "api_url": "https://manyara.go.tz/api/pages/slug/mission-and-vision",
+   "public_url": "https://manyara.go.tz/mission-and-vision",
+   "createdAt": "2026-03-16T08:31:13.849Z",
+   "updatedAt": "2026-03-16T08:31:13.849Z",
+   "text_en": "",
+   "text_sw": "Dira\n“Kuwa Taasisi ya Mfano nchini kwa kutoa huduma bora katika kushauri masuala ya kiuchumi na kijamii kwa wadau wake wote”.\nDhima\n“Kuimarisha mifumo ya Serikali za mitaa na kuratibu huduma maendeleo ya Jamii na za kiuchumi kwa wadau wetu kwa kutoa ushauri, huduma za kitaalam na kuelekeza mambo ya kisheria kwa wananchi wote wa mkoa wa Manyara”.",
+   "attachments": []
+  },
+  {
+   "slug": "our-core-values",
+   "menu_path": "About Us > Core Values > Core valus",
+   "title": "Our Core Values",
+   "api_url": "https://manyara.go.tz/api/pages/slug/our-core-values",
+   "public_url": "https://manyara.go.tz/our-core-values",
+   "createdAt": "2026-03-16T08:40:52.743Z",
+   "updatedAt": "2026-03-16T08:40:52.743Z",
+   "text_en": "Coming soon",
+   "text_sw": "Maadili ya msing i - Mambo muhimu na ya kudumu katika Sekretarieti ya Mkoa wa Manyara ambayo inaongozwa na kanuni, Taratibu na Sheria katika utendaji wake wa kazi wa kila siku ni kama ifuatavyo:\nUwazi\nUbora\nUvumbuzi\nMtazamo wa mteja\nUwajibikaji\nUsikivu\nMaadili\nUstadi\nUsawa\nUajibikaji wa moja kwa moja D by D",
+   "attachments": []
+  },
+  {
+   "slug": "our-strategies",
+   "menu_path": "About Us > Strategies > Strategies",
+   "title": "Our Strategies",
+   "api_url": "https://manyara.go.tz/api/pages/slug/our-strategies",
+   "public_url": "https://manyara.go.tz/our-strategies",
+   "createdAt": "2026-03-16T08:37:26.057Z",
+   "updatedAt": "2026-03-16T08:37:26.057Z",
+   "text_en": "Coming soon",
+   "text_sw": "Itawekwa hivi punde",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "api_url": "https://manyara.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://manyara.go.tz/organization-structure",
+   "createdAt": "2026-03-16T09:52:23.871Z",
+   "updatedAt": "2026-03-16T10:06:30.428Z",
+   "text_en": "Under Construction",
+   "text_sw": "Itawekwa Hivi punde",
+   "attachments": []
+  },
+  {
+   "slug": "administration-and-human-resource-management",
+   "menu_path": "Administration > Divisions > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "api_url": "https://manyara.go.tz/api/pages/slug/administration-and-human-resource-management",
+   "public_url": "https://manyara.go.tz/administration-and-human-resource-management",
+   "createdAt": "2026-03-16T09:58:39.525Z",
+   "updatedAt": "2026-03-31T14:26:06.926Z",
+   "text_en": "ACTIVITIES\ni. Interpret public service Regulations, standing orders and other related registration.\nii. Oversee the implementation of ethics and values promotion activities including corruption prevention education.\niii. Administer Human Resource Planning.\niv. Administer and oversee implementation of activities such as recruitment, selection, orientation, training and employee development, promotion, discipline, retention, motivation, performance management and general staff welfare in RS.\nv. Provide advice on management of human resource in LGA’s.\nvi. Ensure optimal, efficient and effective management and utilization of human resource.\nvii. Coordinate workers Council and Trade Union affairs.\nviii. Oversee the development and implementation of effective policies, procedures and guidelines for recruitment, training, development, deployment, retention of staff, promotions, performance management in RS.\nix. Conduct regular human resource audit and staff inventory in RS.\nx. Process and update leave records such as vacation, sick, maternity, study and terminal.\nxi. Coordinate complains and grievances handling.\nxii. Provide registry, messengerial and courier services, and manage office records.\nxiii. Handle protocol matters.\nxiv. Manage public Employee Performance Management Information systems (PEPMIS).\nxv. Facilitate provision of security services, transport and general utilities.\nxvi. Facilitate maintenance of office equipment, buildings and grounds.\nxvii. Coordinate implementation of ethics and value promotion activities.\nxviii. Coordinate implementation of diversity issues.\nxix. Provide advice on organizational efficiency of the office, and\nxx. Advice on implementation of employment, labor laws and related legislations.",
+   "text_sw": "MAJUKUMU\ni. Kutafsiri Kanuni za utumishi wa umma, amri za kudumu na usajili mwingine unaohusiana.\nii. Kusimamia utekelezaji wa shughuli za kukuza maadili na maadili ikiwa ni pamoja na elimu ya kuzuia rushwa.\niii. Kusimamia Mipango ya Rasilimali Watu.\niv. Simamia na usimamie utekelezaji wa shughuli kama vile kuajiri, uteuzi, mwelekeo, mafunzo na ukuzaji wa wafanyikazi, kukuza, nidhamu, kudumisha, motisha, usimamizi wa utendakazi na ustawi wa jumla wa wafanyikazi katika RS.\nv. Kutoa ushauri juu ya usimamizi wa rasilimali watu katika Halmashauri.\nvi. Kuhakikisha usimamizi bora, ufanisi na matumizi ya rasilimali watu.\nvii. Kuratibu masuala ya Baraza la Wafanyakazi na Vyama vya Wafanyakazi.\nviii. Kusimamia uundaji na utekelezaji wa sera madhubuti, taratibu na miongozo ya kuajiri, mafunzo, maendeleo, uwekaji kazi, uhifadhi wa wafanyikazi, upandishaji vyeo, ​​usimamizi wa utendaji katika RS.\nix. Kufanya ukaguzi wa mara kwa mara wa rasilimali watu na hesabu ya wafanyikazi katika RS.\nx. Mchakato na usasishe rekodi za likizo kama vile likizo, wagonjwa, uzazi, masomo na wastaafu.\nxi. Kuratibu malalamiko na kushughulikia malalamiko.\nxii. Toa sajili, huduma za messenger na courier, na udhibiti rekodi za ofisi.\nxiii. Shughulikia mambo ya itifaki.\nxiv. Kusimamia mifumo ya Taarifa za Usimamizi wa Utendaji wa Wafanyakazi wa umma (PEPMIS).\nxv. Kuwezesha utoaji wa huduma za usalama, usafiri na huduma za jumla.\nxvi. Kuwezesha matengenezo ya vifaa vya ofisi, majengo na viwanja.\nxvii. Kuratibu utekelezaji wa shughuli za maadili na kukuza thamani.\nxviii. Kuratibu utekelezaji wa masuala mbalimbali.\nxix. Kutoa ushauri juu ya ufanisi wa shirika wa ofisi, na\nxx. Ushauri wa utekelezaji wa sheria za ajira, sheria za kazi na sheria zinazohusiana.",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination",
+   "menu_path": "Administration > Divisions > Panning and Coordination",
+   "title": "Planning and Coordination",
+   "api_url": "https://manyara.go.tz/api/pages/slug/planning-and-coordination",
+   "public_url": "https://manyara.go.tz/planning-and-coordination",
+   "createdAt": "2026-03-17T13:29:50.725Z",
+   "updatedAt": "2026-04-14T08:14:24.025Z",
+   "text_en": "PLANNING AND COORDINATION SECTION.\nACTIVITIES\ni. Conceptualize and interpret National and sectoral policies and strategies into Regional context and advice accordingly.\nii. Coordinate preparation and implementation of strategic and action plans for RS.\niii. Scrutinize, consolidate LGAs plan and Budgets and coordinate preparation of Regional plans and budget for RAS.\niv. Coordinate research activities in the Region.\nv. Serve as a secretariat to Regional consultative committees.\nvi. Coordinate overall performance of public and private sector institutions in the Region.\nvii. Coordinate population and other census exercises.\nviii. Assist and advise LGAs on project identification, preparation and implementation.\nix. Coordinate Regional disaster management.\nx. Assist LGAs budget preparations and expenditure, and\nxi. Oversee the implementation of the Election manifesto in the Region.",
+   "text_sw": "SEHEMU YA MIPANGO NA URATIBU.\nSHUGHULI\ni. Kuweka dhana na kutafsiri sera na mikakati ya Kitaifa na kisekta katika muktadha wa Kikanda na ushauri ipasavyo.\nii. Kuratibu maandalizi na utekelezaji wa mipango mkakati na utekelezaji wa RS.\niii. Kuchambua, kuunganisha mpango na Bajeti za Mamlaka za Serikali za Mitaa na kuratibu utayarishaji wa mipango ya Mikoa na bajeti ya RAS.\niv. Kuratibu shughuli za utafiti katika Mkoa.\nv. Kutumikia kama sekretarieti ya kamati za ushauri za Mikoa.\nvi. Kuratibu utendaji wa jumla wa taasisi za umma na sekta binafsi katika Mkoa.\nvii. Kuratibu idadi ya watu na mazoezi mengine ya sensa.\nviii. Kusaidia na kushauri Halmashauri kuhusu utambuzi, maandalizi na utekelezaji wa mradi.\nix. Kuratibu usimamizi wa maafa wa Mkoa.\nx. Kusaidia matayarisho ya bajeti na matumizi ya Halmashauri, na\nxi. Kusimamia utekelezaji wa Ilani ya Uchaguzi katika Mkoa.",
+   "attachments": []
+  },
+  {
+   "slug": "economic-and-productive-sectors-coordination",
+   "menu_path": "Administration > Divisions > Economic and Productive Sectors Coordination",
+   "title": "Economic and Productive Sectors Coordination",
+   "api_url": "https://manyara.go.tz/api/pages/slug/economic-and-productive-sectors-coordination",
+   "public_url": "https://manyara.go.tz/economic-and-productive-sectors-coordination",
+   "createdAt": "2026-03-17T13:55:37.894Z",
+   "updatedAt": "2026-03-17T13:55:37.894Z",
+   "text_en": "Under construction",
+   "text_sw": "Itawekwa hivi punde",
+   "attachments": []
+  },
+  {
+   "slug": "management-monitoring-and-inspection",
+   "menu_path": "Administration > Divisions > Management, Monitoring and Inspection",
+   "title": " Management, Monitoring and Inspection",
+   "api_url": "https://manyara.go.tz/api/pages/slug/management-monitoring-and-inspection",
+   "public_url": "https://manyara.go.tz/management-monitoring-and-inspection",
+   "createdAt": "2026-03-17T13:58:52.867Z",
+   "updatedAt": "2026-03-17T13:58:52.867Z",
+   "text_en": "Under construction",
+   "text_sw": "Itawekwa hivi punde",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure",
+   "menu_path": "Administration > Divisions > Infrastructure",
+   "title": "Infrastructure",
+   "api_url": "https://manyara.go.tz/api/pages/slug/infrastructure",
+   "public_url": "https://manyara.go.tz/infrastructure",
+   "createdAt": "2026-03-17T13:59:53.606Z",
+   "updatedAt": "2026-03-17T13:59:53.606Z",
+   "text_en": "Under Construction",
+   "text_sw": "Itawekwa hivi Punde",
+   "attachments": []
+  },
+  {
+   "slug": "education-and-vocational-training",
+   "menu_path": "Administration > Divisions > Education And Vocational Training",
+   "title": " Education And Vocational Training",
+   "api_url": "https://manyara.go.tz/api/pages/slug/education-and-vocational-training",
+   "public_url": "https://manyara.go.tz/education-and-vocational-training",
+   "createdAt": "2026-03-17T14:01:11.584Z",
+   "updatedAt": "2026-03-17T14:01:11.584Z",
+   "text_en": "Under Construction",
+   "text_sw": "Itawekwa hivi punde",
+   "attachments": []
+  },
+  {
+   "slug": "industry-trade-and-investment-section",
+   "menu_path": "Administration > Divisions > Industry, Trade and Investment Section",
+   "title": " Industry, Trade and Investment Section",
+   "api_url": "https://manyara.go.tz/api/pages/slug/industry-trade-and-investment-section",
+   "public_url": "https://manyara.go.tz/industry-trade-and-investment-section",
+   "createdAt": "2026-03-17T14:02:20.382Z",
+   "updatedAt": "2026-03-17T14:02:20.382Z",
+   "text_en": "Under Construction",
+   "text_sw": "Itawekwa hivi punde",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-unit",
+   "menu_path": "Administration > Units > Community Development Unit",
+   "title": " Community Development Unit",
+   "api_url": "https://manyara.go.tz/api/pages/slug/community-development-unit",
+   "public_url": "https://manyara.go.tz/community-development-unit",
+   "createdAt": "2026-03-17T14:24:45.291Z",
+   "updatedAt": "2026-04-23T13:00:39.023Z",
+   "text_en": "COMMUNITY DEVELOMENT UNIT.\nACTIVITIES\ni. Analyse, interpret and supervise implementation of policies, strategies, laws, guidelines and international conversions related to good governance, community development, gender and special needs groups, children parenting and family development in the Region.\nii. Facilitate community participation (self – help efforts and volunteerism) in planning, implementation, monitoring and evaluation of their projects in solving their social and economic challenges at LGA level.\niii. Provide technical support to LGAs on opportunities and obstacles to Development (O & OD) planning approach.\niv. Track and evaluate Women, Youths and people with disability facilitation fund.,\nv. Promote community sensitization programs on patriotism, volunteerism and self – help spirit to bring social and economic local and national development in LGAs.\nvi. Coordinate and ensure sound projects from the group of Women, Youths and people with Disabilities.\nvii. Coordinate implementation of diversities including gender, disability, HIV/AIDS at Regional level.\nviii. Facilitate and coordinate operations of economic empowerment programs/projects in LGAs.\nix. Coordinate and monitor civil society Organizations ((NGOs, FBOs, CBOs) programs/projects implementation at community in the Region, and\nx. Promote and facilitate public private partnership initiatives in implementing programs/projects to meet community needs at LGAs.",
+   "text_sw": "KITENGO CHA MAENDELEO YA JAMII.\nSHUGHULI\ni. Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, mikakati, sheria, miongozo na mabadiliko ya kimataifa yanayohusu utawala bora, maendeleo ya jamii, jinsia na makundi yenye mahitaji maalum, malezi ya watoto na maendeleo ya familia katika Mkoa.\nii. Kuwezesha ushiriki wa jamii (jitihada za kujisaidia na kujitolea) katika kupanga, kutekeleza, kufuatilia na kutathmini miradi yao katika kutatua changamoto zao za kijamii na kiuchumi katika ngazi ya Halmashauri.\niii. Kutoa usaidizi wa kiufundi kwa Mamlaka za Serikali za Mitaa kuhusu fursa na vikwazo kwa mbinu ya upangaji wa Maendeleo (O & OD).\niv. Fuatilia na kutathmini mfuko wa kuwezesha Wanawake, Vijana na watu wenye ulemavu.,\nv. Kukuza programu za uhamasishaji wa jamii juu ya uzalendo, kujitolea na moyo wa kujisaidia ili kuleta maendeleo ya kijamii na kiuchumi ndani na kitaifa katika Halmashauri.\nvi. Kuratibu na kuhakikisha miradi mizuri kutoka kwa kikundi cha Wanawake, Vijana na watu wenye Ulemavu.\nvii. Kuratibu utekelezaji wa masuala mbalimbali yakiwemo jinsia, ulemavu, VVU/UKIMWI katika ngazi ya Mkoa.\nviii. Kuwezesha na kuratibu uendeshaji wa programu/miradi ya uwezeshaji wananchi kiuchumi katika Halmashauri.\nix. Kuratibu na kufuatilia Asasi za kiraia ((NGOs, FBOs, CBOs) programu/miradi ya utekelezaji katika jamii katika Mkoa, na\nx. Kukuza na kuwezesha mipango ya ubia kati ya sekta ya umma na sekta binafsi katika kutekeleza programu/miradi ili kukidhi mahitaji ya jamii katika Halmashauri.",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "Hotuba ya Rais Dkt Samia Akifungua Bunge la 13",
+   "date": "2026-03-16T13:30:57.129Z",
+   "url": "http://manyara.go.tz/minio/manyara.go.tz/files/1773667858394-Hotuba%20ya%20Rais%20Dkt%20Samia%20Akifungua%20Bunge%20la%2013.pdf",
+   "file_type": "application/pdf",
+   "size": "159919"
+  },
+  {
+   "name": "THE TANZANIA DEVELOPMENT VISION 2050",
+   "date": "2026-03-16T13:30:21.616Z",
+   "url": "http://manyara.go.tz/minio/manyara.go.tz/files/1773667822932-THE%20TANZANIA%20DEVELOPMENT%20VISION%202050.pdf",
+   "file_type": "application/pdf",
+   "size": "1015920"
+  },
+  {
+   "name": "Planning and Management Guide I (PMG I) final version Approved",
+   "date": "2026-03-16T13:29:56.956Z",
+   "url": "http://manyara.go.tz/minio/manyara.go.tz/files/1773667798371-Planning%20and%20Management%20Guide%20I%20(PMG%20I)%20final%20version%20Approved%20(1)%20(2)%5B2%5D%20(1).pdf",
+   "file_type": "application/pdf",
+   "size": "606467"
+  },
+  {
+   "name": "LONG TERM PERSPECTIVE PLAN 2025",
+   "date": "2026-03-16T13:28:31.544Z",
+   "url": "http://manyara.go.tz/minio/manyara.go.tz/files/1773667713266-LONG%20TERM%20PERSPECTIVE%20PLAN%202025.pdf",
+   "file_type": "application/pdf",
+   "size": "4835340"
+  }
+ ],
+ "news": [
+  {
+   "id": 2838,
+   "title": "DC LULANDALA AWATAKA WAHITIMU WA SHULE YA SEKONDARI MANYARA WASICHANA WATUMIE MAARIFA WALIYOPATA KUCHANGIA MAENDELEO YA TAIFA.",
+   "date": "2026-04-16",
+   "category": "Elimu",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2225,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1389,
+   "title": "MKUU WA MKOA WA MANYARA AZINDUA KAMATI YA KISHERIA NGAZI YA MKOA NA WILAYA NA KLINIKI YA SHERIA BILA MALIPO, HANANG'.",
+   "date": "2026-03-15",
+   "category": "Habari",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1892,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1388,
+   "title": "WAZIRI MKUU AAGIZA UTATUZI WA CHANGAMOTO ZA MIUNDOMBINU WEZESHI KATIKA MAJENGO YA UMMA KUSHUGHULIKIWA KATIKA BAJETI IJAYO.",
+   "date": "2026-03-15",
+   "category": "Habari",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1633,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1385,
+   "title": "REA KUTEKELEZA MRADI WA BIL.45.8 MKOANI MANYARA WA USAMBAZAJI WA UMEME KATIKA VITONGOJI 267.",
+   "date": "2026-03-15",
+   "category": "Habari",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2587,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1383,
+   "title": "KUELEKEA SIKU YA WANAWAKE DUNIANI, RC SENDIGA ASISITIZA HAKI ZA WANAWAKE NA WASICHANA ZIZINGATIWE.",
+   "date": "2026-03-15",
+   "category": "Habari",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2214,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1380,
+   "title": "KUELEKEA SIKU YA WANAWAKE DUNIANI, RC SENDIGA AKABIDHI VITU VYA MILIONI 3.2 KWA GEREZA LA WANAWAKE BABATI.",
+   "date": "2026-03-15",
+   "category": "Habari",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1765,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1373,
+   "title": "RC SENDIGA AWATAKA WANAWAKE MKOANI MANYARA KUWALINDA WATOTO WA KIKE DHIDI YA VITENDO VYA KIKATILI.",
+   "date": "2026-03-16",
+   "category": "Habari",
+   "listing_url": "https://manyara.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1410,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 361,
+   "title": "Manayara RS SACCOS",
+   "date": "2026-03-17",
+   "category": "Taarifa",
+   "listing_url": "https://manyara.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 129,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 346,
+   "title": "Tangazo la Mnada",
+   "date": "2026-03-16",
+   "category": "Mnada",
+   "listing_url": "https://manyara.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 301,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA MNADA MARCH 11.pdf"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://manyara.go.tz/api/profiles": "9c49e9a39a95f7755d6ef61e3b694b0fdf42441fde0df6422f2989fc6cca6bd3",
+  "https://manyara.go.tz/api/statistics": "16da5f91cfacf423281e76de4b1b7ee29788775d62fe46ed0fabc0ddb7e9bbae",
+  "https://manyara.go.tz/api/footer": "0e1ffb40f361b80672d3129d1bd10231cbf85e6a944c881429cc848bee673fd3",
+  "https://manyara.go.tz/api/menus": "e918f35ffb4f1a48df270e688a01ea77f6acf3a6536529047aa50f6e0976b50d",
+  "https://manyara.go.tz/api/pages/slug/our-history": "25def9749f0ab146a95d1273591d76133421629a90a6255aac33f241580346d1",
+  "https://manyara.go.tz/api/pages/slug/mission-and-vision": "0447ea32388572b9aec9925f4dff89820137b89e5e52fa3a752e4c01a3c8cc7f",
+  "https://manyara.go.tz/api/pages/slug/our-core-values": "9596f58a440f10dba206ac45ce8eae258ec0440797328baebd4bf2607eb13dd2",
+  "https://manyara.go.tz/api/pages/slug/our-strategies": "21f47fce8ed9c778f493ef2d9b56584f9ce404c1cdc715b1c88adba27e49b21e",
+  "https://manyara.go.tz/api/pages/slug/organization-structure": "51d7d2bade46dde0535499a3e809f663cfb7c40a9db8f1a384217a331f875718",
+  "https://manyara.go.tz/api/pages/slug/administration-and-human-resource-management": "c3fc350ecc21e011be6a4245df2be6e1a566e3de3cc0e70f2ba3b710df7577bd",
+  "https://manyara.go.tz/api/pages/slug/planning-and-coordination": "3fe27d540fce7b41fd877e4642c2d0fa322029177585286a1506051403907b52",
+  "https://manyara.go.tz/api/pages/slug/economic-and-productive-sectors-coordination": "f6321050ef3a2f87df04fe6d916d34f11dd252bfaa539bfe54b4d37404cc287f",
+  "https://manyara.go.tz/api/pages/slug/management-monitoring-and-inspection": "950b687b166ae7fd221ff8a99377a73e0f2f0bbd1b3f7b971ceff240d40b5455",
+  "https://manyara.go.tz/api/pages/slug/infrastructure": "f72b3e62571e5ad614a90d72a2dcad31df62b9cc679931f7ff5a847076490011",
+  "https://manyara.go.tz/api/pages/slug/education-and-vocational-training": "588554c73b6d1fd4730c7d18fd5c4b302df546564dfe27c39e54974490ab6739",
+  "https://manyara.go.tz/api/pages/slug/industry-trade-and-investment-section": "1c914ae45f6825c8d5466a25fff181bd4d992128c9e5e42b0ddd3fb1b065d2a4",
+  "https://manyara.go.tz/api/pages/slug/community-development-unit": "503e03fb1e3e8ffa56d5e9d7db650a8fb88520d4d62246281b9ec0e9bef35f14",
+  "https://manyara.go.tz/api/files?page=1&limit=100": "06a90593ef97dc810ac734ddb580f85dc224c3d12513073d6ec0a32d4254d851",
+  "https://manyara.go.tz/api/news?page=1&limit=50": "1c720d58b1dcd06dbf0a66f9522b54defa56cd9e9a2c705ce400b3f86dda0854",
+  "https://manyara.go.tz/api/announcements?page=1&limit=50": "49940de62ec809291b4afce23dc4131615df63d09d0660da0270b95db93508da"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

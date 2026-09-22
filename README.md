@@ -12,6 +12,8 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `data/evidence/` | Current verification records used by qualification or copy. |
 | `data/raw/welfare-research/` | Welfare research records, coverage logs, NGO register and OpenStreetMap extracts, with a hash manifest. |
 | `data/interim/welfare-leads/` | Welfare organisation, contact, relationship and register tables from the latest welfare run. |
+| `data/raw/government-research/` | Census ward tables, council-site captures, councillor-list transcriptions, Wikipedia and OpenStreetMap extracts, with a hash manifest. |
+| `data/interim/government-leads/` | Wards, convening offices, official posts, office triage and convening signals from the latest government run. |
 | `data/runs/` | Inputs for separate runs: run config, reviewed curation (`links.json`), research plan and intake. |
 | `references/` | Original Silverleaf business and marketing source documents. |
 | `docs/scope/` | Agreed project scope. |
@@ -22,7 +24,8 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `scripts/collection/` | Deterministic collection and source-list builders. |
 | `scripts/master/` | Acquisition refresh, workbook export/build, and master verification. |
 | `scripts/welfare/` | Welfare-lead collectors, research planner, run pipeline and the shared rate-limited HTTP helper. |
-| `skills/` | Reusable create-list, update-list, outreach and welfare-leads skills. |
+| `scripts/government/` | Government-lead collectors (census, council sites, OpenStreetMap, Wikipedia), run pipeline and verification. |
+| `skills/` | Reusable create-list, update-list, outreach, welfare-leads and government-leads skills. |
 | `outputs/master/` | Canonical SQLite database and consolidated review workbook. |
 | `outputs/config/` | Disabled automation recipes. |
 | `outputs/reports/` | Current verification results. |
@@ -78,6 +81,7 @@ Replace `/path/to/` with the approved private artifact location. Do not commit t
 - Add research to the existing master with `skills/silverleaf-update-lead-list/SKILL.md`.
 - Draft or revise evidence-backed partnership copy with `skills/silverleaf-outreach/SKILL.md`.
 - Research welfare institutions as paying customers with `skills/silverleaf-welfare-leads/SKILL.md`. Each welfare run stays separate from the master.
+- Map local government offices that can convene community meetings, where Silverleaf can meet parents, with `skills/silverleaf-government-leads/SKILL.md`. Each government run stays separate from the master.
 
 SQLite remains authoritative. Do not maintain an independent workbook-only lead list. Personalised hooks are optional and must have a supporting source and verification date. No script in this repository sends messages or enables automation.
 
@@ -277,12 +281,14 @@ Lead research runs into hard limits. Read `skills/silverleaf-create-lead-list/re
 
 - **Web search:** the agent WebSearch tool has a per-session cap (200 in the 2026-09 welfare run) shared by every subagent. Eight unbudgeted parallel agents used it all in about 40 minutes. Run deterministic collectors first, give each agent an explicit allocation (`plan_research.py` does this), and launch at most four agents per wave. Raising the cap means setting `CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION` and starting a new session.
 - **Web fetch:** pace requests to about one every 2 seconds per site.
-  - Known blocks: the UK Charity Commission register, JamiiForums, Facebook groups, Reddit, and Tanzanian council sites that render in JavaScript.
+  - Known blocks: the UK Charity Commission register, JamiiForums, Facebook groups, Reddit, and Tanzanian council sites that render in JavaScript (their public JSON API works; `scripts/government/collect_council_sites.py` uses it).
   - Record blocks; never work around them.
 - **NGOs Information System:** at most 4 workers, 0.3 seconds apart. 855 profiles took about 30 minutes.
-- **OpenStreetMap Overpass:** one query at a time, 5 seconds apart, with small queries. Broad regex queries return HTTP 504.
+- **OpenStreetMap Overpass:** one query at a time, 5 seconds apart, with small queries. Broad regex queries return HTTP 504, and back-to-back queries can return 429.
+- **Council and regional websites:** one API request at a time per site, 1.5 seconds apart.
+- **Wikipedia API:** one request every 2 seconds; it answered HTTP 429 at one per second.
 
-The welfare scripts enforce the network limits in code (`scripts/welfare/welfare_lib.py`).
+The welfare and government scripts enforce the network limits in code (`scripts/welfare/welfare_lib.py` and `scripts/government/gov_lib.py`).
 
 ## Run a welfare-lead run
 
@@ -321,6 +327,47 @@ The current welfare run, `arusha-welfare-2026-09`, holds:
 - 214 funder and partner links, and 92 review items
 
 All 19 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
+
+## Run a government-lead run
+
+A government lead is a local government office that can convene a community meeting (a baraza) where Silverleaf can meet parents: a council, a ward, village or mtaa office, or a district or regional office. The office is the lead, not the person holding it, and parents never enter the run: they opt in with Silverleaf at an event. Each run has its own database and workbook under `outputs/runs/<run-id>/`, and never changes the company-leads master. It needs no web search.
+
+From Windows PowerShell:
+
+```powershell
+$runId = 'arusha-government-2026-09'
+# Rebuild an existing run from its committed files (no network calls).
+python scripts/government/run_pipeline.py --run-id $runId --rebuild-db
+
+# For a new run, create data/runs/<run-id>/run-config.json from the skill's example, then:
+python scripts/government/collect_census_wards.py --run-id $runId
+python scripts/government/collect_ward_locations.py --run-id $runId
+python scripts/government/collect_osm_government.py --run-id $runId
+python scripts/government/collect_council_sites.py --run-id $runId
+```
+
+macOS or Linux:
+
+```bash
+run_id='arusha-government-2026-09'
+python3 scripts/government/run_pipeline.py --run-id "$run_id" --rebuild-db
+
+python3 scripts/government/collect_census_wards.py --run-id "$run_id"
+python3 scripts/government/collect_ward_locations.py --run-id "$run_id"
+python3 scripts/government/collect_osm_government.py --run-id "$run_id"
+python3 scripts/government/collect_council_sites.py --run-id "$run_id"
+```
+
+Transcribe any councillor list published only as a scanned PDF into `data/raw/government-research/transcriptions/`, record reviewed ward spellings and locations in `data/runs/<run-id>/links.json`, then run `run_pipeline.py`. The skill explains every step.
+
+The current government run, `arusha-government-2026-09`, holds:
+- 149 convening offices: 9 councils, 128 wards, 2 mapped village offices, 7 district and 3 regional offices
+- 4 councils proposed for a protocol introduction (GA01): Arusha City, Arusha District, Meru and Hai; every other office is on hold (GA00)
+- 459 official posts: 66 named as their office publishes them (council leaders, regional leaders, and the ward councillors of Hai and Arusha District), all medium risk
+- 221 wards with 2022 census populations; 113 lie within 25 km of a campus, with 1.75 million residents, and are scored and ranked by campus cluster
+- 63 review items, including 15 core-council wards without a location
+
+All 27 verification checks pass. The Read Me sheet lists the coverage gaps: most councils publish no ward-by-ward councillor list, and no council publishes its executive officers' names or phones.
 
 ## Current verified master
 

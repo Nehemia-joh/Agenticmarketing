@@ -1,0 +1,374 @@
+{
+ "report_title": "2022 Population and Housing Census: Administrative Units Population Distribution Report, Tanzania Mainland, Volume 1b (National Bureau of Statistics)",
+ "report_url": "https://www.nbs.go.tz/nbs/takwimu/Census2022/Administrative_units_Population_Distribution_Report_Tanzania_Mainland_volume1b.pdf",
+ "report_sha256": "fb715b4e9380056268b1b7eee5c87c54535f416a6cf75eebfbdc6fddf5980d15",
+ "report_pages": 263,
+ "retrieved": "2026-09-23",
+ "councils_requested": [
+  "Arusha City Council",
+  "Arusha District Council",
+  "Hai District Council",
+  "Longido District Council",
+  "Meru District Council",
+  "Monduli District Council",
+  "Moshi District Council",
+  "Moshi Municipal Council",
+  "Siha District Council",
+  "Simanjiro District Council"
+ ],
+ "councils_missing": [],
+ "tables": {
+  "Arusha City Council": {
+   "table": "Table 2.7",
+   "pdf_pages": [
+    62
+   ],
+   "printed_pages": [
+    "36"
+   ],
+   "total": {
+    "population": 617631,
+    "male": 292771,
+    "female": 324860,
+    "sex_ratio": 90,
+    "households": 180576,
+    "avg_household_size": 3.4
+   }
+  },
+  "Arusha District Council": {
+   "table": "Table 2.3",
+   "pdf_pages": [
+    58
+   ],
+   "printed_pages": [
+    "32"
+   ],
+   "total": {
+    "population": 449518,
+    "male": 211650,
+    "female": 237868,
+    "sex_ratio": 89,
+    "households": 120997,
+    "avg_household_size": 3.7
+   }
+  },
+  "Hai District Council": {
+   "table": "Table 3.6",
+   "pdf_pages": [
+    70
+   ],
+   "printed_pages": [
+    "44"
+   ],
+   "total": {
+    "population": 240999,
+    "male": 117223,
+    "female": 123776,
+    "sex_ratio": 95,
+    "households": 64754,
+    "avg_household_size": 3.7
+   }
+  },
+  "Longido District Council": {
+   "table": "Table 2.4",
+   "pdf_pages": [
+    59
+   ],
+   "printed_pages": [
+    "33"
+   ],
+   "total": {
+    "population": 175915,
+    "male": 82887,
+    "female": 93028,
+    "sex_ratio": 89,
+    "households": 42477,
+    "avg_household_size": 4.1
+   }
+  },
+  "Meru District Council": {
+   "table": "Table 2.2",
+   "pdf_pages": [
+    57
+   ],
+   "printed_pages": [
+    "31"
+   ],
+   "total": {
+    "population": 331603,
+    "male": 160797,
+    "female": 170806,
+    "sex_ratio": 94,
+    "households": 91511,
+    "avg_household_size": 3.6
+   }
+  },
+  "Monduli District Council": {
+   "table": "Table 2.1",
+   "pdf_pages": [
+    56
+   ],
+   "printed_pages": [
+    "30"
+   ],
+   "total": {
+    "population": 227585,
+    "male": 104742,
+    "female": 122843,
+    "sex_ratio": 85,
+    "households": 55053,
+    "avg_household_size": 4.1
+   }
+  },
+  "Moshi District Council": {
+   "table": "Table 3.5",
+   "pdf_pages": [
+    69
+   ],
+   "printed_pages": [
+    "43"
+   ],
+   "total": {
+    "population": 535803,
+    "male": 261950,
+    "female": 273853,
+    "sex_ratio": 96,
+    "households": 145669,
+    "avg_household_size": 3.7
+   }
+  },
+  "Moshi Municipal Council": {
+   "table": "Table 3.4",
+   "pdf_pages": [
+    68
+   ],
+   "printed_pages": [
+    "42"
+   ],
+   "total": {
+    "population": 221733,
+    "male": 108462,
+    "female": 113271,
+    "sex_ratio": 96,
+    "households": 65213,
+    "avg_household_size": 3.4
+   }
+  },
+  "Siha District Council": {
+   "table": "Table 3.7",
+   "pdf_pages": [
+    71
+   ],
+   "printed_pages": [
+    "45"
+   ],
+   "total": {
+    "population": 139019,
+    "male": 67293,
+    "female": 71726,
+    "sex_ratio": 94,
+    "households": 35541,
+    "avg_household_size": 3.9
+   }
+  },
+  "Simanjiro District Council": {
+   "table": "Table 21.6",
+   "pdf_pages": [
+    227
+   ],
+   "printed_pages": [
+    "201"
+   ],
+   "total": {
+    "population": 291169,
+    "male": 144654,
+    "female": 146515,
+    "sex_ratio": 99,
+    "households": 67023,
+    "avg_household_size": 4.3
+   }
+  }
+ },
+ "reconciliation": {
+  "Arusha City Council": {
+   "wards": 25,
+   "sum_of_wards": {
+    "population": 617631,
+    "male": 292771,
+    "female": 324860,
+    "households": 180576
+   },
+   "council_total": {
+    "population": 617631,
+    "male": 292771,
+    "female": 324860,
+    "sex_ratio": 90,
+    "households": 180576,
+    "avg_household_size": 3.4
+   },
+   "reconciles": true
+  },
+  "Arusha District Council": {
+   "wards": 27,
+   "sum_of_wards": {
+    "population": 449518,
+    "male": 211650,
+    "female": 237868,
+    "households": 120997
+   },
+   "council_total": {
+    "population": 449518,
+    "male": 211650,
+    "female": 237868,
+    "sex_ratio": 89,
+    "households": 120997,
+    "avg_household_size": 3.7
+   },
+   "reconciles": true
+  },
+  "Hai District Council": {
+   "wards": 17,
+   "sum_of_wards": {
+    "population": 240999,
+    "male": 117223,
+    "female": 123776,
+    "households": 64754
+   },
+   "council_total": {
+    "population": 240999,
+    "male": 117223,
+    "female": 123776,
+    "sex_ratio": 95,
+    "households": 64754,
+    "avg_household_size": 3.7
+   },
+   "reconciles": true
+  },
+  "Longido District Council": {
+   "wards": 18,
+   "sum_of_wards": {
+    "population": 175915,
+    "male": 82887,
+    "female": 93028,
+    "households": 42477
+   },
+   "council_total": {
+    "population": 175915,
+    "male": 82887,
+    "female": 93028,
+    "sex_ratio": 89,
+    "households": 42477,
+    "avg_household_size": 4.1
+   },
+   "reconciles": true
+  },
+  "Meru District Council": {
+   "wards": 26,
+   "sum_of_wards": {
+    "population": 331603,
+    "male": 160797,
+    "female": 170806,
+    "households": 91511
+   },
+   "council_total": {
+    "population": 331603,
+    "male": 160797,
+    "female": 170806,
+    "sex_ratio": 94,
+    "households": 91511,
+    "avg_household_size": 3.6
+   },
+   "reconciles": true
+  },
+  "Monduli District Council": {
+   "wards": 20,
+   "sum_of_wards": {
+    "population": 227585,
+    "male": 104742,
+    "female": 122843,
+    "households": 55053
+   },
+   "council_total": {
+    "population": 227585,
+    "male": 104742,
+    "female": 122843,
+    "sex_ratio": 85,
+    "households": 55053,
+    "avg_household_size": 4.1
+   },
+   "reconciles": true
+  },
+  "Moshi District Council": {
+   "wards": 32,
+   "sum_of_wards": {
+    "population": 535803,
+    "male": 261950,
+    "female": 273853,
+    "households": 145669
+   },
+   "council_total": {
+    "population": 535803,
+    "male": 261950,
+    "female": 273853,
+    "sex_ratio": 96,
+    "households": 145669,
+    "avg_household_size": 3.7
+   },
+   "reconciles": true
+  },
+  "Moshi Municipal Council": {
+   "wards": 21,
+   "sum_of_wards": {
+    "population": 221733,
+    "male": 108462,
+    "female": 113271,
+    "households": 65213
+   },
+   "council_total": {
+    "population": 221733,
+    "male": 108462,
+    "female": 113271,
+    "sex_ratio": 96,
+    "households": 65213,
+    "avg_household_size": 3.4
+   },
+   "reconciles": true
+  },
+  "Siha District Council": {
+   "wards": 17,
+   "sum_of_wards": {
+    "population": 139019,
+    "male": 67293,
+    "female": 71726,
+    "households": 35541
+   },
+   "council_total": {
+    "population": 139019,
+    "male": 67293,
+    "female": 71726,
+    "sex_ratio": 94,
+    "households": 35541,
+    "avg_household_size": 3.9
+   },
+   "reconciles": true
+  },
+  "Simanjiro District Council": {
+   "wards": 18,
+   "sum_of_wards": {
+    "population": 291169,
+    "male": 144654,
+    "female": 146515,
+    "households": 67023
+   },
+   "council_total": {
+    "population": 291169,
+    "male": 144654,
+    "female": 146515,
+    "sex_ratio": 99,
+    "households": 67023,
+    "avg_household_size": 4.3
+   },
+   "reconciles": true
+  }
+ }
+}

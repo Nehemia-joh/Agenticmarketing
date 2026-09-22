@@ -1,0 +1,43 @@
+source	source_id	name	category	detail	tags	osm_district	lat	lon	campus	distance_km	linked_office	note
+openstreetmap	node/10827624377	Ofisi Ya Kata Nduruma	convener	ward	"{""government"": ""village_office"", ""office"": ""government""}"	Arusha	-3.4806143	36.7927055	Kijenge	14.2	GOFF_ward_arusha-district-council_nduruma	
+openstreetmap	node/10827640700	Mahakama Ya Mwanzo Nduruma	excluded	court	"{""office"": ""government""}"	Arusha	-3.4803226	36.7928467	Kijenge	14.1		
+openstreetmap	node/10828851090	Office ya Kijiji Maji ya Chai	convener	village	"{""office"": ""government""}"	Meru	-3.3656059	36.9092982	Usa River	5.1	GOFF_village_node-10828851090	
+openstreetmap	node/10862247616	Mwanama Village Office	convener	village	"{""government"": ""register_office"", ""office"": ""government""}"	Arusha Municipal	-3.3874239	36.7096171	Kijenge	0.4	GOFF_village_node-10862247616	
+openstreetmap	node/282575937	Njake Oil	not_government	mistagged	"{""amenity"": ""fuel"", ""government"": ""administrative"", ""office"": ""government""}"	Meru	-3.3701785	36.8507449	Usa River	1.5		
+openstreetmap	node/3175392089	Immigration office	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3690427	36.6942704	Kijenge	2.4		
+openstreetmap	node/3271072175	Machame Ward Office	excluded	religious	"{""amenity"": ""place_of_worship""}"	Hai	-3.2138545	37.2226229	Boma Ngombe	16.3		
+openstreetmap	node/4769408628	Ministry of Energy and Minerals	unclassified		"{""office"": ""government""}"	Moshi Urban	-3.3399033	37.3448069	Boma Ngombe	22.9		
+openstreetmap	node/4897567723	Administration	unclassified		"{""government"": ""administrative"", ""office"": ""government""}"	Meru	-3.3997288	36.7966224	Usa River	8.4		
+openstreetmap	node/5160468421	Tanesco Regional office - parking places	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3738617	36.6931817	Kijenge	2.2		
+openstreetmap	node/5285780321	Ngorongoro Information Center	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3717195	36.6947233	Kijenge	2.2		
+openstreetmap	node/5974714684	Ngorongoro Conservation Area Authority NCAA	agency	agency_or_parastatal	"{""government"": ""administrative"", ""office"": ""government""}"	Arusha Municipal	-3.3700676	36.694073	Kijenge	2.3		
+openstreetmap	node/6243876485	Temesa	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3726621	36.6829095	Ilboru	3.1		
+openstreetmap	node/6243876486	AUWASA	agency	agency_or_parastatal	"{""government"": ""public_service"", ""office"": ""government"", ""operator"": ""AUWASA""}"	Arusha Municipal	-3.3721372	36.6828308	Ilboru	3.0		
+openstreetmap	node/6243886389	National Housing Association	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3717812	36.6874386	Kijenge	2.8		
+openstreetmap	node/6243895190	National Housing Association	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3738565	36.6898178	Kijenge	2.5		
+openstreetmap	node/6541175485	TANESCO - Kilimanjaro, region office	agency	agency_or_parastatal	"{""office"": ""government""}"	Moshi Urban	-3.3469344	37.3421622	Boma Ngombe	22.7		
+openstreetmap	node/6836677785	Tanzanian Wildlife Management Authority	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3783386	36.6902455	Kijenge	2.3		
+openstreetmap	node/708685985	Town Council	convener	council	"{""amenity"": ""townhall""}"	Moshi Urban	-3.3496926	37.3380908	Boma Ngombe	22.2		
+openstreetmap	node/7987336985	National Identification Authority (NIDA)	agency	agency_or_parastatal	"{""office"": ""government""}"	Arusha Municipal	-3.3694856	36.618272	Arusha City	5.1		
+openstreetmap	node/8261664621	TANZANIA WILDLIFE AUTHORITY (TAWA) Northen Zone Head Quarter	agency	agency_or_parastatal	"{""building"": ""government_office"", ""government"": ""government"", ""office"": ""government""}"	Arusha Municipal	-3.4240715	36.7071574	Kijenge	4.5		
+openstreetmap	node/8533251327	Ofisi ya CCM Tawi la Engutoto	excluded	political_party	"{""office"": ""government""}"	Arusha Municipal	-3.4037765	36.7203827	Kijenge	2.5		
+openstreetmap	node/9392131139	Narumu Ward Office	convener	ward	"{""government"": ""administrative"", ""office"": ""government""}"	Hai	-3.267878	37.2425859	Boma Ngombe	13.7	GOFF_ward_hai-district-council_machame-narumu	
+openstreetmap	node/9392133492	Makiba Ward Building	convener	ward	"{""government"": ""administrative"", ""office"": ""government""}"	Meru	-3.5130284	36.9423463	Usa River	18.7	GOFF_ward_meru-district-council_makiba	
+openstreetmap	node/9392135533	Halmashauri ya Wilaya ya Siha	convener	council	"{""government"": ""administrative"", ""office"": ""government""}"	Siha	-3.1452153	37.0224339	Boma Ngombe	24.6	GOFF_council_siha-district-council	Council location taken from its official website; OpenStreetMap point kept for reference.
+openstreetmap	node/9889181553	CCM office Kiserian	excluded	political_party	"{""office"": ""government""}"	Arusha	-3.4506277	36.7383416	Kijenge	8.1		
+openstreetmap	way/245717233	NSSF	agency	agency_or_parastatal	"{""building"": ""yes"", ""office"": ""government""}"	Arusha Municipal	-3.374156	36.696451	Kijenge	1.8		
+openstreetmap	way/248924655	East African Community	agency	agency_or_parastatal	"{""building"": ""office"", ""office"": ""government""}"	Arusha Municipal	-3.3664704	36.6970996	Ilboru	2.3		
+openstreetmap	way/281486939	Arusha District Commissioner's Office	convener	district	"{""office"": ""government""}"	Arusha Municipal	-3.3694553	36.6938881	Kijenge	2.4	GOFF_district_arusha	
+openstreetmap	way/311751995	Lutheran Center	excluded	religious	"{""building"": ""yes"", ""office"": ""government""}"	Arusha Municipal	-3.3719153	36.6950551	Kijenge	2.1		
+openstreetmap	way/311809585	TRA	agency	agency_or_parastatal	"{""building"": ""yes"", ""office"": ""government""}"	Arusha Municipal	-3.3689484	36.6929279	Ilboru	2.5		
+openstreetmap	way/312406111	Tumaini University Makumira Offices	not_government	mistagged	"{""building"": ""yes"", ""office"": ""government""}"	Meru	-3.3697321	36.8257829	Usa River	4.2		
+openstreetmap	way/318487472	Tanzania Atomic Energy Commisssion (TAEC)	agency	agency_or_parastatal	"{""building"": ""yes"", ""office"": ""government""}"	Arusha Municipal	-3.4720128	36.7159542	Kijenge	9.8		
+openstreetmap	way/355460751	Mahoma Village Office	convener	village	"{""building"": ""public""}"	Moshi Rural	-3.3175202	37.3966367	Boma Ngombe	28.7		
+openstreetmap	way/366925724	Kituo cha Polisi Baraa	excluded	police	"{""amenity"": ""police"", ""building"": ""public"", ""office"": ""government""}"	Arusha Municipal	-3.366994	36.7281588	Kijenge	2.7		
+openstreetmap	way/439156609	Maji Water & Irrigation Authority	agency	agency_or_parastatal	"{""building"": ""yes"", ""office"": ""government""}"	Hai	-3.3371046	37.1438429	Boma Ngombe	0.7		
+openstreetmap	way/483449839	Tanzania National Parks Authority	agency	agency_or_parastatal	"{""building"": ""civic"", ""office"": ""government""}"	Arusha Municipal	-3.3755987	36.6544074	Arusha City	2.6		
+openstreetmap	way/626901123	International Residual Mechanism for Criminal Tribunals	excluded	court	"{""amenity"": ""courthouse"", ""government"": ""administrative"", ""operator"": ""United Nations Security Council""}"	Arusha	-3.3583666	36.5829914	Arusha City	8.7		
+openstreetmap	way/65262766	Arusha Regional Commissioner's Office	convener	region	"{""amenity"": ""townhall"", ""building"": ""yes""}"	Arusha Municipal	-3.3696827	36.6951675	Kijenge	2.3	GOFF_region_arusha	
+openstreetmap	way/995115618	staff room	unclassified		"{""building"": ""yes"", ""office"": ""government""}"	Arusha Municipal	-3.3872374	36.6288821	Arusha City	5.3		
+openstreetmap	202 unnamed elements		unidentified	government=administrative								Unnamed office points cannot be identified as conveners; not imported.
+openstreetmap	2 unnamed elements		unidentified	government=government								Unnamed office points cannot be identified as conveners; not imported.

@@ -1,0 +1,4534 @@
+{
+ "retrieved": "2026-09-23",
+ "queries": [
+  {
+   "query_key": "tags",
+   "endpoint": "https://overpass-api.de/api/interpreter",
+   "elements": 242,
+   "query": "[out:json][timeout:120];\n(\n  nwr[\"office\"=\"government\"](-3.62,36.42,-3.1,37.4);\n  nwr[\"amenity\"=\"townhall\"](-3.62,36.42,-3.1,37.4);\n  nwr[\"government\"](-3.62,36.42,-3.1,37.4);\n);\nout center tags;"
+  },
+  {
+   "query_key": "names",
+   "endpoint": "https://overpass-api.de/api/interpreter",
+   "elements": 10,
+   "query": "[out:json][timeout:150];\n(\n  nwr[\"name\"~\"ofisi ya (kata|kijiji|mtaa|tarafa|wilaya|mkoa|mtendaji|serikali)|office ya (kata|kijiji|mtaa)|ward office|ward building|village office|mtendaji|halmashauri|district commissioner|regional commissioner|serikali ya (kijiji|mtaa)\",i](-3.62,36.42,-3.1,37.4);\n);\nout center tags;"
+  }
+ ],
+ "elements": [
+  {
+   "osm_id": "node/10827624377",
+   "lat": -3.4806143,
+   "lon": 36.7927055,
+   "tags": {
+    "government": "village_office",
+    "name": "Ofisi Ya Kata Nduruma",
+    "office": "government"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/10827640700",
+   "lat": -3.4803226,
+   "lon": 36.7928467,
+   "tags": {
+    "name": "Mahakama Ya Mwanzo Nduruma",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/10828851090",
+   "lat": -3.3656059,
+   "lon": 36.9092982,
+   "tags": {
+    "check_date": "2023-04-21",
+    "name": "Office ya Kijiji Maji ya Chai",
+    "office": "government"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/10862247616",
+   "lat": -3.3874239,
+   "lon": 36.7096171,
+   "tags": {
+    "check_date": "2023-05-01",
+    "government": "register_office",
+    "internet_access": "no",
+    "name": "Mwanama Village Office",
+    "name:en": "Village Chairperson Office",
+    "name:sw": "Ofisi ya Mwenyekiti Mwanama",
+    "office": "government",
+    "wheelchair": "yes"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/11070744201",
+   "lat": -3.3706299,
+   "lon": 36.6958387,
+   "tags": {
+    "addr:district": "Arusha_City_Council",
+    "addr:region": "Arusha",
+    "addr:ward": "Sekei",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Arusha City Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11070744526",
+   "lat": -3.3356493,
+   "lon": 37.3591314,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Moshi District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11070745096",
+   "lat": -3.3548441,
+   "lon": 36.8401743,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Arumeru District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11070747173",
+   "lat": -3.2967599,
+   "lon": 36.4450775,
+   "tags": {
+    "addr:district": "Monduli_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Monduli_juu",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Munduli District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11070747326",
+   "lat": -3.3496337,
+   "lon": 37.338081,
+   "tags": {
+    "addr:district": "Moshi_Municipal_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Kilimanjaro",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Moshi Municipal Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11070748181",
+   "lat": -3.3008873,
+   "lon": 36.617355,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Olturumet",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Arusha District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11070748300",
+   "lat": -3.3626889,
+   "lon": 36.7086388,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Kiutu",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Arusha District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/11073205903",
+   "lat": -3.3628121,
+   "lon": 36.7084859,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Kiutu",
+    "administrative": "district_council_office",
+    "government": "administrative",
+    "name:en": "Arusha District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/282575937",
+   "lat": -3.3701785,
+   "lon": 36.8507449,
+   "tags": {
+    "addr:district": "Arumeru District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Magadirisho",
+    "addr:ward": "Usariver",
+    "amenity": "fuel",
+    "government": "administrative",
+    "name": "Njake Oil",
+    "name:en": "Meru District Office",
+    "name:sw": "Ofisi ya Mkuu wa Wilaya Meru",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/3175392089",
+   "lat": -3.3690427,
+   "lon": 36.6942704,
+   "tags": {
+    "name": "Immigration office",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/3271072175",
+   "lat": -3.2138545,
+   "lon": 37.2226229,
+   "tags": {
+    "amenity": "place_of_worship",
+    "name": "Machame Ward Office"
+   },
+   "found_by": [
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/4769408628",
+   "lat": -3.3399033,
+   "lon": 37.3448069,
+   "tags": {
+    "name": "Ministry of Energy and Minerals",
+    "name:en": "Ministry of Energy and Minerals",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/4897567723",
+   "lat": -3.3997288,
+   "lon": 36.7966224,
+   "tags": {
+    "addr:street": "Nelson Mandela Road",
+    "government": "administrative",
+    "name": "Administration",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:00-16:00",
+    "website": "http://www.nm-aist.ac.tzm"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/5160468421",
+   "lat": -3.3738617,
+   "lon": 36.6931817,
+   "tags": {
+    "check_date": "2023-06-19",
+    "name": "Tanesco Regional office - parking places",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/5285780321",
+   "lat": -3.3717195,
+   "lon": 36.6947233,
+   "tags": {
+    "check_date": "2023-06-19",
+    "name": "Ngorongoro Information Center",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/5974714684",
+   "lat": -3.3700676,
+   "lon": 36.694073,
+   "tags": {
+    "government": "administrative",
+    "name": "Ngorongoro Conservation Area Authority NCAA",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/6243876485",
+   "lat": -3.3726621,
+   "lon": 36.6829095,
+   "tags": {
+    "check_date": "2023-06-19",
+    "name": "Temesa",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/6243876486",
+   "lat": -3.3721372,
+   "lon": 36.6828308,
+   "tags": {
+    "air_conditioning": "yes",
+    "baby_feeding": "no",
+    "check_date": "2023-06-19",
+    "government": "public_service",
+    "internet_access": "wlan",
+    "internet_access:fee": "customers",
+    "name": "AUWASA",
+    "name:sw": "Idara ya Maji ya Mji wa Arusha",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:30-16:00",
+    "operator": "AUWASA",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "wheelchair": "yes"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/6243886389",
+   "lat": -3.3717812,
+   "lon": 36.6874386,
+   "tags": {
+    "check_date": "2023-06-19",
+    "name": "National Housing Association",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/6243895190",
+   "lat": -3.3738565,
+   "lon": 36.6898178,
+   "tags": {
+    "check_date": "2023-04-19",
+    "name": "National Housing Association",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/6541175485",
+   "lat": -3.3469344,
+   "lon": 37.3421622,
+   "tags": {
+    "check_date": "2023-04-19",
+    "email": "rmkilimanjaro@tanesco.co.tz",
+    "name": "TANESCO - Kilimanjaro, region office",
+    "office": "government",
+    "opening_hours": "Mo-Sa 08:00-23:00",
+    "phone": "0272754035"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/6836677785",
+   "lat": -3.3783386,
+   "lon": 36.6902455,
+   "tags": {
+    "check_date": "2023-05-02",
+    "name": "Tanzanian Wildlife Management Authority",
+    "office": "government",
+    "opening_hours": "Mo-Fr 09:00-18:00"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/708685985",
+   "lat": -3.3496926,
+   "lon": 37.3380908,
+   "tags": {
+    "amenity": "townhall",
+    "name": "Town Council",
+    "source": "International School of Moshi"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/7987336985",
+   "lat": -3.3694856,
+   "lon": 36.618272,
+   "tags": {
+    "name": "National Identification Authority (NIDA)",
+    "name:en": "National Identification Authority (NIDA)",
+    "name:sw": "Mamlaka ya Vitambulisho vya Taifa (NIDA)",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/8261664621",
+   "lat": -3.4240715,
+   "lon": 36.7071574,
+   "tags": {
+    "addr:city": "Arusha",
+    "addr:housenumber": "16",
+    "addr:postcode": "23114",
+    "addr:street": "TAWA Street",
+    "building": "government_office",
+    "government": "government",
+    "name": "TANZANIA WILDLIFE AUTHORITY (TAWA) Northen Zone Head Quarter",
+    "office": "government",
+    "opening_hours": "Mo-Fr 07:30-15:30",
+    "website": "northernzone@tawa.go.tz"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/8533251327",
+   "lat": -3.4037765,
+   "lon": 36.7203827,
+   "tags": {
+    "name": "Ofisi ya CCM Tawi la Engutoto",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392126862",
+   "lat": -3.4328709,
+   "lon": 36.5341846,
+   "tags": {
+    "addr:district": "Monduli District council",
+    "addr:region": "Arusha",
+    "addr:street": "Loolera Kipok",
+    "addr:ward": "Moita",
+    "government": "administrative",
+    "name:en": "Moita Bwawani disctict council office",
+    "name:sw": "Ofisi ya Wilaya ya Moita Bwawani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392126879",
+   "lat": -3.3170657,
+   "lon": 36.8169879,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Songoro",
+    "addr:ward": "Songoro",
+    "government": "administrative",
+    "name:en": "Songoro ward office",
+    "name:sw": "Ofisi ya kata ya Songoro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392126909",
+   "lat": -3.3475271,
+   "lon": 37.3709287,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Msufini",
+    "addr:ward": "Msaranga",
+    "government": "administrative",
+    "name:en": "Msaranga ward office",
+    "name:sw": "Ofisi ya Kata ya Msaranga",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131139",
+   "lat": -3.267878,
+   "lon": 37.2425859,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Narumu",
+    "addr:ward": "Machame_Narumu",
+    "check_date": "2025-01-30",
+    "government": "administrative",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "Narumu Ward Office",
+    "name:en": "Narumu ward office",
+    "name:sw": "Ofisi ya kata ya Narumu",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:00-16:00; Sa-Su,PH off",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "source": "WFP Field Survey 2021, OMDTZ",
+    "wheelchair": "no"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/9392131151",
+   "lat": -3.5661019,
+   "lon": 36.6547359,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Getini",
+    "addr:ward": "Oljoro",
+    "government": "administrative",
+    "name:en": "Oljoro ward office",
+    "name:sw": "Ofisi ya kata ya Oljoro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131173",
+   "lat": -3.3332717,
+   "lon": 37.1501661,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kibaoni",
+    "addr:ward": "Bomang'ombe",
+    "government": "administrative",
+    "name:en": "Bomang'ombe ward office",
+    "name:sw": "Ofisi ya kata Bomang'ombe",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131179",
+   "lat": -3.1760002,
+   "lon": 37.1106432,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mae juu",
+    "addr:ward": "Ivaeny",
+    "government": "administrative",
+    "name:en": "Mae juu subward village office",
+    "name:sw": "Ofisi ya Kijiji cha Mae juu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131196",
+   "lat": -3.5543022,
+   "lon": 36.9839777,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Kilimanjaro",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131254",
+   "lat": -3.4793487,
+   "lon": 36.7885146,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Nduruma",
+    "addr:ward": "Nduruma",
+    "government": "administrative",
+    "name:en": "Nduruma ward office",
+    "name:sw": "Ofisi ya kata ya Nduruma",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131284",
+   "lat": -3.3686141,
+   "lon": 36.658687,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Urundini",
+    "addr:ward": "Elerai",
+    "government": "administrative",
+    "name:en": "Elerai ward office",
+    "name:sw": "Ofisi ya kata ya Elerai",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131302",
+   "lat": -3.3088651,
+   "lon": 36.6408902,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Seuri",
+    "addr:ward": "Olturumet",
+    "government": "administrative",
+    "name:en": "Oltrutumet ward office",
+    "name:sw": "Ofisi ya kata ya Oltrutumet",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131359",
+   "lat": -3.5498157,
+   "lon": 36.9840617,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Songambele \"A\"",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131406",
+   "lat": -3.3346433,
+   "lon": 37.3697167,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kiborloni Sokoni",
+    "addr:ward": "Kiborloni",
+    "government": "administrative",
+    "name:en": "Kiborloni ward office",
+    "name:sw": "Ofisi ya kata ya Kiborloni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131436",
+   "lat": -3.4399101,
+   "lon": 37.2987667,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kikavu chini",
+    "addr:ward": "Weruweru",
+    "government": "administrative",
+    "name:en": "Kikavu chini ward office",
+    "name:sw": "Ofisi ya kijiji cha Kikavu chini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131460",
+   "lat": -3.3757312,
+   "lon": 36.5731574,
+   "tags": {
+    "addr:district": "Arusha District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Ngorbobu",
+    "addr:ward": "Mateves",
+    "government": "administrative",
+    "name:en": "Ngorbobu Subward Office",
+    "name:sw": "Ofisi ya Kijiji cha Ngorbobu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131477",
+   "lat": -3.3379133,
+   "lon": 36.674441,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Kiranyi",
+    "addr:ward": "Kiranyi",
+    "government": "administrative",
+    "name:en": "Kiranyi ward office",
+    "name:sw": "Ofis ya kata ya Kiranyi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131494",
+   "lat": -3.5660509,
+   "lon": 36.9859557,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Tanzanite",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Tanzanite subward village office",
+    "name:sw": "Ofisi ya Kitongoji Cha Tanzanite",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131528",
+   "lat": -3.349535,
+   "lon": 36.7971751,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Poli",
+    "addr:ward": "Poli",
+    "government": "administrative",
+    "name:en": "Poli subward village office",
+    "name:sw": "Ofisi ya Kijiji cha Poli",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131540",
+   "lat": -3.369111,
+   "lon": 36.7984267,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Malala",
+    "addr:ward": "Seela_Sing'isi",
+    "government": "administrative",
+    "name:en": "Malala subward village office",
+    "name:sw": "Ofisi ya Kijiji ya Malala",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131612",
+   "lat": -3.364679,
+   "lon": 36.6879598,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kaloleni Mashariki",
+    "addr:ward": "Kaloleni1",
+    "check_date": "2023-04-19",
+    "government": "administrative",
+    "name:en": "Kaloleni ward office",
+    "name:sw": "Ofisi ya kata ya kaloleni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131640",
+   "lat": -3.4002616,
+   "lon": 36.6594265,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kirika B",
+    "addr:ward": "Osunyai_Jr",
+    "government": "administrative",
+    "name:en": "Osunyai B ward office",
+    "name:sw": "Ofisi ya kata ya Osunyai B",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131657",
+   "lat": -3.5526257,
+   "lon": 36.9814336,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Kangaroo",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131674",
+   "lat": -3.4015874,
+   "lon": 36.5259938,
+   "tags": {
+    "addr:district": "Monduli District council",
+    "addr:region": "Arusha",
+    "addr:street": "Nanja",
+    "addr:ward": "Lepurko",
+    "government": "administrative",
+    "name:en": "Nanja ward office",
+    "name:sw": "Ofisi ya kata ya Nanja",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131715",
+   "lat": -3.4300913,
+   "lon": 36.7007925,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Lemara",
+    "addr:ward": "Lemara",
+    "government": "administrative",
+    "name:en": "Lemara ward office",
+    "name:sw": "Ofisi ya kata ya Lemara",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131745",
+   "lat": -3.3906567,
+   "lon": 36.7563537,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Moivaro kati",
+    "addr:ward": "Moivaro",
+    "government": "administrative",
+    "name:en": "Moivaro ward office",
+    "name:sw": "Ofisi ya Kijiji Cha Moivaro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131750",
+   "lat": -3.249433,
+   "lon": 37.1941477,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mudio",
+    "addr:ward": "Romu",
+    "government": "administrative",
+    "name:en": "Romu ward office",
+    "name:sw": "Ofisi ya Kata ya romu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131776",
+   "lat": -3.2642721,
+   "lon": 36.6193557,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Iemanyata",
+    "addr:ward": "Lemanyata",
+    "government": "administrative",
+    "name:en": "Lemanyata ward office",
+    "name:sw": "Ofisi ya kata ya Lemanyata",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131809",
+   "lat": -3.5261884,
+   "lon": 37.3265197,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mikocheni",
+    "addr:ward": "Arusha_Chini",
+    "government": "administrative",
+    "name:en": "Arusha chini ward office",
+    "name:sw": "Ofisi ya kata ya Arusha chini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131868",
+   "lat": -3.3464034,
+   "lon": 37.3509919,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Cggh",
+    "addr:ward": "Majengo14",
+    "government": "administrative",
+    "name:en": "Majengo ward office",
+    "name:sw": "Ofisi ya kata Majengo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131898",
+   "lat": -3.2187752,
+   "lon": 37.1579766,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kyuu",
+    "addr:ward": "Masama_Magharibi",
+    "government": "administrative",
+    "name:en": "Masama Magharibi ward office",
+    "name:sw": "Ofisi ya kata ya Masama Magharibi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131908",
+   "lat": -3.2330356,
+   "lon": 37.3227574,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kibosho mashariki",
+    "addr:ward": "Kibosho Mashariki",
+    "government": "administrative",
+    "name:en": "Sungu Subward Office",
+    "name:sw": "Ofisi ya Kijiji ya Sungu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131910",
+   "lat": -3.3067524,
+   "lon": 36.6805453,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Shiboro",
+    "addr:ward": "Sambasha",
+    "government": "administrative",
+    "name:en": "Shoboro ward office",
+    "name:sw": "Ofisi ya kata ya Shoboro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131915",
+   "lat": -3.5514726,
+   "lon": 36.9141763,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Kambi ya Tangajuu",
+    "addr:ward": "Shambarai_Burka",
+    "government": "administrative",
+    "name:en": "Tangajuu subward village office",
+    "name:sw": "Ofisi ya kijiji cha Kambi ya Tangajuu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131938",
+   "lat": -3.3391374,
+   "lon": 36.6579497,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Tarakwa",
+    "addr:ward": "Tarakwa",
+    "government": "administrative",
+    "name:en": "Tarakwa ward office",
+    "name:sw": "Ofisi ya kata ya Tarakwa",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392131950",
+   "lat": -3.3741191,
+   "lon": 36.7592422,
+   "tags": {
+    "addr:district": "Arumeru District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Ambureni",
+    "addr:ward": "Ambureni",
+    "government": "administrative",
+    "name:en": "Ambureni Ward Office",
+    "name:sw": "Ofisi ya Kata ya Ambureni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132013",
+   "lat": -3.3635887,
+   "lon": 36.7009128,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "AICC",
+    "addr:ward": "Sekei",
+    "government": "administrative",
+    "name:en": "Sekei ward office",
+    "name:sw": "Ofsi ya kata ya sekei",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132043",
+   "lat": -3.393567,
+   "lon": 36.7303943,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Mtaa wa Nanja",
+    "addr:ward": "Moshono",
+    "government": "administrative",
+    "name:en": "Nanja subward village office",
+    "name:sw": "Ofisi ya Mtaa wa Nanja",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132048",
+   "lat": -3.1943422,
+   "lon": 37.207182,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kyeeri",
+    "addr:ward": "Machame_Magharibi",
+    "government": "administrative",
+    "name:en": "Kyeeri subward village office",
+    "name:sw": "Ofisi ya kijiji cha Kyeeri",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132061",
+   "lat": -3.3359242,
+   "lon": 36.7445719,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Bangata",
+    "addr:ward": "Bangata",
+    "government": "administrative",
+    "name:en": "Bangata ward office",
+    "name:sw": "Ofisi ya kata ya Bangata",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132091",
+   "lat": -3.3523072,
+   "lon": 37.3497026,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Sokoni",
+    "addr:ward": "Njoro2",
+    "government": "administrative",
+    "name:en": "Sokoni ward office",
+    "name:sw": "Ofisi ya kata ya Ndovu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132119",
+   "lat": -3.410514,
+   "lon": 36.487344,
+   "tags": {
+    "addr:district": "Monduli District council",
+    "addr:region": "Arusha",
+    "addr:street": "Meserani juu",
+    "addr:ward": "Meserani",
+    "government": "administrative",
+    "name:en": "Meserani disctict council office",
+    "name:sw": "Ofisi ya Wilaya ya Meserani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132190",
+   "lat": -3.3431317,
+   "lon": 37.35153,
+   "tags": {
+    "addr:district": "Moshi Municipal Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Shauri Moyo",
+    "addr:ward": "Majengo",
+    "government": "administrative",
+    "name:en": "Majengo Ward Office",
+    "name:sw": "Ofisi ya Mtendaji Kata Majengo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132196",
+   "lat": -3.2401744,
+   "lon": 37.1726125,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Lemira Kati",
+    "addr:ward": "Masama_Kati",
+    "government": "administrative",
+    "name:en": "Lemira Kati ward office",
+    "name:sw": "Ofisi ya kata ya Lemira Kati",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132253",
+   "lat": -3.5644003,
+   "lon": 36.9850986,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Songambele",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji chaMirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132287",
+   "lat": -3.3325061,
+   "lon": 36.8318584,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Marikanda",
+    "addr:ward": "Nkoaranga",
+    "government": "administrative",
+    "name:en": "Nkoaranga ward office",
+    "name:sw": "Ofisi ya kata ya Nkoaranga",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132311",
+   "lat": -3.5707991,
+   "lon": 36.8079228,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Temi",
+    "addr:ward": "Bwawani",
+    "government": "administrative",
+    "name:en": "Bwawani ward office",
+    "name:sw": "Ofisi ya kata ya Bwawani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132316",
+   "lat": -3.2589439,
+   "lon": 37.3545407,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kitongoji Cha mamba",
+    "addr:ward": "Uru_Kaskazini",
+    "government": "administrative",
+    "name:en": "Uru kaskazini ward office",
+    "name:sw": "Ofisi ya kata ya uru kaskazini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132371",
+   "lat": -3.3701799,
+   "lon": 36.6879897,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Bondeni",
+    "addr:ward": "Kati",
+    "air_conditioning": "yes",
+    "baby_feeding": "no",
+    "check_date": "2023-06-19",
+    "government": "administrative",
+    "internet_access": "wlan",
+    "internet_access:fee": "customers",
+    "name:en": "Kati ward office",
+    "name:sw": "Ofisi ya kata ya Kati",
+    "office": "government",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "smoking": "no",
+    "source": "WFP Field Survey 2021, OMDTZ",
+    "wheelchair": "yes"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132393",
+   "lat": -3.370616,
+   "lon": 36.8954664,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Imbaseni",
+    "addr:ward": "Imbaseni",
+    "government": "administrative",
+    "name:en": "Imbaseni ward office",
+    "name:sw": "Ofisi ya kata ya Imbaseni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132399",
+   "lat": -3.374379,
+   "lon": 36.6817305,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Majengo",
+    "addr:ward": "Kiutu",
+    "check_date": "2023-06-19",
+    "government": "administrative",
+    "name:en": "Manjengo region offce",
+    "name:sw": "Ofisi ya Kanda ya Manjengo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132416",
+   "lat": -3.151823,
+   "lon": 36.8415493,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Nnkuuny",
+    "addr:ward": "Uwiro",
+    "government": "administrative",
+    "name:en": "Uwiro ward office",
+    "name:sw": "Ofisi ya kata ya Uwiro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132421",
+   "lat": -3.5713803,
+   "lon": 36.9801871,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Endiamutu",
+    "addr:ward": "Endiamutu",
+    "government": "administrative",
+    "name:en": "Endiamutu ward office",
+    "name:sw": "Ofisi ya kata Endiamutu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132474",
+   "lat": -3.366707,
+   "lon": 36.5927085,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Mlimani",
+    "addr:ward": "Olmoti",
+    "government": "administrative",
+    "name:en": "Mlimani ward office",
+    "name:sw": "Ofisi ya Kata ya Mlimani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132492",
+   "lat": -3.33351,
+   "lon": 37.3429393,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Ushirika",
+    "addr:ward": "Mfumuni",
+    "government": "administrative",
+    "name:en": "Mfumuni ward office",
+    "name:sw": "Ofisi ya kata ya Mfumuni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132580",
+   "lat": -3.256391,
+   "lon": 36.9840456,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Maruvango",
+    "addr:ward": "Maruvango",
+    "government": "administrative",
+    "name:en": "Maruvango ward office",
+    "name:sw": "Ofisi ya kata ya Maruvango",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132667",
+   "lat": -3.2330289,
+   "lon": 37.3228132,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kibosho mashariki",
+    "addr:ward": "Kibosho Mashariki",
+    "government": "administrative",
+    "name:en": "kibosho mashariki Ward Office",
+    "name:sw": "Ofisi ya Kata ya Kibosho Mashariki",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132669",
+   "lat": -3.3783188,
+   "lon": 36.5592261,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Ilikerin",
+    "addr:ward": "Kisongo",
+    "government": "administrative",
+    "name:en": "Kisongo ward office",
+    "name:sw": "Ofisi ya Kata ya kisongo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132697",
+   "lat": -3.4184576,
+   "lon": 36.657148,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Muriet",
+    "addr:ward": "Muriet",
+    "air_conditioning": "yes",
+    "check_date": "2023-04-19",
+    "government": "administrative",
+    "internet_access": "wlan",
+    "internet_access:fee": "customers",
+    "name:en": "Muriet ward office",
+    "name:sw": "Ofisi ya kata ya Muriet",
+    "office": "government",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "smoking": "no",
+    "source": "WFP Field Survey 2021, OMDTZ",
+    "wheelchair": "limited"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132714",
+   "lat": -3.5585707,
+   "lon": 36.9797054,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Msikitino",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132772",
+   "lat": -3.2134779,
+   "lon": 37.0266131,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Naibili",
+    "addr:ward": "Biriri",
+    "government": "administrative",
+    "name:en": "Biriri ward office",
+    "name:sw": "Ofisi ya kata ya Biriri",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132814",
+   "lat": -3.3496337,
+   "lon": 36.6851626,
+   "tags": {
+    "addr:district": "Arusha District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Melit",
+    "addr:ward": "Ilboru",
+    "government": "administrative",
+    "name:en": "Ilboru Ward Office",
+    "name:sw": "Ofisi ya Kata ya Ilboru",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132896",
+   "lat": -3.3872146,
+   "lon": 36.9419644,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Kikatiti",
+    "addr:ward": "Kikatiti",
+    "government": "administrative",
+    "name:en": "Kikatiti subward village office",
+    "name:sw": "Ofisi ya Kijijiya Kikatiti",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392132968",
+   "lat": -3.3497028,
+   "lon": 36.6515477,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Olosiva",
+    "addr:ward": "Oloirien",
+    "government": "administrative",
+    "name:en": "Olorieni ward office",
+    "name:sw": "Ofisi ya kata ya Olorieni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133071",
+   "lat": -3.4111719,
+   "lon": 36.7566474,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Mlangarini",
+    "addr:ward": "Mlangarini",
+    "government": "administrative",
+    "name:en": "Mlangarini ward office",
+    "name:sw": "Ofisi ya Kata Mlangarini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133076",
+   "lat": -3.3287567,
+   "lon": 37.323171,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Marenyi",
+    "addr:ward": "Old_Moshi_Magharibi",
+    "government": "administrative",
+    "name:en": "Old moshi magharibi ward office",
+    "name:sw": "Ofisi ya kata old moshi magharibi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133149",
+   "lat": -3.3627309,
+   "lon": 36.7082144,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Mateves",
+    "addr:ward": "Kisongo",
+    "government": "administrative",
+    "name:en": "Mateves ward office",
+    "name:sw": "Ofisi ya kata ya Mateves",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133154",
+   "lat": -3.3657427,
+   "lon": 36.9093782,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Maji ya chai",
+    "addr:ward": "Maji_ya_chai",
+    "check_date": "2023-04-21",
+    "government": "administrative",
+    "name:en": "maji ya chai ward office",
+    "name:sw": "Ofisi ya kata ya Maji ya chai",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133224",
+   "lat": -3.3530774,
+   "lon": 36.6964011,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Oloresho",
+    "addr:ward": "Moivo",
+    "government": "administrative",
+    "name:en": "Moivo ward office",
+    "name:sw": "Ofisi ya kata ya Moivo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133254",
+   "lat": -3.3486957,
+   "lon": 37.360499,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mji Mpya",
+    "addr:ward": "Mji_Mpya",
+    "government": "administrative",
+    "name:en": "Mji Mpya ward office",
+    "name:sw": "Ofisi ya kata ya Mji Mpya",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133266",
+   "lat": -3.2222783,
+   "lon": 36.6048854,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Lengijave",
+    "addr:ward": "Lengijave",
+    "government": "administrative",
+    "name:en": "Lengijave ward office",
+    "name:sw": "Ofisi ya kata ya Lengijave",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133295",
+   "lat": -3.1459858,
+   "lon": 36.6933213,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Sokoni",
+    "addr:ward": "Oldonyowass",
+    "government": "administrative",
+    "name:en": "Oldonyowass ward office",
+    "name:sw": "Ofisi kata ya oldonyowass",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133312",
+   "lat": -3.5548759,
+   "lon": 36.9852358,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Kilimanjaro",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Kilimanjaro subward village office",
+    "name:sw": "Ofisi ya kijiji cha Kilimanjaro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133346",
+   "lat": -3.2128944,
+   "lon": 37.2982238,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Dakawa",
+    "addr:ward": "Kibosho_Okaoni",
+    "government": "administrative",
+    "name:en": "okaoni ward office",
+    "name:sw": "Ofisi ya kata ya okaoni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133358",
+   "lat": -3.3718277,
+   "lon": 36.7902712,
+   "tags": {
+    "addr:city": "Arusha",
+    "addr:district": "Arumeru District council",
+    "addr:postcode": "23306",
+    "addr:region": "Arusha",
+    "addr:street": "Patandi",
+    "addr:ward": "Akheri",
+    "government": "administrative",
+    "name:en": "Akheri ward office",
+    "name:sw": "Ofisi ya kata ya Akheri",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133375",
+   "lat": -3.2479233,
+   "lon": 37.3627865,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Njari",
+    "addr:ward": "Uru_Kaskazini",
+    "government": "administrative",
+    "name:en": "Njari subward village office",
+    "name:sw": "Ofisi ya kijiji cha Njari",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133405",
+   "lat": -3.5698792,
+   "lon": 36.9814782,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Mji mpya",
+    "addr:ward": "Endiamutu",
+    "government": "administrative",
+    "name:en": "Mji mpya ward office",
+    "name:sw": "Ofisi ya kata ya Mji mpya",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133428",
+   "lat": -3.2602472,
+   "lon": 37.2693377,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Manushi Ndoo",
+    "addr:ward": "Kibosho Magharibi",
+    "government": "administrative",
+    "name:en": "Kibosho Magharibi Subward Office",
+    "name:sw": "Ofisi ya Kata ya Kibosho Magha",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133430",
+   "lat": -3.3730624,
+   "lon": 36.679544,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kilombero",
+    "addr:ward": "Levolosi",
+    "check_date": "2023-06-19",
+    "government": "administrative",
+    "name:en": "Levolosi ward office",
+    "name:sw": "Ofisi ya kata ya Levolosi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133458",
+   "lat": -3.4046427,
+   "lon": 36.6784247,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Long'odong",
+    "addr:ward": "Sokon_II",
+    "government": "administrative",
+    "name:en": "Sokoni 1 ward office",
+    "name:sw": "Ofisi ya kata ya Sokoni 1",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133475",
+   "lat": -3.5457615,
+   "lon": 36.9875815,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Getini",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133492",
+   "lat": -3.5130284,
+   "lon": 36.9423463,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Mabatini",
+    "addr:ward": "Makiba",
+    "government": "administrative",
+    "name": "Makiba Ward Building",
+    "name:en": "Makiba ward office",
+    "name:sw": "Ofisi ya kata ya Makiba",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/9392133538",
+   "lat": -3.3769343,
+   "lon": 37.020315,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Malula",
+    "addr:ward": "Malula",
+    "government": "administrative",
+    "name:en": "Malula ward office",
+    "name:sw": "Ofisi ya kata ya Malula",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133551",
+   "lat": -3.3632026,
+   "lon": 36.7347132,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Oldadai",
+    "addr:ward": "Sokon_II",
+    "government": "administrative",
+    "name:en": "Sokon ll ward office",
+    "name:sw": "Ofisi ya kata ya Sokon ll",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133563",
+   "lat": -3.4321722,
+   "lon": 36.704752,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kontena",
+    "addr:ward": "Engutoto1",
+    "government": "administrative",
+    "name:en": "Engutoto ward office",
+    "name:sw": "Ofisi ya kata ya Engutoto",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133575",
+   "lat": -3.3569588,
+   "lon": 36.7163146,
+   "tags": {
+    "addr:district": "Arusha District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Naurei",
+    "addr:ward": "Kiutu",
+    "government": "administrative",
+    "name:en": "Naurei Ward Office",
+    "name:sw": "Ofisi ya Kata ya Naurei",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133609",
+   "lat": -3.3450259,
+   "lon": 37.1337351,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kambi Ya Raha",
+    "addr:ward": "Muungano2",
+    "government": "administrative",
+    "name:en": "Kambi Ya Raha ward office",
+    "name:sw": "Ofisi ya kata ya Kambi ya raha",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133642",
+   "lat": -3.2371088,
+   "lon": 37.3081896,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Maua tela",
+    "addr:ward": "Kibosho_Kati",
+    "government": "administrative",
+    "name:en": "kibosho kati ward office",
+    "name:sw": "Ofisi ya kata ya kibosho kati",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133714",
+   "lat": -3.3267491,
+   "lon": 37.2742249,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Shirinjoro",
+    "addr:ward": "Mnadani",
+    "government": "administrative",
+    "name:en": "Mnadani ward office",
+    "name:sw": "Ofisi ya kata ya mnadani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133724",
+   "lat": -3.2351896,
+   "lon": 37.3292033,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mweka",
+    "addr:ward": "Kibosho Mashariki",
+    "government": "administrative",
+    "name:en": "Mweka Subward Office",
+    "name:sw": "Ofisi ya Kijiji Mweka",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133726",
+   "lat": -3.4895925,
+   "lon": 36.6287293,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Laroi",
+    "addr:ward": "Laroi",
+    "government": "administrative",
+    "name:en": "Laroi ward office",
+    "name:sw": "Ofisi ya kata ya Laroi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133731",
+   "lat": -3.5582964,
+   "lon": 36.9844487,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Songambele",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133829",
+   "lat": -3.3664168,
+   "lon": 36.7266335,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Ngulelo",
+    "addr:ward": "Kimandolu",
+    "government": "administrative",
+    "name:en": "Kimandolu ward office",
+    "name:sw": "Ofsi ya kata ya Kimandolu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133859",
+   "lat": -3.4006733,
+   "lon": 36.6452017,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Olasiti",
+    "addr:ward": "Olasiti",
+    "government": "administrative",
+    "name:en": "Olasiti ward office",
+    "name:sw": "Ofisi ya kata ya Olasiti",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133864",
+   "lat": -3.322233,
+   "lon": 37.2343391,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Wari",
+    "addr:ward": "Machame_Kaskazini",
+    "government": "administrative",
+    "name:en": "Machame kaskizan ward office",
+    "name:sw": "Ofisi ya Kata Machame kaskizan",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133871",
+   "lat": -3.3563919,
+   "lon": 37.3389479,
+   "tags": {
+    "addr:district": "Moshi Municipal Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Sokoni",
+    "addr:ward": "Bondeni2",
+    "check_date": "2023-04-19",
+    "government": "administrative",
+    "name:en": "Bondeni Ward Office",
+    "name:sw": "Ofisi ya Afisa Mtendaji Kata Bondeni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133890",
+   "lat": -3.36356,
+   "lon": 37.3133483,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Bonite",
+    "addr:ward": "Shirimatunda",
+    "government": "administrative",
+    "name:en": "Shirimatunda ward office",
+    "name:sw": "Ofisi ya kata shirimatunda",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133907",
+   "lat": -3.371601,
+   "lon": 37.3440614,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kaloleni",
+    "addr:ward": "Kaloleni2",
+    "government": "administrative",
+    "name:en": "kaloleni ward office",
+    "name:sw": "Ofisi ya kata ya kaloleni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133982",
+   "lat": -3.343956,
+   "lon": 36.6942536,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Ilkirevi",
+    "addr:ward": "Olturoto",
+    "government": "administrative",
+    "name:en": "Oltroto ward office",
+    "name:sw": "Ofisi ya kata ya Oltroto",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392133992",
+   "lat": -3.3763043,
+   "lon": 36.853403,
+   "tags": {
+    "addr:district": "Arumeru District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Usa River",
+    "addr:ward": "Usariver",
+    "government": "administrative",
+    "name:en": "Usa River Ward Office",
+    "name:sw": "Ofisi ya Kata Usa River",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134024",
+   "lat": -3.2876868,
+   "lon": 37.0756134,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Aloiwang",
+    "addr:ward": "Donyomurwak",
+    "government": "administrative",
+    "name:en": "Donyomurwak ward office",
+    "name:sw": "Ofisi ya kata donyomurwak",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134052",
+   "lat": -3.1889995,
+   "lon": 37.1092594,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mae",
+    "addr:ward": "Ivaeny",
+    "government": "administrative",
+    "name:en": "Mae ward office",
+    "name:sw": "Ofisi ya Kijiji cha mae",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134069",
+   "lat": -3.5553393,
+   "lon": 36.9862518,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Twiga",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Twiga subward village office",
+    "name:sw": "Ofisi ya kijiji cha Twiga",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134127",
+   "lat": -3.3843058,
+   "lon": 36.7002552,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Coridor",
+    "addr:ward": "Themi",
+    "government": "administrative",
+    "name:en": "Themi ward office",
+    "name:sw": "Ofisi ya kata ya Themi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134132",
+   "lat": -3.2528617,
+   "lon": 37.3387408,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mrawi",
+    "addr:ward": "Uru_Kaskazini",
+    "government": "administrative",
+    "name:en": "Mrawi subward village office",
+    "name:sw": "Ofisi ya Kijiji Cha mrawi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134157",
+   "lat": -3.4645467,
+   "lon": 36.697795,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Terrat",
+    "addr:ward": "Terrat1",
+    "check_date": "2023-11-13",
+    "government": "administrative",
+    "internet_access": "no",
+    "name:en": "Terrat ward office",
+    "name:sw": "Ofisi ya kata ya Terrat",
+    "office": "government",
+    "opening_hours": "Mo-Fr 08:00-16:00",
+    "operator": "Public",
+    "payment:cards": "no",
+    "payment:cash": "yes",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "source": "WFP Field Survey 2021, OMDTZ",
+    "wheelchair": "no"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134169",
+   "lat": -3.3237495,
+   "lon": 37.3330384,
+   "tags": {
+    "addr:district": "Moshi Municipal Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Shanti Town",
+    "addr:ward": "Longuo B",
+    "government": "administrative",
+    "name:en": "Longuo B Ward Office",
+    "name:sw": "Ofisi ya Kata ya Longuo B",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134181",
+   "lat": -3.2419915,
+   "lon": 37.1895773,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mbweera",
+    "addr:ward": "Masama_Mashariki",
+    "government": "administrative",
+    "name:en": "Masama mashariki ward office",
+    "name:sw": "Ofisi ya kata ya Masama mashariki",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134204",
+   "lat": -3.356077,
+   "lon": 36.7676097,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Nkoanrua",
+    "addr:ward": "Nkoanrua",
+    "government": "administrative",
+    "name:en": "Nkoanrua subward village office",
+    "name:sw": "Ofisi ya kata ya Nkoanrua",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134215",
+   "lat": -3.3744151,
+   "lon": 36.6818687,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Daraja 11",
+    "addr:ward": "Daraja_II",
+    "check_date": "2023-06-19",
+    "government": "administrative",
+    "name:en": "Daraja ll ward office",
+    "name:sw": "Ofisi ya kata ya Daraja ll",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134232",
+   "lat": -3.2542067,
+   "lon": 36.9356167,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Leguruki",
+    "addr:ward": "Leguruki",
+    "government": "administrative",
+    "name:en": "Leguruki ward office",
+    "name:sw": "Ofisi ya kata ya Leguruki",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134272",
+   "lat": -3.3132848,
+   "lon": 36.6417109,
+   "tags": {
+    "addr:district": "Arusha District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Ngaramtoni",
+    "addr:ward": "Olmotonyi",
+    "government": "administrative",
+    "name:en": "Olmotony Ward Office",
+    "name:sw": "Ofisi ya Mtendaji Kata Olmotony",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134319",
+   "lat": -3.3239667,
+   "lon": 37.2995751,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Eka",
+    "addr:ward": "Kindi",
+    "government": "administrative",
+    "name:en": "Kindi Ward Office",
+    "name:sw": "Ofisi ya Kata ya Kindi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134333",
+   "lat": -3.3633664,
+   "lon": 36.7085204,
+   "tags": {
+    "addr:city": "Arusha",
+    "addr:district": "Arusha District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kiutu",
+    "addr:ward": "Kiutu",
+    "government": "administrative",
+    "name:en": "Ibu Afya Disctict Council Office",
+    "name:sw": "Ofisi ya Katibu Afya",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134384",
+   "lat": -3.3022533,
+   "lon": 36.4462123,
+   "tags": {
+    "addr:district": "Monduli District council",
+    "addr:region": "Arusha",
+    "addr:street": "Monduli mjini",
+    "addr:ward": "Engutoto",
+    "government": "administrative",
+    "name:en": "Engutoto ward office",
+    "name:sw": "Ofisi ya kata ya Engutoto",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134413",
+   "lat": -3.338139,
+   "lon": 36.777262,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Ngoarisambu",
+    "addr:ward": "Nkoarisambu",
+    "government": "administrative",
+    "name:en": "Nkoarisambu subward village office",
+    "name:sw": "Ofisi ya Kijiji ya Nkoarisambu",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134453",
+   "lat": -3.3058301,
+   "lon": 37.3893274,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Tela",
+    "addr:ward": "Old Moshi Magharibi",
+    "government": "administrative",
+    "name:en": "Old Moshi Ward Office",
+    "name:sw": "Ofisi ya kata ya Old Moshi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134455",
+   "lat": -3.2741059,
+   "lon": 36.5973978,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Engutoto",
+    "addr:ward": "Mwandet",
+    "government": "administrative",
+    "name:en": "Mwandeti ward office",
+    "name:sw": "Ofisi ya kata ya Mwandeti",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134485",
+   "lat": -3.3279604,
+   "lon": 36.5145467,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Oloitushula",
+    "addr:ward": "Musa",
+    "government": "administrative",
+    "name:en": "Musa ward office",
+    "name:sw": "Ofisi ya Kata ya Musa",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134513",
+   "lat": -3.370944,
+   "lon": 36.6751872,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "TCA",
+    "addr:ward": "Ngarenaro",
+    "check_date": "2023-06-19",
+    "government": "administrative",
+    "name:en": "Ngarenaro ward office",
+    "name:sw": "Ofisi ya kayak ya ngarenaro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134530",
+   "lat": -3.5594474,
+   "lon": 36.9846172,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Songambele",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134588",
+   "lat": -3.3812232,
+   "lon": 36.7348758,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kiroshi",
+    "addr:ward": "Baraa",
+    "government": "administrative",
+    "name:en": "Baraa ward office",
+    "name:sw": "Ofisi ya kata ya Baraa",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134650",
+   "lat": -3.3137646,
+   "lon": 36.6492889,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Olevolos",
+    "addr:ward": "Kimnyak",
+    "government": "administrative",
+    "name:en": "VA Kimnyaki ward office",
+    "name:sw": "Ofisi ya Kata ya Kimnyaki",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134784",
+   "lat": -3.3223165,
+   "lon": 36.6939444,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Olegiruno",
+    "addr:ward": "Ilkiding'a",
+    "government": "administrative",
+    "name:en": "Olegiruno ward office",
+    "name:sw": "Ofisi ya kata ya Olegiruno",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134812",
+   "lat": -3.1970749,
+   "lon": 37.0690224,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Kijiji cha merali",
+    "addr:ward": "Sanya_Juu",
+    "government": "administrative",
+    "name:en": "Merali subward village office",
+    "name:sw": "Ofisi ya Kijiji cha merali",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134829",
+   "lat": -3.5543804,
+   "lon": 36.984398,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Kilimanjaro",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134858",
+   "lat": -3.5813125,
+   "lon": 36.9362787,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Kijiji cha shambarai",
+    "addr:ward": "Shambarai",
+    "government": "administrative",
+    "name:en": "Shambarai subward village office",
+    "name:sw": "Ofisi ya kijiji cha shambarai",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134887",
+   "lat": -3.3822958,
+   "lon": 36.7528128,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Moivaro",
+    "addr:ward": "Moivaro",
+    "government": "administrative",
+    "name:en": "Moivaro ward office",
+    "name:sw": "Ofisi ya kata ya Moivaro",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134892",
+   "lat": -3.2647564,
+   "lon": 37.3721539,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Aquilina c mushi",
+    "addr:ward": "Uru_Shimbwe",
+    "government": "administrative",
+    "name:en": "Huru shimbwe ward office",
+    "name:sw": "Ofisi ya kata huru shimbwe",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134915",
+   "lat": -3.4576428,
+   "lon": 37.3952681,
+   "tags": {
+    "addr:district": "Moshi District Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Maendeleo",
+    "addr:ward": "Mabogini",
+    "government": "administrative",
+    "name:en": "Mabogini Ward Office",
+    "name:sw": "Ofisi ya Kata ya Mabogini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134917",
+   "lat": -3.3903657,
+   "lon": 36.7327206,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Nanja",
+    "addr:ward": "Moshono",
+    "government": "administrative",
+    "name:en": "Moshono ward office",
+    "name:sw": "Ofisi ya kata ya Moshono",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134928",
+   "lat": -3.3709577,
+   "lon": 37.3405499,
+   "tags": {
+    "addr:district": "Moshi Municipal Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Sokoni",
+    "addr:ward": "Bomambuzi",
+    "check_date": "2023-04-19",
+    "government": "administrative",
+    "name:en": "Bomambuzi Ward Office",
+    "name:sw": "Ofisi ya Afisa Mtendaji Kata Bomambuzi",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134935",
+   "lat": -3.3336824,
+   "lon": 37.3431192,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Rau",
+    "addr:ward": "Rau",
+    "government": "administrative",
+    "name:en": "Rau ward office",
+    "name:sw": "Ofisi ya kata ya Rau",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392134993",
+   "lat": -3.618972,
+   "lon": 36.5165646,
+   "tags": {
+    "addr:district": "Monduli District council",
+    "addr:region": "Arusha",
+    "addr:street": "Naalarami",
+    "addr:ward": "Naalarami",
+    "government": "administrative",
+    "name:en": "Naalarami disctict council office",
+    "name:sw": "Ofisi ya Wilaya ya Naalarami",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135010",
+   "lat": -3.4372098,
+   "lon": 36.9134846,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "maroroni",
+    "addr:ward": "Maroroni",
+    "government": "administrative",
+    "name:en": "Maroroni subward village office",
+    "name:sw": "Ofisi Ya Kijiji ya Maroroni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135034",
+   "lat": -3.4642208,
+   "lon": 36.6974499,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Terrat",
+    "addr:ward": "Terrat",
+    "government": "administrative",
+    "name:en": "Terrat Ward Office",
+    "name:sw": "Ofisi ya Kata ya Terrat",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135064",
+   "lat": -3.3450862,
+   "lon": 37.3490471,
+   "tags": {
+    "addr:district": "Moshi Municipal Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Lawangata",
+    "addr:ward": "Miembeni",
+    "government": "administrative",
+    "name:en": "Miembeni Ward Office",
+    "name:sw": "Ofisi ya Mtendaji Kata Miembeni",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135082",
+   "lat": -3.1857857,
+   "lon": 36.6681209,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Oldonyosambo",
+    "addr:ward": "Oldonyosambu",
+    "government": "administrative",
+    "name:en": "Oldonyosambo ward office",
+    "name:sw": "Ofisi ya kata ya Oldonyosambo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135087",
+   "lat": -3.4565305,
+   "lon": 36.8534432,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Maweni",
+    "addr:ward": "Kikwe",
+    "government": "administrative",
+    "name:en": "Kikwe ward office",
+    "name:sw": "Ofisi ya kata ya Kikwe",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135128",
+   "lat": -3.564377,
+   "lon": 36.9851044,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Tanzanite",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Tanzanite subward village office",
+    "name:sw": "Ofisi ya Kitongoji Cha Tanzanite",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135156",
+   "lat": -3.3367386,
+   "lon": 36.8492551,
+   "tags": {
+    "addr:district": "Arumeru District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Nnkure",
+    "addr:ward": "Nkoanekoli",
+    "government": "administrative",
+    "name:en": "Nnkure Subward Office",
+    "name:sw": "Ofisi ya Kijiji ya Nnkure",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135158",
+   "lat": -3.5189942,
+   "lon": 37.0277743,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Naisinyai",
+    "addr:ward": "Naisinyai",
+    "government": "administrative",
+    "name:en": "Naisinyai ward office",
+    "name:sw": "Ofisi ya kata ya Naisinyai",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135187",
+   "lat": -3.4472528,
+   "lon": 36.7888954,
+   "tags": {
+    "addr:district": "Arusha District council",
+    "addr:region": "Arusha",
+    "addr:street": "Mlangarini",
+    "addr:ward": "Mlangarini",
+    "government": "administrative",
+    "name:en": "Mlangarini subward village office",
+    "name:sw": "Ofisi ya Kijiji Mlangarini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135217",
+   "lat": -3.3659217,
+   "lon": 37.0658552,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Ormelili",
+    "addr:ward": "Ormelili",
+    "government": "administrative",
+    "name:en": "Olmelili ward office",
+    "name:sw": "Ofisi ya Kata ya Olmelili",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135248",
+   "lat": -3.2769539,
+   "lon": 37.0440879,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Olkolili",
+    "addr:ward": "Olkolili",
+    "government": "administrative",
+    "name:en": "Olkolili subward village office",
+    "name:sw": "Ofisi ya kijiji cha olkolili",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135269",
+   "lat": -3.2951467,
+   "lon": 36.447026,
+   "tags": {
+    "addr:district": "Monduli District council",
+    "addr:region": "Arusha",
+    "addr:street": "Losirwa",
+    "addr:ward": "Esilalei",
+    "government": "administrative",
+    "name:en": "Esilalei disctict council office",
+    "name:sw": "Ofisi ya Wilaya ya Esilalei",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135276",
+   "lat": -3.3686046,
+   "lon": 36.6587381,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Urundini",
+    "addr:ward": "Elerai",
+    "government": "administrative",
+    "name:en": "Elerai region offce",
+    "name:sw": "Ofisi ya kanda ya Elerai",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135293",
+   "lat": -3.5523193,
+   "lon": 36.9870219,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Manyara",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135339",
+   "lat": -3.3445799,
+   "lon": 37.3780403,
+   "tags": {
+    "addr:district": "Moshi Municipal council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Msaranga Shuleni",
+    "addr:ward": "Ng'ambo",
+    "government": "administrative",
+    "name:en": "Ng'ambo ward office",
+    "name:sw": "Ofisi ya kata ya Ng'ambo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135356",
+   "lat": -3.2839875,
+   "lon": 36.9795488,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "King'ori",
+    "addr:ward": "King'ori",
+    "government": "administrative",
+    "name:en": "King'ori subward village office",
+    "name:sw": "Ofisi Ya Kijiji cha King'ori",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135386",
+   "lat": -3.1135924,
+   "lon": 36.9011527,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Ngabobo",
+    "addr:ward": "Ngabobo",
+    "government": "administrative",
+    "name:en": "Ngabobo ward office",
+    "name:sw": "Ofisi ya kata ya Ngabobo",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135427",
+   "lat": -3.1961005,
+   "lon": 37.2166897,
+   "tags": {
+    "addr:district": "Hai District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Nronga",
+    "addr:ward": "Machame_Magharibi",
+    "government": "administrative",
+    "name:en": "Nronga ward office",
+    "name:sw": "Ofisi ya kata ya Nronga",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135473",
+   "lat": -3.5263327,
+   "lon": 37.3265809,
+   "tags": {
+    "addr:district": "Moshi District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Mikonjeni",
+    "addr:ward": "Arusha_Chini",
+    "government": "administrative",
+    "name:en": "Arusha chini ward office",
+    "name:sw": "Ofisi ya kata ya Arusha chini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135533",
+   "lat": -3.1452153,
+   "lon": 37.0224339,
+   "tags": {
+    "addr:district": "Siha District council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Wiri",
+    "addr:ward": "Gararagua",
+    "government": "administrative",
+    "name": "Halmashauri ya Wilaya ya Siha",
+    "name:en": "Siha disctict council office",
+    "name:sw": "Ofisi ya Halmashauri wilaya ya Siha",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "node/9392135573",
+   "lat": -3.379757,
+   "lon": 36.6615536,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Kirika A",
+    "addr:ward": "Sombetini",
+    "check_date": "2023-04-19",
+    "government": "administrative",
+    "name:en": "Sombetini ward office",
+    "name:sw": "Ofisi ya kata ya Sombetini",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135590",
+   "lat": -3.5586058,
+   "lon": 36.9794277,
+   "tags": {
+    "addr:district": "Simanjiro District council",
+    "addr:region": "Manyara",
+    "addr:street": "Msikitini",
+    "addr:ward": "Mirerani",
+    "government": "administrative",
+    "name:en": "Mirerani subward village office",
+    "name:sw": "Ofisi ya kijiji cha Mirerani",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135648",
+   "lat": -3.3845681,
+   "lon": 36.7125437,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Mwanama",
+    "addr:ward": "Oloirien1",
+    "government": "administrative",
+    "name:en": "Olorien ward office",
+    "name:sw": "Ofisi ya kata olorien",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135679",
+   "lat": -3.3903668,
+   "lon": 36.7326749,
+   "tags": {
+    "addr:district": "Arusha City Council",
+    "addr:region": "Arusha",
+    "addr:street": "Nanja/",
+    "addr:ward": "Moshono",
+    "government": "administrative",
+    "name:en": "Moshono ward office",
+    "name:sw": "Ofisi ya kata ya Moshono",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9392135691",
+   "lat": -3.3833402,
+   "lon": 37.3310934,
+   "tags": {
+    "addr:district": "Moshi Municipal Council",
+    "addr:region": "Kilimanjaro",
+    "addr:street": "Matindiga",
+    "addr:ward": "Pasua",
+    "government": "administrative",
+    "name:en": "Pasua Ward Office",
+    "name:sw": "Ofisi ya Afisa Mtendaji Kata Pasua",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "node/9889181553",
+   "lat": -3.4506277,
+   "lon": 36.7383416,
+   "tags": {
+    "name": "CCM office Kiserian",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "relation/16136381",
+   "lat": -3.3330351,
+   "lon": 37.1426247,
+   "tags": {
+    "addr:district": "Hai_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Bomang'ombe",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "name:en": "Hai District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ",
+    "type": "multipolygon"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591437",
+   "lat": -3.1442834,
+   "lon": 37.0221695,
+   "tags": {
+    "addr:district": "Siha_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Gararagua",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "name:en": "Siha District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591440",
+   "lat": -3.3551304,
+   "lon": 36.8403646,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591443",
+   "lat": -3.355044,
+   "lon": 36.840108,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591471",
+   "lat": -3.3353923,
+   "lon": 37.3593574,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591482",
+   "lat": -3.3703552,
+   "lon": 36.6958834,
+   "tags": {
+    "addr:district": "Arusha_City_Council",
+    "addr:region": "Arusha",
+    "addr:ward": "Sekei",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591521",
+   "lat": -3.3628434,
+   "lon": 36.7085071,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Kiutu",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "name:en": "Arusha District Council",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591613",
+   "lat": -3.3547798,
+   "lon": 36.8399959,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591673",
+   "lat": -3.335822,
+   "lon": 37.3586758,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591711",
+   "lat": -3.3353717,
+   "lon": 37.3593815,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591726",
+   "lat": -3.3708489,
+   "lon": 36.6957452,
+   "tags": {
+    "addr:district": "Arusha_City_Council",
+    "addr:region": "Arusha",
+    "addr:ward": "Sekei",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591765",
+   "lat": -3.3496005,
+   "lon": 37.3382115,
+   "tags": {
+    "addr:district": "Moshi_Municipal_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Kilimanjaro",
+    "administrative": "district_council_office",
+    "building": "public",
+    "building:levels": "1",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591772",
+   "lat": -3.3354482,
+   "lon": 37.3588549,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591786",
+   "lat": -3.3546531,
+   "lon": 36.8404809,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591861",
+   "lat": -3.3546044,
+   "lon": 36.8400929,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591877",
+   "lat": -3.3707588,
+   "lon": 36.6958846,
+   "tags": {
+    "addr:district": "Arusha_City_Council",
+    "addr:region": "Arusha",
+    "addr:ward": "Sekei",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591888",
+   "lat": -3.3547196,
+   "lon": 36.8401683,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192591933",
+   "lat": -3.3547106,
+   "lon": 36.8405005,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920379",
+   "lat": -3.300959,
+   "lon": 36.6174552,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Olturumet",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920381",
+   "lat": -3.355063,
+   "lon": 36.8403212,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920384",
+   "lat": -3.355114,
+   "lon": 36.840209,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920388",
+   "lat": -3.335789,
+   "lon": 37.3597362,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920390",
+   "lat": -3.3010974,
+   "lon": 36.6175362,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Olturumet",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920391",
+   "lat": -3.3007617,
+   "lon": 36.617306,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Olturumet",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920396",
+   "lat": -3.3550483,
+   "lon": 36.840403,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920408",
+   "lat": -3.3352812,
+   "lon": 37.359418,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920409",
+   "lat": -3.354897,
+   "lon": 36.8402655,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920410",
+   "lat": -3.3008083,
+   "lon": 36.6174673,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Olturumet",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920412",
+   "lat": -3.3008169,
+   "lon": 36.6175385,
+   "tags": {
+    "addr:district": "Arusha_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Olturumet",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920420",
+   "lat": -3.3546365,
+   "lon": 36.8401705,
+   "tags": {
+    "addr:district": "Arumeru_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Nkoaranga",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920430",
+   "lat": -3.3705436,
+   "lon": 36.6958372,
+   "tags": {
+    "addr:district": "Arusha_City_Council",
+    "addr:region": "Arusha",
+    "addr:ward": "Sekei",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920431",
+   "lat": -3.3333102,
+   "lon": 37.1422464,
+   "tags": {
+    "addr:district": "Hai_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Bomang'ombe",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/1192920447",
+   "lat": -3.335889,
+   "lon": 37.3590116,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/245717233",
+   "lat": -3.374156,
+   "lon": 36.696451,
+   "tags": {
+    "building": "yes",
+    "building:material": "plaster",
+    "check_date": "2023-05-02",
+    "name": "NSSF",
+    "name:en": "National Social Security Fund",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/248924655",
+   "lat": -3.3664704,
+   "lon": 36.6970996,
+   "tags": {
+    "building": "office",
+    "name": "East African Community",
+    "office": "government",
+    "source": "Bing"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/281486939",
+   "lat": -3.3694553,
+   "lon": 36.6938881,
+   "tags": {
+    "name": "Arusha District Commissioner's Office",
+    "office": "government"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "way/281486941",
+   "lat": -3.3690394,
+   "lon": 36.6942677,
+   "tags": {
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/311745466",
+   "lat": -3.3785514,
+   "lon": 36.7053715,
+   "tags": {
+    "building": "yes",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/311751995",
+   "lat": -3.3719153,
+   "lon": 36.6950551,
+   "tags": {
+    "building": "yes",
+    "check_date": "2023-06-19",
+    "name": "Lutheran Center",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/311809585",
+   "lat": -3.3689484,
+   "lon": 36.6929279,
+   "tags": {
+    "building": "yes",
+    "building:material": "plaster",
+    "name": "TRA",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/312406111",
+   "lat": -3.3697321,
+   "lon": 36.8257829,
+   "tags": {
+    "building": "yes",
+    "name": "Tumaini University Makumira Offices",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/318487472",
+   "lat": -3.4720128,
+   "lon": 36.7159542,
+   "tags": {
+    "addr:city": "Arusha",
+    "building": "yes",
+    "name": "Tanzania Atomic Energy Commisssion (TAEC)",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/355460751",
+   "lat": -3.3175202,
+   "lon": 37.3966367,
+   "tags": {
+    "addr:street": "Mahoma",
+    "building": "public",
+    "building:levels": "1",
+    "building:material": "cement_block",
+    "name": "Mahoma Village Office"
+   },
+   "found_by": [
+    "names"
+   ]
+  },
+  {
+   "osm_id": "way/366925724",
+   "lat": -3.366994,
+   "lon": 36.7281588,
+   "tags": {
+    "addr:street": "Sokon II",
+    "amenity": "police",
+    "building": "public",
+    "building:levels": "1",
+    "building:material": "cement_block",
+    "name": "Kituo cha Polisi Baraa",
+    "office": "government"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/439156609",
+   "lat": -3.3371046,
+   "lon": 37.1438429,
+   "tags": {
+    "building": "yes",
+    "name": "Maji Water & Irrigation Authority",
+    "office": "government",
+    "website": "https://www.maji.go.tz"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/483449839",
+   "lat": -3.3755987,
+   "lon": 36.6544074,
+   "tags": {
+    "building": "civic",
+    "name": "Tanzania National Parks Authority",
+    "office": "government",
+    "short_name": "TANAPA",
+    "wikidata": "Q7684128",
+    "wikipedia": "en:Tanzania National Parks Authority"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/626901123",
+   "lat": -3.3583666,
+   "lon": 36.5829914,
+   "tags": {
+    "amenity": "courthouse",
+    "government": "administrative",
+    "name": "International Residual Mechanism for Criminal Tribunals",
+    "operator": "United Nations Security Council"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/65262766",
+   "lat": -3.3696827,
+   "lon": 36.6951675,
+   "tags": {
+    "amenity": "townhall",
+    "building": "yes",
+    "building:material": "plaster",
+    "name": "Arusha Regional Commissioner's Office"
+   },
+   "found_by": [
+    "tags",
+    "names"
+   ]
+  },
+  {
+   "osm_id": "way/668724123",
+   "lat": -3.2967319,
+   "lon": 36.4451454,
+   "tags": {
+    "addr:district": "Monduli_District_council",
+    "addr:region": "Arusha",
+    "addr:ward": "Monduli_juu",
+    "administrative": "district_council_office",
+    "building": "yes",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/690281324",
+   "lat": -3.335313,
+   "lon": 37.3592544,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/690281326",
+   "lat": -3.3360517,
+   "lon": 37.3591515,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/699575692",
+   "lat": -3.3356992,
+   "lon": 37.3596181,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/699575694",
+   "lat": -3.3359058,
+   "lon": 37.3595655,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/699575695",
+   "lat": -3.3357823,
+   "lon": 37.3591679,
+   "tags": {
+    "addr:district": "Moshi_District_council",
+    "addr:region": "Kilimanjaro",
+    "addr:ward": "Old_Moshi_Mashariki",
+    "administrative": "district_council_office",
+    "building": "office",
+    "government": "administrative",
+    "office": "government",
+    "opening_hours": "07:30-15:30",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "found_by": [
+    "tags"
+   ]
+  },
+  {
+   "osm_id": "way/995115618",
+   "lat": -3.3872374,
+   "lon": 36.6288821,
+   "tags": {
+    "building": "yes",
+    "name": "staff room",
+    "office": "government",
+    "source": "microsoft/BuildingFootprints"
+   },
+   "found_by": [
+    "tags"
+   ]
+  }
+ ]
+}

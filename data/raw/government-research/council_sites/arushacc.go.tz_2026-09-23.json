@@ -1,0 +1,1058 @@
+{
+ "host": "arushacc.go.tz",
+ "organisation": "Arusha City Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://arushacc.go.tz",
+ "profiles": [
+  {
+   "id": 346,
+   "name": "Hon.Maxmillian Iranqe",
+   "title": "Arusha City Mayor ",
+   "titleSwahili": "Meya wa Jiji la Arusha",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-09T12:56:21.570Z",
+   "updatedAt": "2026-03-12T13:27:37.510Z"
+  },
+  {
+   "id": 348,
+   "name": "Ndg.John L Kayombo",
+   "title": "Arusha City Director",
+   "titleSwahili": "Mkurugenzi wa Jiji la Arusha",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-09T12:59:03.221Z",
+   "updatedAt": "2026-03-20T05:38:42.806Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Shule za Awali na Msingi",
+   "value": 172,
+   "suffix": ""
+  },
+  {
+   "label": "Vituo vya Afya",
+   "value": 8,
+   "suffix": ""
+  },
+  {
+   "label": "Zahanati",
+   "value": 11,
+   "suffix": ""
+  },
+  {
+   "label": "Hospitali",
+   "value": 2,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya kata",
+   "value": 25,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Shule za Sekondari",
+   "value": 62,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Watu",
+   "value": 617631,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Tarafa",
+   "value": 3,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Mitaa",
+   "value": 154,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Arusha City Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "our-history",
+     "title": "Our History",
+     "swTitle": "Historia Yetu"
+    },
+    {
+     "url": "mission-and-vision",
+     "title": "Mission and Vision",
+     "swTitle": "Dira na Dhima"
+    },
+    {
+     "url": "organization-structure",
+     "title": "Organization Structure",
+     "swTitle": "Muundo wa Taasisi"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "",
+     "title": "Application Forms",
+     "swTitle": "Fomu Za Maombi"
+    },
+    {
+     "url": "",
+     "title": "News Footer",
+     "swTitle": "Habari"
+    },
+    {
+     "url": "https://tausi.tamisemi.go.tz/#/welcome",
+     "title": "Business License",
+     "swTitle": "Leseni za Biashara"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://tamisemi.go.tz/",
+     "title": "Ofisi ya Waziri Mkuu Tawala za Serikali za Mtaa",
+     "swTitle": "Ofisi ya Waziri Mkuu Tawala za Serikali za Mtaa"
+    },
+    {
+     "url": "https://www.moe.go.tz/",
+     "title": "Wizara ya Elimu Sayansi na Tekinolojia",
+     "swTitle": "Wizara ya Elimu Sayansi na Tekinolojia"
+    },
+    {
+     "url": "https://safari.gov.go.tz/",
+     "title": "e-Vibali",
+     "swTitle": "e-Vibali"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53157.07029350716!2d36.659475294250065!3d-3.3813454971822656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18371b7d63c95d83%3A0xfb1db1682ba2cd3e!2sHalmashauri%20ya%20Jiji%20la%20Arusha!5e0!3m2!1sen!2stz!4v1773148945538!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.366122,
+   "lng": 36.696705,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na Dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About Us > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili Ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "Ongoing Projects > Construction of Levolosi Hospital",
+   "title": "Construction of Levolosi Hospital",
+   "title_sw": "Ujenzi wa Hospitali ya Levolosi",
+   "slug": "construction-of-levolosi-hospital"
+  },
+  {
+   "path": "Ongoing Projects > Costruction of Levolosi Hospital",
+   "title": "Costruction of Levolosi Hospital",
+   "title_sw": "Ujenzi wa Hospitali ya Levelosi",
+   "slug": "construction-of-levolosi-hospital"
+  },
+  {
+   "path": "Administration > Division > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "title_sw": "Utawala na Usimamizi wa Rasilimali Watu",
+   "slug": "administration-and-human-resource-management"
+  },
+  {
+   "path": "Administration > Division > Health, Social Welfare and Nutrition",
+   "title": "Health, Social Welfare and Nutrition",
+   "title_sw": "Afya, Ustawi wa Jamii na Lishe",
+   "slug": "health-social-welfare-and-nutrition"
+  },
+  {
+   "path": "Administration > Division > Pre-Primary and Primary Education",
+   "title": "Pre-Primary and Primary Education",
+   "title_sw": "Elimu ya Awali na Msingi",
+   "slug": "pre-primary-and-primary-education"
+  },
+  {
+   "path": "Administration > Division > Secondary Education",
+   "title": "Secondary Education",
+   "title_sw": "Elimu Sekondari",
+   "slug": "secondary-education"
+  },
+  {
+   "path": "Administration > Division > Industry, Trade and Investment",
+   "title": "Industry, Trade and Investment",
+   "title_sw": "Viwanda, Biashara na Uwekezaji",
+   "slug": "industry-trade-and-investiment"
+  },
+  {
+   "path": "Administration > Division > Agriculture, Livestock and Irrigation",
+   "title": "Agriculture, Livestock and Irrigation",
+   "title_sw": "Kilimo,Ufugaji na Umwagiliaji",
+   "slug": "agriculture-livestock-and-fisheries"
+  },
+  {
+   "path": "Administration > Division > Community Development",
+   "title": "Community Development",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development-divison"
+  },
+  {
+   "path": "Administration > Division > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-coordination"
+  },
+  {
+   "path": "Administration > Division > Infrastructure, Rural and Urban Planning",
+   "title": "Infrastructure, Rural and Urban Planning",
+   "title_sw": "Miundombinu, Maendeleo ya Vijijini na Mijini",
+   "slug": "infrastructure-rural-and-urban-planning"
+  },
+  {
+   "path": "Administration > Units > Finance and Account",
+   "title": "Finance and Account",
+   "title_sw": "Fedha na Uhasibu",
+   "slug": "finance-and-account"
+  },
+  {
+   "path": "Administration > Units > Information and Communication Technology",
+   "title": "Information and Communication Technology",
+   "title_sw": "Teknolojia ya Habari na Mawasiliano",
+   "slug": "information-and-communication-technology"
+  },
+  {
+   "path": "Administration > Units > Internal Audit",
+   "title": "Internal Audit",
+   "title_sw": "Ukaguzi wa Ndani",
+   "slug": "internal-audit"
+  },
+  {
+   "path": "Administration > Units > Procurement Management",
+   "title": "Procurement Management",
+   "title_sw": "Usimamizi wa Ununuzi",
+   "slug": "procurement-management"
+  },
+  {
+   "path": "Administration > Units > Evaluation and Monitoring",
+   "title": "Evaluation and Monitoring",
+   "title_sw": "Ufuatiliaji na Tathmini",
+   "slug": "evaluation-and-monitoring"
+  },
+  {
+   "path": "Administration > Units > Legal Services",
+   "title": "Legal Services",
+   "title_sw": "Huduma za Sheria",
+   "slug": "legal-services-unit"
+  },
+  {
+   "path": "Administration > Units > Waste Management and Sanitation",
+   "title": "Waste Management and Sanitation",
+   "title_sw": "Usimamizi wa Taka na Usafi wa Mazingira",
+   "slug": "waste-management-and-sanitation"
+  },
+  {
+   "path": "Administration > Units > Government Communications",
+   "title": "Government Communications",
+   "title_sw": "Mawasiliano ya Serikali",
+   "slug": "government-communications"
+  },
+  {
+   "path": "Administration > Units > Sports, Culture and Arts",
+   "title": "Sports, Culture and Arts",
+   "title_sw": "Michezo, Utamaduni na Sanaa",
+   "slug": "sports-culture-and-art"
+  },
+  {
+   "path": "Administration > Units > Natural Resources and Environmental Conservation",
+   "title": "Natural Resources and Environmental Conservation",
+   "title_sw": "Maliasili na Uhifadhi wa Mazingira",
+   "slug": "natural-resources-and-environmental-conservation"
+  },
+  {
+   "path": "Administration > Units > Election",
+   "title": "Election",
+   "title_sw": "Uchaguzi",
+   "slug": "election"
+  },
+  {
+   "path": "Administration > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Ongoing Projects > Ongoing Projects",
+   "title": "Ongoing Projects",
+   "title_sw": "Miradi inayoendelea",
+   "slug": "ongoing-projects"
+  },
+  {
+   "path": "Councilors > List of Councilors",
+   "title": "List of Councilors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councilors"
+  },
+  {
+   "path": "Councilors > List of Councilors > List of Councilors",
+   "title": "List of Councilors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councilors"
+  },
+  {
+   "path": "Councilors > Standing Committee > Standing Committee for Finance and Administration",
+   "title": "Standing Committee for Finance and Administration",
+   "title_sw": "Kamati ya Kudumu ya Fedha na Utawala",
+   "slug": "standing-comittee-for-finance-and-administration"
+  },
+  {
+   "path": "Councilors > Standing Committee > Standing Committee of Economy, Construction, and Environment",
+   "title": "Standing Committee of Economy, Construction, and Environment",
+   "title_sw": "Kamati ya Uchumi, Ujenzi na Mazingira",
+   "slug": "standing-committee-for-economy-construction-and-environment"
+  },
+  {
+   "path": "Councilors > Standing Committee > Standing Committee of Education, Health and Water",
+   "title": "Standing Committee of Education, Health and Water",
+   "title_sw": "Kamati ya Kudumu ya Elimu, Afya na Maji",
+   "slug": "standing-committee-of-education-health-and-water"
+  },
+  {
+   "path": "Councilors > Standing Committee > Standing Committee of Community Development",
+   "title": "Standing Committee of Community Development",
+   "title_sw": "Kamati ya Maendeleo ya Jamii",
+   "slug": "standing-comittee-of-community-development"
+  },
+  {
+   "path": "Councilors > Standing Committee > Standing Committee for Audit",
+   "title": "Standing Committee for Audit",
+   "title_sw": "Kamati Kudumu ya Ukaguzi",
+   "slug": "standing-comittee-for-audit"
+  },
+  {
+   "path": "Councilors > Standing Committee > Standing Committee for Ethics",
+   "title": "Standing Committee for Ethics",
+   "title_sw": "Kamati ya Kuduma ya Maadili",
+   "slug": "standing-committee-for-ethics"
+  },
+  {
+   "path": "Our Services > Health Services > Health Services",
+   "title": "Health Services",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-service"
+  },
+  {
+   "path": "Our Services > Sanitation and Environment Services > Sanitation and Environment Services",
+   "title": "Sanitation and Environment Services",
+   "title_sw": "Huduma za Usafi na Mazingira",
+   "slug": "sanitation-and-environment-services"
+  },
+  {
+   "path": "Our Services > Education Services > Education Services",
+   "title": "Education Services",
+   "title_sw": "Huduma za Elimu",
+   "slug": "education-services"
+  },
+  {
+   "path": "Our Services > Business Services > Business Services",
+   "title": "Business Services",
+   "title_sw": "Huduma za Biashara",
+   "slug": "business-services"
+  },
+  {
+   "path": "Our Services > Community Development Services > Community Development Services",
+   "title": "Community Development Services",
+   "title_sw": "Huduma za Maendeleo ya Jamii",
+   "slug": "community-development-services"
+  },
+  {
+   "path": "Investment Opportunities > Tourism",
+   "title": "Tourism",
+   "title_sw": "Utalii",
+   "slug": "tourism"
+  },
+  {
+   "path": "Investment Opportunities > Tourism > Tourism",
+   "title": "Tourism",
+   "title_sw": "Utalii",
+   "slug": "tourism"
+  },
+  {
+   "path": "Investment Opportunities > Investment Attractions",
+   "title": "Investment Attractions",
+   "title_sw": "Vivutio vya Uwekezaji",
+   "slug": "investment-attraction"
+  },
+  {
+   "path": "Investment Opportunities > Investment Attractions > Investment Attractions",
+   "title": "Investment Attractions",
+   "title_sw": "Vivutio vya Uwekezaji",
+   "slug": "investment-attraction"
+  },
+  {
+   "path": "Documents > Forms > Registration Forms",
+   "title": "Registration Forms",
+   "title_sw": "Fomu Za Usajili",
+   "slug": "registration-forms"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://arushacc.go.tz/our-history",
+   "createdAt": "2026-03-09T10:01:13.317Z",
+   "updatedAt": "2026-07-14T08:59:29.848Z",
+   "text_en": "Arusha City Council is situated in northern Tanzania, just below Mt. Meru at an elevation of 1,500m above the sea level. The fast-growing city of Arusha has long been the ideal gateway to East Africa’s most famous tourist attractions such as National Parks, Masai culture; it is now also a popular centre for international meetings, conventions, and conferences. For some years Arusha has been the trading centre for Tanzanite; a unique Gemstone mined only in northern Tanzania, the town has a history that commenced in the 19th Century when Captain Johannes built a fort at the foot of Mount Meru to facilitate the German colonization of what later became known as Tanganyika. From the little fort, which still stands and has become converted into a museum of natural history, the town of Arusha grew; first as a trading post for the local people, and now into famous Centre for various international activities.\nArusha was declared Township Authority in 1948 with population of 5,320 inhabitants. In 1980 was upgraded to Municipality and acquire a City Status in 2012. As the hub of the country’s tourist industry, Arusha is the starting point for many wildlife and mountain climbing safaris in the northern circuit of Tanzania wildlife sanctuaries. Besides the City is the main market for Tanzanite minerals from Mererani mines and connected to the rest of the world by Kilimanjaro International Airport, 42 Km away, and the great Northern Road that cross through Tanzania from Nairobi connect the Town to the rest of World.",
+   "text_sw": "Halmashauri ya Jiji la Arusha iko kaskazini mwa Tanzania, chini ya Mlima Meru katika kimo cha takribani mita 1,500 juu ya usawa wa bahari. Jiji la Arusha linalokua kwa kasi kwa muda mrefu limekuwa lango muhimu kuelekea vivutio maarufu vya utalii vya Afrika Mashariki kama vile Hifadhi za Taifa na utamaduni wa Wamasai; na sasa pia ni kituo maarufu cha mikutano ya kimataifa, makongamano na semina.\nKwa miaka kadhaa, Arusha imekuwa kitovu cha biashara ya Tanzanite; jiwe la thamani la kipekee linalopatikana tu kaskazini mwa Tanzania. Historia ya mji huu ilianza katika karne ya 19 wakati Kapteni Johannes alipojenga ngome chini ya Mlima Meru ili kurahisisha ukoloni wa Wajerumani katika eneo lililokuja kujulikana baadaye kama Tanganyika. Kutoka kwenye ngome hiyo ndogo, ambayo bado ipo na sasa imegeuzwa kuwa makumbusho ya historia ya asili, mji wa Arusha ulianza kukua; kwanza kama kituo cha biashara kwa watu wa eneo hilo, na sasa kuwa kituo maarufu cha shughuli mbalimbali za kimataifa.\nArusha ilitangazwa kuwa mamlaka ya mji (Township Authority) mwaka 1948 ikiwa na wakazi 5,320. Mwaka 1980 ilipandishwa hadhi na kuwa Manispaa, na mwaka 2012 ikapata hadhi ya kuwa Jiji.\nKama kitovu cha sekta ya utalii nchini, Arusha ni mahali pa kuanzia safari nyingi za kutazama wanyamapori na kupanda milima katika ukanda wa kaskazini wa hifadhi za wanyamapori za Tanzania. Aidha, jiji hili ni soko kuu la madini ya Tanzanite kutoka migodi ya Mererani, na limeunganishwa na dunia kupitia Uwanja wa Ndege wa Kimataifa wa Kilimanjaro uliopo umbali wa kilomita 42, pamoja na Barabara Kuu ya Kaskazini inayopita Tanzania kutoka Nairobi na kuunganisha mji huu na sehemu nyingine za dunia.",
+   "attachments": []
+  },
+  {
+   "slug": "mission-and-vision",
+   "menu_path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/mission-and-vision",
+   "public_url": "https://arushacc.go.tz/mission-and-vision",
+   "createdAt": "2026-03-09T10:18:56.431Z",
+   "updatedAt": "2026-07-14T08:55:01.831Z",
+   "text_en": "Vision\nArusha City Council aspires to be a Better City Council that will provide quality and sustainable services in a self-sustaining economy by 2025\nMission\nArusha City, in collaboration with local and external stakeholders, aims to \"enhance the capacity of its multicultural community to promote a growing and sustainable economy, thereby promoting a growing and sustainable economy, social well-being and environmental sustainability through good governance practices.\" To contribute to the implementation of the Vision and Mission, Arusha City Council in the financial year 2016/17 to 2020/2021 will have to achieve the following broad development objectives.\nI. Improve services and reduce the spread of HIV/AIDS\nII. Improve, maintain and effectively implement the National Anti-Corruption Strategy\nIII. Improve access, quality and delivery of social services\nIV. Increase the quantity and quality of social services and infrastructure\nV. Strengthen good governance and administrative Services\nVI. Improving social welfare, gender and community empowerment\nVII. Improving emergency and disaster management\nVIII. The Council to carry out its enhanced functions.",
+   "text_sw": "Dira\nHalmashauri ya Jiji la Arusha inatamani kuwa Halmashauri bora ya Jiji itakayotoa huduma bora na endelevu katika uchumi unaojitegemea kufikia mwaka 2025\nDhima\nJiji la Arusha, kwa kushirikiana na wadau wa ndani na nje, linakusudia kuongeza uwezo wa jamii yake yenye tamaduni mbalimbali kukuza uchumi unaokua na endelevu, hivyo uchumi unaokua na endelevu, ustawi wa kijamii na uendelevu wa mazingira kupitia mazoea bora ya utawala\" Ili kuchangia katika utekelezaji wa Maono na Misheni, Halmashauri ya Jiji la Arusha katika mwaka wa fedha wa 2016/17 hadi 2020/2021 italazimika kutimiza malengo mapana yafuatayo ya maendeleo;\nI. Kuboresha huduma na kupunguza maambukizi ya VVU/UKIMWI\nII. Kuboresha, kudumisha na utekelezaji mzuri wa mkakati wa Kitaifa wa kupambana na ufisadi\nIII. Kuboresha ufikiaji, ubora na utoaji wa huduma za kijamii\nIV. Kuongeza wingi na ubora wa huduma za kijamii na miundombinu\nV. Kuimarisha utawala bora na huduma za utawala\nVI. Kuboresha ustawi wa jamii, jinsia na uwezeshaji wa jamii\nVII. Kuboresha usimamizi wa dharura na maafa\nVIII.Baraza kutekeleza majukumu yake yaliyoimarishwa.",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Values",
+   "title": "Core Values",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://arushacc.go.tz/core-values",
+   "createdAt": "2026-03-11T04:36:02.112Z",
+   "updatedAt": "2026-07-14T09:00:43.413Z",
+   "text_en": "Key core values for the Arusha City Council include:\n1.Teamwork spirit: Promoting collaboration in all endeavors.\n2.Transparency and accountability: Maintaining open, responsible governance.\n3.Effective and efficient utilization of resources: Ensuring optimal use of resources.\n4.Anti-Corruption environment: Commitment to integrity in operations.\n5.Good customer care: Providing quality, citizen-focused services.\n6.Stewardship: Responsible management of council assets and roles.\n7.Evidence-based decision making: Utilizing data to guide choices.\n8.Integrity and excellence: Committing to high ethical standards and quality service.",
+   "text_sw": "Maadili ya msingi kwa Halmashauri ya Jiji la Arusha ni pamoja na:\n1. Roho ya Ushirikiano: Kukuza ushirikiano katika jitihada zote.\n2. Uwazi na Uwajibikaji: Kudumisha utawala wazi na wenye uwajibikaji.\n3. Matumizi Bora na Yenye Ufanisi ya Rasilimali: Kuhakikisha matumizi bora ya rasilimali.\n4. Mazingira ya Kupinga Rushwa: Kujitolea katika uadilifu katika shughuli.\n5. Huduma Nzuri kwa Wateja: Kutoa huduma bora, zenye lengo la wananchi.\n6. Uongozi wa Masuala ya Utawala: Usimamizi wenye uwajibikaji wa mali na majukumu ya halmashauri.\n7. Uamuzi unaotegemea Ushahidi: Kutumia data kuongoza uchaguzi wa maamuzi.\n8. Uadilifu na Ubora: Kujitolea kwa viwango vya juu vya maadili na huduma bora.",
+   "attachments": []
+  },
+  {
+   "slug": "administration-and-human-resource-management",
+   "menu_path": "Administration > Division > Administration and Human Resource Management",
+   "title": "Administration and Human Resource Management",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/administration-and-human-resource-management",
+   "public_url": "https://arushacc.go.tz/administration-and-human-resource-management",
+   "createdAt": "2026-03-11T05:06:36.123Z",
+   "updatedAt": "2026-04-16T07:45:17.410Z",
+   "text_en": "ADMINISTRATION AND HUMAN RESOURCE MANAGEMENT DIVISION\nObjective\nTo provide expertise and services on human resource management and administrative matters to the Council.\nFunctions\nThis Division will perform the following functions: -\n(i) To interpret Public Service Regulations,Standing Orders and other Labour laws,\n(ii) To oversee the implementation of ethics and value promotion activities including corruption prevention education,\n(iii) To administer and oversee implementation of activities such as recruitment,selection, orientation, training and employee development, promotion, discipline, retention, motivation, performance management and general staff welfare,\n(iv) To ensure optimal, efficient and effective management and utilization of human resource,\n(v) To coordinate Workers Council and Trade Union affairs,\n(vi) To oversee the development and implementation of effective policies, procedures and guidelines for recruitment, training and development, deployment, retention of staff, promotions, performance management,\n(vii) To conduct regular human resources audit and inventory of current and needed skills,\n(vii) To provide registry, messengerial and courier services; and manage Office records,\n(ix) To handle protocol matters,\n(x) To facilitate provision of security services, transport and general utilities,\n(xi) To facilitate maintenance of Office equipment, buildings and grounds,\n(xii) To coordinate implementation of ethics and value promotion activities,\n(xiii) To coordinate implementation of diversity issues,\n(xiv) To coordinate implementation of Private Sector Participation, Business Process Improvement and Client Service Charter, and\n(xv) To provide advice on organizational efficiency of the Office.\nThis Division is led by a Head and will comprise of two (2) Sections as follows: -\n(i) Human Resource Management Section, and\n(ii) Administration Section.\nHuman Resource Management Section\nThe Section is perform the following activities: -\n(i) Interpret and ensure adherence to Public Service Regulations, Standing Orders and other Labour laws,\n(ii) Carry out human resources planning and development,\n(iii) Coordinate staff recruitment, selection, orientation, placement, confirmation, training and employee development, promotion, motivation and transfer,\n(iv) Prepare Annual Personnel Emolument estimates and administer salaries and process payrolls,\n(v) Coordinate implementation of Open Performance Review and Appraisal System (OPRAS),\n(vi) Oversee employee's benefits (pension, allowances, retirement, resignation, deaths etc) and other entitlements,\n(vii) Oversee services related to separation form service (retirement, resignation etc),\n(vii) Facilitate employee relations and welfare including employee health and safety, sports and culture,\n(ix) Process and update leave records such as vacation, sick, maternity, study and terminal,\n(x) Coordinate complaints and grievances handling,\n(xi) Serve as a Secretariat to the Appointment Committee, and\n(xii) Coordinate Workers Council and Trade Union affairs.\nAdministration Section\nThe Section perform the following activities: -\n(i) Facilitate maintenance of office equipment, buildings and grounds,\n(ii) Coordinate implementation of ethics and value promotion activities including prevention of corrupt practices,\n(iii) Coordinate implementation of diversity issues,\n(iv) Provide registry, messengerial and courier services and manage office records,\n(v) Handle protocol matters,\n(vi) Facilitate provision of security services, transport and general utilities,\n(vii) Coordinate implementation of Private Sector Participation, Business Process Improvement and Client Service Charter in the Office,\n(viii) Advise on organizational efficiency of the Office, and\n(ix) Monitor implementation of principles of good governance.",
+   "text_sw": "IDARA YA UTAWALA NA USIMAMIZI WA RASILIMALI WATU\nLengo\nKutoa utaalamu na huduma katika usimamizi wa rasilimali watu na masuala ya kiutawala kwa Halmashauri.\nMajukumu\nIdara hii itafanya majukumu yafuatayo:\n(i) Kutafsiri Kanuni za Utumishi wa Umma, Standing Orders na sheria nyingine za kazi,\n(ii) Kusimamia utekelezaji wa maadili na shughuli za kukuza maadili ikiwemo elimu ya kuzuia rushwa,\n(iii) Kusimamia na kuongoza utekelezaji wa shughuli za ajira kama vile uajiri, uteuzi, utambulisho kazini, mafunzo na maendeleo ya watumishi, vyeo, nidhamu, uhifadhi wa watumishi, motisha, usimamizi wa utendaji na ustawi wa jumla wa watumishi,\n(iv) Kuhakikisha matumizi bora, yenye ufanisi na tija ya rasilimali watu,\n(v) Kuratibu masuala ya Baraza la Wafanyakazi na Vyama vya Wafanyakazi,\n(vi) Kusimamia uandaaji na utekelezaji wa sera, taratibu na miongozo bora ya uajiri, mafunzo na maendeleo, upangaji wa watumishi, uhifadhi, upandishaji vyeo na usimamizi wa utendaji kazi,\n(vii) Kufanya ukaguzi wa mara kwa mara wa rasilimali watu na tathmini ya ujuzi uliopo na unaohitajika,\n(viii) Kutoa huduma za rejesta, ujumbe na usafirishaji wa nyaraka pamoja na kusimamia kumbukumbu za ofisi,\n(ix) Kushughulikia masuala ya itifaki,\n(x) Kuratibu upatikanaji wa huduma za usalama, usafiri na huduma nyingine za msingi,\n(xi) Kuratibu matengenezo ya vifaa vya ofisi, majengo na mazingira,\n(xii) Kuratibu utekelezaji wa maadili na shughuli za kukuza maadili,\n(xiii) Kuratibu utekelezaji wa masuala ya utofauti (diversity),\n(xiv) Kuratibu utekelezaji wa ushirikishwaji wa sekta binafsi, maboresho ya mifumo ya kazi na mkataba wa huduma kwa mteja, na\n(xv) Kutoa ushauri kuhusu ufanisi wa kiutendaji wa Ofisi.\nIdara hii inaongozwa na Mkuu wa Idara na ina sehemu mbili (2) kama ifuatavyo:\n(i) Sehemu ya Usimamizi wa Rasilimali Watu, na\n(ii) Sehemu ya Utawala.\nSehemu ya Usimamizi wa Rasilimali Watu\nSeem hii hufanya shughuli zifuatazo:\n(i) Kutafsiri na kuhakikisha uzingatiaji wa Kanuni za Utumishi wa Umma, Standing Orders na sheria nyingine za kazi,\n(ii) Kufanya mipango na maendeleo ya rasilimali watu,\n(iii) Kuratibu uajiri wa watumishi, uteuzi, utambulisho kazini, upangaji, uthibitisho, mafunzo na maendeleo ya watumishi, upandishaji vyeo, motisha na uhamisho,\n(iv) Kuandaa makadirio ya mishahara ya watumishi kwa mwaka na kusimamia malipo ya mishahara na uandaaji wa orodha ya malipo (payroll),\n(v) Kuratibu utekelezaji wa Mfumo wa Wazi wa Mapitio na Tathmini ya Utendaji Kazi (OPRAS),\n(vi) Kusimamia mafao ya watumishi (pensheni, posho, kustaafu, kujiuzulu, vifo n.k.) na haki nyingine,\n(vii) Kusimamia huduma zinazohusiana na kuacha kazi (kustaafu, kujiuzulu n.k.),\n(viii) Kuwezesha mahusiano na ustawi wa watumishi ikiwemo afya na usalama kazini, michezo na utamaduni,\n(ix) Kushughulikia na kusasisha kumbukumbu za likizo kama vile likizo ya kawaida, ugonjwa, uzazi, masomo na mwisho wa ajira,\n(x) Kuratibu utatuzi wa malalamiko na migogoro,\n(xi) Kutumika kama Sekretarieti ya Kamati ya Uteuzi, na\n(xii) Kuratibu masuala ya Baraza la Wafanyakazi na Vyama vya Wafanyakazi.\nSehemu ya Utawala\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuratibu matengenezo ya vifaa vya ofisi, majengo na mazingira,\n(ii) Kuratibu utekelezaji wa maadili na shughuli za kukuza maadili ikiwemo kuzuia vitendo vya rushwa,\n(iii) Kuratibu utekelezaji wa masuala ya utofauti,\n(iv) Kutoa huduma za rejesta, ujumbe na usafirishaji wa nyaraka pamoja na kusimamia kumbukumbu za ofisi,\n(v) Kushughulikia masuala ya itifaki,\n(vi) Kuratibu upatikanaji wa huduma za usalama, usafiri na huduma nyingine za msingi,\n(vii) Kuratibu utekelezaji wa ushirikishwaji wa sekta binafsi, maboresho ya mifumo ya kazi na mkataba wa huduma kwa mteja katika Ofisi,\n(viii) Kutoa ushauri kuhusu ufanisi wa kiutendaji wa Ofisi, na\n(ix) Kufuatilia utekelezaji wa misingi ya utawala bora.",
+   "attachments": []
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition",
+   "menu_path": "Administration > Division > Health, Social Welfare and Nutrition",
+   "title": "Health, Social Welfare and Nutrition ",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/health-social-welfare-and-nutrition",
+   "public_url": "https://arushacc.go.tz/health-social-welfare-and-nutrition",
+   "createdAt": "2026-04-16T07:04:07.601Z",
+   "updatedAt": "2026-04-16T10:01:18.114Z",
+   "text_en": "HEALTH, SOCIAL WELFARE AND NUTRITION SERVICES DIVISION\nObjective\nTo provide quality health, social welfare and nutrition services for community well-being.\nFunctions\nThe Division perform the following functions:\n(i) To supervise implementation of policies, laws and procedures on provision of\nhealth, social welfare and nutrition services,\n(ii) To prepare short- and long-term plans and programs for health sector in the\nCouncil,\n(iii) To promote participation of various players in health, social welfare and nutrition\nactivities,\n(iv) To prepare and submit reports on health, social welfare and nutrition services to\nrelevant authorities,\n(v) To develop strategies for control of communicable and non-communicable\ndiseases,\n(vi) To manage health, social welfare and nutrition projects, and\n(vii) To manage database of for health, social welfare and nutrition services related\nmatters.\nThis Division is led by a Head who is also a Council Medical Officer of Health (CMoH). The Division comprise of three (3) Sections as follows:\n(i) Health Services Section,\n(ii) Social Welfare Section and\n(ii) Nutrition Services Section.\nНealth Services Section\nThis Section perform the following activities:\n(i) Analyze, interpret and supervise implementation of Policy, Laws, and Procedures of health services,\n(ii) Advise on coordination and building capacity on health services,\n(iii) Prepаre short- and long-term plans and programs for health services,\n(iv) Provide technical advice to stakeholders on health services issues and\n(v) Conduct epidemiology monitoring and evaluation, prevention of noncommunicable, communicable and emerging diseases in all facilities, communities and point of entries.\nSocial Welfare Section\nThe Section perform the following activities:\n(i) Analyze, interpret and manage the implementation of policies, laws and\nprocedures of the social welfare improvement,\n(ii) Prepare short- and long-term plans and projects for Social Welfare,\n(ii) Supervise implementation of plans and projects for social welfare,\n(iv) Coordinate and manage all projects related to Social Welfare, and\n(v) Prepare reports related to social welfare.\nNutrition Services Section\nThe Section will perform the following activities:\n(i) Analyze, interpret and manage the implementation of policies, laws and procedures of the nutrition improvement,\n(ii) Prepare short- and long-term plans and projects for nutrition,\n(iii) Supervise implementation of plans and projects for nutrition,\n(iv) Coordinate and manage all projects related to nutrition,\n(v) Prepare reports related to social nutrition,\n(vi) Sensitize community on nutrition issues,\n(vii) Monitor and evaluate provision of nutrition services in the Council,\n(viii) Collect and analyze nutrition services reports, and\n(ix) Provide nutrition services to children, adults and persons with special needs.",
+   "text_sw": "IDARA YA AFYA, USTAWI WA JAMII NA LISHE\nLengo\nKutoa huduma bora za afya, ustawi wa jamii na lishe kwa ajili ya ustawi wa jamii.\nMajukumu\nIdara hii hufanya majukumu yafuatayo:\n(i) Kusimamia utekelezaji wa sera, sheria na taratibu za utoaji wa huduma za afya, ustawi wa jamii na lishe,\n(ii) Kuandaa mipango na programu za muda mfupi na mrefu kwa sekta ya afya katika Halmashauri,\n(iii) Kukuza ushiriki wa wadau mbalimbali katika shughuli za afya, ustawi wa jamii na lishe,\n(iv) Kuandaa na kuwasilisha taarifa za huduma za afya, ustawi wa jamii na lishe kwa mamlaka husika,\n(v) Kuandaa mikakati ya kudhibiti magonjwa ya kuambukiza na yasiyo ya kuambukiza,\n(vi) Kusimamia miradi ya afya, ustawi wa jamii na lishe, na\n(vii) Kusimamia kanzidata ya masuala yanayohusiana na huduma za afya, ustawi wa jamii na lishe.\nIdara hii inaongozwa na Mkuu wa Idara ambaye pia ni Mganga Mkuu wa Halmashauri (CMoH). Idara ina sehemu tatu (3) kama ifuatavyo:\n(i) Sehemu ya Huduma za Afya,\n(ii) Sehemu ya Ustawi wa Jamii, na\n(iii) Sehemu ya Huduma za Lishe.\nSehemu ya Huduma za Afya\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu za huduma za afya,\n(ii) Kutoa ushauri kuhusu uratibu na uimarishaji wa uwezo katika huduma za afya,\n(iii) Kuandaa mipango na programu za muda mfupi na mrefu za huduma za afya,\n(iv) Kutoa ushauri wa kitaalamu kwa wadau kuhusu masuala ya afya, na\n(v) Kufanya ufuatiliaji na tathmini ya magonjwa (epidemiolojia), pamoja na kuzuia magonjwa yasiyo ya kuambukiza, ya kuambukiza na yanayoibuka katika vituo vya huduma, jamii na maeneo ya mipakani.\nSehemu ya Ustawi wa Jamii\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu za kuboresha ustawi wa jamii,\n(ii) Kuandaa mipango na miradi ya muda mfupi na mrefu ya ustawi wa jamii,\n(iii) Kusimamia utekelezaji wa mipango na miradi ya ustawi wa jamii,\n(iv) Kuratibu na kusimamia miradi yote inayohusiana na ustawi wa jamii, na\n(v) Kuandaa taarifa zinazohusiana na ustawi wa jamii.\nSehemu ya Huduma za Lishe\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu za kuboresha lishe,\n(ii) Kuandaa mipango na miradi ya muda mfupi na mrefu ya lishe,\n(iii) Kusimamia utekelezaji wa mipango na miradi ya lishe,\n(iv) Kuratibu na kusimamia miradi yote inayohusiana na lishe,\n(v) Kuandaa taarifa zinazohusiana na lishe,\n(vi) Kutoa elimu kwa jamii kuhusu masuala ya lishe,\n(vii) Kufuatilia na kutathmini utoaji wa huduma za lishe katika Halmashauri,\n(viii) Kukusanya na kuchambua taarifa za huduma za lishe, na\n(ix) Kutoa huduma za lishe kwa watoto, watu wazima na watu wenye mahitaji maalum.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education",
+   "menu_path": "Administration > Division > Pre-Primary and Primary Education",
+   "title": "Pre-Primary and Primary Education",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/pre-primary-and-primary-education",
+   "public_url": "https://arushacc.go.tz/pre-primary-and-primary-education",
+   "createdAt": "2026-03-17T06:58:21.187Z",
+   "updatedAt": "2026-04-16T09:04:01.087Z",
+   "text_en": "PRE-PRIMARY AND PRIMARY EDUCATION DIVISION\nObjective\nTo plan and supervise implementation of policies, laws and circulars on provision of preprimary, primary, special needs and non-formal education.\nFunctions\nThe Division perform the following functions:-\n(i) To plan for acquisition, distribution and use of resources in primary schools,\n(ii) To supervise administration of continuous assessments and primary schools National Examinations,\n(iii) To supervise the delivery of adult and non-formal education at pre - primary and primary level,\n(iv) To coordinate life skills education in primary schools,\n(v) To conduct needs assessment for special needs, adult and non-formal education,\n(vi) To provide advice on establishment and maintenance of special needs, adult and non-formal education centres,\n(vii) To monitor implementation of primary education plans and programs,\n(viii) To create and maintain database on pre-primary and primary education, and\n(ix) To coordinate and supervise sports and games activities in primary schools.\nThis Division is led by a Head and will comprise of four (4) Sections as follows:-\n(i) Academic Section,\n(ii) Statistics and Logistics Section,\n(iii) Special Needs Education, and\n(iv) Adult and Non-Formal Education.\nAcademic Section\nThe Section perform the following activities:-\n(i) Coordinate implementation of Pre-Primary and Primary education policies, plans,circulars, and guidelines at school level,\n(ii) Coordinate and supervise administration of schools continuous assessments and national standard four and seven examinations,\n(iii) Monitor and evaluate the implementation of pre-primary and primary education plans,\n(iv) Prepare reports on implementation of education development plans and programs, and\n(v) Coordinate provision of education for self-reliance and management of income generating activities/project in Primary schools.\nStatistics and Logistics Section\nThe Section perform the following activities:-\n(i) Collect, analyze and interpret Pre-primary and Primary education statistics,\n(ii) Coordinate acquisition, distribution and use of educational resources in primary schools,\n(iii) Coordinate enrolment statistics and logistics for schools,\n(iv) Prepare implementation reports on education development, and\n(v) Determine resource needs for schools in the Council.\nSpecial Needs Section\nThe Section perform the following activities: -\n(i) Prepare and supervise special needs education implementation plans for primary\neducation,\n(ii) Identify children with special needs and allocate them to schools,\n(iii) Collect information on pupils with special needs and advise accordingly,\n(iv) Coordinate acquisition, distribution and use of resources for special needs education.\nAdult and Non-Formal Education Section\nThe Section perform the following activities: -\n(i) Prepare and supervise adult and non-formal education implementation plans for\nprimary education,\n(ii) Coordinate life skills education,\n(iii) Conduct needs assessment for adult and non-formal education,\n(iv) Advise on establishment and maintenance of adult and non-formal training centres, and\n(v) Coordinate acquisition, distribution and use of resources for adult and non-formal education.",
+   "text_sw": "IDARA YA ELIMU YA AWALI NA MSINGI\nLengo\nKupanga na kusimamia utekelezaji wa sera, sheria na miongozo kuhusu utoaji wa elimu ya awali, msingi, elimu maalum na elimu isiyo rasmi.\nMajukumu\nIdara hii hufanya majukumu yafuatayo:-\n(i) Kupanga upatikanaji, usambazaji na matumizi ya rasilimali katika shule za msingi,\n(ii) Kusimamia uendeshaji wa tathmini endelevu na mitihani ya taifa ya shule za msingi,\n(iii) Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya awali na msingi,\n(iv) Kuratibu elimu ya stadi za maisha katika shule za msingi,\n(v) Kufanya tathmini ya mahitaji kwa elimu maalum, elimu ya watu wazima na elimu isiyo rasmi,\n(vi) Kutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi,\n(vii) Kufuatilia utekelezaji wa mipango na programu za elimu ya msingi,\n(viii) Kuanzisha na kusimamia kanzidata ya elimu ya awali na msingi, na\n(ix) Kuratibu na kusimamia shughuli za michezo na burudani katika shule za msingi.\nIdara hii inaongozwa na Mkuu wa Idara na ina sehemu nne (4) kama ifuatavyo:-\n(i) Sehemu ya Taaluma,\n(ii) Sehemu ya Takwimu na Ugavi,\n(iii) Sehemu ya Elimu Maalum, na\n(iv) Sehemu ya Elimu ya Watu Wazima na Isiyo Rasmi.\nSehemu ya Taaluma\nSehemu hii hufanya shughuli zifuatazo:-\n(i) Kuratibu utekelezaji wa sera, mipango, miongozo na maelekezo ya elimu ya awali na msingi katika ngazi ya shule,\n(ii) Kuratibu na kusimamia uendeshaji wa tathmini endelevu na mitihani ya kitaifa ya darasa la nne na la saba,\n(iii) Kufuatilia na kutathmini utekelezaji wa mipango ya elimu ya awali na msingi,\n(iv) Kuandaa taarifa za utekelezaji wa mipango na programu za maendeleo ya elimu, na\n(v) Kuratibu utoaji wa elimu ya kujitegemea na usimamizi wa shughuli/miradi ya uzalishaji mali katika shule za msingi.\nSehemu ya Takwimu na Ugavi\nSehemu hii hufanya shughuli zifuatazo:-\n(i) Kukusanya, kuchambua na kutafsiri takwimu za elimu ya awali na msingi,\n(ii) Kuratibu upatikanaji, usambazaji na matumizi ya rasilimali za elimu katika shule za msingi,\n(iii) Kuratibu takwimu za uandikishaji na mahitaji ya vifaa (logistics) kwa shule,\n(iv) Kuandaa taarifa za utekelezaji wa maendeleo ya elimu, na\n(v) Kubainisha mahitaji ya rasilimali kwa shule katika Halmashauri.\nSehemu ya Elimu Maalum\nSehemu hii hufanya shughuli zifuatazo:-\n(i) Kuandaa na kusimamia utekelezaji wa mipango ya elimu maalum kwa elimu ya msingi,\n(ii) Kubaini watoto wenye mahitaji maalum na kuwapeleka katika shule husika,\n(iii) Kukusanya taarifa za wanafunzi wenye mahitaji maalum na kutoa ushauri ipasavyo, na\n(iv) Kuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa elimu maalum.\nSehemu ya Elimu ya Watu Wazima na Isiyo Rasmi\nSehemu hii hufanya shughuli zifuatazo:-\n(i) Kuandaa na kusimamia utekelezaji wa mipango ya elimu ya watu wazima na elimu isiyo rasmi kwa elimu ya msingi,\n(ii) Kuratibu elimu ya stadi za maisha,\n(iii) Kufanya tathmini ya mahitaji ya elimu ya watu wazima na elimu isiyo rasmi,\n(iv) Kutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya mafunzo ya watu wazima na elimu isiyo rasmi, na\n(v) Kuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa elimu ya watu wazima na elimu isiyo rasmi.",
+   "attachments": []
+  },
+  {
+   "slug": "secondary-education",
+   "menu_path": "Administration > Division > Secondary Education",
+   "title": "Secondary Education",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/secondary-education",
+   "public_url": "https://arushacc.go.tz/secondary-education",
+   "createdAt": "2026-03-17T07:10:08.694Z",
+   "updatedAt": "2026-04-16T09:57:55.292Z",
+   "text_en": "SECONDARY EDUCATION DIVISION\nObjective\nTo coordinate implementation of secondary education policies, plans, laws and circulars and guidelines.\nFunctions\nThe Division perform the following functions:\n(i) To supervise the administration of continuous assessments and national form two, four and six examinations,\n(ii) To conduct monitoring and evaluation on implementation of secondary education plans and programs,\n(iii) To supervise delivery of adult and non-formal education at secondary level,\n(iv) To create and maintain database on secondary education,\n(v) To coordinate life skills education in secondary schools,\n(vi) To coordinate and supervise secondary schools' sports and games,\n(vii) To conduct needs assessment for special needs, adult and non-formal education, and\n(viii) To provide advice on establishment and maintenance of special needs, adult and non-formal education centres.\nThis Division is led by a Head and will comprise of four (4) Sections as follows:\n(i) Academic Section,\n(ii) Statistics and Logistics Section,\n(iii) Special Needs Education Section,\n(iv) Adult and and Non - Formal Education Section.\nAcademic Section\nThe Section will perform the following activities:\n(i) Supervise implementation of secondary education policies, plans, circulars, and guidelines in secondary schools,\n(ii) Supervise development of secondary schools academic performance,\n(ii) Coordinate and supervise administration of continuous assessments and National form two, form four and form six examinations,\n(iv) Monitor and evaluate implementation of secondary education plans and assess their strength and weakness, and\n(v) Coordinate and supervise sports and games in secondary schools.\nStatistics and Logistics Section\nThe Section perform the following activities:\n(i) Collect, analyze and interpret secondary education statistics,\n(ii) Coordinate acquisition, distribution and use of educational resources at secondary schools,\n(iii) Coordinate enrolment statistics and logistics\n(iv) Prepare implementation reports on education development, and\n(v) Determine resource needs for schools.\n(vi) To conduct needs assessment for special needs, adult and non-formal education, and\n(vii) To provide advice on establishment and maintenance of special needs, adult and non-formal education centres.\nSpecial Needs Education Section\nThe Section will perform the following activities:\n(i) Prepare and supervise special needs education implementation plans for secondary education,\n(ii) Identify children with special needs and allocate them to schools,\n(ii) Collect information on pupils with special needs and advise accordingly,\n(iv) Coordinate acquisition, distribution and use of resources for special needs education.\nAdult and Non-Formal Education Section\nThe Section will perform the following activities:\n(i) Prepare and supervise adult and non-formal education implementation plans for secondary education,\n(ii) Coordinate life skills education,\n(ii) Conduct needs assessment for adult and non-formal education,\n(iv) Advise on establishment and maintenance of adult and non-formal education centres, and\n(v) Coordinate acquisition, distribution and use of resources for adult and nonformal education.",
+   "text_sw": "IDARA YA ELIMU YA SEKONDARI\nLengo\nKuratibu utekelezaji wa sera, mipango, sheria, miongozo na maelekezo ya elimu ya sekondari.\nMajukumu\nIdara hii hufanya majukumu yafuatayo:\n(i) Kusimamia uendeshaji wa tathmini endelevu na mitihani ya taifa ya kidato cha pili, nne na sita,\n(ii) Kufanya ufuatiliaji na tathmini ya utekelezaji wa mipango na programu za elimu ya sekondari,\n(iii) Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya sekondari,\n(iv) Kuanzisha na kusimamia kanzidata ya elimu ya sekondari,\n(v) Kuratibu elimu ya stadi za maisha katika shule za sekondari,\n(vi) Kuratibu na kusimamia michezo na burudani katika shule za sekondari,\n(vii) Kufanya tathmini ya mahitaji kwa elimu maalum, elimu ya watu wazima na elimu isiyo rasmi, na\n(viii) Kutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi.\nIdara hii inaongozwa na Mkuu wa Idara na ina sehemu nne (4) kama ifuatavyo:\n(i) Sehemu ya Taaluma,\n(ii) Sehemu ya Takwimu na Ugavi,\n(iii) Sehemu ya Elimu Maalum,\n(iv) Sehemu ya Elimu ya Watu Wazima na Isiyo Rasmi.\nSehemu ya Taaluma\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kusimamia utekelezaji wa sera, mipango, miongozo na maelekezo ya elimu ya sekondari katika shule,\n(ii) Kusimamia maendeleo ya ufaulu wa kitaaluma katika shule za sekondari,\n(iii) Kuratibu na kusimamia uendeshaji wa tathmini endelevu na mitihani ya taifa ya kidato cha pili, nne na sita,\n(iv) Kufuatilia na kutathmini utekelezaji wa mipango ya elimu ya sekondari na kubaini nguvu na udhaifu wake, na\n(v) Kuratibu na kusimamia michezo na burudani katika shule za sekondari.\nSehemu ya Takwimu na Ugavi\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kukusanya, kuchambua na kutafsiri takwimu za elimu ya sekondari,\n(ii) Kuratibu upatikanaji, usambazaji na matumizi ya rasilimali za elimu katika shule za sekondari,\n(iii) Kuratibu takwimu za uandikishaji na mahitaji ya vifaa,\n(iv) Kuandaa taarifa za utekelezaji wa maendeleo ya elimu,\n(v) Kubainisha mahitaji ya rasilimali kwa shule,\n(vi) Kufanya tathmini ya mahitaji ya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi, na\n(vii) Kutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya elimu maalum, elimu ya watu wazima na elimu isiyo rasmi.\nSehemu ya Elimu Maalum\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuandaa na kusimamia utekelezaji wa mipango ya elimu maalum kwa elimu ya sekondari,\n(ii) Kubaini wanafunzi wenye mahitaji maalum na kuwapeleka katika shule husika,\n(iii) Kukusanya taarifa za wanafunzi wenye mahitaji maalum na kutoa ushauri ipasavyo, na\n(iv) Kuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa elimu maalum.\nSehemu ya Elimu ya Watu Wazima na Isiyo Rasmi\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuandaa na kusimamia utekelezaji wa mipango ya elimu ya watu wazima na elimu isiyo rasmi kwa elimu ya sekondari,\n(ii) Kuratibu elimu ya stadi za maisha,\n(iii) Kufanya tathmini ya mahitaji ya elimu ya watu wazima na elimu isiyo rasmi,\n(iv) Kutoa ushauri kuhusu uanzishaji na uendeshaji wa vituo vya elimu ya watu wazima na elimu isiyo rasmi, na\n(v) Kuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa elimu ya watu wazima na elimu isiyo rasmi.",
+   "attachments": []
+  },
+  {
+   "slug": "industry-trade-and-investiment",
+   "menu_path": "Administration > Division > Industry, Trade and Investment",
+   "title": "Industry, Trade and Investiment",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/industry-trade-and-investiment",
+   "public_url": "https://arushacc.go.tz/industry-trade-and-investiment",
+   "createdAt": "2026-04-16T08:23:08.697Z",
+   "updatedAt": "2026-04-17T07:47:56.575Z",
+   "text_en": "INDUSTRY, TRADE AND INVESTMENT DIVISION\nObjective\nTo provide favourable business environment for industrialization, trade, marketing and investment development.\nFunctions\nThe Division perform the following functions:\n(i) To coordinate implementation of policies, laws, regulations and procedures related to industry, trade, marketing and investment,\n(ii) To promote industrial, trade, marketing and investments in the Council,\n(ii) To plan for and develop industrial sites and parks in collaboration with other key players,\n(iv) To plan incentives for industrial, trade, marketing and investment promotion,\n(v) To promote advancement of Small and Medium Enterprises (SMES),\n(vi) To develop investment proposals and projects,\n(vii) To advance measures for private sector development,\n(viii) To establish and manage database for industrial, trade, marketing and investments,\n(ix) To oversee management of one stop business centres,\n(x) To undertake research on investment promotion,\n(xi) To coordinate business forum,\n(xii) To administer auctions and markets activities in the Council,\n(xiii) To implement Business Development Strategy for small vendors and small\nbusiness providers, and\n(xiv) To provide conducive Business and investment Environment in order to promote Business and Investment.\nThis Division will be led by a Head and comprise of two (2) Sections as follows: -\n(i) Industry Development and Investment Section, and\n(ii) Trade and Marketing Section.\nIndustry Development and Investment Section\nThe Section perform the following activities:\n(i) Coordinate implementation of policies, laws, regulations and procedures on industry and investment sectors,\n(ii) Promote and coordinate implementation of Public Private Partnership,\n(iii) Allocate, develop and monitor industrial sites and parks,\n(iv) Provide advice on improvement of Industrial policies and coordinate sector meetings,\n(v) Promote production of various raw materials for industrial use,\n(vi) Prepare and maintain registers of industries and investments,\n(vii) Plan and estimate tariffs for small industries,\n(viii) Develop and review investment profile,\n(ix) Promote private sector investments,\n(x) Coordinate and provide advice to investors, and\n(xi) Create conducive environment for investment.\nTrade and Marketing Section\nThe Section perform the following activities:\n(i) Supervise implementation of trade and marketing policies, laws, rules and regulations,\n(ii) Provide entrepreneurial skills to business community,\n(iii) Coordinate and provide advice on trade registration activities,\n(iv) Analyze trade and marketing reports and advice accordingly,\n(v) Coordinate District Business Council forum,\n(vi) Promote public private sector partnerships,\n(vii) Administer auctions and markets activities in the Council, and\n(vii) Collect and distribute marketing information of goods and services to interested parties,\n(ix) Implement Business Development Strategy for small vendors and small business providers, and\n(x) Provide conducive Business Environment.",
+   "text_sw": "IDARA YA VIWANDA, BIASHARA NA UWEKEZAJI\nLengo\nKutoa mazingira rafiki ya biashara kwa ajili ya kukuza viwanda, biashara, masoko na uwekezaji.\nMajukumu\nIdara hii hufanya majukumu yafuatayo:\n(i) Kuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazohusiana na viwanda, biashara, masoko na uwekezaji,\n(ii) Kukuza maendeleo ya viwanda, biashara, masoko na uwekezaji katika Halmashauri,\n(iii) Kupanga na kuendeleza maeneo ya viwanda na bustani za viwanda kwa kushirikiana na wadau wengine muhimu,\n(iv) Kupanga vivutio (motisha) vya kukuza viwanda, biashara, masoko na uwekezaji,\n(v) Kukuza maendeleo ya Biashara Ndogo na za Kati (SMEs),\n(vi) Kuandaa mapendekezo na miradi ya uwekezaji,\n(vii) Kukuza hatua za maendeleo ya sekta binafsi,\n(viii) Kuanzisha na kusimamia kanzidata ya viwanda, biashara, masoko na uwekezaji,\n(ix) Kusimamia uendeshaji wa vituo vya huduma za biashara vya dirisha moja,\n(x) Kufanya tafiti kuhusu uhamasishaji wa uwekezaji,\n(xi) Kuratibu majukwaa ya wafanyabiashara,\n(xii) Kusimamia shughuli za minada na masoko katika Halmashauri,\n(xiii) Kutekeleza mkakati wa maendeleo ya biashara kwa wamachinga na watoa huduma ndogo za biashara, na\n(xiv) Kutoa mazingira rafiki ya biashara na uwekezaji ili kukuza biashara na uwekezaji.\nIdara hii inaongozwa na Mkuu wa Idara na ina sehemu mbili (2) kama ifuatavyo:\n(i) Sehemu ya Maendeleo ya Viwanda na Uwekezaji, na\n(ii) Sehemu ya Biashara na Masoko.\nSehemu ya Maendeleo ya Viwanda na Uwekezaji\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuratibu utekelezaji wa sera, sheria, kanuni na taratibu katika sekta ya viwanda na uwekezaji,\n(ii) Kukuza na kuratibu utekelezaji wa ubia kati ya sekta ya umma na binafsi (PPP),\n(iii) Kugawa, kuendeleza na kufuatilia maeneo ya viwanda na bustani za viwanda,\n(iv) Kutoa ushauri kuhusu uboreshaji wa sera za viwanda na kuratibu mikutano ya sekta,\n(v) Kukuza uzalishaji wa malighafi mbalimbali kwa matumizi ya viwandani,\n(vi) Kuandaa na kutunza rejesta za viwanda na uwekezaji,\n(vii) Kupanga na kukadiria tozo kwa viwanda vidogo,\n(viii) Kuandaa na kupitia wasifu wa uwekezaji,\n(ix) Kukuza uwekezaji wa sekta binafsi,\n(x) Kuratibu na kutoa ushauri kwa wawekezaji, na\n(xi) Kuunda mazingira rafiki kwa uwekezaji.\nSehemu ya Biashara na Masoko\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kusimamia utekelezaji wa sera, sheria, kanuni na taratibu za biashara na masoko,\n(ii) Kutoa ujuzi wa ujasiriamali kwa jamii ya wafanyabiashara,\n(iii) Kuratibu na kutoa ushauri kuhusu usajili wa biashara,\n(iv) Kuchambua taarifa za biashara na masoko na kutoa ushauri ipasavyo,\n(v) Kuratibu jukwaa la Baraza la Biashara la Wilaya,\n(vi) Kukuza ushirikiano kati ya sekta ya umma na binafsi,\n(vii) Kusimamia shughuli za minada na masoko katika Halmashauri,\n(viii) Kukusanya na kusambaza taarifa za masoko ya bidhaa na huduma kwa wadau husika,\n(ix) Kutekeleza mkakati wa maendeleo ya biashara kwa wamachinga na watoa huduma ndogo za biashara, na\n(x) Kutoa mazingira rafiki ya biashara.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-and-fisheries",
+   "menu_path": "Administration > Division > Agriculture, Livestock and Irrigation",
+   "title": "Agriculture, Livestock and Fisheries",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries",
+   "public_url": "https://arushacc.go.tz/agriculture-livestock-and-fisheries",
+   "createdAt": "2026-03-12T06:06:24.862Z",
+   "updatedAt": "2026-04-16T11:22:36.165Z",
+   "text_en": "AGRICULTURE, LIVESTOCK AND FISHERIES DIVISION\nObjective\nTo promote transformation and development of agriculture, irrigation, livestock, and fisheries.\nFunctions\nThe Division perform the following functions:\n(i) To analyze, interpret and supervise implementation of Policy, Laws and Regulation of agriculture, irrigation, Livestock and Fisheries,\n(i) To propose standards and prices of products and services from agriculture, livestock and fisheries,\n(ii) To prepare short and long plans and programs on development of agriculture, irrigation, livestock and fisheries,\n(iv) To oversee promotion and governance of cooperatives in the Council,\n(v) To provide technical advice to stakeholders concerned with agriculture, irrigation, livestock and fisheries,\n(vi) To prepare reports on agriculture, irrigation, livestock and fisheries, and\n(vii) To supervise collection and control of revenue from agriculture, irrigation, livestock and fisheries activities.\nThis Division is led by a Head and will comprise of three (3) Sections:\n(i) Agriculture Section,\n(ii) Livestock Section, and\n(iii) Fisheries Section.\nAgriculture Section\nThe Section perform the following activities:\n(i) Prepare and implement programs for fertilizer supply in different sales points,\n(ii) Prepare programs for arranging and stocking of agriculture inputs,\n(iii) Carry out soil testing of farmer's field samples and advice accordingly,\n(iv) Provide advice to farmers on, post-harvest handling, agro-processing and value addition of agriculture produce,\n(v) Estimate crop yield/production of important crops,\n(vi) Perform statistics and agriculture census work,\n(vii) Conduct demonstration of demo trials both varietal and fertilizer trials from the share of entire Council,\n(vii) Oversee promotion and governance of cooperatives,\n(ix) Coordinate stocking of fertilizer/plant protection measures at village level,\n(x) Organize farmers training camps at village level,\n(xi) Prepare and implement crop diversification plan particularly for irrigated areas in block,\n(xii) Implement Biogas Development Program,\n(xiii) Plan, design, construct and maintain irrigation schemes,\n(xiv) Facilitate the formation of irrigators' organizations and ensure that organizations are equipped with required skills for effective and sustainable irrigation management,\n(xv) Support the formulation and enforcement of irrigation by-laws by the Irrigators Association in their areas, and\n(xvi) Provide backstopping services to the farmers in the irrigation scheme by establishing irrigation scheme management support teams.\nLivestock Section\nThe Section will perform the following activities:\n(i) Translate and supervise implementation of policies, laws, regulations, and\nprocedures for Livestock,\n(ii) Prepare short- and long-term plan and program for livestock development,\n(iii) Evaluate conservation and use of livestock resources,\n(iv) Oversee promotion and governance of cooperatives,\n(v) Provide technical support to the stakeholders of livestock sector, and\n(vi) Coordinate and supervise all projects concerned with livestock.\nFisheries Section\nThe Section will perform the following activities:\n(i) Translate and supervise implementation of policy, laws, regulations, procedures for fisheries, and\n(ii)Prepare short- and long-term plan and program for fisheries resources\n(iii) Evaluate conservation and use of fisheries resources,\n(iv) Oversee promotion and governance of cooperatives\n(v) Provide technical support to the stakeholders\n(vi) Coordinate of fisheries sector, and supervise all projects concerned The with fisheries.",
+   "text_sw": "IDARA YA KILIMO, MIFUGO NA UVUVI\nLengo\nKukuza mabadiliko na maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\nMajukumu\nIdara hii hufanya majukumu yafuatayo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na kanuni za kilimo, umwagiliaji, mifugo na uvuvi,\n(ii) Kupendekeza viwango na bei za bidhaa na huduma za kilimo, mifugo na uvuvi,\n(iii) Kuandaa mipango na programu za muda mfupi na mrefu kwa maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi,\n(iv) Kusimamia uhamasishaji na uendeshaji wa vyama vya ushirika katika Halmashauri,\n(v) Kutoa ushauri wa kitaalamu kwa wadau wanaohusika na kilimo, umwagiliaji, mifugo na uvuvi,\n(vi) Kuandaa taarifa za kilimo, umwagiliaji, mifugo na uvuvi, na\n(vii) Kusimamia ukusanyaji na udhibiti wa mapato yatokanayo na shughuli za kilimo, umwagiliaji, mifugo na uvuvi.\nIdara hii inaongozwa na Mkuu wa Idara na ina sehemu tatu (3) kama ifuatavyo:\n(i) Sehemu ya Kilimo,\n(ii) Sehemu ya Mifugo, na\n(iii) Sehemu ya Uvuvi.\nSehemu ya Kilimo\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuandaa na kutekeleza programu za upatikanaji wa mbolea katika vituo mbalimbali vya mauzo,\n(ii) Kuandaa programu za kupanga na kuhifadhi pembejeo za kilimo,\n(iii) Kufanya uchunguzi wa udongo kwa sampuli za mashamba ya wakulima na kutoa ushauri ipasavyo,\n(iv) Kutoa ushauri kwa wakulima kuhusu utunzaji wa mazao baada ya mavuno, usindikaji wa mazao na uongezaji thamani,\n(v) Kukadiria uzalishaji wa mazao muhimu,\n(vi) Kufanya kazi za takwimu na sensa ya kilimo,\n(vii) Kufanya majaribio ya shamba darasa (demo plots) kwa aina mbalimbali za mazao na matumizi ya mbolea katika maeneo ya Halmashauri,\n(viii) Kusimamia uhamasishaji na uendeshaji wa vyama vya ushirika,\n(ix) Kuratibu upatikanaji wa mbolea na udhibiti wa visumbufu vya mimea katika ngazi ya kijiji,\n(x) Kuandaa mafunzo kwa wakulima katika ngazi ya vijiji,\n(xi) Kuandaa na kutekeleza mpango wa mseto wa mazao hususan katika maeneo ya umwagiliaji,\n(xii) Kutekeleza programu ya maendeleo ya biogas,\n(xiii) Kupanga, kubuni, kujenga na kutunza miundombinu ya umwagiliaji,\n(xiv) Kuwezesha uundwaji wa vyama vya watumiaji wa umwagiliaji na kuhakikisha vina ujuzi unaohitajika kwa usimamizi endelevu,\n(xv) Kusaidia uundaji na utekelezaji wa sheria ndogo za umwagiliaji kupitia vyama vya watumiaji wa maji, na\n(xvi) Kutoa huduma za usaidizi kwa wakulima katika miradi ya umwagiliaji kwa kuanzisha timu za usimamizi wa skimu za umwagiliaji.\nSehemu ya Mifugo\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kutafsiri na kusimamia utekelezaji wa sera, sheria, kanuni na taratibu za mifugo,\n(ii) Kuandaa mipango na programu za muda mfupi na mrefu za maendeleo ya mifugo,\n(iii) Kutathmini uhifadhi na matumizi ya rasilimali za mifugo,\n(iv) Kusimamia uhamasishaji na uendeshaji wa vyama vya ushirika,\n(v) Kutoa msaada wa kitaalamu kwa wadau wa sekta ya mifugo, na\n(vi) Kuratibu na kusimamia miradi yote inayohusiana na mifugo.\nSehemu ya Uvuvi\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kutafsiri na kusimamia utekelezaji wa sera, sheria, kanuni na taratibu za uvuvi,\n(ii) Kuandaa mipango na programu za muda mfupi na mrefu za rasilimali za uvuvi,\n(iii) Kutathmini uhifadhi na matumizi ya rasilimali za uvuvi,\n(iv) Kusimamia uhamasishaji na uendeshaji wa vyama vya ushirika,\n(v) Kutoa msaada wa kitaalamu kwa wadau wa sekta ya uvuvi, na\n(vi) Kuratibu sekta ya uvuvi na kusimamia miradi yote inayohusiana na uvuvi.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-divison",
+   "menu_path": "Administration > Division > Community Development",
+   "title": "Community Development Divison",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/community-development-divison",
+   "public_url": "https://arushacc.go.tz/community-development-divison",
+   "createdAt": "2026-04-16T10:12:38.818Z",
+   "updatedAt": "2026-04-17T07:47:38.979Z",
+   "text_en": "COMMUNITY DEVELOPMENT DIVISION\nObjective\nTo supervise community development activities in LGA.\nFunctions\nThe Division will perform the following functions:\n(i) To analyze, interpret and supervise implementation of policies, laws and procedures related to community development,\n(ii) To facilitate communities to initiate, plan, implement and evaluate their own programs and projects,\n(iii) To prepare short and long term plans and projects in community development at LGA level,\n(iv) To conduct research and recommend on how to deal with various problems of development that uphold community development in collaboration with the Ministry responsible with community development and other stakeholders,\n(v) To regulate and supervise operations of Microfinance services providers tier four under directives of Bank of Tanzania (BOT),\n(vi) To coordinate and manage economic development activities for women,children and persons with disabilities,\n(vii) To coordinate provision of training on poverty alleviation, AIDS, drugs and gender equality,\n(viii) To coordinate and monitor NGOs and CBOs activities in community development, and\n(ix) To çoordinate and manage community development activities in LGA.\nThis Division is led by a Head and comprise of two (2) Sections as follows:\n(i) Cross-cutting Issues Coordination Section, and\n(ii) NGOs and CBOs Coordination Section.\nCross-cutting Issues Coordination Section\nThe Section perform the following activities:\n(i) Analyze, interpret and supervise implementation of policies, laws and procedures related to community development,\n(ii) Supervise the implementation of plans and projects for Community Development,\n(iii) Prepare short and long term plans and projects for Community Development,\n(iv) Conduct research and recommend on dealing with various development problems,\n(v) Coordinate and manage the development of women and children, and persons with disabilities,\n(vi) Coordinate and provide training methods, help liberate society from poverty, AIDS, drugs and advocating gender equality,\n(vii) Promote community participation and volunteerism in development project/program,\n(viii) Coordinate and participate on awareness creation concerning community participation in community development,\n(ix) Coordinate and participate on community sensitization concerning participation on planning, decision making, implementation and evaluation of multispectral projects, and\n(x) Undertake research on community development issues which hinder factors on community development.\nNGOs and CBOs Coordination Section\nThe Section perform the following activities:\n(i) Coordinate registration of NGOs and CBOs and monitor their activities in social development,\n(ii) Coordinate provision of citizenship education in the community,\n(iii) Establish and maintain partnerships with organizations, institutions inside and outside the Country dealing with the promotion of community development activities through the Ministry responsible for community development,\n(iv) Coordinate and manage all projects related to social community development,\n(v) Manage implementation of all agreements relating to community development,\n(vi) Prepare regular reports on Community Development, and\n(vii) Regulate and supervise operations of Microfinance services providers' tier four (4) under directives of BOT.",
+   "text_sw": "IDARA YA MAENDELEO YA JAMII\nLengo\nKusimamia shughuli za maendeleo ya jamii katika Mamlaka ya Serikali za Mitaa (LGA).\nMajukumu\nIdara hii itafanya majukumu yafuatayo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na maendeleo ya jamii,\n(ii) Kuwezesha jamii kuanzisha, kupanga, kutekeleza na kutathmini programu na miradi yao wenyewe,\n(iii) Kuandaa mipango na miradi ya muda mfupi na mrefu ya maendeleo ya jamii katika ngazi ya Halmashauri,\n(iv) Kufanya tafiti na kutoa mapendekezo ya namna ya kukabiliana na changamoto mbalimbali za maendeleo kwa kushirikiana na Wizara inayohusika na maendeleo ya jamii pamoja na wadau wengine,\n(v) Kudhibiti na kusimamia utoaji wa huduma za taasisi ndogo za fedha (Microfinance) daraja la nne kwa mujibu wa maelekezo ya Benki Kuu ya Tanzania (BOT),\n(vi) Kuratibu na kusimamia shughuli za maendeleo ya kiuchumi kwa wanawake, watoto na watu wenye ulemavu,\n(vii) Kuratibu utoaji wa mafunzo kuhusu kupunguza umaskini, UKIMWI, dawa za kulevya na usawa wa kijinsia,\n(viii) Kuratibu na kufuatilia shughuli za NGOs na CBOs katika maendeleo ya jamii, na\n(ix) Kuratibu na kusimamia shughuli za maendeleo ya jamii katika Halmashauri.\nIdara hii inaongozwa na Mkuu wa Idara na ina sehemu mbili (2) kama ifuatavyo:\n(i) Sehemu ya Uratibu wa Masuala Mtambuka, na\n(ii) Sehemu ya Uratibu wa NGOs na CBOs.\nSehemu ya Uratibu wa Masuala Mtambuka\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na maendeleo ya jamii,\n(ii) Kusimamia utekelezaji wa mipango na miradi ya maendeleo ya jamii,\n(iii) Kuandaa mipango na miradi ya muda mfupi na mrefu ya maendeleo ya jamii,\n(iv) Kufanya tafiti na kutoa mapendekezo ya namna ya kukabiliana na changamoto mbalimbali za maendeleo,\n(v) Kuratibu na kusimamia maendeleo ya wanawake, watoto na watu wenye ulemavu,\n(vi) Kuratibu na kutoa mafunzo yatakayosaidia jamii kujinasua na umaskini, UKIMWI, matumizi ya dawa za kulevya na kukuza usawa wa kijinsia,\n(vii) Kukuza ushiriki wa jamii na kujitolea katika miradi na programu za maendeleo,\n(viii) Kuratibu na kushiriki katika uhamasishaji wa jamii kuhusu ushiriki katika maendeleo ya jamii,\n(ix) Kuratibu na kushiriki katika uelimishaji wa jamii kuhusu ushiriki katika kupanga, kufanya maamuzi, kutekeleza na kutathmini miradi ya sekta mbalimbali, na\n(x) Kufanya tafiti kuhusu masuala ya maendeleo ya jamii yanayokwamisha maendeleo ya jamii.\nSehemu ya Uratibu wa NGOs na CBOs\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kuratibu usajili wa NGOs na CBOs na kufuatilia shughuli zao katika maendeleo ya jamii,\n(ii) Kuratibu utoaji wa elimu ya uraia katika jamii,\n(iii) Kuanzisha na kudumisha ushirikiano na mashirika na taasisi ndani na nje ya nchi zinazojihusisha na kukuza maendeleo ya jamii kupitia Wizara husika,\n(iv) Kuratibu na kusimamia miradi yote inayohusiana na maendeleo ya jamii,\n(v) Kusimamia utekelezaji wa mikataba yote inayohusiana na maendeleo ya jamii,\n(vi) Kuandaa taarifa za mara kwa mara za maendeleo ya jamii, na\n(vii) Kudhibiti na kusimamia utoaji wa huduma za taasisi ndogo za fedha daraja la nne kwa mujibu wa maelekezo ya Benki Kuu ya Tanzania (BOT).",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination",
+   "menu_path": "Administration > Division > Planning and Coordination",
+   "title": "Planning and Coordination ",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/planning-and-coordination",
+   "public_url": "https://arushacc.go.tz/planning-and-coordination",
+   "createdAt": "2026-04-17T07:45:34.584Z",
+   "updatedAt": "2026-04-17T08:11:55.827Z",
+   "text_en": "PLANNING AND COORDINATION DIVISION\nObjective\nTo provide expertise and services in planning, budgeting, monitoring and evaluation.\nFunctions\nThis Division perform the following functions:\n(i) To prepare mid- and long-term strategies, plans and budget,\n(ii) To prepare and review LGA's economic profile,\n(iii) To coordinate implementation of private sector participation,\n(iv) Coordinate Council Disaster Management, and\n(v) To coordinate LGA's activities implemented by other institutions such as land and water.\n(vi) To develop guidelines on research and innovation matters for the LGA,\n(vii) To coordinate research and innovation matters for making informed decisions,\n(viii) To coordinate management of innovation matters,\n(ix) To cooperate with national and international research institutions and data centres for the purpose of collecting and exchanging research and innovation information.\nThis Division is led by a Head and comprise of two (2) Sections as follows:\n(i) Planning and Budgeting Section, and\n(ii) Research and Innovation Section.\nPlanning and Budgeting Section\nThis Section perform the following activities:\n(i) Coordinate implementation of economic and productive sectors policies,\n(ii) Interpret and disseminate policies of Central and Sector Ministries with LGA,\n(iii) Coordinate mid-year and annual performance reviews,\n(iv) Coordinate formulation and preparation of LGA plans and budgets,\n(v) Compile reports regarding projects, programmes and action plans and develop strategies for resource mobilization,\n(vi) Provide technical guidance and support for institutionalization of strategic planning and budgeting process within LGA, and\n(vii) Coordinate preparation of reports on the implementation of Ruling Party Manifesto.\nResearch and Innovation Section\nThe Section perform the following activities:\n(i) Develop guidelines on research and innovation matters for the City,\n(ii) Coordinate research and innovation matters for making informed decisions,\n(iii) Coordinate management of innovation matters for the City,\n(iv) Cooperate with national and international research institutions and data centres for the purpose of collecting and exchanging research and innovation information,\n(v) Identify research areas and priorities for the City, and\n(vi) Develop strategies for implementation and dissemination of research findings.",
+   "text_sw": "IDARA YA MIPANGO NA URATIBU\nLengo\nKutoa utaalamu na huduma katika mipango, bajeti, ufuatiliaji na tathmini.\nMajukumu\nIdara hii inatekeleza majukumu yafuatayo:\n(i) Kuandaa mikakati ya muda wa kati na mrefu, mipango na bajeti,\n(ii) Kuandaa na kupitia wasifu wa kiuchumi wa Halmashauri ya Serikali za Mitaa (LGA),\n(iii) Kuratibu utekelezaji wa ushiriki wa sekta binafsi,\n(iv) Kuratibu usimamizi wa maafa wa Halmashauri,\n(v) Kuratibu shughuli za LGA zinazotekelezwa na taasisi nyingine kama vile ardhi na maji,\n(vi) Kuandaa miongozo kuhusu masuala ya utafiti na ubunifu kwa LGA,\n(vii) Kuratibu masuala ya utafiti na ubunifu kwa ajili ya kufanya maamuzi sahihi,\n(viii) Kuratibu usimamizi wa masuala ya ubunifu,\n(ix) Kushirikiana na taasisi za kitaifa na kimataifa za utafiti pamoja na vituo vya takwimu kwa ajili ya kukusanya na kubadilishana taarifa za utafiti na ubunifu.\nIdara hii itaongozwa na Mkuu wa Idara na ina Sehemu mbili (2) kama ifuatavyo:\n(i) Sehemu ya Mipango na Bajeti, na\n(ii) Sehemu ya Utafiti na Ubunifu.\nSehemu ya Mipango na Bajeti\nSehemu hii itatekeleza shughuli zifuatazo:\n(i) Kuratibu utekelezaji wa sera za sekta za uchumi na uzalishaji,\n(ii) Kufasiri na kusambaza sera za Wizara Kuu na Wizara za Kisekta ndani ya LGA,\n(iii) Kuratibu mapitio ya utendaji wa nusu mwaka na mwaka,\n(iv) Kuratibu uandaaji wa mipango na bajeti za LGA,\n(v) Kukusanya na kuandaa taarifa za miradi, programu na mipango kazi pamoja na kuandaa mikakati ya uhamasishaji wa rasilimali,\n(vi) Kutoa mwongozo wa kitaalamu na msaada katika kuimarisha mifumo ya mipango mkakati na bajeti ndani ya LGA, na\n(vii) Kuratibu uandaaji wa taarifa za utekelezaji wa Ilani ya Chama Tawala.\nSehemu ya Utafiti na Ubunifu\nSehemu hii itatekeleza shughuli zifuatazo:\n(i) Kuandaa miongozo kuhusu masuala ya utafiti na ubunifu kwa Jiji,\n(ii) Kuratibu masuala ya utafiti na ubunifu kwa ajili ya kufanya maamuzi sahihi,\n(iii) Kuratibu usimamizi wa masuala ya ubunifu kwa Jiji,\n(iv) Kushirikiana na taasisi za kitaifa na kimataifa za utafiti pamoja na vituo vya takwimu kwa ajili ya kukusanya na kubadilishana taarifa za utafiti na ubunifu,\n(v) Kubaini maeneo ya utafiti na vipaumbele kwa Jiji, na\n(vi) Kuandaa mikakati ya utekelezaji na usambazaji wa matokeo ya utafiti.",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-rural-and-urban-planning",
+   "menu_path": "Administration > Division > Infrastructure, Rural and Urban Planning",
+   "title": "Infrastructure, Rural and Urban Planning",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/infrastructure-rural-and-urban-planning",
+   "public_url": "https://arushacc.go.tz/infrastructure-rural-and-urban-planning",
+   "createdAt": "2026-04-22T08:10:17.172Z",
+   "updatedAt": "2026-04-22T08:10:17.172Z",
+   "text_en": "INFRASTRUCTURE, RURAL AND URBAN DEVELOPMENT DIVISION\nObjective\nTo supervise and advise on all issues related to infrastructure in the Council.\nFunctions\nThe Division perform the following functions:\n(i) To advise on matters related to construction industry,\n(ii) To plan development of infrastructure,\n(ii) To analyze and make recommendations on claims for payment of contractors,\n(iv) To inspect construction works performed by Council and ensure their quality,\n(v) To issue certificates to contractors for completed contracts,\n(vi) To undertake paving of new roads in collaboration with TARURA,\n(vii) To establish and maintain cooperation with Institutions outside and inside the Country dealing with infrastructure issues,\n(viii) To participate in facilitating resolution of land use conflicts,\n(ix) To manage urbanization process in collaboration with Ministry responsible for land, and\n(x) To oversee development of rural and urban settlements in collaboration with Ministry responsible for land.\nThis Division is led by a Head and comprise of three (3) Sections as follows:\n(i) Works Section,\n(ii) Roads Section, and\n(iii) Rural and Urban Development Section.\nWorks Section\nThe Section perform the following activities:\n(i) Provide advice on laws, regulations, procedures and all matters related to construction,\n(ii) Analyze, interpret and manage the implementation of policies, laws and\nregulations on construction issues,\n(iii) Prepare contracts related to buildings and installations,\n(iv) Prepare and estimate construction costs,\n(v) Follow up performance of contractors,\n(vi) Analyse and make recommendations on payments claims from contractors,\n(vii) Inspect buildings and ensure their quality,\n(viii) Issue certificates to contractors for completed works as per contracts, and\n(ix) Supervise operations of the Council workshops.\nRoads Section\nThe Section perform the following activities:\n(i) Provide advice on matters related to identification and paving of new roads,\n(ii) Analyze, interpret and manage the implementation of policies, laws and regulations on paving roads,\n(iii) Pave new roads in the surveyed land,\n(iv) Prepare contracts for paving of new roads,\n(v) Prepare cost estimates for roads paving,\n(vi) Make follow up on performance of contractors,\n(vii) Issue certificates to contractors for completed works as per contracts,\n(viii) Analyse and make recommendations on payments claims from contractors,\n(ix) Inspect paved roads to ensure quality, and\n(x) Supervise construction and maintenance of bus terminals.\nRural and Urban Development Section\nThis Section perform the following activities:\n(i) Oversee development of rural and urban settlements in collaboration with the Ministry responsible for lands,\n(ii) Manage environmental and social amenities,\n(iii) Guide urban development planning, housing and sustainable land use,\n(iv) Oversee and coordinate management of antiquities and tourism,\n(v) Manage urbanization process in collaboration with the Ministry responsible for lands,\n(vi) Coordinate and nurture evolution of emerging towns from village to urban settlements, and\n(vii) Participate in facilitating resolution of land use conflicts.",
+   "text_sw": "KITENGO CHA MIUNDOMBINU, MAENDELEO YA VIJIJINI NA MIJINI\nLengo\nKusimamia na kutoa ushauri kuhusu masuala yote yanayohusiana na miundombinu katika Halmashauri.\nMajukumu\nKitengo hiki hufanya kazi zifuatazo:\n(i) Kushauri kuhusu masuala yanayohusiana na sekta ya ujenzi,\n(ii) Kupanga maendeleo ya miundombinu,\n(iii) Kuchambua na kutoa mapendekezo kuhusu madai ya malipo ya wakandarasi,\n(iv) Kukagua kazi za ujenzi zinazofanywa na Halmashauri na kuhakikisha ubora wake,\n(v) Kutoa vyeti kwa wakandarasi kwa kazi zilizokamilika,\n(vi) Kufanya ujenzi wa barabara mpya kwa kushirikiana na TARURA,\n(vii) Kuanzisha na kudumisha ushirikiano na taasisi za ndani na nje ya nchi zinazohusika na masuala ya miundombinu,\n(viii) Kushiriki katika kurahisisha utatuzi wa migogoro ya matumizi ya ardhi,\n(ix) Kusimamia mchakato wa ukuaji wa miji kwa kushirikiana na Wizara inayohusika na ardhi, na\n(x) Kusimamia maendeleo ya makazi ya vijijini na mijini kwa kushirikiana na Wizara inayohusika na ardhi.\nKitengo hiki kinaongozwa na Mkuu wa Kitengo na kinajumuisha sehemu tatu (3) kama ifuatavyo:\n(i) Sehemu ya Ujenzi,\n(ii) Sehemu ya Barabara, na\n(iii) Sehemu ya Maendeleo ya Vijijini na Mijini.\nSehemu ya Ujenzi\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kutoa ushauri kuhusu sheria, kanuni, taratibu na masuala yote yanayohusiana na ujenzi,\n(ii) Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na kanuni za ujenzi,\n(iii) Kuandaa mikataba ya majengo na mitambo,\n(iv) Kuandaa na kukadiria gharama za ujenzi,\n(v) Kufuatilia utendaji wa wakandarasi,\n(vi) Kuchambua na kutoa mapendekezo kuhusu madai ya malipo ya wakandarasi,\n(vii) Kukagua majengo na kuhakikisha ubora wake,\n(viii) Kutoa vyeti kwa wakandarasi kwa kazi zilizokamilika kulingana na mikataba, na\n(ix) Kusimamia shughuli za karakana za Halmashauri.\nSehemu ya Barabara\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kutoa ushauri kuhusu utambuzi na ujenzi wa barabara mpya,\n(ii) Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na kanuni za ujenzi wa barabara,\n(iii) Kujenga barabara mpya katika maeneo yaliyopimwa,\n(iv) Kuandaa mikataba ya ujenzi wa barabara,\n(v) Kuandaa makadirio ya gharama za ujenzi wa barabara,\n(vi) Kufuatilia utendaji wa wakandarasi,\n(vii) Kutoa vyeti kwa wakandarasi kwa kazi zilizokamilika kulingana na mikataba,\n(viii) Kuchambua na kutoa mapendekezo kuhusu madai ya malipo ya wakandarasi,\n(ix) Kukagua barabara zilizojengwa ili kuhakikisha ubora, na\n(x) Kusimamia ujenzi na matengenezo ya vituo vya mabasi.\nSehemu ya Maendeleo ya Vijijini na Mijini\nSehemu hii hufanya shughuli zifuatazo:\n(i) Kusimamia maendeleo ya makazi ya vijijini na mijini kwa kushirikiana na Wizara inayohusika na ardhi,\n(ii) Kusimamia mazingira na huduma za kijamii,\n(iii) Kuelekeza mipango ya maendeleo ya miji, makazi na matumizi endelevu ya ardhi,\n(iv) Kusimamia na kuratibu uhifadhi wa malikale na utalii,\n(v) Kusimamia mchakato wa ukuaji wa miji kwa kushirikiana na Wizara inayohusika na ardhi,\n(vi) Kuratibu na kukuza maendeleo ya miji inayochipukia kutoka vijiji hadi kuwa makazi ya mijini, na\n(vii) Kushiriki katika kurahisisha utatuzi wa migogoro ya matumizi ya ardhi.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization Structure",
+   "title": "Organization Structure",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://arushacc.go.tz/organization-structure",
+   "createdAt": "2026-03-11T15:15:35.762Z",
+   "updatedAt": "2026-03-18T06:47:40.189Z",
+   "text_en": "Organization Structure",
+   "text_sw": "Muundo wa Taasisi",
+   "attachments": []
+  },
+  {
+   "slug": "list-of-councilors",
+   "menu_path": "Councilors > List of Councilors",
+   "title": "List of Councilors ",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/list-of-councilors",
+   "public_url": "https://arushacc.go.tz/list-of-councilors",
+   "createdAt": "2026-03-12T10:39:31.976Z",
+   "updatedAt": "2026-03-18T06:54:37.027Z",
+   "text_en": "LIST OF COUNCILORS AT ARUSHA CITY",
+   "text_sw": "ORODHA YA MADIWANI ARUSHA JIJI",
+   "attachments": []
+  },
+  {
+   "slug": "standing-comittee-for-finance-and-administration",
+   "menu_path": "Councilors > Standing Committee > Standing Committee for Finance and Administration",
+   "title": "Standing Comittee for Finance and Administration ",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/standing-comittee-for-finance-and-administration",
+   "public_url": "https://arushacc.go.tz/standing-comittee-for-finance-and-administration",
+   "createdAt": "2026-03-12T08:37:14.369Z",
+   "updatedAt": "2026-03-12T08:37:14.369Z",
+   "text_en": "Finance and Administration Committee\nDeals with budget matters, revenue, expenditure, and council administration",
+   "text_sw": "Kamati ya Fedha na Utawala\nHushughulikia masuala ya bajeti, mapato, matumizi ya fedha na utawala wa halmashauri",
+   "attachments": []
+  },
+  {
+   "slug": "standing-committee-for-economy-construction-and-environment",
+   "menu_path": "Councilors > Standing Committee > Standing Committee of Economy, Construction, and Environment",
+   "title": "Standing Committee for Economy, Construction and Environment",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/standing-committee-for-economy-construction-and-environment",
+   "public_url": "https://arushacc.go.tz/standing-committee-for-economy-construction-and-environment",
+   "createdAt": "2026-03-12T08:41:51.199Z",
+   "updatedAt": "2026-03-12T08:41:51.199Z",
+   "text_en": "Committee on Economy, Construction, and Environment\nDeals with economic development, road infrastructure, buildings, urban planning, and the environment.",
+   "text_sw": "Kamati ya Uchumi, Ujenzi na Mazingira\nHushughulikia maendeleo ya uchumi, miundombinu ya barabara, majengo, mipango miji na mazingira.",
+   "attachments": []
+  },
+  {
+   "slug": "standing-committee-of-education-health-and-water",
+   "menu_path": "Councilors > Standing Committee > Standing Committee of Education, Health and Water",
+   "title": "Standing Committee of Education, Health and Water",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/standing-committee-of-education-health-and-water",
+   "public_url": "https://arushacc.go.tz/standing-committee-of-education-health-and-water",
+   "createdAt": "2026-03-12T08:47:49.877Z",
+   "updatedAt": "2026-03-12T08:47:49.877Z",
+   "text_en": "Education, Health and Water Committee\nHandles the development of education, health services and access to clean water for citizens.",
+   "text_sw": "Kamati ya Elimu, Afya na Maji\nHushughulikia maendeleo ya elimu, huduma za afya na upatikanaji wa maji safi kwa wananchi.",
+   "attachments": []
+  },
+  {
+   "slug": "standing-comittee-of-community-development",
+   "menu_path": "Councilors > Standing Committee > Standing Committee of Community Development",
+   "title": "Standing Comittee of Community Development",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/standing-comittee-of-community-development",
+   "public_url": "https://arushacc.go.tz/standing-comittee-of-community-development",
+   "createdAt": "2026-03-12T08:54:13.886Z",
+   "updatedAt": "2026-03-12T08:54:13.886Z",
+   "text_en": "Community Development Committee\nDeals with issues of youth, women, children and social welfare.",
+   "text_sw": "Kamati ya Maendeleo ya Jamii\nHushughulikia masuala ya vijana, wanawake, watoto na ustawi wa jamii.",
+   "attachments": []
+  },
+  {
+   "slug": "standing-comittee-for-audit",
+   "menu_path": "Councilors > Standing Committee > Standing Committee for Audit",
+   "title": "Standing Comittee for Audit",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/standing-comittee-for-audit",
+   "public_url": "https://arushacc.go.tz/standing-comittee-for-audit",
+   "createdAt": "2026-03-12T09:06:24.993Z",
+   "updatedAt": "2026-03-12T09:06:24.993Z",
+   "text_en": "Audit Committee\nMonitors the use of council funds and ensures transparency and accountability in city projects and activities.",
+   "text_sw": "Kamati ya Ukaguzi\nHufuatilia matumizi ya fedha za halmashauri na kuhakikisha uwazi na uwajibikaji katika miradi na shughuli za jiji.",
+   "attachments": []
+  },
+  {
+   "slug": "standing-committee-for-ethics",
+   "menu_path": "Councilors > Standing Committee > Standing Committee for Ethics",
+   "title": "Standing Committee for Ethics ",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/standing-committee-for-ethics",
+   "public_url": "https://arushacc.go.tz/standing-committee-for-ethics",
+   "createdAt": "2026-03-12T09:02:41.785Z",
+   "updatedAt": "2026-03-12T09:02:41.785Z",
+   "text_en": "Ethics Committee\nDeals with issues of ethics, discipline and conduct of council leaders and staff.",
+   "text_sw": "Kamati ya Maadili\nHushughulikia masuala ya maadili, nidhamu na mienendo ya viongozi na watumishi wa halmashauri.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-services",
+   "menu_path": "Our Services > Community Development Services > Community Development Services",
+   "title": "Community Development Services",
+   "api_url": "https://arushacc.go.tz/api/pages/slug/community-development-services",
+   "public_url": "https://arushacc.go.tz/community-development-services",
+   "createdAt": "2026-03-11T11:01:30.005Z",
+   "updatedAt": "2026-03-17T08:19:58.576Z",
+   "text_en": "Community Development Services at Arusha City Council\nCommunity development is a process that aims to improve the social, economic, and cultural well-being of people within a community. In Tanzania, local government authorities such as Arusha City Council play a vital role in providing community development services. These services focus on empowering citizens, reducing poverty, and improving living standards.\nCOMMUNITY DEVELOPMENT SERVICES IN ARUSHA CITY COUNCIL\nArusha City Council provides various services aimed at improving the welfare of its residents. These include:\n(i)Women, Youth and Children Empowerment\n* Providing training and loans to youth and women groups\n* Supporting income-generating activities\n* Protecting children’s rights\n(ii)Social Welfare Services\n* Assisting vulnerable groups such as orphans, elderly, and people with disabilities\n* Providing counseling and support services\n* Addressing gender-based violence\n(iii)Community Participation and Mobilization\n* Encouraging citizens to participate in development projects\n* Supporting community-based organizations (CBOs)\n* Promoting volunteerism\n(iv)Education and Awareness Programs\n* Providing education on health, hygiene, and sanitation\n* Raising awareness on HIV/AIDS and drug abuse\n* Promoting environmental conservation\n(v) Economic Development Support\n* Facilitating small businesses and entrepreneurship\n* Providing skills training programs\n* Supporting local markets and trade activities\nEFFORTS BY THE COUNCIL IN COMMUNITY DEVELOPMENT\nArusha City Council has made several efforts to improve community development, such as:\n(i) Providing loans (10% revenue allocation) to women, youth, and people with disabilities\n(ii) Collaborating with NGOs and development partners\n(iii) Strengthening community groups and cooperatives\n(iv) Conducting training and workshops\n(v) Promoting inclusive development\nCONCLUSION\nCommunity development services provided by Arusha City Council are essential for improving the welfare of the people. Although there are challenges, continuous efforts by the council and community participation can lead to sustainable development and better living conditions.",
+   "text_sw": "Huduma za Maendeleo ya Jamii katika Halmashauri ya Jiji la Arusha\nMaendeleo ya jamii ni mchakato unaolenga kuboresha hali ya kijamii, kiuchumi na kiutamaduni ya watu ndani ya jamii. Nchini Tanzania, mamlaka za serikali za mitaa kama Halmashauri ya Jiji la Arusha zina jukumu muhimu katika kutoa huduma za maendeleo ya jamii. Huduma hizi zinalenga kuwawezesha wananchi, kupunguza umaskini na kuboresha maisha yao.\nHUDUMA ZA MAENDELEO YA JAMII KATIKA HALMASHAURI YA JIJI LA ARUSHA\nHalmashauri ya Jiji la Arusha hutoa huduma mbalimbali zinazolenga kuboresha ustawi wa wakazi wake. Huduma hizo ni pamoja na:\n(i)Uwezeshaji wa Wanawake, Vijana na Watoto\n* Kutoa mafunzo na mikopo kwa vikundi vya vijana na wanawake\n* Kusaidia shughuli za kujiongezea kipato\n* Kulinda haki za watoto\n(ii) Huduma za Ustawi wa Jamii\n* Kusaidia makundi maalum kama yatima, wazee na watu wenye ulemavu\n* Kutoa ushauri nasaha na huduma za msaada\n* Kushughulikia ukatili wa kijinsia\n(iii)Ushirikishwaji na Uhamasishaji wa Jamii\n* Kuhamasisha wananchi kushiriki katika miradi ya maendeleo\n* Kusaidia mashirika ya kijamii (CBOs)\n* Kukuza kujitolea\n(iv) Programu za Elimu na Uhamasishaji\n* Kutoa elimu kuhusu afya, usafi na mazingira\n* Kutoa uelewa kuhusu UKIMWI na matumizi ya dawa za kulevya\n* Kuhamasisha uhifadhi wa mazingira\n(v) Msaada wa Maendeleo ya Kiuchumi\n* Kuwezesha biashara ndogo ndogo na ujasiriamali\n* Kutoa mafunzo ya ujuzi\n* Kusaidia masoko ya ndani na shughuli za biashara\nJUHUDI ZA HALMASHAURI YA JIJI LA ARUSHA KATIKA MAENDELEO YA JAMII\nHalmashauri ya Jiji la Arusha imechukua hatua mbalimbali kuboresha maendeleo ya jamii, zikiwemo:\n(i) Kutoa mikopo (asilimia 10 ya mapato ya ndani) kwa wanawake, vijana na watu wenye ulemavu\n(ii) Kushirikiana na mashirika yasiyo ya kiserikali (NGOs) na wadau wa maendeleo\n(iii) Kuimarisha vikundi vya kijamii na ushirika\n(iv) Kuendesha mafunzo na warsha\n(v) Kukuza maendeleo jumuishi\nHITIMISHO\nHuduma za maendeleo ya jamii zinazotolewa na Halmashauri ya Jiji la Arusha ni muhimu katika kuboresha ustawi wa wananchi. Ingawa kuna changamoto, juhudi endelevu za halmashauri pamoja na ushiriki wa jamii zinaweza kuleta maendeleo endelevu na kuboresha maisha ya watu.",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "JARIDA TAMISEMI TOLEO NAMBA 52",
+   "date": "2026-09-03T12:25:39.133Z",
+   "url": "http://arushacc.go.tz/minio/arushacc.go.tz/files/1788438436356-JARIDA-TAMISEMI-TOLEO-NO.52.pdf",
+   "file_type": "application/pdf",
+   "size": "11314505"
+  },
+  {
+   "name": "CITY SERVICE LEVY DECLARATION FORM.pdf",
+   "date": "2026-05-21T12:32:13.063Z",
+   "url": "http://arushacc.go.tz/minio/arushacc.go.tz/files/1779366751504-CITY-SERVICE-LEVY-DECLARATION-FORM.pdf",
+   "file_type": "application/pdf",
+   "size": "339045"
+  },
+  {
+   "name": "MWONGOZO WA MATUMIZI BORA, SAHIHI NA SALAMA WA VIFAA, DATA NA MIFUMO YA TEHAMA SERIKALINI",
+   "date": "2026-03-12T12:46:06.069Z",
+   "url": "http://arushacc.go.tz/minio/arushacc.go.tz/files/1773319568436-sw-1697717464-MWONGOZO%20WA%20MATUMIZI%20BORA%2C%20SAHIHI%20NA%20SALAMA%20WA%20VIFAA%2C%20DATA%20NA%20MIFUMO%20YA%20TEHAMA%20SERIKALINI.pdf",
+   "file_type": "application/pdf",
+   "size": "712405"
+  },
+  {
+   "name": "GOVERNMENT HARDWARE AND SOFTWARE SPECIFICATIONS",
+   "date": "2026-03-12T12:43:28.377Z",
+   "url": "http://arushacc.go.tz/minio/arushacc.go.tz/files/1773319410755-sw-1710314316-SIGNED%20Government%20Hardware%20and%20Software%20Specifications%202024.pdf",
+   "file_type": "application/pdf",
+   "size": "839981"
+  }
+ ],
+ "news": [
+  {
+   "id": 7579,
+   "title": "MKURUGENZI WA JIJI LA ARUSHA ATEMBELEA MABANDA YA NANE NANE",
+   "date": "2026-08-04",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1182,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6944,
+   "title": "WAZIRI WA KILIMO MHE. DANIEL GODFREY CHONGOLO (MB) AZINDUA RASMI JENGO LA NYUMBA YA WALIMU KATIKA SHULE YA SEKONDARI KALIMAJI",
+   "date": "2026-07-24",
+   "category": "Elimu",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1725,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6662,
+   "title": "UJENZI WA HOSPITALI YA KISASA YA JIJI LA ARUSHA NJIRO WAENDELEA KWA KASI",
+   "date": "2026-07-19",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1558,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5580,
+   "title": "KATIBU MKUU OFISI YA RAIS UTUMISHI ATEMBELEA BANDA LA JIJI LA ARUSHA",
+   "date": "2026-06-22",
+   "category": "Matukio",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 650,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5579,
+   "title": "DK. JAFARI RAJAB SEIF NAIBU WAZIRI OFISI YA WAZIRI MKUU – TAMISEMI AFYA ATEMBELEA BANDA LA JIJI LA ARUSHA WIKI YA UTUMISHI WA UMMA",
+   "date": "2026-06-23",
+   "category": "Matukio",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 654,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5578,
+   "title": "MAAFISA MAENDELEO YA JAMII WA JIJI LA ARUSHA WASHIRIKI KONGAMANO LA MKUTANO MKUU WA 'CODEPATA' JIJINI MWANZA.",
+   "date": "2026-06-19",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1030,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3287,
+   "title": "MKURUGENZI WA JIJI LA ARUSHA AKABIDHI MAGARI MAPYA NA (PA) SYSTEM KUONGEZA UFANISI WA SHUGHULI ZA HALMASHAURI",
+   "date": "2026-04-28",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1510,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2283,
+   "title": "TIMU YA HALMASHAURI YA JIJI LA ARUSHA YAKAGUA MIRADI YA MAENDELEO INAYOTEKELEZWA KWA MAPATO YA NDANI",
+   "date": "2026-04-09",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1854,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2159,
+   "title": "MOTISHA KAZINI: DC NA MKURUGENZI WA JIJI LA ARUSHA WAWAPONGEZA WATUMISHI KITUO CHA AFYA MURIET",
+   "date": "2026-04-04",
+   "category": "Matukio",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1201,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1933,
+   "title": "MKURUGENZI WA JIJI LA ARUSHA, NDG. JOHN L. KAYOMBO, AMEFANYA KIKAO CHA TATHMINI NA MKANDARASI MJENZI PAMOJA NA MKANDARASI MSHAURI",
+   "date": "2026-03-25",
+   "category": "Matukio",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 537,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1758,
+   "title": "HAFLA YA UTIAJI SAINI MIKATABA YA UJENZI WA BARABARA ZA AFCON 2027 – ARUSHA",
+   "date": "2026-03-19",
+   "category": "Miundombinu",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1350,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1354,
+   "title": "MIRADI YA MAENDELEO ARUSHA YAPITIWA, WAKANDARASI WATAKIWA KUKAMILISHA KWA WAKATI",
+   "date": "2026-03-15",
+   "category": "Miundombinu",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 881,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1209,
+   "title": "KATIBU TAWALA MKOA WA ARUSHA, DKT. TOBA A. NGUVILA, AMETEMBELEA NA KUKAGUA MAENDELEO YA UJENZI WA MRADI WA UKUMBI WA JIJI LA ARUSHA",
+   "date": "2026-03-13",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1525,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1103,
+   "title": "KATIBU TAWALA AKUTANA NA WATUMISHI",
+   "date": "2026-03-10",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1130,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1004,
+   "title": "MKUU WA WILAYA YA ARUSHA MHE. MODEST MKUDE AKABIDHI VIFAA SAIDIZI KWA WALIMU WENYE MAHITAJI MAALUMU",
+   "date": "2026-02-13",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1556,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 946,
+   "title": "KIKAO CHA BARAZA LA WAZI LA MADIWANI KWA ROBO YA PILI YA MWAKA WA FEDHA 2025/2026",
+   "date": "2026-03-09",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1738,
+   "convening_tags": [
+    "public_meeting",
+    "ward_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 935,
+   "title": "JIJI LA ARUSHA NA APICARE INTERNATIONAL KUANZISHA MRADI WA UTALII WA NYUKI KUCHOCHEA UCHUMI NA AJIRA",
+   "date": "2026-03-09",
+   "category": "Uchumi",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1371,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 927,
+   "title": "RAIS SAMIA AWASILI MKOANI ARUSHA KUSHIRIKI MKUTANO WA WAKUU WA NCHI ZA EAC",
+   "date": "2026-03-10",
+   "category": "Matukio",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 820,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 918,
+   "title": "BARAZA LA MADIWANI HALMASHAURI YA JIJI LA ARUSHA LAPITISHA BAJETI YA BILIONI 150 KWA MWAKA WA FEDHA 2026/2027",
+   "date": "2026-03-09",
+   "category": "Habari",
+   "listing_url": "https://arushacc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1438,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 911,
+   "title": "TANGAZO LA MABADILIKO YA UKUMBI WA KUFANYA USAILI",
+   "date": "2026-09-07",
+   "category": "Ajira",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 171,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA MABADILIKO YA UKUMBI WA KUFANYA USAILI.pdf"
+   ]
+  },
+  {
+   "id": 902,
+   "title": "TANGAZO LA USAILI",
+   "date": "2026-09-02",
+   "category": "Ajira",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 291,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA USAILI.pdf"
+   ]
+  },
+  {
+   "id": 901,
+   "title": "TANGAZO LA UUZAJI WA VIWANJA AFCON CITY",
+   "date": "2026-08-26",
+   "category": "Business",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 233,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA UUZAJI WA VIWANJA.pdf"
+   ]
+  },
+  {
+   "id": 898,
+   "title": "KAMPENI YA CHANJO YA POLIO KWA WATOTO CHINI YA MIAKA 10",
+   "date": "2026-08-22",
+   "category": "Huduma",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 141,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": [
+    "KAMPENI YA CHANJO YA POLIO.jpeg"
+   ]
+  },
+  {
+   "id": 826,
+   "title": "TANGAZO KWA UMMA KUHUSU MIKOPO INAYOTOLEWA KWA VIKUNDI VYA WANAWAKE, VIJANA NA WATU WENYE ULEMAVU",
+   "date": "2026-08-06",
+   "category": "Taarifa",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 146,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO KWA UMMA-MIKOPO KWA VIKUNDI.pdf"
+   ]
+  },
+  {
+   "id": 755,
+   "title": "TANGAZO LA NAFASI ZA KAZI ZA KUJITOLEA",
+   "date": "2026-07-23",
+   "category": "Ajira",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 115,
+   "convening_tags": [],
+   "attachments": [
+    "NAFASI ZA KAZI ZA KUJITOLEA HALMASHAURI YA JIJI LA ARUSHA JULAI 2026.pdf"
+   ]
+  },
+  {
+   "id": 635,
+   "title": "TANGAZO LA KUITWA KWENYE USAILI JIJI LA ARUSHA",
+   "date": "2026-06-15",
+   "category": "Ajira",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 249,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO LA KUITWA KWENYE USAILI JIJI LA ARUSHA.pdf"
+   ]
+  },
+  {
+   "id": 423,
+   "title": "TANGAZO KWA WATUMISHI WA JIJI LA ARUSHA",
+   "date": "2026-03-26",
+   "category": "Taarifa",
+   "listing_url": "https://arushacc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 58,
+   "convening_tags": [],
+   "attachments": [
+    "TANGAZO KWA WATUMISHI WA JIJI LA ARUSHA.pdf"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://arushacc.go.tz/api/profiles": "189f8329985e0f72af9046ba1257ef56e2e9884830e5663cf931170f8f05398a",
+  "https://arushacc.go.tz/api/statistics": "0aa15455dbe422b33f080a4d952d3f6b2b6adcff39074bc7406d0892f70da9b1",
+  "https://arushacc.go.tz/api/footer": "5b67d3588bd0ef74b3ab52fb830db4a83383e82106f5d1bba4200ceeefd53f49",
+  "https://arushacc.go.tz/api/menus": "b43c196d7d656823a14fb522de53f9b893b9e9979f173848c67701fa1fc59113",
+  "https://arushacc.go.tz/api/pages/slug/our-history": "a0aad40d55e0fb0a8e5216827257f4c66565e4b6298750bf3d5ba002a773aa03",
+  "https://arushacc.go.tz/api/pages/slug/mission-and-vision": "2320c7bf3b1789849c27734594a4dda8811c9c67ebd06f752ca9010df72664cd",
+  "https://arushacc.go.tz/api/pages/slug/core-values": "d6c154f07037ff904629bb1c74483c19463485d8f6c90b129f5c5318ea982a28",
+  "https://arushacc.go.tz/api/pages/slug/administration-and-human-resource-management": "ba79edd2cda2c4c13f81a044e4037314a3ec8b1c1616bf5cd208b3b410056ddb",
+  "https://arushacc.go.tz/api/pages/slug/health-social-welfare-and-nutrition": "ad164989885f7deabcff9bb6d4155d1d5a619d2487a4dcc62f63faec9c6d7740",
+  "https://arushacc.go.tz/api/pages/slug/pre-primary-and-primary-education": "fd990ad0f253b7e3aa49e88f0709ad973448ddb27f77745b1c478cf0e0afbbdd",
+  "https://arushacc.go.tz/api/pages/slug/secondary-education": "817e1803e6e4f4c6b2f7badf512981a5ae8cfc2642985489979c7740980b18fc",
+  "https://arushacc.go.tz/api/pages/slug/industry-trade-and-investiment": "d066366bfd027ef99fe5ca708f2b942a225568a361ff59e3c36c6ec0b8eeb309",
+  "https://arushacc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries": "91b3806f030664f410ee5f0dda43b4fe8697c546d5ea2fc6ef6637455ece111d",
+  "https://arushacc.go.tz/api/pages/slug/community-development-divison": "11da7f0b740da9327a4fe51acee5b99b80f98d2825672f3f2f9103c007f776b1",
+  "https://arushacc.go.tz/api/pages/slug/planning-and-coordination": "3c33231d583e7de4a2fa5c9970bbc88942b85f04f24657de8fe43d56a544aa8a",
+  "https://arushacc.go.tz/api/pages/slug/infrastructure-rural-and-urban-planning": "d55b7116acde92153ccb3ae499decdf17d53b648eb6e84d476e34b36a13e66c4",
+  "https://arushacc.go.tz/api/pages/slug/organization-structure": "e52b203a92ade81e583a43c888793233c54f6f5a54c62e14c7ecc4383634bf96",
+  "https://arushacc.go.tz/api/pages/slug/list-of-councilors": "d4620d94db3e16682b95566661b7a45bf483a10d76901e5c15c9d6f8b13307cd",
+  "https://arushacc.go.tz/api/pages/slug/standing-comittee-for-finance-and-administration": "b942f2a7be75bf398e18821c02021f117afe8c37332c0a725f5c7a7c6668b2c8",
+  "https://arushacc.go.tz/api/pages/slug/standing-committee-for-economy-construction-and-environment": "7189b266e880e8ccee12b72f9a8de9e0b8b7cbb93a4a32bab08a4b75dd1449fc",
+  "https://arushacc.go.tz/api/pages/slug/standing-committee-of-education-health-and-water": "37ace3ba0bb81d1f8647f6e429852876be64a664a780e21567c4ecefd7047bf4",
+  "https://arushacc.go.tz/api/pages/slug/standing-comittee-of-community-development": "58e01d43c9cb24d815d79232037d092faeb2817ff1a59cf5c422773162f572c2",
+  "https://arushacc.go.tz/api/pages/slug/standing-comittee-for-audit": "cae800765e62872394100dcd8bdebb24f61046b6111ed00191ae413485b8097e",
+  "https://arushacc.go.tz/api/pages/slug/standing-committee-for-ethics": "6a6b245131afff2c78a888f0b8effbc5534967b7796ffc786c3b3eb733e96b3f",
+  "https://arushacc.go.tz/api/pages/slug/community-development-services": "42924e32dcd12af0d258186808a8b7b0812ff2165a45b3cc92fb13bd64f818fe",
+  "https://arushacc.go.tz/api/files?page=1&limit=100": "0de3b94a8cecad69663c8f260780a458d90d45ecb5eeeadc976edec4e6dffa6c",
+  "https://arushacc.go.tz/api/news?page=1&limit=50": "8800590f35b680215705be28fb27b1a813553b2b56512f36cba1055c5817de1d",
+  "https://arushacc.go.tz/api/announcements?page=1&limit=50": "8b630b9ccb1eefe4492977c763d11c291ff9f26a7fc000842fa94d35a210e1bb"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

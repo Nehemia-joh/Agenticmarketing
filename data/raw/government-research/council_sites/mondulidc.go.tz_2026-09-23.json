@@ -1,0 +1,1125 @@
+{
+ "host": "mondulidc.go.tz",
+ "organisation": "Monduli District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://mondulidc.go.tz",
+ "profiles": [
+  {
+   "id": 377,
+   "name": "Hon. Kisioki Lengoije Moitiko",
+   "title": "District Council Chairperson",
+   "titleSwahili": "Mwenyekiti wa Halmashauri",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-10T06:09:53.635Z",
+   "updatedAt": "2026-03-24T06:57:06.041Z"
+  },
+  {
+   "id": 380,
+   "name": "Bi. happiness R Laizer",
+   "title": "District Executive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-10T08:29:14.326Z",
+   "updatedAt": "2026-03-17T08:34:42.903Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Zahanati Serikali",
+   "value": 41,
+   "suffix": ""
+  },
+  {
+   "label": "Vituo vya afya Vya Serikali",
+   "value": 4,
+   "suffix": ""
+  },
+  {
+   "label": "Hospitali za Serikali",
+   "value": 1,
+   "suffix": ""
+  },
+  {
+   "label": "Idadi ya Watu",
+   "value": 227585,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Monduli District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "our-history",
+     "title": "Our History",
+     "swTitle": "Historia Yetu"
+    },
+    {
+     "url": "mission-and-vision",
+     "title": "Mission and Vision",
+     "swTitle": "Dira na Dhima"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "",
+     "title": "Business Licenses",
+     "swTitle": "Leseni za biashara"
+    },
+    {
+     "url": "",
+     "title": "News Feed",
+     "swTitle": "Habari"
+    },
+    {
+     "url": "",
+     "title": "Application Forms",
+     "swTitle": "Fomu za maombi"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://tamisemi.go.tz/",
+     "title": "Prime Minister’s Office – Regional Administration and Local Government ",
+     "swTitle": "Ofisi ya waziri Mkuu TAMISEMI"
+    },
+    {
+     "url": "https://arusha.go.tz/",
+     "title": "Office of the Arusha Regional Commissioner",
+     "swTitle": "Ofisi ya mkuu wa Mkoa wa Arusha"
+    },
+    {
+     "url": "https://www.necta.go.tz/",
+     "title": "National Examination Council of Tanzania",
+     "swTitle": "Baraza la Mitihani Tanzania"
+    },
+    {
+     "url": "https://www.moh.go.tz/",
+     "title": "Ministry of Health, Nutrition and Social Welfare",
+     "swTitle": "Wizara ya Afya, Lishe na Ustawi wa Jamii"
+    },
+    {
+     "url": "https://www.moe.go.tz/",
+     "title": "Ministry of Education and Vocational Training",
+     "swTitle": "Wizara ya Elimu na Mafunzo ya Ufundi"
+    },
+    {
+     "url": "https://www.jamii.go.tz/",
+     "title": "Ministry of Community Development, Gender, Women  and Special Groups",
+     "swTitle": "Wizara ya Maendeleo ya Jamii Jinsia, wanawake na Makundi Maalum"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32819.91294176053!2d36.4488656!3d-3.3004765999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1836e7003200c93b%3A0x875814395a4cca79!2sHalmashauri%20Ya%20Wilaya%20Ya%20Monduli!5e1!3m2!1sen!2stz!4v1773211010810!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.298002,
+   "lng": 36.445067,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na Dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "About Us > Council's Objectives > Council's Objectives",
+   "title": "Council's Objectives",
+   "title_sw": "Malengo ya Halmashauri",
+   "slug": "council-s-objectives"
+  },
+  {
+   "path": "About Us > Organization Struture > Organization structure",
+   "title": "Organization structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Administration > Divisions > Administration and Human Resource Management Division",
+   "title": "Administration and Human Resource Management Division",
+   "title_sw": "Divisheni ya Utawala na Usimamizi wa Rasilimali Watu",
+   "slug": "administration-and-human-resource-management-division"
+  },
+  {
+   "path": "Administration > Divisions > Planning and Coordination Division",
+   "title": "Planning and Coordination Division",
+   "title_sw": "Divisheni ya Mipango na Uratibu",
+   "slug": "planning-and-coordination-division"
+  },
+  {
+   "path": "Administration > Divisions > Community Development Division",
+   "title": "Community Development Division",
+   "title_sw": "Divisheni ya Maendeleo ya Jamii",
+   "slug": "community-development-division"
+  },
+  {
+   "path": "Administration > Divisions > Secondary Education Division",
+   "title": "Secondary Education Division",
+   "title_sw": "Divesheni ya Elimu Sekondari",
+   "slug": "secondary-education-division"
+  },
+  {
+   "path": "Administration > Divisions > Pre-Primary and Primary Education Division",
+   "title": "Pre-Primary and Primary Education Division",
+   "title_sw": "Divisheni ya Elimu ya Awali na Msingi",
+   "slug": "pre-primary-and-primary-education-division"
+  },
+  {
+   "path": "Administration > Divisions > Health, Social Welfare and Nutrition Services Division",
+   "title": "Health, Social Welfare and Nutrition Services Division",
+   "title_sw": "Divisheni ya Afya,Ustawi wa Jamii na Huduma za Lishe",
+   "slug": "health-social-welfare-and-nutrition-services-division"
+  },
+  {
+   "path": "Administration > Divisions > Agriculture, Livestock and Fisheries Division",
+   "title": "Agriculture, Livestock and Fisheries Division",
+   "title_sw": "Divisheni ya Kilimo, Mifugo na Uvuvi",
+   "slug": "agriculture-livestock-and-fisheries-division"
+  },
+  {
+   "path": "Administration > Divisions > Industries, Trade and Investment Division",
+   "title": "Industries, Trade and Investment Division",
+   "title_sw": "Divisheni ya Viwanda, Biashara na Uwekezaji",
+   "slug": "industries-trade-and-investment-division"
+  },
+  {
+   "path": "Administration > Divisions > Infrastructure, Rural and Urban Development Division",
+   "title": "Infrastructure, Rural and Urban Development Division",
+   "title_sw": "Divisheni ya Miundombinu ya Maendeleo ya Vijijini na Mijini",
+   "slug": "infrastructure-rural-and-urban-development-division"
+  },
+  {
+   "path": "Administration > Divisions > Infrastructure, Rural and Urban Development Division",
+   "title": "Infrastructure, Rural and Urban Development Division",
+   "title_sw": "Divisheni ya Miundombinu ya Maendeleo ya Vijijini na Mijini",
+   "slug": "infrastructure-rural-and-urban-development-division"
+  },
+  {
+   "path": "Administration > Units > Finance and Accounts Unit",
+   "title": "Finance and Accounts Unit",
+   "title_sw": "Kitengo cha Fedha na Uhasibu",
+   "slug": "finance-and-accounts-unit"
+  },
+  {
+   "path": "Administration > Units > Information Communication Technology Unit",
+   "title": "Information Communication Technology Unit",
+   "title_sw": "Kitengo cha Teknolojia Habari na Mawasiliano",
+   "slug": "information-communications-techinology-unit"
+  },
+  {
+   "path": "Administration > Units > Natural Resources and Environmental Conservation Unit",
+   "title": "Natural Resources and Environmental Conservation Unit",
+   "title_sw": "Kitengo cha Maliasili na Uhifadhi wa Mazingira",
+   "slug": "natural-resources-and-environmental-conservation-unit"
+  },
+  {
+   "path": "Administration > Units > Procurement Management Unit",
+   "title": "Procurement Management Unit",
+   "title_sw": "Kitengo cha Usimamizi wa Manunuzi",
+   "slug": "procurement-management-unit"
+  },
+  {
+   "path": "Administration > Units > Government Communication Unit",
+   "title": "Government Communication Unit",
+   "title_sw": "Kitengo cha Mawasiliano Serikalini",
+   "slug": "government-communication-unit"
+  },
+  {
+   "path": "Administration > Units > Election Unit",
+   "title": "Election Unit",
+   "title_sw": "Kitengo cha Uchaguzi",
+   "slug": "election-unit"
+  },
+  {
+   "path": "Administration > Units > Waste Management and Sanitation Unit",
+   "title": "Waste Management and Sanitation Unit",
+   "title_sw": "Kitengo cha Usimamizi wa Taka ngumu na Usafi wa Mazingira",
+   "slug": "waste-management-and-sanitation-unit"
+  },
+  {
+   "path": "Administration > Units > Internal Audit Unit",
+   "title": "Internal Audit Unit",
+   "title_sw": "Kitengo cha Ukaguzi wa Ndani",
+   "slug": "internal-audit-unit"
+  },
+  {
+   "path": "Administration > Units > Legal Services Unit",
+   "title": "Legal Services Unit",
+   "title_sw": "Kitengo cha Huduma za Sheria",
+   "slug": "legal-services-unit"
+  },
+  {
+   "path": "Administration > Units > Culture, Arts and Sports Unit",
+   "title": "Culture, Arts and Sports Unit",
+   "title_sw": "Kitengo cha Utamaduni, Sanaa na Michezo",
+   "slug": "sports-culture-and-arts-unit"
+  },
+  {
+   "path": "Administration > Units > Monitoring and Evaluation Unit",
+   "title": "Monitoring and Evaluation Unit",
+   "title_sw": "Kitengo cha Tathimini na Ufuatiliaji",
+   "slug": "monitoring-and-evaluation-unit"
+  },
+  {
+   "path": "Investment Opportunity > Investment Opportunity",
+   "title": "Investment Opportunity",
+   "title_sw": "Fursa za Uwekezaji",
+   "slug": "investment-profile"
+  },
+  {
+   "path": "Investment Opportunity > Investment Opportunity > Investment Opportunities",
+   "title": "Investment Opportunities",
+   "title_sw": "Fursa za Uwekezaji",
+   "slug": "investment-profile"
+  },
+  {
+   "path": "Our Services > Health > Health Services",
+   "title": "Health Services",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-services"
+  },
+  {
+   "path": "Our Services > Education > Education Services",
+   "title": "Education Services",
+   "title_sw": "Huduma za Elimu",
+   "slug": "education"
+  },
+  {
+   "path": "Our Services > Crop Production",
+   "title": "Crop Production",
+   "title_sw": "Kilimo",
+   "slug": "crop-production"
+  },
+  {
+   "path": "Our Services > Crop Production > Crop Production",
+   "title": "Crop Production",
+   "title_sw": "Kilimo",
+   "slug": "crop-production"
+  },
+  {
+   "path": "Our Services > Livestock Keeping > Livestock Keeping",
+   "title": "Livestock Keeping",
+   "title_sw": "Ufugaji",
+   "slug": "livestock-keeping"
+  },
+  {
+   "path": "Councillors > List of Councillors",
+   "title": "List of Councillors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councillors"
+  },
+  {
+   "path": "Councillors > List of Councillors > List of Councillors",
+   "title": "List of Councillors",
+   "title_sw": "Orodha ya Madiwani",
+   "slug": "list-of-councillors"
+  },
+  {
+   "path": "Councillors > Councillors' Commitee",
+   "title": "Councillors' Commitee",
+   "title_sw": "Kamati za Kudumu za Halmashauri",
+   "slug": "councillors-committee"
+  },
+  {
+   "path": "Councillors > Councillors' Commitee > Councillors' Committee",
+   "title": "Councillors' Committee",
+   "title_sw": "Kamati za Kudumu",
+   "slug": "councillors-committee"
+  },
+  {
+   "path": "Councillors > Chairperson's  Timetable > Chairpersons' Timetable",
+   "title": "Chairpersons' Timetable",
+   "title_sw": "Ratiba ya kuonana na Mwenyekiti",
+   "slug": "chairperson-s-tametable"
+  },
+  {
+   "path": "Councillors > Meeting Timetable > Meetings Timetable",
+   "title": "Meetings Timetable",
+   "title_sw": "Ratiba ya Vikao",
+   "slug": "meetings-timetable"
+  },
+  {
+   "path": "Projects > Projects",
+   "title": "Projects",
+   "title_sw": "Miradi",
+   "slug": "projects"
+  },
+  {
+   "path": "Projects > Projects > Projects",
+   "title": "Projects",
+   "title_sw": "Miradi",
+   "slug": "projects"
+  },
+  {
+   "path": "Projects > SCALE PROJECTS > Scale Projects",
+   "title": "Scale Projects",
+   "title_sw": "Miradi ya Mabadiliko ya Tabia ya Nchi",
+   "slug": "scale-projects"
+  },
+  {
+   "path": "Divisions-Wards-Village > Divisions,Wards and Villages of Monduli DC",
+   "title": "Divisions,Wards and Villages of Monduli DC",
+   "title_sw": "Tarafa, Kata na Vijiji vya Halmashauri ya Monduli",
+   "slug": "divisions-wards-villages"
+  },
+  {
+   "path": "Divisions-Wards-Village > Divisions,Wards and Villages of Monduli DC > Divisions, Wards and Villages of Monduli DC",
+   "title": "Divisions, Wards and Villages of Monduli DC",
+   "title_sw": "Tarafa, Kata na Vijiji vya Halmashauri ya Wilaya Ya Monduli",
+   "slug": "divisions-wards-villages"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History",
+   "title": "Our History",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://mondulidc.go.tz/our-history",
+   "createdAt": "2026-03-09T10:03:19.295Z",
+   "updatedAt": "2026-03-12T15:52:23.594Z",
+   "text_en": "Monduli district council History\nMonduli District is one of the six districts of the Arusha Region of Tanzania. It is located in the northeastern section of the country. It is bordered to the north by Kenya, to the east by the Kilimanjaro Region and Arumeru District, to the south by the Manyara Region and to the west by Ngorongoro District and Karatu District. The town of Monduli is the administrative seat of the district. According to the 2002 Tanzania National Census, the population of the Monduli District was 185,237 The word Monduli was originated in the ward MonduliJuu. There was a wealthy Maasai ancestor with the name of Monduli, who lived in the area during the times of German colonization. The Germans colonized Tanzania in 1880s. They brought European education with them, teaching the areas of science, math, engineering, and even German. Tanzania gained their independence in December 9, 1961, under the leadership of President Julius Nyerere.\nGeneral Information\nThe Monduli District Council established during the British Colonial Rule where the administrative area was named \"Monduli Maasai District” at that time was included with the present Kiteto, Simanjiro, Ngorongoro and Longido districts.\nIn 1979 the present Kiteto district was born out of the Monduli Maasai district (then the present Simanjiro district was still part of Kiteto district) since then the name of the District remained “Monduli”- the present Ngorongoro district was still part of it until 1980s.\nIn 2005 Longido District was also born out of Monduli District. Therefore, Monduli district council is one of the seven district councils of Arusha Region. Monduli District is situated between latitudes 3.00” to 4.50’ South of the Equator and Longitudes 36.50’ to 36.45’ East of Greenwich Meridian.\nBORDERS\nIt is bordered by Arumeru Diricts to the East, Ngorongoro and Karatu Districts to the West, Mbulu and Babati to the South and Simanjiro District to the South-East and Longido district to the North.\nCOUNCIL'S CHAIRMEN SINCE 1985\nNO\nNAME OF A CHAIRPERSON\nDURATION\n1\nMICHAEL SIYOKINA\n1985-1995\n2\nRICHARD MEBOLOKIN\n1995-2000\n3\nDAVID PELLO\n2000-2010\n4\nEDWARD SAPUNYU\n2010-2015\n5\nISAACK J. COPRIANO\n2015 -2025\n6 KISIOKI LENGOIJE MOITIKO 2025 TO DATE\nin the other hand since 1985 we have a good number of District Excutive directors who led this council as listed below\nNO\nNAMES OF THE DISTRICT EXECUTIVE DIRECTORS\n1\nMICHAEL GAD\n2\nMR. A. CHIDUO\n3\nFAUSTINE FISSOO\n4\nMR. LYATUU\n5\nCHARLES KABEJA\n6\nEDEN MUNISI\n7\nSPORA LIANA\n8\nMR. OYERI\n9\nTHOMAS SAMWEL MLAY\n10\nTWALB A.MBASHA\n11\nEFRAIM OLE NGUYAINE\n12\nSTEPHEN ANDERSON ULAYA\n13\nRAPHAEL JOHN SIUMBU\n14 HAPPINESS RAPHAEL LAIZER",
+   "text_sw": "Historia ya Halmashauri ya Wilaya ya Monduli\nWilaya ya Monduli ni mojawapo ya wilaya sita za Mkoa wa Arusha Region nchini Tanzania. Iko katika sehemu ya kaskazini mashariki ya nchi. Wilaya hii inapakana na nchi ya Kenya upande wa kaskazini; upande wa mashariki inapakana na Kilimanjaro Region pamoja na Wilaya ya Arumeru District; upande wa kusini inapakana na Manyara Region; na upande wa magharibi inapakana na Wilaya za Ngorongoro District na Karatu District. Mji wa Monduli Town ndio makao makuu ya kiutawala ya wilaya.\nKwa mujibu wa Sensa ya Taifa ya mwaka 2002 ya Tanzania, wakazi wa Wilaya ya Monduli walikuwa 185,237. Jina Monduli linatokana na Kata ya Monduli Juu. Inasemekana kuwa kulikuwa na babu tajiri wa Kimaasai aliyeitwa Monduli ambaye aliishi katika eneo hilo wakati wa ukoloni wa Wajerumani. Wajerumani waliitawala Tanzania katika miaka ya 1880, na waliinza pia mfumo wa elimu ya Ulaya uliokuwa ukifundisha masomo kama sayansi, hisabati, uhandisi na hata lugha ya Kijerumani. Tanzania ilipata uhuru tarehe 9 Desemba 1961 chini ya uongozi wa Rais wa kwanza, Julius Nyerere.\nTaarifa za Jumla\nHalmashauri ya Wilaya ya Monduli ilianzishwa wakati wa utawala wa kikoloni wa Waingereza, ambapo eneo la kiutawala liliitwa “Monduli Maasai District.” Wakati huo, wilaya hiyo ilijumuisha pia maeneo ambayo kwa sasa ni wilaya za Kiteto District, Simanjiro District, Ngorongoro District na Longido District.\nMwaka 1979, Wilaya ya Kiteto ilitengwa kutoka katika Wilaya ya Monduli Maasai. Wakati huo, Wilaya ya Simanjiro ilikuwa bado ni sehemu ya Kiteto. Tangu wakati huo, jina la wilaya lilibaki kuwa Monduli , huku Wilaya ya Ngorongoro ikiendelea kuwa sehemu yake hadi miaka ya 1980.\nMwaka 2005, Wilaya ya Longido nayo ilitengwa kutoka Wilaya ya Monduli. Hivyo, Halmashauri ya Wilaya ya Monduli sasa ni mojawapo ya halmashauri saba za wilaya katika Mkoa wa Arusha.\nKijiografia, Wilaya ya Monduli ipo kati ya latitudo 3.00° hadi 4.50° kusini mwa Ikweta na longitudo 36.50° hadi 36.45° mashariki mwa Meridian ya Greenwich.\nMipaka ya Wilaya\nWilaya ya Monduli inapakana na:\nWilaya ya Arumeru District upande wa mashariki\nWilaya za Ngorongoro District na Karatu District upande wa magharibi\nWilaya za Mbulu District na Babati District upande wa kusini\nWilaya ya Simanjiro District upande wa kusini mashariki\nWilaya ya Longido District upande wa kaskazini\nWenyeviti wa Halmashauri Tangu 1985\nNa.\nJina la Mwenyekiti\nKipindi\n1\nMichael Siyokina\n1985–1995\n2\nRichard Mebolokin\n1995–2000\n3\nDavid Pello\n2000–2010\n4\nEdward Sapunyu\n2010–2015\n5\nIsaack J. Copriano\n2015 – 2025\n6\nKisioki Lengoije Moitiko\n2025 hadi sasa\nWakurugenzi wa Halmashauri ya Wilaya (DED)\nTangu mwaka 1985, Halmashauri imeongozwa na Wakurugenzi Watendaji wa Wilaya (DED) kadhaa kama ifuatavyo:\nMichael Gad\nA. Chiduo\nFaustine Fissoo\nLyatuu\nCharles Kabeja\nEden Munisi\nSpora Liana\nOyerI\nThomas Samwel Mlay\nTwalb A. Mbasha\nEfraim Ole Nguyaine\nStephen Anderson Ulaya\nRaphael John Siumbu\nHappiness Raphael Laizer",
+   "attachments": []
+  },
+  {
+   "slug": "mission-and-vision",
+   "menu_path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/mission-and-vision",
+   "public_url": "https://mondulidc.go.tz/mission-and-vision",
+   "createdAt": "2026-03-09T10:15:43.349Z",
+   "updatedAt": "2026-03-09T10:42:16.868Z",
+   "text_en": "VISION\nHaving a community with sustainable high Quality Standard of Living.\nMISSION\nTo provide high Quality Social-economic services to the District population through effective and efficient use of Resources with values of good governance.",
+   "text_sw": "Dira (VISION)\nKuwa na jamii yenye maisha bora na endelevu yenye viwango vya juu vya maisha.\nDhima (MISSION)\nKutoa huduma bora za kijamii na kiuchumi kwa wakazi wa wilaya kupitia matumizi bora na yenye ufanisi ya rasilimali, kwa kuzingatia misingi ya utawala bora.",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://mondulidc.go.tz/core-values",
+   "createdAt": "2026-03-09T10:26:18.818Z",
+   "updatedAt": "2026-03-09T10:26:18.818Z",
+   "text_en": "Core Values\n1. Integrity\nPerforming duties with honesty, transparency, and in compliance with laws, regulations, and the ethics of public service.\n2. Accountability\nBeing responsible for our actions and decisions in the use of public resources and the delivery of services to citizens.\n3. Efficiency and Effectiveness\nUsing available resources efficiently to achieve the best possible results in service delivery.\n4. Transparency\nProviding accurate and timely information about the council’s activities and decisions to citizens and stakeholders.\n5. Participation\nEnsuring that citizens and stakeholders are fully involved in planning, implementation, and evaluation of development activities.\n6. Equity and Fairness\nProviding services fairly and equally without discrimination based on gender, ethnicity, religion, or social status.\n7. Innovation\nEncouraging new ideas, technologies, and best practices to improve service delivery.\n8. Commitment to Service\nDelivering quality services to citizens with dedication, professionalism, and a spirit of public service.",
+   "text_sw": "Maadili ya Msingi\n1. Uadilifu\nKutekeleza majukumu kwa uaminifu, uwazi na kwa kuzingatia sheria, kanuni na maadili ya utumishi wa umma.\n2. Uwajibikaji\nKuwajibika kwa matendo na maamuzi yetu katika matumizi ya rasilimali za umma na utoaji wa huduma kwa wananchi.\n3. Ufanisi na Utekelezaji Bora\nKutumia rasilimali zilizopo kwa ufanisi ili kufikia matokeo bora katika utoaji wa huduma.\n4. Uwazi\nKutoa taarifa sahihi na kwa wakati kuhusu shughuli na maamuzi ya halmashauri kwa wananchi na wadau.\n5. Ushirikishwaji\nKuhakikisha wananchi na wadau wanashirikishwa kikamilifu katika mipango, utekelezaji na tathmini ya shughuli za maendeleo.\n6. Usawa na Haki\nKutoa huduma kwa haki na usawa bila ubaguzi wa jinsia, kabila, dini au hali ya kijamii.\n7. Ubunifu\nKuhamasisha mawazo mapya, matumizi ya teknolojia na mbinu bora ili kuboresha utoaji wa huduma.\n8. Kujituma katika Huduma\nKutoa huduma bora kwa wananchi kwa kujitolea, weledi na kwa kuzingatia misingi ya utumishi wa umma.",
+   "attachments": []
+  },
+  {
+   "slug": "council-s-objectives",
+   "menu_path": "About Us > Council's Objectives > Council's Objectives",
+   "title": "Council's Objectives",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/council-s-objectives",
+   "public_url": "https://mondulidc.go.tz/council-s-objectives",
+   "createdAt": "2026-03-09T10:39:35.948Z",
+   "updatedAt": "2026-03-09T10:39:35.948Z",
+   "text_en": "Council's Objectives\nA: Services improved and HIV/AIDS infections reduced\nB: Access to and equitable social services improved\nC: Ecosystem and protection of Natural resource managed\nD: Good Governance and Council administrative services enhanced\nE: Economic growth with particular focus on Rural areas improved\nF: Quantity and Quality economic services improved\nG: Emergency preparedness and disaster management improved\nH: Social welfare, Gender and Community empowerment improved",
+   "text_sw": "Malengo ya Halmashauri\nA: Utoaji wa huduma umeboreshwa na maambukizi ya UKIMWI/VVU yamepungua.\nB: Upatikanaji wa huduma za kijamii na usawa katika utoaji wa huduma hizo umeboreshwa.\nC: Mifumo ya ikolojia na ulinzi wa rasilimali za asili unasimamiwa ipasavyo.\nD: Utawala bora na huduma za kiutawala za halmashauri zimeimarishwa.\nE: Ukuaji wa uchumi umeboreshwa kwa kuzingatia zaidi maendeleo ya maeneo ya vijijini.\nF: Wingi na ubora wa huduma za kiuchumi umeboreshwa.\nG: Maandalizi ya kukabiliana na dharura na usimamizi wa majanga umeboreshwa.\nH: Ustawi wa jamii, usawa wa kijinsia na uwezeshaji wa jamii umeboreshwa.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "About Us > Organization Struture > Organization structure",
+   "title": "Organization Structure",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://mondulidc.go.tz/organization-structure",
+   "createdAt": "2026-03-17T08:28:52.608Z",
+   "updatedAt": "2026-05-06T06:34:49.345Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "administration-and-human-resource-management-division",
+   "menu_path": "Administration > Divisions > Administration and Human Resource Management Division",
+   "title": " Administration and Human Resource Management Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/administration-and-human-resource-management-division",
+   "public_url": "https://mondulidc.go.tz/administration-and-human-resource-management-division",
+   "createdAt": "2026-03-12T08:58:21.901Z",
+   "updatedAt": "2026-03-12T08:58:49.186Z",
+   "text_en": "Objectives:\nTo provide expertise and services on human resource management and administrative matters to the council\nFunctions:\ni. To interpret Public Service Regulations, Standing Orders and other Labour laws\nii. To oversee the implementation of ethics and value promotion activities including corruption prevention education\niii. To administer and oversee implementation of activities such as recruitment, selection, orientation, training and employee development, promotion, discipline, retention, motivation, performance management and general staff welfare\niv. To ensure optimal efficient and effective management and utilization of human resource\nv. To coordinate Workers Council and Trade Union affairs\nvi. To oversee the development and implementation of effective policies, procedures and guidelines for recruitment, training and development, deployment, retention of staffs, promotions, performance management\nvii. To conduct regular human resources audit and inventory of current and needed skills\nviii. To provide registry, mesengerial and courier services; and manage office records\nix. To handle protocol matters\nx. To facilitate provision of security services, transport and general utilities\nxi. To facilitate maintenance of office equipment, buildings and grounds\nxii. To coordinate implementation of ethics and value promotion activities\nxiii. To coordinate implementation of Diversity issues\nxiv. To coordinate implementation of private sector Participation, Business Process Improvement and Client Services Charter; and\nxv. To provide advice on organizational efficiency of the office",
+   "text_sw": "Malengo:\nKutoa utaalamu na huduma kuhusu usimamizi wa rasilimali watu na masuala ya utawala kwa Halmashauri.\nMajukumu:\ni. Kufasiri Kanuni za Utumishi wa Umma, Kanuni za Kudumu za Utumishi wa Umma na sheria nyingine za kazi.\nii. Kusimamia utekelezaji wa shughuli za kukuza maadili na misingi ya kiutendaji, ikiwa ni pamoja na kutoa elimu ya kuzuia rushwa.\niii. Kusimamia na kuendesha utekelezaji wa shughuli kama vile ajira, uteuzi, mafunzo elekezi, na maendeleo ya wafanyakazi, upandishaji vyeo, nidhamu, motisha, usimamizi wa utendaji kazi, na ustawi wa wafanyakazi kwa ujumla.\niv. Kuhakikisha usimamizi na matumizi bora na yenye tija ya rasilimali watu.\nv. Kuratibu masuala ya Baraza la Wafanyakazi na vyama vya wafanyakazi.\nvi. Kusimamia uandaaji na utekelezaji wa sera, taratibu, na miongozo thabiti ya ajira, mafunzo na maendeleo, upangaji wa vituo vya kazi, utunzaji wa wafanyakazi, upandishaji vyeo, na usimamizi wa utendaji kazi.\nvii. Kufanya ukaguzi wa mara kwa mara wa rasilimali watu na orodha ya ujuzi uliopo na unaohitajika.\nviii. Kutoa huduma za masjala, upokeaji na usafirishaji wa barua/vifurushi, na kusimamia kumbukumbu za ofisi.\nix. Kushughulikia masuala ya itifaki.\nx. Kuwezesha upatikanaji wa huduma za ulinzi, usafiri, na huduma nyinginezo za kijamii.\nxi. Kuwezesha matengenezo ya vifaa vya ofisi, majengo, na mazingira ya ofisi.\nxii. Kuratibu utekelezaji wa shughuli za kukuza maadili na misingi ya kiutendaji.\nxiii. Kuratibu utekelezaji wa masuala anuai\nxiv. Kuratibu utekelezaji wa ushiriki wa sekta binafsi, uboreshaji wa mifumo ya utendaji kazi na Mkataba wa Huduma kwa Mteja; na\nxv. Kutoa ushauri kuhusu ufanisi wa kimuundo wa ofisi.",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination-division",
+   "menu_path": "Administration > Divisions > Planning and Coordination Division",
+   "title": "Planning and Coordination Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/planning-and-coordination-division",
+   "public_url": "https://mondulidc.go.tz/planning-and-coordination-division",
+   "createdAt": "2026-03-12T09:16:01.651Z",
+   "updatedAt": "2026-03-19T05:39:44.744Z",
+   "text_en": "Objectives:\nTo provide expertise and services in planning, budgeting, monitoring and evaluation\nFunctions:\ni. To prepare mid- and long-term strategies, plans and budget\nii. To prepare and review LGA’s economic profile\niii. To coordinate implementation of private sector participation\niv. Coordinate Council Disaster Management\nv. To coordinate LGA’s activities implemented by other institutions such as land and water\nvi. To develop guidelines on research and innovation matters for the LGA\nvii. To coordinate research and innovation matters for making informed decisions\nviii. To coordinate management of innovation matters\nix. To cooperate with national and international research institutions and data centers for the purpose of collecting and exchanging research and innovation information",
+   "text_sw": "Malengo:\nKutoa utaalamu na huduma katika mipango, upangaji wa bajeti, ufuatiliaji na tathmini.\nMajukumu:\ni. Kuandaa mikakati, mipango, na bajeti za muda wa kati na mrefu.\nii. Kuandaa na kupitia wasifu wa kiuchumi wa Mamlaka ya Serikali ya Mitaa.\niii. Kuratibu utekelezaji wa ushiriki wa sekta binafsi.\niv. Kuratibu usimamizi wa maafa katika Halmashauri.\nv. Kuratibu shughuli za Mamlaka ya Serikali ya Mitaa zinazotekelezwa na taasisi nyingine kama vile sekta za ardhi na maji.\nvi. Kuandaa miongozo kuhusu masuala ya utafiti na ubunifu kwa ajili ya Mamlaka ya Serikali ya Mitaa.\nvii. Kuratibu masuala ya utafiti na ubunifu kwa ajili ya kufanya maamuzi yenye ushahidi.\nviii. Kuratibu usimamizi wa masuala ya ubunifu.\nix. Kushirikiana na taasisi za utafiti za kitaifa na kimataifa pamoja na vituo vya takwimu kwa ajili ya kukusanya na kubadilishana taarifa za utafiti na ubunifu.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-division",
+   "menu_path": "Administration > Divisions > Community Development Division",
+   "title": "Community Development Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/community-development-division",
+   "public_url": "https://mondulidc.go.tz/community-development-division",
+   "createdAt": "2026-03-12T09:19:45.866Z",
+   "updatedAt": "2026-03-12T09:19:45.866Z",
+   "text_en": "Objectives:\nTo supervise community development activities in LGA\nFunctions:\ni. To analyze, interpret and supervise implementation of policies, laws and procedures related to community development\nii. To facilitate communities to initiate, plan, implement and evaluate their own programs and projects\niii. To prepare short and long term plans and projects in community development at LGA level\niv. To conduct research and recommend on how to deal with various development problems that uphold community development in collaboration with the Ministry responsible for community development and other stakeholders\nv. To regulate and supervise operation of microfinance services providers tier four under directives of Bank Of Tanzania (BOT)\nvi. To coordinate and manage economic development activities for women, children and persons with disabilities\nvii. To coordinate provision of training on poverty alleviation, AIDS, drugs and gender equality\nviii. To coordinate and monitor NGOs and CBOs activities in community development; and\nix. To coordinate and manage community development activities in LGA",
+   "text_sw": "Malengo:\nKusimamia shughuli za maendeleo ya jamii katika Halmashauri za Serikali za Mitaa (LGA).\nMajukumu:\ni. Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na maendeleo ya jamii.\nii. Kuwezesha jamii kuanzisha, kupanga, kutekeleza na kutathmini mipango na miradi yao wenyewe.\niii. Kuandaa mipango na miradi ya muda mfupi na mrefu ya maendeleo ya jamii katika ngazi ya mamlaka za serikali za mitaa.\niv. Kufanya tafiti na kutoa mapendekezo juu ya namna ya kushughulikia changamoto mbalimbali za maendeleo kwa kushirikiana na Wizara inayohusika na maendeleo ya jamii na wadau wengine.\nv. Kudhibiti na kusimamia shughuli za watoa huduma za mikopo midogomidogo (microfinance) daraja la nne chini ya maagizo ya Benki Kuu ya Tanzania (BOT).\nvi. Kuratibu na kusimamia shughuli za maendeleo ya kiuchumi kwa wanawake, watoto na watu wenye ulemavu.\nvii. Kuratibu utoaji wa mafunzo juu ya kupunguza umaskini, UKIMWI, dawa za kulevya na usawa wa kijinsia.\nviii. Kuratibu na kufuatilia shughuli za shughuli za mashirika yasiyo ya kiserikali (NGOs) katika maendeleo ya jamii.\nix. Kuratibu na kusimamia shughuli za maendeleo ya jamii katika mamlaka za serikali a mitaa.",
+   "attachments": []
+  },
+  {
+   "slug": "secondary-education-division",
+   "menu_path": "Administration > Divisions > Secondary Education Division",
+   "title": "Secondary Education Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/secondary-education-division",
+   "public_url": "https://mondulidc.go.tz/secondary-education-division",
+   "createdAt": "2026-03-12T09:23:01.522Z",
+   "updatedAt": "2026-03-12T09:23:01.522Z",
+   "text_en": "Objectives\nTo coordinate implementation of secondary education policies, plans, laws, circulars and guidelines.\nFunctions\ni. To supervise the administration of continuous assessments and national form two, four and six examinations\nii. To conduct monitoring and evaluation on implementation of secondary education plans and programs\niii. To supervise delivery of adult and non formal education at secondary level\niv. To create and maintain database on secondary education\nv. To coordinate life skills education in secondary schools\nvi. To coordinate and supervise secondary schools’ sports and games\nvii. To conduct needs assessment for special needs, adult and non formal education; and\nviii. To provide advice on establishment and maintenance of special needs, adult and non formal education centres",
+   "text_sw": "Malengo:\nKuratibu utekelezaji wa sera, mipango, sheria na miongozo inayohusiana na elimu ya sekondari.\nMajukumu:\ni. Kusimamia utendaji wa tathmini endelevu na mitihani ya kitaifa ya kidato cha pili, cha nne na cha sita.\nii. Kufanya ufuatiliaji na tathmini ya utekelezaji wa mipango na programu za elimu ya sekondari.\niii. Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya sekondari.\niv. Kuunda na kudumisha kanzidata (database) ya elimu ya sekondari.\nv. Kuratibu elimu ya ujuzi wa maisha (life skills education) katika shule za sekondari.\nvi. Kuratibu na kusimamia shughuli za michezo na michezo ya shule za sekondari.\nvii. Kufanya tathmini ya mahitaji ya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.\nviii. Kutoa ushauri kuhusu kuanzishwa na matengenezo ya vituo vya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education-division",
+   "menu_path": "Administration > Divisions > Pre-Primary and Primary Education Division",
+   "title": "Pre-Primary and Primary Education Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/pre-primary-and-primary-education-division",
+   "public_url": "https://mondulidc.go.tz/pre-primary-and-primary-education-division",
+   "createdAt": "2026-03-12T09:25:16.385Z",
+   "updatedAt": "2026-03-12T09:25:16.385Z",
+   "text_en": "Objectives:\nTo plan and supervise implementation of policies, laws and circulars on provision of pre-primary, primary, special needs and non formal education.\nFunctions:\ni. To plan for acquisition, distribution and use of resources in primary schools\nii. To supervise administration of continuous assessments and primary schools National Examinations\niii. To supervise the delivery of adult and non formal education at pre-primary and primary level\niv. To coordinate life skills education in primary schools\nv. To conduct needs assessment for special needs, adult and non formal education\nvi. To provide advice on establishment and maintenance of special needs, adult and non formal education centres\nvii. To monitor implementation of primary education plans and programs\nviii. To create and maintain database on pre-primary and primary education\nix. To coordinate and supervise sports and games activities in primary schools",
+   "text_sw": "Malengo:\nKupanga na kusimamia utekelezaji wa sera, sheria na mizungumzo (circulars) inayohusu utoaji wa elimu ya awali, elimu ya msingi, elimu ya mahitaji maalumu na elimu isiyo rasmi.\nMajukumu:\ni. Kupanga upatikanaji, usambazaji na matumizi ya rasilimali katika shule za msingi.\nii. Kusimamia utendaji wa tathmini endelevu na Mitihani ya Kitaifa ya Shule za Msingi.\niii. Kusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya awali na msingi.\niv. Kuratibu elimu ya ujuzi wa maisha (life skills education) katika shule za msingi.\nv. Kufanya tathmini ya mahitaji ya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.\nvi. Kutoa ushauri kuhusu kuanzishwa na matengenezo ya vituo vya elimu ya mahitaji maalumu, watu wazima na elimu isiyo rasmi.\nvii. Kufuatilia utekelezaji wa mipango na programu za elimu ya msingi.\nviii. Kuunda na kudumisha kanzidata (database) ya elimu ya awali na msingi.\nix. Kuratibu na kusimamia shughuli za michezo katika shule za msingi.",
+   "attachments": []
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition-services-division",
+   "menu_path": "Administration > Divisions > Health, Social Welfare and Nutrition Services Division",
+   "title": "Health, Social Welfare and Nutrition Services Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services-division",
+   "public_url": "https://mondulidc.go.tz/health-social-welfare-and-nutrition-services-division",
+   "createdAt": "2026-03-12T09:27:44.860Z",
+   "updatedAt": "2026-03-18T08:05:45.431Z",
+   "text_en": "Objectives:\nTo provide quality health, social welfare and nutrition services for community well-being\nFunctions:\ni. To supervise implementation of policies, laws and procedures on provision of health, social welfare and nutrition services\nii. To prepare short and long term plans and programs for health sector in the Council\niii. To promote participation of various players in health, social welfare and nutrition activities\niv. To prepare and submit reports on health, social welfare and nutrition services to relevant authorities\nv. To develop strategies for control of communicable and non communicable diseases\nvi. To manage health, social welfare and nutrition projects; and\nvii. To manage database for health, social welfare and nutrition services related matters",
+   "text_sw": "Malengo:\nKutoa huduma bora za afya, ustawi wa jamii na lishe kwa ajili ya ustawi wa jamii.\nMajukumu:\ni. Kusimamia utekelezaji wa sera, sheria na taratibu zinazohusiana na utoaji wa huduma za afya, ustawi wa jamii na lishe.\nii. Kuandaa mipango na programu za muda mfupi na mrefu kwa sekta ya afya katika Halmashauri.\niii. Kukuza ushiriki wa wadau mbalimbali katika shughuli za afya, ustawi wa jamii na lishe.\niv. Kuandaa na kuwasilisha ripoti kuhusu huduma za afya, ustawi wa jamii na lishe kwa mamlaka zinazohusika.\nv. Kuandaa mikakati ya udhibiti wa magonjwa yanayoambukiza na yasiyoambukiza.\nvi. Kusimamia miradi ya afya, ustawi wa jamii na lishe.\nvii. Kusimamia na kudumisha kanzidata (database) inayohusiana na huduma za afya, ustawi wa jamii na lishe.",
+   "attachments": []
+  },
+  {
+   "slug": "agriculture-livestock-and-fisheries-division",
+   "menu_path": "Administration > Divisions > Agriculture, Livestock and Fisheries Division",
+   "title": "Agriculture, Livestock and Fisheries Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries-division",
+   "public_url": "https://mondulidc.go.tz/agriculture-livestock-and-fisheries-division",
+   "createdAt": "2026-03-12T09:34:35.618Z",
+   "updatedAt": "2026-03-12T09:34:35.618Z",
+   "text_en": "Objectives:\nTo promote transformation of Development of agriculture, irrigation, livestock and fisheries\nFunctions\ni. To analyze, interpret and supervise implementation of policies, laws and Regulations of agriculture, irrigation, livestock and fisheries\nii. To propose standards and prices of products and services from agriculture, irrigation, livestock and fisheries\niii. To prepare short and long plans and programs on development of agriculture, irrigation, livestock and fisheries\niv. To oversee promotion and governance of cooperatives in the Council\nv. To provide technical advice to stakeholders concerned with agriculture, irrigation , livestock and fisheries\nvi. To prepare reports on agriculture, irrigation, livestock and fisheries; and\nvii. To supervise collection and control of revenue from agriculture, irrigation, livestock and fisheries",
+   "text_sw": "Malengo:\nKukuza na kuhamasisha mabadiliko katika maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\nMajukumu:\ni. Kuchambua, kufasiri na kusimamia utekelezaji wa sera, sheria na kanuni zinazohusiana na kilimo, umwagiliaji, mifugo na uvuvi.\nii. Kupendekeza viwango na bei za bidhaa na huduma zinazotokana na kilimo, umwagiliaji, mifugo na uvuvi.\niii. Kuandaa mipango na programu za muda mfupi na mrefu za maendeleo ya kilimo, umwagiliaji, mifugo na uvuvi.\niv. Kufuatilia kukuza na utawala wa ushirika (cooperatives) katika Halmashauri.\nv. Kutoa ushauri wa kiufundi kwa wadau wanaohusiana na kilimo, umwagiliaji, mifugo na uvuvi.\nvi. Kuandaa ripoti kuhusu kilimo, umwagiliaji, mifugo na uvuvi.\nvii. Kusimamia ukusanyaji na udhibiti wa mapato yanayotokana na kilimo, umwagiliaji, mifugo na uvuvi.",
+   "attachments": []
+  },
+  {
+   "slug": "industries-trade-and-investment-division",
+   "menu_path": "Administration > Divisions > Industries, Trade and Investment Division",
+   "title": "Industries, Trade and Investment Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/industries-trade-and-investment-division",
+   "public_url": "https://mondulidc.go.tz/industries-trade-and-investment-division",
+   "createdAt": "2026-03-12T09:39:04.750Z",
+   "updatedAt": "2026-03-12T09:39:04.750Z",
+   "text_en": "Objectives:\nTo provide favorable business environment for industrialization, trade, marketing and investment development.\nFunctions:\ni. To coordinate implementation of policies, laws, regulations and procedures related to industry, trade, marketing and investments\nii. To promote industries, trade, marketing and investments in the council\niii. To plan for and promote industrial sites and marks and marks in collaborations with other key players\niv. To plan incentives for industrial, trades, marketing and investment promotion\nv. To promote advancement of small and medium Enterprises (SMEs)\nvi. To develop investment proposals and projects\nvii. To advance measures for private sector development\nviii. To establish and manage database for industrial, trade, marketing and investments\nix. To oversee of one stop business centres.\nx. To undertake research on investment promotions\nxi. To coordinate business forums\nxii. To administer auctions and markets activities in the council\nxiii. To implement business development strategies for small vendors and small business providers\nxiv. To provide conducive business and investment environment in order to promote business and investment",
+   "text_sw": "Malengo\nKutoa mazingira rafiki ya biashara kwa ajili ya kukuza viwanda, biashara, masoko na maendeleo ya uwekezaji.\nMajukumu:\ni. Kuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazohusu viwanda, biashara, masoko na uwekezaji.\nii. Kukuza viwanda, biashara, masoko na uwekezaji katika halmashauri.\niii. Kupanga na kukuza maeneo ya viwanda na masoko kwa kushirikiana na wadau wengine muhimu.\niv. Kupanga vivutio kwa ajili ya kuhamasisha viwanda, biashara, masoko na uwekezaji.\nv. Kukuza na kuendeleza biashara ndogo na za kati\nvi. Kuandaa mapendekezo ya uwekezaji na miradi ya uwekezaji.\nvii. Kuimarisha hatua za maendeleo ya sekta binafsi.\nviii. Kuanzisha na kusimamia kanzidata (database) ya viwanda, biashara, masoko na uwekezaji.\nix. Kusimamia vituo vya huduma za biashara mahali pamoja (One Stop Business Centres).\nx. Kufanya tafiti kuhusu uhamasishaji wa uwekezaji.\nxi. Kuratibu majukwaa ya wafanyabiashara.\nxii. Kusimamia shughuli za minada na masoko katika halmashauri.\nxiii. Kutekeleza mikakati ya maendeleo ya biashara kwa wafanyabiashara wadogo na watoa huduma ndogo ndogo.\nxiv. Kutoa mazingira wezeshi ya biashara na uwekezaji ili kukuza biashara na uwekezaji.",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-rural-and-urban-development-division",
+   "menu_path": "Administration > Divisions > Infrastructure, Rural and Urban Development Division",
+   "title": "Infrastructure, Rural and Urban Development Division",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/infrastructure-rural-and-urban-development-division",
+   "public_url": "https://mondulidc.go.tz/infrastructure-rural-and-urban-development-division",
+   "createdAt": "2026-03-12T09:41:10.378Z",
+   "updatedAt": "2026-03-12T09:41:10.378Z",
+   "text_en": "Objectives:\nTo supervise and advice all issues related to infrastructure in the Council\nFunctions:\ni. To advice on matters related to construction industry\nii. To plan development of infrastructure\niii. To analyze and make recommendations on claims for payments of contractors\niv. To inspect construction works performed by Council and ensure their quality\nv. To issue certificates to contractors for completed contacts\nvi. To undertake paving of new roads in collaboration with TARURA\nvii. To establish and maintain cooperation with institutions outside and inside the country dealing with infrastructure issues\nviii. To participate in facilitating resolution of land use conflicts\nix. To manage urbanization process in collaboration with the Ministry responsible for lands; and\nx. Oversee development of rural and urban settlements in collaboration with the Ministry responsible for land",
+   "text_sw": "Malengo:\nKusimamia na kutoa ushauri kuhusu masuala yote yanayohusiana na miundombinu katika Halmashauri.\nMajukumu:\ni. Kutoa ushauri kuhusu masuala yanayohusiana na sekta ya ujenzi.\nii. Kupanga maendeleo ya miundombinu.\niii. Kuchambua na kutoa mapendekezo kuhusu madai ya malipo kwa wakandarasi.\niv. Kukagua kazi za ujenzi zinazofanywa na Halmashauri na kuhakikisha ubora wake.\nv. Kutoa vyeti kwa wakandarasi kwa mikatano iliyokamilika.\nvi. Kufanya uwekaji wa barabara mpya kwa kushirikiana na TA﻿RURA.\nvii. Kuanzisha na kudumisha ushirikiano na taasisi za ndani na nje ya nchi zinazohusika na masuala ya miundombinu.\nviii. Kushiriki katika kuwezesha utatuzi wa migongano kuhusu matumizi ya ardhi.\nix. Kusimamia mchakato wa miji na miji midogo kwa kushirikiana na Wizara inayohusika na ardhi.\nx. Kufuatilia na kusimamia maendeleo ya makazi ya vijijini na mijini kwa kushirikiana na Wizara inayohusika na ardhi.",
+   "attachments": []
+  },
+  {
+   "slug": "investment-profile",
+   "menu_path": "Investment Opportunity > Investment Opportunity",
+   "title": "Investment Profile",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/investment-profile",
+   "public_url": "https://mondulidc.go.tz/investment-profile",
+   "createdAt": "2026-03-17T11:23:10.127Z",
+   "updatedAt": "2026-03-17T11:36:31.410Z",
+   "text_en": "Investment Opportunities\nMonduli District Investment Profile\n1.1 Geographical Location\nMonduli District Council was established during the British colonial era and was originally named “Monduli Maasai District” , which included the present-day districts of Kiteto, Simanjiro, Ngorongoro, and Longido. In 1979, Kiteto District was created from Monduli Maasai District (at that time, Simanjiro was still part of Kiteto). Since then, the district retained the name Monduli . Ngorongoro District remained part of Monduli until the 1980s, and in 2005, Longido District was also formed from Monduli.\nToday, Monduli District Council is one of the seven councils in Arusha Region , alongside Arusha City, Arusha District, Ngorongoro District, Meru District, Karatu District, and Longido District.\nMonduli District is located between latitudes 3.00° to 4.50° South of the Equator and longitudes 36.50° to 36.45° East of the Greenwich Meridian. It is bordered by Arumeru District to the East, Ngorongoro and Karatu Districts to the West, Mbulu and Babati Districts to the South, Simanjiro District to the South-East, and Longido District to the North.\n1.2 Administrative Structure and Land Area\nThe District is administratively divided into three divisions : Manyara, Makuyuni, and Kisongo; 20 wards ; and 62 villages . Monduli District covers a total area of 6,419 sq. km , of which 6,290.62 sq. km is land and 128.38 sq. km is water.\nLand use distribution:\nGrazing land: 3,983.855 sq. km\nArable land: 1,055.475 sq. km\nForest area: 374.965 sq. km\n1.3 Demography\n1.3.1 Ethnic Groups\nThe major ethnic group is the Wamaasai , constituting about 40% of the population, mainly engaged in livestock keeping. The Waarusha make up about 20% and are involved in both livestock keeping and farming. The remaining 40% comprises non-indigenous groups engaged in farming, trade, and civil service.\n1.3.2 Population Size and Growth\nAccording to the 2022 Population Census , Monduli District had a population of 227,585 (104,742 males and 122,843 females), with an annual growth rate of 3.77% from 2012 to 2022.\n1.4 Climate and Soils\nMonduli is among the driest districts in Tanzania. Low-altitude areas have a warm climate, while high-altitude areas are cooler. Temperatures range from 20°C to 35°C , with rainfall between less than 500 mm in lowlands to 900 mm at higher elevations.\nClimatic Zones:\nHighlands: Cool, sub-humid; average temperature 20°C; rainfall ~1,000 mm/year.\nFlat and Rolling Plains: Semi-arid; temperatures 20°C–30°C; rainfall 400–600 mm/year.\nRift Valley: Arid; temperatures 23°C–35°C; rainfall <500 mm/year.\nSoils:\nShallow soils: <40–50 cm, low fertility and water retention.\nDeep soils: >40–50 cm, may have poor drainage but high fertility.\nDeep, freely drained soils: >40–50 cm, good for agriculture. Subtypes:\nClay soils: Moderate fertility\nLoamy soils: Found on plains, slopes, and hills\nSandy soils: Low water retention, occur along streams\n1.5 Topography\nThe landscape features isolated mountains ( Monduli, Lepurko, Loosimingori, Lengai ) and rolling plains, with altitudes from 600 m to 2,900 m . Vegetation includes forests, bushlands, wooded grasslands, and grasslands.\nRivers: Major perennial rivers include Simba, Kirurumo, Mto wa Mbu, Selela (Kabambe), and Engaruka.\n1.5.1 Agro-Ecological Zones\nHighland Zone: Altitudes ~2,000 m; deep, fertile loamy soils; forests on hilltops; main activities: livestock and crop farming (maize, beans, barley/wheat; small-scale coffee and banana).\nLowland Zone: Altitudes 600–1,200 m; deep, freely drained clay soils; main activities: extensive livestock keeping and crop farming (maize, beans, paddy, banana, small-scale sunflower). Livestock includes cattle, goats, sheep, donkeys, and camels.\n2.0 Economic Activities\nKey economic activities include livestock keeping, agriculture, and wildlife . Over 90% of the population engages in livestock and farming. The district has 105,547.5 hectares of potential arable land, of which 87,632.5 hectares (13.65%) are under cultivation. Subsistence farming predominates, with maize, beans, and paddy as staple crops; coffee and sunflower are grown on a small scale. Livestock keeping is a major economic activity with high potential for growth.\n2.2 Natural Resources\nForests: Out of the district's 641,900 hectares , 23,022 hectares are designated forest reserves as follows\nTABLE 1- FORESTS AND THEIR AREASIN THE DISTRICT.\nS/N\nFOREST NAME\nTOTAL AREA\n(Hectare,Ha)\nREMARKS\n01\nMonduli (Komolonik)\n6,059\nIt under Central Government\n02\nLendikinya\n3,689\nManaged by District Council\n03\nBurko\n540\nIt under Central Government\n04\nEssimingor\n6100\nIt under Central Government\n05\nLolkisale\n960\nVillageForest Reserve\n06\nSelela\n1,190\nVillageForest Reserve\n07\nMto wa Mbu\n1,738\nVillageForest Reserve\n08\nEsilalei\n1,324\nVillageForest Reserve\n09\nEluwai\n1,422\nVillageForest Reserve\nTOTAL\n23,022\nTREE PLANTING:\nLarge areas of the District are bare as result of tree cutting over years and wildfires. In order to address the situation, the District Council has embarked on 15,000,000 trees National tree planting and reforestation programme annually . The programme implemented by the District Council, Individuals, schools and various institutions. Droughts and destruction by livestock have been the major restrictions to the survival of planted trees.\nFISH INDUSTRY\nFishing is practiced locally at Lake Manyara in Mto wa Mbu area at a verysmallscale- not only because the District lacks large water bodies but also because of cultural value problems of the communities (Wamaasai) and inferior fishing gear used. Fish consumed in town/ trading centres in Monduli District are brought from Lake Mdori in Babati, Nyumba ya Mungu Dam in Simanjiro, Lake Eyasi in Karatu, from Lake Victoria and Indian Ocean(Tanga). For several years back Monduli lacks a fisheries officer who could collect data and manage fishing industry.\nWILDLIFE:\n3.0 ECONOMIC INFRANSTRUCTURES\n3.1 ROAD NETWORK\nThe Disitrict is not well served with economic infrastructure. It has a total road network of 617kms. Tarmac road been 8.1 km, 138 km gravel and 470.9 km is earth surfaced road. Trunk roads (96km) and Regional roads (156km). District roads, feeder roads and village access roads are mostly earth surfaced - they are passable with difficult during rainy seasons. This is a result of lack of lack of funds and equipment for reqular maitenance. Monduli is served electricity\n3.2 AIR TRANSPORT:\nMonduli District is served with Arusha Airport(Kisongo) which is nearly 35 km. from Monduli Town, Also Kilimanjaro International Airport about 90km from Mondui. Inside the District we have Makuyuni Airstripnwhich accommodates light aircrafts.\n3.3 RAILWAY TRANSPORT:\nThe District is not served by railway lines.\n3.4 COMMUNICATION\nThe District is served with telephone the lines and radio calls- It has sub Post Offices and Telephone Office at Monduli Headquarters, Mto wa Mbu and Makuyuni. It is also served by cellular phones covering nearly 100% of the district.\n4.OPPORTUNITIES FOR INVESTMENT IN MONDULI DISTRICT\nOpen attachment",
+   "text_sw": "Fursa za Uwekezaji\nProfaili ya Uwekezaji Halmashauri ya Wilaya ya Monduli\n1.1 Eneo la Kijiografia\nHalmashauri ya Wilaya ya Monduli ilianzishwa wakati wa utawala wa kikoloni wa Uingereza na awali ilijulikana kama “Wilaya ya Monduli Maasai” , ambayo ilikuwa ikijumuisha wilaya za sasa za Kiteto, Simanjiro, Ngorongoro, na Longido. Mwaka 1979, Wilaya ya Kiteto ilitengenezwa kutoka Wilaya ya Monduli Maasai (wakati huo, Simanjiro bado ilikuwa sehemu ya Kiteto). Tangu wakati huo, jina la Wilaya lilibaki Monduli . Wilaya ya Ngorongoro iliendelea kuwa sehemu ya Monduli hadi miaka ya 1980, na mwaka 2005 Wilaya ya Longido pia ilitengenezwa kutoka Monduli.\nHivi sasa, Halmashauri ya Wilaya ya Monduli ni moja ya halmashauri saba katika Mkoa wa Arusha, pamoja na Jiji la Arusha, Wilaya ya Arusha, Wilaya ya Ngorongoro, Wilaya ya Meru, Wilaya ya Karatu, na Wilaya ya Longido.\nWilaya ya Monduli ipo kati ya latitudo 3.00° hadi 4.50° Kusini na longitudo 36.50° hadi 36.45° Mashariki ya Meridian ya Greenwich. Inapakana na Wilaya ya Arumeru upande wa Mashariki, Wilaya za Ngorongoro na Karatu upande wa Magharibi, Wilaya za Mbulu na Babati upande wa Kusini, Wilaya ya Simanjiro kusini-mashariki, na Wilaya ya Longido kaskazini.\n1.2 Muundo wa Utawala na Eneo la Ardhi\nWilaya hii imegawanywa kijiografia katika mikoa mitatu : Manyara, Makuyuni, na Kisongo; kata 20 ; na vijiji 62 . Wilaya ya Monduli ina eneo la jumla la km² 6,419 , ambapo km² 6,290.62 ni ardhi na km² 128.38 ni maji.\nMatumizi ya ardhi:\nArdhi ya malisho: 3,983.855 km²\nArdhi shambani: 1,055.475 km²\nMisitu: 374.965 km²\n1.3 Idadi ya Watu\n1.3.1 Makabila\nKikabila kikuu ni Wamaasai , ambacho kinaunda takriban 40% ya idadi ya watu, kikihusiana zaidi na ufugaji. Waarusha wanaunda 20% na wanahusika na ufugaji na kilimo. 40% iliyobaki ni makundi yasiyo ya asili, yanayojihusisha na kilimo, biashara, na utumishi wa umma.\n1.3.2 Idadi ya Watu na Ukuaji\nKulingana na Sensa ya Watu ya 2022 , Wilaya ya Monduli ilikuwa na idadi ya watu 227,585 (wanaume 104,742 na wanawake 122,843), na kiwango cha ukuaji wa kila mwaka 3.77% kutoka 2012 hadi 2022.\n1.4 Hali ya Hewa na Udongo\nMonduli ni moja ya wilaya kavu zaidi Tanzania. Eneo la chini lina hali ya hewa ya joto, na eneo la juu lina baridi kidogo. Halijoto zinatofautiana kutoka 20°C hadi 35°C , na mvua kutoka chini ya 500 mm katika maeneo ya chini hadi 900 mm katika maeneo ya juu.\nMikoa ya Hali ya Hewa:\nMilima ya Juu: Baridi kidogo, sub-humid; halijoto wastani 20°C; mvua ~1,000 mm/ mwaka.\nMaporomoko ya Nchi: Nusu-kavu; halijoto 20°C–30°C; mvua 400–600 mm/ mwaka.\nBonde la Ufa: Kavu; halijoto 23°C–35°C; mvua <500 mm/ mwaka.\nAina za Udongo:\nUdongo Ufishefu: <40–50 cm, nguvu ya rutuba na uhifadhi wa maji mdogo.\nUdongo Kina: >40–50 cm, unaweza kuwa na mmomonyoko duni lakini rutuba ya juu.\nUdongo Kina, Usiozuilika: >40–50 cm, mzuri kwa kilimo. Subaina:\nUdongo wa udongo (Clay): Rutuba wastani\nUdongo wa mchanga (Loamy): Upatikana kwenye tambarare, mabonde, na milima\nUdongo wa mchanga (Sandy): Uhifadhi mdogo wa maji, hupatikana kando ya mito\n1.5 Jiografia na Milima\nEneo lina milima iliyotengwa (Monduli, Lepurko, Loosimingori, Lengai) na tambarare zenye milima midogo, altitudo kutoka 600 m hadi 2,900 m . Mimea ni mchanganyiko wa misitu, nyika, mabwawa ya misitu na nyasi.\nMito: Mito mikuu ya kudumu ni Simba, Kirurumo, Mto wa Mbu, Selela (Kabambe), na Engaruka.\n1.5.1 Mikoa ya Kilimo Kijiografia\nEneo la Milima: Altitudo ~2,000 m; udongo wa loamy mzuri na rutuba ya asili; misitu juu ya milima; shughuli kuu: ufugaji na kilimo cha chakula na biashara (mahindi, maharage, shayiri/ngano; kahawa na ndizi kwa kiwango kidogo).\nEneo la Nchi za Chini: Altitudo 600–1,200 m; udongo wa clay mzuri na usiozuilika; shughuli kuu: ufugaji mkubwa na kilimo (mahindi, maharage, mpunga, ndizi, alizeti kwa kiwango kidogo). Mifugo ni pamoja na ng’ombe, mbuzi, kondoo, punda, na ngamia.\n2.0 Shughuli za Uchumi\nShughuli kuu za uchumi ni ufugaji, kilimo, na wanyamapori. Zaidi ya 90% ya watu wanajihusisha na ufugaji na kilimo. Wilaya ina hektari 105,547.5 za ardhi shambani zenye uwezo, ambapo 87,632.5 hektari (13.65%) zimekuwa shambani. Kilimo cha kujikimu kinatawala; mahindi, maharage, na mpunga ni vyakula vya msingi; kahawa na alizeti vinapandwa kwa kiwango kidogo. Ufugaji ni shughuli kuu yenye uwezekano mkubwa wa ukuaji.\n2.2 Rasilimali Asili\nMisitu: Kutoka kwenye hektari 641,900 za wilaya, hektari 23,022 zimewekwa kama hifadhi za misitu.\nJedwali 1: Misitu na Eneo Lake\nS/NJina la MsituEneo (Ha)Maelezo01Monduli (Komolonik)6,059Chini ya Serikali Kuu02Lendikinya3,689Inasimamiwa na Halmashauri03Burko540Chini ya Serikali Kuu04Essimingor6,100Chini ya Serikali Kuu05Lolkisale960Hifadhi ya Msitu wa Kijiji06Selela1,190Hifadhi ya Msitu wa Kijiji07Mto wa Mbu1,738Hifadhi ya Msitu wa Kijiji08Esilalei1,324Hifadhi ya Msitu wa Kijiji09Eluwai1,422Hifadhi ya Msitu wa Kijiji Jumla 23,022\nUpandaji wa Miti:\nMaeneo makubwa ya wilaya yamekuwa tupu kutokana na ukataji miti na moto wa porini. Halmashauri ya Wilaya inatekeleza mpango wa kitaifa wa upandaji miti 15,000,000 kila mwaka , ukishirikiana na watu binafsi, shule, na taasisi mbalimbali. Changamoto kuu ni ukame na mifugo.\n2.3 Sekta ya Samaki\nUvuvi unafanyika kwa kiwango kidogo kwenye Ziwa Manyara, eneo la Mto wa Mbu. Sababu ni uhaba wa maji makubwa, utamaduni wa Wamaasai, na vifaa duni vya uvuvi. Samaki wanaoliuzwa Monduli wanatoka Ziwa Mdori (Babati), Bwawa la Nyumba ya Mungu (Simanjiro), Ziwa Eyasi (Karatu), Ziwa Victoria, na Bahari ya Hindi (Tanga). Wilaya haijawahi kuwa na afisa wa uvuvi kwa miaka kadhaa.\n2.4 Wanyamapori\n[Maelezo kuhusu wanyamapori wilayani hapa]\n3.0 Miundombinu ya Uchumi\n3.1 Barabara:\nJumla ya mtandao wa barabara ni 617 km ; barabara ya lami 8.1 km, lami ya mchanga 138 km, na barabara ya udongo 470.9 km. Barabara kuu 96 km, mikoa 156 km. Barabara za wilaya, vijijini na za kufikia mashamba zinakuwa na changamoto za mvua kutokana na ukosefu wa vifaa na fedha.\n3.2 Usafiri wa Anga:\nWilaya inafikiwa na Uwanja wa Ndege Arusha (Kisongo) ~35 km kutoka Monduli, na Uwanja wa Ndege wa Kimataifa Kilimanjaro ~90 km. Pia kuna Airstrip ya Makuyuni kwa ndege ndogo.\n3.3 Usafiri wa Reli:\nWilaya haina reli.\n3.4 Mawasiliano:\nWilaya inafikiwa na simu za mezani, redio, sub-post office na mitandao ya simu za mkononi inayofikia karibu 100% ya wilaya. Ofisi kuu zipo Monduli HQ, Mto wa Mbu, na Makuyuni.\n4.0 Fursa za Uwekezaji\nFungua kiambatanisho",
+   "attachments": [
+    {
+     "file_name": "OPPORTUNITIES FOR INVESTMENT IN MONDULI DISTRICT.pdf",
+     "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/attachments/1773746918249-OPPORTUNITIES%20FOR%20INVESTMENT%20IN%20MONDULI%20DISTRICT.pdf",
+     "file_type": "application/pdf",
+     "file_size": "137978"
+    }
+   ]
+  },
+  {
+   "slug": "list-of-councillors",
+   "menu_path": "Councillors > List of Councillors",
+   "title": "List of Councillors",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/list-of-councillors",
+   "public_url": "https://mondulidc.go.tz/list-of-councillors",
+   "createdAt": "2026-03-12T14:52:46.365Z",
+   "updatedAt": "2026-05-07T05:58:00.440Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "councillors-committee",
+   "menu_path": "Councillors > Councillors' Commitee",
+   "title": "Councillors' Committee",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/councillors-committee",
+   "public_url": "https://mondulidc.go.tz/councillors-committee",
+   "createdAt": "2026-03-12T15:36:45.906Z",
+   "updatedAt": "2026-03-12T15:38:51.579Z",
+   "text_en": "KAMATI SHIRIKISHI YA KUDHIBITI UKIMWI\n1. Mhe. Diwani Sangeti Teretui Kimay M/Kiti\n2. Mhe. Nelson Lowasa Mjumbe\n3. Mhe. Latipha Mohamed Malley Mjumbe\n4. Mhe. Lorinyu Tumbaa Mkoosi Mjumbe\n5. Mhe. Marry Sanare Sailepu Mjumbe\nKAMATI YA FEDHA, UTAWALA NA MIPANGO\n1. Mhe. Kisioki Lengoije Moitiko M/Kiti\n2. Mhe. Isack Copriano Mjumbe\n3. Mhe. Sangeti Teretui Kimaay Mjumbe\n4. Mhe. Lemia Murani Mollel Mjumbe\n5. Mhe. Napir E. Mukare Mjumbe\n6. Mhe. Paulina Richard Mollel MJumbe\n7. Mhe. Joseph Emily Pareso Mjumbe\n8. Mhe. Moines Leboy Sung’are Mjumbe\nKAMATI YA UCHUMI, UJENZI NA MAZINGIRA\n1. Mhe. Paulina Richard Mollel M/Kiti\n2. Mhe. Embapaa Paaya Laizer Mjumbe\n3. Mhe. John Meyasi Mollel Mjumbe\n4. Mhe. Mary Lengoije Mjumbe\n5. Mhe. Mosses Kamaika Meingarai Mjumbe\n6. Mhe. Onesmo Naikoyo Mjumbe\n7. Mhe.Mgema Magembe Julius Mjumbe\n8. Mhe. Loth Naparana Tarakwa Mjumbe\n9. Mhe. Hussein Abbas Kuney Mjumbe\n10. Mhe. Godfrey Mgesha Gamara Mjumbe\nKAMATI ELIMU, AFYA NA MAJI\n1. Mhe. Moines Leboy Sunga”are M/Kiti\n2. Mhe. Edward Lenanu Laizer Mjumbe\n3. Mhe. Lobulu Lomanyaki Kivuye Mjumbe\n4. Mhe. Mariam Mussa Abed Mjumbe\n5. Mhe. Marry Lomayani Laizer Mjumbe\n6. Mhe. Hussein Mussa Mungia Mjumbe\n7. Mhe. Grosper Jackson Mollel Mjumbe\n8. Mhe. Joseph Emily Pareso Mjumbe\n9. Mhe. Charles Edward Leng”atai Mjumbe\nKAMATI YA MAADILI\n1. Mhe. Joseph Emily Pareso M/Kiti\n2. Mhe. Embapa Paaya Laizer Mjumbe\n3. Mhe. Godfrey Mgesha Gamara Mjumbe\n4. Mhe. Mriam Mussa Abed Mjumbe\n5. Mhe. Moines Leboy Sung”are Mjumbe\nKAMATI YA UGAWAJI WA ARDHI\n1. Mhe.Mosses Kamaika Meingarai Mjumbe\n2. Mhe. Marry Lumayani Laizer Mjumbe\nBODI YA AJIRA\n1. Mhe. Lobulu Lomnyaki Kivuyo Mjumbe\nMFUKO WA JIMBO\n1. Mhe. Hussein Abbas Kuney Mjumbe\n2. Mhe. Mariam Mussa Abed Mjumbe\nALAT\n1. Mhe. Mgema Magembe Julius Mjumbe\n2. Mhe. Mariam Mussa Abed Mjumbe",
+   "text_sw": "KAMATI SHIRIKISHI YA KUDHIBITI UKIMWI\n1. Mhe. Diwani Sangeti Teretui Kimay M/Kiti\n2. Mhe. Nelson Lowasa Mjumbe\n3. Mhe. Latipha Mohamed Malley Mjumbe\n4. Mhe. Lorinyu Tumbaa Mkoosi Mjumbe\n5. Mhe. Marry Sanare Sailepu Mjumbe\nKAMATI YA FEDHA, UTAWALA NA MIPANGO\n1. Mhe. Kisioki Lengoije Moitiko M/Kiti\n2. Mhe. Isack Copriano Mjumbe\n3. Mhe. Sangeti Teretui Kimaay Mjumbe\n4. Mhe. Lemia Murani Mollel Mjumbe\n5. Mhe. Napir E. Mukare Mjumbe\n6. Mhe. Paulina Richard Mollel MJumbe\n7. Mhe. Joseph Emily Pareso Mjumbe\n8. Mhe. Moines Leboy Sung’are Mjumbe\nKAMATI YA UCHUMI, UJENZI NA MAZINGIRA\n1. Mhe. Paulina Richard Mollel M/Kiti\n2. Mhe. Embapaa Paaya Laizer Mjumbe\n3. Mhe. John Meyasi Mollel Mjumbe\n4. Mhe. Mary Lengoije Mjumbe\n5. Mhe. Mosses Kamaika Meingarai Mjumbe\n6. Mhe. Onesmo Naikoyo Mjumbe\n7. Mhe.Mgema Magembe Julius Mjumbe\n8. Mhe. Loth Naparana Tarakwa Mjumbe\n9. Mhe. Hussein Abbas Kuney Mjumbe\n10. Mhe. Godfrey Mgesha Gamara Mjumbe\nKAMATI ELIMU, AFYA NA MAJI\n1. Mhe. Moines Leboy Sunga”are M/Kiti\n2. Mhe. Edward Lenanu Laizer Mjumbe\n3. Mhe. Lobulu Lomanyaki Kivuye Mjumbe\n4. Mhe. Mariam Mussa Abed Mjumbe\n5. Mhe. Marry Lomayani Laizer Mjumbe\n6. Mhe. Hussein Mussa Mungia Mjumbe\n7. Mhe. Grosper Jackson Mollel Mjumbe\n8. Mhe. Joseph Emily Pareso Mjumbe\n9. Mhe. Charles Edward Leng”atai Mjumbe\nKAMATI YA MAADILI\n1. Mhe. Joseph Emily Pareso M/Kiti\n2. Mhe. Embapa Paaya Laizer Mjumbe\n3. Mhe. Godfrey Mgesha Gamara Mjumbe\n4. Mhe. Mriam Mussa Abed Mjumbe\n5. Mhe. Moines Leboy Sung”are Mjumbe\nKAMATI YA UGAWAJI WA ARDHI\n1. Mhe.Mosses Kamaika Meingarai Mjumbe\n2. Mhe. Marry Lumayani Laizer Mjumbe\nBODI YA AJIRA\n1. Mhe. Lobulu Lomnyaki Kivuyo Mjumbe\nMFUKO WA JIMBO\n1. Mhe. Hussein Abbas Kuney Mjumbe\n2. Mhe. Mariam Mussa Abed Mjumbe\nALAT\n1. Mhe. Mgema Magembe Julius Mjumbe\n2. Mhe. Mariam Mussa Abed Mjumbe",
+   "attachments": []
+  },
+  {
+   "slug": "chairperson-s-tametable",
+   "menu_path": "Councillors > Chairperson's  Timetable > Chairpersons' Timetable",
+   "title": "Chairperson's Tametable",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/chairperson-s-tametable",
+   "public_url": "https://mondulidc.go.tz/chairperson-s-tametable",
+   "createdAt": "2026-03-12T16:04:35.977Z",
+   "updatedAt": "2026-03-17T10:48:41.734Z",
+   "text_en": "MONDULI DISTRICT COUNCIL\nSPECIAL DAYS TO MEET THE COUNCIL CHAIRPERSON\nDAY TIME\nTUESDAY 7:30 AM – 3:30 PM\nTHURSDAY 7:30 AM – 3:30 PM",
+   "text_sw": "HALMASHAURI YA WILAYA YA MONDULI\nSIKU MAALUMU ZA KUONANA NA MWENYEKITI WA HALMASHAURI\nSIKU. MUDA\nJUMANNE SAA 1;30 ASUBUHI HADI SAA 9:30 ALASIRI\nALHAMISI SAA 1;30 ASUBUHI HADI SAA 9:30 ALASIRI",
+   "attachments": []
+  },
+  {
+   "slug": "meetings-timetable",
+   "menu_path": "Councillors > Meeting Timetable > Meetings Timetable",
+   "title": "Meetings Timetable",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/meetings-timetable",
+   "public_url": "https://mondulidc.go.tz/meetings-timetable",
+   "createdAt": "2026-03-12T15:17:41.343Z",
+   "updatedAt": "2026-03-12T15:23:07.955Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "divisions-wards-villages",
+   "menu_path": "Divisions-Wards-Village > Divisions,Wards and Villages of Monduli DC",
+   "title": "Divisions-Wards-Villages",
+   "api_url": "https://mondulidc.go.tz/api/pages/slug/divisions-wards-villages",
+   "public_url": "https://mondulidc.go.tz/divisions-wards-villages",
+   "createdAt": "2026-03-17T05:05:58.966Z",
+   "updatedAt": "2026-03-17T05:17:31.679Z",
+   "text_en": "Divisions Wards and Villages",
+   "text_sw": "Tarafa , Kata na Vijiji",
+   "attachments": [
+    {
+     "file_name": "Maeneo ya Utawala.pdf",
+     "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/attachments/1773724651684-Maeneo%20ya%20Utawala.pdf",
+     "file_type": "application/pdf",
+     "file_size": "155420",
+     "sha256": "eb7b59c500f35f04bdb342877d632cfe406934ad89b53fe66c7d0405ac3f1fc0",
+     "bytes": 155420,
+     "status": "text_extracted",
+     "kind": "pdf",
+     "pages": 11,
+     "text": "HALMASHAURI YA WILAYA YA MONDULI \nORODHA YA KATA,  VIJIJI NA VITONGOJI  \nTARAFA KATA VIJIJI VITONGOJI \n1 Kisongo \nMonduli Mjini \n(Mamlaka ya Mji \nMdogo) \n Sabasaba \n Sinon Kati  \n    Monduli Mashariki  \n    Monduli Magharibi  \n     \n  Engutoto Mlimani Mlimani Magharibi  \n    Mlimani Mashariki  \n    Mlimani Mash.Kati \n    Mlimani Magh. Kati  \n     \n   Sinoni/Ngarash Sinon kusini  \n    Ngarash Juu  \n    Ngarash  \n     \n   Olarash Lengine  \n    Lositeti \n    Orkaria  \n    Lesale  \n     \n  Monduli Juu Emairete Alasai \n    Orketurai  \n    Imorijo \n    Emairete \n    Irkungu \n     \n   Eluai Lermahir \n    Kilasho  \n     \n   Enguiki Nengiloriti  \n    Loimaroro \n    Ormeli  \n     \n  Mfereji  Mfereji Puslukunya  \n    Imbopon'g \n    Emarti \n     \n   Komesha  Lengolong \n    Noomakarani \n    Orkeju \n     \n   Idonyonaado  Irkung \n    Idonyo \n    Naado \n     \n   Emurua  Olndemwai \n    Noonderkes \n    Orbil \n     \n  Lashaine  Lashaine Lashaine  \n    Sepeko \n    Orng'oswa \n     \n   Orkeswa  Loding'oro \n    Engoshuku \n    Orkeswa \n     \n  Sepeko Mti Mmoja Noongoijo  \n    Sepeko  \n    Megwara \n     \n   Alkaria Alkaria \n    Oloodo Lalkaria  \n    Almaloroi \n    Eseki \n     \n   Lendikinya Mugumanyokie  \n    Lendikinya  \n    Murundawa  \n     \n   Arkatan  Nadosoito  \n    Ardai  \n    Megwara \n    Karatini \n     \n  Lepurko Lepurko Shuleni Endarara \n    Loyongo \n    Madukani  \n     \n   Loosimingor Mlimani  \n    Engirigisi \n    Engiloriti  \n    Orkisima  \n    Noosuyan  \n     \n   En'garooji Endupasat \n    En'garooji \n    Mlimani \n     \n   Nanja  Mguu wa Zuberi \n    Noondimito \n    Nanja \n     \n  Meserani Meserani Juu Loosingiran  \n    Duka bovu \n    Mussa  \n    Duka mbili \n    Ingokumet \n    Shakape \n     \n   Meserani Bwawani Loolera  \n    Embararwai  \n    Lipisiek \n     \n  Naalarami Naalarami Naalarami \n    Irkidomungen \n    Idonyo  \n     \n   Engorika  Tulian'gatuny \n    Kirurum  \n     \n   Lengiloriti Lengiloriti \n    Losiririmi \n     \n  Moita Moita Kiloriti Embararuai  \n    Erangau \n    Konyori \n    Arkina  \n    Einoti \n     \n   Kiloriti Kipok Lemugur \n    Orkisima  \n    Engikaret \n     \n   Loolera Lovilukuny \n    Edoinyo \n    Loolera \n     \n   Moita Bwawani Endipidapoi \n    Nasisini  \n    Orkolili \n    Kitosokoine \n    Naalarami  \n     \n   Kilimatinde Silongoi  \n    Noongai  \n    Kilmatinde  \n    Kitosokoine  \n    Einito \n     \n  Lolkisale Lolkisale Ndarpoi \n    Lolkisale A \n    Lolkisale B \n    Makao Mapya \n     \n   Tukusi Makao Mapya \n    Nakweni  \n    Chemchemi \n          \n   Nafco  Osilalei  \n    Loongolwa B \n    Loongolwa C \n     \n  Lemooti  Lemooti  Lemooti \n    Oloriso \n    Lesidai \n     \n   Lengoolwa Lengoolwa \n    Orkisima  \n    Odonyo \n    Engosipa \n     \n   Oldonyo  Nyorit \"A\" \n    Nyorit \"B\" \n    Lengijape  \n    Oldonyo \n     \n2 Makuyuni Mswakini  Naitolia Ormangwai  \n    Engusero  \n     \n   Mswakini Chini Lamosamo \n    Engasiti  \n    Shuleni  \n     \n   Mswakini Juu Landilen  \n    Orbukoi \n    Msimamo  \n     \n  Makuyuni Makuyuni Makuyuni Mjini  \n    Makuyuni Juu \n    Esimangori \n    Saburi  \n    Lemiyoni  \n     \n   Naiti Naiti shuleni  \n    Lambo  \n    Orkisima  \n     \n   Mbuyuni Njaro  \n    Barabarani \n    Loolera  \n     \n  Esilalei Losirwa Losirwa Juu \n    Makao Mapya \n    Mti wa Kliniki \n    Olemit \n    Losirwa chini \n    Losirwa \n     \n   Baraka Baraka \n    Belgiji \n    Enguraisi \n     \n   Esilalei Ndepesi  \n    Makuyuni Masaini \n    Esimiti \n    Shuleni \n    Kanisani \n     \n   Oltukai Oltukai \n    Engusero \n    Simbi \n    Ilera \n     \n   Mungere Mungere  \n    Kambi ya Mkaa \n    Enoloo \n     \n3 Manyara Mto wa Mbu Barabarani Korea Kusini \n    Korea Kaskazini \n    Korea Magharibi \n    NHC \n     \n   Jangwani  Jangwani Ziwani \n    Magomeni \"A\" \n    Magomeni \"B\" \n     \n   Kisutu Kisutu Kati  \n    Uwanja wa Barafu \n    Mnazi Mmoja  \n     \n   Magadini Magadini \"A\" \n    Magadini \"B\" \n    N.H.C \n    Sokoni \n     \n  Migungani  Migungani  A Mnada wa Zamani \n    Roman Catholic \n    Comwex \n    Popo \n     \n   Migungani  \"B\" Makao Mapya \n    Migungani Mashariki \n    Migungani Kusini \n     \n   Kigongoni  Miembeni  \n    Amani \n    Bondeni  \n     \n  Majengo Majengo Majengo A \n    Majengo B \n    Majengo C \n    Majengo D \n     \n   Migombani Kirurumo \n    Migombani Juu \n    Migombani Chini  \n    Magadini \n    Njoro \n    Migombani Kati \n    Mlimani Park \n     \n  Selela Selela Shuleni \n    Ndinyika  \n    Nadosoito  \n    Bomba \n    Ranch \n     \n   Mbaash Oltepesi  \n    Iklorkor \n    Injoroi  \n     \n  Engaruka  Engaruka Juu Mulla  \n    Madukani  \n    Arushani A \n    Arushani B \n    Lepolosi B \n     \n   Oldonyo Lengai Migombani \n    Irkung  \n    Donyonaado \n    Ngoisuk \n    Kiserian \n    Irkung  \n     \n   Engaruka Chini Lapalsek \n    Endepesi  \n    Nengalash \n    Engorika \n    Engaruka Chini \n    Nderash \n    Ndimi \n    Alapalasek \n     \n   Ererendeni  Mkao \n    Naisijo \n    Ormesuli \n    Eng'oswa \n    Ormunishoi \n3  20 62 236"
+    }
+   ]
+  }
+ ],
+ "files": [
+  {
+   "name": "KANUNI ZA KUDUMU ZA HALMASHAURI- MONDULI DC",
+   "date": "2026-05-19T14:20:37.545Z",
+   "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/files/1779200450004-KANUNI-ZA-KUDUMU-ZA-HALMASHURI-YA-WILAYA-YA-MONDULI.pdf",
+   "file_type": "application/pdf",
+   "size": "1580571"
+  },
+  {
+   "name": "SHERIA NDOGO ZA HALMASHAURI YA WILAYA YA MONDULI",
+   "date": "2026-05-18T13:31:47.854Z",
+   "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/files/1779111108239-SHERIA-NDOGO-ZA-MONDULIDC.pdf",
+   "file_type": "application/pdf",
+   "size": "310507"
+  },
+  {
+   "name": "MWONGOZO WA KUSIMAMIA ANUAI ZA JAMII KATIKA UTUMISHI WA UMMA",
+   "date": "2026-03-17T08:46:56.583Z",
+   "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/files/1773737217255-MWONGOZO_ANUAI_ZA_JAMII.pdf",
+   "file_type": "application/pdf",
+   "size": "1446115"
+  },
+  {
+   "name": "MWONGOZO WA USHUGHULIKIAJI MREJESHO WA WANANCHI KUHUSU HUDUMA ZINAZOTOLEWA NA SERIKALI 2023",
+   "date": "2026-03-17T08:46:00.714Z",
+   "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/files/1773737163533-MWONGOZO%20WA%20USHUGHULIKIAJI%20WA%20MREJESHO%20WA%20WANANCHI%20KUHUSU%20HUDUMA%20ZINAZOTOLEWA%20NA%20SERIKALI-2023.pdf",
+   "file_type": "application/pdf",
+   "size": "5278928"
+  },
+  {
+   "name": "Muundo wa Mamalaka ya Serikali za Mtaa",
+   "date": "2026-03-17T08:41:44.589Z",
+   "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/files/1773736915742-muundo%20mpya%202022.pdf",
+   "file_type": "application/pdf",
+   "size": "11508836"
+  },
+  {
+   "name": "MWONGOZO WA MATUMIZI BORA, SAHIHI NA SALAMA WA VIFAA, DATA NA MIFUMO YA TEHAMA SERIKALINI",
+   "date": "2026-03-17T08:41:01.228Z",
+   "url": "http://mondulidc.go.tz/minio/mondulidc.go.tz/files/1773736861759-MWONGOZO%20WA%20MATUMIZI%20BORA%2C%20SAHIHI%20NA%20SALAMA%20WA%20VIFAA%2C%20DATA%20NA%20MIFUMO%20YA%20TEHAMA%20SERIKALINI.pdf",
+   "file_type": "application/pdf",
+   "size": "712405"
+  }
+ ],
+ "news": [
+  {
+   "id": 7940,
+   "title": "Monduli DC yatambua Mchango wa NGO, Taasisi na Wadau wa Maendeleo.",
+   "date": "2026-08-11",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 4353,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7910,
+   "title": "Mafunzo ya Biashara ya Hewa ya Kaboni yatolewa Monduli",
+   "date": "2026-08-11",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1883,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7900,
+   "title": "Tawi la Yanga Halisi Monduli lachangia Damu Salama Katika Hospitali ya Wilaya ya Monduli",
+   "date": "2026-08-08",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1839,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7410,
+   "title": "WAONESHAJI ZAIDI YA 500 KUSHIRIKI MAONESHO YA 32 YA NANENANE KANDA YA KASKAZINI",
+   "date": "2026-08-01",
+   "category": "Uchumi",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1523,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7278,
+   "title": "Monduli DC yaweka mkakati wa kupambana na Lishe duni kwa watoto.",
+   "date": "2026-07-31",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2734,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7269,
+   "title": "WAZIRI WA KILIMO MHE. DANIEL GODFREY CHONGOLO AZINDUA BWENI LA WAVULANA SHULE YA SEKONDARI MANYARA, ASISITIZA ELIMU NA UFAULU WA WANAFUNZI",
+   "date": "2026-07-23",
+   "category": "Elimu",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2050,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6090,
+   "title": "DC Gloriana azindua rasmi kongamano la Vijana PLatform",
+   "date": "2026-07-03",
+   "category": "Matukio",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2117,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5907,
+   "title": "Mhe. CPA. Amos Makalla akabidhi magari mawili yenye thamani ya shilingi Milioni 440.6 na Pikipiki moja",
+   "date": "2026-06-30",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2205,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4805,
+   "title": "Wataalamu CHMT Monduli wajengeana uzoefu wa utendaji Kazi.",
+   "date": "2026-06-05",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1835,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4804,
+   "title": "Wajumbe wa CHMT na Waganga Wafawidhi wapatiwa mafunzo ya ujengaji uwezo dhidi ya ugonjwa wa ebola.",
+   "date": "2026-06-05",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2794,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4695,
+   "title": "Miradi ya WASH yenye thamani ya shilingi milioni 245.9 yatekelezwa katika vituo vya kutolea huduma Monduli.",
+   "date": "2026-06-02",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2084,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4694,
+   "title": "Monduli DC yatunukiwa Tuzokwa kuongoza matokeo ya Kidato cha Nne Mkoa wa Arusha 2025.",
+   "date": "2026-06-01",
+   "category": "Elimu",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1355,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4284,
+   "title": "Walimu Monduli DC Wapewa Motisha kwa Matokeo Mazuri Kidato cha Nne na Sita 2025.",
+   "date": "2026-05-23",
+   "category": "Elimu",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2917,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4275,
+   "title": "Takukuru Monduli Yafanya Kikao Kazi na Watumishi wa Halmashauri ya Wilaya ya Monduli",
+   "date": "2026-05-25",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2104,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4266,
+   "title": "Timu ya Wataalamu wa Afya Yatinga Ofisi ya Mkuu wa Mkoa wa Dodoma",
+   "date": "2026-05-25",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1027,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4261,
+   "title": "Timu ya Wataalam Divisheni ya Afya monduli yahitimisha ziara yake Jijini Dodoma.",
+   "date": "2026-05-21",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2507,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3565,
+   "title": "Mkurugenzi Wa Shirika La Doris Mollel Foundation Apokelewa Kwa Shangwe Kata Ya Sepeko.",
+   "date": "2026-05-11",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1582,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3564,
+   "title": "Stendi Ya Makuyuni Kuanza Rasmi Mwaka Wa Fedha 2026/ 2027",
+   "date": "2026-05-11",
+   "category": "Miundombinu",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 963,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3563,
+   "title": "Geuzeni Changamoto Kuwa Fursa Ili Wananchi Wafurahi",
+   "date": "2026-05-11",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2199,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3561,
+   "title": "Monduli Yahitimisha Wiki Ya Chanjo Kwa Kutoa Chanjo Na Elimu Ya Afya.",
+   "date": "2026-05-11",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2393,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3262,
+   "title": "Ras Arusha Apongeza Hali Ya Utoaji Huduma Katika Hospitali Ya Wilaya Ya Monduli",
+   "date": "2026-04-24",
+   "category": "Afya",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2095,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2310,
+   "title": "Monduli Yaadhimisha Miaka 42 ya Kumbukizi ya Kifo cha Hayati Edward Moringe Sokoine.",
+   "date": "2026-04-12",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3315,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2198,
+   "title": "Reginald Johnson Mbwambo Mwenyekiti CBWSO 2026/2028 Monduli.",
+   "date": "2026-04-03",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2122,
+   "convening_tags": [
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2194,
+   "title": "Timu Ya Menejimenti (CMT) Imetembelea na Kukagua Miradi ya Maendeleo Monduli",
+   "date": "2026-04-30",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1739,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2193,
+   "title": "Shirika Lisilo La Kiserikali La SOS Children's Villages Lazindua Rasmi Mradi Wake Monduli",
+   "date": "2026-03-27",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2197,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1882,
+   "title": "Monduli yaadhimisha Siku ya Misitu Duniani kwa kupanda Miche 2,000.",
+   "date": "2026-03-25",
+   "category": "Matukio",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2527,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1863,
+   "title": "Shilingi milioni 248.9 zanufaisha Vikundi 21 vya wanawake, Vijana A Watu wenye Ulemavu - Monduli",
+   "date": "2026-03-24",
+   "category": "Uchumi",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2188,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1861,
+   "title": "Kikao cha kawaida cha Kamati ya Fedha, Utawala na Mipango imepokea na kujadili Taarifa ya Mwezi Februari 2026.",
+   "date": "2026-03-23",
+   "category": "Matukio",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 545,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1859,
+   "title": "WFP Na Monduli DC Wajadili Hatua Za Awali Kukabiliana na Majanga",
+   "date": "2026-03-18",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1858,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 1854,
+   "title": "Shule ya Msingi Engaruka Juu Yapokea Magodoro, Wanafunzi Kurudi Shule Machi 18, 2026.",
+   "date": "2026-03-17",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2136,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1496,
+   "title": "Monduli yapongezwa kwa Usimamizi na Utekelezaji mzuri wa Miradi ya Maendeleo",
+   "date": "2026-03-17",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2933,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 906,
+   "title": "HAKUNA FIDIA ENEO LA MAFUNZO NA MALISHO-MONDULI",
+   "date": "2026-03-06",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1237,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 898,
+   "title": "AGIZO LA KUSIKILIZA KERO NA MIGOGORO YA ARDHI MONDULI, LATEKELEZWA.",
+   "date": "2026-03-07",
+   "category": "Habari",
+   "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1000,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 245,
+   "title": "TANGAZO LA MAOMBI YA MIKOPO YA ASILIMIA KUMI",
+   "date": "2026-03-10",
+   "category": "Taarifa",
+   "listing_url": "https://mondulidc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 154,
+   "convening_tags": [],
+   "attachments": [
+    "tangazo1.pdf"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://mondulidc.go.tz/api/profiles": "3040e51476964412800f114fe58ecb3f8fa10e7da7f8a126308c573a8a6d9c55",
+  "https://mondulidc.go.tz/api/statistics": "751ce291317dd6f7290403ab1be9c2c84b0751700bd6f70646f508cc18e00f76",
+  "https://mondulidc.go.tz/api/footer": "8312562963960f26918b71f8937ec10a94be0fb5bd0cf77a8f2ed11c77394d71",
+  "https://mondulidc.go.tz/api/menus": "d73abd81cfff5dd7a11568dd27f6cd257119b26c312be5d3a2091b87ebde470a",
+  "https://mondulidc.go.tz/api/pages/slug/our-history": "661aa41cfbfa7fcbd5be38d22ac9ba9fba0e0d92c9b566609bfc0c0b347c9520",
+  "https://mondulidc.go.tz/api/pages/slug/mission-and-vision": "2d1c106d70c5a6ab7a65cd204591ffca8e5002038943ca690c5cae688c948c99",
+  "https://mondulidc.go.tz/api/pages/slug/core-values": "665750d712b785a83fd33012a208d807aeba50ce1100de8c036a8c8411deb10c",
+  "https://mondulidc.go.tz/api/pages/slug/council-s-objectives": "156237de62bbb217fafab12f8e406fa5c749f8927fd698b1995be072cc86da4b",
+  "https://mondulidc.go.tz/api/pages/slug/organization-structure": "70c6337e6c24627af2bd5566d34d3beb455ca3f707d5047a76cab350aeab9187",
+  "https://mondulidc.go.tz/api/pages/slug/administration-and-human-resource-management-division": "c6dadbb368a7a93b98dca6476ea3177f3a0f0f635e00cf2771fc271f93f715e5",
+  "https://mondulidc.go.tz/api/pages/slug/planning-and-coordination-division": "919b79e467d882f49f66283a4a1797bdb3e164fcc46333da3efca02bade27689",
+  "https://mondulidc.go.tz/api/pages/slug/community-development-division": "dd7fc3999cbda0af35dfab4a7b1dd14d12d8bf6dee53a955011c693f7f287cbe",
+  "https://mondulidc.go.tz/api/pages/slug/secondary-education-division": "2b43f3e6fb74a5965364f29e4be2df9da1f428040bda0a8453af5d2130e79530",
+  "https://mondulidc.go.tz/api/pages/slug/pre-primary-and-primary-education-division": "45d37fa6b23245980b2c4410a4de55bad334da243ff2fc239fffd76caf7accce",
+  "https://mondulidc.go.tz/api/pages/slug/health-social-welfare-and-nutrition-services-division": "a6aec40777aeaf70583f3cb77ac187cc1d4aef3680ed36c0985dc58413a554d3",
+  "https://mondulidc.go.tz/api/pages/slug/agriculture-livestock-and-fisheries-division": "970d31aa9d2ba5c62f270ecf71690123d1166379c5f872e4501df0d849ccbe7d",
+  "https://mondulidc.go.tz/api/pages/slug/industries-trade-and-investment-division": "c432e3316d24c92519aad4e45d9c192838cad3f18b0b32d7ec541c8cdb19e86a",
+  "https://mondulidc.go.tz/api/pages/slug/infrastructure-rural-and-urban-development-division": "ea442b1acbf18418f7681a5ee60bfa5f0ee4df5e0ca3c37ed1305d3c1ccf3b79",
+  "https://mondulidc.go.tz/api/pages/slug/investment-profile": "bcfe82f33af9133d3a2b0c1bf56cfbb7f7e8f740775c3093cacc54e239255c6b",
+  "https://mondulidc.go.tz/api/pages/slug/list-of-councillors": "b9332a7c2288464b5200c17c66c727c496d4e28141bf352982894c6531b2aefd",
+  "https://mondulidc.go.tz/api/pages/slug/councillors-committee": "b8dfce45b4b40f6cecee9ac59b10fe67f9ec495569f6644daeda4250dc7f5a70",
+  "https://mondulidc.go.tz/api/pages/slug/chairperson-s-tametable": "d87ff654daacbbe403f41722080657a4daab8b644808a5dbdea78ea0322696cb",
+  "https://mondulidc.go.tz/api/pages/slug/meetings-timetable": "2b55c942c22ffad78d19fdd158c1729f0331f28d3808aa7fb4c932cdfa73b127",
+  "https://mondulidc.go.tz/api/pages/slug/divisions-wards-villages": "279f08c9f9eed5711bf4697a406fcf34014ad6a1b5aaa37844a42f9294e42303",
+  "https://mondulidc.go.tz/api/files?page=1&limit=100": "8da709f418e6e24927bcd92d26f0aad61d885dfa8b3f24bbf8f7150ca42f09d0",
+  "https://mondulidc.go.tz/api/news?page=1&limit=50": "307c42572459f20975fe85d068caaad26b442732cb77ce789a202b57318156c5",
+  "https://mondulidc.go.tz/api/announcements?page=1&limit=50": "1372e6fd8a105ce51a88c18471dd7d09116136b0bd7d1191aab4feac7855ac0a"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

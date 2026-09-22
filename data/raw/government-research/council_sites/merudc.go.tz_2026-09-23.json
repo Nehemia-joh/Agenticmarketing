@@ -1,0 +1,1106 @@
+{
+ "host": "merudc.go.tz",
+ "organisation": "Meru District Council",
+ "retrieved": "2026-09-23",
+ "base_url": "https://merudc.go.tz",
+ "profiles": [
+  {
+   "id": 350,
+   "name": "Mh. Lucas Kaaya",
+   "title": "District Council Chairman",
+   "titleSwahili": "Mwenyekiti wa Halmashauri ya Meru",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-09T13:01:57.362Z",
+   "updatedAt": "2026-03-10T13:03:26.338Z"
+  },
+  {
+   "id": 354,
+   "name": "Mwl. Zainabu Juma Makwinya",
+   "title": "District Executive Director",
+   "titleSwahili": "Mkurugenzi Mtendaji Halmashauri ya wilaya ya Meru",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-09T13:04:03.610Z",
+   "updatedAt": "2026-03-10T13:01:59.745Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Shule za Sekondari",
+   "value": 49,
+   "suffix": ""
+  },
+  {
+   "label": "Shule za Sekondari",
+   "value": 32,
+   "suffix": ""
+  },
+  {
+   "label": "Shule za Msingi",
+   "value": 119,
+   "suffix": ""
+  },
+  {
+   "label": "Shule za Msingi",
+   "value": 76,
+   "suffix": ""
+  },
+  {
+   "label": "Hospitali ya Wilaya",
+   "value": 1,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Meru District Council",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "mission-and-vision",
+     "title": "Mission and Vision",
+     "swTitle": "Dira na Dhima"
+    },
+    {
+     "url": "our-history",
+     "title": "Our History",
+     "swTitle": "Historia Yetu"
+    },
+    {
+     "url": "core-values",
+     "title": "Core Values",
+     "swTitle": "Maadili ya Msingi"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "",
+     "title": "Business Licences",
+     "swTitle": "Leseni za Biashara"
+    },
+    {
+     "url": "",
+     "title": "Application Form",
+     "swTitle": "Fomu za Maombi"
+    },
+    {
+     "url": "",
+     "title": "News",
+     "swTitle": "Habari"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://www.pmo.go.tz",
+     "title": "Prime Minister Office",
+     "swTitle": "Ofisi ya Waziri Mkuu"
+    },
+    {
+     "url": "https://tamisemi.go.tz",
+     "title": "Regional Administration and Local Government",
+     "swTitle": "Tawala za Mikoa na Serikali za Mitaa"
+    },
+    {
+     "url": "https://nida.go.tz",
+     "title": "National Identification Authority",
+     "swTitle": "Mamlaka ya Vitambulisho vya Taifa Tanzania (NIDA)"
+    },
+    {
+     "url": "https://www.necta.go.tz",
+     "title": "National Examination Council of Tanzania",
+     "swTitle": "Baraza la Mitihani ya Taifa Tanzania"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d254913.11730723793!2d36.72648708727577!3d-3.3458369565513686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sramani%20ya%20halmshauri%20wilaya%20ya%20meru%20tanzania!5e0!3m2!1sen!2stz!4v1773149228299!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.358175,
+   "lng": 36.827767,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "title_sw": "Historia Yetu",
+   "slug": "our-history"
+  },
+  {
+   "path": "About Us > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na Dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About Us > Mission and Vision > Mission and Vision",
+   "title": "Mission and Vision",
+   "title_sw": "Dira na Dhima",
+   "slug": "mission-and-vision"
+  },
+  {
+   "path": "About Us > Core Value > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili ya Msingi",
+   "slug": "core-values"
+  },
+  {
+   "path": "About Us > Strategic Plan > Strategic Plan",
+   "title": "Strategic Plan",
+   "title_sw": "Mpango Mkakati",
+   "slug": "strategic-plan"
+  },
+  {
+   "path": "Administration > Division > Division of Administration and Human Resource Management",
+   "title": "Division of Administration and Human Resource Management",
+   "title_sw": "Divisheni ya Utawala na Usimamizi wa Rasilimali Watu",
+   "slug": "division-of-administration-and-human-resource-management"
+  },
+  {
+   "path": "Administration > Division > Division of Planning and Coordination",
+   "title": "Division of Planning and Coordination",
+   "title_sw": "Divisheni ya Mipango na Uratibu",
+   "slug": "planning-and-coordination"
+  },
+  {
+   "path": "Administration > Division > Division of Pre-Primary and Primary Education",
+   "title": "Division of Pre-Primary and Primary Education",
+   "title_sw": "Divisheni ya Elimu ya Awali na Msingi",
+   "slug": "pre-primary-and-primary-education"
+  },
+  {
+   "path": "Administration > Division > Division of Infrastructure, Rural and Urban Development Planning",
+   "title": "Division of Infrastructure, Rural and Urban Development Planning",
+   "title_sw": "Divisheni ya Miundombinu, Mipango ya Maendeleo ya Vijijini na Mjini",
+   "slug": "department-of-infrastructure-rural-and-urban-development-planning"
+  },
+  {
+   "path": "Administration > Division > Division of Community Development",
+   "title": "Division of Community Development",
+   "title_sw": "Divisheni ya Maendeleo ya Jamii",
+   "slug": "department-of-community-development"
+  },
+  {
+   "path": "Administration > Division > Division of Industry, Trade, and Investment",
+   "title": "Division of Industry, Trade, and Investment",
+   "title_sw": "Divisheni ya Viwanda, Biashara na Uwekezaji",
+   "slug": "department-of-industry-trade-and-investment"
+  },
+  {
+   "path": "Administration > Units > Accounts and Finance Unit",
+   "title": "Accounts and Finance Unit",
+   "title_sw": "Kitengo cha Fedha na Uhasibu",
+   "slug": "accounts-and-finance"
+  },
+  {
+   "path": "Administration > Units > Internal Audit Unit",
+   "title": "Internal Audit Unit",
+   "title_sw": "Kitengo cha Ukaguzi wa Ndani",
+   "slug": "internal-audit"
+  },
+  {
+   "path": "Administration > Units > Procurement and Supply Unit",
+   "title": "Procurement and Supply Unit",
+   "title_sw": "Kitengo cha Ugavi na Manunuzi",
+   "slug": "procurement-and-supply-unit"
+  },
+  {
+   "path": "Administration > Units > Natural Resources and Environmental Conservation Unit",
+   "title": "Natural Resources and Environmental Conservation Unit",
+   "title_sw": "Kitengo cha Maliasili na Uhifadhi wa Mazingira",
+   "slug": "natural-resources-and-environmental-conservation"
+  },
+  {
+   "path": "Administration > Units > Legal Service Unit",
+   "title": "Legal Service Unit",
+   "title_sw": "Kitengo cha Huduma za Sheria",
+   "slug": "legal-service-unit"
+  },
+  {
+   "path": "Administration > Units > Sports, Culture and Arts Unit",
+   "title": "Sports, Culture and Arts Unit",
+   "title_sw": "Kitengo cha Utamaduni na Michezo",
+   "slug": "sports-culture-and-arts"
+  },
+  {
+   "path": "Administration > Units > ICT Unit",
+   "title": "ICT Unit",
+   "title_sw": "Kitengo cha Tehama",
+   "slug": "information-and-communication-technology"
+  },
+  {
+   "path": "Administration > Units > Government Communication Unit",
+   "title": "Government Communication Unit",
+   "title_sw": "Kitengo cha Mawasiliano ya Serikali",
+   "slug": "government-communication-unit"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "councilors > List of Honorable Councilors",
+   "title": "List of Honorable Councilors",
+   "title_sw": "Orodha ya Waheshimiwa Madiwani",
+   "slug": "list-of-honorable-councilors"
+  },
+  {
+   "path": "councilors > List of Honorable Councilors > List of Honorable Councilors",
+   "title": "List of Honorable Councilors",
+   "title_sw": "Orodha ya Waheshimiwa Madiwani",
+   "slug": "list-of-honorable-councilors"
+  },
+  {
+   "path": "councilors > Council Standing Committees > Finance, Administration and Planning Committee",
+   "title": "Finance, Administration and Planning Committee",
+   "title_sw": "Kamati ya fedha, Utawala na Mipango",
+   "slug": "finance-administration-and-planning-committee"
+  },
+  {
+   "path": "councilors > Council Standing Committees > Economy, Construction and Environment Committee",
+   "title": "Economy, Construction and Environment Committee",
+   "title_sw": "Kamati ya Uchumi,Ujenzi na Mazingira",
+   "slug": "economy-construction-and-environment-committee"
+  },
+  {
+   "path": "councilors > Council Standing Committees > HIV/AIDS Control Committee.",
+   "title": "HIV/AIDS Control Committee.",
+   "title_sw": "Kamati ya kudhibiti Ukimwi",
+   "slug": "hiv-aids-control-committee"
+  },
+  {
+   "path": "councilors > Council Standing Committees > Education, Health and Water Committee",
+   "title": "Education, Health and Water Committee",
+   "title_sw": "Kamati ya Elimu, Afya na Maji",
+   "slug": "education-health-and-water-committee"
+  },
+  {
+   "path": "Our Services > Health > Health Service",
+   "title": "Health Service",
+   "title_sw": "Huduma za Afya",
+   "slug": "health-services"
+  },
+  {
+   "path": "Our Services > Education",
+   "title": "Education",
+   "title_sw": "Elimu",
+   "slug": "education-services"
+  },
+  {
+   "path": "Our Services > Education > Education Services",
+   "title": "Education Services",
+   "title_sw": "Huduma ya Elimu",
+   "slug": "education-services"
+  },
+  {
+   "path": "Our Services > Agriculture > Agriculture",
+   "title": "Agriculture",
+   "title_sw": "Kilimo",
+   "slug": "agriculture"
+  },
+  {
+   "path": "Our Services > Livestock Keeping > Livestock Keeping Services",
+   "title": "Livestock Keeping Services",
+   "title_sw": "Huduma ya Ufugaji",
+   "slug": "livestock-keeping-service"
+  },
+  {
+   "path": "Investment Opportunity > Tourism > Tourism Attraction",
+   "title": "Tourism Attraction",
+   "title_sw": "Vivutio vya Utalii",
+   "slug": "forest"
+  },
+  {
+   "path": "Investment Opportunity > Livestock Keeping > Dairy Cattle Farming",
+   "title": "Dairy Cattle Farming",
+   "title_sw": "Ufugaji  wa Ng'ombe wa Maziwa",
+   "slug": "dairy-cattle-farming"
+  },
+  {
+   "path": "Investment Opportunity > Fruits and Vegetable Cultivation > Tomato Cultivation",
+   "title": "Tomato Cultivation",
+   "title_sw": "Kilimo cha Nyanya",
+   "slug": "tomato-cultivation"
+  },
+  {
+   "path": "Investment Opportunity > Beekeeping",
+   "title": "Beekeeping",
+   "title_sw": "Ufugaji wa Nyuki",
+   "slug": "beekeeping"
+  },
+  {
+   "path": "Investment Opportunity > Beekeeping > Beekeeping",
+   "title": "Beekeeping",
+   "title_sw": "Ufugaji wa Nyuki",
+   "slug": "beekeeping"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "our-history",
+   "menu_path": "About Us > Our History > Our History",
+   "title": "Our History",
+   "api_url": "https://merudc.go.tz/api/pages/slug/our-history",
+   "public_url": "https://merudc.go.tz/our-history",
+   "createdAt": "2026-03-09T10:01:12.800Z",
+   "updatedAt": "2026-03-09T10:01:12.800Z",
+   "text_en": "The Meru District Council was officially established by Government Notice No. 353 of 2007 following the decision to divide the former Arumeru District Council and create two independent district councils: Meru District Council and Arusha District Council .\nMeru District Council is located in the eastern part of the Arusha Region and lies between latitude 36°43’16’’ and 37°03’43’’ , and longitude -3°04’30’’ .\nMeru District Council borders Longido District to the north ; Siha and Hai Districts to the east (in Kilimanjaro Region ); Simanjiro District to the south (in Manyara Region ); and Arusha District and Arusha District Council to the west .",
+   "text_sw": "Halmashauri ya wilaya ya Meru imeanzishwa rasmi kwa Tangazo la serikali Namba 353 ya mwaka 2007 kufuatia uamuzi wa kugawa iliyokuwa Halmashauri ya Wilaya ya Arumeru na kuanzisha Halmashauri mbili za Wilaya zinazojitegemea za Meru na Arusha\nHalmashauri ya Wilaya ya Meru ipo Mashariki mwa mkoa wa Arusha na imelala kati ya latitudi 36o43’16’’ na 37o 03’43’’; na Longitudi -3o04’30’’Halmashauri ya Wilaya ya Meru inapakana na Wilaya ya Longido kwa upande wa Kaskazini, Wilaya za Siha na Hai kwa upande wa Mashariki (Mkoa wa Kilimanjaro), Wilaya ya Simanjiro kwa upande wa Kusini (Mkoa wa Manyara), na Wilaya ya Arusha na Halmashauri ya Wilaya ya Arusha kwa upande wa Magharibi.",
+   "attachments": []
+  },
+  {
+   "slug": "mission-and-vision",
+   "menu_path": "About Us > Mission and Vision",
+   "title": "Mission and Vision",
+   "api_url": "https://merudc.go.tz/api/pages/slug/mission-and-vision",
+   "public_url": "https://merudc.go.tz/mission-and-vision",
+   "createdAt": "2026-03-09T10:24:23.104Z",
+   "updatedAt": "2026-03-09T10:40:43.533Z",
+   "text_en": "Vision of Meru District Council is:\n“A well-educated, food-secure medium-income community anchored on agro-based industries and eco-tourism by 2025.”\nThis Vision reflects the Council’s commitment to fostering education, food security, economic empowerment, and sustainable utilization of natural resources. It emphasizes the role of agro-based industries and eco-tourism as key drivers of local economic growth. However, given that 2025 has passed, the Vision provides an important reference point for assessing progress and shaping the new long-term direction aligned with Vision 2050, which emphasizes inclusivity, prosperity, technological advancement, and sustainable growth.\nMission of the Council is:\n“To empower communities to innovatively and sustainably use available resources to attain medium-income status by 2025.”\nThe Mission underscores the Council’s focus on community empowerment, innovation, and sustainable resource management. It highlights the importance of equipping communities to participate actively in economic development and improving livelihoods. In reviewing this Mission, it is clear that while significant progress has been made toward achieving medium-income status, emerging challenges and new opportunities—particularly in technology adoption, industrial diversification, and climate resilience—necessitate updating the Mission to align with long-term strategic objectives and the Council’s new Vision.",
+   "text_sw": "Dira ya Halmashauri ni:\n“Jamii yenye elimu bora, yenye uhakika wa chakula na yenye kipato cha kati, inayotegemea viwanda vinavyotumia mazao ya kilimo na utalii wa ikolojia ifikapo mwaka 2031.”\nDira hii inaakisi dhamira ya Halmashauri katika kuimarisha elimu, usalama wa chakula, uwezeshaji wa kiuchumi, na matumizi endelevu ya rasilimali za asili. Pia inasisitiza umuhimu wa viwanda vinavyotumia mazao ya kilimo na utalii wa ikolojia kama vichocheo muhimu vya ukuaji wa uchumi wa eneo husika. Hata hivyo, kutokana na kwamba mwaka 2025 tayari umepita, Dira hii inatoa rejea muhimu katika kutathmini maendeleo yaliyofikiwa na kusaidia kuunda mwelekeo mpya wa muda mrefu unaoendana na Dira ya Taifa ya Maendeleo 2050 , ambayo inasisitiza ujumuishi, ustawi wa jamii, maendeleo ya teknolojia, na ukuaji endelevu.\nDhima ya Halmashauri ni:\n“Kuwezesha jamii kutumia rasilimali zilizopo kwa ubunifu na kwa njia endelevu ili kufikia hadhi ya kipato cha kati ifikapo mwaka 2031.”\nDhima hii inaonyesha msisitizo wa Halmashauri katika kuwezesha jamii, kuhimiza ubunifu, na kusimamia rasilimali kwa njia endelevu. Inasisitiza umuhimu wa kuzijengea jamii uwezo wa kushiriki kikamilifu katika maendeleo ya kiuchumi na kuboresha maisha yao. Katika kupitia upya Dhima hii, inaonekana kuwa licha ya mafanikio yaliyopatikana katika kufikia hadhi ya kipato cha kati, changamoto mpya na fursa zinazoibuka—hasa katika matumizi ya teknolojia, utofauti wa viwanda, na ustahimilivu dhidi ya mabadiliko ya tabianchi—zinahitaji Dhima hiyo kuboreshwa ili iendane na malengo ya muda mrefu ya kimkakati na Dira mpya ya Halmashauri.",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Value > Core Values",
+   "title": "Core Values",
+   "api_url": "https://merudc.go.tz/api/pages/slug/core-values",
+   "public_url": "https://merudc.go.tz/core-values",
+   "createdAt": "2026-03-09T10:51:31.178Z",
+   "updatedAt": "2026-03-09T10:51:31.178Z",
+   "text_en": "Core Values\nThe Core Values that underpin the Vision and Mission include integrity, teamwork, transparency, accountability, and innovativeness. These values provide guidance for the behavior and decision making of Council staff and stakeholders, ensuring that the Council delivers services effectively, equitably, and sustainably.",
+   "text_sw": "Maadili Msingi yanayounga mkono Dira na Dhima ni pamoja na uadilifu, ushirikiano (kazi ya pamoja), uwazi, uwajibikaji, na ubunifu .\nMaadili haya yanatoa mwongozo kwa mienendo na maamuzi ya watumishi wa Halmashauri pamoja na wadau wake, ili kuhakikisha kuwa Halmashauri inatoa huduma kwa ufanisi, usawa, na kwa njia endelevu .",
+   "attachments": []
+  },
+  {
+   "slug": "strategic-plan",
+   "menu_path": "About Us > Strategic Plan > Strategic Plan",
+   "title": "Strategic Plan",
+   "api_url": "https://merudc.go.tz/api/pages/slug/strategic-plan",
+   "public_url": "https://merudc.go.tz/strategic-plan",
+   "createdAt": "2026-03-11T07:47:12.196Z",
+   "updatedAt": "2026-03-11T07:47:12.196Z",
+   "text_en": "Strategic Plan (2025/2026 – 2029/2030)\nIntroduction\nThis Five-Year Strategic Plan (2025/2026 – 2029/2030) has been prepared to guide the Meru District Council in fulfilling its Vision and Mission through the sustainable delivery of quality social and economic services to citizens.\nThe plan is designed to accelerate economic growth, strengthen good governance, and promote inclusive and sustainable development.\nStrategic Focus Areas\nThis plan focuses on the following key areas:\nIncreasing productivity in agriculture and livestock through improved extension services and the adoption of modern farming techniques.\nExpanding rural infrastructure , including rural roads, water supply projects, and schools/health facilities.\nStrengthening community financial systems , particularly Savings and Credit Cooperative Societies (SACCOS) and small business cooperatives.\nEmpowering women and youth through income-generating programs and entrepreneurship training.\nAddressing climate change through mitigation and adaptation measures in agriculture, water management, and natural resource management.\nImproving financial management and accountability by strengthening systems, transparency, and internal auditing.\nInvesting in human resources through continuous capacity building, recruitment, and professional development of council staff.\nProviding quality social services , including education, health, water, and environmental sanitation.\nPromoting good governance as the foundation for peace, justice, security, and sustainable social and economic development",
+   "text_sw": "Mpango Mkakati (2025/2026 – 2029/2030)\nUtangulizi\nMpango huu wa Miaka Mitano ya Mkakati (2025/2026 – 2029/2031) umeandaliwa kuongoza Halmashauri ya Wilaya ya Meru katika kutimiza Dira na Dhima yake kupitia utoaji endelevu wa huduma bora za kijamii na kiuchumi kwa wananchi. Mpango huu umebuniwa ili kuharakisha ukuaji wa uchumi, kuendeleza utawala bora, na kuhimiza maendeleo jumuishi na endelevu .\nEneo la Mkakati\nMpango huu unalenga kwenye maeneo muhimu yafuatayo:\nKuongeza tija katika kilimo na ufugaji kupitia huduma za ugani zilizoimarishwa na mbinu za kisasa.\nKupanua miundombinu ya vijijini , ikiwemo barabara za vijijini, miradi ya maji, na shule/hospitali.\nKuimarisha mifumo ya kifedha ya kijamii , hasa SACCOS na ushirika wa biashara ndogo ndogo.\nKuwezesha wanawake na vijana kupitia programu za kuongeza kipato na mafunzo ya ujasiriamali.\nKukabiliana na mabadiliko ya tabianchi kupitia hatua za kupunguza madhara na kuendana nayo katika kilimo, maji, na usimamizi wa rasilimali asilia.\nKuboresha usimamizi wa fedha na uwajibikaji kwa kuimarisha mifumo, uwazi, na ukaguzi wa ndani.\nKuwekeza katika rasilimali watu kupitia uboreshaji endelevu wa uwezo, uajiri, na maendeleo ya kitaaluma ya wafanyakazi wa halmashauri.\nKutoa huduma bora za kijamii , ikiwemo elimu, afya, maji, na usafi wa mazingira.\nKukuza utawala bora kama msingi wa amani, haki, usalama, na maendeleo endelevu ya kijamii na kiuchumi.",
+   "attachments": []
+  },
+  {
+   "slug": "division-of-administration-and-human-resource-management",
+   "menu_path": "Administration > Division > Division of Administration and Human Resource Management",
+   "title": "Division of Administration and Human Resource Management",
+   "api_url": "https://merudc.go.tz/api/pages/slug/division-of-administration-and-human-resource-management",
+   "public_url": "https://merudc.go.tz/division-of-administration-and-human-resource-management",
+   "createdAt": "2026-03-12T12:32:56.527Z",
+   "updatedAt": "2026-03-12T12:32:56.527Z",
+   "text_en": "The Department of Administration and Human Resource Management in Meru District Council has been an important link in managing human resources, establishing good governance systems, and ensuring that public servants provide quality services to citizens while adhering to work ethics, efficiency, and accountability.\nMain Functions of the Department of Administration and Human Resources\nHuman Resource Management:\nPreparing employment requirements according to the needs of departments.\nConducting recruitment processes in accordance with approval from TAMISEMI and the Public Service Recruitment Secretariat .\nMonitoring employees’ performance at work and maintaining their records.\nCoordination of Staff Training:\nPreparing short-term and long-term training plans.\nMonitoring employees who are pursuing studies.\nFacilitating professional development and work efficiency.\nManagement of Workplace Discipline:\nHandling disciplinary matters of employees in accordance with Public Service Regulations .\nProviding guidelines on discipline, ethics, and integrity at the workplace.\nFacilitating Internal Communication:\nManaging daily activities in the office of the Director.\nCoordinating management meetings, council meetings of councillors, and standing committee meetings.\nManagement of Security, Protection and Protocol:\nCoordinating activities of office security guards.\nCoordinating the reception of national leaders and various visitors.\nOffice, Records and Postal Management:\nManaging the system of receiving and distributing correspondence.\nKeeping council records and documents.\nSupervising the receipt of office supplies and maintaining the cleanliness of buildings.\nImprovement of the Working Environment:\nFacilitating cleaning services, office maintenance, and creating a conducive working environment for effective job performance.\nSections within the Department of Administration and Human Resources\nThis department is divided into four (4) main sections , each with specific responsibilities:\n1. Public Service Section\nCoordinates new recruitment, transfers, promotions, confirmation of employees in service, and retirement benefits.\nManages the Human Resource Management Information System (HRMIS) database.\nCoordinates Performance Evaluation and Performance Management Information System (PEPMIS) .\n2. Training and Staff Development Section\nCoordinates professional training programs.\nManages long-term and short-term studies.\nIssues training permits and coordinates the return of employees after completing their studies.\n3. Office Administration Section\nManages office services such as cleanliness, security, reception, and document distribution.\nCoordinates operational activities of the Director’s Office.\nEnsures proper management of documents and office equipment.\n4. Security, Protocol and Internal Communication Section\nCoordinates the reception of leaders and official visitors.\nManages council protocol matters.\nOversees the security of government buildings.",
+   "text_sw": "Idara ya Utawala na usimamizi wa Rasilimali watu, katika Halmashauri ya Wilaya ya Meru imekuwa kiungo muhimu katika kusimamia rasilimali watu, kuweka mifumo ya utawala bora, na kuhakikisha watumishi wa umma wanatoa huduma bora kwa wananchi kwa kuzingatia maadili ya kazi, ufanisi, na uwajibikaji.\nMajukumu Makuu ya Idara ya Utawala na Utumishi\nUsimamizi wa Rasilimali Watu: Kuandaa mahitaji ya ajira kulingana na mahitaji ya idara.\nKuendesha mchakato wa ajira mpya kwa mujibu wa kibali kutoka TAMISEMI na Sekretarieti ya Ajira.\nKufuatilia maendeleo ya watumishi kazini na kuhifadhi taarifa zao.\nKuratibu Mafunzo kwa Watumishi: Kuandaa mipango ya mafunzo ya muda mfupi na mrefu.\nKufuatilia watumishi waliopo masomoni.\nKuwezesha uboreshaji wa taaluma na ufanisi kazini.\nKusimamia Nidhamu Kazini: Kushughulikia masuala ya kinidhamu ya watumishi kwa mujibu wa Kanuni za Utumishi wa Umma.\nKutoa miongozo ya nidhamu, maadili, na uadilifu kazini.\nKurahisisha Mawasiliano ya Ndani: Kusimamia shughuli za kila siku katika ofisi ya Mkurugenzi.\nKuratibu vikao vya menejimenti, baraza la madiwani na vikao vya kamati za kudumu.\nUsimamizi wa Usalama, Ulinzi na Itifaki: Kuratibu shughuli za walinzi wa ofisi.\nKuratibu mapokezi ya viongozi wa kitaifa na wageni mbalimbali.\nUsimamizi wa Ofisi, Nyaraka na Posta: Kusimamia mfumo wa mapokezi na usambazaji wa barua.\nKuhifadhi kumbukumbu na nyaraka za halmashauri.\nKusimamia upokeaji wa vifaa na usafi wa majengo.\nKusimamia Uboreshaji wa Mazingira ya Kazi: Kuwezesha huduma za usafi, matengenezo ya ofisi, na mazingira rafiki kwa utendaji bora wa kazi.\nSeksheni Zilizopo Kwenye Idara ya Utawala na Utumishi\nIdara hii imegawanyika katika seksheni kuu nne (4) , kila moja ikiwa na majukumu maalum:\n1. Seksheni ya Utumishi wa Umma\nInaratibu ajira mpya, uhamisho, upandishaji vyeo, uthibitisho kazini, na mafao ya kustaafu.\nInasimamia kanzidata ya taarifa za watumishi (HRMIS).\nInaratibu tathmini ya utendaji kazi (PEPMIS).\n2. Seksheni ya Mafunzo na Maendeleo ya Watumishi\nInaratibu mipango ya mafunzo ya kitaaluma.\nInasimamia masomo ya muda mrefu na wa muda mfupi.\nHutoa vibali vya mafunzo na kuratibu marejeo ya watumishi waliomaliza masomo.\n3. Seksheni ya Utawala wa Ofisi\nInasimamia huduma za kiofisi kama usafi, ulinzi, mapokezi na usambazaji wa nyaraka.\nInaratibu shughuli za uendeshaji wa ofisi ya mkurugenzi.\nInahakikisha utunzaji wa nyaraka na vifaa vya ofisi.\n4. Seksheni ya Usalama, Itifaki na Mawasiliano ya Ndani\nInaratibu mapokezi ya viongozi na wageni rasmi.\nInasimamia itifaki za halmashauri.\nInashughulikia ulinzi wa majengo ya serikali.",
+   "attachments": []
+  },
+  {
+   "slug": "planning-and-coordination",
+   "menu_path": "Administration > Division > Division of Planning and Coordination",
+   "title": "Division of Planning and Coordination",
+   "api_url": "https://merudc.go.tz/api/pages/slug/planning-and-coordination",
+   "public_url": "https://merudc.go.tz/planning-and-coordination",
+   "createdAt": "2026-03-11T08:33:32.295Z",
+   "updatedAt": "2026-03-12T06:52:50.378Z",
+   "text_en": "Main Objective\nTo provide expertise and services in planning, budgeting, monitoring, and evaluating the implementation of plans.\nSpecific Objectives\n(i) To prepare medium-term and long-term strategies, plans, and budgets.\n(ii) To monitor and evaluate the implementation of strategies, plans, and budgets.\n(iii) To prepare and review the economic profile of the Council.\n(iv) To coordinate the implementation of private sector participation.\n(v) To coordinate the collection, analysis, interpretation, and storage of statistics within the Council.\n(vi) To provide professional advice on the monitoring and evaluation process.\n(vii) To coordinate the Council’s Disaster Management activities.\n(viii) To coordinate Council activities implemented by other institutions, such as the land sector.",
+   "text_sw": "Lengo Kuu\nKutoa utaalamu na huduma katika kupanga, kuandaa bajeti, kufuatilia na kutathmini utekelezaji wa mipango.\nMalengo Mahususi\n(i) Kuandaa mikakati, mipango na bajeti ya muda wa kati na muda mrefu.\n(ii) Kufuatilia na kutathmini utekelezaji wa mikakati, mipango na bajeti.\n(iii) Kuandaa na kupitia wasifu wa kiuchumi wa Halmashauri.\n(iv) Kuratibu utekelezaji wa ushiriki wa sekta binafsi.\n(v) Kuratibu ukusanyaji, uchambuzi, ufafanuzi na uhifadhi wa takwimu katika Halmashauri.\n(vi) Kutoa ushauri wa kitaalamu kuhusu mchakato wa ufuatiliaji na tathmini.\n(vii) Kuratibu shughuli za Menejimenti ya Maafa ya Halmashauri na\n(viii) Kuratibu shughuli za Halmashauri zinazotekelezwa na taasisi nyingine kama vile sekta ya ardhi.",
+   "attachments": []
+  },
+  {
+   "slug": "pre-primary-and-primary-education",
+   "menu_path": "Administration > Division > Division of Pre-Primary and Primary Education",
+   "title": "Division of Pre-Primary and Primary Education",
+   "api_url": "https://merudc.go.tz/api/pages/slug/pre-primary-and-primary-education",
+   "public_url": "https://merudc.go.tz/pre-primary-and-primary-education",
+   "createdAt": "2026-03-11T09:05:57.291Z",
+   "updatedAt": "2026-03-12T06:52:08.525Z",
+   "text_en": "Department Objective\nThe objective of the Pre-Primary and Primary Education Department is to plan and oversee the implementation of laws, policies, documents, and guidelines related to the provision of Pre-Primary Education, Primary Education, Special Needs Education, Adult Education, and Non-Formal Education.\nTo achieve this objective, the Department performs the following functions:\nPlan the availability, distribution, and utilization of resources in primary schools.\nSupervise continuous assessment and national examinations in primary schools.\nOversee the provision of adult education and non-formal education at pre-primary and primary levels.\nCoordinate life skills education in primary schools.\nConduct needs assessments for Special Education, Adult Education, and Non-Formal Education.\nProvide advice on the establishment and development of Adult Education and Non-Formal Education centers.\nSupervise the implementation of primary education plans and programs.\nDevelop and maintain a database for pre-primary and primary education.\nCoordinate and supervise sports activities in primary schools.\nThe Department is headed by the Head of Department and consists of four (4) sections as follows:\nAcademic Section\nEquipment and Statistics Section\nSpecial Needs Education Section\nAdult Education and Non-Formal Education Section\nAcademic Section\nThis section performs the following activities:\nCoordinate the implementation of policies, plans, documents, and guidelines for pre-primary and primary education at the school level.\nCoordinate and supervise the administration of continuous school assessments and national examinations for Standard Two (STNA) , Standard Four (SFNA) , and Standard Seven (PSLE) .\nMonitor and evaluate the implementation of pre-primary and primary education plans.\nPrepare reports on the implementation of education development plans and programs.\nCoordinate education for self-reliance and supervise income-generating projects/activities in primary schools.\nEquipment and Statistics Section\nThis section performs the following activities:\nCollect, analyze, and interpret statistics for pre-primary and primary education.\nCoordinate the availability, distribution, and utilization of educational resources in primary schools.\nPrepare enrollment statistics and information on school equipment.\nPrepare reports on the implementation of education development.\nIdentify school resource requirements within the Council.\nSpecial Needs Education Section\nThis section performs the following activities:\nPrepare and supervise implementation plans for special education at pre-primary and primary levels.\nIdentify children with special needs and assign them to appropriate schools.\nCollect information on students with special needs and provide appropriate advice.\nCoordinate the availability, distribution, and use of resources for special education.\nAdult Education and Non-Formal Education Section\nThis section performs the following activities:\nPrepare and supervise implementation plans for Adult Education and Non-Formal Education at pre-primary and primary levels.\nCoordinate life skills education.\nConduct needs assessments for Adult Education and Non-Formal Education.\nProvide advice on the establishment and development of Adult Education and Non-Formal Education training centers.\nCoordinate the availability, distribution, and use of resources for Adult Education and Non-Formal Education.\nThe Department supervises 195 primary schools , of which 119 are government schools and 76 are privately owned schools .",
+   "text_sw": "﻿Lengo la Idara\nLengo la Idara ya Elimu ya Awali na Msingi ni kupanga na kusimamia utekelezaji wa sheria, sera, nyaraka na miongozo kuhusu utoaji wa Elimu ya Awali, Msingi, Mahitaji Maalumu na Elimu Nje ya Mfumo Rasmi. Ili kufikia lengo hilo Idara inatekeleza majukumu yafuatayo:-\nKupanga upatikanaji, usambazaji na matumizi ya rasilimali katika shule za msingi;\nKusimamia upimaji endelevu na mitihani ya taifa ya shule za msingi;\nKusimamia utoaji wa elimu ya watu wazima na elimu isiyo rasmi katika ngazi ya awali na msingi;\nKuratibu elimu ya stadi za maisha katika shule za msingi;\nKufanya tathmini ya mahitaji ya Elimu Maalumu, Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi;\nKutoa ushauri kuhusu uanzishaji na uendelezaji wa vituo vya Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi;\nKusimamia utekelezaji wa mipango na programu za elimu ya msingi;\nKuunda na kutunza kanzidata ya elimu ya awali na msingi na\nKuratibu na kusimamia shughuli za michezo katika shule za msingi.\nIdara hii itaongozwa na Mkuu wa Idara na itajumuisha sehemu nne (4) kama ifuatavyo:-\nSehemu ya Taaluma\nSehemu ya Vifaa na Takwimu\nSehemu ya Elimu ya Mahitaji Maalumu na\nSehemu ya Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi\nSehemu ya Taaluma\nSehemu hii inafanya shughuli zifuatazo:\nKuratibu utekelezaji wa sera, mipango, nyaraka na miongozo ya elimu ya Awali na Msingi katika ngazi ya shule;\nKuratibu na kusimamia usimamizi wa upimaji endelevu wa shule na mitihani ya kitaifa ya darasa la Pili (STNA), darasa la Nne (SFNA) na darasa la Saba (PSLE);\nKufuatilia na kutathmini utekelezaji wa mipango ya elimu ya awali na msingi;\nKutayarisha taarifa za utekelezaji wa mipango na programu za maendeleo ya elimu na\nKuratibu utoaji wa elimu kwa ajili ya kujitegemea na kusimamia shughuli/mradi wa kujiingizia kipato katika shule za Msingi.\nSehemu ya Vifaa na Takwimu\nSehemu hii inafanya shughuli zifuatazo: -\nKukusanya, kuchambua na kutafsiri takwimu za elimu ya awali na msingi\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali za elimu katika shule za msingi\nKuandaa takwimu za uandikishaji na vifaa vya shule\nKutayarisha taarifa za utekelezaji wa maendeleo ya elimu na\nKubainisha mahitaji ya rasilimali za shule katika Halmashauri.\nSehemu ya Elimu ya Mahitaji Maalumu\nSehemu hii inafanya shughuli zifuatazo:-\nKuandaa na kusimamia mipango ya utekelezaji wa elimu maalumu katika ngazi ya elimu ya awali na msingi;\nKutambua watoto wenye mahitaji maalumu na kuwapangia shule;\nKukusanya taarifa za wanafunzi wenye mahitaji maalumu na kushauri ipasavyo na\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa ajili ya elimu maalumu.\nSehemu ya Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi\nSehemu hii inafanya shughuli zifuatazo: -\nKuandaa na kusimamia mipango ya utekelezaji wa Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi katika ngazi ya elimu ya awali na msingi.\nKuratibu elimu ya stadi za maisha.\nKufanya tathmini ya mahitaji ya Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi.\nKushauri kuhusu uanzishwaji na uendelezaji wa vituo vya mafunzo ya Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi.\nKuratibu upatikanaji, usambazaji na matumizi ya rasilimali kwa ajili ya Elimu ya Watu Wazima na Elimu Nje ya Mfumo Rasmi.\nIdara inasimamia shule za msingi 195 ikiwa shule 119 ni za serikali na shule 76 ni za watu binafsi.",
+   "attachments": []
+  },
+  {
+   "slug": "department-of-infrastructure-rural-and-urban-development-planning",
+   "menu_path": "Administration > Division > Division of Infrastructure, Rural and Urban Development Planning",
+   "title": "Division of Infrastructure, Rural and Urban Development Planning",
+   "api_url": "https://merudc.go.tz/api/pages/slug/department-of-infrastructure-rural-and-urban-development-planning",
+   "public_url": "https://merudc.go.tz/department-of-infrastructure-rural-and-urban-development-planning",
+   "createdAt": "2026-03-11T09:57:50.276Z",
+   "updatedAt": "2026-03-12T06:51:09.766Z",
+   "text_en": "The Department has three (3) sections , namely:\nBuildings\nRoads\nMechanical and Electrical\nThe functions performed by each section are as follows:\n1. Buildings\nSupervising the construction of secondary schools, primary schools, ward offices, hospitals, dispensaries, and buildings for various government sectors .\nIssuing building permits to institutions and individuals constructing buildings within Kibaha Town Council . Permits are issued to both those with surveyed plots and those whose plots have not been surveyed.\nProviding technical advice on construction matters .\nThe department provides professional advice and inspects various building plans for people who wish to construct modern and quality houses .\nProviding services for architectural drawing of building plans and cost estimation , including the preparation of construction cost estimates and structural drawings .\n2. Roads\nThe section supervises the implementation and maintenance of roads by conducting various types of maintenance every year, including:\nRoutine maintenance\nSpot improvement (repair of damaged sections)\nPeriodic maintenance\nOpening of new roads in streets and in newly surveyed residential areas .\n3. Mechanical and Electrical\nThis section performs the following functions:\nSupervising road construction works using Council machinery .\nCoordinating the leasing of machinery to private individuals .\nSupervising the installation of electricity in new government buildings .\nCarrying out electrical maintenance in government buildings that have electricity .",
+   "text_sw": "Idara inavitengo vitatu (3) navyo ni\nMajengo\nBarabara\nMitambo na Umeme\nKazi zinazofanywa kwa kila kitengo ni kama inavyoonyeshwa hapa chini.\n1.MAJENGO\n1.Kusimamia ujenzi wa shule za Sekondari, shule za Msingi , Ofisi za kata, Hospitali, Zahanati na majengo ya sekta mbalimbali za serikali\n2. Utoaji vibali vya ujenzi kwa taasisi na watu binafsi wanaojenga katika halmashauri ya Mji Kibaha vibali vinatolewa kwa wale waliopimiwa viwanja na ambao hawajapimiwa. .\n3. Kutoa ushauri wa kiufundi katika masuala ya ujenzi\nTunatoa ushauri wa kitaalamu pamoja na ukaguzi wa ramani mbalimbali za watu wanaotaka kujenga nyumba bora na za kisasa.\n4. Tunatoa huduma ya kuchora ramani pamoja na kufanya makisio yaani kuandaa gharama za ujenzi wa majengo, pamoja na kuandaa michoro ya kihandisi(structural drawings).\n2. BARABARA\nTunasimamia utekelezaji wa barabara kwa kuzifanyia matengenezo mbalimbali kila mwaka, matengenezo hayo ni\nMatengenezo ya mara kwa mara\nMatengenezo ya sehemu korofi\nMatengenezo ya muda maalum\nUfunguzi wa barabara mpya katika mitaa na katika maeneo yaliyopimwa viwanja vipya.\n3.MITAMBO NA UMEME.\nKitengo hiki kinafanya kazi zifuatazo\nUsimamizi wa kazi za utengenezaji barabar kwa kutumia mitambo wa Halmazhauri\nKuratibu ukodishaji wa mtambo kwa watu binafsi\nKusimamia uingizaje wa Umeme katika majengo mapya ya Serikali\nKufanya matengenezo ya umeme katika majengo ya Serikali yaliyo na umeme",
+   "attachments": []
+  },
+  {
+   "slug": "department-of-community-development",
+   "menu_path": "Administration > Division > Division of Community Development",
+   "title": "Division of Community Development",
+   "api_url": "https://merudc.go.tz/api/pages/slug/department-of-community-development",
+   "public_url": "https://merudc.go.tz/department-of-community-development",
+   "createdAt": "2026-03-11T11:32:29.072Z",
+   "updatedAt": "2026-03-12T06:49:28.785Z",
+   "text_en": "Community Development Division\nThe Community Development Division is among the divisions within the Meru District Council and serves as an important link between the Council and the community by coordinating and supervising development activities.\nThe Community Development Division has a total of 15 staff members , including 10 men and 5 women , who provide services at both the district and ward levels . At the district headquarters , there are 7 staff members (3 men and 4 women) , while at the ward level there are 8 staff members (7 men and 1 woman) .\nObjectives of the Community Development Division\nTo build the capacity of sustainable communities by empowering them to identify their needs, design, plan, implement, and manage development plans using available resources effectively, while generating and increasing income to improve the living standards of the community.\nStructure of the Division\nThe Division has five desks , namely:\nEconomic Empowerment and Poverty Reduction Desk\nHIV/AIDS Coordination Desk\nGender and Child Development Desk\nCommunity Participation Desk\nNGOs Coordination, Monitoring, and Registration Desk\nThe general responsibilities of the Division and its desks are as follows:\nGeneral Responsibilities of the Community Development Department\nEngage the community in identifying opportunities and challenges affecting their development.\nEducate the community to move away from beliefs, traditions, customs, and cultures that hinder development.\nEngage and empower special groups to participate in development opportunities and processes to improve their welfare.\nCoordinate the implementation and integration of gender issues in development programs and plans across various sectors.\nEnable communities to utilize opportunities available in sectoral policies and strategies for development.\nEnable citizens to benefit from economic opportunities.\nPromote child rights and proper child care.\nFacilitate registration, coordination, and monitoring of Non-Governmental Organizations (NGOs).\nEnable communities to identify, analyze, and prevent conflicts that hinder development.\nCoordinate and promote community participation in cross-cutting issues.\nProvide education on community rights and responsibilities and facilitate coordination and registration of legal aid service providers at the district level.\nEducate communities on the benefits of major national development projects and the opportunities they create for local communities.\nResponsibilities of the Desks\nEconomic Empowerment and Poverty Reduction Desk\nWork with the Council Empowerment Committee to implement strategies for citizens’ economic empowerment.\nMobilize citizens to join SACCOS and VICOBA for savings and access to capital.\nAnalyze opportunities available in major investment and national projects and educate local communities so they can participate or gain employment.\nCoordinate the provision of loans from 10% of the Council’s internal revenue for empowering women, youth, and people with disabilities.\nEnsure the Council allocates special areas for economic investment such as agriculture, industries, and small and medium enterprises.\nMonitor the implementation of economic investment activities in the Council and prepare implementation reports.\nHIV/AIDS Coordination Desk\nProvide VICOBA training for people living with HIV/AIDS .\nEnsure the assessment of the HIV/AIDS situation in the Council is conducted and annual strategies are developed.\nProvide reports on HIV/AIDS activities to the HIV/AIDS Committee meetings.\nReview coordination reports from wards and streets and provide advice to improve efficiency and effectiveness.\nCoordinate, monitor, and evaluate planned HIV/AIDS activities.\nIdentify and assess activities of stakeholders implementing HIV/AIDS interventions in the Council, including groups of people living with HIV and widows.\nEnsure all HIV/AIDS plans and stakeholder activities are integrated into the Council and Regional HIV/AIDS Strategic Plans to avoid duplication of efforts and resources.\nEnsure policies, national HIV/AIDS strategies, laws, guidelines, and research findings reach stakeholders and the community.\nProvide advice to relevant authorities on policies or by-laws related to HIV/AIDS control.\nEnsure the availability of an updated list of active HIV/AIDS stakeholders.\nGender and Child Development Desk\nCoordinate child rights and development programs implemented by stakeholders to ensure compliance with government policies, laws, and regional and international conventions on child rights.\nEducate families, communities, and stakeholders to invest in child care, early childhood development, and upbringing.\nCoordinate stakeholders working on child-related programs to avoid duplication and misuse of resources.\nEnsure violence against children is eliminated through national programs implemented with stakeholders.\nIncrease community awareness of child rights, protection, and welfare through public education using community radio, television, commemorations, meetings, and forums.\nCoordinate the collection, updating, analysis, and dissemination of child-related data.\nCoordinate the establishment and operation of Children’s Councils at village, ward, and district levels.\nCoordinate the establishment and operation of family parenting groups at the community level.\nIntroduce and monitor the use of registers for child rights violations and their handling at village, ward, and council levels.\nEnsure gender issues are recognized within the Council through gender analysis.\nEnsure gender issues are incorporated into village, street, and council development plans.\nFacilitate gender-related training based on needs.\nProvide referrals for victims of gender-based violence to relevant institutions such as Social Welfare, Police, Lawyers, and Hospitals.",
+   "text_sw": "Divisheni ya Maendeleo ya Jamii ni miongoni mwa divisheni zilizopo katika Halmashauri ya Wilaya ya Meru , na ni kiungo muhimu kati ya Halmshauri na Jamii kwa kuratibu na kusimamia shughuli za kimaendeleo. Divisheni ya maendeleo ya jamii ina Jumla ya watumishi 15 ambapo wanaume 10 na wanawake 5 wanaotoa huduma kwa ngazi ya Wilaya na kata. Ambapo makao makuu ya willaya kuna watumishi 7 (me 3 ke 4) ngazi ya kata watumishi 8 (me 7 ke 1).\nMALENGO YA DIVISHENI YA MAENDELEO YA JAMII\nKujenga uwezo wa jamii endelevu, kwa kuwezesha jamii katika kubaini mahitaji yao, kubuni, kuandaa, kutekeleza na kusimamia mipango ya kujiletea maendeleo kwa kutumia kikamilifu rasilimali zilizopo kwa kujipatia na kujiongezea kipato kwa kuimarisha hali ya maisha ya jamii.\nMUUNDO WA DIVISHENI\nDivisheni ina Madawati matano ambayo ni:- Dawati la uwezeshaji wananchi kiuchumi na kupunguza umaskini,Dawati la uratibu wa kupambana na maambukizi ya ukimwi, Dawati la maendeleo ya jinsia na mtoto, dawati la ushirikishwaji wa jamii na dawati la uratibu, ufuatiliaji na usajili wa mashirika yasiyo ya kiserikali NGOS. Majukumu ya jumla ya Divisheni na madawati husika yameainishwa kama ifuatavyo:\nMAJUKUMU YA JUMLA YA DIVISHENI YA MAENDELEO YA JAMII .\nKushirikisha Jamii katika kuainisha fursa na changamoto zinazoikabili ili kulijiletea Maendeleo.\nKuelimisha Jamii kuondokana na Fikra, Imani, Mila, Desturi na Tamaduni Zinazokinzana na Maendeleo.\nKushirikisha Jamii katika Kuwaunganisha na Kuwawezesha makundi Maalum katika fursa na Mchakato wa Maendeleo ili kuinua ustawi wao.\nKuratibu Utekelezaji na Uzingatiaji wa Masuala ya Jinsia Katika Programu na Mipango ya Maendeleo Katika Sekta Mbalimbali.\nKuwezesha Jamii Kutumia Fursa ya Sera za Kisekta na Mikakati yake katika Kujiletea Maendeleo.\nKuwezesha Wananchi Kunufaika na Fursa za Kiuchumi.\nKuwezesha Jamii Kutekeleza Haki na Malezi ya Mtoto.\nKuwezesha Usajili, Kuratibu na Ufuatiliaji wa Mashirika Yasiyo ya Kiserikali\nuwezesha Jamii Kutambua, Kuanisha na Kuzuia Migogoro inayoathiri Maendeleo katika Jamii\nKuratibu na Kuhamasisha Ushiriki wa Jamii katika Masuala Mtambuka.\nKutoa Elimu ya Haki na Wajibu wa Jamii na Kuwezesha Uratibu na Usajili wa Watoa Huduma za Msaada wa Kisheria Katika Ngazi Wilaya\nKuelimisha Jamii Faida za miradi mikubwa ya kitaifa Kwa maendeleo ya Taifa na fursa Kwa jamii\nMAJUKUMU YA MADAWATI\nDAWATI LA UWEZESHAJI WANANCHI KIUCHUMI NA KUPUNGUZA UMASKINI\nKushirikiana na Kamati ya Uwezeshaji ya Hamashauri kutekeleza Mkakati wa Uwezeshaji wananchi kiuchumi;\nKuhamasisha wananchi kujiunga na SACCOS na VICOBA kwa lengo la kujiwekea akiba na kupata mitaji;\nKuchambua fursa zilizoko katika Miradi mikubwa ya uwekezaji na miradi ya Kitaifa na kuelimisha wazawa ili waweze kushiriki/kuajiriwa;\nKuratibu utoaji wa mikopo inayotokana na asilimia 10% ya mapato ya ndani ya Halmashauri kwa ajili ya kuwezesha wanawake, vijana na watu wenye ulemavu;\nKuhakikisha Halmashauri inatenga maeneo maalum ya uwekezaji kiuchumi kama vile kilimo, viwanda na biashara ndogondogo na za kati; na\nKufuatilia utekelezaji wa shughuli za uwekezaji kiuchumi katika Halmashauri na kuandaa taarifa ya utekelezaji.\nDAWATI LA URATIBU WA KUPAMBANA NA MAAMBUKIZI YA UKIMWI,\nMafunzo ya VICOBA kwa watu wanaoishi na virus vya UKIMWI(WAVIU)\nKuhakikisha tathmini ya hali halisi ya VVU na UKIMWI katika Halmashauri inafanyika na kuweka mikakati ya Kila mwaka.\nKuhamasisha kuunda\nKutoa taarifa za shughuli za VVU na UKIMWI kwenye kikao cha kamati ya UKIMWI\nKupitiaa taarifa za uratibu zinazofanywa na Kata na Mitaa ili kutoa ushauri wa namna ya kuimarisha na kuongeza ufanisi.\nKuratibu, kufuatilia na kutathmini utekelezaji wa shughuli za VVU na UKIMWI zilizopangwa.\nKutambua na kutathmini shughuli za wadau mbalimbali wanaotekeleza afua za VVU, na UKIMWI katika Halmashauri. Vikundi vya WAVIUna wajane.\nKuhakikisha mipango yote ya UKIMWI na wadau wanaotekeleza katika Halmashauri inaingizwa kwenye Mpango Mkakati wa UKIMWI wa Halmashauri na Mkoa ili kuondoa urudufu wa juhudi na rasilimali.\nKuhakikisha sera, Mkakati wa Taifa wa kudhibiti UKIMWI, sheria, Miongozo na matokeo ya tafiti mbalimbali ya masuala ya UKIMWI yanawafikia wadau na wananchi kwa ujumla.\nKutoa ushauri kwa ngazi inayohusika kuhusu Sera au sheria ndogo juu ya udhibiti wa VVU na UKIMWI.\nKuhakikisha uwepo wa orodha ya wadau hai wa Masuala ya UKIMWI.\nDAWATI LA MAENDELEO YA JINSIA NA MTOTO\nKuratibu program za haki na Maendeleo ya Mtoto zinazotekelezwa na wadau ili kuhakikisha zinafuata Sera, Sheria za Serikali na Mikataba ya Kikanda na Kimataifa iliyolenga Haki za Mtoto.\nKuhamasisha na Kuelimisha familia, jamii na wadau katika kuwekeza kwenye malezi, makuzi na maendeleo ya awali ya mtoto ili kuwa na jamii bora iliyojengwa kwa misingi ya umoja na mshikamano wa kitaifa.\nKuunganisha nguvu za wadau mbali mbali wanaofanya kazi za watoto ili kuepusha migongano na matumizi mabaya ya rasilimali fedha na watu.\nKuhakikisha ukatili dhidi ya watoto unatokomezwa kupitia mipango na program za kitaifa ambazo zimeandaliwa kwa kushirikiana na wadau.\nKuongeza uelewa wa jamii kuhusu masuala ya haki, ulinzi na ustawi wa mtoto kupitia uelimishaji umma kwa kutumia vipindi vya redio za jamii, runinga, maadhimisho, mikutano na midahalo.\nKuratibu ukusanyaji, uhuishwaji, uchambuzi na usambazaji wa takwimu zinazohusu watoto.\nKuratibu uanzishwaji na uendeshaji wa mabaraza ya watoto katika ngazi ya kijiji, Kata, na Wilaya.\nKuratibu uanzishwaji na uendeshwaji wa vikundi vya malezi kwa familia katika ngazi ya jamii.\nKuanzisha na kufuatilia matumizi ya rejista ya matukio ya uvunjifu wa haki za watoto na namna yalivyoshughulikiwa katika ngazi ya kijiji, Kata na Halmashauri.\nKuhakikisha kuwa masuala ya jinsia katika Halmashauri yanatambuliwa kwa kufanya uchambuzi wa jinsia (gender analysis).\nKuhakikisha masuala ya jinsia yanaingizwa katika mipango ya vijiji, Mitaa na Halmashauri.\nKuwezesha mafunzo mbali mbali ya jinsia kwa kadri ya mahitaji.\nKutoa rufaa kwa wahanga wa ukatili wa jinsia (Ustawi wa Jamii, Polisi, Wanasheria na Hospitali).\nDAWATI LA USHIRIKISHWAJI WA JAMII\nUshirikishaji jamii kutambua fursa na vikwazo kwa maendeleo ya jamii",
+   "attachments": []
+  },
+  {
+   "slug": "department-of-industry-trade-and-investment",
+   "menu_path": "Administration > Division > Division of Industry, Trade, and Investment",
+   "title": "Division of Industry, Trade, and Investment",
+   "api_url": "https://merudc.go.tz/api/pages/slug/department-of-industry-trade-and-investment",
+   "public_url": "https://merudc.go.tz/department-of-industry-trade-and-investment",
+   "createdAt": "2026-03-11T12:22:01.464Z",
+   "updatedAt": "2026-03-12T06:48:36.797Z",
+   "text_en": "Main Objective\nTo coordinate and create a conducive environment for the development of industries, trade, markets, and investment within Meru District Council .\nDepartment Responsibilities\nThe Department of Industry, Trade, and Investment performs the following functions:\nCoordinate the implementation of policies, laws, regulations, and procedures related to industries, trade, markets, and investment.\nPromote industries, trade, markets, and investment within the Council.\nPlan and develop industrial areas and parks in collaboration with key stakeholders.\nPlan industrial and trade attractions and promote investment.\nPromote the development of Small and Medium Enterprises (SMEs) .\nDevelop investment proposals and projects.\nFacilitate private sector development initiatives.\nEstablish and manage a database of industries, trade, markets, and investment.\nManage the One Stop Business Centre .\nConduct research to promote investment.\nCoordinate the District Business Forum .\nSupervise the operation of auctions and markets within the Council.\nImplement the Business Development Strategy for small entrepreneurs and service providers.\nCreate a favorable environment for business and investment to stimulate economic growth.\nDepartment Structure\nThe Department of Industry, Trade, and Investment is headed by the Head of Department and consists of two main sections :\nIndustrial Development and Investment Section\nTrade and Markets Section\n1. Industrial Development and Investment Section\nThis section handles the following activities:\nCoordinate the implementation of policies, laws, regulations, and procedures related to the industrial and investment sector.\nPromote and coordinate public-private partnerships.\nAllocate, develop, and monitor industrial areas and parks.\nProvide advice on industrial policy improvements and coordinate sectoral meetings.\nPromote raw material production for industrial use.\nPrepare and maintain registers of industries and economic enterprises.\nPlan and estimate taxes for small-scale industries.\nDevelop and review investment profiles.\nPromote investment from the private sector.\nCoordinate and provide advisory services to investors.\nCreate an enabling environment for investors.\n2. Trade and Markets Section\nThis section performs the following responsibilities:\nSupervise the implementation of policies, laws, regulations, and procedures related to trade and markets.\nProvide entrepreneurship training to the business community.\nCoordinate and provide advice on business registration.\nAnalyze business and market data and provide appropriate recommendations.\nCoordinate the District Business Council meetings .\nPromote partnerships between the private sector and public sector.\nSupervise the operations of auctions and markets within the Council.\nCollect and disseminate market information for goods and services.\nImplement strategies to promote trade among small traders and service providers.\nCreate a favorable business environment within the District.",
+   "text_sw": "LENGO KUU\nKuratibu na kuweka mazingira rafiki kwa maendeleo ya viwanda, biashara, masoko, na uwekezaji ndani ya Halmashauri ya Wilaya ya Meru.\nMAJUKUMU YA IDARA\nIdara ya Viwanda, Biashara na Uwekezaji inatekeleza majukumu yafuatayo:\nKuratibu utekelezaji wa sera, sheria, kanuni na taratibu zinazohusiana na viwanda, biashara, masoko na uwekezaji.\nKukuza viwanda, biashara, masoko na uwekezaji katika Halmashauri.\nKupanga na kuendeleza maeneo ya viwanda na hifadhi kwa kushirikiana na wadau wakuu.\nKupanga vivutio vya viwanda, biashara, masoko na kukuza uwekezaji.\nKukuza maendeleo ya Biashara Ndogo na za Kati (SMEs).\nKuendeleza mapendekezo na miradi ya uwekezaji.\nKuendeleza hatua za maendeleo ya sekta binafsi.\nKuanzisha na kusimamia kanzidata ya viwanda, biashara, masoko na uwekezaji.\nKusimamia kituo kimoja cha biashara (One Stop Business Centre).\nKufanya utafiti wa kukuza uwekezaji.\nKuratibu Jukwaa la Biashara la Wilaya.\nKusimamia shughuli za minada na masoko ndani ya Halmashauri.\nKutekeleza Mkakati wa Maendeleo ya Biashara kwa wafanyabiashara wadogo na watoa huduma.\nKuweka mazingira bora ya biashara na uwekezaji kwa ajili ya ukuaji wa uchumi.\nMUUNDO WA IDARA\nIdara ya Viwanda, Biashara na Uwekezaji inaongozwa na Mkuu wa Idara na inajumuisha sehemu mbili kuu:\nSehemu ya Maendeleo ya Viwanda na Uwekezaji\nSehemu ya Biashara na Masoko\n1. SEHEMU YA MAENDELEO YA VIWANDA NA UWEKEZAJI\nSehemu hii inahusika na shughuli zifuatazo:\nKuratibu utekelezaji wa sera, sheria, kanuni na taratibu za sekta ya viwanda na uwekezaji.\nKukuza na kuratibu ubia kati ya sekta ya umma na sekta binafsi.\nKutenga, kuendeleza na kufuatilia maeneo ya viwanda na hifadhi.\nKutoa ushauri juu ya uboreshaji wa sera za viwanda na kuratibu mikutano ya kisekta.\nKukuza uzalishaji wa malighafi kwa matumizi ya viwandani.\nKutayarisha na kutunza rejista za viwanda na vitega uchumi.\nKupanga na kukadiria ushuru kwa viwanda vidogo.\nKuendeleza na kupitia upya wasifu wa uwekezaji.\nKukuza uwekezaji kutoka sekta binafsi.\nKuratibu na kutoa ushauri kwa wawekezaji.\nKuweka mazingira wezeshi kwa wawekezaji.\n2. SEHEMU YA BIASHARA NA MASOKO\nSehemu hii inatekeleza majukumu yafuatayo:\nKusimamia utekelezaji wa sera, sheria, kanuni na taratibu za biashara na masoko.\nKutoa mafunzo ya ujasiriamali kwa jamii ya wafanyabiashara.\nKuratibu na kutoa ushauri kuhusu usajili wa biashara.\nKuchambua taarifa za biashara na masoko na kutoa ushauri stahiki.\nKuratibu kongamano la Baraza la Biashara la Wilaya.\nKukuza ubia kati ya sekta binafsi na sekta ya umma.\nKusimamia shughuli za minada na masoko ndani ya Halmashauri.\nKukusanya na kusambaza taarifa za masoko ya bidhaa na huduma.\nKutekeleza mkakati wa kukuza biashara kwa wachuuzi wadogo na watoa huduma ndogo.\nKuweka mazingira bora ya biashara ndani ya Wilaya.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "api_url": "https://merudc.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://merudc.go.tz/organization-structure",
+   "createdAt": "2026-03-12T13:41:54.728Z",
+   "updatedAt": "2026-03-12T13:41:54.728Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "list-of-honorable-councilors",
+   "menu_path": "councilors > List of Honorable Councilors",
+   "title": "List of Honorable Councilors",
+   "api_url": "https://merudc.go.tz/api/pages/slug/list-of-honorable-councilors",
+   "public_url": "https://merudc.go.tz/list-of-honorable-councilors",
+   "createdAt": "2026-03-12T11:03:07.784Z",
+   "updatedAt": "2026-03-12T12:47:27.775Z",
+   "text_en": "",
+   "text_sw": "",
+   "attachments": []
+  },
+  {
+   "slug": "finance-administration-and-planning-committee",
+   "menu_path": "councilors > Council Standing Committees > Finance, Administration and Planning Committee",
+   "title": "Finance, Administration and Planning Committee",
+   "api_url": "https://merudc.go.tz/api/pages/slug/finance-administration-and-planning-committee",
+   "public_url": "https://merudc.go.tz/finance-administration-and-planning-committee",
+   "createdAt": "2026-03-12T06:11:05.769Z",
+   "updatedAt": "2026-03-12T10:08:00.208Z",
+   "text_en": "On progress ..........",
+   "text_sw": "Wajumbe wa Kamati ya Fedha",
+   "attachments": []
+  },
+  {
+   "slug": "economy-construction-and-environment-committee",
+   "menu_path": "councilors > Council Standing Committees > Economy, Construction and Environment Committee",
+   "title": "Economy, Construction and Environment Committee",
+   "api_url": "https://merudc.go.tz/api/pages/slug/economy-construction-and-environment-committee",
+   "public_url": "https://merudc.go.tz/economy-construction-and-environment-committee",
+   "createdAt": "2026-03-12T06:19:04.975Z",
+   "updatedAt": "2026-03-12T09:58:14.852Z",
+   "text_en": "On progress...........",
+   "text_sw": "Wajumbe wa Kamati ya Uchumi, Ujenzi na Mazingira",
+   "attachments": []
+  },
+  {
+   "slug": "hiv-aids-control-committee",
+   "menu_path": "councilors > Council Standing Committees > HIV/AIDS Control Committee.",
+   "title": "HIV/AIDS Control Committee",
+   "api_url": "https://merudc.go.tz/api/pages/slug/hiv-aids-control-committee",
+   "public_url": "https://merudc.go.tz/hiv-aids-control-committee",
+   "createdAt": "2026-03-12T06:26:57.642Z",
+   "updatedAt": "2026-03-12T10:11:08.887Z",
+   "text_en": "On progress ...............",
+   "text_sw": "Wajumbe wa Kamati ya kudhibiti Ukimwi",
+   "attachments": []
+  },
+  {
+   "slug": "education-health-and-water-committee",
+   "menu_path": "councilors > Council Standing Committees > Education, Health and Water Committee",
+   "title": "Education, Health and Water Committee",
+   "api_url": "https://merudc.go.tz/api/pages/slug/education-health-and-water-committee",
+   "public_url": "https://merudc.go.tz/education-health-and-water-committee",
+   "createdAt": "2026-03-12T06:28:11.158Z",
+   "updatedAt": "2026-03-12T10:02:13.205Z",
+   "text_en": "On progress ...................",
+   "text_sw": "Wajumbe wa Kamati ya Elimu, Afya na Maji",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "MWONGOZO WA MATUMIZI BORA, SAHIHI NA SALAMA WA VIFAA, DATA NA MIFUMO YA TEHAMA SERIKALINI.pdf",
+   "date": "2026-03-12T07:11:37.036Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299483559-sw-1697717464-MWONGOZO%20WA%20MATUMIZI%20BORA%2C%20SAHIHI%20NA%20SALAMA%20WA%20VIFAA%2C%20DATA%20NA%20MIFUMO%20YA%20TEHAMA%20SERIKALINI.pdf",
+   "file_type": "application/pdf",
+   "size": "712405"
+  },
+  {
+   "name": "MWONGOZO WA USHUGHULIKIAJI WA MREJESHO WA WANANCHI KUHUSU HUDUMA ZINAZOTOLEWA NA SERIKALI-2023.pdf",
+   "date": "2026-03-12T07:10:59.580Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299461852-MWONGOZO%20WA%20USHUGHULIKIAJI%20WA%20MREJESHO%20WA%20WANANCHI%20KUHUSU%20HUDUMA%20ZINAZOTOLEWA%20NA%20SERIKALI-2023.pdf",
+   "file_type": "application/pdf",
+   "size": "5278928"
+  },
+  {
+   "name": "MWONGOZOWA_WALEMAVU_-_FINAL1.pdf",
+   "date": "2026-03-12T07:10:44.804Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299444775-MWONGOZOWA_WALEMAVU_-_FINAL1.pdf",
+   "file_type": "application/pdf",
+   "size": "161771"
+  },
+  {
+   "name": "MWONGOZO_ANUAI_ZA_JAMII.pdf",
+   "date": "2026-03-12T07:10:28.452Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299429300-MWONGOZO_ANUAI_ZA_JAMII.pdf",
+   "file_type": "application/pdf",
+   "size": "1446115"
+  },
+  {
+   "name": "MWONGOZO WA USHUGHULIKIAJI WA MREJESHO WA WANANCHI KUHUSU HUDUMA ZINAZOTOLEWA NA SERIKALI-2023.pdf",
+   "date": "2026-03-12T07:10:11.156Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299413456-MWONGOZO%20WA%20USHUGHULIKIAJI%20WA%20MREJESHO%20WA%20WANANCHI%20KUHUSU%20HUDUMA%20ZINAZOTOLEWA%20NA%20SERIKALI-2023.pdf",
+   "file_type": "application/pdf",
+   "size": "5278928"
+  },
+  {
+   "name": "MWONGOZO WA KUDHIBITI UKIMWI.pdf",
+   "date": "2026-03-12T07:09:39.716Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299398085-MWONGOZO%20WA%20KUDHIBITI%20UKIMWI.pdf",
+   "file_type": "application/pdf",
+   "size": "921094"
+  },
+  {
+   "name": "Bango_Waraka_wa_6_wa_2020_Edit_20_08June2020-_Mahali_Preview_1.pdf",
+   "date": "2026-03-12T07:09:02.438Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299353715-Bango_Waraka_wa_6_wa_2020_Edit_20_08June2020-_Mahali_Preview_1.pdf",
+   "file_type": "application/pdf",
+   "size": "2667171"
+  },
+  {
+   "name": "MWONGOZO PEPMIS.pdf",
+   "date": "2026-03-12T07:08:42.692Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299323573-MWONGOZO%20PEPMIS.pdf",
+   "file_type": "application/pdf",
+   "size": "1881982"
+  },
+  {
+   "name": "MAVAZI_WANAWAKE_1.pdf",
+   "date": "2026-03-12T07:08:22.054Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299308098-MAVAZI_WANAWAKE_1.pdf",
+   "file_type": "application/pdf",
+   "size": "13830028"
+  },
+  {
+   "name": "MAVAZI_WANAUME.pdf",
+   "date": "2026-03-12T07:08:06.693Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773299292810-MAVAZI_WANAUME.pdf",
+   "file_type": "application/pdf",
+   "size": "13608361"
+  },
+  {
+   "name": "MWONGOZO WA MAVAZI KWA WATUMISHI WA UMMA (BANGO).pdf",
+   "date": "2026-03-12T06:55:20.102Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773298521212-MWONGOZO%20WA%20MAVAZI%20KWA%20WATUMISHI%20WA%20UMMA%20(BANGO).pdf",
+   "file_type": "application/pdf",
+   "size": "2667171"
+  },
+  {
+   "name": "MWONGOZO WA KUJITOLEA KATIKA UTUMISHI WA UMMA.pdf",
+   "date": "2026-03-12T06:54:56.894Z",
+   "url": "http://merudc.go.tz/minio/merudc.go.tz/files/1773298497089-MWONGOZO%20WA%20KUJITOLEA%20KATIKA%20UTUMISHI%20WA%20UMMA.pdf",
+   "file_type": "application/pdf",
+   "size": "396128"
+  }
+ ],
+ "news": [
+  {
+   "id": 6069,
+   "title": "RC MAKALLA AFANYA KIKAO NA WENYEVITI WA VIJIJI, WATENDAJI WA KATA NA VIJIJI",
+   "date": "2026-06-25",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1400,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5932,
+   "title": "MERU DC YAPOKEA MIFUKO 50 YA SARUJI KUTOKA DASHIR DISPENSARY KWAAJILI YA UJENZI WA ZAHANATI YA KIWAWA",
+   "date": "2026-06-16",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 724,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5926,
+   "title": "DED MAKWINYA AFANYA KIKAO NA MAAFISA WATENDAJI WA VIJIJI WIKI YA UTUMISHI WA UMMA",
+   "date": "2026-06-30",
+   "category": "Afya",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2038,
+   "convening_tags": [
+    "exhibition_or_public_event",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5922,
+   "title": "MERU DC WAPEWA TUZO KATIKA KONGAMANO LA ELIMU MKOA WA ARUSHA",
+   "date": "2026-06-02",
+   "category": "Elimu",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1336,
+   "convening_tags": [
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5919,
+   "title": "MECHI YA KIRAFIKI MERU DC NA MBULU TC",
+   "date": "2026-05-31",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 686,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5826,
+   "title": "LENGO LA MAFUNZO HAYA NI KURUDISHA TABASAMU KWA WANANCHI TUNAOWAHUDUMIA - RC MAKALLA.",
+   "date": "2026-05-29",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2252,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4385,
+   "title": "MOJA FAMILY FOUNDATION YAFADHILI MRADI WA UJENZI WA VYOO URAKI SEKONDARI",
+   "date": "2026-05-26",
+   "category": "Miundombinu",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 818,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4384,
+   "title": "MERU DC YAPOKEA MRADI KUTOKA SHIRIKA LA WORLD WIDE FUND FOR NATURE (WWF)",
+   "date": "2026-05-25",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1506,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4216,
+   "title": "MERU DC YAFANYA KIKAO CHA TATHIMINI YA LISHE WILAYA",
+   "date": "2026-05-21",
+   "category": "Afya",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1332,
+   "convening_tags": [
+    "ward_meeting",
+    "parents_or_education",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3997,
+   "title": "Dkt. TOBA NGUVILA AIOPONGEZA MERU DC KATIKA UTEKELEZAJI WA SHUGHULI ZA MAENDELEO",
+   "date": "2026-05-18",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1418,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3989,
+   "title": "RAS AFANYA KIKAO NA WATUMISHI MERU DC",
+   "date": "2026-05-18",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1066,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3756,
+   "title": "MHE. LUCAS KAAYA AONGOZA BARAZA LA MADIWANI MERU DC",
+   "date": "2026-05-12",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 957,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3490,
+   "title": "DED MERU DC AONGOZA KIKAO CHA KUTAMBULISHA MRADI WA MABWAWA YA UMWAGILIAJI",
+   "date": "2026-05-08",
+   "category": "Uchumi",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 646,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3441,
+   "title": "MERU DC YAENDELEA KUWASHIKA MKONO WAATHIRIKA WA MAFURIKO",
+   "date": "2026-05-05",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1539,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3439,
+   "title": "DC MWINYI AZINDUA JENGO LA ZIMAMOTO WILAYA YA ARUMERU",
+   "date": "2026-05-06",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 598,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3437,
+   "title": "MERU DC YASHIRIKI MAADHIMISHO YA SIKU YA WAFANYAKAZI DUNIANI",
+   "date": "2026-05-06",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1028,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3436,
+   "title": "KAMATI YA FEDHA,UTAWALA NA MIPANGO YAFANYA ZIARA YA UKAGUZI WA MIRADI YA MAENDELEO",
+   "date": "2026-05-06",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 956,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3435,
+   "title": "MERU DC YAFANYA UNION BONANZA",
+   "date": "2026-05-06",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 991,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2951,
+   "title": "CMT YAKAMILISHA ZIARA YA UKAGUZI WA MIRADI YA MAENDELEO MERU DC",
+   "date": "2026-04-25",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 923,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2950,
+   "title": "CMT YAFANYA ZIARA YA UKAGUZI WA MIRADI KWA ROBO YA TATU YA MWAKA WA FEDHA 2025/2026",
+   "date": "2026-04-25",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1094,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2949,
+   "title": "KAMATI YA LISHE WILAYA YAFANYA KIKAO CHA ROBO YA TATU",
+   "date": "2026-04-25",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 826,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2947,
+   "title": "MERU DC YATOA MAFUNZO YA VIKUNDI MALEZI KWA WIZARA YA MAENDELEO YA JAMII ZANZIBAR",
+   "date": "2026-04-25",
+   "category": "Elimu",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 996,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2834,
+   "title": "TRAMPA YAFANYA ZIARA HALMASHAURI YA WILAYA YA MERU",
+   "date": "2026-03-26",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 799,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 2635,
+   "title": "BENKI YA AZANIA YATOA MAFUNZO KWA WAJASIRIAMALI MERU DC",
+   "date": "2026-04-19",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1265,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2120,
+   "title": "DED MERU DC AHIMIZA MAHUSIANO MAZURI KAMA MSINGI IMARA WA UTENDAJI KAZI",
+   "date": "2026-03-16",
+   "category": "Elimu",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1106,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2114,
+   "title": "DC MWINYI AZINDUA ZOEZI LA UPANDAJI MITI KATIKA SHULE YA SEKONDARI KIKWE",
+   "date": "2026-03-30",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1296,
+   "convening_tags": [
+    "parents_or_education",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2021,
+   "title": "WALIMU WA AJIRA MPYA 2026 WAPATIWA MAFUNZO YA UTUMISHI WA UMMA MERU DC",
+   "date": "2026-03-28",
+   "category": "Elimu",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 984,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1102,
+   "title": "BARAZA LA MADIWANI LA HALMASHAURI YA WILAYA YA MERU LAPITISHA RASIMU YA MPANGO WA BAJETI SH. 75.6 BILIONI",
+   "date": "2026-03-10",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3083,
+   "convening_tags": [
+    "public_meeting",
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 965,
+   "title": "DC MWINYI AMEKABIDHI PIKIPIKI 15 KWA VIKUNDI VITATU VYA VIJANA KUTOKA MERU DC",
+   "date": "2025-12-05",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 946,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 957,
+   "title": "MKUU WA MKOA WA ARUSHA ATOA MAELEKEZO KWA VIONGOZI NGAZI YA WILAYA NA HALMASHAURI",
+   "date": "2026-02-27",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1726,
+   "convening_tags": [
+    "exhibition_or_public_event",
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 952,
+   "title": "TANROAD WAFANYA KIKAO NA MKURUGENZI MTENDAJI MERU DC",
+   "date": "2026-03-09",
+   "category": "Miundombinu",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1412,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 911,
+   "title": "NAIBU WAZIRI MH. UMMY NDERIANANGA AWAPONGEZA MERU DC KWA KUWAJALI WALEMAVU",
+   "date": "2026-03-09",
+   "category": "Habari",
+   "listing_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1056,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 486,
+   "title": "MKUTANO KAWAIDA WA BARAZA LA HALMASHAURI",
+   "date": "2026-05-07",
+   "category": "Taarifa",
+   "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 282,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 447,
+   "title": "TANZIA",
+   "date": "2026-03-28",
+   "category": "Taarifa",
+   "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 272,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 446,
+   "title": "MIKOPO YA FEDHA TASLIMU KWA WATUMISHI WA UMMA MERU DC",
+   "date": "2026-03-25",
+   "category": "Taarifa",
+   "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 304,
+   "convening_tags": [],
+   "attachments": [
+    "13.jpg"
+   ]
+  },
+  {
+   "id": 295,
+   "title": "ZIARA YA KIKAZI YA WAZIRI MKUU MHE. MWIGULU LAMECK NCHEMBA(MB) KATIKA WILAYA YA ARUMERU",
+   "date": "2026-02-21",
+   "category": "Matukio",
+   "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 634,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 291,
+   "title": "MKUTANO WA BARAZA LA MADIWANI",
+   "date": "2026-02-12",
+   "category": "Taarifa",
+   "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 325,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 254,
+   "title": "MKUTANO MAALUM WA BARAZA LA HALMASHAURI",
+   "date": "2026-02-20",
+   "category": "Taarifa",
+   "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 282,
+   "convening_tags": [
+    "public_meeting"
+   ],
+   "attachments": [
+    "3_tangazo.pdf"
+   ]
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://merudc.go.tz/api/profiles": "9fd95306fecaa5f87d335b3b48040e08d47ffab0ef398bfac67c3905bffa0e4e",
+  "https://merudc.go.tz/api/statistics": "28084cab099aeb89ee4ff927fd62321e7b9a8fa6bd3e9b180e1a3b12ba808c52",
+  "https://merudc.go.tz/api/footer": "0c57432ade91633861fc160d26a170cc4e2a0705f629cbb316b84d9a1b512ce5",
+  "https://merudc.go.tz/api/menus": "1c97900425f1a9e1a982032913f69bf880f50bc5538edf51c18c087739b6654a",
+  "https://merudc.go.tz/api/pages/slug/our-history": "bf0593afdf123151d00ac336c7ed99cebfd949c95e35cca9b7e632b8a714949b",
+  "https://merudc.go.tz/api/pages/slug/mission-and-vision": "5d782524ed4843365bcef46b29c316c2e18a12a95f74137424cb5f4a82f5701b",
+  "https://merudc.go.tz/api/pages/slug/core-values": "3638ddd9132f0722442606686a7ccc6905bd7b112b11c9c2c2e9e4f4cb868a8b",
+  "https://merudc.go.tz/api/pages/slug/strategic-plan": "35679951ed6514043a02f5056e72bf442595f4adf87b8d9b95c221d572666f22",
+  "https://merudc.go.tz/api/pages/slug/division-of-administration-and-human-resource-management": "17c75490e55654cb78da24fd2c7f973703fd0f64560dcbbc3b394b578caeb9c5",
+  "https://merudc.go.tz/api/pages/slug/planning-and-coordination": "0b817c74d041525358e236c8717cf89ced47e6f554d0ff9fdcebae668af31283",
+  "https://merudc.go.tz/api/pages/slug/pre-primary-and-primary-education": "4b14e381b95526c9abd9184c6709cb3e6e8829d06076dc3e04a4e87fed5eb213",
+  "https://merudc.go.tz/api/pages/slug/department-of-infrastructure-rural-and-urban-development-planning": "eedd7452e3fb7e2bef3b7e39ef74ece359970ed5382cfddd16c09ecd0c4470bc",
+  "https://merudc.go.tz/api/pages/slug/department-of-community-development": "9bf49631017375b4735a9332d4483fe82681883606a8a06a4218b29757a228a2",
+  "https://merudc.go.tz/api/pages/slug/department-of-industry-trade-and-investment": "c96b3a23e356881110cac0c363f9bfddbd728fa8547f1229ee1dec180672e65f",
+  "https://merudc.go.tz/api/pages/slug/organization-structure": "09759369c100a7a9db84b818bc27fa63ecae20d8d9b8ecd05e647f0251f52f3d",
+  "https://merudc.go.tz/api/pages/slug/list-of-honorable-councilors": "a0872a82621015adf5093ccdbcce825be355ca66f8dc1ed035d9e053ad67d019",
+  "https://merudc.go.tz/api/pages/slug/finance-administration-and-planning-committee": "2c901038b457cd0294299e80be2bf297ecf70258e218b97158631be468135b30",
+  "https://merudc.go.tz/api/pages/slug/economy-construction-and-environment-committee": "d5363a8fac95953652f29e1912b4f61f718795cdf814c3bdc393794b64a47f74",
+  "https://merudc.go.tz/api/pages/slug/hiv-aids-control-committee": "80184ffdfad9584e4f30d820d4d6cc2bbf19b2f205e5ef8612e9f43a69bcc9ef",
+  "https://merudc.go.tz/api/pages/slug/education-health-and-water-committee": "53e0395ad3122bb58f298f264fc3eae7bbb46b0c3c042921a96de2eb0c61a58a",
+  "https://merudc.go.tz/api/files?page=1&limit=100": "31919b509f91c517ac086ab5dcbfeecc6953aa286d482a41274f20965cb69488",
+  "https://merudc.go.tz/api/news?page=1&limit=50": "ca376eb518be3209b9b306ce63b93fd95e7e4d44772cfed28da7bcb3cdc1abb2",
+  "https://merudc.go.tz/api/announcements?page=1&limit=50": "982b607bf08f2ff1b5a6b7548e6ab605c6ad014ece7b6c779c86e8686e4c36a2"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

@@ -1,0 +1,988 @@
+{
+ "host": "kilimanjaro.go.tz",
+ "organisation": "Kilimanjaro Regional Secretariat",
+ "retrieved": "2026-09-23",
+ "base_url": "https://kilimanjaro.go.tz",
+ "profiles": [
+  {
+   "id": 312,
+   "name": "Mhe. Nurdin Hassan Babu",
+   "title": "Regional Commissioner",
+   "titleSwahili": "Mkuu wa Mkoa",
+   "order": 1,
+   "published": true,
+   "createdAt": "2026-03-04T18:00:31.269Z",
+   "updatedAt": "2026-03-05T05:15:00.123Z"
+  },
+  {
+   "id": 303,
+   "name": "Ndg. Kiseo Yusuf Nzowa",
+   "title": "Regional Secretary",
+   "titleSwahili": "Katibu Tawala wa Mkoa",
+   "order": 2,
+   "published": true,
+   "createdAt": "2026-03-04T11:15:22.059Z",
+   "updatedAt": "2026-03-05T05:24:36.319Z"
+  }
+ ],
+ "statistics": [
+  {
+   "label": "Government Secondary Schools",
+   "value": 261,
+   "suffix": ""
+  },
+  {
+   "label": "Private Secondary Schools",
+   "value": 126,
+   "suffix": ""
+  },
+  {
+   "label": "Government Primary Schools",
+   "value": 881,
+   "suffix": ""
+  },
+  {
+   "label": "Private Primary Schools",
+   "value": 160,
+   "suffix": ""
+  },
+  {
+   "label": "Population",
+   "value": 1861934,
+   "suffix": ""
+  },
+  {
+   "label": "Districts",
+   "value": 6,
+   "suffix": ""
+  }
+ ],
+ "footer": {
+  "organizationName": "Kilimanjaro Region Secretariat",
+  "contact": {
+   "phone": null,
+   "email": null
+  },
+  "language": "en",
+  "isDarkMode": false,
+  "links": {
+   "aboutUs": [
+    {
+     "url": "regional-history",
+     "title": "Regional History",
+     "swTitle": "Historia ya Mkoa"
+    },
+    {
+     "url": "leadership",
+     "title": "Leadership",
+     "swTitle": "Uongozi"
+    },
+    {
+     "url": "vision-and-mission",
+     "title": "Vision and Mission",
+     "swTitle": "Dira na Dhima"
+    },
+    {
+     "url": "core-values",
+     "title": "Core Values",
+     "swTitle": "Maadili Yetu"
+    }
+   ],
+   "keyServices": [
+    {
+     "url": "https://safari.gov.go.tz/",
+     "title": "E-Vibali",
+     "swTitle": "E-Vibali"
+    },
+    {
+     "url": "https://eoffice.gov.go.tz",
+     "title": "E-Office",
+     "swTitle": "E-Office"
+    },
+    {
+     "url": "https://ess.utumishi.go.tz/",
+     "title": "Watumishi Portal",
+     "swTitle": "Watumishi Portal"
+    },
+    {
+     "url": "https://nest.go.tz/",
+     "title": "NeST",
+     "swTitle": "NeST"
+    }
+   ],
+   "usefulLinks": [
+    {
+     "url": "https://tamisemi.go.tz/",
+     "title": "Prime Minister's Office, Regional Administration and Local Government",
+     "swTitle": "Ofisi ya Waziri Mkuu, Tawala za Mikoa na Serikali za Mitaa"
+    },
+    {
+     "url": "https://www.utumishi.go.tz/",
+     "title": "President’s Office Public Service Management and Good Governance",
+     "swTitle": "Ofisi ya Rais - Menejimenti ya Utumishi wa Umma na Utawala Bora"
+    },
+    {
+     "url": "https://www.ajira.go.tz/",
+     "title": "Public Service Recruitment Secretariat",
+     "swTitle": "Sekretarieti ya Ajira"
+    },
+    {
+     "url": "https://www.moe.go.tz/",
+     "title": "Ministry of Education, Science and Technology",
+     "swTitle": "Wizara ya Elimu, Sayansi na Teknolojia"
+    }
+   ]
+  },
+  "map": {
+   "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.0004388110538!2d37.33713149999999!3d-3.3500220000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1839d84c8e014ed7%3A0x3a423dcf13b45a77!2sRegional%20Commissioner%20Kilimanjaro!5e0!3m2!1sen!2stz!4v1772533733639!5m2!1sen!2stz\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\">",
+   "lat": -3.350089,
+   "lng": 37.33733,
+   "zoom": 15
+  }
+ },
+ "menus": [
+  {
+   "path": "About Us > Regional History > Regional History",
+   "title": "Regional History",
+   "title_sw": "Historia Ya Mkoa",
+   "slug": "regional-history"
+  },
+  {
+   "path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "title_sw": "Dira na Dhima",
+   "slug": "vision-and-mission"
+  },
+  {
+   "path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "title_sw": "Maadili Yetu",
+   "slug": "core-values"
+  },
+  {
+   "path": "About Us > Client Service Charter > Client Service Charter",
+   "title": "Client Service Charter",
+   "title_sw": "Mkataba wa Huduma kwa Wateja",
+   "slug": "client-service-charter"
+  },
+  {
+   "path": "Tourism Sector",
+   "title": "Tourism Sector",
+   "title_sw": "Sekta ya Utalii",
+   "slug": "tourism"
+  },
+  {
+   "path": "Administration > Section > Administration",
+   "title": "Administration",
+   "title_sw": "Utawala na Rasilimali watu",
+   "slug": "admin"
+  },
+  {
+   "path": "Administration > Section > Planning and Coordination",
+   "title": "Planning and Coordination",
+   "title_sw": "Mipango na Uratibu",
+   "slug": "planning-and-coordination-section"
+  },
+  {
+   "path": "Administration > Section > Health, Social Welfare, and Nutrition",
+   "title": "Health, Social Welfare, and Nutrition",
+   "title_sw": "Afya, Ustawi wa Jamii na Lishe",
+   "slug": "health-social-welfare-and-nutrition-section"
+  },
+  {
+   "path": "Administration > Section > Economy and Production",
+   "title": "Economy and Production",
+   "title_sw": "Uchumi na Uzalishaji",
+   "slug": "economic-and-productive-sectors-coordination-section"
+  },
+  {
+   "path": "Administration > Section > Infrastructure",
+   "title": "Infrastructure",
+   "title_sw": "Miundombinu",
+   "slug": "infrastructure-section"
+  },
+  {
+   "path": "Administration > Section > Industry and Trade",
+   "title": "Industry and Trade",
+   "title_sw": "Viwanda na Biashara",
+   "slug": "industry-trade-and-investment-section"
+  },
+  {
+   "path": "Administration > Section > Education and Vocational Training",
+   "title": "Education and Vocational Training",
+   "title_sw": "Elimu na Mafunzo ya Ufundi",
+   "slug": "education-and-vocational-training-section"
+  },
+  {
+   "path": "Administration > Section > Management, Monitoring, and Evaluation",
+   "title": "Management, Monitoring, and Evaluation",
+   "title_sw": "Usimamizi, Ufuatiliaji na Ukaguzi",
+   "slug": "education-and-vocational-training-section"
+  },
+  {
+   "path": "Administration > Units > Legal Services",
+   "title": "Legal Services",
+   "title_sw": "Huduma za Kisheria",
+   "slug": "legal-services-unit"
+  },
+  {
+   "path": "Administration > Units > Accounts and Finance",
+   "title": "Accounts and Finance",
+   "title_sw": "Uhasibu",
+   "slug": "finance-and-accounts-unit"
+  },
+  {
+   "path": "Administration > Units > Information and Communication Technology (ICT)",
+   "title": "Information and Communication Technology (ICT)",
+   "title_sw": "Teknolojia ya Habari na Mawasiliano (TEHAMA)",
+   "slug": "information-and-communication-technology"
+  },
+  {
+   "path": "Administration > Units > Internal Audit",
+   "title": "Internal Audit",
+   "title_sw": "Ukaguzi wa ndani",
+   "slug": "internal-audit-unit"
+  },
+  {
+   "path": "Administration > Units > Procurement and Supply",
+   "title": "Procurement and Supply",
+   "title_sw": "Manunuzi na Ugavi",
+   "slug": "procurement-management-unit"
+  },
+  {
+   "path": "Administration > Units > Government Communication",
+   "title": "Government Communication",
+   "title_sw": "Habari na Mawasiliano",
+   "slug": "government-communication-unit"
+  },
+  {
+   "path": "Administration > Units > Community Development",
+   "title": "Community Development",
+   "title_sw": "Maendeleo ya Jamii",
+   "slug": "community-development-unit"
+  },
+  {
+   "path": "Administration > Units > Monitoring and Evaluation",
+   "title": "Monitoring and Evaluation",
+   "title_sw": "Ufuatiliaji na Tathmini",
+   "slug": "monitoring-and-evaluation-unit"
+  },
+  {
+   "path": "Administration > Organization Structure > Organization Structure",
+   "title": "Organization Structure",
+   "title_sw": "Muundo wa Taasisi",
+   "slug": "organization-structure"
+  },
+  {
+   "path": "Districts > Mwanga District > Mwanga District Council",
+   "title": "Mwanga District Council",
+   "title_sw": "Halmashauri ya Wilaya ya Mwanga",
+   "slug": "mwanga"
+  },
+  {
+   "path": "Investment and Opportunities > Agriculture > Agriculture Sector",
+   "title": "Agriculture Sector",
+   "title_sw": "Sekta ya Kilimo",
+   "slug": "agriculture"
+  },
+  {
+   "path": "Investment and Opportunities > Industries > Industrial Sector",
+   "title": "Industrial Sector",
+   "title_sw": "Sekta ya Viwanda",
+   "slug": "industries"
+  },
+  {
+   "path": "Investment and Opportunities > Fishing > Fishing Sector",
+   "title": "Fishing Sector",
+   "title_sw": "Sekta ya Uvuvi",
+   "slug": "fishing"
+  },
+  {
+   "path": "Documents > National Documents > THE TANZANIA DEVELOPMENT VISION 2050",
+   "title": "THE TANZANIA DEVELOPMENT VISION 2050",
+   "title_sw": "Dira ya Taifa ya Maendeleo 2050",
+   "slug": "other-documents"
+  },
+  {
+   "path": "Documents > National Documents > The CCM Manifesto for 2025-2030",
+   "title": "The CCM Manifesto for 2025-2030",
+   "title_sw": "Ilani ya CCM ya Mwaka 2025-2030",
+   "slug": "the-ccm-election-manifesto"
+  },
+  {
+   "path": "Documents > REGULATIONS AND GUIDELINES > National Guidelines for Identification and Assessment of Children",
+   "title": "National Guidelines for Identification and Assessment of Children",
+   "title_sw": "Mwongozo wa Kitaifa wa Uainishaji na Upimaji wa Watoto",
+   "slug": "guideline"
+  },
+  {
+   "path": "Media Center > Advertisement > Job Announcement",
+   "title": "Job Announcement",
+   "title_sw": "Tangazo la Kuitwa kazini",
+   "slug": "notice-of-job-appointment"
+  },
+  {
+   "path": "Media Center > Press Cutting > Press release",
+   "title": "Press release",
+   "title_sw": "Taarifa za Magazetini",
+   "slug": "press-release"
+  },
+  {
+   "path": "Media Center > Newsletter",
+   "title": "Newsletter",
+   "title_sw": "Majarida",
+   "slug": "newsletter"
+  },
+  {
+   "path": "Media Center > Newsletter > Newsletter",
+   "title": "Newsletter",
+   "title_sw": "Majarida",
+   "slug": "newsletter"
+  }
+ ],
+ "pages": [
+  {
+   "slug": "regional-history",
+   "menu_path": "About Us > Regional History > Regional History",
+   "title": "Regional History",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/regional-history",
+   "public_url": "https://kilimanjaro.go.tz/regional-history",
+   "createdAt": "2026-03-04T09:03:44.594Z",
+   "updatedAt": "2026-08-05T06:01:22.545Z",
+   "text_en": "Kilimanjaro Region was officially established in 1963 through Government Notice No. 450 of that year, comprising the districts of Kilimanjaro and Pare.\nBefore Independence, Kilimanjaro Region was part of the Northern Province, which consisted of the districts of Arusha and Mbulu, while Pare District was part of Tanga Province.\nWhen our country gained Independence on 9 December 1961, the Provincial Commissioner of the Northern Province was Hon. PC Edward Barongo, who served until 1963. He was succeeded by Hon. Peter Kisumo, who became the first Regional Commissioner of Kilimanjaro Region.",
+   "text_sw": "Mkoa wa Kilimanjaro ulianzishwa rasmi mwaka 1963 kwa Tangazo la serikali Na.450 la mwaka huo ukiwa na wilaya za Kilimanjaro na Pare.\nKabla ya Uhuru Mkoa wa Kilimanjaro ulikuwa ni sehemu ya Jimbo la kaskazini (Nothern Province) lililokuwa linaundwa na wilaya za Arusha na Mbulu, Wakati wilaya ya Pare ilikuwa sehemu ya jimbo la Tanga (Tanga Province).\nWakati nchi yetu inapata Uhuru tarehe 9/12/1961 Mkuu wa jimbo la Kaskazini (Provincial Commissioner) alikuwa Mhe.PC Edward Barongo ambaye aliongoza hadi 1963 na kufuatiwa na Mhe. Peter Kisumo, Mkuu wa Mkoa wa kwanza wa Mkoa wa Kilimanjaro.",
+   "attachments": []
+  },
+  {
+   "slug": "vision-and-mission",
+   "menu_path": "About Us > Vision and Mission > Vision and Mission",
+   "title": "Vision and Mission",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/vision-and-mission",
+   "public_url": "https://kilimanjaro.go.tz/vision-and-mission",
+   "createdAt": "2026-03-04T09:08:42.167Z",
+   "updatedAt": "2026-03-06T06:51:01.142Z",
+   "text_en": "VISION\nTo become a leading region in economic and social development by 2031.\nMISSION\nTo enhance economic and social development by providing good governance services and professional advisory support to Local Government Authorities (LGAs) and other stakeholders.",
+   "text_sw": "DIRA\n“Kuwa Mkoa Unaoongoza kwa Maendeleo ya Kiuchumi na Kijamii ifikapo 2031”\nDHIMA\n“Kuboresha Maendeleo ya Kiuchumi na Kijamii kwa Kutoa Huduma za Utawala Bora na Ushauri wa Kitaalam kwa Mamlaka za Serikali za Mitaa (MSM) na Wadau Wengine”",
+   "attachments": []
+  },
+  {
+   "slug": "core-values",
+   "menu_path": "About Us > Core Values > Core Values",
+   "title": "Core Values",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/core-values",
+   "public_url": "https://kilimanjaro.go.tz/core-values",
+   "createdAt": "2026-03-04T09:20:46.540Z",
+   "updatedAt": "2026-03-04T09:20:46.540Z",
+   "text_en": "OUR CORE VALUES\nHard Work (Diligence);\nWe perform our duties diligently, observing high levels of competence, professionalism, and discipline.\nIntegrity;\nWe execute our responsibilities with the highest level of integrity, in accordance with our professional code of conduct.\nCustomer Care;\nWe value our clients by supporting them in meeting their expectations.\nTeamwork;\nWe work collaboratively, sharing experience, expertise, and accurate information.\nAccountability;\nWe serve our clients within the agreed timeframes.\nRespect;\nWe listen to our clients and serve them with respect.",
+   "text_sw": "MAADILI YETU\nBidii;\nTiunafanaya kazi kwa bidii kwa kuzingatia ujuzi, utaalamu na nidhamu ya hali ya juu.\nUadilifu;\nTunatekeleza majukumu kwa uadilifu mkubwa kwa kuzingatia maadili ya kazi zetu.\nKumjali Mteja;\nTunawajali wateja wetu kwa kuwasaidia kufikia matarajio yao.\nKufanya kazi kama timu;\nTunafanya kazi kwa kushirikiana, kubadilishana uzoefu, ujuzi na kupeana taarifa sahihi.\nUwajibikaji;\nTunawahudumia wateja kwa muda uliowekwa.\nHeshima;\nTunawasikiliza wateja na kuwahudumia kwa heshima",
+   "attachments": []
+  },
+  {
+   "slug": "client-service-charter",
+   "menu_path": "About Us > Client Service Charter > Client Service Charter",
+   "title": "CLIENT SERVICE CHARTER",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/client-service-charter",
+   "public_url": "https://kilimanjaro.go.tz/client-service-charter",
+   "createdAt": "2026-03-04T09:17:24.165Z",
+   "updatedAt": "2026-03-05T06:28:27.187Z",
+   "text_en": "PURPOSE OF THE CLIENT SERVICE CHARTER\nThis Client Service Charter aims to enhance accountability at the Regional Commissioner’s Office, Kilimanjaro, by informing clients about the services provided. Through this Charter, clients will be made aware of the services offered, the standards of those services, and the mechanisms for receiving feedback from our clients.\nFurthermore, this Charter outlines the rights and obligations of clients, as well as the responsibilities of the Regional Commissioner’s Office in ensuring the delivery of quality services at all times.\nOUR CLIENTS\nPrime Ministers Office – Regional Administration and Local Government (PO-RALG);\nPresident’s Office – Public Service Management and Good Governance;\nMinistries, Regional Secretariats, Independent Departments, Government Agencies, Public Corporations/Authorities/Institutions, and Local Government Authorities (LGAs);\nCitizens;\nPrivate sector;\nPublic and non-public servants;\nPoliticians and political parties;\nInvestors;\nNon-Governmental Organizations (NGOs); and\nMedia.",
+   "text_sw": "MADHUMUNI YA MKATABA WA HUDUMA KWA MTEJA\nMkataba huu wa Huduma kwa Mteja unalenga kuongeza uwajibikaji wa Ofisi ya Mkuu wa Mkoa wa Kilimanjaro kwa kuwafahamisha wateja kuhusu huduma zinazotolewa. Kupitia Mkataba huu, wateja watatambua huduma zinazotolewa, viwango vya huduma hizo pamoja na njia za kupokea mrejesho kutoka kwa wateja wetu. Aidha, Mkataba huu unabainisha haki na wajibu wa wateja pamoja na wajibu wa Ofisi ya Mkuu wa Mkoa katika kufikia utoaji huduma bora wakati wote.\nWATEJA WETU\nOfisi ya Waziri Mkuu – TAMISEMI;\nOfisi ya Rais – Menejimenti ya Utumishi wa Umma na Utawala Bora;\nWizara, Sekretarieti za Mikoa, Idara Zinazojitegemea, Wakala za Serikali, Mashirika ya Umma/Mamlaka/Taasisi na Mamlaka za Serikali za Mitaa;\nWananchi;\nSekta binafsi;\nWatumishi wa umma na wasio wa umma;\nWanasiasa na vyama vya siasa;\nWawekezaji;\nMashikika yasiyo ya kiserikali (NGOs); na\nVyombo vya habari.",
+   "attachments": [
+    {
+     "file_name": "MKATABA WA HUDUMA KWA WATEJA KILIMANJARO.pdf",
+     "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772615865561-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+     "file_type": "application/pdf",
+     "file_size": "3975403"
+    }
+   ]
+  },
+  {
+   "slug": "health-social-welfare-and-nutrition-section",
+   "menu_path": "Administration > Section > Health, Social Welfare, and Nutrition",
+   "title": "Health, Social Welfare and Nutrition Section",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/health-social-welfare-and-nutrition-section",
+   "public_url": "https://kilimanjaro.go.tz/health-social-welfare-and-nutrition-section",
+   "createdAt": "2026-03-05T05:44:16.377Z",
+   "updatedAt": "2026-03-05T05:44:16.377Z",
+   "text_en": "Health, Social Welfare and Nutrition Section\nThis Section performs the following activities:\n(i) Coordinates and advises on the implementation of health policies in the Region.\n(ii) Coordinates the planning and execution of health services, social welfare, and environmental sanitation in the Region.\n(iii) Coordinates the management of health facilities in the Region.\n(iv) Monitors and evaluates the management of health services provided by public and private sector health facilities in the Region.\n(v) Provides support for capacity building to LGAs in health service delivery.\n(vi) Advises the RS and LGAs on capacity development to combat disease outbreaks.\n(vii) Provides advice on HIV/AIDS activities in the Region.\n(viii) Promotes community engagement and the use of health insurance.\n(ix) Provides backstopping support during health epidemics in the Region.\n(x) Coordinates and updates data on health, social welfare, and nutrition services for LGAs.\n(xi) Provides technical support on nutrition interventions to LGAs.\n(xii) Coordinates preventive health services.\n(xiii) Facilitates and coordinates environmental health and sanitation issues in the Region.\n(xiv) Coordinates the availability of pharmaceuticals, medical equipment, and medical supplies for health facilities in the Region.",
+   "text_sw": "Sehemu ya Afya, Ustawi wa Jamii na Lishe\nSehemu hii inatekeleza shughuli zifuatazo:\n(i) Kuratibu na kutoa ushauri kuhusu utekelezaji wa sera za afya katika Mkoa.\n(ii) Kuratibu mipango na utekelezaji wa huduma za afya, ustawi wa jamii na usafi wa mazingira katika Mkoa.\n(iii) Kuratibu usimamizi wa vituo vya kutolea huduma za afya katika Mkoa.\n(iv) Kufuatilia na kutathmini usimamizi wa huduma za afya zinazotolewa na vituo vya afya vya sekta ya umma na binafsi katika Mkoa.\n(v) Kutoa msaada wa kujenga uwezo kwa Mamlaka za Serikali za Mitaa (LGAs) katika utoaji wa huduma za afya.\n(vi) Kushauri RS na LGAs kuhusu maandalizi ya kujenga uwezo wa kukabiliana na milipuko ya magonjwa.\n(vii) Kutoa ushauri kuhusu shughuli za UKIMWI (HIV/AIDS) katika Mkoa.\n(viii) Kuhamasisha ushiriki wa jamii na matumizi ya bima ya afya.\n(ix) Kutoa msaada wa kitaalamu wakati wa milipuko ya magonjwa katika Mkoa.\n(x) Kuratibu na kusasisha takwimu za afya, ustawi wa jamii na huduma za lishe kwa LGAs.\n(xi) Kutoa msaada wa kitaalamu kuhusu utekelezaji wa afua za lishe kwa LGAs.\n(xii) Kuratibu huduma za kinga za afya.\n(xiii) Kuwezesha na kuratibu masuala ya afya ya mazingira na usafi katika Mkoa.\n(xiv) Kuratibu upatikanaji wa dawa, vifaa tiba na mahitaji ya kitabibu kwa vituo vya kutolea huduma za afya katika Mkoa.",
+   "attachments": []
+  },
+  {
+   "slug": "infrastructure-section",
+   "menu_path": "Administration > Section > Infrastructure",
+   "title": "Infrastructure Section",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/infrastructure-section",
+   "public_url": "https://kilimanjaro.go.tz/infrastructure-section",
+   "createdAt": "2026-03-05T05:55:48.092Z",
+   "updatedAt": "2026-03-05T05:55:48.092Z",
+   "text_en": "Infrastructure Section\nThis Section performs the following activities:\n(i) Coordinates and monitors the implementation of policies on roads, buildings, energy, sewage, water, and communication.\n(ii) Supervises the construction and rehabilitation of office and residential buildings under the RS.\n(iii) Liaises with relevant authorities in the Central and Local Governments on engineering matters.\n(iv) Oversees and advises on structural engineering works undertaken in the Region.\n(v) Provides secretarial services to the Regional Road Board.\n(vi) Monitors and evaluates road and building works in LGAs and Tanzania Rural and Urban Roads Agency.",
+   "text_sw": "Sehemu ya Miundombinu\nSehemu hii inatekeleza shughuli zifuatazo:\n(i) Kuratibu na kufuatilia utekelezaji wa sera zinazohusu barabara, majengo, nishati, maji taka, maji na mawasiliano.\n(ii) Kusimamia ujenzi na ukarabati wa majengo ya ofisi na makazi yaliyo chini ya RS.\n(iii) Kushirikiana na mamlaka husika za Serikali Kuu na Serikali za Mitaa katika masuala ya uhandisi.\n(iv) Kusimamia na kutoa ushauri kuhusu kazi za uhandisi wa miundombinu zinazotekelezwa katika Mkoa.\n(v) Kutoa huduma za sekretarieti kwa Bodi ya Barabara ya Mkoa.\n(vi) Kufuatilia na kutathmini kazi za ujenzi wa barabara na majengo katika Mamlaka za Serikali za Mitaa (LGAs) na Tanzania Rural and Urban Roads Agency.",
+   "attachments": []
+  },
+  {
+   "slug": "community-development-unit",
+   "menu_path": "Administration > Units > Community Development",
+   "title": "Community Development Unit",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/community-development-unit",
+   "public_url": "https://kilimanjaro.go.tz/community-development-unit",
+   "createdAt": "2026-03-05T06:18:17.358Z",
+   "updatedAt": "2026-03-05T06:18:17.358Z",
+   "text_en": "Community Development Unit\nThe Unit performs the following activities:\n(i) Analyses, interprets and supervises the implementation of policies, strategies, laws, guidelines and international conventions related to good governance, community development, gender, special needs groups, children, parenting and family development in the Region.\n(ii) Facilitates community participation (self-help efforts and volunteerism) in planning, implementation, monitoring and evaluation of their projects to solve social and economic challenges at the LGA level.\n(iii) Provides technical support to LGAs on the Opportunities and Obstacles to Development (Improved O&OD) planning approach.\n(iv) Tracks and evaluates the facilitation fund for women, youths and people with disabilities.\n(v) Promotes community sensitization programmes on patriotism, volunteerism and the spirit of self-help to support social and economic development at local and national levels in LGAs.\n(vi) Coordinates and ensures sound projects from groups of women, youths and people with disabilities.\n(vii) Coordinates the implementation of cross-cutting issues including gender, disability and HIV/AIDS at the Regional level.\n(viii) Facilitates and coordinates the operations of economic empowerment programs and projects in LGAs.\n(ix) Coordinates and monitors Civil Society Organizations (NGOs, FBOs and CBOs) in the implementation of programs and projects within communities in the Region.\n(x) Promotes and facilitates Public-Private Partnership initiatives in implementing programs and projects to meet community needs in LGAs.",
+   "text_sw": "Kitengo cha Maendeleo ya Jamii\nKitengo hiki hufanya shughuli zifuatazo:\n(i) Kuchambua, kutafsiri na kusimamia utekelezaji wa sera, mikakati, sheria, miongozo na makubaliano ya kimataifa yanayohusiana na utawala bora, maendeleo ya jamii, jinsia, makundi yenye mahitaji maalum, watoto, malezi na maendeleo ya familia katika Mkoa.\n(ii) Kuwezesha ushiriki wa jamii (jitihada za kujitegemea na kujitolea) katika kupanga, kutekeleza, kufuatilia na kutathmini miradi yao ili kutatua changamoto za kijamii na kiuchumi katika ngazi ya Mamlaka za Serikali za Mitaa (LGAs).\n(iii) Kutoa msaada wa kitaalamu kwa LGAs kuhusu mbinu ya mipango ya Fursa na Vikwazo kwa Maendeleo (Improved O&OD) .\n(iv) Kufuatilia na kutathmini mfuko wa uwezeshaji kwa wanawake, vijana na watu wenye ulemavu.\n(v) Kukuza programu za uhamasishaji wa jamii kuhusu uzalendo, kujitolea na ari ya kujitegemea ili kuleta maendeleo ya kijamii na kiuchumi katika ngazi za mitaa na kitaifa ndani ya LGAs.\n(vi) Kuratibu na kuhakikisha uwepo wa miradi bora kutoka kwa makundi ya wanawake, vijana na watu wenye ulemavu.\n(vii) Kuratibu utekelezaji wa masuala mtambuka ikiwemo jinsia, ulemavu na UKIMWI katika ngazi ya Mkoa.\n(viii) Kuwezesha na kuratibu utekelezaji wa programu na miradi ya uwezeshaji wa kiuchumi katika LGAs.\n(ix) Kuratibu na kufuatilia utekelezaji wa programu na miradi ya Asasi za Kiraia (NGOs, FBOs na CBOs) katika jamii ndani ya Mkoa.\n(x) Kukuza na kuwezesha mipango ya Ushirikiano kati ya Sekta ya Umma na Sekta Binafsi (PPP) katika utekelezaji wa programu na miradi ili kukidhi mahitaji ya jamii katika LGAs.",
+   "attachments": []
+  },
+  {
+   "slug": "organization-structure",
+   "menu_path": "Administration > Organization Structure > Organization Structure",
+   "title": " Organization Structure",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/organization-structure",
+   "public_url": "https://kilimanjaro.go.tz/organization-structure",
+   "createdAt": "2026-03-04T09:26:33.975Z",
+   "updatedAt": "2026-03-06T07:02:58.924Z",
+   "text_en": "This is the Regional Secretariet Organizational Structure",
+   "text_sw": "Huu ni Muundo wa Sekretariet ya Mkoa",
+   "attachments": [
+    {
+     "file_name": "New organization structure.pdf",
+     "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772616393982-New%20organization%20structure.pdf",
+     "file_type": "application/pdf",
+     "file_size": "296500"
+    }
+   ]
+  },
+  {
+   "slug": "mwanga",
+   "menu_path": "Districts > Mwanga District > Mwanga District Council",
+   "title": "Mwanga",
+   "api_url": "https://kilimanjaro.go.tz/api/pages/slug/mwanga",
+   "public_url": "https://kilimanjaro.go.tz/mwanga",
+   "createdAt": "2026-03-05T06:31:21.987Z",
+   "updatedAt": "2026-03-05T06:31:21.987Z",
+   "text_en": "Work Inprogress",
+   "text_sw": "Inafanyiwa Kazi",
+   "attachments": []
+  }
+ ],
+ "files": [
+  {
+   "name": "THE TANZANIA DEVELOPMENT VISION 2050.pdf",
+   "date": "2026-03-06T09:50:58.746Z",
+   "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/files/1772790660440-THE%20TANZANIA%20DEVELOPMENT%20VISION%202050.pdf",
+   "file_type": "application/pdf",
+   "size": "1015920"
+  },
+  {
+   "name": "Jamhuri ya Muungano wa Tanzania Matokeo ya Mwanzo ya Sensa ya Watu na Makazi ya Mwaka 2022",
+   "date": "2026-03-06T04:55:14.279Z",
+   "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/files/1772772918913-sensa%202022.pdf",
+   "file_type": "application/pdf",
+   "size": "6295419"
+  },
+  {
+   "name": "ACCESS_FORM.pdf",
+   "date": "2026-03-04T17:29:35.043Z",
+   "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/files/1772645376686-ACCESS_FORM.pdf",
+   "file_type": "application/pdf",
+   "size": "101641"
+  },
+  {
+   "name": "Kilimanjaro Strategic Plan 2021-22 To 2025-26.pdf",
+   "date": "2026-03-04T17:22:43.522Z",
+   "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/files/1772644953305-Strategic%20Plan%202021-22%20To%202025-26.pdf",
+   "file_type": "application/pdf",
+   "size": "1756308"
+  },
+  {
+   "name": "Client Service Charter",
+   "date": "2026-03-04T17:21:12.853Z",
+   "url": "http://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/files/1772644884079-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+   "file_type": "application/pdf",
+   "size": "3975403"
+  }
+ ],
+ "news": [
+  {
+   "id": 7998,
+   "title": "RC BABU AWATAKA ASKARI POLISI KUIGA MFANO WA SAJENTI MWAJABU",
+   "date": "2026-08-11",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1465,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7803,
+   "title": "RC BABU AWATAKA WAKULIMA KUTUMIA MBOLEA YA RUZUKU NA ELIMU YA NANE NANE KUONGEZA TIJA",
+   "date": "2026-08-08",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1334,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 7266,
+   "title": "RC BABU APOKEA TUZO YA MWANASHERIA MKUU WA SERIKALI KWA KUIMARISHA UTAWALA WA SHERIA KILIMANJARO.",
+   "date": "2026-07-30",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1395,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 7260,
+   "title": "WAKUU WA MIKOA YA KANDA YA KASKAZINI WAWAALIKA WANANCHI MAONESHO YA NANENANE 2026",
+   "date": "2026-07-31",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1810,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6924,
+   "title": "SERIKALI KUIMARISHA ULINZI MIPAKANI HOLILI NA TARAKEA KUDHIBITI TISHIO LA EBOLA",
+   "date": "2026-07-24",
+   "category": "Afya",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1418,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6886,
+   "title": "WAZIRI MCHENGERWA ATOA SIKU KUMI NA NNE (14) KWA UONGOZI WA HALMASHAURI YA SAME KUWEKA MADAWATI KATIKA MADARASA MATATU",
+   "date": "2026-07-23",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2201,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6860,
+   "title": "RAS NZOWA APONGEZA KILIMANJARO KUTWAA TUZO MAONYESHO YA SABASABA",
+   "date": "2026-07-22",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 917,
+   "convening_tags": [
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6855,
+   "title": "KILIMANJARO YANG'ARA MAONYESHO YA SABASABA.",
+   "date": "2026-07-22",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1483,
+   "convening_tags": [
+    "exhibition_or_public_event",
+    "election_period"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6739,
+   "title": "RC BABU AWATAKA WATUMISHI WA UMMA KUSIMAMIA MIRADI KWA UADILIFU.",
+   "date": "2026-07-20",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2078,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6738,
+   "title": "RAS NZOWA AWAITA WANANCHI KUNUFAIKA NA FURSA ZA MAONYESHO YA NANE NANE",
+   "date": "2026-07-21",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1327,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6416,
+   "title": "UFUGAJI WA MIFUGO NA KILIMO VYACHOCHEA UHIFADHI WA MAZINGIRA NA UBORESHAJI WA MAISHA VIJIJI VYA NTENGA NA TAE, SAME",
+   "date": "2026-06-07",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3937,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 6307,
+   "title": "MANISPAA YA MOSHI YAPOKEA MAGARI MAPYA YA ZIMAMOTO KUIMARISHA HUDUMA ZA UOKOAJI.",
+   "date": "2026-07-10",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1565,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6068,
+   "title": "MWENGE WA UHURU UMEWEKA JIWE LA MSINGI KATIKA JENGO LA HUDUMA ZA UPASUAJI WA KISASA HOSPITALI YA KCMC",
+   "date": "2026-07-03",
+   "category": "Afya",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2479,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6066,
+   "title": "MUWASA YAAGIZWA KUKAMILISHA KWA HARAKA MABORESHO CHANZO CHA MAJI COFFEE CURING",
+   "date": "2026-07-03",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2909,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6041,
+   "title": "JENGO LA OPD ZAHANATI YA GHONA LAZINDULIWA KWA SH MILIONI 153 MOSHI, YAOKOA WANANCHI ZAIDI YA 3,000 KUTEMBEA KM 16",
+   "date": "2026-07-01",
+   "category": "Afya",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2799,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6040,
+   "title": "OFISI MPYA YA KIJIJI CHA SANGO YAZINDULIWA NA MWENGE MOSHI VIJIJINI, IMEGHARIMU SH MILIONI 50.8",
+   "date": "2026-07-02",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2440,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 6039,
+   "title": "WAFUGAJI NA WAZALISHAJI KOKOTO: MKAPO WA MILIONI 36 WAGEUZA MAISHA YA VIJANA MOSHI, MWENGE WAONGEZA CHECHEO",
+   "date": "2026-07-01",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3290,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5965,
+   "title": "DARAJA LA MILIONI 43 LAZINDULIWA ROMBO, WANANCHI WAPUMUA BAADA YA ADHA YA MUDA MREFU",
+   "date": "2026-07-01",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1840,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5963,
+   "title": "KIONGOZI WA MWENGE ARIDHISHWA NA UBORA WA OFISI MPYA YA KIJIJI CHA KILAWEWENI, MWANGA",
+   "date": "2026-06-30",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1149,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5962,
+   "title": "KIONGOZI WA MBIO ZA MWENGE AWATAKA WANANCHI KUTUNZA MIUNDOMBINU YA KITUO KIPYA CHA AFYA CD MSUYA",
+   "date": "2026-06-30",
+   "category": "Afya",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1779,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5786,
+   "title": "HAFLA YA MAPOKEZI YA MWENGE WA UHURU",
+   "date": "2026-06-28",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2444,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5778,
+   "title": "MWENGE UMEWASILI KILIMANJARO",
+   "date": "2026-06-28",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 461,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5777,
+   "title": "RAIS SAMIA AZINDUA JENGO LA TIBA YA MIONZI KCMC",
+   "date": "2026-06-24",
+   "category": "Afya",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 3091,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5406,
+   "title": "BODI YA MAJI BONDE LA PANGANI YATAKIWA KUENDELEA KUTOA ELIMU YA UHIFADHI WA MAZINGIRA NA VYANZO VYA MAJI.",
+   "date": "2026-06-18",
+   "category": "Elimu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1385,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 5405,
+   "title": "KILIMANJARO YAJIPANGA KUIMARISHA UPATIKANAJI WA PEMBEJEO MSIMU WA 2026/2027.",
+   "date": "2026-06-18",
+   "category": "Sekta Binafsi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1262,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 5033,
+   "title": "RAS. NZOWA AWANOA MAAFISA TARAFA KILIMANJARO KUIMARISHA UTOAJI WA HUDUMA.",
+   "date": "2026-06-10",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1282,
+   "convening_tags": [
+    "officials_training"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 4882,
+   "title": "WANANCHI WAHIMIZWA KUTUNZA MIUNDOMBINU YA SERIKALI",
+   "date": "2026-06-08",
+   "category": "Miundombinu",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1031,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 4033,
+   "title": "WAZIRI MKUU DKT.MWIGULU AMALIZA MGOGORO WA ARDHI ULIODUMU MIAKA 20 HAI KILIMANJAROWAZIRI MKUU DKT.MWIGULU AMALIZA MGOGORO WA ARDHI ULIODUMU MIAKA 20 HAI KILIMANJARO",
+   "date": "2026-05-19",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 514,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3999,
+   "title": "SERIKALI YAKABIDHI MSAADA KWA WAHANGA WA MAFURIKO SIHA.",
+   "date": "2026-05-19",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1372,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3818,
+   "title": "RC BABU AAGIZA VYAMA VYA USHIRIKA KILIMANJARO KUONGEZA MATUMIZI YA TEHAMA",
+   "date": "2026-05-14",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1647,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3641,
+   "title": "RC. BABU AMKABIDHI BAJAJI KIJANA MWENYE ULEMAVU ILIYOAHIDIWA NA WAZIRI MKUU",
+   "date": "2026-05-11",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1021,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 3640,
+   "title": "KILIMANJARO YAANZA MAFUNZO MRADI WA SCALE",
+   "date": "2026-05-11",
+   "category": "Uchumi",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1207,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 3190,
+   "title": "TAASISI BINAFSI KILIMANJARO ZASISITIZWA KULINDA MASLAHI YA WAFANYAKAZI.",
+   "date": "2026-05-01",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1243,
+   "convening_tags": [
+    "public_meeting",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 2097,
+   "title": "SERIKALI YAANZA MKAKATI WA KUFUFUA ZAO LA KAHAWA KILIMANJARO",
+   "date": "2026-03-30",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1900,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1661,
+   "title": "SERIKALI KILIMANJARO YAWAPA NGUVU MAAFISA UGANI KUONGOZA MAPINDUZI SEKTA YA KILIMO.",
+   "date": "2026-03-17",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1617,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 1207,
+   "title": "MAKAZI YA ASKARI KUBORESHWA KILIMANJARO",
+   "date": "2026-03-13",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 2159,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 830,
+   "title": "Maadhimisho ya Siku ya Wanawake Duniani yafanyika Wilaya ya Hai",
+   "date": "2026-03-08",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 366,
+   "convening_tags": [
+    "parents_or_education",
+    "exhibition_or_public_event"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 792,
+   "title": "Mapokezi ya Viongozi wa Nchi katika uwanja wa KIA kwa ajili ya Mkutano wa 25 wa Kawaida wa Wakuu wa Nchi Wanachama wa Jumuiya ya Afrika Mashariki (EAC)",
+   "date": "2026-03-05",
+   "category": "Matukio",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 589,
+   "convening_tags": [],
+   "attachments": []
+  },
+  {
+   "id": 722,
+   "title": "RAS NZOWA AHIMIZA MATUMIZI YA MFUMO WA E-MREJESHO KUTATUA KERO ZA WANANCHI",
+   "date": "2026-03-03",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 1047,
+   "convening_tags": [
+    "parents_or_education"
+   ],
+   "attachments": []
+  },
+  {
+   "id": 720,
+   "title": "MAJALIWA ATAKA MIKAKATI ZAIDI MATUMIZI YA NISHATI SAFI KWENYE MAGEREZA",
+   "date": "2025-08-30",
+   "category": "Habari",
+   "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
+   "text_chars": 4359,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "announcements": [
+  {
+   "id": 587,
+   "title": "MWENGE WA UHURU KUWASILI MKOANI KILIMANJARO",
+   "date": "2026-06-28",
+   "category": "Taarifa",
+   "listing_url": "https://kilimanjaro.go.tz/api/announcements?page=1&limit=50",
+   "text_chars": 475,
+   "convening_tags": [],
+   "attachments": []
+  }
+ ],
+ "status": "captured",
+ "errors": [],
+ "response_sha256": {
+  "https://kilimanjaro.go.tz/api/profiles": "55c0bc525217719b5bc451ec8257d3d7d0d87048dc8fbd761865871896c5ac9e",
+  "https://kilimanjaro.go.tz/api/statistics": "fa331b6acbbd5ff0a3083f280aa8ef8899876ce61d88f3ab1339c6262c1c5f95",
+  "https://kilimanjaro.go.tz/api/footer": "8f0a52c31deeb11c8cf6a2a93e435d4169f4fe3aeca8b3f950e867c540fcd1cc",
+  "https://kilimanjaro.go.tz/api/menus": "2b74c7accb0fd22325bc7563318b35a94cda8b6ff96e71f1c1a79126e16577d9",
+  "https://kilimanjaro.go.tz/api/pages/slug/regional-history": "e4c8e6798df87c7162417753bc11b6e2d6441b4d39827ff205f7a74d3f698fb6",
+  "https://kilimanjaro.go.tz/api/pages/slug/vision-and-mission": "bbe9aa2097bdb57298c3fad83dab09e416071c9639cb16fd4b592573d937d9a9",
+  "https://kilimanjaro.go.tz/api/pages/slug/core-values": "93f3424ba0aa150569191c389bde41129ec204aebc127ef4496a80fcebbcf291",
+  "https://kilimanjaro.go.tz/api/pages/slug/client-service-charter": "c0386e2692652905d971db9f7c21d222b55397b4bfc8b2028a5975eb5de5744b",
+  "https://kilimanjaro.go.tz/api/pages/slug/health-social-welfare-and-nutrition-section": "d57ce5092337a7d1cf48ddef591eef983bac12d61a209ae6643757ac3ab883c5",
+  "https://kilimanjaro.go.tz/api/pages/slug/infrastructure-section": "3b9bb0cf54fe8496edef9f1e60f65eb660345cfc0d5bd525524966d4ce9235fb",
+  "https://kilimanjaro.go.tz/api/pages/slug/community-development-unit": "e79294c06e405254184c3d2c0554c839bc356acaf69d962a7271455a5cec4ee3",
+  "https://kilimanjaro.go.tz/api/pages/slug/organization-structure": "6ae0d6eb064ee55701dffd2c4ac104e588dabce7e2961350d9d7bdcc3d9c3489",
+  "https://kilimanjaro.go.tz/api/pages/slug/mwanga": "545ed11970534dfce6faa006488f3a10b54d711fd3ee58713a05d854d221e709",
+  "https://kilimanjaro.go.tz/api/files?page=1&limit=100": "643d99cc68a7f0687da58d23fcf5fdfeb91c851763378f4496def457ad447a03",
+  "https://kilimanjaro.go.tz/api/news?page=1&limit=50": "1638c5e6b8ffa4ec4e5e79bb1a09f5432cf8ed8c51a7eeae8120f6d33e789c02",
+  "https://kilimanjaro.go.tz/api/announcements?page=1&limit=50": "993d4c5c1ce9c5b7a20cd5468e7546fd6e49730e82be0cc3984efe6399ed005c"
+ },
+ "sanitised": "createdBy/updatedBy (CMS editors), images, biographies and footer translations removed"
+}

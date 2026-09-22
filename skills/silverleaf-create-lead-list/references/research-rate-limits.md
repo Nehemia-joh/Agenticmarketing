@@ -1,8 +1,8 @@
 # Research rate limits and budgets
 
-Read this before any lead research that uses web search, web fetch, public registers or map APIs, and before launching research agents in parallel. The figures come from the `arusha-welfare-2026-09` run (22–23 September 2026). Treat them as planning defaults, and re-measure when a source behaves differently.
+Read this before any lead research that uses web search, web fetch, public registers or map APIs, and before launching research agents in parallel. The figures come from the `arusha-welfare-2026-09` and `arusha-government-2026-09` runs (22–23 September 2026). Treat them as planning defaults, and re-measure when a source behaves differently.
 
-The welfare-leads scripts enforce the network limits in code: `scripts/welfare/welfare_lib.py` (`HOST_LIMITS`, `polite_request`, `clamp_workers`). Change a limit there and here together.
+The scripts enforce the network limits in code: `scripts/welfare/welfare_lib.py` (`HOST_LIMITS`, `polite_request`, `clamp_workers`), and `scripts/government/gov_lib.py`, which registers the council, regional, census and Wikipedia hosts. Change a limit there and here together.
 
 ## Web search: a shared, per-session cap
 
@@ -24,9 +24,23 @@ The welfare-leads scripts enforce the network limits in code: `scripts/welfare/w
   - JamiiForums (blocks automated reading)
   - Facebook groups and many pages (login wall)
   - Reddit (not fetchable)
-  - Tanzanian council sites on the GWF CORE framework (pages render in JavaScript and deep links redirect to the home page)
+  - Tanzanian council sites on the GWF CORE framework (pages render in JavaScript and deep links redirect to the home page). Their public JSON API works; see the next section.
 - **Handling blocks.** Record a blocked source in the coverage log and move on. Do not retry in a loop, sign in or bypass a bot check.
 - **Pages that render in JavaScript** return only a shell. Look for data embedded in the page (the NGO register map embeds every NGO as a JavaScript array) and collect it with a script, or ask the user before using a browser.
+
+## Council and regional websites (GWF CORE API)
+
+- **Use the API, not the pages.** `scripts/government/collect_council_sites.py` reads `/api/profiles`, `/api/statistics`, `/api/footer`, `/api/menus`, `/api/pages/slug/<slug>`, `/api/files`, `/api/news` and `/api/announcements`. Do not call endpoints that ask for a login (for example `/api/organizations/current` answers 401).
+- **Defaults:** one request at a time per host, at least 1.5 seconds apart, 2 retries with backoff, and an on-disk cache. In the 2026-09 run, 13 sites answered about 40–70 requests each with no errors apart from missing pages (404).
+- **Sanitise.** Responses name the website editors (`createdBy`); the collector drops them before writing.
+
+## Census report (National Bureau of Statistics)
+
+- **One download.** The 2022 administrative-units report, volume 1b, is 13 MB. `collect_census_wards.py` downloads it once, caches it under `runtime/`, and never commits it.
+
+## Wikipedia API
+
+- **Rate-limited at one request per second.** It answered HTTP 429 with `Retry-After` at that pace on 23 September 2026. Use one request every 2 seconds, batch titles (50 for coordinates, 20 for intros), and cache responses.
 
 ## NGOs Information System (nis.jamii.go.tz)
 
@@ -40,6 +54,8 @@ The welfare-leads scripts enforce the network limits in code: `scripts/welfare/w
 ## OpenStreetMap Overpass API
 
 - **Broad queries time out.** A single name-regex query over the whole catchment returned HTTP 504. Split into a tag query and a narrow name query; each then ran in 8–11 seconds.
+- **Back-to-back queries are refused.** In the government run, a district-boundary query sent 5 seconds after a place query got HTTP 429, then 504; the kumi.systems mirror completed it. Keep the backoff and the mirror fallback.
+- **Ask for coordinates.** `out tags` returns no coordinates; use `out body` for nodes and `out center` for ways.
 - **Defaults:**
   - one query at a time, at least 5 seconds apart
   - `[timeout:120]` to `[timeout:180]`
@@ -61,6 +77,7 @@ The welfare-leads scripts enforce the network limits in code: `scripts/welfare/w
 ## Time
 
 - **Welfare run:** the research slices took 16–46 minutes each. The whole run took about 2.5 hours, including the register fetch, consolidation and verification.
+- **Government run:** no web search. The collectors took about 15 minutes (the 13 council and regional sites about 8 of them); curation and review took most of the rest.
 - **Planning:** set aside about 30 minutes for a full register refresh and about an hour per wave of research agents.
 
 ## When a limit is reached

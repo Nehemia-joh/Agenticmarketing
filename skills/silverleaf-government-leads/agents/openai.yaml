@@ -1,0 +1,4 @@
+interface:
+  display_name: "Silverleaf Government Leads"
+  short_description: "Map local government offices that can convene parents' community meetings"
+  default_prompt: "Use $silverleaf-government-leads to collect official sources, build and verify a government-lead run of convening offices and ward priorities, keeping the company-leads master untouched and collecting no parent data."

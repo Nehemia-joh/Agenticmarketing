@@ -1,0 +1,14 @@
+{
+  "file": "C:\\Work\\silverleaf-agentic-marketing\\data\\runs\\arusha-welfare-2026-09\\intake.csv",
+  "status": "valid",
+  "row_count": 631,
+  "counts": {
+    "contact": 131,
+    "enquiry": 3,
+    "organisation": 497
+  },
+  "error_count": 0,
+  "warning_count": 0,
+  "errors": [],
+  "warnings": []
+}

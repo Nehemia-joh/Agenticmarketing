@@ -165,6 +165,16 @@ Design the offer first. The list is only worth what the offer is worth.
 
 ---
 
+## 11. Research rate limits (added 23 September 2026)
+
+Collection at this scale meets hard limits. The welfare run measured them:
+- The agent web-search tool allows 200 searches per session, shared by every subagent.
+- The NGO register tolerates about four concurrent requests.
+- Broad Overpass queries time out.
+- Several registers and forums block automated reading.
+
+Budget and pace any new collection as `skills/silverleaf-create-lead-list/references/research-rate-limits.md` describes, before starting.
+
 ## Sources
 
 - [TATO — Tanzania Association of Tour Operators](https://tatotz.org/) — member directory, scraped 6 September 2026

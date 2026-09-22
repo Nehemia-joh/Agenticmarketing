@@ -31,6 +31,16 @@ Read [references/lead-list-data-contract.md](references/lead-list-data-contract.
 
 The initializer refuses to overwrite an existing database unless `--replace` is supplied. Use `--replace` only when the user explicitly wants the new file rebuilt.
 
+## Respect research rate limits
+
+Read [references/research-rate-limits.md](references/research-rate-limits.md) before researching. The key limits:
+
+- **Web search:** the WebSearch tool is capped per session (200 in the 2026-09 welfare run), and every subagent shares the cap. Run deterministic sources first, give each research agent an explicit search allocation in its prompt, and launch at most four agents per wave.
+- **When the cap is reached:** continue only with WebFetch on URLs already found. Never route searches through WebFetch or a browser.
+- **Pacing and blocks:** pace fetches, respect 403, 429 and login walls, and record every unsearched area in a coverage log so the next run can continue.
+
+For welfare institutions, use the `silverleaf-welfare-leads` skill, which bakes these limits into its scripts and prompts.
+
 ## Resolve identity and provenance
 
 Reuse a normalised exact key before creating a new entity:

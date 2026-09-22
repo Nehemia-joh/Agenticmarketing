@@ -1,0 +1,14 @@
+{
+  "run_id": "arusha-welfare-2026-09",
+  "research_date": "2026-09-22",
+  "research_period": "22–23 September 2026",
+  "lead_track": "welfare_customer",
+  "catchment_km": 25,
+  "register_radius_km": 30,
+  "bbox": [-3.62, 36.42, -3.10, 37.40],
+  "research_files": ["data/raw/welfare-research/research_*_2026-09-22.jsonl"],
+  "scope": "Welfare institutions within about 25 km of Silverleaf's five campuses (Arusha City, Ilboru, Kijenge, Usa River, Boma Ng'ombe), their published business contacts, funder links, and public parent/guardian enquiries.",
+  "readme_notes": [
+    "One line per run-specific note shown on the workbook's Read Me: coverage limits, spot-check results, corrections for the company master."
+  ]
+}

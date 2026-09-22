@@ -15,6 +15,8 @@ Distinguish strategy design, sample drafting and a full message rewrite. Complet
 
 For database work, read [database-workflow.md](references/database-workflow.md). Reuse entity IDs. Check the source behind a displayed value before using it as a personalized assertion.
 
+Checking hooks and routes uses web budget. Re-open the cited source URL with WebFetch rather than searching again. For large batches, spread the checks and respect the shared per-session web-search cap and site blocks described in [research-rate-limits.md](../silverleaf-create-lead-list/references/research-rate-limits.md).
+
 ## Make the strategy concrete
 
 Before drafting, record:

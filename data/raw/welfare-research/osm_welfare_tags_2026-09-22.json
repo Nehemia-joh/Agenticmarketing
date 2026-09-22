@@ -1,0 +1,182 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-22T20:30:03Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 3009256520,
+  "lat": -3.3939449,
+  "lon": 36.7178274,
+  "tags": {
+    "amenity": "social_facility",
+    "name": "Neema House Orphanage",
+    "social_facility": "shelter"
+  }
+},
+{
+  "type": "node",
+  "id": 3377459523,
+  "lat": -3.3751199,
+  "lon": 36.7060543,
+  "tags": {
+    "addr:city": "Arusha",
+    "name": "SNV (Netherlands Development Organisation)",
+    "office": "ngo",
+    "website": "www.snvworld.org"
+  }
+},
+{
+  "type": "node",
+  "id": 6222938386,
+  "lat": -3.3907035,
+  "lon": 36.6717039,
+  "tags": {
+    "name": "Emayani vulnerable people's center",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 6232770388,
+  "lat": -3.3374972,
+  "lon": 36.8864378,
+  "tags": {
+    "name": "United African American Community Center UAACC",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 6233240290,
+  "lat": -3.3720770,
+  "lon": 36.8386670,
+  "tags": {
+    "check_date": "2023-07-24",
+    "internet_access": "no",
+    "name": "Cradle of Love Childrens Homy",
+    "office": "ngo",
+    "payment:cards": "no",
+    "payment:credit_cards": "no",
+    "payment:debit_cards": "no",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6233300486,
+  "lat": -3.3737813,
+  "lon": 36.8395398,
+  "tags": {
+    "name": "Adventist Development Agency",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 6243841789,
+  "lat": -3.3756516,
+  "lon": 36.6778117,
+  "tags": {
+    "check_date": "2023-06-19",
+    "name": "Tanganika Farmers Association",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 6828881458,
+  "lat": -3.2165710,
+  "lon": 37.2183863,
+  "tags": {
+    "amenity": "social_facility",
+    "name": "Kalali Orphanage",
+    "operator": "Ushirika wa Neema",
+    "social_facility": "group_home",
+    "social_facility:for": "children"
+  }
+},
+{
+  "type": "node",
+  "id": 8533251417,
+  "lat": -3.4236488,
+  "lon": 36.7270955,
+  "tags": {
+    "name": "Woodtech2008(T)LTD Arusha",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 8537968817,
+  "lat": -3.4569747,
+  "lon": 36.7104247,
+  "tags": {
+    "name": "CANNOSA STIRITUALITY CENTRE",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 9220891880,
+  "lat": -3.4084201,
+  "lon": 36.7011903,
+  "tags": {
+    "name": "PAG Church Njiro",
+    "office": "ngo"
+  }
+},
+{
+  "type": "way",
+  "id": 245716856,
+  "center": {
+    "lat": -3.3731075,
+    "lon": 36.6967405
+  },
+  "tags": {
+    "addr:city": "Arusha",
+    "name": "Tanzania Conservation Resource Centre",
+    "office": "ngo",
+    "website": "https://www.tzcrc.org/",
+    "wikipedia": "en:Tanzania Conservation Resource Centre"
+  }
+},
+{
+  "type": "way",
+  "id": 249323216,
+  "center": {
+    "lat": -3.3691903,
+    "lon": 36.7019297
+  },
+  "tags": {
+    "addr:city": "Arusha",
+    "addr:housenumber": "165",
+    "addr:street": "Haille Sellassie",
+    "building": "yes",
+    "name": "Oikos East Africa",
+    "office": "ngo",
+    "opening_hours": "08:30-17:00",
+    "source": "Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 528955936,
+  "center": {
+    "lat": -3.2175526,
+    "lon": 36.8594506
+  },
+  "tags": {
+    "amenity": "childcare",
+    "building": "yes",
+    "name": "Momella Orphanage",
+    "operator": "Africa Amini Alama"
+  }
+}
+
+  ]
+}

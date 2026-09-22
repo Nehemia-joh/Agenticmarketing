@@ -11,6 +11,7 @@ Work only in `C:\Work\silverleaf-agentic-marketing` unless the user names anothe
 - To add to the canonical master, read `../skills/silverleaf-update-lead-list/SKILL.md` and its referenced shared data contract.
 - To create an independent list, read `../skills/silverleaf-create-lead-list/SKILL.md`.
 - To revise positioning, hooks, outreach messages, or sequences, read `../skills/silverleaf-outreach/SKILL.md`.
+- To research welfare institutions as paying customers, read `../skills/silverleaf-welfare-leads/SKILL.md`. Its runs stay separate from the master.
 
 The canonical master is `../outputs/master/Silverleaf Master Database.sqlite`. Its workbook is generated and must not become an independent source of truth.
 
@@ -33,5 +34,9 @@ Report before and after counts, exact matches, inserted records, quarantined row
 - Leave a hook blank unless its exact claim is supported by a source URL and verification date.
 - Treat similar names as review candidates rather than automatic matches.
 - Draft outreach only. Do not send messages, create live schedules, or enable automation.
+- Respect research rate limits (`../skills/silverleaf-create-lead-list/references/research-rate-limits.md`):
+  - The web-search cap is per session and shared by subagents, so budget each agent's searches and run deterministic collectors first.
+  - Launch at most four research agents at a time.
+  - Pace fetches, and never work around a cap, block or login wall.
 
 Do not add `node_modules`, virtual environments, caches, previews, inspection dumps, database journals, credentials, or backup snapshots to the repository.

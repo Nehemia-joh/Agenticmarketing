@@ -1,0 +1,107 @@
+{
+ "osm": {
+  "Neema House Orphanage": {
+   "osm_id": "node/3009256520",
+   "lat": -3.3939449,
+   "lon": 36.7178274,
+   "operator": "",
+   "check_date": "",
+   "tags": "amenity=social_facility; social_facility=shelter",
+   "organisation": "",
+   "add_if_missing": true
+  },
+  "Emayani vulnerable people's center": {
+   "osm_id": "node/6222938386",
+   "lat": -3.3907035,
+   "lon": 36.6717039,
+   "operator": "",
+   "check_date": "",
+   "tags": "office=ngo",
+   "organisation": "",
+   "add_if_missing": true
+  },
+  "Cradle of Love Childrens Homy": {
+   "osm_id": "node/6233240290",
+   "lat": -3.372077,
+   "lon": 36.838667,
+   "operator": "",
+   "check_date": "2023-07-24",
+   "tags": "check_date=2023-07-24; internet_access=no; office=ngo; payment:cards=no; payment:credit_cards=no; payment:debit_cards=no; wheelchair=no",
+   "organisation": "",
+   "add_if_missing": true
+  },
+  "Kalali Orphanage": {
+   "osm_id": "node/6828881458",
+   "lat": -3.216571,
+   "lon": 37.2183863,
+   "operator": "Ushirika wa Neema",
+   "check_date": "",
+   "tags": "amenity=social_facility; operator=Ushirika wa Neema; social_facility=group_home; social_facility:for=children",
+   "organisation": "",
+   "add_if_missing": true
+  },
+  "Momella Orphanage": {
+   "osm_id": "way/528955936",
+   "lat": -3.2175526,
+   "lon": 36.8594506,
+   "operator": "Africa Amini Alama",
+   "check_date": "",
+   "tags": "amenity=childcare; building=yes; operator=Africa Amini Alama",
+   "organisation": "",
+   "add_if_missing": true
+  },
+  "Jitihada pre & primary school (orphans)": {
+   "osm_id": "node/8533251325",
+   "lat": -3.4080637,
+   "lon": 36.7230839,
+   "operator": "",
+   "check_date": "",
+   "tags": "amenity=school",
+   "organisation": "",
+   "add_if_missing": false
+  }
+ },
+ "master_ids": {
+  "Cradle of Love Children's Home": "O94f7a48ede44",
+  "Emayani vulnerable people's center": "O1b5b75388663",
+  "Usa-River Rehabilitation Centre": "O00168bd8da71",
+  "Next Life Foundation": "O26afe2b96e32",
+  "Sibusiso Foundation": "Ofc2567ddcd95"
+ },
+ "org_aliases": {},
+ "nis_to_org": {
+  "4321": "Enjivai Orphanage",
+  "5190": "Enyorata Children's Home",
+  "7623": "Kao La Amani Children's Village"
+ },
+ "nis_exclude": [],
+ "corporate_funders_in_master": [
+  "Africa Dream Safaris",
+  "KILI VIKINGS LIMITED"
+ ],
+ "geo_overrides": {
+  "Amani Centre for Street Children": {
+   "lat": -3.37,
+   "lon": 36.688,
+   "precision": "town",
+   "basis": "Arusha drop-in centre (in catchment); headquarters in Moshi (about 23 km from Boma Ng'ombe) per the organisation's pages"
+  },
+  "Kafika House": {
+   "lat": -3.37,
+   "lon": 36.688,
+   "precision": "town",
+   "basis": "Arusha headquarters; further houses in Moshi (2024) and Karatu (2023, outside 25 km)"
+  },
+  "SOS Children's Village Arusha": {
+   "lat": -3.33,
+   "lon": 36.62,
+   "precision": "estimated",
+   "basis": "SOS pages place the village about 13 km from Arusha centre on the Arusha-Nairobi highway; placed at Ngaramtoni, the nearest gazetteer point on that road (estimate)"
+  }
+ },
+ "nis_to_org_evidence": {
+  "4321": "Registration number match: researched '00009850' = register '00NG0/9850'.",
+  "5190": "Researched record lists the alternative name 'Enyorata Children Organization'; register district Arumeru matches Meru DC.",
+  "7623": "Researched record names 'Kao La Amani' as the Tanzanian counterpart in Boma Ng'ombe (Hai); register district is Hai."
+ }
+}

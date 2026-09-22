@@ -1,0 +1,8 @@
+endpoint: https://overpass-api.de/api/interpreter
+retrieved: 2026-09-22
+
+[out:json][timeout:170];
+(
+  nwr["name"~"orphan|yatima|makao|rescue|street child|vulnerable|children'?s home|children'?s village|children'?s centre|children'?s center|baby home|kituo cha",i](-3.62,36.42,-3.1,37.4);
+);
+out center tags;

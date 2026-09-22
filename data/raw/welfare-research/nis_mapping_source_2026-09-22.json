@@ -1,0 +1,8 @@
+{
+ "source_url": "https://nis.jamii.go.tz/mapping",
+ "retrieved_on": "2026-09-22",
+ "page_sha256": "02403a8a5c7f7c2cd93a55d2ca0fb6290f6b76d9dfaa8bb4dae95e1d700a333c",
+ "total_ngos_on_map": 8376,
+ "catchment_rule": "registry map pin within 30 km of any campus",
+ "catchment_count": 898
+}

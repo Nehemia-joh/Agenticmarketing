@@ -1,0 +1,23 @@
+{
+ "run_id": "arusha-welfare-2026-09",
+ "research_date": "2026-09-22",
+ "research_period": "22–23 September 2026",
+ "lead_track": "welfare_customer",
+ "catchment_km": 25,
+ "register_radius_km": 30,
+ "bbox": [
+  -3.62,
+  36.42,
+  -3.1,
+  37.4
+ ],
+ "research_files": [
+  "data/raw/welfare-research/research_*_2026-09-22.jsonl"
+ ],
+ "scope": "Welfare institutions within about 25 km of Silverleaf's five campuses (Arusha City, Ilboru, Kijenge, Usa River, Boma Ng'ombe), their published business contacts, funder links, and public parent/guardian enquiries.",
+ "readme_notes": [
+  "Coverage is incomplete: the session's 200-search web budget ran out part-way through, so several wards and villages were never searched by name. Each slice lists what it did not reach on the Search Coverage sheet. Register-only NGOs have no published contact route yet.",
+  "Manual spot-check on 23 September 2026: published emails, phones and locations for Ujamaa Children's Home, The Foundation For Tomorrow, Malaika Children's Friends, Selfless Solutions, Tumaini Children's Foundation and Samaritan Village Orphanage all matched their cited pages.",
+  "Corrections to the Silverleaf master found in this run: Cradle of Love Children's Home closed in April 2024; Next Life Foundation is a vocational training centre (out of scope)."
+ ]
+}

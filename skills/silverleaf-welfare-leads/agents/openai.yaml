@@ -1,0 +1,4 @@
+interface:
+  display_name: "Silverleaf Welfare Leads"
+  short_description: "Research welfare institutions as paying institutional customers"
+  default_prompt: "Use $silverleaf-welfare-leads to plan, research, build and verify a welfare-lead run within the web-search budget, keeping the company-leads master untouched."

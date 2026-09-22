@@ -19,4 +19,9 @@ alwaysApply: true
 - Personalised hooks are optional. Keep one only when the exact claim has a source URL and verification date.
 - Keep outreach as drafts and automation recipes disabled.
 - Validate intake, preflight updates, use a transaction, rebuild the workbook, and run `python scripts/master/verify_master.py`.
+- Use `skills/silverleaf-welfare-leads/SKILL.md` for welfare institutions; its runs stay separate from the master.
+- Respect research rate limits (`skills/silverleaf-create-lead-list/references/research-rate-limits.md`):
+  - The web-search cap is per session and shared by subagents; budget searches per agent.
+  - Run deterministic collectors first, and use at most four research agents at a time.
+  - Pace fetches, and never work around a cap or block.
 - Never commit dependencies, caches, inspection dumps, previews, journals, credentials, or backup snapshots.

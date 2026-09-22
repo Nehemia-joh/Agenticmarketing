@@ -9,6 +9,7 @@ Use `outputs/master/Silverleaf Master Database.sqlite` as the canonical lead dat
 - For a separate new database, follow `skills/silverleaf-create-lead-list/SKILL.md`.
 - For additions or refreshes to this master, follow `skills/silverleaf-update-lead-list/SKILL.md`.
 - For partnership positioning, hooks, messages, or sequences, follow `skills/silverleaf-outreach/SKILL.md`.
+- For welfare institutions as paying customers (children's homes, care programmes, specialised centres, and their funders), follow `skills/silverleaf-welfare-leads/SKILL.md`. Its runs live in `data/runs/<run-id>/` and `outputs/runs/<run-id>/` and never modify the master.
 
 Read the referenced data contract before creating fields or changing match rules.
 
@@ -19,6 +20,11 @@ Read the referenced data contract before creating fields or changing match rules
 - Match exact identifiers first. Send similar-name cases to review instead of merging them automatically.
 - Keep a factual hook only when its exact claim has a source URL and verification date. A plain role- or need-based opening is valid when no accurate hook exists.
 - Keep automation and campaign sending disabled. Repository workflows produce drafts and review artifacts only.
+- Respect research rate limits: `skills/silverleaf-create-lead-list/references/research-rate-limits.md`.
+  - The WebSearch cap is per session and shared by every subagent.
+  - Run deterministic collectors first, and give each research agent an explicit search allocation.
+  - Launch at most four agents at a time.
+  - Pace fetches, and never work around a cap, block or login wall.
 
 ## Change sequence
 

@@ -1,0 +1,15 @@
+endpoint: https://overpass-api.de/api/interpreter
+retrieved: 2026-09-22
+
+[out:json][timeout:120];
+(
+  nwr["amenity"="social_facility"](-3.62,36.42,-3.1,37.4);
+  nwr["social_facility"](-3.62,36.42,-3.1,37.4);
+  nwr["social_facility:for"](-3.62,36.42,-3.1,37.4);
+  nwr["amenity"="orphanage"](-3.62,36.42,-3.1,37.4);
+  nwr["amenity"="childcare"]["name"~"orphan|yatima|home|rescue|centre|center",i](-3.62,36.42,-3.1,37.4);
+  nwr["office"="ngo"](-3.62,36.42,-3.1,37.4);
+  nwr["office"="charity"](-3.62,36.42,-3.1,37.4);
+  nwr["office"="foundation"](-3.62,36.42,-3.1,37.4);
+);
+out center tags;

@@ -16,3 +16,14 @@ python scripts/master/verify_master.py
 ```
 
 Every claim must remain traceable to a source record. Do not infer private contact details or personal status. Leave an unsupported hook blank. Keep all sending and automations disabled.
+
+Welfare leads (children's homes, care programmes, specialised centres, funders) use `../skills/silverleaf-welfare-leads/SKILL.md`. Each run is separate from the master:
+
+```powershell
+python skills/silverleaf-welfare-leads/scripts/run_pipeline.py --run-id <run-id> --rebuild-db
+```
+
+Research is rate-limited; read `../skills/silverleaf-create-lead-list/references/research-rate-limits.md` first.
+- WebSearch has a per-session cap shared by all subagents: plan budgets with `plan_research.py`.
+- Run deterministic collectors first, and launch at most four research agents per wave.
+- Never work around a cap or a block.

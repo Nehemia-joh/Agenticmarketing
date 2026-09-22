@@ -13,6 +13,13 @@ Identify the canonical database, generated workbook, update objective, source se
 
 Do not use workbook rows as the authoritative merge input when SQLite is available. Do not replace the database with a new list just because the update is large.
 
+When the update needs new research, follow [research-rate-limits.md](../silverleaf-create-lead-list/references/research-rate-limits.md):
+- Reuse cached raw evidence before refetching.
+- Budget web searches across agents, since the session cap is shared.
+- Record anything not reached in a coverage log.
+
+Welfare-run records wait for Phase 0 of `plans/b2b-welfare-leads-plan.md` before they merge into this master. Without it, `refresh_acquisition_metadata.py` would reassign them the employer value modules.
+
 ## Preflight before mutation
 
 1. Put new research in the shared intake format.

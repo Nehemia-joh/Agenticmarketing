@@ -1,0 +1,85 @@
+{
+  "about": "Research slices for welfare-lead runs. plan_research.py turns these into per-agent prompts with a web-search budget baked in. Weights split the budget; next_run_priorities come from the last run's coverage logs (arusha-welfare-2026-09) and should be searched first.",
+  "slices": [
+    {
+      "id": "A", "name": "arusha_city", "weight": 1.0,
+      "title": "Arusha City Council area",
+      "focus": "Focus on residential care (children's homes, orphanages, baby homes, children's villages, street-children centres in the city) but record any welfare institution you find here, with its published business contacts and funder links.",
+      "localities": ["Sakina", "Kijenge", "Ilboru", "Njiro", "Moshono", "Sombetini", "Olasiti", "Kimandolu", "Themi", "Sekei", "Levolosi", "Ngarenaro", "Unga Ltd", "Kaloleni", "Daraja Mbili", "Lemara", "Baraa", "Terrat", "Muriet", "Sinoni", "Engutoto", "Oloirien", "Olmoti", "Osunyai", "Kati", "Elerai", "Olorieni", "Sokon I"],
+      "seeds": ["Ujamaa Children's Home (Njiro)", "Malaika Children's Friends (Moshono)", "Samaritan Village Orphanage (Moshono)", "Tumaini For Africa Orphanage", "SOS Children's Village Arusha", "Neema House / Neema Village"],
+      "queries": ["orphanage Arusha", "children's home Arusha Tanzania", "baby home Arusha", "kituo cha kulelea watoto yatima Arusha", "makao ya watoto Arusha", "kituo cha watoto <ward>", "street children Arusha centre", "orphanage near <ward>"],
+      "stop_rule": "12 consecutive varied queries produce no new institution in the slice or every ward above has been searched",
+      "next_run_priorities": ["Ward-by-ward searches were not run in 2026-09: start with the wards above", "Street-children centres in the city", "Confirm the merged Huruma children's home record", "Exact wards for homes recorded only as 'Arusha'"]
+    },
+    {
+      "id": "B", "name": "arusha_district", "weight": 1.0,
+      "title": "Arusha District Council (Arumeru West), the ring around the city",
+      "focus": "Focus on residential care (children's homes, orphanages, children's villages, rescue homes) but record any welfare institution you find here, with its published business contacts and funder links.",
+      "localities": ["Ngaramtoni", "Kisongo", "Olturumet", "Oldonyosambu", "Oldonyowas", "Mateves", "Kiranyi", "Olkokola", "Oljoro", "Mbuyuni", "Bangata", "Ilkiding'a", "Moivo", "Kimnyaki", "Siwandeti", "Sokon II", "Olmotonyi", "Lemanyata", "Mwandet", "Musa", "Nduruma", "Oltroto", "Laroi", "Tarakwa", "Sambasha", "Nengung'u", "Likamba", "Lengijave", "Bwawani"],
+      "seeds": ["House of Happiness (Kisongo)", "Canaan Children's Center (Kisongo)", "Ummu Aisha Orphanage Centre", "Upendo Face (Olturoto)", "Matonyok Children's Home"],
+      "queries": ["orphanage <ward>", "children's home <ward>", "kituo cha kulelea watoto yatima Arumeru", "makao ya watoto Arusha vijijini", "Maasai children's home Arusha", "rescue centre girls Arumeru"],
+      "stop_rule": "12 consecutive varied queries produce no new institution in the slice or every ward above has been searched",
+      "next_run_priorities": ["23 wards were not searched in 2026-09 (only about 10 were)", "The unnamed children's centre in Kiranyi reported in April 2026 news", "Wards for Matonyok and LOHADA", "St Gabriel Home (site was down)"]
+    },
+    {
+      "id": "C", "name": "meru_usa_river", "weight": 1.0,
+      "title": "Meru District Council (Arumeru East), around the Usa River campus",
+      "focus": "Focus on residential care (children's homes, orphanages, baby homes, children's villages) but record any welfare institution you find here, with its published business contacts and funder links.",
+      "localities": ["Usa River", "Tengeru", "Maji ya Chai", "Kikatiti", "King'ori", "Leguruki", "Ngarenanyuki", "Poli", "Nkoaranga", "Akheri", "Patandi", "Duluti", "Seela Sing'isi", "Makiba", "Mbuguni", "Nkwanrua", "Songoro", "Kikwe", "Imbaseni", "Maroroni", "Malula", "Karangai", "Ambureni", "Leganga", "Momela", "Nshupu"],
+      "seeds": ["The Foundation For Tomorrow (Usa River)", "Tumaini Children's Foundation (Usa River/Nshupu)", "Child First Initiative baby home (Usa River)", "Nkoaranga Orphanage (Baby Home)", "St. Mark's Children's Home (Usa River)", "Usa River Rehabilitation and Training Centre"],
+      "queries": ["orphanage Usa River", "children's home Tengeru", "baby home Usa River", "orphanage Maji ya Chai", "kituo cha kulelea watoto yatima Usa River", "makao ya watoto Meru Arusha", "orphanage <locality>"],
+      "stop_rule": "12 consecutive varied queries produce no new institution in the slice or every locality above has been searched",
+      "next_run_priorities": ["About 20 localities had no dedicated search in 2026-09: Leguruki, Ngarenanyuki, Poli, Kikwe, Imbaseni and others", "Identify the 'Usa River Children Center' map entry about 1 km from the campus", "Name of the Kikatiti orphanage supported by ROAM Humanitarian", "Verify Sun of Hope and Jericho"]
+    },
+    {
+      "id": "D", "name": "kilimanjaro", "weight": 1.0,
+      "title": "Kilimanjaro side, within about 25 km of the Boma Ng'ombe campus",
+      "focus": "Cover all welfare segments (residential care, street-children centres, family-based programmes, specialised centres) with published business contacts and funder links. Record places farther east or south only with a catchment_note.",
+      "localities": ["Boma Ng'ombe", "Hai", "Machame", "Masama", "Narumu", "Weruweru", "Mnadani", "Rundugai", "KIA", "Sanya Juu", "Siha", "Kwa Sadala", "Lyamungo", "Moshi town", "Kibosho", "Uru", "Mabogini", "Kiboriloni", "Pasua", "Shanty Town", "Soweto", "Majengo", "Njoro", "Karanga", "Longuo"],
+      "seeds": ["Tuleeni Children's Home (Uru)", "Light in Africa Children's Homes", "Kitaa Hope Home (Moshi)", "Kao La Amani Children's Village (Boma Ng'ombe)", "Amani Centre for Street Children (Moshi)", "Mkombozi Centre for Street Children (Moshi)"],
+      "queries": ["orphanage Moshi Tanzania", "children's home Moshi", "orphanage Boma Ng'ombe", "orphanage Hai district Kilimanjaro", "children's home Sanya Juu Siha", "kituo cha kulelea watoto yatima Moshi", "makao ya watoto Kilimanjaro"],
+      "stop_rule": "12 consecutive varied queries produce no new institution in the slice or every locality above has been searched",
+      "next_run_priorities": ["Never searched in 2026-09: Masama, Narumu, Rundugai, KIA, Kwa Sadala, Lyamungo, Siha villages, Kibosho, Mabogini, Kiboriloni, Njoro, Karanga, Longuo", "Location of the OKAT home", "Light in Africa contact route and locations (sources conflict)"]
+    },
+    {
+      "id": "E", "name": "family_programmes", "weight": 1.0,
+      "title": "Family-based programmes across the whole catchment",
+      "focus": "Organisations that pay school fees or arrange schooling for children living with families: child and education sponsorship, orphans and vulnerable children programmes, kinship and foster-care support, family strengthening, church-based child development centres, primary bursary charities. Note which schools they use (as published).",
+      "localities": ["Arusha city", "Arumeru", "Meru", "Hai", "Siha", "Moshi"],
+      "seeds": ["Selfless Solutions", "Ngarasero Community Organization (Usa River)", "Mesha's Village", "Compassion International Tanzania (partner churches only if listed publicly)", "SOS Children's Village Arusha family strengthening"],
+      "queries": ["child sponsorship Arusha school fees", "education sponsorship Arusha primary school private", "sponsor a child Arusha Tanzania charity", "orphans and vulnerable children programme Arusha NGO", "OVC Moshi NGO", "foster care Arusha", "kinship care Tanzania Arusha NGO", "ufadhili wa elimu Arusha", "mfadhili ada shule Arusha NGO", "watoto wanaoishi katika mazingira hatarishi Arusha NGO"],
+      "stop_rule": "12 consecutive varied queries produce no new organisation",
+      "next_run_priorities": ["No Kiswahili queries ran in 2026-09", "Hai and Siha had no records; Moshi only four", "Church and council orphan, foster and kinship programmes", "Sites that were unreachable: Sunrise for Hope, Umoja Centre, Mkombozi"]
+    },
+    {
+      "id": "F", "name": "specialised_centres", "weight": 0.8,
+      "title": "Specialised centres across the whole catchment",
+      "focus": "Centres for children with disabilities (physical, intellectual, deaf, blind, autism, albinism), rehabilitation centres, street-children centres, rescue or safe houses for girls, transition homes. Note whether each places children in mainstream day schools (as published).",
+      "localities": ["Arusha city", "Arumeru", "Meru", "Hai", "Siha", "Moshi"],
+      "seeds": ["Sibusiso Foundation (Tengeru)", "Usa River Rehabilitation and Training Centre", "Kafika House (formerly The Plaster House)", "Amani Centre for Street Children", "Gabriella Children's Rehabilitation Centre (Moshi)"],
+      "queries": ["disabled children centre Arusha", "special needs children Arusha NGO", "autism centre Arusha", "deaf children Arusha school centre", "street children centre Arusha", "girls rescue centre Arusha", "kituo cha watoto wenye ulemavu Arusha", "kituo cha watoto wa mitaani Arusha"],
+      "stop_rule": "12 consecutive varied queries produce no new organisation",
+      "next_run_priorities": ["Only 8 searches ran in 2026-09 before the session cap", "Mkombozi (site unreachable)", "Deaf, blind and autism centres", "Girls' rescue centres in Arumeru", "Hai and Siha"]
+    },
+    {
+      "id": "G", "name": "funders_registers", "weight": 0.6,
+      "title": "Funders, foreign charity registers and umbrella bodies",
+      "focus": "Foreign charities, faith and umbrella bodies and corporate funders that fund or operate welfare institutions in the catchment, from official registers (UK Charity Commission, OSCR, ProPublica Nonprofit Explorer, ACNC, CBF/ANBI and others) and the charities' own sites. Record funders, relationships to the institutions they fund, and latest income with currency and year. Most of this slice is WebFetch on register pages, so it needs fewer searches.",
+      "localities": ["Arusha city", "Arumeru", "Meru", "Hai", "Siha", "Moshi"],
+      "seeds": ["Africa Dream Safaris -> Peace House", "KILI VIKINGS LIMITED -> Light in Africa", "The Small Things -> Nkoaranga Village Organization", "Little Souls of Tanzania -> Enyorata Children's Home"],
+      "queries": ["site:projects.propublica.org Arusha orphanage", "charity Arusha children's home registered charity", "Moshi orphanage charity UK registered", "foundation supports orphanage Arusha"],
+      "stop_rule": "12 consecutive varied register or web queries produce no new funder or supported institution",
+      "next_run_priorities": ["UK, Scottish, Australian, Canadian and Dutch registers blocked or empty in 2026-09; try their search pages again or the charities' own sites", "Institutions known only from US tax filings need their own sites and routes"]
+    },
+    {
+      "id": "H", "name": "parent_enquiries", "weight": 0.6,
+      "title": "Public parent and guardian enquiries in the catchment",
+      "focus": "Publicly posted requests by adults seeking, for children they are responsible for, a school place, fee help or sponsorship, a children's-home place, foster or kinship support, or affordable English-medium school recommendations. Every record is pdpa_risk 'risky'. Record only what the post shows; no child identifiers; contact details only if published in that post; never look the person up elsewhere.",
+      "localities": ["Arusha city", "Arumeru", "Usa River", "Tengeru", "Boma Ng'ombe", "Siha", "Moshi"],
+      "seeds": [],
+      "queries": ["natafuta shule Arusha", "ada ya shule msaada Arusha", "mfadhili ada Arusha", "shule nzuri ya English medium Arusha bei nafuu", "natafuta shule Moshi", "school recommendations Arusha parents", "daycare Arusha recommendations"],
+      "stop_rule": "12 consecutive varied queries produce no new relevant enquiry",
+      "next_run_priorities": ["No readable enquiries for Arusha city, Usa River, Tengeru, Boma Ng'ombe or Siha in 2026-09", "JamiiForums blocks automated reading and Facebook groups need a login: record them as blocked, do not work around them"]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "checked_at": "2026-09-22T21:34:25.828362+00:00",
+ "run_id": "arusha-welfare-2026-09",
+ "result": "passed",
+ "checks": {
+  "integrity": true,
+  "foreign_keys": true,
+  "organisations_reconcile": true,
+  "contacts_reconcile": true,
+  "enquiries_reconcile": true,
+  "relationships_reconcile": true,
+  "registry_reconcile": true,
+  "review_reconcile": true,
+  "every_row_risk_labelled": true,
+  "enquiries_all_risky": true,
+  "no_child_level_columns": true,
+  "no_child_identifier_text": true,
+  "no_outreach_or_automation": true,
+  "layout_sheets_present": true,
+  "raw_evidence_registered": true,
+  "welfare_outputs_separate_from_master": true,
+  "company_master_db_unchanged": true,
+  "company_master_workbook_unchanged": true
+ },
+ "db_counts": {
+  "organisations": 497,
+  "contacts": 131,
+  "enquiries": 3,
+  "outreach_plans": 0,
+  "automation_recipes": 0,
+  "organisation_relationships": 214,
+  "registry_ngos": 898,
+  "review": 92,
+  "source_records": 631,
+  "source_files": 24
+ },
+ "intake_by_type": {
+  "organisation": 497,
+  "contact": 131,
+  "enquiry": 3
+ },
+ "sheet_rows": {
+  "Organisations": 497,
+  "Contacts": 131,
+  "Parent Enquiries": 3,
+  "Relationships": 214,
+  "NGO Register": 898,
+  "Review Queue": 92
+ },
+ "details": {
+  "missing_risk": [],
+  "enquiry_not_risky": [],
+  "child_columns": [],
+  "child_identifier_hits": [],
+  "missing_sheets": [],
+  "foreign_key_violations": [],
+  "master_baseline": {
+   "recorded_at": "2026-09-23T00:34:13",
+   "master_db_sha256": "8fa999f96ed3385c7ad51defc90a333eb9d4212c645b519a3c4c870b4bb83670",
+   "master_workbook_sha256": "515d305cb936d66bad81e1835e23fce67596348817724efbb0d0d5a5fa836d33"
+  }
+ }
+}

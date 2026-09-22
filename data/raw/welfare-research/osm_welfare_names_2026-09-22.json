@@ -1,0 +1,169 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-22T20:30:03Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 282573268,
+  "lat": -3.3929574,
+  "lon": 37.0658061,
+  "tags": {
+    "name": "Makao Mapya",
+    "place": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 3009256520,
+  "lat": -3.3939449,
+  "lon": 36.7178274,
+  "tags": {
+    "amenity": "social_facility",
+    "name": "Neema House Orphanage",
+    "social_facility": "shelter"
+  }
+},
+{
+  "type": "node",
+  "id": 6222938386,
+  "lat": -3.3907035,
+  "lon": 36.6717039,
+  "tags": {
+    "name": "Emayani vulnerable people's center",
+    "office": "ngo"
+  }
+},
+{
+  "type": "node",
+  "id": 6828881458,
+  "lat": -3.2165710,
+  "lon": 37.2183863,
+  "tags": {
+    "amenity": "social_facility",
+    "name": "Kalali Orphanage",
+    "operator": "Ushirika wa Neema",
+    "social_facility": "group_home",
+    "social_facility:for": "children"
+  }
+},
+{
+  "type": "node",
+  "id": 8533251325,
+  "lat": -3.4080637,
+  "lon": 36.7230839,
+  "tags": {
+    "amenity": "school",
+    "name": "Jitihada pre & primary school (orphans)"
+  }
+},
+{
+  "type": "node",
+  "id": 8851286917,
+  "lat": -3.4077932,
+  "lon": 36.7160227,
+  "tags": {
+    "name": "Kituo cha boda boda",
+    "tourism": "viewpoint"
+  }
+},
+{
+  "type": "node",
+  "id": 9375894753,
+  "lat": -3.1450325,
+  "lon": 36.6920600,
+  "tags": {
+    "addr:district": "Arusha District Council",
+    "addr:region": "Arusha",
+    "addr:street": "Makao mapya",
+    "addr:ward": "Oldonyowass",
+    "craft": "grinding_mill",
+    "description": "Maize",
+    "flour_fortified": "no",
+    "industrial": "grinding_mill",
+    "man_made": "works",
+    "name": "Makao Mapya Milling Machine",
+    "opening_hours": "Mo-Fr 8:00-12:00; Sa-Su 5:00-13:30",
+    "operator:type": "private",
+    "product": "food",
+    "source": "WFP Field Survey 2021, OMDTZ"
+  }
+},
+{
+  "type": "node",
+  "id": 11422618530,
+  "lat": -3.3613116,
+  "lon": 36.6588406,
+  "tags": {
+    "amenity": "police",
+    "name": "Kituo cha Polisi Sakina"
+  }
+},
+{
+  "type": "way",
+  "id": 82488208,
+  "center": {
+    "lat": -3.3781182,
+    "lon": 36.6918942
+  },
+  "tags": {
+    "amenity": "fire_station",
+    "building": "yes",
+    "check_date": "2023-05-02",
+    "name": "Arusha Fire & Rescue Services",
+    "name:sw": "Zimamoto Arusha",
+    "source": "guesswork"
+  }
+},
+{
+  "type": "way",
+  "id": 366925724,
+  "center": {
+    "lat": -3.3669940,
+    "lon": 36.7281588
+  },
+  "tags": {
+    "addr:street": "Sokon II",
+    "amenity": "police",
+    "building": "public",
+    "building:levels": "1",
+    "building:material": "cement_block",
+    "name": "Kituo cha Polisi Baraa",
+    "office": "government"
+  }
+},
+{
+  "type": "way",
+  "id": 528955936,
+  "center": {
+    "lat": -3.2175526,
+    "lon": 36.8594506
+  },
+  "tags": {
+    "amenity": "childcare",
+    "building": "yes",
+    "name": "Momella Orphanage",
+    "operator": "Africa Amini Alama"
+  }
+},
+{
+  "type": "way",
+  "id": 966367216,
+  "center": {
+    "lat": -3.3818124,
+    "lon": 36.6739488
+  },
+  "tags": {
+    "highway": "residential",
+    "name": "Makao Mapya",
+    "source": "maxar",
+    "surface": "unpaved"
+  }
+}
+
+  ]
+}

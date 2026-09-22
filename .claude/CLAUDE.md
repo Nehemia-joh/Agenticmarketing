@@ -1,6 +1,6 @@
 # Silverleaf lead-generation guide
 
-Read `../AGENTS.md` and the relevant skill before changing data.
+Read `../AGENTS.md` and the relevant skill before changing data. Before writing a script, check `../scripts/README.md` for one that already does the task. Reusable scripts live in `scripts/<task>/`, and `runtime/` is only for generated working files.
 
 The canonical database is `../outputs/master/Silverleaf Master Database.sqlite`. The workbook beside it is generated for review. Create a new independent list with `../skills/silverleaf-create-lead-list/SKILL.md`; update the master with `../skills/silverleaf-update-lead-list/SKILL.md`; revise partnership copy with `../skills/silverleaf-outreach/SKILL.md`.
 
@@ -20,10 +20,10 @@ Every claim must remain traceable to a source record. Do not infer private conta
 Welfare leads (children's homes, care programmes, specialised centres, funders) use `../skills/silverleaf-welfare-leads/SKILL.md`. Each run is separate from the master:
 
 ```powershell
-python skills/silverleaf-welfare-leads/scripts/run_pipeline.py --run-id <run-id> --rebuild-db
+python scripts/welfare/run_pipeline.py --run-id <run-id> --rebuild-db
 ```
 
 Research is rate-limited; read `../skills/silverleaf-create-lead-list/references/research-rate-limits.md` first.
-- WebSearch has a per-session cap shared by all subagents: plan budgets with `plan_research.py`.
+- WebSearch has a per-session cap shared by all subagents: plan budgets with `scripts/welfare/plan_research.py`.
 - Run deterministic collectors first, and launch at most four research agents per wave.
 - Never work around a cap or a block.

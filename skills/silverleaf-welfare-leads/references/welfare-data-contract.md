@@ -66,7 +66,7 @@ Files are named `data/raw/welfare-research/research_<slice>_<name>_<date>.jsonl`
 |---|---|
 | `low` | Organisation-level facts, and generic organisational routes the organisation publishes |
 | `medium` | A named person in a professional role as published by the organisation, an official register or their own professional profile |
-| `risky` | Private individuals, or a named person on a personal email domain (enforced in `build_welfare_run.py`) |
+| `risky` | Private individuals, or a named person on a personal email domain (enforced in `scripts/welfare/build_welfare_run.py`) |
 | `risky` | Personal social-media data, regulator-listed individuals, or anything touching household circumstances or children |
 
 Never collected at all:

@@ -213,9 +213,9 @@ Rows then follow the required order in `.claude/CLAUDE.md`: validate, preflight,
 
 | Source | Limit and handling |
 |---|---|
-| Web search | 200 searches per session, shared by every subagent. Plan per-agent allocations the way the welfare skill's `plan_research.py` does, run collectors first, and use at most four agents per wave. |
+| Web search | 200 searches per session, shared by every subagent. Plan per-agent allocations the way `scripts/welfare/plan_research.py` does, run collectors first, and use at most four agents per wave. |
 | Council and regional sites (GWF CORE) | Pages render in JavaScript and deep links redirect, so plain fetches return only the title. Capture rendered pages one at a time with the user's go-ahead for the browser, or request officer lists in person. Never share the browser between agents. |
-| OpenStreetMap Overpass | One query at a time, at least 5 seconds apart, small queries (broad regex queries return 504), mirror fallback. Reuse `welfare_lib.polite_request`. |
+| OpenStreetMap Overpass | One query at a time, at least 5 seconds apart, small queries (broad regex queries return 504), mirror fallback. Reuse `polite_request` from `scripts/welfare/welfare_lib.py`. |
 | Census report (NBS PDF) | One download, cached. Transcribe the catchment councils' pages once, with page locators. |
 | Courtesy calls and visits | People, not tools, set this pace. Plan GA01 letters in batches the team can follow up within 5 working days. |
 

@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-22T21:34:25.828362+00:00",
+ "checked_at": "2026-09-22T21:47:17.025957+00:00",
  "run_id": "arusha-welfare-2026-09",
  "result": "passed",
  "checks": {
@@ -20,7 +20,8 @@
   "raw_evidence_registered": true,
   "welfare_outputs_separate_from_master": true,
   "company_master_db_unchanged": true,
-  "company_master_workbook_unchanged": true
+  "company_master_workbook_unchanged": true,
+  "skill_script_copies_in_sync": true
  },
  "db_counts": {
   "organisations": 497,
@@ -55,9 +56,10 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-09-23T00:34:13",
+   "recorded_at": "2026-09-23T00:47:02",
    "master_db_sha256": "8fa999f96ed3385c7ad51defc90a333eb9d4212c645b519a3c4c870b4bb83670",
    "master_workbook_sha256": "515d305cb936d66bad81e1835e23fce67596348817724efbb0d0d5a5fa836d33"
-  }
+  },
+  "script_copies_out_of_sync": []
  }
 }

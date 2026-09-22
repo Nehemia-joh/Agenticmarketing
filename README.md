@@ -18,8 +18,10 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `docs/plans/` | Delivery plan. |
 | `docs/methodology/` | Lead-generation and research method. |
 | `docs/strategy/` | Positioning, hooks, acquisition tracks, flows, cadence, and marketing-document findings. |
+| `scripts/` | Every reusable script, catalogued by task in `scripts/README.md`. Check the catalogue before writing a new script. |
 | `scripts/collection/` | Deterministic collection and source-list builders. |
 | `scripts/master/` | Acquisition refresh, workbook export/build, and master verification. |
+| `scripts/welfare/` | Welfare-lead collectors, research planner, run pipeline and the shared rate-limited HTTP helper. |
 | `skills/` | Reusable create-list, update-list, outreach and welfare-leads skills. |
 | `outputs/master/` | Canonical SQLite database and consolidated review workbook. |
 | `outputs/config/` | Disabled automation recipes. |
@@ -280,7 +282,7 @@ Lead research runs into hard limits. Read `skills/silverleaf-create-lead-list/re
 - **NGOs Information System:** at most 4 workers, 0.3 seconds apart. 855 profiles took about 30 minutes.
 - **OpenStreetMap Overpass:** one query at a time, 5 seconds apart, with small queries. Broad regex queries return HTTP 504.
 
-The welfare scripts enforce the network limits in code (`skills/silverleaf-welfare-leads/scripts/welfare_lib.py`).
+The welfare scripts enforce the network limits in code (`scripts/welfare/welfare_lib.py`).
 
 ## Run a welfare-lead run
 
@@ -291,23 +293,23 @@ From Windows PowerShell:
 ```powershell
 $runId = 'arusha-welfare-2026-09'
 # Rebuild an existing run from its committed files (no network calls).
-python skills/silverleaf-welfare-leads/scripts/run_pipeline.py --run-id $runId --rebuild-db
+python scripts/welfare/run_pipeline.py --run-id $runId --rebuild-db
 
 # For a new run, create data/runs/<run-id>/run-config.json from the skill's example, then:
-python skills/silverleaf-welfare-leads/scripts/fetch_ngo_register.py --run-id $runId
-python skills/silverleaf-welfare-leads/scripts/collect_osm_welfare.py --run-id $runId
-python skills/silverleaf-welfare-leads/scripts/plan_research.py --run-id $runId --search-budget 200
+python scripts/welfare/fetch_ngo_register.py --run-id $runId
+python scripts/welfare/collect_osm_welfare.py --run-id $runId
+python scripts/welfare/plan_research.py --run-id $runId --search-budget 200
 ```
 
 macOS or Linux:
 
 ```bash
 run_id='arusha-welfare-2026-09'
-python3 skills/silverleaf-welfare-leads/scripts/run_pipeline.py --run-id "$run_id" --rebuild-db
+python3 scripts/welfare/run_pipeline.py --run-id "$run_id" --rebuild-db
 
-python3 skills/silverleaf-welfare-leads/scripts/fetch_ngo_register.py --run-id "$run_id"
-python3 skills/silverleaf-welfare-leads/scripts/collect_osm_welfare.py --run-id "$run_id"
-python3 skills/silverleaf-welfare-leads/scripts/plan_research.py --run-id "$run_id" --search-budget 200
+python3 scripts/welfare/fetch_ngo_register.py --run-id "$run_id"
+python3 scripts/welfare/collect_osm_welfare.py --run-id "$run_id"
+python3 scripts/welfare/plan_research.py --run-id "$run_id" --search-budget 200
 ```
 
 Research agents then work through the prompts that `plan_research.py` writes to `runtime/welfare/<run-id>/prompts/`, in waves of at most four. Record reviewed matches and location fixes in `data/runs/<run-id>/links.json`, then run `run_pipeline.py`. The skill explains every step.
@@ -318,7 +320,7 @@ The current welfare run, `arusha-welfare-2026-09`, holds:
 - 3 public parent enquiries, all risky
 - 214 funder and partner links, and 92 review items
 
-All 18 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
+All 19 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
 
 ## Current verified master
 

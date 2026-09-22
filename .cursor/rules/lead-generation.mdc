@@ -11,6 +11,7 @@ alwaysApply: true
 # Silverleaf lead-generation rules
 
 - Read `AGENTS.md` and the relevant skill before making changes.
+- Before writing a script, check `scripts/README.md` for an existing one. Reusable scripts go under `scripts/<task>/`; `runtime/` is only for generated working files.
 - Use `outputs/master/Silverleaf Master Database.sqlite` as the source of truth; regenerate the workbook from it.
 - Use `skills/silverleaf-create-lead-list/SKILL.md` for a separate list and `skills/silverleaf-update-lead-list/SKILL.md` for an existing master.
 - Preserve stable IDs, original source records, URLs, locators, dates, evidence excerpts, and field-level conflicts.

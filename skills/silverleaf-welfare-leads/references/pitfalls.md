@@ -1,6 +1,6 @@
 # Welfare-lead pitfalls found the hard way (2026-09 run)
 
-Each entry records a trap that would catch a competent agent again, and says how the scripts now handle it.
+Each entry records a trap that would catch a competent agent again, and says how the scripts in `scripts/welfare/` now handle it.
 
 | Pitfall | What happened | Now handled by |
 |---|---|---|

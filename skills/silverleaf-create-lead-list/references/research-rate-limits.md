@@ -2,15 +2,15 @@
 
 Read this before any lead research that uses web search, web fetch, public registers or map APIs, and before launching research agents in parallel. The figures come from the `arusha-welfare-2026-09` run (22–23 September 2026). Treat them as planning defaults, and re-measure when a source behaves differently.
 
-The welfare-leads scripts enforce the network limits in code: `skills/silverleaf-welfare-leads/scripts/welfare_lib.py` (`HOST_LIMITS`, `polite_request`, `clamp_workers`). Change a limit there and here together.
+The welfare-leads scripts enforce the network limits in code: `scripts/welfare/welfare_lib.py` (`HOST_LIMITS`, `polite_request`, `clamp_workers`). Change a limit there and here together.
 
 ## Web search: a shared, per-session cap
 
 - **The cap.** The agent WebSearch tool allows 200 searches per session in this environment (`CLAUDE_CODE_MAX_WEB_SEARCHES_PER_SESSION`). Every subagent in the session draws from the same cap.
 - **What happened without budgets.** In the first welfare run, eight parallel research agents used the whole cap in about 40 minutes. Their shares were very uneven: one agent ran 8 searches, another about 58, and one got none. Most slices ended before their stopping rule, so coverage has gaps.
 - **Deploying agents:**
-  1. Run the deterministic collectors first. They use no search budget: the NGO register (`fetch_ngo_register.py`) and OpenStreetMap (`collect_osm_welfare.py`).
-  2. Split the budget with `plan_research.py`. It writes each slice's allocation into the agent's prompt, and keeps 10% back for the coordinator's own checks.
+  1. Run the deterministic collectors first. They use no search budget: the NGO register (`scripts/welfare/fetch_ngo_register.py`) and OpenStreetMap (`scripts/welfare/collect_osm_welfare.py`).
+  2. Split the budget with `scripts/welfare/plan_research.py`. It writes each slice's allocation into the agent's prompt, and keeps 10% back for the coordinator's own checks.
   3. Launch at most four agents per wave. Start the next wave when the previous one finishes, and hand unused searches to the slices with the largest gaps.
   4. Agents number every query in their coverage log (`Q7/25`) and stop at their allocation.
   5. Once searches are spent, agents continue only with WebFetch on URLs they already have. Never route searches through WebFetch, a browser or a search-results page to get around the cap.

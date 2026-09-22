@@ -398,14 +398,14 @@ Regenerate `docs/database/master-schema.md` after each migration, and record new
 
 ## 10. First run (22–23 September 2026) and research limits
 
-**What exists now.** The first run, `arusha-welfare-2026-09`, was built as a separate run: its own database and workbook under `outputs/runs/arusha-welfare-2026-09/`, with the company master unchanged. Its scripts are now the `silverleaf-welfare-leads` skill (`skills/silverleaf-welfare-leads/`), and every input is committed, so the run rebuilds without network calls. The run's records cover:
+**What exists now.** The first run, `arusha-welfare-2026-09`, was built as a separate run: its own database and workbook under `outputs/runs/arusha-welfare-2026-09/`, with the company master unchanged. Its scripts live in `scripts/welfare/`, with an identical copy bundled in the `silverleaf-welfare-leads` skill, and every input is committed, so the run rebuilds without network calls. The run's records cover:
 - 497 organisations
 - 131 contacts
 - 3 parent enquiries
 - 214 relationships
 - the 898 NGOs registered within 30 km
 
-Phase 0 (§4) is still to be built before these records merge into the master. The file map in §7 describes that target; the first run's working pieces live in the skill.
+Phase 0 (§4) is still to be built before these records merge into the master. The file map in §7 describes that target; the first run's working pieces live in `scripts/welfare/`.
 
 **Limits the run hit.** These now shape the sequence in §5.10:
 
@@ -416,7 +416,7 @@ Phase 0 (§4) is still to be built before these records merge into the master. T
 | Overpass | A broad regex query returned HTTP 504 | Split queries, 5 seconds apart, mirror fallback |
 | Blocked sources | UK charity register (403), JamiiForums, Facebook, Reddit, council sites that render in JavaScript | Recorded in coverage logs; never worked around |
 
-The limits are documented in `skills/silverleaf-create-lead-list/references/research-rate-limits.md` and enforced in `skills/silverleaf-welfare-leads/scripts/welfare_lib.py`. The unsearched localities are listed per slice as `next_run_priorities` in `skills/silverleaf-welfare-leads/references/research-slices.json`, so the next run starts there.
+The limits are documented in `skills/silverleaf-create-lead-list/references/research-rate-limits.md` and enforced in `scripts/welfare/welfare_lib.py`. The unsearched localities are listed per slice as `next_run_priorities` in `skills/silverleaf-welfare-leads/references/research-slices.json`, so the next run starts there.
 
 ## Sources
 

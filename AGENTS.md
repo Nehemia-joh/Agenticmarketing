@@ -13,6 +13,8 @@ Use `outputs/master/Silverleaf Master Database.sqlite` as the canonical lead dat
 
 Read the referenced data contract before creating fields or changing match rules.
 
+Before writing any script, check `scripts/README.md`: reusable scripts are catalogued there by task. Extend an existing script rather than writing a one-off. New reusable scripts go under `scripts/<task>/` and into the catalogue. `runtime/` holds only generated working files.
+
 ## Lead-research rules
 
 - Capture public business routes and publicly attributable enquiries. Do not infer private contact details, parenthood, household facts, or current employment.

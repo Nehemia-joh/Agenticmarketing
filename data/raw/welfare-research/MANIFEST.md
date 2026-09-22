@@ -1,6 +1,6 @@
 # Welfare-lead raw evidence
 
-Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Research files follow the brief in `skills/silverleaf-welfare-leads/references/research-brief.md`; collectors are in `skills/silverleaf-welfare-leads/scripts/`.
+Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Research files follow the brief in `skills/silverleaf-welfare-leads/references/research-brief.md`; collectors and the pipeline are in `scripts/welfare/`.
 
 | File | SHA-256 | Contents |
 |---|---|---|

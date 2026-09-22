@@ -1,6 +1,6 @@
 # Welfare-lead research brief (shared by every research agent)
 
-Template used by `scripts/plan_research.py`, which fills in the run and date and writes the rendered copy to `runtime/welfare/<run-id>/research-brief.md`.
+Template used by `scripts/welfare/plan_research.py`, which fills in the run and date and writes the rendered copy to `runtime/welfare/<run-id>/research-brief.md`.
 
 Run: `{run_id}` · Research date: {research_date} · Client: Silverleaf Academy (Tanzania)
 

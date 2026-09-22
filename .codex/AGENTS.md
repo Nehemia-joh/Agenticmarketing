@@ -15,6 +15,8 @@ Work only in `C:\Work\silverleaf-agentic-marketing` unless the user names anothe
 
 The canonical master is `../outputs/master/Silverleaf Master Database.sqlite`. Its workbook is generated and must not become an independent source of truth.
 
+Before writing a script, check `../scripts/README.md`: reusable scripts are catalogued there by task. Extend them, or add new ones under `scripts/<task>/`. Use `runtime/` only for generated working files.
+
 ## Update requirements
 
 1. Put new rows in the shared intake format.

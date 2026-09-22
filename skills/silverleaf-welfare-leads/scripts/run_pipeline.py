@@ -2,7 +2,8 @@
 """Run the deterministic part of a welfare run end to end (no network calls).
 
 Order: master baseline -> classify register -> consolidate research -> build -> export -> validate intake (create skill)
--> initialise run database (create skill) -> augment -> workbook -> verify. Stops at the first failing step.
+-> initialise run database (create skill) -> augment -> draft offer-aligned messages (scripts/messaging) -> workbook
+-> verify. Stops at the first failing step.
 
 Network collection happens before this, separately and rate-limited: fetch_ngo_register.py, collect_osm_welfare.py
 and the research agents planned by plan_research.py.
@@ -42,6 +43,7 @@ def main() -> int:
         ("validate intake", [W.CREATE_SCRIPTS / "validate_intake.py", paths["intake"], "--report", paths["run_out"] / "intake-validation.json"]),
         ("initialise database", [W.CREATE_SCRIPTS / "initialize_lead_db.py", paths["intake"], paths["db"], *(["--replace"] if args.rebuild_db else [])]),
         ("augment database", [here / "augment_run_db.py", *run]),
+        ("draft messages", [W.ROOT / "scripts" / "messaging" / "draft_run_messages.py", "--track", "welfare", *run]),
         ("build workbook", [here / "build_welfare_workbook.py", *run]),
         ("verify run", [here / "verify_welfare_run.py", *run]),
     ]

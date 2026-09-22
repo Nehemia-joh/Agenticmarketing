@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Verify a government run: integrity, reconciliation, exclusions, data-protection guards and master separation.
+"""Verify a government run: integrity, reconciliation, exclusions, data-protection guards, offer-aligned letters and master separation.
 
 Writes outputs/runs/<run-id>/run-verification.json and exits 1 if any check fails. run_pipeline.py records the
 company-master baseline at the start of the run (runtime/government/<run-id>/master-baseline.json).
@@ -11,11 +11,15 @@ import csv
 import json
 import re
 import sqlite3
+import sys
 from datetime import datetime, timezone
 
 from openpyxl import load_workbook
 
 import gov_lib as G
+
+sys.path.insert(0, str(G.ROOT / "scripts" / "messaging"))
+import offer_lib as OL  # noqa: E402  (offer-aligned draft checks)
 
 W = G.W
 LAYOUT_SHEETS = ["Read Me", "Organisations", "Contacts", "Parent Enquiries", "Outreach Plans", "Campaigns", "Touchpoints", "Assignments",
@@ -63,6 +67,8 @@ def main() -> int:
     excluded_linked = con.execute("SELECT COUNT(*) FROM office_triage WHERE category = 'excluded' AND linked_organisation_id IS NOT NULL").fetchone()[0]
     b2g_unflagged = con.execute("SELECT COUNT(*) FROM official_posts WHERE post_key IN ('primary_education_head', 'regional_education') "
                                 "AND b2g_check_required != 'yes'").fetchone()[0]
+    message_checks = OL.run_message_checks(con, convening=True)
+    undrafted_offices = con.execute("SELECT COUNT(*) FROM government_office_profiles g WHERE NOT EXISTS (SELECT 1 FROM outreach_plans p WHERE p.target_id = g.organisation_id)").fetchone()[0]
     catch_ward_offices = con.execute("SELECT COUNT(*) FROM admin_units WHERE level = 'ward' AND in_catchment = 'yes' AND office_organisation_id IS NULL").fetchone()[0]
     con.close()
     totals = json.loads((paths["raw"] / f"nbs_2022_councils_{cfg['research_date']}.json").read_text(encoding="utf-8"))
@@ -74,7 +80,8 @@ def main() -> int:
     intake_by_type = {k: sum(1 for r in intake_rows if r["record_type"] == k) for k in ("organisation", "contact", "enquiry")}
     wb = load_workbook(paths["workbook"], read_only=True)
     sheet_rows = {name: max(0, wb[name].max_row - 4) for name in ("Organisations", "Contacts", "Administrative Units", "Community Events",
-                                                                    "Office Triage", "Master Triage", "Convening Signals", "Review Queue")}
+                                                                    "Office Triage", "Master Triage", "Convening Signals", "Review Queue",
+                                                                    "Outreach Plans")}
     missing_sheets = [s for s in LAYOUT_SHEETS if s not in wb.sheetnames]
     drift = []
     if G.SKILL_SCRIPTS.is_dir():
@@ -103,7 +110,10 @@ def main() -> int:
         "education_posts_flagged_for_b2g": b2g_unflagged == 0,
         "no_ga02_without_introduction": ga02 == 0,
         "no_cms_editor_data_in_raw_captures": not cms_leaks,
-        "no_outreach_or_automation": counts["outreach_plans"] == 0 and counts["automation_recipes"] == 0,
+        "outreach_drafts_only_no_automation": set(message_checks["statuses"]) <= OL.DRAFT_STATUSES and counts["automation_recipes"] == 0,
+        "letters_conform_to_offer_register_and_offer_officials_nothing": not message_checks["issues"] and message_checks["orphan_messages"] == 0,
+        "every_office_has_a_draft": undrafted_offices == 0,
+        "outreach_plans_reconcile": counts["outreach_plans"] == sheet_rows["Outreach Plans"],
         "layout_sheets_present": not missing_sheets,
         "raw_evidence_registered": counts["source_files"] > 1,
         "outputs_separate_from_master": master_dir not in paths["workbook"].resolve().parents and master_dir not in paths["db"].resolve().parents,
@@ -117,7 +127,8 @@ def main() -> int:
                           "community_event_person_columns": event_person, "named_without_tenure": named_without_tenure[:20],
                           "phones_unattributed": phones_unattributed, "cms_leaks": cms_leaks, "missing_sheets": missing_sheets,
                           "foreign_key_violations": fks[:10], "master_baseline": baseline, "script_copies_out_of_sync": drift,
-                          "catchment_wards_without_office": catch_ward_offices, "ga02_rows": ga02}}
+                          "catchment_wards_without_office": catch_ward_offices, "ga02_rows": ga02,
+                          "message_issues": message_checks["issues"][:20], "messages_checked": message_checks["messages_checked"]}}
     (paths["run_out"] / "run-verification.json").write_text(json.dumps(report, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({"result": report["result"], "failed": [k for k, v in checks.items() if not v], "db_counts": counts}, indent=1))
     return 0 if report["result"] == "passed" else 1

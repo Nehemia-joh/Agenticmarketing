@@ -33,7 +33,8 @@ def main() -> int:
                 value_module_ids=CASE
                   WHEN segment='SACCOS members' THEN 'VM01; VM02; VM03; VM06'
                   WHEN segment='Education employers' THEN 'VM01; VM02; VM03; VM05; VM07'
-                  ELSE 'VM01; VM02; VM03; VM04; VM05' END,
+                  ELSE 'VM01; VM02; VM03; VM04; VM05' END
+                  || CASE WHEN COALESCE(offer_version,'')<>'' THEN '; VM19' ELSE '' END,
                 strategy_scope='New-contact acquisition. Approved Silverleaf positioning may be reused where relevant; the acquisition track controls cadence.'
             """,
             (VERSION,),

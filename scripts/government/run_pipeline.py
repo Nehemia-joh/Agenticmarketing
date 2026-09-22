@@ -2,7 +2,7 @@
 """Run the deterministic part of a government run end to end (no network calls).
 
 Order: master baseline -> build -> export -> validate intake (create skill) -> initialise run database (create skill)
--> augment -> workbook -> verify. Stops at the first failing step.
+-> augment -> draft offer-aligned letters (scripts/messaging) -> workbook -> verify. Stops at the first failing step.
 
 Network collection happens before this, separately and rate-limited: collect_census_wards.py,
 collect_ward_locations.py, collect_osm_government.py and collect_council_sites.py.
@@ -42,6 +42,7 @@ def main() -> int:
         ("validate intake", [W.CREATE_SCRIPTS / "validate_intake.py", paths["intake"], "--report", paths["run_out"] / "intake-validation.json"]),
         ("initialise database", [W.CREATE_SCRIPTS / "initialize_lead_db.py", paths["intake"], paths["db"], *(["--replace"] if args.rebuild_db else [])]),
         ("augment database", [here / "augment_government_db.py", *run]),
+        ("draft messages", [G.ROOT / "scripts" / "messaging" / "draft_run_messages.py", "--track", "government", *run]),
         ("build workbook", [here / "build_government_workbook.py", *run]),
         ("verify run", [here / "verify_government_run.py", *run]),
     ]

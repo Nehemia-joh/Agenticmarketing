@@ -25,11 +25,13 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `scripts/master/` | Acquisition refresh, workbook export/build, and master verification. |
 | `scripts/welfare/` | Welfare-lead collectors, research planner, run pipeline and the shared rate-limited HTTP helper. |
 | `scripts/government/` | Government-lead collectors (census, council sites, OpenStreetMap, Wikipedia), run pipeline and verification. |
+| `scripts/messaging/` | Offer-aligned message drafting for all three databases, the offer-register checks and the combined review workbook. |
 | `skills/` | Reusable create-list, update-list, outreach, welfare-leads and government-leads skills. |
 | `outputs/master/` | Canonical SQLite database and consolidated review workbook. |
 | `outputs/config/` | Disabled automation recipes. |
 | `outputs/reports/` | Current verification results. |
 | `outputs/runs/` | Separate run outputs: database (ignored by Git), review workbook, validation and verification reports. |
+| `outputs/messages/` | The combined review workbook of offer-aligned drafts and its reconciliation reports. |
 | `plans/` | Plans for new lead tracks and presentations. |
 | `runtime/` | Ignored scratch space for generated working files, HTTP caches and rendered research prompts. |
 
@@ -368,6 +370,29 @@ The current government run, `arusha-government-2026-09`, holds:
 - 63 review items, including 15 core-council wards without a location
 
 All 27 verification checks pass. The Read Me sheet lists the coverage gaps: most councils publish no ward-by-ward councillor list, and no council publishes its executive officers' names or phones.
+
+## Offer-aligned messages
+
+Every lead's draft states Silverleaf's documented offer for its audience. The terms come only from `data/reference/silverleaf-offer-register.json`, which records each term with its source in `references/Offers & Discounts/` (see `skills/silverleaf-outreach/references/offer-register.md`).
+- **Employers:** a staff school-fee benefit at no cost to the employer. Heads of department get 20% off tuition for as long as their child studies with us; other staff get 10% off the first year.
+- **Every family:** a free uniform set for full-year payment, 10–20% off for a third or fourth child, and four instalments.
+- **Welfare homes and programmes:** the NGO partner rate of 3–18% per child.
+- **Government offices:** Kiswahili letters asking to give parents a free school-readiness talk. They never offer officials a benefit.
+
+```powershell
+python scripts/messaging/draft_master_messages.py --dry-run   # preview the company-master rewrite
+python scripts/messaging/draft_master_messages.py             # apply it; earlier versions stay in message_versions
+python scripts/welfare/run_pipeline.py --run-id arusha-welfare-2026-09 --rebuild-db        # includes the welfare drafts
+python scripts/government/run_pipeline.py --run-id arusha-government-2026-09 --rebuild-db  # includes the government letters
+python scripts/messaging/build_offer_messages_workbook.py     # one review workbook for all three
+```
+
+On 23 September 2026 the drafts were:
+- **Company master:** 1,314. That is 927 rewritten plus 387 new plans for organisations that had none; 62 are AQ02, 805 AQ01 and 447 on hold.
+- **Welfare:** 490, of which 21 are ready and 469 held with a reason.
+- **Government:** 149, of which the 4 council letters are ready and 145 are held.
+
+All of them pass the offer-register checks. Finance must confirm that the 2025 terms apply to 2027 before anything is sent. The consolidated master workbook needs `npm run build:workbook` in an environment with `@oai/artifact-tool`; until then, `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` is the review view.
 
 ## Current verified master
 

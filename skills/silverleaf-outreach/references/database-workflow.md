@@ -27,3 +27,10 @@ The 6 September 2026 rewrite added `outreach_plans` (927 revised draft plans and
 The master workbook includes Outreach plans, Sequences, Segments and Flows. `docs/strategy/outreach-flows.md` holds the worked examples; `outputs/config/automation-recipes.json` contains disabled implementation recipes. The deterministic scripts under `scripts/master/` export, rebuild and verify the review workbook. No external campaign is active. Preserve these current records when exporting a new snapshot.
 
 For strategy-only work, leave the 927 source drafts untouched. For full personalization, each requested ID must have a recorded outcome, including drafts held for missing evidence. Distinct messages targeting the same person are alternatives, not permission to contact them multiple times.
+
+The 23 September 2026 offer rewrite (`scripts/messaging/draft_master_messages.py`, offer v4):
+- Every outreach plan now states the documented offer. Earlier plan and message rows are in `message_versions` under `2026-09-23-before-offer-v4`, and earlier parent replies are in `parent_enquiry_draft_versions`.
+- It added 387 plans for organisations that had none, as AQ01 when a public route exists and AQ00 otherwise. Local administration offices are in the government run, child-welfare organisations are in the welfare run, and excluded offices get none.
+- `outreach_plans` gained `offer_version`, `offer_ids`, `offer_evidence` and `offer_message_sw`.
+- Value module VM19, positioning evidence PE025–PE028, strategy `S-offer-aligned-v4` and the segments 'Corporate employers' and 'Public-sector employers' were added. `refresh_acquisition_metadata.py` keeps VM19 on offer-v4 plans.
+- The consolidated workbook must be rebuilt with `npm run build:workbook` where `@oai/artifact-tool` is available. Until then, review the drafts in `outputs/messages/Silverleaf Offer-Aligned Messages - <date>.xlsx`.

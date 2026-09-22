@@ -11,6 +11,7 @@ from __future__ import annotations
 import argparse
 import json
 import sqlite3
+import sys
 from collections import Counter
 from datetime import datetime, timezone
 
@@ -20,11 +21,15 @@ from openpyxl.utils import get_column_letter
 
 import gov_lib as G
 
+sys.path.insert(0, str(G.ROOT / "scripts" / "messaging"))
+import offer_lib as OL  # noqa: E402  (offer-aligned drafts: sheet rows)
+
 BLUE, WHITE = "002368", "FFFFFF"
 RISK_FILL = {"low": "E2F0D9", "medium": "FFF2CC", "risky": "F8CBAD"}
 WRAP = {"track_reason", "location_note", "convening_forum", "size_evidence", "pdpa_risk_reason", "missing_information", "evidence_excerpt",
         "all_source_urls", "convening_role", "notes", "channel_attribution", "census_source_location", "detail", "values_json", "action", "title",
-        "proposed_treatment", "note", "score_factors", "meaning", "silverleaf_contribution", "do_not_imply", "gate", "activation_gate", "text"}
+        "proposed_treatment", "note", "score_factors", "meaning", "silverleaf_contribution", "do_not_imply", "gate", "activation_gate", "text",
+        "subject", "body", "follow_up_1", "english_meaning", "conditions", "recipient"}
 ORG_HEADERS = ["organisation_id", "record_key", "name", "office_level", "proposed_government_track", "track_reason", "ward_tier", "ward_score",
                "rank_in_cluster", "campus_cluster", "factors_known", "council_name", "region", "admin_unit_name", "parent_admin_unit",
                "census_2022_population", "census_source_location", "catchment_wards", "catchment_population_2022", "campus", "distance_km",
@@ -208,7 +213,7 @@ def main() -> int:
              ("Local government offices that can convene community meetings (barazas) near Silverleaf's five campuses, so that Silverleaf can meet "
               "parents at official forums. A government lead is the office, not the person holding it. Parents are never collected here: "
               "they opt in with Silverleaf at an event, into a separate consented store.", ""),
-             ("Research only: no letter, message or outreach plan was drafted, sent or scheduled, and every automation stays disabled.", ""), ("", ""),
+             ("Drafts only: offer-aligned letters are on the Outreach Plans sheet (Kiswahili, with an English meaning). Nothing was sent or scheduled, and every automation stays disabled.", ""), ("", ""),
              ("Start here: counts", "h"),
              (f"Offices {counts['organisations']} (" + ", ".join(f"{k} {v}" for k, v in sorted(level.items(), key=lambda kv: level_order.get(kv[0], 9))) +
               f") · Official posts {counts['contacts']} ({named} with a holder named by an official source, {with_phone} with a phone the council published) · "
@@ -285,7 +290,9 @@ def main() -> int:
     add_sheet(wb, "Parent Enquiries", "Empty by design: parents opt in with Silverleaf at events, into a separate consented store (plan §3). "
               "The master and this workbook hold counts only.", ["enquiry_id", "type", "enquiry_date", "request", "platform", "source_url"], [])
     note = "Design only; nothing is drafted, scheduled or enabled in this research run. See plans/b2b-government-leads-plan.md §5.6–5.7."
-    add_sheet(wb, "Outreach Plans", note, ["status"], [["No outreach plans drafted in this research-only run."]])
+    outreach_rows = OL.outreach_sheet_rows(con)
+    add_sheet(wb, "Outreach Plans", "Offer-aligned letters in Kiswahili, each with an English meaning for review: GA01 council introductions, then held ward, village, district and regional letters. They describe the family offer for parents only and never offer officials a benefit. Nothing is sent.",
+              OL.OUTREACH_HEADERS, outreach_rows, {"target": 40, "subject": 44, "body": 90, "english_meaning": 90, "conditions": 70, "recipient": 30})
     add_sheet(wb, "Campaigns", note, ["campaign_id", "name", "audience", "activation_gate", "status"],
               [["C11", "Community convening via local government", "GA01 councils, then GA02 ward, village and mtaa offices",
                 "Council introduction recorded; approved Kiswahili session content, guide and privacy notice; live consented parent store or an explicit "
@@ -316,10 +323,11 @@ def main() -> int:
     wb.save(workbook_path)
     sheet_counts = {"Organisations": len(org_rows), "Contacts": len(contact_rows), "Administrative Units": len(unit_rows),
                     "Community Events": len(event_rows), "Office Triage": len(triage_rows), "Master Triage": len(master_rows),
-                    "Convening Signals": len(signal_rows), "Review Queue": len(review_rows)}
+                    "Convening Signals": len(signal_rows), "Review Queue": len(review_rows), "Outreach Plans": len(outreach_rows)}
     db_counts = {"Organisations": counts["organisations"], "Contacts": counts["contacts"], "Administrative Units": counts["admin_units"],
                  "Community Events": counts["community_events"], "Office Triage": counts["office_triage"], "Master Triage": counts["master_triage"],
-                 "Convening Signals": counts["convening_signals"], "Review Queue": counts["review"]}
+                 "Convening Signals": counts["convening_signals"], "Review Queue": counts["review"],
+                 "Outreach Plans": con.execute("SELECT COUNT(*) FROM outreach_plans").fetchone()[0]}
     mismatch = {k: (sheet_counts[k], v) for k, v in db_counts.items() if sheet_counts[k] != v}
     con.close()
     print(json.dumps({"workbook": str(workbook_path.relative_to(G.ROOT)), "sheet_rows": sheet_counts, "mismatches": mismatch}, indent=1))

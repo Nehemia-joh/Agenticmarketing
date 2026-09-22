@@ -29,6 +29,8 @@ Government leads (local offices that can convene community meetings where Silver
 python scripts/government/run_pipeline.py --run-id <run-id> --rebuild-db
 ```
 
+Offer terms in any message come only from `../data/reference/silverleaf-offer-register.json`; draft with `scripts/messaging/` (see `../skills/silverleaf-outreach/references/offer-register.md`).
+
 Research is rate-limited; read `../skills/silverleaf-create-lead-list/references/research-rate-limits.md` first.
 - WebSearch has a per-session cap shared by all subagents: plan budgets with `scripts/welfare/plan_research.py`.
 - Run deterministic collectors first, and launch at most four research agents per wave.

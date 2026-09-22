@@ -494,7 +494,7 @@ Finally, regenerate the schema snapshot and add any new learnings.
 
 **Next steps.**
 - Decisions 1–9 in §9 still gate any contact.
-- Send the GA01 letters to the four core councils once the Kiswahili letter is reviewed.
+- Send the GA01 letters to the four core councils once they are reviewed. They are drafted on the run workbook's Outreach Plans sheet, in Kiswahili with an English meaning, with the family offer from `data/reference/silverleaf-offer-register.json` (23 September 2026).
 - Ask each council for its ward councillor and executive officer lists and its meeting calendars.
 - Resolve the 15 unlocated core-council wards.
 

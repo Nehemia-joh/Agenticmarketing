@@ -31,7 +31,7 @@ Everything stays separate from `outputs/master/` and from the welfare runs.
 - **Education officers** carry `b2g_check_required = yes`: check with the B2G owner before any contact.
 - **Sanitise captures.** Never keep CMS editor names or emails, officials' photos or biographies, or the text of news stories.
 - **The company master is read-only** here, used only for campus coordinates and its `office:government` records. Verification fails if the master database or workbook changes during a run.
-- **No outreach.** Do not draft, send or schedule letters or messages, and keep automations disabled.
+- **Drafts only.** `run_pipeline.py` writes one Kiswahili letter per office with an English meaning (`scripts/messaging/draft_run_messages.py`): the family offer for parents only, never a benefit for officials. Nothing is sent or scheduled; keep automations disabled.
 
 ## Rate limits
 
@@ -65,7 +65,7 @@ Run these commands from the repository root.
    ```bash
    python scripts/government/run_pipeline.py --run-id <run-id> [--rebuild-db]
    ```
-   The pipeline records a master baseline, builds the run, exports the intake, validates it and initialises the run database with the create skill's scripts, adds the government tables, builds the workbook and runs 27 verification checks.
+   The pipeline records a master baseline, builds the run, exports the intake, validates it and initialises the run database with the create skill's scripts, adds the government tables, drafts the letters, builds the workbook and runs 30 verification checks.
 6. **Review.** Work through the Review Queue (unlocated wards, conflicting points, roster spellings, estimated village wards, master corrections), record decisions in `links.json`, add run-specific findings to `readme_notes`, and re-run step 5. Spot-check the facts behind the GA01 councils against their captures.
 7. **Report.** Give counts by level, track and risk; the top wards per campus cluster; named posts and their sources; the verification result; coverage gaps; and corrections to the company master. Do not apply master corrections here: they go through `silverleaf-update-lead-list`.
 

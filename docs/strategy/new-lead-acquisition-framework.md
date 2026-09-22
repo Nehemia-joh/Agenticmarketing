@@ -35,7 +35,7 @@ Build each first message from four parts:
 3. **Silverleaf contribution:** the specific deliverable Silverleaf can provide, such as a concise guide or optional Q&A, subject to owner confirmation.
 4. **One next action:** review the outline, nominate the right colleague, or choose a practical format.
 
-Open with the offer when a verified recipient hook is unavailable. Avoid inferred parenthood, workforce needs, urgency, discounts, subsidies, financing, transport, capacity or outcomes.
+Open with the offer when a verified recipient hook is unavailable. State discounts only as the [offer register](offer-register.md) records them. Avoid inferred parenthood, workforce needs, urgency, subsidies, financing, transport, capacity or outcomes.
 
 ## Value proposition modules
 
@@ -48,6 +48,7 @@ Use only the modules that match the recipient and offer:
 - **VM05 School experience:** English-medium teaching, technology in learning, student wellness and co-curricular enrichment may support the message when relevant.
 - **VM06 SACCOS information:** Offer admissions and approved fee information without implying a loan, payroll deduction, subsidy or discount.
 - **VM07 Defined education collaboration:** Use only when a verified education or community remit supports a specific joint activity. Do not imply funding or endorsement.
+- **VM19 Documented Silverleaf offer:** The staff school-fee benefit for employers (20% for heads of department, 10% off the first year for other staff), the family offer for everyone (free uniform for full-year payment, sibling discount, four instalments) and, for savings groups, the member-association rate. Terms come only from the offer register; Finance confirms them for 2027 before sending.
 
 ## Expansion workflow
 

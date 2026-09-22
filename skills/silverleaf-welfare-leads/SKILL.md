@@ -26,7 +26,7 @@ Everything stays separate from `outputs/master/`.
 - Put `pdpa_risk` (`low`, `medium` or `risky`) and `pdpa_risk_reason` on every organisation, contact and enquiry. Parent and guardian enquiries are always `risky`. Read the rubric in `references/welfare-data-contract.md`.
 - Merge only on exact identifiers (see the data contract). Similar names, a funder and a home sharing a website, and conflicting facts go to the review queue.
 - Open the company master read-only, and only for campus coordinates and existing IDs. Verification fails if the master database or workbook changes during a run.
-- Do not draft, send or schedule outreach, and keep automations disabled.
+- Outreach exists only as drafts: `run_pipeline.py` writes one offer-aligned draft per in-scope organisation (`scripts/messaging/draft_run_messages.py`, terms from the offer register), and nothing is sent or scheduled. Keep automations disabled.
 
 ## Rate limits and research budget
 
@@ -72,8 +72,9 @@ Run these commands from the repository root.
    6. validates it with the create skill's validator
    7. initialises the run database with the create skill's initializer
    8. adds the side tables
-   9. builds the workbook
-   10. runs the 19 verification checks
+   9. drafts the offer-aligned messages
+   10. builds the workbook
+   11. runs the 23 verification checks
 7. **Review.** Work through the workbook's Review Queue, and fetch the pages behind at least five top leads to confirm their routes. Add run-specific findings to `readme_notes` and re-run step 6.
 8. **Report.** Give counts by segment, track and risk; the strongest leads; the verification result; coverage gaps; and corrections to the company master. Do not apply master corrections here: they go through `silverleaf-update-lead-list`.
 

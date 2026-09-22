@@ -37,6 +37,10 @@ Run every command from the repository root. Anything that calls the network foll
 | Government leads: build | `scripts/government/build_government_workbook.py` | Builds the review workbook from the run database only | None |
 | Government leads: build | `scripts/government/verify_government_run.py` | Runs 27 checks, including exclusions, data-protection guards, census reconciliation and master separation | None |
 | Shared library | `scripts/government/gov_lib.py` | Government run config, host limits, office levels, exclusion list, name keys, sanitising and district geometry | Registers council, census and Wikipedia hosts with `polite_request` |
+| Messages: all tracks | `scripts/messaging/offer_lib.py` | Offer register loader, English and Kiswahili offer sentences, campus lines, and the conformance check for every draft | None; terms from `data/reference/silverleaf-offer-register.json` |
+| Messages: company master | `scripts/messaging/draft_master_messages.py` | Rewrites every master outreach plan to the documented offer (v4), adds plans for organisations without one, keeps earlier versions; `--dry-run` previews | None; one transaction |
+| Messages: separate runs | `scripts/messaging/draft_run_messages.py` | Drafts welfare (English) or government (Kiswahili with English meaning) messages into a run database; a pipeline step | None |
+| Messages: review | `scripts/messaging/build_offer_messages_workbook.py` | One review workbook of all drafts across the three databases; fails if any draft breaks a register rule | None |
 | Any list: intake | `skills/silverleaf-create-lead-list/scripts/validate_intake.py` | Validates an intake CSV against the shared contract | None; bundled with its skill |
 | Any list: new database | `skills/silverleaf-create-lead-list/scripts/initialize_lead_db.py` | Creates a separate run database from a validated intake | None; bundled with its skill |
 | Company master: update | `skills/silverleaf-update-lead-list/scripts/preflight_update.py` | Read-only exact-match preflight against the master | None; bundled with its skill |

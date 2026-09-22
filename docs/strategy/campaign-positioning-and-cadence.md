@@ -41,7 +41,7 @@ Lead with the staff benefit and the low lift for the organisation: Silverleaf Ac
 
 ### SACCOS
 
-Offer clear admissions and approved fee information for interested members. Do not imply a loan, payroll deduction, subsidy or negotiated discount. Wait for the 2027 fee structure and any partnership terms to receive internal approval before including figures.
+Offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the member-association group rate, exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy. Finance must agree to extend the group rate, which is documented for KINEFA, and must confirm the terms for 2027 before sending.
 
 ### Existing Silverleaf families at early-years campuses
 
@@ -62,7 +62,8 @@ Treat progression to primary as a separate warm journey. Explain the transition 
 ## Claims held out of evergreen campaign copy
 
 - Fee figures for 2027 until the fee structure is approved. The current site and 2026 brochure publish figures, but the 2027 Gantt chart shows approval work in progress.
-- Discounts, referral rewards and partner terms until the named internal approvals are complete.
+- Discounts and partner terms other than those in the [offer register](offer-register.md). Register terms may appear in drafts, each with the condition that Finance confirms them for 2027 before sending.
+- Referral rewards, until the 2027 referral scheme is approved (2027 Gantt task A8).
 - Student counts, occupancy, retention, exam, social-emotional-learning or teacher-training statistics until the metric source of truth is reconciled.
 - Campus capacity, available places, transport coverage or a visit slot until admissions confirms it.
 - “Leading”, “largest”, “world-class” or outcome language when the message does not need it. Prefer concrete value pillars.

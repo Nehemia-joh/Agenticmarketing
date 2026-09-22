@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import json
 import sqlite3
+import sys
 from collections import Counter
 from datetime import datetime, timezone
 
@@ -18,11 +19,15 @@ from openpyxl.utils import get_column_letter
 
 import welfare_lib as W
 
+sys.path.insert(0, str(W.ROOT / "scripts" / "messaging"))
+import offer_lib as OL  # noqa: E402  (offer-aligned drafts: sheet rows)
+
 BLUE, WHITE = "002368", "FFFFFF"
 RISK_FILL = {"low": "E2F0D9", "medium": "FFF2CC", "risky": "F8CBAD"}
 WRAP_COLS = {"description", "notes", "evidence_excerpt", "request", "size_evidence", "education_angle", "track_reason", "known_funders_or_partners",
              "foreign_charity_registrations", "social_media", "services", "red_flags", "pdpa_risk_reason", "vision", "projects", "detail",
-             "action", "text", "channel_attribution", "schooling_arrangement_published", "funding_model_published", "all_source_urls", "missing_information"}
+             "action", "text", "channel_attribution", "schooling_arrangement_published", "funding_model_published", "all_source_urls", "missing_information",
+             "subject", "body", "follow_up_1", "english_meaning", "conditions", "recipient"}
 ORG_HEADERS = ["organisation_id", "record_key", "name", "welfare_fit", "segment", "subtype", "care_model", "proposed_welfare_track", "track_reason",
                "desk_tier", "priority_score", "factors_known", "verification_status", "pdpa_risk", "pdpa_risk_reason",
                "campus", "distance_km", "transport_band", "nearest_primary_campus", "distance_to_primary_km", "geocode_precision",
@@ -180,7 +185,7 @@ def main() -> int:
              (f"Generated {generated} from {db.name} (SQLite is the source of truth; this workbook is a generated review view). "
               "Separate from the company-leads master in outputs/master/.", "sub"), ("", ""), ("Scope", "h"),
              (cfg.get("scope", "Welfare institutions near Silverleaf's campuses."), ""),
-             ("Research only: no outreach was drafted, sent or scheduled. Every automation remains disabled.", ""), ("", ""),
+             ("Drafts only: offer-aligned messages are on the Outreach Plans sheet (offer register v4). Nothing was sent or scheduled, and every automation remains disabled.", ""), ("", ""),
              ("Coverage and accuracy", "h"),
              (f"Sources: {len(slices)} research slices (web), the NGOs Information System register ({counts['registry_ngos']} NGOs pinned within "
               f"{cfg.get('register_radius_km', 30)} km) and OpenStreetMap. Research period: {cfg.get('research_period', cfg['research_date'])}.", "")]
@@ -207,7 +212,7 @@ def main() -> int:
               ("priority_score (0–100) and desk_tier P1–P4 use the plan's rubric; factors_known shows how many of the six factors had evidence. A low score often means 'unknown', not 'poor fit'.", ""),
               ("Distances are straight-line from approximate campus centroids. NGO-register map pins are self-reported and can be wrong; see geocode_precision.", ""),
               ("", ""), ("Sheets", "h"),
-              ("Organisations · Contacts · Parent Enquiries · Relationships · NGO Register · Review Queue · Evidence · Sources · Search Coverage · then the create-skill layout sheets (Outreach Plans, Campaigns, Touchpoints, Assignments, Strategies, Automation), which hold design-only material.", "")]
+              ("Organisations · Contacts · Parent Enquiries · Relationships · NGO Register · Review Queue · Evidence · Sources · Search Coverage · then Outreach Plans (offer-aligned drafts) and the create-skill layout sheets (Campaigns, Touchpoints, Assignments, Strategies, Automation), which hold design-only material.", "")]
     for i, (text, kind) in enumerate(lines, 1):
         cell = ws.cell(row=i, column=1, value=text)
         cell.alignment = Alignment(wrap_text=True, vertical="top")
@@ -227,8 +232,11 @@ def main() -> int:
               ["entity_type", "entity_id", "entity", "url", "title", "source_date", "accessed_on", "evidence_basis", "fetched", "facts_supported", "evidence_excerpt"], evidence_rows)
     add_sheet(wb, "Sources", "Unique source URLs.", ["url", "domain", "title", "times_cited", "evidence_basis", "fetched", "first_entity"], source_rows)
     add_sheet(wb, "Search Coverage", "What each research slice searched, what was blocked, and known gaps.", ["slice", "line_no", "text"], coverage_rows, {"text": 140})
-    note = "Design only; nothing is drafted, scheduled or enabled in this research run. See plans/b2b-welfare-leads-plan.md."
-    add_sheet(wb, "Outreach Plans", note, ["status"], [["No outreach plans drafted in this research-only run."]])
+    note = "Design only; nothing is scheduled or enabled. See plans/b2b-welfare-leads-plan.md."
+    outreach_rows = OL.outreach_sheet_rows(con)
+    add_sheet(wb, "Outreach Plans", "Offer-aligned drafts (offer register v4): one per in-scope organisation, plus replies to in-fit parent enquiries. "
+              "draft_ready rows still need Finance to confirm the 2027 terms; needs_review rows are held for the reason in conditions. Nothing is sent.",
+              OL.OUTREACH_HEADERS, outreach_rows, {"target": 36, "subject": 40, "body": 90, "follow_up_1": 70, "conditions": 70, "recipient": 30})
     add_sheet(wb, "Campaigns", note, ["campaign_id", "name", "audience", "activation_gate", "status"],
               [["C10", "Welfare institutional placements", "Verified welfare institutions within the catchment",
                 "Approved terms memo (Finance); safeguarding visit protocol; confirmed capacity for the next intake; PDPC registration confirmed", "Design only; not activated"]])
@@ -247,14 +255,16 @@ def main() -> int:
                ["VM10", "Sponsor-ready reporting", "Termly progress summary in an approved format to the authorised institution", "Outcome guarantees; donor sharing without consent", "Academic and safeguarding approval"],
                ["VM11", "Safeguarding and wellbeing", "Share the child-protection policy; explain the wellness programme", "Certification or specialist therapy", "Policy confirmed current"],
                ["VM12", "Transport", "Published transport bands", "Route availability", "Operations confirms the route"],
-               ["VM13", "Approved institutional terms", "Approved rate or bursary cited by terms ID", "Any unapproved term", "Blocked until approved"]])
+               ["VM13", "Documented partner rate", "NGO partner discount OF03 (3-18% per child when a home places all its primary-age children), from the offer register", "Any term not in the offer register", "Finance confirms the 2027 terms"]])
     add_sheet(wb, "Automation", note, ["flow_id", "status"], [["F14", "DISABLED — design only"]])
     workbook_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(workbook_path)
     sheet_counts = {"Organisations": len(org_rows), "Contacts": len(contact_rows), "Parent Enquiries": len(enquiry_rows), "Relationships": len(rel_rows),
-                    "NGO Register": len(nis_rows), "Review Queue": len(review_rows), "Evidence": len(evidence_rows), "Sources": len(source_rows)}
+                    "NGO Register": len(nis_rows), "Review Queue": len(review_rows), "Evidence": len(evidence_rows), "Sources": len(source_rows),
+                    "Outreach Plans": len(outreach_rows)}
     db_counts = {"Organisations": counts["organisations"], "Contacts": counts["contacts"], "Parent Enquiries": counts["enquiries"],
-                 "Relationships": counts["organisation_relationships"], "NGO Register": counts["registry_ngos"], "Review Queue": counts["review"]}
+                 "Relationships": counts["organisation_relationships"], "NGO Register": counts["registry_ngos"], "Review Queue": counts["review"],
+                 "Outreach Plans": con.execute("SELECT COUNT(*) FROM outreach_plans").fetchone()[0]}
     mismatch = {k: (sheet_counts[k], v) for k, v in db_counts.items() if sheet_counts[k] != v}
     con.close()
     print(json.dumps({"workbook": str(workbook_path.relative_to(W.ROOT)), "sheet_rows": sheet_counts, "mismatches": mismatch}, indent=1))

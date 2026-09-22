@@ -7,7 +7,7 @@ description: Develop Silverleaf partnership outreach strategy and personalize em
 
 Produce a defensible reason for contacting each recipient, an appropriate partnership proposal and a concise draft. For Silverleaf positioning, parent language, factual claim gates, broadcasts and event cadence, read [campaign-positioning-and-cadence.md](references/campaign-positioning-and-cadence.md). Read [video-principles.md](references/video-principles.md) for the source principles and disagreements. Apply the Silverleaf decisions below as local working defaults, not as claims that the videos prove them.
 
-For newly acquired organisation and business-contact leads, also read [new-lead-acquisition-framework.md](references/new-lead-acquisition-framework.md). Treat marketing documents as a Silverleaf positioning and value-proposition library where applicable. Do not make new contacts inherit the internal marketing calendar, event cadence or parent broadcast plan.
+For the offer a message may state, read [offer-register.md](references/offer-register.md): every discount and term comes from it, with its source, and verification checks each percentage and amount. For newly acquired organisation and business-contact leads, also read [new-lead-acquisition-framework.md](references/new-lead-acquisition-framework.md). Treat marketing documents as a Silverleaf positioning and value-proposition library where applicable. Do not make new contacts inherit the internal marketing calendar, event cadence or parent broadcast plan.
 
 ## Establish the assignment
 
@@ -38,7 +38,7 @@ Use this local role map as a starting hypothesis, then adjust to evidence:
 | Finance / SACCOS committee | Clear fee information and payment planning | Review the published schedule with the relevant coordinator |
 | CSR / education lead | An evidenced education programme or shared objective | Explore one specific collaboration |
 
-The partner circulates an invitation; interested parents contact Silverleaf directly. Treat discounts, payroll deductions, transport arrangements and employer subsidies as proposals requiring agreement. Confirm grade availability and campus fit. Do not promise retention gains, reduced absence or enrolment outcomes without evidence.
+The partner circulates an invitation; interested parents contact Silverleaf directly. State discounts only as the offer register records them, with the condition that Finance confirms them for 2027 before sending. Treat payroll deductions, transport arrangements and employer subsidies as proposals requiring agreement. Confirm grade availability and campus fit. Do not promise retention gains, reduced absence or enrolment outcomes without evidence.
 
 ## Draft and personalize
 
@@ -51,6 +51,15 @@ For an alternate first message with a recipient-centred opening, read [hook-guid
 Keep strategic hypotheses separate from facts: a hospital may operate shifts, but that does not prove this recipient's staff need daycare. Existing school donations may justify a conversation, but do not establish endorsement of Silverleaf. Never imply a prior conversation, existing account relationship or referral that did not happen.
 
 No invented sender identity, testimonial, statistics, familiarity, urgency or calendar availability. Omit optional proof when none is verified. Retain research citations in the review record; include them naturally in the message only when useful to the recipient.
+
+## Regenerate the offer-aligned drafts
+
+The scripts in `scripts/messaging/` draft every lead's messages from the offer register:
+- `draft_master_messages.py`: company master; saves earlier versions in `message_versions` first; use `--dry-run` to preview.
+- `draft_run_messages.py --track welfare|government`: a pipeline step in each separate run.
+- `build_offer_messages_workbook.py`: one review workbook for all three databases; fails if any draft breaks a register rule.
+
+Edit the register (`data/reference/silverleaf-offer-register.json` and this reference) when Finance approves new terms, then re-run them.
 
 ## Sequence and response decisions
 

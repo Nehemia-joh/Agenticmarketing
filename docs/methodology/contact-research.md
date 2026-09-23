@@ -20,12 +20,18 @@ Government offices are addressed by office title. Officials are named only from 
    - `crawl_org_websites.py` reads each organisation's own website: home, contact, about and team pages, at most 6 per site.
    - `collect_osm_contacts.py` reads OpenStreetMap contact tags.
 
-   Both are cached, so a re-run re-extracts from `runtime/contacts/http-cache/` without the network.
+   Both are cached, so a re-run re-extracts from `runtime/contacts/http-cache/` without the network. After the extraction rules change, `crawl_org_websites.py --reextract` reads every readable site again from its cached pages, never touching the network; sites that were not readable keep their record.
+
+   Some servers send a gzip-compressed page though the crawler never asks for one. The crawler decompresses such pages, cached copies included. Before 23 September 2026 six tour operators' home pages were read as noise this way, so their contact and team pages were never reached; `--recrawl <domain> ...` crawled them again.
 2. **Budgeted search agents, for organisations the crawl could not cover:**
    - Build profiles first (step 3), then run `plan_contact_research.py --date <date> --wave <n> --budget <searches>`. It:
-     - picks organisations that still have no published email or phone, have an outreach plan, and no agent has searched for yet (a record that only fetched known pages and found nothing leaves the organisation a candidate)
+     - picks organisations that have an outreach plan and no agent has searched for yet (a record that only fetched known pages and found nothing leaves the organisation a candidate), and that still lack what `--target` names:
+       - `routes` (the default): a published email or phone
+       - `decision-makers`: a named decision-maker, for organisations that already have a route and whose own website the crawler could not read (a site it read is left to the crawler)
+       - `all`: either
+     - with `--include-unclassified`, also plans the welfare run's register-only NGOs whose type is not yet known
      - leaves out savings groups (reached through KINEFA), government offices, and closed or out-of-scope records
-     - ranks the candidates nearest first and splits the budget over at most four slices
+     - ranks the candidates nearest first and splits the budget over at most four slices; `--max-per-slice` keeps only the nearest so one agent's work stays manageable (about 45 organisations), and the rest wait for a later wave
      - writes each slice and its agent prompt under `runtime/contacts/`
    - Give each agent a fixed share of the session's WebSearch cap. Launch at most four agents per wave.
    - Each agent writes `data/raw/contact-research/search_<slice>_<date>.jsonl` and a coverage log in `data/raw/contact-research/coverage/`.
@@ -43,6 +49,8 @@ Government offices are addressed by office title. Officials are named only from 
 
 - **Only what a source publishes for contact purposes.** No private contact details are inferred. A person's name is never searched across other sites.
 - **robots.txt Disallow rules are honoured.** Rules apply per scheme and host, so a redirect to another host is judged by that host's rules. A 4xx robots.txt means no rules.
+  - They are matched as RFC 9309 specifies (`contact_lib.Robots`). The `*` group applies, and repeated groups combine; the longest matching rule decides, Allow wins a tie, and `*` and `$` work as wildcards.
+  - Python's `urllib.robotparser` read `Disallow: /?` as `Disallow: /` and ignored wildcards. On 23 September 2026 the fix opened kilivikings.com, which had been skipped. It also closed two sites whose rules forbid all crawling (sunnyadventures.co.tz, and the parked afroplanfoundation.com), so builds no longer use their earlier findings. Merges never delete, so the master keeps the contact-profile record merged from sunnyadventures.co.tz before the fix; the only value in it that no other source gives is a P.O. Box.
 - **An unreadable robots.txt is crawled and flagged.** This applies to a server error (5xx) or a network or certificate failure. RFC 9309 would treat such a host as fully disallowed; by decision (23 September 2026) the site is crawled anyway and its details are used. Everything taken from it is flagged "robots.txt unreachable" in three places: the contact-profiles workbook's Flags sheet, a master review item, and the welfare run's notes.
 - **Blocks are never worked around.** A block (403, 429, login wall, captcha, TLS failure) is recorded.
 - **Page junk and placeholders are removed.** Addresses are cleaned of URL-encoded spaces, zero-width characters and words glued onto the domain (`info@x.comarusha`). Theme and site-builder placeholders (`info@mysite.com`, `+255 712 345 678`) are dropped.
@@ -50,7 +58,7 @@ Government offices are addressed by office title. Officials are named only from 
 - **Hijacked pages are skipped.** A page with gambling or parked-domain content is not used, even on the organisation's own site, and the site appears on the Flags sheet.
 - **Person filter** (`contact_lib.clean_person`). Names may be in any Latin alphabet (Ståle, Zoë). Only decision-makers and roles that bear on the outreach are kept: people, administration, programmes, welfare and governance. It drops:
   - template names (for example "John Doe" and the Tailwind stock names)
-  - headings, page labels and departments read as names ("Why Choose Us", "Select Page", "Key Contacts", "Human Resources", "Retired Professor")
+  - headings, page labels, departments and job titles read as names ("Why Choose Us", "Select Page", "Key Contacts", "Human Resources", "Retired Professor", "French Sales Expert")
   - branch addresses, regions and acronyms read as names ("Jomo Kenyatta Avenue", "Opposite Mosha Filling Station", "North America", "KPP Energy")
   - the organisation's own name read as a person
   - public figures ("Tanzania's First Female President")
@@ -64,15 +72,16 @@ Government offices are addressed by office title. Officials are named only from 
   - roles the person no longer holds ("Former …", "Immediate Past President", "Chairman Emeritus")
   - staff outside outreach (chefs, guards, drivers, guides, teachers, accountants, volunteers), and their heads ("Chief Security Officer", "Chief Accountant")
 - **A role that holds another listed person's name is not used:** two people's lines were read as one ("EDWIN NYAKOE NYASANI" with the role "THOMAS TARAKWA ASSISTANT CHAIRPERSON").
-- **The same person written two ways is one person:** "Mrs. Paula Mwansa" and "Paula Mwansa", "Pastor Elisha Z." and "Pastor Elisha Z. Masangwa", or "Paul Pickle" inside "Paul and Shannin Pickle".
+- **People named in a sentence are read too:** "founded in 2010 by …", "owned and run by …", "our founder, …", "…, the managing director". A person with a role elsewhere in the sentence ("…, Chairman Grundfos …"), two founders joined by "and", and "the late …" are skipped.
+- **The same person written two ways is one person:** "Mrs. Paula Mwansa" and "Paula Mwansa", "Pastor Elisha Z." and "Pastor Elisha Z. Masangwa", or "Paul Pickle" inside "Paul and Shannin Pickle". So is one name spelled two ways in the same post: the same role, and names that differ by one letter in one word of four or more letters ("Prof. Musa N. Chacha" and "Prof. Mussa N. Chacha", both Rector).
   - All their records make one lead. Its name, role and source come from a single record, so every claim stays traceable.
-  - A search agent's confirmed record is used first, then the organisation's website, then an agent record whose identity is uncertain. Within that source, the record with the most senior role is used.
+  - A search agent's confirmed record is used first, then the organisation's website, then an agent record whose identity is uncertain. Within that source, the record with the most senior role is used; on a tie, a 'Name / Role' layout wins over a sentence ("Founder & Managing Director" over "founded by …").
   - Any record can add a work email or phone linked to the person.
 - **At most six new leads per organisation.**
   - People a search agent confirmed come first. An agent records at most six per organisation, so all of them are kept.
   - The website's people fill the rest, ranked by the most senior role in any of their records:
-    1. founders, executives, principals
-    2. HR, administration, directors, managers, heads of departments
+    1. founders, executives, principals, rectors, vice-chancellors and provosts
+    2. HR, administration, directors, managers, heads of departments, and the head's deputy or assistant ("Deputy Principal", "Assistant General Manager")
     3. board officers: chairs, presidents, secretaries, treasurers
     4. coordinators, heads of named programmes, social and welfare staff
     5. board members and trustees
@@ -90,7 +99,7 @@ Government offices are addressed by office title. Officials are named only from 
   - A mailbox made from a person's initials at a domain named after them (vd@vinnie.co.nz) belongs to that person.
   - A company master organisation takes a personal-domain inbox only when the inbox is named after the organisation.
   - Welfare drafts to personal-domain inboxes stay held.
-- **Research warnings become review items:** possible closure, hijacked or parked site, website gone, location to check, possible duplicate, fit to check, and check before outreach.
+- **Research warnings become review items:** possible closure, hijacked or parked site, website gone, location to check, possible duplicate, fit to check, segment to check (a record filed under the wrong kind of business, such as a hospital recorded as a tour operator), and check before outreach.
   - A possible closure also holds every draft for the organisation, including drafts written after the merge.
   - Nothing is deleted.
 - **Held drafts are released only when the route was their sole gap.** Other blockers keep them held: an unmatched map point, a branch overlap, a savings group awaiting Finance, or a possible closure.

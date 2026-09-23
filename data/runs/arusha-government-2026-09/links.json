@@ -25,7 +25,28 @@
    "Garararua": "Gararagua"
   }
  },
- "ward_locations": {},
+ "ward_locations": {
+  "Meru District Council|Poli": {
+   "source": "osm_facility",
+   "ref": "way/665952183",
+   "note": "Agent decision 23 September 2026, for review: 'Poli Health Centre' (OpenStreetMap way/665952183, data/raw/government-research/osm_named_facilities_2026-09-23.json) lies inside the Meru district boundary, and no other council has a ward named Poli. No place node, ward office or Wikipedia article gives the ward a point."
+  },
+  "Meru District Council|Nkoarisambu": {
+   "source": "osm_facility",
+   "ref": "way/666172884",
+   "note": "Agent decision 23 September 2026, for review: 'Nkoarisambu Dispensary' (OpenStreetMap way/666172884, data/raw/government-research/osm_named_facilities_2026-09-23.json) lies inside the Meru district boundary, and no other council has a ward named Nkoarisambu. No place node, ward office or Wikipedia article gives the ward a point."
+  },
+  "Arusha District Council|Ilkiding'a": {
+   "source": "osm_place",
+   "ref": "node/7502936369",
+   "note": "Agent decision 23 September 2026, for review: keeps the OpenStreetMap village 'Ilkiding'a'. 'Ilkidinga Secondary School' (node/534360378, data/raw/government-research/osm_named_facilities_2026-09-23.json) lies 0.7 km from it, while the Wikipedia point is 7.8 km away."
+  },
+  "Moshi District Council|Kindi": {
+   "source": "osm_place",
+   "ref": "node/8019687301",
+   "note": "Agent decision 23 September 2026, for review: keeps the OpenStreetMap village 'Kindi'. 'Kindi Dispensary' (way/681492564, data/raw/government-research/osm_named_facilities_2026-09-23.json) lies 1.0 km from it, while the Wikipedia point is 13.5 km away."
+  }
+ },
  "osm_office_links": {
   "_about": "Reviewed links from OpenStreetMap offices to census wards when the mapped name differs from the census name.",
   "node/9392131139": {

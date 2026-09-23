@@ -51,7 +51,7 @@ Never collected: parents' or residents' data; resident, voter, beneficiary or pu
 
 OpenStreetMap has no ward boundaries in the catchment, so each ward gets one reference point, labelled `estimated` (or `address` for a mapped ward office). `build_government_run.py` applies this order:
 
-1. A reviewed override in `links.json` `ward_locations`.
+1. A reviewed override in `links.json` `ward_locations`. Besides a Wikipedia article or an OpenStreetMap place, it may name a school or health facility called after the ward (`osm_named_facilities_<date>.json`, collected by `collect_ward_locations.py`) that lies inside the council's district, when the ward name is unique to that council. Such facilities are never used without a review.
 2. The ward office itself, where OpenStreetMap maps it and its name matches the ward inside the council's district (or `osm_office_links` says so).
 3. A Wikipedia ward point, when OpenStreetMap corroborates it within `location_disagreement_km` (5 km).
 4. OpenStreetMap evidence: a town or village named like the ward, then the centre of places listed under an area named like the ward ("Uswaa, Machame Uroki"), then a hamlet named like the ward.
@@ -85,7 +85,7 @@ Tracks: `GA01 Protocol introduction` for core councils with an office published 
 | Key | Holds |
 |---|---|
 | `ward_aliases` | Per council: a spelling used by a roster, Wikipedia or OpenStreetMap, mapped to the census ward name |
-| `ward_locations` | `"<council>|<ward>"` mapped to `{"source": "wikipedia" \| "osm_place" \| "none", "ref": "<title or node/ID>", "note": "..."}` |
+| `ward_locations` | `"<council>|<ward>"` mapped to `{"source": "wikipedia" \| "osm_place" \| "osm_facility" \| "none", "ref": "<title, node/ID or way/ID>", "note": "..."}` |
 | `osm_office_links` | OpenStreetMap office ID mapped to `{"council", "ward", "note"}`, or to `{"category", "detail", "note"}` to record a reviewed triage decision |
 
 ## Side tables (run database)

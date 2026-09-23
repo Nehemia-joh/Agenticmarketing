@@ -13,6 +13,7 @@ Privacy rules (AGENTS.md, skills/silverleaf-welfare-leads/references/welfare-dat
 """
 from __future__ import annotations
 
+import gzip
 import hashlib
 import http.client
 import json
@@ -24,8 +25,7 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
-from urllib.parse import urljoin, urlsplit
-from urllib.robotparser import RobotFileParser
+from urllib.parse import unquote, urljoin, urlsplit
 
 
 def _repo_root() -> Path:
@@ -55,6 +55,8 @@ PAGE_KINDS = [("contact", r"contact|mawasiliano|get-in-touch|reach-us|find-us|lo
               ("team", r"team|staff|people|leadership|management|board|trustee|director|founder|uongozi|who-we-are|our-story|meet"),
               ("about", r"about|kuhusu|history|story|organisation|organization|profile")]
 LINK_SCORE = {"contact": 5, "team": 4, "about": 3}
+# Set by crawl_org_websites.py --reextract: answer from the HTTP cache only and never touch the network.
+OFFLINE = False
 
 
 # ------------------------------------------------------------------ fetching
@@ -63,18 +65,31 @@ def _cache_paths(url: str):
     return CACHE / f"{key}.bin", CACHE / f"{key}.json"
 
 
+def _unpacked(body: bytes) -> bytes:
+    """The page's bytes: some servers send gzip even when it was not asked for (lionkingadventures.com)."""
+    if body[:2] == b"\x1f\x8b":
+        try:
+            return gzip.decompress(body)
+        except (OSError, EOFError):
+            return body
+    return body
+
+
 def fetch(url: str, retries: int = 2) -> dict:
     """GET with per-site spacing, retries on 429/5xx, redirect capture and a disk cache. Never bypasses a block."""
     body_path, meta_path = _cache_paths(url)
     if meta_path.exists():
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
         try:
-            meta["body"] = body_path.read_bytes() if body_path.exists() else b""
+            meta["body"] = _unpacked(body_path.read_bytes()) if body_path.exists() else b""
         except OSError as exc:
             # The local system refuses to open the saved page (usually antivirus blocking a compromised site's content).
             # It is treated as unreadable and never used.
             return {**meta, "status": None, "error": f"saved copy unreadable ({type(exc).__name__}); not used", "body": b""}
         return meta
+    if OFFLINE:
+        return {"url": url, "final_url": url, "status": None, "content_type": "", "error": "not in the HTTP cache (re-extraction is offline)",
+                "body": b""}
     CACHE.mkdir(parents=True, exist_ok=True)
     host = urlsplit(url).netloc.lower()
     W.HOST_LIMITS.setdefault(host, {"min_interval": SITE_INTERVAL, "max_workers": 1, "timeout": TIMEOUT})
@@ -107,27 +122,78 @@ def fetch(url: str, retries: int = 2) -> dict:
             temp = path.with_name(f"{path.name}.{threading.get_ident()}.tmp")
             temp.write_bytes(data)
             temp.replace(path)
-    meta["body"] = body
+    meta["body"] = _unpacked(body)
     return meta
 
 
-def robots_state(base: str) -> tuple[RobotFileParser | None, str]:
+class Robots:
+    """One host's robots.txt rules, matched as RFC 9309 specifies. Python's urllib.robotparser reads 'Disallow: /?' as
+    'Disallow: /' (so a whole site looked closed) and ignores the '*' and '$' wildcards (so 'Disallow: /*?' was not
+    honoured). Here the group for this crawler's product token applies, or else the '*' group; the longest matching
+    rule decides, an Allow rule wins a tie, and /robots.txt itself is always allowed."""
+
+    def __init__(self, text: str):
+        self.groups: list[tuple[list[str], list[tuple[bool, str]]]] = []
+        agents: list[str] = []
+        rules: list[tuple[bool, str]] = []
+        in_rules = False
+        for raw in text.splitlines():
+            line = raw.split("#", 1)[0].strip()
+            key, _, value = line.partition(":")
+            key, value = key.strip().lower(), value.strip()
+            if key == "user-agent":
+                if in_rules:  # a user-agent line after a rule line starts a new group
+                    self.groups.append((agents, rules))
+                    agents, rules, in_rules = [], [], False
+                agents.append(value.lower())  # consecutive user-agent lines share one group
+            elif key in ("allow", "disallow") and agents:
+                in_rules = True
+                if value:  # an empty Disallow allows everything
+                    rules.append((key == "allow", value))
+        if agents:
+            self.groups.append((agents, rules))
+
+    def rules_for(self, product: str) -> list[tuple[bool, str]]:
+        product = product.split("/")[0].lower()
+        own = [r for agents, rules in self.groups if product in agents for r in rules]
+        return own if any(product in agents for agents, _ in self.groups) else [r for agents, rules in self.groups if "*" in agents for r in rules]
+
+    @staticmethod
+    def _matches(pattern: str, target: str) -> bool:
+        pattern = unquote(pattern)
+        anchored = pattern.endswith("$")
+        regex = ".*".join(re.escape(part) for part in pattern.rstrip("$").split("*")) + ("$" if anchored else "")
+        return re.match(regex, target) is not None
+
+    def allows(self, url: str) -> bool:
+        parts = urlsplit(url)
+        has_query = bool(parts.query) or url.split("#", 1)[0].endswith("?")
+        target = unquote(parts.path or "/") + (f"?{unquote(parts.query)}" if has_query else "")
+        if target == "/robots.txt":
+            return True
+        best = None
+        for allow, pattern in self.rules_for(USER_AGENT):
+            if self._matches(pattern, target):
+                key = (len(pattern), allow)
+                best = key if best is None or key > best else best
+        return best is None or best[1]
+
+
+def robots_state(base: str) -> tuple[Robots | None, str]:
     """(rules, state) for one scheme and host. State 'rules': a robots.txt was read and its Disallow rules apply; 'none':
     it answered 4xx, so there are no rules; 'unreachable': a server error (5xx) or a network or certificate failure.
     By the user's decision (23 September 2026) an unreachable robots.txt does not stop the crawl: the site is crawled
     and its findings are flagged ('robots.txt unreachable') for a person to check. Explicit Disallow rules always apply."""
-    parser = RobotFileParser()
     result = fetch(urljoin(base, "/robots.txt"), retries=1)
     status = result["status"]
     if status == 200:
-        parser.parse(result["body"].decode("utf-8", "replace").splitlines())
-        return parser, "rules"
+        return Robots(result["body"].decode("utf-8", "replace")), "rules"
     if status is not None and 400 <= status < 500:
         return None, "none"
     return None, "unreachable"
 
 
-def robots_for(base: str) -> RobotFileParser | None:
+def robots_for(base: str) -> Robots | None:
     return robots_state(base)[0]
 
 
@@ -141,8 +207,8 @@ def site_base(url: str) -> str:
     return f"{parts.scheme}://{parts.netloc}/"
 
 
-def allowed(parser: RobotFileParser | None, url: str) -> bool:
-    return True if parser is None else parser.can_fetch(USER_AGENT, url) and parser.can_fetch("*", url)
+def allowed(robots: Robots | None, url: str) -> bool:
+    return True if robots is None else robots.allows(url)
 
 
 # ------------------------------------------------------------------ extraction
@@ -155,11 +221,13 @@ LABELLED_PHONE = re.compile(r"(?:tel|phone|mobile|cell|call|whatsapp|simu)[^\d+]
 POSTAL = re.compile(r"(?:P\.?\s?O\.?\s*Box|S\.?\s?L\.?\s?P\.?|Private Bag)\s*[.:]?\s*(?:No\.?\s*)?\d{1,6}[^\n|]{0,60}", re.I)
 HONORIFIC = r"(?:(?:Mr|Mrs|Ms|Miss|Dr|Prof|Rev|Fr|Sr|Pastor|Bishop|Eng|Hon|Mhe|Ndg|Bi|Bw)\.?\s+)"
 ROLE = re.compile(r"\b(co-?founder|founder|managing director|executive director|country director|director|ceo|chief [a-z]+ officer|chief executive|"
+                  r"rector|vice[- ]chancellor|provost|"
                   r"chair(?:man|person|woman)?|president|general manager|operations manager|office manager|manager|head of [a-z &]+|head|"
                   r"co-?ordinator|administrator|officer|secretary|treasurer|accountant|owner|proprietor|principal|headmaster|headmistress|matron|"
                   r"patron|social worker|supervisor|team leader|trustee|board member|representative|partner|mkurugenzi|meneja|mratibu|"
                   r"mwenyekiti|katibu|mhasibu|afisa)\b", re.I)
-DECISION = re.compile(r"founder|director|ceo|chief|chair|president|owner|proprietor|manager|head|principal|co-?ordinator|administrator|"
+DECISION = re.compile(r"founder|director|ceo|chief|chair|president|owner|proprietor|manager|head|principal|\brector\b|vice[- ]chancellor|provost|"
+                      r"co-?ordinator|administrator|"
                       r"human resources|\bhr\b|representative|mkurugenzi|meneja|mratibu|mwenyekiti", re.I)
 NOT_A_NAME = re.compile(r"\b(Our|The|About|Contact|Team|Staff|Welcome|Karibu|Read|More|Home|Safari|Safaris|Tours?|Lodge|Hotel|Camp|Ltd|Limited|"
                         r"Company|School|Children|Home|Centre|Center|Trust|Foundation|Group|Services|Office|Department|Programme|Program|"
@@ -181,10 +249,16 @@ NOT_A_NAME = re.compile(r"\b(Our|The|About|Contact|Team|Staff|Welcome|Karibu|Rea
                         r"Years|Manufacturing|Emergency|Response|Admin|Professional|Appointment|Make|Online|Service|Services|Partner|"
                         r"Partners|What|Who|How|Where|When|Which|Do|We|"
                         # page controls, departments, job titles and regions read as names ('Select Page', 'Key Contacts', 'Human
-                        # Resources', 'Retired Professor', 'Employee Benefits Consulting', 'Focus Membership', 'North America')
+                        # Resources', 'Retired Professor', 'Employee Benefits Consulting', 'Focus Membership', 'North America',
+                        # 'French Sales Expert', 'Lead Mechanic Mosha Antelim')
                         r"Select|Location|Continue|Reading|Contacts|Focus|Membership|Retired|Professor|Employee|Employees|Benefits|"
                         r"Consulting|Consultant|Consultants|Paediatrician|Pediatrician|Energy|Human|Resources|Retail|Banking|Internal|"
-                        r"Audit|Ministries|America|Americas|Europe|Asia|Pacific|"
+                        r"Audit|Ministries|America|Americas|Europe|Asia|Pacific|Markets|Financial|Convention|Corps|Vet|Veteran|Veterans|"
+                        r"Lead|Mechanic|Mechanics|Sales|Expert|Experts|Specialist|Specialists|"
+                        # groups and nationalities read as a founder ('founded by Chinese American Catholics')
+                        r"Catholic|Catholics|Christians|Lutherans|Missionaries|American|Americans|British|Chinese|Dutch|Danish|Norwegian|"
+                        r"Swedish|Swiss|Canadian|Australian|Italian|Japanese|Korean|French|German|Spanish|Belgian|Austrian|Kenyan|"
+                        r"Tanzanian|Indian|"
                         # branch addresses read as names ('Jomo Kenyatta Avenue', 'Opposite Mosha Filling Station', 'Kasama Town')
                         r"Rd|Ave|Avenue|Highway|Bazaar|Market|Opposite|Grounds|Station|Area|Industrial|Filling|Town|Fort|Portal|Bay|"
                         r"Leopards|Immeuble|Villa|Plaza|Mall|Building|Tower|Estate|Junction|Roundabout)\b", re.I)
@@ -206,6 +280,9 @@ NOTE_FLAGS = [("possible closure", CLOSURE),
                                           r"domain (has )?expired|enotfound", re.I)),
               ("fit to check", re.compile(r"not (specifically )?(for )?child(ren)?\b|doubtful fit|not child-focused|vocational training, not|"
                                           r"peer school|competitor", re.I)),
+              # a record filed under the wrong kind of business ('A pest-control company (TATO affiliate), not a tour operator')
+              ("segment to check", re.compile(r"not an? (tour|safari) (operator|company)|segment is wrong|wrong segment|mis-?labell?ed as|"
+                                              r"miscategori[sz]ed|mis-?classified", re.I)),
               ("possible duplicate", re.compile(r"duplicate|probably (the same|now)|same (organi[sz]ation|bank|company|charity|school) as|"
                                                 r"older name|former name|renamed|now (called|named|known as)|appears twice|is really|twin", re.I)),
               ("check before outreach", re.compile(r"allegation|abuse|manual review|check (it )?before", re.I))]
@@ -429,6 +506,8 @@ def clean_role(name: str, role: str) -> str:
     role = re.sub(r"^(meet (our|the)|message from (the|our))\s+", "", role.strip(" ,-–—|:"), flags=re.I)
     role = role.split(" · ")[0]
     role = re.sub(r"\s*[>»›]+\s*$", "", role).strip(" ,-–—|:")
+    if role.startswith("(") and role.endswith(")") and role.count("(") == role.count(")") == 1:
+        role = role[1:-1].strip()
     if role.endswith(")") and "(" not in role:
         role = role[:-1]
     if role.startswith("(") and ")" not in role:
@@ -559,6 +638,27 @@ def same_person(a: str, b: str) -> bool:
     return fa <= fb and ia <= initials_b and len(fa) + len(ia) >= 2
 
 
+def _one_letter_apart(a: str, b: str) -> bool:
+    """One letter added, dropped or changed."""
+    if len(a) < len(b):
+        a, b = b, a
+    if len(a) - len(b) > 1:
+        return False
+    if len(a) == len(b):
+        return sum(x != y for x, y in zip(a, b)) == 1
+    return any(a[:i] + a[i + 1:] == b for i in range(len(a)))
+
+
+def spelled_alike(a: str, b: str) -> bool:
+    """One name spelled two ways: the same words in the same order except one, of at least four letters, that is one letter
+    apart ('Prof. Musa N. Chacha' and 'Prof. Mussa N. Chacha'). The profile builder applies it only to records with the same role."""
+    wa, wb = ([w.lower() for w in re.findall(r"[^\W\d_]+(?:['’][^\W\d_]+)?", n or "") if w.lower() not in TITLES] for n in (a, b))
+    if len(wa) != len(wb) or len(wa) < 2:
+        return False
+    diffs = [(x, y) for x, y in zip(wa, wb) if x != y]
+    return len(diffs) == 1 and min(map(len, diffs[0])) >= 4 and _one_letter_apart(*diffs[0])
+
+
 def split_pair(line: str):
     """(name, role) from one line laid out as 'Name - Role', 'Name, Role', 'Name (Role)' or 'Role: Name'."""
     m = re.match(r"^(.{3,50}?)\s*(?:[-–—|,]|\s\(|:)\s*(.{3,80}?)\)?$", line)
@@ -572,11 +672,41 @@ def split_pair(line: str):
     return None
 
 
+# A person a site names in a sentence rather than a 'Name / Role' layout: 'founded in 2010 by John Mushi', 'owned and run
+# by Fay Amon', 'our founder, Mama Faraji', 'Paul Sutherland, the founder of ...'. The name must still pass clean_person.
+PROSE_NAME = (r"((?:(?:Mr|Mrs|Ms|Miss|Dr|Prof|Rev|Fr|Sr|Pastor|Bishop|Eng|Hon)\.?\s+)?[A-Z][^\W\d_]+(?:['’\-][A-Z]?[^\W\d_]+)?(?:\s+[A-Z]\.)?"
+              r"(?:\s+(?:St\.|[A-Z][^\W\d_]+(?:['’\-][A-Z]?[^\W\d_]+)?)){1,3})")
+PROSE_ROLE = (r"(?i:(co-?founder|founder|co-?owner|owner|proprietor|managing director|executive director|country director|general manager|"
+              r"chief executive officer|ceo|chairman|chairperson|principal|headmaster|headmistress))")
+PROSE = [
+    (re.compile(rf"\b(?:[Ff]ounded|[Ee]stablished|[Ss]tarted)\s+(?:in\s+\d{{4}}\s+)?by\s+(?:our\s+)?{PROSE_NAME}\b(?!\s+(?:and|&)\s+[A-Z])"), "Founder"),
+    (re.compile(rf"\b[Oo]wned\s+(?:and\s+(?:run|operated|managed)\s+)?by\s+{PROSE_NAME}\b(?!\s+(?:and|&)\s+[A-Z])"), "Owner"),
+    (re.compile(rf"\b(?:[Oo]ur|[Tt]he)\s+{PROSE_ROLE}(?:\s+(?:and|&)\s+{PROSE_ROLE})?\s*,?\s+{PROSE_NAME}"), None),
+    # The role must end there: 'Neils Du Jensen, Chairman Grundfos ...' is another company's chairman.
+    (re.compile(rf"{PROSE_NAME}\s*,\s*(?:the\s+|our\s+)?{PROSE_ROLE}\b(?!\s+[A-Z])"), None),
+]
+
+
+def prose_people(line: str) -> list[tuple[str, str, str]]:
+    """(name, role, matched text) for each person named in one line of prose."""
+    found = []
+    for pattern, fixed_role in PROSE:
+        for m in pattern.finditer(line):
+            groups = [g for g in m.groups() if g]
+            name = next((g for g in groups if is_name(g)), "")
+            roles = ["CEO" if r.lower() == "ceo" else r[0].upper() + r[1:] for r in groups if r != name]
+            role = fixed_role or " and ".join(roles)
+            if name and role and not re.search(r"\blate\s*$", line[: m.start()], re.I):
+                found.append((name, role, m.group(0)))
+    return found
+
+
 def people_from(lines: list[str]) -> list[dict]:
-    """Name and role pairs as a site lays them out: 'Name' then 'Role' on the next line or the one after, or one line."""
+    """Name and role pairs as a site lays them out: 'Name' then 'Role' on the next line or the one after, or one line, or
+    a sentence of prose (prose_people)."""
     found, seen = [], set()
 
-    def add(name, role, context):
+    def add(name, role, context, prose=False):
         person = clean_person(name, role)
         if not person:
             return
@@ -584,9 +714,11 @@ def people_from(lines: list[str]) -> list[dict]:
         key = (name.lower(), role.lower())
         if key not in seen:
             seen.add(key)
-            found.append({"name": name, "role": role, "decision_maker": decision, "context": context[:120]})
+            found.append({"name": name, "role": role, "decision_maker": decision, "context": context[:120], **({"prose": True} if prose else {})})
 
     for i, line in enumerate(lines):
+        for name, role, text in prose_people(line):
+            add(name, role, text, prose=True)
         if len(line) > 120:
             continue
         pair = split_pair(line)
@@ -603,7 +735,8 @@ def people_from(lines: list[str]) -> list[dict]:
                 break  # the next person starts here
             if len(nxt) <= 80 and ROLE.search(nxt):
                 middle = lines[i + 1] if j == 2 else ""
-                if middle and ORG_NAME.search(middle):
+                org_line = ORG_NAME.fullmatch(middle.strip(" ,.;")) if len(middle) <= 60 else None
+                if org_line and org_line.group(1):
                     # A role under an organisation's name is held there ('Dickie Rolls / Coffeyville Community College Foundation /
                     # Executive Director'): it keeps that name, so the profile builder can tell whether it is this organisation's.
                     add(line, f"{nxt}, {middle}", f"{line} / {middle} / {nxt}")

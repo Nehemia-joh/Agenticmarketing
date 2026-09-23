@@ -37,6 +37,8 @@ NOTE_ACTIONS = {"hijacked or parked site": "The organisation's former website or
                 "location to check": "Research places the organisation elsewhere than the database does; confirm its location before outreach.",
                 "website gone": "The recorded website no longer resolves; find the current route.",
                 "fit to check": "Research suggests the organisation may not serve the audience this list assumes; confirm the fit before outreach.",
+                "segment to check": "Research says the organisation is a different kind of business than its segment records (for example a "
+                                    "hospital recorded as a tour operator); correct the segment through the update skill and check its drafts.",
                 "possible duplicate": "Research suggests this is the same organisation as another record; confirm, then merge through the update skill.",
                 "check before outreach": "Research raised a concern; a person must review it before any outreach."}
 

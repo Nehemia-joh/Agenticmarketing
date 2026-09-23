@@ -29,6 +29,8 @@ MANIFEST_NOTES = {"nbs_2022_wards": "2022 census ward populations for the run's 
                   "wikipedia_wards": "Wikipedia ward articles: title, revision, coordinates and first sentence (CC BY-SA 4.0)",
                   "osm_places": "OpenStreetMap place nodes in the bounding box, with the query",
                   "osm_admin_level5": "OpenStreetMap district boundaries (admin_level 5), simplified, with the query",
+                  "osm_named_facilities": "OpenStreetMap schools and health facilities named after catchment wards, with the query; "
+                                          "used only through reviewed ward_locations overrides",
                   "osm_government_offices": "OpenStreetMap government offices (tags and names), with both queries",
                   "council_sites/": "Council or regional website captured through its public API; CMS editor data, photos and biographies removed",
                   "transcriptions/": "Transcription of a scanned official document, with page and row locators"}

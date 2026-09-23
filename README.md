@@ -332,9 +332,9 @@ Research agents then work through the prompts that `plan_research.py` writes to 
 
 The current welfare run, `arusha-welfare-2026-09`, holds:
 - 497 organisations: 253 researched, and 243 from the NGO register only
-- 470 contacts: 20 low, 425 medium and 25 risky for data protection
+- 528 contacts: 20 low, 481 medium and 27 risky for data protection
 - 3 public parent enquiries, all risky
-- 214 funder and partner links, and 95 review items
+- 214 funder and partner links, and 100 review items
 
 All 23 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
 
@@ -375,9 +375,13 @@ The current government run, `arusha-government-2026-09`, holds:
 - 4 councils proposed for a protocol introduction (GA01): Arusha City, Arusha District, Meru and Hai; every other office is on hold (GA00)
 - 459 official posts: 66 named as their office publishes them (council leaders, regional leaders, and the ward councillors of Hai and Arusha District), all medium risk
 - 221 wards with 2022 census populations; 113 lie within 25 km of a campus, with 1.75 million residents, and are scored and ranked by campus cluster
-- 63 review items, including 15 core-council wards without a location
+- 59 review items, including 13 core-council wards without a location
 
-All 27 verification checks pass. The Read Me sheet lists the coverage gaps: most councils publish no ward-by-ward councillor list, and no council publishes its executive officers' names or phones.
+Four ward locations were settled on 23 September 2026, for review in `links.json`:
+- Poli and Nkoarisambu had no point. They are placed at the health centre or dispensary named after the ward (OpenStreetMap, `osm_named_facilities_<date>.json`).
+- Ilkiding'a and Kindi had disagreeing sources. A school or dispensary named after the ward, about 1 km from the OpenStreetMap village, confirms the village over the Wikipedia point, which is 8–14 km away.
+
+All 30 verification checks pass. The Read Me sheet lists the coverage gaps: most councils publish no ward-by-ward councillor list, and no council publishes its executive officers' names or phones.
 
 ## Outreach messages: request first
 
@@ -404,8 +408,8 @@ python scripts/messaging/build_offer_messages_workbook.py     # one review workb
 ```
 
 On 23 September 2026, after the contact research below, the drafts were:
-- **Company master:** 1,626: the 1,314 organisation plans plus 312 plans for newly found contacts; 81 are AQ02, 1,192 AQ01 and 353 on hold.
-- **Welfare:** 490, of which 63 are ready and 427 held with a reason.
+- **Company master:** 1,678: the 1,314 organisation plans plus 364 plans for newly found contacts; 86 are AQ02, 1,239 AQ01 and 353 on hold.
+- **Welfare:** 490, of which 65 are ready and 425 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
 All of them pass the offer-register checks, and no first message states offer terms. Finance must confirm that the 2025 terms apply to 2027 before any message that states them is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
@@ -414,7 +418,7 @@ All of them pass the offer-register checks, and no first message states offer te
 
 On 23 September 2026, four research agents checked the 58 organisations behind the 82 named decision-makers (AQ02). They used 5 web searches; everything else came from the organisations' own pages. Results:
 - **Lead briefs:** 270 facts. Each has its source link, the page title, a verbatim excerpt and the date it was read. The master workbook lists them on the Lead Briefs sheet, and the Messages sheet shows each draft's brief. When a lead replies, the links show who they are.
-- **Hooks:** 45 organisations have a verified hook, now in the first message of all 235 of their drafts. Examples:
+- **Hooks:** 45 organisations have a verified hook, now in the first message of all 236 of their drafts. Examples:
   - long-serving staff (Cheli & Peacock, African Environments, Duma Explorer, Corto)
   - a published team size (Tanzania Experience's 80 permanent employees)
   - staff-welfare policies (Serengeti Big Cats, Good Earth, Matembezi)
@@ -451,29 +455,33 @@ python scripts/contacts/build_contact_workbook.py --date <date>
 ```
 
 On 23 September 2026 the research used:
-- **Own websites:** 731 crawled, including the 150 websites the research found. 619 were readable, 104 were not, and robots.txt disallowed 8.
+- **Own websites:** 731 crawled, including the 150 websites the research found. 618 were readable, 104 were not, and robots.txt disallowed 9.
   - A robots.txt that cannot be read (server, network or certificate error) no longer stops the crawl: the site is crawled and its details are flagged.
   - Of the 52 sites affected, 48 were down altogether. Tropical Trails and Kilpath African Safaris were read and flagged. Roy Safaris and Neema International now serve a readable robots.txt.
-- **Search agents:** 482 records from 10 agents in three waves, using 309 searches.
+  - robots.txt rules are now matched as RFC 9309 specifies. This opened kilivikings.com and closed sunnyadventures.co.tz and the parked afroplanfoundation.com. Merges never delete, so the master keeps the one record merged from sunnyadventures.co.tz before the fix; the only value in it that no other source gives is a P.O. Box.
+  - Six tour operators' pages came gzip-compressed and had been read as noise. They were crawled again, which added their founders and managers (Lion King Adventures, Zara Tanzania Adventures, African Scenic Safaris and others).
+- **Search agents:** 603 records from 14 agents in four waves, using 426 searches.
+- **Pages read again with better rules (no network):** named sentences ("founded by …", "our founder, …"), rectors and vice-chancellors, and one name spelled two ways in the same post (Prof. Musa and Prof. Mussa N. Chacha, both Rector) counted once.
 
 It left these results (review them in `outputs/contacts/Silverleaf Contact Profiles - 2026-09-23.xlsx`):
 
 | | Company master | Welfare | Government |
 |---|---|---|---|
-| Organisations with a published email or phone | 598 → 709 of 955 | 101 → 196 of 497 | 28 → 37 of 149 |
-| Organisations with a named decision-maker | 160 → 238 | 52 → 142 | 9 (unchanged) |
-| Contact leads | 353 → 659 | 131 → 470 | 459 (office posts) |
-| Contact leads reachable by their own or their organisation's route | 655 | 439 | 79 |
+| Organisations with a published email or phone | 598 → 709 of 955 | 101 → 215 of 497 | 28 → 37 of 149 |
+| Organisations with a named decision-maker | 160 → 266 | 52 → 163 | 9 (unchanged) |
+| Contact leads | 353 → 711 | 131 → 528 | 459 (office posts) |
+| Contact leads reachable by their own or their organisation's route | 707 | 498 | 79 |
 
 The master's 598 also counted 21 organisations whose phone field holds a directory code ('AFF/FIN', 'TO/DMC/MAIN') rather than a number; the 709 counts only real numbers and addresses.
 
-- **Master:** four merges filled 481 empty fields, added 306 contacts and released 97 held drafts because a route was found. 87 review items are open:
+- **Master:** five merges filled 526 empty fields, added 358 contacts and released 97 held drafts because a route was found. 131 contact-research review items are open:
   - website conflicts and phone fields holding codes
   - lost, parked or hijacked domains
   - possible duplicates
+  - 15 records filed under the wrong kind of business ("segment to check"): TATO affiliate members recorded as tour operators, such as PwC, NSK Hospitals, a forex bureau and a pest-control company
   - five records whose details come from a site crawled although its robots.txt could not be read: three Tropical Trails duplicates and two Kilpath records. They are flagged, and their drafts are not held
-  - possible closures, whose drafts are held: FBME Arusha, Fastjet's ticket office, Impala Hotel, Tin Tin Tours and Lemuta & Khaki Safaris
-- **Welfare:** 339 new named leads and 95 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
+  - possible closures, whose drafts are held: FBME Arusha, Fastjet's ticket office, Impala Hotel, Tin Tin Tours (two records), Lemuta & Khaki Safaris and Meru Mountain Treks & Safari
+- **Welfare:** 397 new leads and 114 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
 - **Government:** every council in the run and the Arusha and Kilimanjaro Regional Secretariats now have their official email, office phone and P.O. Box, from their own letterheads and service charters. Only Manyara's secretariat lacks an email and phone; it has its P.O. Box.
 - **Filtered out:**
   - template names, headings and client testimonials
@@ -481,8 +489,8 @@ The master's 598 also counted 21 organisations whose phone field holds a directo
   - roles held at another organisation: a trustee's own business, another board, a partner NGO
   - former roles and staff outside outreach (chefs, guides, security, accountants)
   - people beyond six new leads per organisation
-- **Leads kept:** when a search agent and a website list the same person, the lead takes the agent's name and role. People an agent confirmed are always kept; the rest rank by their most senior role, with board officers above coordinators.
-- **Flags:** the Flags sheet lists 209 research warnings for a person to check, including the five robots.txt flags.
+- **Leads kept:** when a search agent and a website list the same person, the lead takes the agent's name and role. People an agent confirmed are always kept; the rest rank by their most senior role, with board officers above coordinators. Rectors, vice-chancellors and provosts rank with founders and executives, and a deputy or assistant of the head ranks with management.
+- **Flags:** the Flags sheet lists 265 research warnings for a person to check, including the five robots.txt flags.
 
 Still without a route:
 - savings groups, reached through KINEFA
@@ -490,8 +498,8 @@ Still without a route:
 - ward and village offices
 - organisations every wave searched without finding a route (the Gaps sheet lists them with what was tried)
 
-Only 13 in-scope organisations were never searched (12 welfare homes, programmes and funders, and one employer). The planner (`plan_contact_research.py --wave 4`) puts them in the next wave.
+Only 5 in-scope organisations without a route were never searched: four welfare homes (two of them 110 and 500 km away) and one employer, Kili Star Tours. `plan_contact_research.py --wave 5` puts them in the next wave. With `--target decision-makers` it also plans the 94 organisations that have a route but no named decision-maker and whose website the crawler could not read.
 
 ## Current verified master
 
-The current verified master contains 955 organisations, 659 contacts, 32 enquiries, 1,626 messages and outreach plans, 1,658 campaign assignments, 141 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.
+The current verified master contains 955 organisations, 711 contacts, 32 enquiries, 1,678 messages and outreach plans, 1,710 campaign assignments, 141 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.

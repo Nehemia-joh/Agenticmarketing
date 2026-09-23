@@ -125,14 +125,43 @@ def crawl(rec: dict) -> dict:
     return out
 
 
+def reextract(out_path, workers: int) -> int:
+    """Re-read each readable site from the HTTP cache with the current rules (no network), keeping the file's order, the
+    original fetch date and the records of sites that were not readable."""
+    records = [json.loads(line) for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    C.OFFLINE = True
+    todo = {i: r for i, r in enumerate(records) if any(p.get("status") == 200 for p in r["pages"])}
+    print(f"{len(records)} sites in {out_path.name}; re-extracting {len(todo)} readable sites from the cache", flush=True)
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, 12))) as pool:
+        futures = {pool.submit(crawl, {k: r[k] for k in ("domain", "start_url", "orgs")}): i for i, r in todo.items()}
+        for future in as_completed(futures):
+            i = futures[future]
+            records[i] = {**future.result(), "fetched_on": records[i].get("fetched_on", "")}
+    temp = out_path.with_name(out_path.name + ".tmp")
+    temp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8")
+    temp.replace(out_path)
+    print(f"done: {out_path.relative_to(C.ROOT)}", flush=True)
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=date.today().isoformat())
     parser.add_argument("--workers", type=int, default=8, help="sites crawled in parallel (each site is still one request at a time)")
     parser.add_argument("--limit", type=int, default=0, help="crawl only this many sites (testing)")
+    parser.add_argument("--reextract", action="store_true",
+                        help="rewrite the date's file from the HTTP cache without the network: every site with a readable page is read "
+                             "again from its cached pages with the current extraction rules; the others keep their record")
+    parser.add_argument("--recrawl", nargs="+", default=[], metavar="DOMAIN",
+                        help="crawl these sites again, with the network, replacing their records (for example after a robots.txt fix)")
     args = parser.parse_args()
     C.RAW.mkdir(parents=True, exist_ok=True)
     out_path = C.RAW / f"website_contacts_{args.date}.jsonl"
+    if args.reextract:
+        return reextract(out_path, args.workers)
+    if args.recrawl and out_path.exists():
+        kept = [line for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip() and json.loads(line)["domain"] not in args.recrawl]
+        out_path.write_text("".join(line + "\n" for line in kept), encoding="utf-8")
     done = set()
     if out_path.exists():
         done = {json.loads(line)["domain"] for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip()}

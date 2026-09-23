@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import urllib.parse
 
 import gov_lib as G
@@ -127,6 +128,38 @@ out geom;"""
                                          "note": "Outer ways only, simplified to points about 150 m apart for point-in-district checks.",
                                          "elements": elements}, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"osm districts: {[e['tags'].get('name') for e in elements]} via {endpoint} -> {admin_out.relative_to(G.ROOT)}")
+
+    # Schools and health facilities are usually named after their village or ward ('Poli Health Centre'). When no place
+    # node carries a ward's name, one inside the council's district can place the ward, through a reviewed override in
+    # links.json ward_locations (source 'osm_facility'); the build never uses them on its own.
+    facilities_out = raw / f"osm_named_facilities_{date}.json"
+    census_path = raw / f"nbs_2022_wards_{date}.csv"
+    if facilities_out.exists() and not args.refresh:
+        print(f"reuse {facilities_out.relative_to(G.ROOT)}")
+    elif not census_path.exists():
+        print(f"skip named facilities: {census_path.relative_to(G.ROOT)} is missing (run collect_census_wards.py first)")
+    else:
+        import csv
+        with open(census_path, encoding="utf-8", newline="") as handle:
+            first_words = sorted({re.sub(r"[^A-Za-z]", "", r["ward"].split()[0]) for r in csv.DictReader(handle) if r["ward"].strip()} - {""})
+        names = "|".join(first_words)
+        facilities_query = f"""[out:json][timeout:180];
+(
+  nwr["amenity"~"^(school|kindergarten|college|clinic|hospital|doctors)$"]["name"~"^({names})",i]{bbox};
+  nwr["healthcare"]["name"~"^({names})",i]{bbox};
+);
+out center tags;"""
+        body, endpoint = G.overpass(facilities_query)
+        slim = []
+        for el in json.loads(body)["elements"]:
+            point = el.get("center") or el
+            slim.append({"type": el["type"], "id": el["id"], "lat": point.get("lat"), "lon": point.get("lon"),
+                         "tags": {k: v for k, v in el.get("tags", {}).items() if k in ("name", "name:en", "name:sw", "amenity", "healthcare")}})
+        facilities_out.write_text(json.dumps({"retrieved": date, "endpoint": endpoint, "query": facilities_query,
+                                              "note": "Schools and health facilities whose name starts with a catchment ward's name; used only "
+                                                      "through reviewed links.json ward_locations overrides.",
+                                              "elements": slim}, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"osm named facilities: {len(slim)} via {endpoint} -> {facilities_out.relative_to(G.ROOT)}")
     return 0
 
 

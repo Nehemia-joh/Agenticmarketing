@@ -22,6 +22,7 @@ Evidence behind the government runs, most recently `arusha-government-2026-09`. 
 | `office_contacts_2026-09-23.json` | `db00fc6cfdb2062c…` |  |
 | `osm_admin_level5_2026-09-23.json` | `370ac786179e8333…` | OpenStreetMap district boundaries (admin_level 5), simplified, with the query |
 | `osm_government_offices_2026-09-23.json` | `b093b0da23f437b6…` | OpenStreetMap government offices (tags and names), with both queries |
+| `osm_named_facilities_2026-09-23.json` | `4486e65e5b514e8a…` | OpenStreetMap schools and health facilities named after catchment wards, with the query; used only through reviewed ward_locations overrides |
 | `osm_places_2026-09-23.json` | `4f7dfd5d66496852…` | OpenStreetMap place nodes in the bounding box, with the query |
 | `transcriptions/arushadc_madiwani_2025-2030_2026-09-23.csv` | `27df913d7bba45d1…` | Transcription of a scanned official document, with page and row locators |
 | `transcriptions/README.md` | `dd647bb24bd18156…` | Transcription of a scanned official document, with page and row locators |

@@ -253,6 +253,9 @@ def locate_wards(cfg, census, wiki, places, districts, gaz, links, reviews, offi
                     listed_under[G.squash(pieces[-1])].append(el)
     gaz_by_key = {G.squash(k): v for k, v in gaz.items()}
     overrides = links.get("ward_locations", {})
+    # Schools and health facilities named after a ward (collect_ward_locations.py): used only through a reviewed override.
+    facilities_path = cfg["paths"]["raw"] / f"osm_named_facilities_{cfg['research_date']}.json"
+    facilities = json.loads(facilities_path.read_text(encoding="utf-8"))["elements"] if facilities_path.exists() else []
 
     cand, claims = {}, defaultdict(list)
     for w in census:
@@ -358,6 +361,11 @@ def locate_wards(cfg, census, wiki, places, districts, gaz, links, reviews, offi
                 el = next((e for e in places if f"node/{e['id']}" == ref), None)
                 if el:
                     chosen = {"lat": el["lat"], "lon": el["lon"], "location_source": "osm_place", "location_ref": ref,
+                              "location_url": f"https://www.openstreetmap.org/{ref}"}
+            elif src == "osm_facility":
+                el = next((e for e in facilities if f"{e['type']}/{e['id']}" == ref and e.get("lat") is not None), None)
+                if el:
+                    chosen = {"lat": el["lat"], "lon": el["lon"], "location_source": "osm_facility", "location_ref": ref,
                               "location_url": f"https://www.openstreetmap.org/{ref}"}
             elif src == "none":
                 chosen = {"lat": None, "lon": None, "location_source": "none", "location_ref": "", "location_url": ""}

@@ -2,7 +2,7 @@
  "run_on": "2026-09-23",
  "offer_version": "2026-09-23-offer-v4",
  "outcomes": {
-  "rewritten": 1626,
+  "rewritten": 1678,
   "government track (government run)": 6,
   "welfare track (welfare run)": 6,
   "excluded: no message": 5,
@@ -13,9 +13,9 @@
  "tracks_new": {},
  "segments_new": {},
  "counts_after": {
-  "messages": 1626,
-  "outreach_plans": 1626,
-  "message_versions": 5209,
-  "campaign_lead_assignments": 1658
+  "messages": 1678,
+  "outreach_plans": 1678,
+  "message_versions": 5210,
+  "campaign_lead_assignments": 1710
  }
 }

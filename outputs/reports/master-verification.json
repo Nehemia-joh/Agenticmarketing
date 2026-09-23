@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-09-23T17:19:14.680578+00:00",
+  "checked_at": "2026-09-23T17:55:11.265225+00:00",
   "result": "passed",
-  "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "4713d08f975cc98ac989c7d740dbc64b8f99b2f5c4373128d5591d6d2fe5c717",
-  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "bd4d9112aa3d6258af7ae13252ebcf0f1410f69725df146c327619e09ee9057a",
+  "database": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\nervous-cannon-499cbc\\outputs\\master\\Silverleaf Master Database.sqlite",
+  "database_sha256": "3b3df27c02910c443209e2db1399e4043d84f69ab2bbf34bdfe3c2b744b99e76",
+  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\nervous-cannon-499cbc\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
+  "workbook_sha256": "b1ec2baa0fa1065872c7629798f5e8bb6efc05381e4a1f069e3e2afe9a950eb9",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -17,22 +17,22 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 90,
-    "source_records": 8769,
+    "source_files": 94,
+    "source_records": 8864,
     "organisations": 955,
-    "contacts": 659,
+    "contacts": 711,
     "enquiries": 32,
-    "messages": 1626,
-    "outreach_plans": 1626,
+    "messages": 1678,
+    "outreach_plans": 1678,
     "strategies": 141,
     "automation_recipes": 54,
-    "campaign_lead_assignments": 1658,
+    "campaign_lead_assignments": 1710,
     "acquisition_tracks": 3,
     "value_proposition_modules": 8,
     "lead_intake_rules": 9
   },
   "hooks": {
-    "verified": 241,
+    "verified": 242,
     "active_unverified": 0,
     "verified_without_source": 0
   },
@@ -41,8 +41,8 @@
     "untraceable": 0
   },
   "assignments": {
-    "plans": 1626,
-    "with_track": 1626
+    "plans": 1678,
+    "with_track": 1678
   },
   "enabled_automations": 0,
   "unwanted_paths": []

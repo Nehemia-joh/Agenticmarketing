@@ -20,7 +20,7 @@ The scripts enforce the network limits in code: `scripts/welfare/welfare_lib.py`
 
 - **No cap was hit, but pace it.** Allow about one request every 2 seconds on the same site. Responses are cached for about 15 minutes per URL.
 - **Blocked or unreadable in 2026-09:**
-  - UK Charity Commission register (HTTP 403)
+  - UK Charity Commission register (HTTP 403 on 22 September; it answered normally on 23 September, with a robots.txt that allows everything)
   - JamiiForums (blocks automated reading)
   - Facebook groups and many pages (login wall)
   - Reddit (not fetchable)

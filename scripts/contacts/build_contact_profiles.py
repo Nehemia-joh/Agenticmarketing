@@ -125,15 +125,64 @@ def load_orgs() -> dict:
 
 # Named leads kept per organisation, most senior first; the rest are counted but not recorded (data minimisation).
 LEADS_PER_ORGANISATION = 6
-SENIORITY = [re.compile(r"founder|\bceo\b|chief exec|managing director|executive director|country director|general manager|proprietor|owner|"
-                        r"principal|head of school|headmaster|headmistress|mkurugenzi|meneja mkuu", re.I),
-             re.compile(r"human resources|\bhr\b|people|personnel|administrat|director|head of|manager|co-?ordinator|matron|social work|welfare|"
-                        r"meneja|mratibu", re.I),
-             re.compile(r"chair|president|secretary|treasurer|trustee|board|mwenyekiti|katibu", re.I)]
+# Ranks, most senior first. A role that matches several ranks takes the most senior of them.
+SENIORITY = [re.compile(r"founder|\bceo\b|chief exec|managing director|(?<!non )(?<!non-)executive director|country director|director general|"
+                        r"general manager|proprietor|owner|principal|head of school|headmaster|headmistress|mkurugenzi|meneja mkuu", re.I),
+             # management: people and administration, directors, managers, heads of departments, other chief officers, matrons
+             re.compile(r"human resources?|\bhr\b|people|personnel|administrat|\bchief\b(?! patron)|director|head of|manager|matron|meneja", re.I),
+             # board officers
+             re.compile(r"chair|president|secretary|treasurer|mwenyekiti|katibu", re.I),
+             # programme and welfare staff
+             re.compile(r"co-?ordinator|social work|welfare|mratibu", re.I),
+             # board members and trustees
+             re.compile(r"board|trustee|patron", re.I)]
+# Phrases that belong to a lower rank than the words inside them: the head of a named programme ranks with coordinators
+# ('Head of Tailoring Program'), and a board or non-executive director with the board ('Board Director').
+DEMOTED = [(re.compile(r"\bhead of (?:the )?(?:[\w'’&-]+ ){1,4}(?:program(?:me)?|project)s?\b", re.I), 3),
+           (re.compile(r"\bboard director|non[\s-]?executive director|board of directors|directors? of the board", re.I), 4)]
 
 
 def seniority(role: str) -> int:
-    return next((i for i, pattern in enumerate(SENIORITY) if pattern.search(role or "")), len(SENIORITY))
+    role, ranks = role or "", []
+    for pattern, rank in DEMOTED:
+        if pattern.search(role):
+            ranks.append(rank)
+            role = pattern.sub(" ", role)
+    ranks += [i for i, pattern in enumerate(SENIORITY) if pattern.search(role)]
+    return min(ranks, default=len(SENIORITY))
+
+
+RISK_ORDER = {"low": 0, "medium": 1, "risky": 2}
+
+
+def plain_words(text: str) -> str:
+    return " ".join(re.findall(r"[^\W\d_]+", str(text or "").lower()))
+
+
+def misread_role(entry: dict, names: list[str]) -> bool:
+    """The role carries another listed person's name: two people's lines read as one ('EDWIN NYAKOE NYASANI' with the role
+    'THOMAS TARAKWA ASSISTANT CHAIRPERSON', where Thomas Tarakwa is the assistant chairperson)."""
+    role = f" {plain_words(entry['role'])} "
+    return any(len(plain_words(n).split()) >= 2 and f" {plain_words(n)} " in role for n in names if not C.same_person(n, entry["name"]))
+
+
+def combine(entries: list[dict]) -> dict:
+    """One lead from every record of the same person. Name, role and source come from one record, so the lead stays traceable
+    to it: a confirmed search-agent record first (agents confirm each person), then the organisation's website, then a record
+    whose identity an agent left uncertain; within that source, the most senior role. The lead ranks by the most senior role
+    in any record. A work email or phone that another record links to the person is added."""
+    def preference(entry):
+        return 0 if entry["method"] == "search" and entry.get("identity") != "uncertain" else (1 if entry["method"] != "search" else 2)
+    best = min(preference(x) for x in entries)
+    chosen = min((x for x in entries if preference(x) == best), key=lambda x: seniority(x["role"]))  # min() keeps the first on a tie
+    lead = dict(chosen)
+    lead["email"] = chosen["email"] or next((x["email"] for x in entries if x["email"]), "")
+    lead["phone"] = chosen["phone"] or next((x["phone"] for x in entries if x["phone"]), "")
+    riskiest = max(entries, key=lambda x: RISK_ORDER.get(x.get("pdpa_risk"), 1))
+    if RISK_ORDER.get(riskiest.get("pdpa_risk"), 1) > RISK_ORDER.get(lead.get("pdpa_risk"), 1):
+        lead["pdpa_risk"], lead["pdpa_risk_reason"] = riskiest["pdpa_risk"], riskiest["pdpa_risk_reason"]
+    lead["rank"], lead["preference"] = min(seniority(x["role"]) for x in entries), best
+    return lead
 
 
 def government_key(orgs: dict, name: str) -> tuple | None:
@@ -347,25 +396,42 @@ def main() -> int:
         people = []
         # Host names only; website fields sometimes hold free text, so no URL parsing.
         domains = " ".join(h for w in [o["website"], *((e["websites"] if e else {}).keys())] for h in re.findall(r"[a-z0-9\-]+(?:\.[a-z0-9\-]+)+", w.lower()))
+        entries = []
         for p in (e["people"] if e else []):
             person = C.clean_person(p["name"], p["role"], o["name"], domains)
             if not person or (key[0] == "government" and p["method"] == "search"):
                 # Government offices are addressed by office title; officials are named only from the run's own official sources.
                 dropped["government official (office title only)" if person else "not a current, relevant, named person"] += 1
                 continue
-            p = {**p, "name": person[0], "role": person[1], "decision_maker": person[2]}
-            same = next((x for x in people if W.name_key(p["name"]) == W.name_key(x["name"]) or C.same_person(p["name"], x["name"])), None)
-            if same:
-                # The same person from a second source: keep the first record and add any work route that source links to them.
-                same["email"], same["phone"] = same["email"] or p["email"], same["phone"] or p["phone"]
+            entries.append({**p, "name": person[0], "role": person[1], "decision_maker": person[2]})
+        known = [c["name"] for c in o["contacts"] if C.is_name(c["name"])]
+        misread = {id(x) for x in entries if misread_role(x, [y["name"] for y in entries] + known)}
+        if misread:
+            dropped["role holding another listed person's name"] += len(misread)
+        # The same person in several records (two pages, or the website and a search agent) becomes one lead.
+        groups = []
+        for p in entries:
+            if id(p) in misread:
                 continue
-            existing = any(W.name_key(p["name"]) == W.name_key(c["name"]) or C.same_person(p["name"], c["name"]) for c in o["contacts"] if c["name"])
-            people.append({**p, "already_in_database": existing})
-        new = sorted((p for p in people if not p["already_in_database"]), key=lambda p: seniority(p["role"]))
+            group = next((g for g in groups if W.name_key(p["name"]) == W.name_key(g[0]["name"]) or C.same_person(p["name"], g[0]["name"])), None)
+            if group:
+                group.append(p)
+            else:
+                groups.append([p])
+        for group in groups:
+            lead = combine(group)
+            lead["already_in_database"] = any(W.name_key(x["name"]) == W.name_key(c["name"]) or C.same_person(x["name"], c["name"])
+                                              for x in group for c in o["contacts"] if c["name"])
+            people.append(lead)
+        # People a search agent confirmed come first (the brief allows at most six per organisation, so all are kept), then the
+        # website's, most senior first.
+        new = sorted((p for p in people if not p["already_in_database"]), key=lambda p: (p["preference"], p["rank"]))
         if len(new) > LEADS_PER_ORGANISATION:
             dropped[f"beyond {LEADS_PER_ORGANISATION} new leads per organisation"] += len(new) - LEADS_PER_ORGANISATION
             keep = {id(p) for p in new[:LEADS_PER_ORGANISATION]}
             people = [p for p in people if p["already_in_database"] or id(p) in keep]
+        for p in people:
+            del p["rank"], p["preference"]
         emails = []
         for email, info in (e["emails"].items() if e else []):
             etype, person = email_type(email, [x["name"] for x in people] + [c["name"] for c in o["contacts"] if c["name"]])

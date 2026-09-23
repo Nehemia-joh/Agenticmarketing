@@ -48,13 +48,31 @@
    "contacts_on_twin_records_skipped": 58,
    "source_files": 12,
    "contacts_after": 641
+  },
+  {
+   "run_date": "2026-09-23",
+   "applied_on": "2026-09-23",
+   "trial": false,
+   "organisations_updated": 5,
+   "fields_filled": 5,
+   "facts": 4628,
+   "contacts_inserted": 18,
+   "reviews": 89,
+   "plans_unheld": 0,
+   "plans_held_for_closure": 7,
+   "plans_held_for_unconfirmed_route": 0,
+   "plans_released_route_confirmed": 0,
+   "research_emails_cleaned": 0,
+   "contacts_on_twin_records_skipped": 58,
+   "source_files": 12,
+   "contacts_after": 659
   }
  ],
  "totals": {
-  "contacts_inserted": 288,
-  "fields_filled": 476,
+  "contacts_inserted": 306,
+  "fields_filled": 481,
   "plans_unheld": 97,
-  "organisations_updated": 207
+  "organisations_updated": 212
  },
- "contacts_after": 641
+ "contacts_after": 659
 }

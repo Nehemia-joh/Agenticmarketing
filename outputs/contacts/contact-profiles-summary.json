@@ -57,13 +57,13 @@
    "no route": 99,
    "with named contact": 249,
    "with named decision-maker": 238,
-   "contact leads": 641,
-   "named contact leads": 641,
-   "decision-maker leads": 567,
-   "contact leads with a direct route": 635,
-   "contact leads reachable (own or organisation route)": 637,
+   "contact leads": 659,
+   "named contact leads": 659,
+   "decision-maker leads": 585,
+   "contact leads with a direct route": 653,
+   "contact leads reachable (own or organisation route)": 655,
    "pdpa low": 0,
-   "pdpa medium": 638,
+   "pdpa medium": 656,
    "pdpa risky": 3,
    "research flags": 103
   },
@@ -72,15 +72,15 @@
    "direct route": 196,
    "indirect only": 51,
    "no route": 250,
-   "with named contact": 141,
-   "with named decision-maker": 138,
-   "contact leads": 433,
-   "named contact leads": 390,
-   "decision-maker leads": 319,
-   "contact leads with a direct route": 115,
-   "contact leads reachable (own or organisation route)": 404,
+   "with named contact": 145,
+   "with named decision-maker": 142,
+   "contact leads": 470,
+   "named contact leads": 427,
+   "decision-maker leads": 347,
+   "contact leads with a direct route": 120,
+   "contact leads reachable (own or organisation route)": 439,
    "pdpa low": 43,
-   "pdpa medium": 382,
+   "pdpa medium": 419,
    "pdpa risky": 8,
    "research flags": 106
   },
@@ -104,11 +104,11 @@
  },
  "research": {
   "date": "2026-09-23",
-  "sites_crawled": 680,
+  "sites_crawled": 731,
   "sites": {
-   "values found on three or more websites (not used)": 1,
-   "readable": 573,
-   "unreadable": 99,
+   "values found on three or more websites (not used)": 2,
+   "readable": 619,
+   "unreadable": 104,
    "robots_disallowed": 8,
    "readable, crawled with robots.txt unreachable (flagged)": 2
   },
@@ -121,8 +121,9 @@
   },
   "people_not_recorded": {
    "site named after another organisation": 13,
-   "not a current, relevant, named person": 57,
-   "beyond 6 new leads per organisation": 162
+   "not a current, relevant, named person": 96,
+   "beyond 6 new leads per organisation": 174,
+   "role holding another listed person's name": 1
   },
   "master": {
    "organisations": 955,
@@ -130,17 +131,17 @@
    "route_after": 741,
    "with_named_contact_before": 249,
    "with_named_contact_after": 271,
-   "new_named_leads": 102,
-   "new_decision_maker_leads": 88
+   "new_named_leads": 78,
+   "new_decision_maker_leads": 78
   },
   "welfare": {
    "organisations": 497,
    "route_before": 225,
    "route_after": 227,
    "with_named_contact_before": 60,
-   "with_named_contact_after": 148,
-   "new_named_leads": 323,
-   "new_decision_maker_leads": 274
+   "with_named_contact_after": 152,
+   "new_named_leads": 361,
+   "new_decision_maker_leads": 303
   },
   "government": {
    "organisations": 149,

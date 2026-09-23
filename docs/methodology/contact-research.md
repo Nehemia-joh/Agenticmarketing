@@ -50,19 +50,34 @@ Government offices are addressed by office title. Officials are named only from 
 - **Hijacked pages are skipped.** A page with gambling or parked-domain content is not used, even on the organisation's own site, and the site appears on the Flags sheet.
 - **Person filter** (`contact_lib.clean_person`). Names may be in any Latin alphabet (Ståle, Zoë). Only decision-makers and roles that bear on the outreach are kept: people, administration, programmes, welfare and governance. It drops:
   - template names (for example "John Doe" and the Tailwind stock names)
-  - headings read as names ("Why Choose Us", "Core Value", "Master Chef")
+  - headings, page labels and departments read as names ("Why Choose Us", "Select Page", "Key Contacts", "Human Resources", "Retired Professor")
+  - branch addresses, regions and acronyms read as names ("Jomo Kenyatta Avenue", "Opposite Mosha Filling Station", "North America", "KPP Energy")
   - the organisation's own name read as a person
   - public figures ("Tanzania's First Female President")
-  - client testimonials (a role that names another organisation, such as "HR Manager, Mwanzo Corporate Offices, Dar es Salaam")
-  - roles the person no longer holds ("Former …")
-  - staff outside outreach (chefs, guards, drivers, guides, teachers, accountants, volunteers)
-- **At most six new leads per organisation**, most senior first:
-  1. founders, executives, principals
-  2. HR, administration, directors, managers, coordinators
-  3. board officers
+  - roles held at another organisation:
+    - client testimonials ("HR Manager, Mwanzo Corporate Offices, Dar es Salaam")
+    - a trustee's own business ("Coffeyville Coffee Company and Hersh's Ice Cream Co-owner")
+    - another board ("Board member of Cascades Academy") or a partner NGO ("Founder & Director of CHETI NGO")
 
-  Leads beyond six are counted, not recorded.
+    A role that also names the organisation itself is kept, and so is a role in one of its own units ("Head of Leadership and Governance Academy", "Director of Western Wildlife Research Centre").
+  - links, sentences, headlines and phone numbers read as roles ("Read a letter from our Executive Director", "Director's Message...")
+  - roles the person no longer holds ("Former …", "Immediate Past President", "Chairman Emeritus")
+  - staff outside outreach (chefs, guards, drivers, guides, teachers, accountants, volunteers), and their heads ("Chief Security Officer", "Chief Accountant")
+- **A role that holds another listed person's name is not used:** two people's lines were read as one ("EDWIN NYAKOE NYASANI" with the role "THOMAS TARAKWA ASSISTANT CHAIRPERSON").
 - **The same person written two ways is one person:** "Mrs. Paula Mwansa" and "Paula Mwansa", "Pastor Elisha Z." and "Pastor Elisha Z. Masangwa", or "Paul Pickle" inside "Paul and Shannin Pickle".
+  - All their records make one lead. Its name, role and source come from a single record, so every claim stays traceable.
+  - A search agent's confirmed record is used first, then the organisation's website, then an agent record whose identity is uncertain. Within that source, the record with the most senior role is used.
+  - Any record can add a work email or phone linked to the person.
+- **At most six new leads per organisation.**
+  - People a search agent confirmed come first. An agent records at most six per organisation, so all of them are kept.
+  - The website's people fill the rest, ranked by the most senior role in any of their records:
+    1. founders, executives, principals
+    2. HR, administration, directors, managers, heads of departments
+    3. board officers: chairs, presidents, secretaries, treasurers
+    4. coordinators, heads of named programmes, social and welfare staff
+    5. board members and trustees
+  - Leads beyond six are counted, not recorded.
+  - The limit counts leads not yet in the database, so each merge can add up to six more.
 - **A website shared by several different organisations:** its people go only to the organisation the domain is named after.
 - **Twin records:** the master holds some organisations twice, under the same name or website. A person already on one record is not added to its twin.
 - **Merges never overwrite.**
@@ -86,7 +101,7 @@ Government offices are addressed by office title. Officials are named only from 
 
 Give every research agent the following, with its slice file, its search allowance and its output paths.
 
-- **Goal:** for each organisation, fill the organisation profile, and find contact leads who lead or decide for it: founder, director, manager, head, coordinator, HR, administrator, owner, principal.
+- **Goal:** for each organisation, fill the organisation profile, and find contact leads who lead or decide for it: founder, director, manager, head, coordinator, HR, administrator, owner, principal. Record at most six people per organisation, most senior first.
 - **Search budget:**
   - Use at most the allowance, and number every search in the log (Q1/40, Q2/40 …).
   - One search per organisation is normal, for example `"<exact name>" Arusha`. Then fetch the organisation's own contact, about or team pages instead of searching again.

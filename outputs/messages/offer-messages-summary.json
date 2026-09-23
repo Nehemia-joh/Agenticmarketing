@@ -1,10 +1,10 @@
 {
- "generated": "2026-09-23 14:03 UTC",
+ "generated": "2026-09-23 14:18 UTC",
  "offer_version": "2026-09-23-offer-v4",
- "corporate_drafts": 1608,
+ "corporate_drafts": 1626,
  "corporate_by_track": {
   "AQ02": 82,
-  "AQ01": 1174,
+  "AQ01": 1192,
   "AQ00": 352
  },
  "parent_replies_reviewable": 9,

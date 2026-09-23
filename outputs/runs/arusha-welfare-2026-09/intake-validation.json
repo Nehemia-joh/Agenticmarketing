@@ -1,9 +1,9 @@
 {
-  "file": "C:\\Work\\silverleaf-agentic-marketing\\data\\runs\\arusha-welfare-2026-09\\intake.csv",
+  "file": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\nervous-cannon-499cbc\\data\\runs\\arusha-welfare-2026-09\\intake.csv",
   "status": "valid",
-  "row_count": 933,
+  "row_count": 970,
   "counts": {
-    "contact": 433,
+    "contact": 470,
     "enquiry": 3,
     "organisation": 497
   },

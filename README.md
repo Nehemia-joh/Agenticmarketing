@@ -332,11 +332,11 @@ Research agents then work through the prompts that `plan_research.py` writes to 
 
 The current welfare run, `arusha-welfare-2026-09`, holds:
 - 497 organisations: 253 researched, and 243 from the NGO register only
-- 131 contacts: 20 low, 90 medium and 21 risky for data protection
+- 470 contacts: 20 low, 425 medium and 25 risky for data protection
 - 3 public parent enquiries, all risky
-- 214 funder and partner links, and 92 review items
+- 214 funder and partner links, and 95 review items
 
-All 19 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
+All 23 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
 
 ## Run a government-lead run
 
@@ -396,7 +396,7 @@ python scripts/messaging/build_offer_messages_workbook.py     # one review workb
 ```
 
 On 23 September 2026, after the contact research below, the drafts were:
-- **Company master:** 1,608: the 1,314 offer-aligned organisation plans plus 294 plans for newly found contacts; 82 are AQ02, 1,174 AQ01 and 352 on hold.
+- **Company master:** 1,626: the 1,314 offer-aligned organisation plans plus 312 plans for newly found contacts; 82 are AQ02, 1,192 AQ01 and 352 on hold.
 - **Welfare:** 490, of which 63 are ready and 427 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
@@ -419,9 +419,9 @@ python scripts/contacts/build_contact_workbook.py --date <date>
 ```
 
 On 23 September 2026 the research used:
-- **Own websites:** 680 crawled, including the 99 websites the research found. 573 were readable, 99 were not, and robots.txt disallowed 8.
+- **Own websites:** 731 crawled, including the 150 websites the research found. 619 were readable, 104 were not, and robots.txt disallowed 8.
   - A robots.txt that cannot be read (server, network or certificate error) no longer stops the crawl: the site is crawled and its details are flagged.
-  - Of the 49 sites affected, 45 were down altogether. Tropical Trails and Kilpath African Safaris were read and flagged. Roy Safaris and Neema International now serve a readable robots.txt.
+  - Of the 52 sites affected, 48 were down altogether. Tropical Trails and Kilpath African Safaris were read and flagged. Roy Safaris and Neema International now serve a readable robots.txt.
 - **Search agents:** 482 records from 10 agents in three waves, using 309 searches.
 
 It left these results (review them in `outputs/contacts/Silverleaf Contact Profiles - 2026-09-23.xlsx`):
@@ -429,24 +429,27 @@ It left these results (review them in `outputs/contacts/Silverleaf Contact Profi
 | | Company master | Welfare | Government |
 |---|---|---|---|
 | Organisations with a published email or phone | 598 → 709 of 955 | 101 → 196 of 497 | 28 → 37 of 149 |
-| Organisations with a named decision-maker | 160 → 238 | 52 → 138 | 9 (unchanged) |
-| Contact leads | 353 → 641 | 131 → 433 | 459 (office posts) |
-| Contact leads reachable by their own or their organisation's route | 637 | 404 | 79 |
+| Organisations with a named decision-maker | 160 → 238 | 52 → 142 | 9 (unchanged) |
+| Contact leads | 353 → 659 | 131 → 470 | 459 (office posts) |
+| Contact leads reachable by their own or their organisation's route | 655 | 439 | 79 |
 
 The master's 598 also counted 21 organisations whose phone field holds a directory code ('AFF/FIN', 'TO/DMC/MAIN') rather than a number; the 709 counts only real numbers and addresses.
 
-- **Master:** three merges filled 476 empty fields, added 288 contacts and released 97 held drafts because a route was found. 87 review items are open:
+- **Master:** four merges filled 481 empty fields, added 306 contacts and released 97 held drafts because a route was found. 87 review items are open:
   - website conflicts and phone fields holding codes
   - lost, parked or hijacked domains
   - possible duplicates
   - five records whose details come from a site crawled although its robots.txt could not be read: three Tropical Trails duplicates and two Kilpath records. They are flagged, and their drafts are not held
   - possible closures, whose drafts are held: FBME Arusha, Fastjet's ticket office, Impala Hotel, Tin Tin Tours and Lemuta & Khaki Safaris
-- **Welfare:** 302 new named leads and 95 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
+- **Welfare:** 339 new named leads and 95 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
 - **Government:** every council in the run and the Arusha and Kilimanjaro Regional Secretariats now have their official email, office phone and P.O. Box, from their own letterheads and service charters. Only Manyara's secretariat lacks an email and phone; it has its P.O. Box.
 - **Filtered out:**
   - template names, headings and client testimonials
-  - former roles and staff outside outreach (chefs, guides, accountants)
+  - branch addresses, departments and page labels read as names ('Jomo Kenyatta Avenue', 'Human Resources', 'Select Page')
+  - roles held at another organisation: a trustee's own business, another board, a partner NGO
+  - former roles and staff outside outreach (chefs, guides, security, accountants)
   - people beyond six new leads per organisation
+- **Leads kept:** when a search agent and a website list the same person, the lead takes the agent's name and role. People an agent confirmed are always kept; the rest rank by their most senior role, with board officers above coordinators.
 - **Flags:** the Flags sheet lists 209 research warnings for a person to check, including the five robots.txt flags.
 
 Still without a route:
@@ -455,8 +458,8 @@ Still without a route:
 - ward and village offices
 - organisations every wave searched without finding a route (the Gaps sheet lists them with what was tried)
 
-Only 13 in-scope organisations were never searched (12 welfare funders and specialised centres, one employer). The planner (`plan_contact_research.py --wave 4`) puts them in the next wave.
+Only 13 in-scope organisations were never searched (12 welfare homes, programmes and funders, and one employer). The planner (`plan_contact_research.py --wave 4`) puts them in the next wave.
 
 ## Current verified master
 
-The current verified master contains 955 organisations, 641 contacts, 32 enquiries, 1,608 messages and outreach plans, 1,640 campaign assignments, 140 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.
+The current verified master contains 955 organisations, 659 contacts, 32 enquiries, 1,626 messages and outreach plans, 1,658 campaign assignments, 140 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.

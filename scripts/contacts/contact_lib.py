@@ -179,7 +179,15 @@ NOT_A_NAME = re.compile(r"\b(Our|The|About|Contact|Team|Staff|Welcome|Karibu|Rea
                         r"Holiday|Holidays|Expedition|Expeditions|Journey|Journeys|Rollercoaster|Core|Value|Master|Chef|Featured|On|Your|One|"
                         r"Booking|Bookings|Enquiries|Enquiry|Reservationist|Reservations|Timeless|International|Licensed|Operator|Certified|"
                         r"Years|Manufacturing|Emergency|Response|Admin|Professional|Appointment|Make|Online|Service|Services|Partner|"
-                        r"Partners|What|Who|How|Where|When|Which|Do|We)\b", re.I)
+                        r"Partners|What|Who|How|Where|When|Which|Do|We|"
+                        # page controls, departments, job titles and regions read as names ('Select Page', 'Key Contacts', 'Human
+                        # Resources', 'Retired Professor', 'Employee Benefits Consulting', 'Focus Membership', 'North America')
+                        r"Select|Location|Continue|Reading|Contacts|Focus|Membership|Retired|Professor|Employee|Employees|Benefits|"
+                        r"Consulting|Consultant|Consultants|Paediatrician|Pediatrician|Energy|Human|Resources|Retail|Banking|Internal|"
+                        r"Audit|Ministries|America|Americas|Europe|Asia|Pacific|"
+                        # branch addresses read as names ('Jomo Kenyatta Avenue', 'Opposite Mosha Filling Station', 'Kasama Town')
+                        r"Rd|Ave|Avenue|Highway|Bazaar|Market|Opposite|Grounds|Station|Area|Industrial|Filling|Town|Fort|Portal|Bay|"
+                        r"Leopards|Immeuble|Villa|Plaza|Mall|Building|Tower|Estate|Junction|Roundabout)\b", re.I)
 # Gambling or parked content injected into a hacked site, or a domain that has changed hands: nothing on such a page is used.
 SPAM = re.compile(r"\b(slot ?online|slot gacor|slot dana|gacor|togel|judi (online|slot|bola)|situs (slot|judi|togel)|casino online|poker online|"
                   r"sbobet|maxwin|link alternatif|stake ?88|naga ?\d{2,}|buy this domain|domain (is )?for sale|this domain (may be|is) for sale|"
@@ -222,11 +230,18 @@ PLACEHOLDER_NAMES = {"john doe", "jane doe", "leslie alexander", "floyd miles", 
                      "cameron williamson", "kathryn murphy", "albert flores", "arlene mccoy", "courtney henry", "devon lane", "ralph edwards",
                      "theresa webb", "bessie cooper", "dianne russell", "annette black", "marvin mckinney", "jerome bell", "eleanor pena",
                      "ronald richards", "darrell steward", "jane cooper", "your name", "full name", "team member"}
-# A role that says the person no longer holds it, or that is an office rather than a person's title.
-NOT_CURRENT = re.compile(r"^\s*(former|past|late|retired|emeritus|deceased|in (loving )?memory|ex-)|\bformer\b", re.I)
+# A role that says the person no longer holds it ('Immediate Past President', 'Chairman Emeritus'; a current role listed
+# beside an emeritus one still counts), or that is an office rather than a person's title.
+NOT_CURRENT = re.compile(r"^\s*(former|past|late|retired|emeritus|deceased|in (loving )?memory|ex-)|\bformer\b|\bpast (president|chair\w*|director)\b|"
+                         r"^[^,;/&]*\bemeritus\b[^,;/&]*$", re.I)
 NOT_A_ROLE = re.compile(r"^\s*(head office|head quarters|headquarters|office\b|branch\b|proud to|partner with|we |our |the |your\b|stop\b|"
-                        r"welcome|thank)|trusted|tanzania['’]s|first (female )?president|president of (the united republic|tanzania)|"
-                        r"^business owner$|years as|certified partner", re.I)
+                        r"welcome|thank|about\b|with\b)|trusted|tanzania['’]s|first (female )?president|president of (the united republic|tanzania)|"
+                        r"^business owner$|years as|certified partner|head office|patron saint|"
+                        # a link, heading or sentence rather than a title ('Read a letter from our Executive Director', 'Director's
+                        # Message...', 'wishes to acknowledge the following people', 'With a dedicated team led by Founder and CEO')
+                        r"\b(read|click|continue|letter|message|wishes|acknowledge\w*|following|led by|our|we|you|your)\b|"
+                        # a news headline ('Chairman Grundfos Opens Beta Redevelopment')
+                        r"\b(opens|opened|launches|launched|announces|announced|celebrates|celebrated|visits|visited)\b", re.I)
 # Staff whose roles have no bearing on partnership or employee-benefit decisions; their names are not collected.
 IRRELEVANT_ROLE = re.compile(r"\b(chef|cook|kitchen|waiter|waitress|driver|porter|security|guard|askari|cleaner|housekeep\w*|gardener|"
                              r"volunteer|intern|guide|mountain guide|safari guide|naturalist|teacher|tutor|nanny|caregiver|care giver|"
@@ -234,11 +249,21 @@ IRRELEVANT_ROLE = re.compile(r"\b(chef|cook|kitchen|waiter|waitress|driver|porte
 # Besides decision-makers, only roles that bear on the outreach are kept: people, administration, programmes, welfare, governance.
 RELEVANT_ROLE = re.compile(r"human resources?|\bhr\b|people|personnel|administrat|welfare|social work|programme|program|partnership|"
                            r"community|secretary|treasurer|trustee|board|matron|patron", re.I)
-# A head of something that is not a decision role ("Head Chef", "Head Mountain Guide").
-NOT_A_HEAD = re.compile(r"\bhead\s+(?:\w+\s+)?(chef|cook|guide|driver|porter|security|teacher)\b", re.I)
+# A head of something that is not a decision role ("Head Chef", "Head Mountain Guide", "Chief Security Officer", "Chief Accountant").
+NOT_A_HEAD = re.compile(r"\b(?:head|chief)\s+(?:\w+\s+)?(chef|cook|guide|driver|porter|security|guard|teacher|accountant)\b", re.I)
 # Words that mark another organisation in a role ("HR Manager, Mwanzo Corporate Offices, Dar es Salaam"): a client testimonial.
 ORG_WORDS = re.compile(r"\b(ltd|limited|centre|center|complex|offices|boutique|hotel|lodge|hospital|clinic|bank|company|group|corporation|"
                        r"agri\w*|processing|medical|school|university|college)\b", re.I)
+# An organisation's name inside a role: capitalised words ending in an organisation word ('Coffeyville Coffee Company', 'CHETI
+# NGO', 'KPP Energy', 'Cascades Academy'). Group 1 holds a word that always names an organisation; group 2 one that can also
+# name the organisation's own unit ('Leadership and Governance Academy', 'Food Bank', a partner school), so it counts only
+# after a membership such as 'Board member of'. Centres are never counted: sites name their own research or satellite centres.
+ORG_ENTITY = (r"ltd|limited|inc|llc|plc|co(?!-)|corp|corporation|compan(?:y|ies)(?!\s+secretar)|ngo|foundation|society|association|club|energy|"
+              r"church|ministries")
+ORG_UNIT = r"academy|school|college|university|institute|bank|hotel|lodge"
+ORG_NAME = re.compile(rf"(?:\b[A-Z][\w'’&.\-]*\s+(?:(?:of|and|&|the)\s+)*)+(?i:({ORG_ENTITY})|({ORG_UNIT}))\b\.?")
+MEMBERSHIP = re.compile(r"\b(board member|member of the board|trustee|member|co-?owner|owner|co-?founder|founder|partner|patron|chair\w*|president)"
+                        r"\s+(?:of|at|for)\s+$", re.I)
 EMAIL_IN_TEXT = re.compile(r"\S+@\S+\.\w+")
 DEGREE_PREFIX = re.compile(r"^(?:(?:MBA|PhD|Ph\.D\.?|MSc|M\.Sc\.?|MA|BA|BSc|B\.Sc\.?|CPA|ACCA|MD|RN)\b[,.\s]*)+", re.I)
 
@@ -378,7 +403,7 @@ def extract(url: str, html: bytes) -> dict:
 
 def is_name(text: str) -> bool:
     """A person's name: 2-4 capitalised words in any alphabet with Latin capitals (Ståle, Zoë, O'Brien, Jean-Pierre), with
-    optional initials after the first word; not a role title, heading or place."""
+    optional initials after the first word; not a role title, heading, place or acronym ('KPP Energy')."""
     text = " ".join(str(text or "").split()).strip(" ,-–—|:")
     if len(text) > 48 or NOT_A_NAME.search(text) or ROLE.search(text):
         return False
@@ -389,14 +414,18 @@ def is_name(text: str) -> bool:
         initial = i > 0 and re.fullmatch(r"[^\W\d_]\.", word) is not None
         if not word[0].isupper() or not (initial or re.fullmatch(r"[^\W\d_](?:[^\W\d_]|['’\-])+", word)):
             return False
+        if re.fullmatch(r"[B-DF-HJ-NP-TV-XZ]{2,}", word):
+            return False  # capitals without a vowel are an acronym, not a name
     return True
 
 
 def clean_role(name: str, role: str) -> str:
-    """The role as a title: without template arrows, unbalanced brackets, degree prefixes, place suffixes or the name itself."""
+    """The role as a title: without template arrows, unbalanced brackets, degree prefixes, place suffixes, a trailing clause
+    ('..., which runs AICC Hospital') or the name itself."""
     role = " ".join(EMAIL_IN_TEXT.sub("", str(role or "")).split())
     if name and name.lower() in role.lower():
         role = role[role.lower().rindex(name.lower()) + len(name):]
+    role = re.sub(r",?\s+(?:which|who)\s.*$", "", role, flags=re.I)
     role = re.sub(r"^(meet (our|the)|message from (the|our))\s+", "", role.strip(" ,-–—|:"), flags=re.I)
     role = role.split(" · ")[0]
     role = re.sub(r"\s*[>»›]+\s*$", "", role).strip(" ,-–—|:")
@@ -415,7 +444,7 @@ def clean_person(name: str, role: str, org_name: str = "", domain: str = ""):
     """
     name = " ".join(str(name or "").split()).strip(" ,-–—|:")
     role = clean_role(name, role)
-    if not is_name(name) or not role or not ROLE.search(role) or len(role.split()) > 12:
+    if not is_name(name) or not role or not ROLE.search(role) or len(role.split()) > 12 or is_phone(role):
         return None
     bare = re.sub(r"^" + HONORIFIC, "", name, flags=re.I).lower()
     if bare in PLACEHOLDER_NAMES or name.lower() in PLACEHOLDER_NAMES:
@@ -427,6 +456,8 @@ def clean_person(name: str, role: str, org_name: str = "", domain: str = ""):
         return None  # the organisation's own name read as a person
     if org_name and "," in role and another_organisation(role.split(",", 1)[1], org_name):
         return None  # someone at another organisation, usually a client testimonial
+    if org_name and names_other_organisation(role, org_name, domain):
+        return None  # a role held elsewhere, such as a trustee's own business ('Board member of Cascades Academy')
     decision = bool(DECISION.search(NOT_A_HEAD.sub("", role)))
     if not decision and (IRRELEVANT_ROLE.search(role) or not RELEVANT_ROLE.search(role)):
         return None
@@ -442,6 +473,30 @@ def another_organisation(text: str, org_name: str) -> bool:
     words = re.findall(r"[A-Za-z]+", text)
     acronym = "".join(w[0] for w in words if w[0].isupper()).lower()
     return not (own & {w.lower() for w in words} or any(len(t) >= 3 and t in acronym for t in own))
+
+
+def names_other_organisation(role: str, org_name: str, domain: str = "") -> bool:
+    """The role names only organisations other than org_name: a trustee's own business ('Coffeyville Coffee Company and Hersh's
+    Ice Cream Co-owner'), another board ('Board member of Cascades Academy') or a partner ('Founder & Director of CHETI NGO').
+    A name is the organisation's own when its website or its name carries every distinctive word of it, so a role that also
+    names the organisation itself ('CEO - BeyondExperience Ltd. (also CEO Great Exploration Camps Ltd.)') is kept."""
+    own_words = set(re.findall(r"[a-z]+", f"{org_name} {domain}".lower()))
+    own_squashed = " ".join(re.sub(r"[^a-z]", "", part) for part in [org_name.lower(), *domain.lower().split()])
+    found = []
+    for m in ORG_NAME.finditer(role):
+        phrase = re.split(r"\b(?:of|at|for)\s+", m.group(0))[-1]
+        lead_in = role[: m.end() - len(phrase)]
+        if m.group(2) and not MEMBERSHIP.search(lead_in):
+            continue  # an academy, school or bank of the organisation's own ('Head of Leadership and Governance Academy')
+        # Distinctive words: not role words, generic words or the closing organisation word ('College' in 'Coffeyville Community
+        # College Foundation' counts; 'Foundation' does not).
+        words = re.findall(r"[a-z]+", phrase.lower())
+        words = words[:-1] if words and re.fullmatch(f"{ORG_ENTITY}|{ORG_UNIT}", words[-1]) else words
+        distinctive = [w for w in words if len(w) >= 3 and w not in GENERIC_NAME_WORDS | {"the", "and"} and not ROLE.fullmatch(w)
+                       and not IRRELEVANT_ROLE.fullmatch(w)]
+        if distinctive:
+            found.append(set(distinctive) <= own_words or "".join(distinctive) in own_squashed)
+    return bool(found) and not any(found)
 
 
 GENERIC_NAME_WORDS = {"limited", "company", "tanzania", "africa", "african", "safari", "safaris", "tours", "travel", "travels", "adventure",
@@ -547,7 +602,13 @@ def people_from(lines: list[str]) -> list[dict]:
             if split_pair(nxt) or is_name(nxt):
                 break  # the next person starts here
             if len(nxt) <= 80 and ROLE.search(nxt):
-                add(line, nxt, f"{line} / {nxt}")
+                middle = lines[i + 1] if j == 2 else ""
+                if middle and ORG_NAME.search(middle):
+                    # A role under an organisation's name is held there ('Dickie Rolls / Coffeyville Community College Foundation /
+                    # Executive Director'): it keeps that name, so the profile builder can tell whether it is this organisation's.
+                    add(line, f"{nxt}, {middle}", f"{line} / {middle} / {nxt}")
+                else:
+                    add(line, nxt, f"{line} / {nxt}")
                 break
     return found[:40]
 

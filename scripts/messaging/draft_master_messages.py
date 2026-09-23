@@ -210,15 +210,14 @@ def main() -> int:
             copy = rivertrees_copy(org)
         else:
             copy = employer_copy(plan, org, track)
-        notes = [L.CONFIRM_2027]
-        if "OF07" in copy["offer_ids"]:
-            notes.append("The member-association rate is documented for KINEFA only; Finance must agree to extend it before sending.")
-        if plan["organisation_id"] in welfare_links:
-            notes.append(f"Also a welfare lead ({welfare_links[plan['organisation_id']]}); contact the organisation once.")
-        if copy["sw"]:
-            notes.append(L.NATIVE_REVIEW)
-        updates.append((plan, copy, notes))
-        backups.append((plan["message_id"], json.dumps({"outreach_plan": plan, "message": messages.get(plan["message_id"])}, ensure_ascii=False, default=str)))
+        updates.append((plan, copy, plan_notes(copy, plan["organisation_id"], welfare_links)))
+        # The pre-offer copy is kept once; later, only a copy that actually changes is kept, so a re-run adds nothing.
+        stored = tuple(plan.get(k) or "" for k in ("subject", "body", "follow_up_1", "follow_up_2"))
+        label = BACKUP_VERSION if not plan.get("offer_version") else (
+            f"{date.today().isoformat()}-before-redraft" if stored != tuple(copy[k] or "" for k in ("subject", "body", "follow_up_1", "follow_up_2")) else "")
+        if label:
+            backups.append((label, plan["message_id"], json.dumps({"outreach_plan": plan, "message": messages.get(plan["message_id"])},
+                                                                  ensure_ascii=False, default=str)))
         outcomes["rewritten"] += 1
 
     planned_orgs = {p["organisation_id"] for p in plans}
@@ -328,7 +327,7 @@ def main() -> int:
             if column not in columns:
                 con.execute(f'ALTER TABLE outreach_plans ADD COLUMN "{column}" TEXT')
         con.executemany("INSERT OR IGNORE INTO message_versions (version, message_id, original_json) VALUES (?,?,?)",  # keep the first backup
-                        [(BACKUP_VERSION, mid, blob) for mid, blob in backups])
+                        backups)
         evidence = "PE025; PE026; PE027; PE028"
         for plan, copy, notes in updates:
             vm = plan["value_module_ids"] if "VM19" in str(plan["value_module_ids"]) else f"{plan['value_module_ids']}; VM19"
@@ -337,17 +336,22 @@ def main() -> int:
                            missing_information=?, campaign_copy_status=?, offer_version=?, offer_ids=?, offer_evidence=?, offer_message_sw=?,
                            strategy_version=? WHERE message_id=?""",
                         (copy["subject"], copy["body"], copy["follow_up_1"], copy["follow_up_2"], offer_summary(copy["offer_ids"]), vm, missing,
-                         "Draft; offer-aligned v4 (offer register); no recipient hook unless verified; not sent", L.OFFER_VERSION,
+                         COPY_STATUS, L.OFFER_VERSION,
                          "; ".join(copy["offer_ids"]), evidence, copy["sw"], "offer-v4", plan["message_id"]))
             con.execute("UPDATE messages SET subject=?, body=?, strategy_id=?, status=?, conditions=? WHERE message_id=?",
-                        (copy["subject"], copy["body"], STRATEGY_ID, "Draft - not sent; offer-aligned v4 review",
-                         f"{L.CONFIRM_2027} Offer terms: {'; '.join(copy['offer_ids'])} (data/reference/silverleaf-offer-register.json). "
-                         "Confirm the sender, route, campus fit and organisation relevance before use. No guaranteed places, transport or outcomes. "
-                         "One active recipient per organisation.", plan["message_id"]))
+                        (copy["subject"], copy["body"], STRATEGY_ID, "Draft - not sent; offer-aligned v4 review", conditions_for(copy),
+                         plan["message_id"]))
+        # Contact research may have found signs that an organisation has closed; its new drafts start held, as the merge
+        # holds its existing ones.
+        closing = {oid for (oid,) in con.execute("SELECT entity_id FROM review WHERE kind='Possible closure'")}
         for plan, org, track, route, copy, missing in new_rows:
             record = org_record.get(plan["organisation_id"])
-            status = "Needs research" if track == "AQ00" else "Draft review"
-            conditions = f"{L.CONFIRM_2027} {' '.join(missing)}".strip()
+            closed = plan["organisation_id"] in closing
+            held = track == "AQ00" or closed
+            status = "Needs research" if held else "Draft review"
+            # Written exactly as a later rewrite would write it, so re-running the script changes nothing.
+            conditions = conditions_for(copy)
+            missing = [merge_notes("; ".join([CLOSURE_NOTE, *missing] if closed else missing), plan_notes(copy, plan["organisation_id"], welfare_links))]
             is_contact = plan["target_type"] == "contact"
             con.execute("INSERT INTO messages (message_id, target_type, target_id, subject, body, strategy_id, status, conditions, source_record_id) "
                         "VALUES (?,?,?,?,?,?,?,?,?)",
@@ -367,8 +371,8 @@ def main() -> int:
                          (f"Named {plan.get('recipient_role') or 'contact'} at {org['name']}, as the organisation publishes it; staff school-fee benefit and family offer."
                           if is_contact else f"Employer in the lead list ({org.get('segment') or 'unclassified'}); staff school-fee benefit and family offer."),
                          offer_summary(copy["offer_ids"]), plan["cta_type"], "F03" if plan["segment"] == "SACCOS members" else "F01", status,
-                         "; ".join([*missing, L.CONFIRM_2027]), plan.get("selection", "Candidate for review"), copy["subject"], copy["body"],
-                         copy["follow_up_1"], copy["follow_up_2"], "No hook: offer-led opening", "Draft; offer-aligned v4 (offer register); not sent",
+                         missing[0], plan.get("selection", "Candidate for review"), copy["subject"], copy["body"],
+                         copy["follow_up_1"], copy["follow_up_2"], "No hook: offer-led opening", COPY_STATUS,
                          "2026-09-09-new-contact-acquisition-v4", track, modules,
                          "New-contact acquisition. Approved Silverleaf positioning may be reused where relevant; the acquisition track controls cadence.",
                          L.OFFER_VERSION, "; ".join(copy["offer_ids"]), evidence, copy.get("sw", "")))
@@ -376,9 +380,10 @@ def main() -> int:
                         "eligibility_status, reason, next_action, acquisition_track_id, value_module_ids, strategy_scope) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                         (sid("A", "offer-v4", plan["message_id"]), "C02" if plan["segment"] == "SACCOS members" else "C01", plan["target_type"],
                          plan["target_id"], plan["message_id"], plan.get("selection", "Candidate for review"),
-                         "Needs research" if track == "AQ00" else ("Alternative - inactive" if is_contact else "Candidate after checks"),
+                         "Needs research" if held else ("Alternative - inactive" if is_contact else "Candidate after checks"),
                          "Offer-aligned v4 draft for a named contact without a plan" if is_contact else "Offer-aligned v4 draft for an organisation without a plan",
-                         "Resolve route and owner" if track == "AQ00" else ("Human review; choose one recipient per organisation" if is_contact
+                         "Resolve route and owner" if track == "AQ00" else ("Confirm the organisation still operates" if closed else
+                                                                            "Human review; choose one recipient per organisation" if is_contact
                                                                              else "Human review, then the AQ01 routing request"),
                          track, modules, "New-contact acquisition; track-selected and independent of the internal marketing calendar."))
         # message_versions only accepts message IDs, so parent-reply history gets its own table.
@@ -443,6 +448,30 @@ def main() -> int:
                                                                                                              encoding="utf-8")
     print(json.dumps(report, indent=1))
     return 0
+
+
+COPY_STATUS = "Draft; offer-aligned v4 (offer register); no recipient hook unless verified; not sent"
+# The hold note scripts/contacts/merge_master_contacts.py writes for an organisation that may have closed.
+CLOSURE_NOTE = "Possible closure found by contact research; confirm the organisation still operates before any message."
+
+
+def conditions_for(copy: dict) -> str:
+    """The message's release conditions; the same whether the plan is new or rewritten."""
+    return (f"{L.CONFIRM_2027} Offer terms: {'; '.join(copy['offer_ids'])} (data/reference/silverleaf-offer-register.json). Confirm the "
+            "sender, route, campus fit and organisation relevance before use. No guaranteed places, transport or outcomes. One active "
+            "recipient per organisation.")
+
+
+def plan_notes(copy: dict, organisation_id: str, welfare_links: dict) -> list[str]:
+    """The notes every offer-aligned plan carries, whether new or rewritten."""
+    notes = [L.CONFIRM_2027]
+    if "OF07" in copy["offer_ids"]:
+        notes.append("The member-association rate is documented for KINEFA only; Finance must agree to extend it before sending.")
+    if organisation_id in welfare_links:
+        notes.append(f"Also a welfare lead ({welfare_links[organisation_id]}); contact the organisation once.")
+    if copy.get("sw"):
+        notes.append(L.NATIVE_REVIEW)
+    return notes
 
 
 RECIPE_CONFIGURATION = "automation-2026-09-23-offer-v4"

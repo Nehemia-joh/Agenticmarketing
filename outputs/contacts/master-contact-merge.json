@@ -1,15 +1,60 @@
 {
- "run_date": "2026-09-23",
- "applied_on": "2026-09-23",
- "trial": false,
- "organisations_updated": 162,
- "fields_filled": 377,
- "facts": 3773,
- "contacts_inserted": 161,
- "reviews": 53,
- "plans_unheld": 87,
- "plans_held_for_closure": 3,
- "contacts_on_twin_records_skipped": 31,
- "source_files": 9,
- "contacts_after": 514
+ "applications": [
+  {
+   "run_date": "2026-09-23",
+   "applied_on": "2026-09-23",
+   "trial": false,
+   "organisations_updated": 162,
+   "fields_filled": 377,
+   "facts": 3773,
+   "contacts_inserted": 161,
+   "reviews": 53,
+   "plans_unheld": 87,
+   "plans_held_for_closure": 3,
+   "contacts_on_twin_records_skipped": 31,
+   "source_files": 9,
+   "contacts_after": 514
+  },
+  {
+   "run_date": "2026-09-23",
+   "applied_on": "2026-09-23",
+   "trial": false,
+   "organisations_updated": 45,
+   "fields_filled": 99,
+   "facts": 4566,
+   "contacts_inserted": 85,
+   "reviews": 90,
+   "plans_unheld": 10,
+   "plans_held_for_closure": 6,
+   "plans_held_for_unconfirmed_route": 1,
+   "contacts_on_twin_records_skipped": 58,
+   "source_files": 12,
+   "contacts_after": 599
+  },
+  {
+   "run_date": "2026-09-23",
+   "applied_on": "2026-09-23",
+   "trial": false,
+   "organisations_updated": 0,
+   "fields_filled": 0,
+   "facts": 4574,
+   "contacts_inserted": 42,
+   "reviews": 89,
+   "plans_unheld": 0,
+   "plans_held_for_closure": 7,
+   "plans_held_for_unconfirmed_route": 0,
+   "plans_released_route_confirmed": 1,
+   "research_emails_cleaned": 2,
+   "contacts_on_twin_records_skipped": 58,
+   "source_files": 12,
+   "contacts_after": 641
+  }
+ ],
+ "totals": {
+  "contacts_inserted": 288,
+  "fields_filled": 476,
+  "plans_unheld": 97,
+  "organisations_updated": 207
+ },
+ "contacts_after": 641
 }

@@ -25,7 +25,7 @@ DEFAULT_OUTPUT = ROOT / "runtime" / "artifacts" / "workbook-input.json"
 sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
 import contact_lib as C  # noqa: E402  (decision-maker and personal-email rules shared with the contact research)
 
-RESEARCH_REVIEW = re.compile(r"^(Contact research|Possible closure|Website field holds no website)")
+RESEARCH_REVIEW = re.compile(r"^(Contact research|Possible closure|Website field holds no website|Phone field holds no phone number)")
 
 
 def rows(connection: sqlite3.Connection, query: str) -> list[dict]:
@@ -84,7 +84,9 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
 
     for o in organisations:
         team = people.get(o["organisation_id"], [])
-        direct = bool(o["email"] or o["phone"] or any(c["best_route_type"] in ("own email", "role email", "own phone") for c in team))
+        # Only a real address or number counts: directory imports left category codes in some phone fields.
+        direct = bool("@" in (o["email"] or "") or C.is_phone(o["phone"]) or any(c["best_route_type"] in ("own email", "role email", "own phone")
+                                                                             for c in team))
         o["route_status"] = "direct route" if direct else ("indirect only" if (o["website"] or o["address"]) else "no route")
         o["social_pages"] = "; ".join(f"{k}: {v}" for k, v in socials.get(o["organisation_id"], {}).items())
         o["named_contacts"] = sum(1 for c in team if c["name"])
@@ -169,6 +171,9 @@ def main() -> int:
         "offer_messages": read_json(ROOT / "outputs" / "messages" / "master-offer-messages-reconciliation.json"),
         "contact_merge": read_json(ROOT / "outputs" / "contacts" / "master-contact-merge.json"),
         "acquisition_refresh_runs": rows(connection, "SELECT * FROM acquisition_refresh_runs ORDER BY ran_on, run_id"),
+        "contact_research_reviews": sum(1 for (kind,) in connection.execute("SELECT kind FROM review") if RESEARCH_REVIEW.match(kind or "")),
+        "plans_held_for_closure": connection.execute(
+            "SELECT COUNT(*) FROM outreach_plans WHERE missing_information LIKE 'Possible closure found by contact research%'").fetchone()[0],
         "integrity_check": connection.execute("PRAGMA integrity_check").fetchone()[0],
         "foreign_key_violations": len(connection.execute("PRAGMA foreign_key_check").fetchall()),
     }

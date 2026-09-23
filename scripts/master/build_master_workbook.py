@@ -306,10 +306,13 @@ def main() -> int:
                       f"{offer.get('run_on', '')}: every draft states only offer-register terms ({offer.get('conformance_issues', 0)} conformance "
                       "issues). Finance must confirm the 2027 terms before sending. Earlier versions remain in message_versions."])
     if merge:
-        audit.append(["Contact research merge", f"{merge.get('contacts_inserted', 0)} contacts; {merge.get('fields_filled', 0)} fields filled",
-                      "Complete", f"{merge.get('run_date', '')}: through the update skill's validator, preflight and one transaction. Only empty "
-                      f"fields were filled; {merge.get('reviews', 0)} review items raised; {merge.get('plans_unheld', 0)} held drafts released "
-                      f"because a route was found; {merge.get('plans_held_for_closure', 0)} drafts held for a possible closure."])
+        applications = merge.get("applications") or [merge]
+        total = lambda key: sum(a.get(key, 0) for a in applications)  # noqa: E731
+        audit.append(["Contact research merge", f"{total('contacts_inserted')} contacts; {total('fields_filled')} fields filled", "Complete",
+                      f"{len(applications)} application(s) through the update skill's validator, preflight and one transaction; only empty "
+                      f"fields were filled. {report.get('contact_research_reviews', 0)} contact-research review items are in Review; "
+                      f"{total('plans_unheld')} held drafts were released because a route was found; {report.get('plans_held_for_closure', 0)} "
+                      "drafts are held for a possible closure."])
     audit += [
         ["Acquisition track assignment", f"{counts['acquisition_hold']} hold / {counts['acquisition_routing']} routing / "
          f"{counts['acquisition_direct']} direct", "Complete", "Every current outreach-plan row is assigned; the refresh is rerunnable."],

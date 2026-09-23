@@ -19,7 +19,6 @@ import sqlite3
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
-from urllib.parse import urljoin, urlsplit
 
 import contact_lib as C
 
@@ -53,20 +52,34 @@ def page_ok(result: dict) -> bool:
 
 def crawl(rec: dict) -> dict:
     start = rec["start_url"]
-    parts = urlsplit(start)
     out = {**rec, "fetched_on": date.today().isoformat(), "robots": "allowed", "pages": [], "emails": {}, "phones": {}, "socials": {},
            "postal": [], "people": [], "errors": []}
-    robots = C.robots_for(f"{parts.scheme}://{parts.netloc}/")
+    # robots.txt applies per scheme and host: a file unreachable on one scheme may be readable on the other, and after a
+    # redirect the rules of the host actually served apply. Explicit Disallow rules are honoured. A robots.txt that cannot
+    # be read (server, network or certificate error) does not stop the crawl; the site is crawled and flagged.
+    alternative = start.replace("http://", "https://", 1) if start.startswith("http://") else start.replace("https://", "http://", 1)
+    robots, state = C.robots_state(C.site_base(start))
+    if state == "unreachable":
+        other, other_state = C.robots_state(C.site_base(alternative))
+        if other_state != "unreachable":
+            start, alternative, robots, state = alternative, start, other, other_state
     if not C.allowed(robots, start):
         out["robots"] = "disallowed"
         return out
     home = C.fetch(start, retries=1)
     if not page_ok(home):
-        alternative = start.replace("http://", "https://", 1) if start.startswith("http://") else start.replace("https://", "http://", 1)
-        if C.allowed(robots, alternative):
+        other, other_state = C.robots_state(C.site_base(alternative))
+        if C.allowed(other, alternative):
             second = C.fetch(alternative, retries=1)
             if page_ok(second):
-                home = second
+                home, robots, state = second, other, other_state
+    if page_ok(home) and C.site_base(home["final_url"]) != C.site_base(home["url"]):
+        robots, state = C.robots_state(C.site_base(home["final_url"]))
+        if not C.allowed(robots, home["final_url"]):
+            out["robots"] = "disallowed"
+            return out
+    if state == "unreachable":
+        out["robots"] = "unreachable"  # crawled anyway; profiles and review items carry the flag
     queue = [(home, "home")]
     visited = {home["final_url"]}
     if page_ok(home):

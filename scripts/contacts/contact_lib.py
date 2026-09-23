@@ -1,6 +1,6 @@
 """Shared helpers for organisation contact research (scripts/contacts/).
 
-A polite fetcher for organisations' own websites (robots.txt honoured, one request at a time per site, cached under
+A polite fetcher for organisations' own websites (robots.txt Disallow rules honoured, one request at a time per site, cached under
 runtime/contacts/http-cache/, never committed) and extractors for what a site publishes for contact purposes:
 emails, phone numbers, official social pages, postal addresses and named people with their roles.
 
@@ -14,10 +14,12 @@ Privacy rules (AGENTS.md, skills/silverleaf-welfare-leads/references/welfare-dat
 from __future__ import annotations
 
 import hashlib
+import http.client
 import json
 import re
 import socket
 import sys
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -66,7 +68,12 @@ def fetch(url: str, retries: int = 2) -> dict:
     body_path, meta_path = _cache_paths(url)
     if meta_path.exists():
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
-        meta["body"] = body_path.read_bytes() if body_path.exists() else b""
+        try:
+            meta["body"] = body_path.read_bytes() if body_path.exists() else b""
+        except OSError as exc:
+            # The local system refuses to open the saved page (usually antivirus blocking a compromised site's content).
+            # It is treated as unreadable and never used.
+            return {**meta, "status": None, "error": f"saved copy unreadable ({type(exc).__name__}); not used", "body": b""}
         return meta
     CACHE.mkdir(parents=True, exist_ok=True)
     host = urlsplit(url).netloc.lower()
@@ -87,24 +94,51 @@ def fetch(url: str, retries: int = 2) -> dict:
                 break
             retry_after = exc.headers.get("Retry-After", "")
             time.sleep(float(retry_after) if retry_after.isdigit() else 4 * (2 ** attempt))
-        except (urllib.error.URLError, TimeoutError, ConnectionError, socket.timeout, ValueError, OSError) as exc:
+        except (urllib.error.URLError, TimeoutError, ConnectionError, socket.timeout, ValueError, OSError, http.client.HTTPException) as exc:
             meta.update(error=f"{type(exc).__name__}: {str(exc)[:120]}")
             if attempt == retries:
                 break
             time.sleep(3 * (2 ** attempt))
-    body_path.write_bytes(body)
-    meta_path.write_text(json.dumps(meta), encoding="utf-8")
+    # HTTP answers (including 4xx and 5xx) are cached; a network failure (DNS, timeout, reset, certificate) is not, so a
+    # later run retries it instead of treating a passing fault as permanent. Writes are atomic, since workers crawling
+    # different sites can reach the same host (a redirect target) at once.
+    if meta["status"] is not None:
+        for path, data in ((body_path, body), (meta_path, json.dumps(meta).encode("utf-8"))):
+            temp = path.with_name(f"{path.name}.{threading.get_ident()}.tmp")
+            temp.write_bytes(data)
+            temp.replace(path)
     meta["body"] = body
     return meta
 
 
-def robots_for(base: str) -> RobotFileParser | None:
+def robots_state(base: str) -> tuple[RobotFileParser | None, str]:
+    """(rules, state) for one scheme and host. State 'rules': a robots.txt was read and its Disallow rules apply; 'none':
+    it answered 4xx, so there are no rules; 'unreachable': a server error (5xx) or a network or certificate failure.
+    By the user's decision (23 September 2026) an unreachable robots.txt does not stop the crawl: the site is crawled
+    and its findings are flagged ('robots.txt unreachable') for a person to check. Explicit Disallow rules always apply."""
     parser = RobotFileParser()
     result = fetch(urljoin(base, "/robots.txt"), retries=1)
-    if result["status"] == 200 and result["body"]:
+    status = result["status"]
+    if status == 200:
         parser.parse(result["body"].decode("utf-8", "replace").splitlines())
-        return parser
-    return None  # no robots.txt (or unreachable): allowed
+        return parser, "rules"
+    if status is not None and 400 <= status < 500:
+        return None, "none"
+    return None, "unreachable"
+
+
+def robots_for(base: str) -> RobotFileParser | None:
+    return robots_state(base)[0]
+
+
+def is_phone(value) -> bool:
+    """A value with a phone number in it (at least seven digits), not a directory category code such as 'TO/DMC/MAIN'."""
+    return len(re.sub(r"\D", "", str(value or ""))) >= 7
+
+
+def site_base(url: str) -> str:
+    parts = urlsplit(url)
+    return f"{parts.scheme}://{parts.netloc}/"
 
 
 def allowed(parser: RobotFileParser | None, url: str) -> bool:
@@ -152,24 +186,34 @@ SPAM = re.compile(r"\b(slot ?online|slot gacor|slot dana|gacor|togel|judi (onlin
                   r"hugedomains|parked (free|domain))\b", re.I)
 # A research note saying the organisation has closed (merges hold its drafts and raise a review).
 CLOSURE = re.compile(r"defunct|licen[cs]e (was )?revoked|liquidat|closed (down|in \d{4})|no longer (operat|exist|trad)|may no longer operate|"
-                     r"ceased (operat|trading)|shut down", re.I)
+                     r"ceased (operat|trading)|shut down|possible closure|\b(looks|appears|seems) (inactive|dormant)\b|possibly inactive|"
+                     r"may have lapsed", re.I)
 # Warnings research agents leave in their notes, for a person to check (review items; only a closure also holds drafts).
 NOTE_FLAGS = [("possible closure", CLOSURE),
               ("hijacked or parked site", re.compile(r"hijack|gambling|escort|parked|domain (is )?for sale|taken over|(serves|shows) (an )?unrelated|"
-                                                     r"changed hands|blank wordpress", re.I)),
+                                                     r"changed hands|blank wordpress|for-sale", re.I)),
               ("location to check", re.compile(r"false lead|outside the [\w\- ]{0,30}(area|catchment|region)|out of (the )?area|far outside|"
                                                r"\b\d{3} ?km\b|geocod\w*|wrong (distance|location|pin)", re.I)),
               ("website gone", re.compile(r"failed dns|dns (lookup )?fail|does(n't| not) resolve|no longer resolv\w*|no longer exists|"
                                           r"domain (has )?expired|enotfound", re.I)),
-              ("fit to check", re.compile(r"not (specifically )?(for )?child(ren)?\b|doubtful fit|not child-focused|vocational training, not", re.I)),
-              ("possible duplicate", re.compile(r"duplicate|probably (the same|now)|same organi[sz]ation as|older name|former name|renamed|"
-                                                r"now (called|named|known as)|appears twice|is really", re.I)),
+              ("fit to check", re.compile(r"not (specifically )?(for )?child(ren)?\b|doubtful fit|not child-focused|vocational training, not|"
+                                          r"peer school|competitor", re.I)),
+              ("possible duplicate", re.compile(r"duplicate|probably (the same|now)|same (organi[sz]ation|bank|company|charity|school) as|"
+                                                r"older name|former name|renamed|now (called|named|known as)|appears twice|is really|twin", re.I)),
               ("check before outreach", re.compile(r"allegation|abuse|manual review|check (it )?before", re.I))]
+# A match that is not about the organisation: a researcher's own wrong guess at a domain that does not resolve.
+NOT_A_FLAG = {"website gone": re.compile(r"guess\w*\s+\S+\s+(does(n't| not) resolve|no longer resolv)", re.I)}
 
 
 def note_flags(notes) -> list[tuple[str, str]]:
     """(flag, note) for each warning in a research note or list of notes."""
-    return [(kind, str(n)) for n in ([notes] if isinstance(notes, str) else notes or []) for kind, pattern in NOTE_FLAGS if pattern.search(str(n))]
+    found = []
+    for n in ([notes] if isinstance(notes, str) else notes or []):
+        text = str(n)
+        for kind, pattern in NOTE_FLAGS:
+            if pattern.search(text) and not (kind in NOT_A_FLAG and NOT_A_FLAG[kind].search(text) and len(pattern.findall(text)) == 1):
+                found.append((kind, text))
+    return found
 
 
 # Stock names from website and design templates, not real staff.
@@ -223,9 +267,41 @@ def decode_cfemail(hexstr: str) -> str:
         return ""
 
 
+# Page junk around an address: URL-encoded spaces from mailto links, zero-width characters, stray spaces.
+EMAIL_JUNK = re.compile(r"%[0-9a-f]{2}|[\s​-‍⁠﻿]", re.I)
+# Theme and site-builder placeholders found on the crawled sites: never an organisation's address or number.
+TEMPLATE_EMAIL = re.compile(r"@(mysite|travel|office|careox)\.com$", re.I)
+TEMPLATE_PHONES = {"1234567890", "255123456789", "255712345678", "6668880000"}
+# Endings an address can have. A longer ending that starts with a short one is a word glued on from the page text
+# ('info@x.comarusha', 'hello@y.co.tznature'), and is cut back.
+KNOWN_TLDS = {"com", "org", "net", "edu", "gov", "int", "info", "biz", "co", "ac", "or", "go", "ne", "tz", "ke", "ug", "rw", "bi", "cd", "uk",
+              "us", "ca", "au", "nz", "za", "de", "nl", "be", "ch", "at", "fr", "es", "it", "pt", "ie", "dk", "se", "no", "fi", "is", "pl", "cz",
+              "sk", "hu", "ro", "ru", "cn", "jp", "kr", "in", "ae", "br", "mx", "io", "eu", "africa", "travel", "tours", "safari", "community",
+              "company", "foundation", "charity", "church", "global", "online", "network", "school", "academy", "education", "center", "world",
+              "agency", "consulting", "group", "solutions", "services", "support", "email", "digital", "media", "studio", "computer",
+              "organic", "network", "dental", "degree", "delivery", "design", "deals", "chat", "cheap", "christmas", "channel"}
+GLUE_TLDS = ("com", "org", "net", "tz", "ke", "ug", "uk", "de", "nl", "ch")
+ROLE_MAILBOX = r"(?:info|sales|contact|enquiries|inquiries|bookings|booking|reservations|admin|office)"
+
+
 def clean_email(value: str) -> str:
-    value = W.norm_email(value.split("?")[0])
-    return "" if not value or BAD_EMAIL.search(value) else value
+    value = W.norm_email(EMAIL_JUNK.sub("", value.split("?")[0]))
+    if not value:
+        return ""
+    local, _, domain = value.rpartition("@")
+    last = domain.rsplit(".", 1)[-1]
+    if last not in KNOWN_TLDS:
+        glued = next((t for t in GLUE_TLDS if last.startswith(t) and len(last) - len(t) >= 3), "")
+        if glued:
+            domain = domain[: len(domain) - len(last) + len(glued)]
+    local = re.sub(r"^\d+(?=" + ROLE_MAILBOX + r"$)", "", local)  # a PO Box number glued onto a role mailbox ('198info@')
+    value = f"{local}@{domain}"
+    return "" if BAD_EMAIL.search(value) or TEMPLATE_EMAIL.search(value) else value
+
+
+def template_phone(phone: str) -> bool:
+    digits = re.sub(r"\D", "", phone)
+    return digits in TEMPLATE_PHONES or "123456789" in digits
 
 
 def page_kind(url: str, title: str = "") -> str:
@@ -294,6 +370,7 @@ def extract(url: str, html: bytes) -> dict:
         digits = re.sub(r"\D", "", m.group(1))
         if (len(digits) == 12 if digits.startswith("255") else 10 <= len(digits) <= 13):
             out["phones"].setdefault("+" + digits, "labelled number")
+    out["phones"] = {phone: context for phone, context in out["phones"].items() if not template_phone(phone)}
     out["postal"] = sorted({" ".join(m.group(0).split())[:80] for m in POSTAL.finditer(joined)})[:4]
     out["people"] = people_from(lines)
     return out
@@ -370,6 +447,30 @@ def another_organisation(text: str, org_name: str) -> bool:
 GENERIC_NAME_WORDS = {"limited", "company", "tanzania", "africa", "african", "safari", "safaris", "tours", "travel", "travels", "adventure",
                       "adventures", "children", "childrens", "foundation", "centre", "center", "international", "organization", "organisation",
                       "group", "trust", "home", "community"}
+class Resolver:
+    """The current organisation for a research record whose ID may be stale.
+
+    A run database gives an organisation a new ID when it gains a website (the shared contract keys organisations by
+    domain), so records written earlier can carry an old ID. Resolve by ID, then exact name, then name key, and only
+    when the match is unique."""
+
+    def __init__(self, organisations):
+        self.ids, self.by_exact, self.by_key = set(), {}, {}
+        for db, oid, name in organisations:
+            self.ids.add((db, oid))
+            self.by_exact.setdefault((db, W.norm_text(name).lower()), []).append((db, oid))
+            self.by_key.setdefault((db, W.name_key(name)), []).append((db, oid))
+
+    def __call__(self, db, oid, name):
+        if (db, oid) in self.ids:
+            return (db, oid)
+        for index, probe in ((self.by_exact, W.norm_text(name).lower()), (self.by_key, W.name_key(name))):
+            hits = index.get((db, probe), [])
+            if len(hits) == 1:
+                return hits[0]
+        return None
+
+
 def named_after(org_name: str, domain: str) -> bool:
     """The website's domain carries a distinctive word of the organisation's name."""
     return name_domain_score(org_name, domain) > 0
@@ -457,8 +558,8 @@ def rank_links(base: str, links) -> list[str]:
     scored = {}
     for url, text in links:
         parts = urlsplit(url)
-        if parts.scheme not in ("http", "https") or registrable(parts.netloc) != site:
-            continue
+        if parts.scheme not in ("http", "https") or registrable(parts.netloc) != site or any(ch.isspace() for ch in url):
+            continue  # other sites, and malformed links with spaces in them
         if re.search(r"\.(pdf|jpe?g|png|gif|zip|docx?|xlsx?|mp4)$", parts.path, re.I) or "#" in url and url.split("#")[0] == base:
             continue
         probe = f"{parts.path} {text}".lower()

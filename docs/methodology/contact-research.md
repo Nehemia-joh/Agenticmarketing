@@ -42,7 +42,11 @@ Government offices are addressed by office title. Officials are named only from 
 ## Rules the scripts enforce
 
 - **Only what a source publishes for contact purposes.** No private contact details are inferred. A person's name is never searched across other sites.
-- **robots.txt is honoured.** A block (403, login wall, captcha, TLS failure) is recorded and never worked around.
+- **robots.txt Disallow rules are honoured.** Rules apply per scheme and host, so a redirect to another host is judged by that host's rules. A 4xx robots.txt means no rules.
+- **An unreadable robots.txt is crawled and flagged.** This applies to a server error (5xx) or a network or certificate failure. RFC 9309 would treat such a host as fully disallowed; by decision (23 September 2026) the site is crawled anyway and its details are used. Everything taken from it is flagged "robots.txt unreachable" in three places: the contact-profiles workbook's Flags sheet, a master review item, and the welfare run's notes.
+- **Blocks are never worked around.** A block (403, 429, login wall, captcha, TLS failure) is recorded.
+- **Page junk and placeholders are removed.** Addresses are cleaned of URL-encoded spaces, zero-width characters and words glued onto the domain (`info@x.comarusha`). Theme and site-builder placeholders (`info@mysite.com`, `+255 712 345 678`) are dropped.
+- **Shared values are dropped.** A number or address found on three or more different websites belongs to a shared platform, such as a booking portal or a web designer, and is not used.
 - **Hijacked pages are skipped.** A page with gambling or parked-domain content is not used, even on the organisation's own site, and the site appears on the Flags sheet.
 - **Person filter** (`contact_lib.clean_person`). Names may be in any Latin alphabet (Ståle, Zoë). Only decision-makers and roles that bear on the outreach are kept: people, administration, programmes, welfare and governance. It drops:
   - template names (for example "John Doe" and the Tailwind stock names)
@@ -72,7 +76,7 @@ Government offices are addressed by office title. Officials are named only from 
   - A company master organisation takes a personal-domain inbox only when the inbox is named after the organisation.
   - Welfare drafts to personal-domain inboxes stay held.
 - **Research warnings become review items:** possible closure, hijacked or parked site, website gone, location to check, possible duplicate, fit to check, and check before outreach.
-  - A possible closure also holds every draft for the organisation.
+  - A possible closure also holds every draft for the organisation, including drafts written after the merge.
   - Nothing is deleted.
 - **Held drafts are released only when the route was their sole gap.** Other blockers keep them held: an unmatched map point, a branch overlap, a savings group awaiting Finance, or a possible closure.
 - **Try the master changes on a copy first.** `merge_master_contacts.py --apply --database <copy>` and `draft_master_messages.py --database <copy>` write their reports to `runtime/`. Then take a temporary copy of the master, apply, verify, and remove the copy.

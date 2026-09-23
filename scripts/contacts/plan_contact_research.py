@@ -37,8 +37,11 @@ and Boma Ng'ombe, Tanzania). Follow the agent brief in docs/methodology/contact-
 
 Slice: {slice_path} ({count} organisations, nearest first).
 Search allowance: at most {budget} WebSearch calls, numbered Q1/{budget} ... in your log. Stop searching at the limit; after
-that only fetch URLs you already have. Never route searches through WebFetch, a browser or a results page. Space fetches to
-the same site at least 2 seconds apart, honour robots.txt, and record a block (403, 429, captcha, login wall, bad
+that only fetch URLs you already have. If a search is refused because the session's search limit is reached, stop
+searching at once, do not retry, continue only with fetches of URLs you already have, and say so in the coverage log.
+Never route searches through WebFetch, a browser or a results page. Space fetches to
+the same site at least 2 seconds apart, honour robots.txt Disallow rules (a robots.txt that cannot be read does not stop
+you; say so in notes), and record a block (403, 429, captcha, login wall, bad
 certificate) instead of working around it.
 
 Work through the slice nearest first. Start with each organisation's known_sources and any website it lists: fetching them
@@ -80,16 +83,19 @@ def main() -> int:
     parser.add_argument("--include-unclassified", action="store_true")
     args = parser.parse_args()
     profiles = json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))["profiles"]
+    # Research records can carry a stale organisation ID (see contact_lib.Resolver).
+    resolve = C.Resolver((p["db"], p["organisation_id"], p["name"]) for p in profiles)
     searched, closed = set(), set()
     for path in C.RAW.glob(f"search_*_{args.date}.jsonl"):
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 r = json.loads(line)
+                key = resolve(r.get("db"), r.get("organisation_id"), r.get("organisation_name", "")) or (r.get("db"), r.get("organisation_id"))
                 # An organisation an agent only fetched pages for (no search) and found no route for stays a candidate.
                 if r.get("searches_used", 1) or r.get("status") == "found":
-                    searched.add((r.get("db"), r.get("organisation_id")))
+                    searched.add(key)
                 if C.CLOSURE.search(str(r.get("notes") or "")):
-                    closed.add((r.get("db"), r.get("organisation_id")))
+                    closed.add(key)
     place, planned = {}, set()
     for db, path in DBS.items():
         con = ro(path)

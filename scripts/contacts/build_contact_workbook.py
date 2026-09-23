@@ -14,7 +14,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 import sqlite3
 from collections import Counter, defaultdict
 from datetime import date
@@ -111,6 +110,12 @@ def research_flags(date_: str) -> list[list]:
             for o in site["orgs"] if spam else []:
                 rows.append([o["db"], o["organisation_id"], o["name"], "hijacked pages on the organisation's own site",
                              f"{len(spam)} page(s) carry gambling content and were not used: " + "; ".join(spam)[:500], crawl.name])
+            # Crawled although its robots.txt could not be read (the user's decision): the details are used, and flagged.
+            readable = site.get("robots") == "unreachable" and any(p.get("status") == 200 for p in site.get("pages", []))
+            for o in site["orgs"] if readable else []:
+                rows.append([o["db"], o["organisation_id"], o["name"], "robots.txt unreachable",
+                             f"{site['domain']}: robots.txt could not be read (server, network or certificate error); the site was crawled "
+                             "anyway and its details used. Check the site's own terms if in doubt.", crawl.name])
     return rows
 
 
@@ -160,7 +165,7 @@ def build(research: dict) -> tuple[dict, list, list, list]:
             people = by_org.get(o["organisation_id"], [])
             named = [c for c in people if c["name"]]
             deciders = [c for c in named if c["decision_maker"]]
-            direct = bool(o["email"] or o["phone"] or any(c["direct"] for c in people))
+            direct = bool("@" in (o["email"] or "") or C.is_phone(o["phone"]) or any(c["direct"] for c in people))
             indirect = bool(o["website"] or o["address"])
             status = "direct route" if direct else ("indirect only" if indirect else "no route")
             counts["organisations"] += 1
@@ -230,6 +235,7 @@ def main() -> int:
     rows += [["Research: own websites crawled", research_summary.get("sites_crawled", 0)],
              ["Research: sites readable / unreadable / robots.txt disallowed", f"{sites.get('readable', 0)} / {sites.get('unreadable', 0)} / "
               f"{sites.get('robots_disallowed', 0)}"],
+             ["Research: readable sites crawled with robots.txt unreachable (flagged)", sites.get("readable, crawled with robots.txt unreachable (flagged)", 0)],
              ["Research: OpenStreetMap exact-name matches", research_summary.get("osm_matches", 0)],
              ["Research: budgeted search records", json.dumps(research_summary.get("search_records", {}))],
              ["Research: extracted people not recorded", json.dumps(research_summary.get("people_not_recorded", {}))]]

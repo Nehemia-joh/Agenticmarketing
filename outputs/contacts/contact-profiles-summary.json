@@ -52,37 +52,37 @@
  "after": {
   "master": {
    "organisations": 955,
-   "direct route": 702,
-   "indirect only": 136,
-   "no route": 117,
-   "with named contact": 232,
-   "with named decision-maker": 221,
-   "contact leads": 514,
-   "named contact leads": 514,
-   "decision-maker leads": 460,
-   "contact leads with a direct route": 508,
-   "contact leads reachable (own or organisation route)": 510,
+   "direct route": 709,
+   "indirect only": 147,
+   "no route": 99,
+   "with named contact": 249,
+   "with named decision-maker": 238,
+   "contact leads": 641,
+   "named contact leads": 641,
+   "decision-maker leads": 567,
+   "contact leads with a direct route": 635,
+   "contact leads reachable (own or organisation route)": 637,
    "pdpa low": 0,
-   "pdpa medium": 511,
+   "pdpa medium": 638,
    "pdpa risky": 3,
-   "research flags": 73
+   "research flags": 103
   },
   "welfare": {
    "organisations": 497,
-   "direct route": 158,
+   "direct route": 196,
    "indirect only": 51,
-   "no route": 288,
-   "with named contact": 109,
-   "with named decision-maker": 106,
-   "contact leads": 331,
-   "named contact leads": 288,
-   "decision-maker leads": 236,
-   "contact leads with a direct route": 99,
-   "contact leads reachable (own or organisation route)": 313,
+   "no route": 250,
+   "with named contact": 141,
+   "with named decision-maker": 138,
+   "contact leads": 433,
+   "named contact leads": 390,
+   "decision-maker leads": 319,
+   "contact leads with a direct route": 115,
+   "contact leads reachable (own or organisation route)": 404,
    "pdpa low": 43,
-   "pdpa medium": 282,
-   "pdpa risky": 6,
-   "research flags": 73
+   "pdpa medium": 382,
+   "pdpa risky": 8,
+   "research flags": 106
   },
   "government": {
    "organisations": 149,
@@ -104,41 +104,43 @@
  },
  "research": {
   "date": "2026-09-23",
-  "sites_crawled": 581,
+  "sites_crawled": 680,
   "sites": {
-   "unreadable": 87,
-   "readable": 487,
-   "robots_disallowed": 7
+   "values found on three or more websites (not used)": 1,
+   "readable": 573,
+   "unreadable": 99,
+   "robots_disallowed": 8,
+   "readable, crawled with robots.txt unreachable (flagged)": 2
   },
   "osm_matches": 93,
   "search_records": {
-   "not_found": 109,
-   "partial": 107,
-   "blocked": 14,
-   "found": 124
+   "not_found": 145,
+   "partial": 141,
+   "blocked": 18,
+   "found": 178
   },
   "people_not_recorded": {
-   "site named after another organisation": 7,
-   "not a current, relevant, named person": 46,
-   "beyond 6 new leads per organisation": 78
+   "site named after another organisation": 13,
+   "not a current, relevant, named person": 57,
+   "beyond 6 new leads per organisation": 162
   },
   "master": {
    "organisations": 955,
-   "route_before": 719,
-   "route_after": 719,
-   "with_named_contact_before": 232,
-   "with_named_contact_after": 248,
-   "new_named_leads": 54,
-   "new_decision_maker_leads": 49
+   "route_before": 741,
+   "route_after": 741,
+   "with_named_contact_before": 249,
+   "with_named_contact_after": 271,
+   "new_named_leads": 102,
+   "new_decision_maker_leads": 88
   },
   "welfare": {
    "organisations": 497,
-   "route_before": 186,
-   "route_after": 187,
+   "route_before": 225,
+   "route_after": 227,
    "with_named_contact_before": 60,
-   "with_named_contact_after": 116,
-   "new_named_leads": 221,
-   "new_decision_maker_leads": 191
+   "with_named_contact_after": 148,
+   "new_named_leads": 323,
+   "new_decision_maker_leads": 274
   },
   "government": {
    "organisations": 149,

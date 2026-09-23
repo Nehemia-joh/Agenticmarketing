@@ -31,7 +31,7 @@ MASTER = C.ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 ROUTE_GAP_PARTS = {"No public email or phone", "find the organisation's route before any message.", "No contact channel recorded"}
 # Held-plan notes that are real blockers, not reminders: a new route does not release these.
 BLOCKER = re.compile(r"Raw OpenStreetMap place|organisation or branch overlap|Confirm current operation and committee|member-association rate|"
-                     r"Finance must agree to extend|Possible closure|Outside the|excluded", re.I)
+                     r"Finance must agree to extend|Possible closure|Route unconfirmed|Outside the|excluded", re.I)
 CLOSURE_NOTE = "Possible closure found by contact research; confirm the organisation still operates before any message."
 NOTE_ACTIONS = {"hijacked or parked site": "The organisation's former website or inbox now belongs to someone else; never use it. Confirm the current route.",
                 "location to check": "Research places the organisation elsewhere than the database does; confirm its location before outreach.",
@@ -67,6 +67,91 @@ def best_email(profile, org_name: str = "") -> str:
             if e["type"] == kind:
                 return e["email"]
     return next((e["email"] for e in profile["emails"] if e["type"] == "personal_domain" and org_named(e["email"], org_name)), "")
+
+
+UNSUPPORTED_NOTE = "Route unconfirmed: the only evidence for it is no longer usable; confirm it from another source before any message."
+
+
+def drop_note(text, note: str) -> str:
+    """The field without one note. Notes are stored joined with '; ', and several notes contain '; ' themselves, so a
+    note is removed whole, never by splitting the field and comparing parts."""
+    return "; ".join(n for n in str(text or "").replace(note, "").split("; ") if n.strip())
+
+
+def with_note(note: str, text) -> str:
+    rest = drop_note(text, note)
+    return f"{note}; {rest}" if rest else note
+
+
+def unsupported_routes(con, oid, org, profile, record, stats) -> None:
+    """Flag an email or phone an earlier wave filled when no current evidence supports it any more (for example, a site
+    whose robots.txt now disallows crawling, or a value found to be a template placeholder). Nothing is deleted: the value stays, a review item explains it, and
+    drafts that use it are held until someone confirms it. Runs before the research facts are replaced."""
+    digits = lambda s: re.sub(r"\D", "", str(s or ""))  # noqa: E731
+    earlier = {str(v).lower() for (v,) in con.execute("SELECT value FROM facts WHERE entity_type='organisation' AND entity_id=? AND record_id=?",
+                                                      (oid, record))}
+    other = [str(v).lower() for (v,) in con.execute(
+        "SELECT value FROM facts WHERE entity_type='organisation' AND entity_id=? AND record_id NOT IN "
+        "(SELECT record_id FROM source_records WHERE location LIKE 'contact profile %')", (oid,))]
+    current = {e["email"].lower() for e in profile["emails"]} | {digits(x["phone"]) for x in profile["phones"]}
+    for field, value in (("email", org["email"]), ("phone", org["phone"])):
+        key = str(value or "").lower() if field == "email" else digits(value)
+        if key and key in current:
+            resolve_unconfirmed(con, oid, field, value, stats)  # supported again: clear an earlier flag and its hold
+        if not key or key in current or not any(key in (e if field == "email" else digits(e)) for e in earlier):
+            continue
+        if any(key in (o if field == "email" else digits(o)) for o in other):
+            continue  # another source record supports it
+        con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                    (hid("D", "contact-unsupported", oid, field), "Contact research: route unconfirmed", oid, "", field, str(value),
+                     "An earlier research wave filled this value, and no current evidence supports it (for example, the site's robots.txt "
+                     "now disallows crawling). Confirm it from another source; drafts that use it are held until then."))
+        for plan in con.execute("SELECT message_id, missing_information FROM outreach_plans WHERE organisation_id=? AND contact_channel=?",
+                                (oid, value)).fetchall():
+            con.execute("UPDATE outreach_plans SET review_status='Needs research', missing_information=? WHERE message_id=?",
+                        (with_note(UNSUPPORTED_NOTE, plan["missing_information"]), plan["message_id"]))
+            stats["plans_held_for_unconfirmed_route"] += 1
+        stats["reviews"] += 1
+
+
+def resolve_unconfirmed(con, oid, field, value, stats) -> None:
+    """Undo an earlier 'route unconfirmed' flag once current evidence supports the value again: remove the review item and
+    release the drafts it held, unless another blocker still holds them."""
+    review_id = hid("D", "contact-unsupported", oid, field)
+    if not con.execute("SELECT 1 FROM review WHERE review_id=?", (review_id,)).fetchone():
+        return
+    con.execute("DELETE FROM review WHERE review_id=?", (review_id,))
+    for plan in con.execute("SELECT message_id, missing_information FROM outreach_plans WHERE organisation_id=? AND contact_channel=? "
+                            "AND missing_information LIKE ?", (oid, value, f"{UNSUPPORTED_NOTE}%")).fetchall():
+        rest = drop_note(plan["missing_information"], UNSUPPORTED_NOTE)
+        status = "Needs research" if BLOCKER.search(rest) or any(gap in rest for gap in ROUTE_GAP_PARTS) else "Draft review"
+        con.execute("UPDATE outreach_plans SET review_status=?, missing_information=? WHERE message_id=?", (status, rest, plan["message_id"]))
+        stats["plans_released_route_confirmed"] += 1
+
+
+ROBOTS_ACTION = ("The site's robots.txt could not be read when it was crawled (server, network or certificate error). By decision, such sites "
+                 "are crawled anyway and their details used; check the site's own terms if in doubt.")
+
+
+def repair_research_emails(con, stats) -> None:
+    """An address an earlier wave recorded with page junk around it (a URL-encoded space, a zero-width character, a word
+    glued onto the domain) is replaced by the same address, cleaned, wherever that wave put it: the contacts it added,
+    an organisation field it filled, and the drafts that use it. Runs before the research facts are replaced."""
+    earlier = {v for (v,) in con.execute("SELECT DISTINCT f.value FROM facts f JOIN source_records s ON s.record_id=f.record_id "
+                                         "WHERE f.field LIKE 'email%' AND s.location LIKE 'contact profile %'")}
+    added = con.execute("SELECT contact_id, shared_email, named_email FROM contacts WHERE verification LIKE 'Published by the organisation (%'").fetchall()
+    earlier |= {str(r[f] or "") for r in added for f in ("shared_email", "named_email")}
+    for value in sorted(v for v in earlier if v and v.count("@") == 1):
+        cleaned = C.clean_email(value)
+        if not cleaned or cleaned == value:
+            continue
+        for r in added:
+            for field in ("shared_email", "named_email"):
+                if r[field] == value:
+                    con.execute(f"UPDATE contacts SET {field}=? WHERE contact_id=?", (cleaned, r["contact_id"]))
+                    stats["research_emails_cleaned"] += 1
+        stats["research_emails_cleaned"] += con.execute("UPDATE organisations SET email=? WHERE email=?", (cleaned, value)).rowcount
+        stats["research_emails_cleaned"] += con.execute("UPDATE outreach_plans SET contact_channel=? WHERE contact_channel=?", (cleaned, value)).rowcount
 
 
 def best_phone(profile) -> str:
@@ -128,8 +213,11 @@ def main() -> int:
     args = parser.parse_args()
     data = json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))
     run_date = data["date"]
+    researched = {oid for (oid,) in sqlite3.connect(f"file:{Path(args.database).resolve().as_posix()}?mode=ro", uri=True).execute(
+        "SELECT substr(location, 17, instr(substr(location, 17), ' ') - 1) FROM source_records WHERE location LIKE 'contact profile %'")}
+    # Organisations with findings, warnings, or an earlier research record (whose facts must be brought up to date).
     profiles = [p for p in data["profiles"] if p["db"] == "master" and (p["emails"] or p["phones"] or p["websites"] or p["people"] or p["postal"]
-                                                                          or C.note_flags(p.get("notes")))]
+                                                                          or C.note_flags(p.get("notes")) or p["organisation_id"] in researched)]
     database = Path(args.database)
     con = sqlite3.connect(database)
     con.row_factory = sqlite3.Row
@@ -158,7 +246,8 @@ def main() -> int:
     people_seen = {(ident, W.name_key(r["name"] or "")) for r in con.execute("SELECT organisation_id, name FROM contacts WHERE COALESCE(name,'')<>''")
                    if r["organisation_id"] in orgs for ident in identities(orgs[r["organisation_id"]])}
     stats = {"organisations_updated": 0, "fields_filled": 0, "facts": 0, "contacts_inserted": 0, "reviews": 0, "plans_unheld": 0,
-             "plans_held_for_closure": 0, "contacts_on_twin_records_skipped": 0, "source_files": 0}
+             "plans_held_for_closure": 0, "plans_held_for_unconfirmed_route": 0, "plans_released_route_confirmed": 0,
+             "research_emails_cleaned": 0, "contacts_on_twin_records_skipped": 0, "source_files": 0}
     try:
         con.execute("BEGIN")
         source_ids = {}
@@ -171,6 +260,7 @@ def main() -> int:
             source_ids[path.name] = sid
             stats["source_files"] += 1
         default_source = next(iter(source_ids.values()))
+        repair_research_emails(con, stats)
         for p in profiles:
             oid, org = p["organisation_id"], orgs[p["organisation_id"]]
             file_name = f"website_contacts_{run_date}.jsonl" if "website" in p["methods"] else next(
@@ -203,6 +293,14 @@ def main() -> int:
                 updates["email"] = email
             if phone and not org["phone"]:
                 updates["phone"] = phone
+            elif phone and not C.is_phone(org["phone"]):
+                # Directory imports left category codes ('TO/DMC/MAIN', 'AFF/FIN') in some phone fields; nothing is overwritten.
+                con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                            (hid("D", "contact-phone-text", oid), "Phone field holds no phone number", oid, "", "phone",
+                             f"{org['phone'][:120]} | {phone}", "The phone field holds text, not a number. Research found the number shown; "
+                             "replace the field after checking it."))
+                stats["reviews"] += 1
+            unsupported_routes(con, oid, org, p, record, stats)
             if p["postal"] and not org["address"]:
                 updates["address"] = p["postal"][0]
             for field, value in updates.items():
@@ -213,6 +311,9 @@ def main() -> int:
             facts = [("website", w) for w in p["websites"]] + [(f"email ({e['type']})", e["email"]) for e in p["emails"]]
             facts += [(f"phone ({x['type']})", x["phone"]) for x in p["phones"]] + [("postal_address", a) for a in p["postal"]]
             facts += [(f"social ({k})", v) for k, v in p["socials"].items()]
+            # The research record was just replaced with the current profile, so its facts are replaced with it: every fact
+            # stays traceable to what that record now holds (a later wave may drop a value an earlier one found).
+            con.execute("DELETE FROM facts WHERE entity_type='organisation' AND entity_id=? AND record_id=?", (oid, record))
             for field, value in facts:
                 con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
                             (hid("X", oid, field, value), "organisation", oid, field, value, record))
@@ -237,9 +338,8 @@ def main() -> int:
                              "Contact research found a sign that this organisation has closed. Confirm it still operates before any outreach; "
                              "archive it if it has closed."))
                 for plan in con.execute("SELECT message_id, missing_information FROM outreach_plans WHERE organisation_id=?", (oid,)).fetchall():
-                    notes = [n for n in str(plan["missing_information"] or "").split("; ") if n and not n.startswith("Possible closure")]
                     con.execute("UPDATE outreach_plans SET review_status='Needs research', missing_information=? WHERE message_id=?",
-                                ("; ".join([CLOSURE_NOTE, *notes]), plan["message_id"]))
+                                (with_note(CLOSURE_NOTE, plan["missing_information"]), plan["message_id"]))
                     stats["plans_held_for_closure"] += 1
                 stats["reviews"] += 1
             for kind, note in C.note_flags(p.get("notes")):
@@ -247,6 +347,15 @@ def main() -> int:
                     con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
                                 (hid("D", "contact-note", oid, kind), f"Contact research: {kind}", oid, "", "research note", note[:400], NOTE_ACTIONS[kind]))
                     stats["reviews"] += 1
+            # A site crawled while its robots.txt could not be read: flagged, not held (the user's decision).
+            robots_review = hid("D", "contact-robots", oid)
+            if p.get("crawl_flags"):
+                con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                            (robots_review, "Contact research: robots.txt unreachable", oid, "", "website", "; ".join(p["crawl_flags"])[:400],
+                             ROBOTS_ACTION))
+                stats["reviews"] += 1
+            else:
+                con.execute("DELETE FROM review WHERE review_id=?", (robots_review,))
             email_default = best_email(p, org["name"]) or org["email"] or ""
             phone_default = best_phone(p) or org["phone"] or ""
             for person in p["people"]:
@@ -294,7 +403,12 @@ def main() -> int:
     trial = database.resolve() != MASTER.resolve()
     report = (C.WORK / "trial-master-contact-merge.json") if trial else (C.ROOT / "outputs" / "contacts" / "master-contact-merge.json")
     report.parent.mkdir(parents=True, exist_ok=True)
-    report.write_text(json.dumps({"run_date": run_date, "applied_on": date.today().isoformat(), "trial": trial, **stats}, indent=1) + "\n",
+    # One entry per application (each research wave is merged in turn); the totals are what the workbook's audit shows.
+    earlier = json.loads(report.read_text(encoding="utf-8")) if report.exists() else {}
+    applications = earlier.get("applications") or ([earlier] if earlier.get("applied_on") else [])
+    applications.append({"run_date": run_date, "applied_on": date.today().isoformat(), "trial": trial, **stats})
+    totals = {k: sum(a.get(k, 0) for a in applications) for k in ("contacts_inserted", "fields_filled", "plans_unheld", "organisations_updated")}
+    report.write_text(json.dumps({"applications": applications, "totals": totals, "contacts_after": stats["contacts_after"]}, indent=1) + "\n",
                       encoding="utf-8")
     print(json.dumps(stats, indent=1))
     return 0

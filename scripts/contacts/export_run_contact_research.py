@@ -86,7 +86,9 @@ def main() -> int:
                   # run's child-identifier guard with phrases such as "now called ...").
                   "notes": " ".join([f"Contact research {run_date}: {', '.join(p['methods'])}.",
                                      *(f"Check before outreach ({kind}; see the contact-profiles workbook, Flags)."
-                                       for kind in dict.fromkeys(k for k, _ in C.note_flags(p.get("notes"))))])}
+                                       for kind in dict.fromkeys(k for k, _ in C.note_flags(p.get("notes")))),
+                                     *(["Website crawled although its robots.txt could not be read (flagged; see the contact-profiles workbook, "
+                                        "Flags)."] if p.get("crawl_flags") else [])])}
         records.append(record)
         counts["organisations"] += 1
         for person in p["people"]:
@@ -111,8 +113,9 @@ def main() -> int:
     summary = json.loads((C.WORK / "profiles-summary.json").read_text(encoding="utf-8"))
     (raw / "coverage" / "W_contact_profiles_coverage.md").write_text(
         f"# Slice W: contact profiles ({run_date})\n\n"
-        f"- Own websites crawled: {summary['sites_crawled']} across all databases ({summary['sites']}); robots.txt honoured, one request "
-        f"at a time per site, 1.5 s apart.\n"
+        f"- Own websites crawled: {summary['sites_crawled']} across all databases ({summary['sites']}); explicit robots.txt Disallow rules "
+        f"honoured, one request at a time per site, 1.5 s apart. A site whose robots.txt could not be read (server, network or certificate "
+        f"error) was crawled anyway and flagged.\n"
         f"- Welfare organisations for which the research found a published email or phone: "
         f"{sum(1 for p in data['profiles'] if p['db'] == 'welfare' and (p['emails'] or p['phones']))} of {summary['welfare']['organisations']}; "
         f"with named people found: {sum(1 for p in data['profiles'] if p['db'] == 'welfare' and p['people'])}; named people recorded: "

@@ -181,23 +181,9 @@ def main() -> int:
     args = parser.parse_args()
     orgs = load_orgs()
     found = defaultdict(lambda: {"websites": {}, "emails": {}, "phones": {}, "postal": {}, "physical": {}, "socials": {}, "people": [], "sources": [],
-                                 "status": set(), "blocked": []})
-    # A run database gives an organisation a new ID when it gains a website (the shared contract keys organisations by
-    # domain), so research records written earlier can carry a stale ID. Resolve those by exact name, then by name key,
-    # and only when the match is unique.
-    by_exact, by_key = defaultdict(list), defaultdict(list)
-    for (db, oid), o in orgs.items():
-        by_exact[(db, W.norm_text(o["name"]).lower())].append((db, oid))
-        by_key[(db, W.name_key(o["name"]))].append((db, oid))
-
-    def resolve(db, oid, name):
-        if (db, oid) in orgs:
-            return (db, oid)
-        for index, probe in ((by_exact, W.norm_text(name).lower()), (by_key, W.name_key(name))):
-            hits = index.get((db, probe), [])
-            if len(hits) == 1:
-                return hits[0]
-        return None
+                                 "status": set(), "blocked": [], "crawl_flags": []})
+    # Research records can carry a stale organisation ID (see contact_lib.Resolver).
+    resolve = C.Resolver((db, oid, o["name"]) for (db, oid), o in orgs.items())
 
     def add_source(entry, url, title, facts, fetched, method, excerpt=""):
         if url and not any(s["url"] == url and s["method"] == method for s in entry["sources"]):
@@ -208,9 +194,21 @@ def main() -> int:
     crawl_path = C.RAW / f"website_contacts_{args.date}.jsonl"
     crawled = [json.loads(line) for line in crawl_path.read_text(encoding="utf-8").splitlines() if line.strip()] if crawl_path.exists() else []
     site_stats, dropped = Counter(), Counter()
+    # A number or address on three or more different websites belongs to a shared platform (a booking portal, a web
+    # designer, a theme's demo), not to any one organisation. (Several records sharing one website count once.)
+    on_sites = defaultdict(set)
+    for site in crawled:
+        for raw in site["emails"]:
+            on_sites[("email", C.clean_email(raw))].add(site["domain"])
+        for phone in site["phones"]:
+            on_sites[("phone", re.sub(r"\D", "", phone))].add(site["domain"])
+    shared = {k for k, domains in on_sites.items() if k[1] and len(domains) >= 3}
+    site_stats["values found on three or more websites (not used)"] = len(shared)
     for site in crawled:
         readable = [p for p in site["pages"] if p.get("status") == 200]
-        site_stats["readable" if readable else ("robots_disallowed" if site.get("robots") == "disallowed" else "unreadable")] += 1
+        site_stats["readable" if readable else (f"robots_{site['robots']}" if site.get("robots") == "disallowed" else "unreadable")] += 1
+        if readable and site.get("robots") == "unreachable":
+            site_stats["readable, crawled with robots.txt unreachable (flagged)"] += 1
         # A site recorded for several different organisations: its people belong to the one the site is named after.
         owners = {o["organisation_id"] for o in site["orgs"] if C.named_after(o["name"], site["domain"])}
         several = len({W.name_key(o["name"]) for o in site["orgs"]}) > 1
@@ -225,13 +223,16 @@ def main() -> int:
                 continue
             e = found[key]
             if not readable:
-                e["blocked"].append(f"{site['domain']}: {site['robots'] if site.get('robots') == 'disallowed' else (site['errors'][:1] or ['unreadable'])[0]}")
+                e["blocked"].append(f"{site['domain']}: " + (f"robots.txt {site['robots']}" if site.get('robots') == 'disallowed' else (site['errors'][:1] or ['unreadable'])[0]))
                 continue
             e["websites"].setdefault(readable[0]["final_url"], "crawl")
-            for email, info in site["emails"].items():
-                e["emails"].setdefault(email, {"source_url": info["pages"][0], "fetched": True, "method": "website"})
+            for raw, info in site["emails"].items():
+                email = C.clean_email(raw)  # the crawl file keeps what the page held; the profile keeps the clean address
+                if email and ("email", email) not in shared:
+                    e["emails"].setdefault(email, {"source_url": info["pages"][0], "fetched": True, "method": "website"})
             for phone, info in site["phones"].items():
-                e["phones"].setdefault(phone, {"source_url": info["pages"][0], "fetched": True, "method": "website"})
+                if not C.template_phone(phone) and ("phone", re.sub(r"\D", "", phone)) not in shared:
+                    e["phones"].setdefault(phone, {"source_url": info["pages"][0], "fetched": True, "method": "website"})
             for postal in site["postal"]:
                 e["postal"].setdefault(postal, {"source_url": readable[0]["final_url"], "method": "website"})
             for platform, link in site["socials"].items():
@@ -243,6 +244,8 @@ def main() -> int:
             for page in readable:
                 add_source(e, page["final_url"], page.get("title", ""), [page.get("kind", "")], True, "website")
             e["status"].add("website")
+            if site.get("robots") == "unreachable" and site["domain"] not in " ".join(e["crawl_flags"]):
+                e["crawl_flags"].append(f"{site['domain']}: robots.txt could not be read (server, network or certificate error); the site was crawled anyway")
 
     # 2. OpenStreetMap contact tags, by exact normalised name when exactly one element matches
     osm_path = C.RAW / f"osm_contacts_{args.date}.json"
@@ -266,7 +269,7 @@ def main() -> int:
         for tag in ("phone", "contact:phone", "mobile", "contact:mobile"):
             for part in str(el["tags"].get(tag) or "").split(";"):
                 phone = W.norm_phone(part)
-                if len(re.sub(r"\D", "", phone)) >= 10:
+                if len(re.sub(r"\D", "", phone)) >= 10 and not C.template_phone(phone):
                     e["phones"].setdefault(phone, {"source_url": url, "fetched": True, "method": "openstreetmap"})
         for tag in ("email", "contact:email"):
             email = C.clean_email(str(el["tags"].get(tag) or ""))
@@ -314,7 +317,7 @@ def main() -> int:
                     e["emails"].setdefault(email, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": "search"})
             for item in r.get("phones") or []:
                 phone = W.norm_phone(str(item.get("value") or ""))
-                if len(re.sub(r"\D", "", phone)) >= 10 and not uncertain:
+                if len(re.sub(r"\D", "", phone)) >= 10 and not uncertain and not C.template_phone(phone):
                     e["phones"].setdefault(phone, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": "search"})
             for field, target in (("postal_address", "postal"), ("physical_address", "physical")):
                 value = (r.get(field) or {}).get("value") if isinstance(r.get(field), dict) else r.get(field)
@@ -379,7 +382,8 @@ def main() -> int:
                    "websites": sorted((e["websites"] if e else {}).keys()), "emails": emails, "phones": phones,
                    "postal": sorted((e["postal"] if e else {}).keys()), "physical": sorted((e["physical"] if e else {}).keys()),
                    "socials": dict(e["socials"]) if e else {}, "people": people, "sources": e["sources"] if e else [],
-                   "methods": sorted(e["status"]) if e else [], "blocked": e["blocked"] if e else [], "notes": (e or {}).get("notes", [])}
+                   "methods": sorted(e["status"]) if e else [], "blocked": e["blocked"] if e else [], "notes": (e or {}).get("notes", []),
+                   "crawl_flags": e["crawl_flags"] if e else []}
         has_route_before = bool(o["website"] or o["email"] or o["phone"])
         has_route_after = has_route_before or bool(profile["emails"] or profile["phones"] or profile["websites"])
         profile["route_before"], profile["route_after"] = has_route_before, has_route_after

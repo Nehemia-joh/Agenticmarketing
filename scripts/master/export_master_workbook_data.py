@@ -1,17 +1,31 @@
 #!/usr/bin/env python3
-"""Export deterministic workbook input from the canonical Silverleaf SQLite database."""
+"""Export deterministic workbook input from the canonical Silverleaf SQLite database.
+
+Writes runtime/artifacts/workbook-input.json for scripts/master/build_master_workbook.py. Besides the tables, it adds
+the review enrichment the workbook shows next to each record, all derived from the database:
+- organisations: route status, official social pages, named contacts and decision-makers, the contact-research methods
+  and the research warnings raised as review items;
+- contacts: decision-maker flag, best route (own, else the organisation's published route) and pdpa_risk.
+"""
 
 from __future__ import annotations
 
 import argparse
 import json
+import re
 import sqlite3
+import sys
+from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 DEFAULT_OUTPUT = ROOT / "runtime" / "artifacts" / "workbook-input.json"
+sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
+import contact_lib as C  # noqa: E402  (decision-maker and personal-email rules shared with the contact research)
+
+RESEARCH_REVIEW = re.compile(r"^(Contact research|Possible closure|Website field holds no website)")
 
 
 def rows(connection: sqlite3.Connection, query: str) -> list[dict]:
@@ -20,6 +34,63 @@ def rows(connection: sqlite3.Connection, query: str) -> list[dict]:
 
 def count(connection: sqlite3.Connection, table: str) -> int:
     return connection.execute(f'SELECT COUNT(*) FROM "{table}"').fetchone()[0]
+
+
+def read_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+
+
+def decision_maker(role: str) -> bool:
+    return bool(C.DECISION.search(C.NOT_A_HEAD.sub("", role or "")))
+
+
+def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: list[dict]) -> None:
+    """Add the review enrichment in place (see the module docstring)."""
+    org_by_id = {o["organisation_id"]: o for o in organisations}
+    facts = defaultdict(dict)
+    for entity_id, field, value in connection.execute(
+            "SELECT entity_id, field, value FROM facts WHERE entity_type='contact' AND field IN ('pdpa_risk','decision_maker')"):
+        facts[entity_id][field] = value
+    socials = defaultdict(dict)
+    for entity_id, field, value in connection.execute(
+            "SELECT entity_id, field, value FROM facts WHERE entity_type='organisation' AND field LIKE 'social (%' ORDER BY field, value"):
+        socials[entity_id].setdefault(field[8:-1], value)
+    methods = {}
+    for location, payload in connection.execute("SELECT location, payload_json FROM source_records WHERE location LIKE 'contact profile %'"):
+        match = re.match(r"contact profile (\S+) \((\d{4}-\d{2}-\d{2})\)", location or "")
+        if match:
+            found = json.loads(payload or "{}").get("methods") or []
+            methods[match.group(1)] = f"{', '.join(found) or 'searched, nothing found'} ({match.group(2)})"
+    flags = defaultdict(list)
+    for entity_id, kind in connection.execute("SELECT entity_id, kind FROM review ORDER BY kind"):
+        if RESEARCH_REVIEW.match(kind or "") and kind not in flags[entity_id]:
+            flags[entity_id].append(kind)
+
+    people = defaultdict(list)
+    for c in contacts:
+        org = org_by_id.get(c["organisation_id"], {})
+        named = c["name"] or ""
+        own_email = c["named_email"] if c["named_email"] and not C.W.PERSONAL_EMAIL.search(c["named_email"]) else ""
+        route = next(((kind, value) for kind, value in (
+            ("own email", own_email), ("role email", c["published_role_email"]), ("own phone", c["role_phone"]),
+            ("organisation inbox", c["shared_email"] or org.get("email")), ("organisation phone", c["organisation_phone"] or org.get("phone")))
+            if value), ("website or profile page only", c["source_url"] or ""))
+        risk = facts[c["contact_id"]].get("pdpa_risk") or (
+            "low" if not named else "risky" if c["named_email"] and C.W.PERSONAL_EMAIL.search(c["named_email"]) else "medium")
+        decides = facts[c["contact_id"]].get("decision_maker")
+        c["decision_maker"] = ("yes" if decides == "true" else "no") if decides else ("yes" if named and decision_maker(c["role"]) else "no")
+        c["best_route_type"], c["best_route"], c["pdpa_risk"] = route[0], route[1], risk
+        people[c["organisation_id"]].append(c)
+
+    for o in organisations:
+        team = people.get(o["organisation_id"], [])
+        direct = bool(o["email"] or o["phone"] or any(c["best_route_type"] in ("own email", "role email", "own phone") for c in team))
+        o["route_status"] = "direct route" if direct else ("indirect only" if (o["website"] or o["address"]) else "no route")
+        o["social_pages"] = "; ".join(f"{k}: {v}" for k, v in socials.get(o["organisation_id"], {}).items())
+        o["named_contacts"] = sum(1 for c in team if c["name"])
+        o["decision_makers"] = "; ".join(f"{c['name']} ({c['role']})" for c in team if c["name"] and c["decision_maker"] == "yes")
+        o["contact_research"] = methods.get(o["organisation_id"], "")
+        o["research_flags"] = "; ".join(flags.get(o["organisation_id"], []))
 
 
 def main() -> int:
@@ -67,6 +138,10 @@ def main() -> int:
         "acquisition_hold": track_counts.get("AQ00", 0),
         "acquisition_routing": track_counts.get("AQ01", 0),
         "acquisition_direct": track_counts.get("AQ02", 0),
+        "review": count(connection, "review"),
+        "campuses": count(connection, "campuses"),
+        "facts": count(connection, "facts"),
+        "offer_aligned_plans": connection.execute("SELECT COUNT(*) FROM outreach_plans WHERE COALESCE(offer_version,'')<>''").fetchone()[0],
     }
     report = {
         "run_id": f"workbook-export-{date.today().isoformat()}",
@@ -90,10 +165,14 @@ def main() -> int:
         "acquisition_version": "2026-09-09-new-contact-acquisition-v4",
         "new_contact_strategy_scope": "Independent of the internal marketing calendar; approved positioning is reused where applicable.",
         "existing_lead_count_reclassified": counts["outreach_plans"],
+        # Later runs recorded as reports beside their outputs (the workbook's audit sheet lists them).
+        "offer_messages": read_json(ROOT / "outputs" / "messages" / "master-offer-messages-reconciliation.json"),
+        "contact_merge": read_json(ROOT / "outputs" / "contacts" / "master-contact-merge.json"),
+        "acquisition_refresh_runs": rows(connection, "SELECT * FROM acquisition_refresh_runs ORDER BY ran_on, run_id"),
+        "integrity_check": connection.execute("PRAGMA integrity_check").fetchone()[0],
+        "foreign_key_violations": len(connection.execute("PRAGMA foreign_key_check").fetchall()),
     }
-    payload = {
-        "report": report,
-        "organisations": rows(connection, """
+    organisations = rows(connection, """
             SELECT
               o.organisation_id,o.name,o.segment,o.priority,o.campus,o.locality,o.distance_km,
               o.geocode_precision,o.phone,o.email,o.website,o.address,o.headcount,o.size_evidence,
@@ -120,8 +199,8 @@ def main() -> int:
               o.source_url
             FROM organisations o
             ORDER BY o.name,o.organisation_id
-        """),
-        "contacts": rows(connection, """
+        """)
+    contacts = rows(connection, """
             SELECT
               c.contact_id,c.name,c.organisation_id,c.role,c.campus,c.named_email,
               c.published_role_email,c.role_phone,c.shared_email,c.organisation_phone,
@@ -148,7 +227,30 @@ def main() -> int:
             FROM contacts c
             JOIN organisations o USING(organisation_id)
             ORDER BY o.name,c.name,c.contact_id
-        """),
+        """)
+    enrich(connection, organisations, contacts)
+    names = {("organisation", o["organisation_id"]): o["name"] for o in organisations}
+    names |= {("contact", c["contact_id"]): c["name"] or c["role"] for c in contacts}
+    names |= {("enquiry", r["enquiry_id"]): r["name"] for r in connection.execute("SELECT enquiry_id, name FROM enquiries")}
+    by_id = {entity_id: name for (_, entity_id), name in names.items()}
+    review = rows(connection, 'SELECT review_id, kind, entity_id, related_id, field, "values", action FROM review ORDER BY kind, review_id')
+    for r in review:
+        r["entity_name"] = by_id.get(r["entity_id"], "")
+    # Facts as distinct assertions: repeated copies of the same assertion from several source rows become one row.
+    facts = []
+    for entity_type, entity_id, field, value, records in connection.execute(
+            "SELECT entity_type, entity_id, field, value, group_concat(DISTINCT record_id) FROM facts "
+            "GROUP BY entity_type, entity_id, field, value ORDER BY entity_type, entity_id, field, value"):
+        facts.append({"entity_type": entity_type, "entity_name": names.get((entity_type, entity_id), ""), "entity_id": entity_id, "field": field,
+                      "value": value, "source_record_ids": "; ".join(sorted(str(records or "").split(",")))})
+    payload = {
+        "report": report,
+        "organisations": organisations,
+        "contacts": contacts,
+        "enquiries": rows(connection, "SELECT * FROM enquiries ORDER BY enquiry_date DESC, enquiry_id"),
+        "campuses": rows(connection, "SELECT * FROM campuses ORDER BY name"),
+        "review": review,
+        "facts": facts,
         "positioning_evidence": rows(connection, "SELECT * FROM positioning_evidence ORDER BY evidence_id"),
         "campaigns": rows(connection, "SELECT * FROM campaigns ORDER BY campaign_id"),
         "campaign_touchpoints": rows(connection, "SELECT * FROM campaign_touchpoints ORDER BY campaign_id,touchpoint_order"),

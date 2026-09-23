@@ -119,7 +119,7 @@ python3 scripts/master/verify_master.py
 
 Use `python3` in the commands below on macOS and Linux. If your environment maps `python` to Python 3, either command name works.
 
-The Python lead-list skills use the standard library. `openpyxl` supports the retained partner-list builder, while `@oai/artifact-tool` rebuilds the consolidated workbook. Dependencies and generated runtime files are ignored by Git.
+The Python lead-list skills use the standard library. `openpyxl` builds the review workbooks, including the consolidated master workbook (`scripts/master/build_master_workbook.py`); `npm run build:workbook` needs no Node packages. Dependencies and generated runtime files are ignored by Git.
 
 ## Update the existing master list
 
@@ -213,7 +213,11 @@ npm run build:workbook
 python3 scripts/master/verify_master.py
 ```
 
-The export writes `runtime/artifacts/workbook-input.json`. The builder refreshes `outputs/master/Silverleaf Master Database - Consolidated.xlsx`, writes visual previews under `runtime/previews/`, and records workbook checks in `outputs/reports/workbook-verification.json`.
+The export writes `runtime/artifacts/workbook-input.json`, with each organisation's and contact's enrichment derived from the database:
+- organisations: route status, social pages, decision-makers, research methods and flags
+- contacts: best route and pdpa_risk
+
+The builder then regenerates `outputs/master/Silverleaf Master Database - Consolidated.xlsx` from scratch in the same layout. Messages, Outreach plans and Sequences show the current offer-aligned drafts. It checks every sheet's row count against the database and records the result in `outputs/reports/workbook-verification.json`, exiting with an error on any mismatch.
 
 An update is complete when database integrity and foreign-key checks pass, counts reconcile, every outreach plan has an acquisition track, all active hooks are supported, and all automations remain disabled.
 
@@ -396,7 +400,7 @@ On 23 September 2026, after the contact research below, the drafts were:
 - **Welfare:** 490, of which 48 are ready and 442 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
-All of them pass the offer-register checks. Finance must confirm that the 2025 terms apply to 2027 before anything is sent. The consolidated master workbook needs `npm run build:workbook` in an environment with `@oai/artifact-tool`; until then, `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` is the review view.
+All of them pass the offer-register checks. Finance must confirm that the 2025 terms apply to 2027 before anything is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
 
 ## Contact profiles and contact leads
 

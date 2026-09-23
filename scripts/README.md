@@ -12,7 +12,7 @@ Run every command from the repository root. Anything that calls the network foll
 | Company leads: collect | `scripts/collection/build_partner_leads.py` | Builds the partner-lead universe (geocoding, campus distances) from raw pulls | None |
 | Company master | `scripts/master/refresh_acquisition_metadata.py` | Assigns AQ acquisition tracks and value modules to outreach plans | None. Corporate rules only (see welfare plan Phase 0) |
 | Company master | `scripts/master/export_master_workbook_data.py` | Exports workbook input from the master database | None |
-| Company master | `scripts/master/build_master_workbook.mjs` | Rebuilds the master review workbook (`npm run build:workbook`) | None |
+| Company master | `scripts/master/build_master_workbook.py` | Regenerates the consolidated master workbook from the export (openpyxl; `npm run build:workbook` exports first): current offer-aligned drafts, contact-research enrichment, every sheet reconciled with the database | None |
 | Company master | `scripts/master/verify_master.py` | Checks master integrity, workbook, hooks and disabled automations | None |
 | Welfare leads: collect | `scripts/welfare/fetch_ngo_register.py` | NGOs Information System map and profiles within the catchment | Up to 4 workers, 0.3 s apart, retries with backoff, resumable cache |
 | Welfare leads: collect | `scripts/welfare/collect_osm_welfare.py` | OpenStreetMap welfare features | One query at a time, 5 s apart, mirror fallback |

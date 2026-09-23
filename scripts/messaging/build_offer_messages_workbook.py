@@ -4,8 +4,8 @@
 Reads (read-only) the company master, the welfare run and the government run, plus the offer register. Writes
 outputs/messages/Silverleaf Offer-Aligned Messages - <date>.xlsx and outputs/messages/offer-messages-summary.json.
 Every initial message, follow-up, Kiswahili version and English meaning is checked again with offer_lib.check_message;
-the script exits 1 if any draft fails. The company master's own workbook is rebuilt separately
-(npm run build:workbook, which needs @oai/artifact-tool); this workbook is the review view of the drafts meanwhile.
+the script exits 1 if any draft fails. The company master's consolidated workbook (npm run build:workbook) shows the
+master drafts too; this workbook is the one view across all three databases.
 """
 from __future__ import annotations
 

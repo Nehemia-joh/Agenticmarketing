@@ -6,7 +6,7 @@ See `new-lead-acquisition-framework.md` for the full record, message-module and 
 
 # Silverleaf outreach flows
 
-Version 2026-09-09 marketing v3. These are implementation recipes. External sending and recurring jobs remain disabled.
+Version 2026-09-09 marketing v3, with the send steps of F01 and F03 updated on 2026-09-23 (configuration `automation-2026-09-23-offer-v4`) to use the offer-aligned drafts. These are implementation recipes. External sending and recurring jobs remain disabled.
 
 Read [campaign-positioning-and-cadence.md](campaign-positioning-and-cadence.md) before using a Silverleaf claim, parent-language draft, broadcast date or event sequence. Recipient hooks remain verified-only.
 
@@ -23,9 +23,9 @@ Read [campaign-positioning-and-cadence.md](campaign-positioning-and-cadence.md) 
 
 | Step | Trigger | Condition | Action | Delay | Database update | Example | Principle |
 |---:|---|---|---|---|---|---|---|
-| 1 | One account and recipient selected | Identity, route, role, sender, offer and dynamic facts verified; alternatives inactive | Send the row's campaign_message_v3 | Day 0 after checks | awaiting_reply; provider ID; delivered_at; campaign_id=C01 | Use the personalised row; include a recipient hook only when hook_status is Verified | Offer-led, recipient-centred, one CTA; PE023 and PE024 |
-| 2 | Initial delivered; no reply | No reply, referral, refusal, opt-out, bounce, OOO or active duplicate | Send campaign_follow_up_1_v3 in the same thread | 4 working days after actual delivery | last_step=2; delivered_at | Add durable value pillars and the campus-fit check; offer the one-page outline | Add useful context; do not repeat the opening |
-| 3 | First follow-up delivered; no reply | All stop checks still pass | Send campaign_follow_up_2_v3 and end the sequence | 4 working days after step 2 delivery | sequence_complete | Ask whether to send the outline or close the conversation | Lower-effort final ask; stop after three delivered messages |
+| 1 | One account and recipient selected | Identity, route, role, sender, offer and dynamic facts verified; alternatives inactive | Send the row's offer-aligned message (subject and body) | Day 0 after checks | awaiting_reply; provider ID; delivered_at; campaign_id=C01 | Use the personalised row; include a recipient hook only when hook_status is Verified | Offer-led, recipient-centred, one CTA; PE023 and PE024 |
+| 2 | Initial delivered; no reply | No reply, referral, refusal, opt-out, bounce, OOO or active duplicate | Send offer-aligned follow_up_1 in the same thread | 4 working days after actual delivery | last_step=2; delivered_at | Add durable value pillars and the campus-fit check; offer the one-page outline | Add useful context; do not repeat the opening |
+| 3 | First follow-up delivered; no reply | All stop checks still pass | Send offer-aligned follow_up_2 and end the sequence | 4 working days after step 2 delivery | sequence_complete | Ask whether to send the outline or close the conversation | Lower-effort final ask; stop after three delivered messages |
 
 ## F02
 
@@ -42,7 +42,7 @@ Read [campaign-positioning-and-cadence.md](campaign-positioning-and-cadence.md) 
 
 | Step | Trigger | Condition | Action | Delay | Database update | Example | Principle |
 |---:|---|---|---|---|---|---|---|
-| 1 | SACCOS and committee route selected | Current operation, committee route and locality verified; 2027 facts approved | Send the row's SACCOS campaign_message_v3 | Day 0 after checks | awaiting_reply; audience=members; campaign_id=C02 | Offer an optional member information session without a loan, subsidy or discount claim | Qualification before enrichment; PE015 and PE024 |
+| 1 | SACCOS and committee route selected | Current operation, committee route and locality verified; 2027 facts approved | Send the row's SACCOS offer-aligned message (subject and body) | Day 0 after checks | awaiting_reply; audience=members; campaign_id=C02 | State the family offer and the member-association rate exactly as the offer register records them (Finance must extend the KINEFA rate first); no loan, subsidy or referral claim | Qualification before enrichment; PE015 and PE024 |
 | 2 | Initial delivered; no reply | F01 stop checks pass | Send the SACCOS first follow-up in the same thread | 4 working days after actual delivery | last_step=2 | Offer the one-page version using approved fee information without figures unless cleared | Add practical value |
 | 3 | First follow-up delivered; no reply | F01 stop checks pass | Send the final low-effort ask and stop | 4 working days after step 2 delivery | sequence_complete | Should I send the member-information outline for a quick review, or close this for now? | Limited pursuit |
 

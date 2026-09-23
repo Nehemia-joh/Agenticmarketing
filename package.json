@@ -4,10 +4,7 @@
   "type": "module",
   "scripts": {
     "export:workbook": "python scripts/master/export_master_workbook_data.py",
-    "build:workbook": "npm run export:workbook && node scripts/master/build_master_workbook.mjs",
+    "build:workbook": "npm run export:workbook && python scripts/master/build_master_workbook.py",
     "verify": "python scripts/master/verify_master.py"
-  },
-  "dependencies": {
-    "@oai/artifact-tool": "2.8.59"
   }
 }

@@ -11,9 +11,11 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message_sw), value module VM19,
   positioning evidence PE025-PE028 and a strategy record; everything in one transaction with integrity checks.
-Nothing is sent and no automation changes. Use --dry-run to write the planned changes to runtime/ without touching
-the database. Afterwards run scripts/master/export_master_workbook_data.py, rebuild the workbook where
-@oai/artifact-tool is available (npm run build:workbook) and run scripts/master/verify_master.py.
+- Points the design-only send steps (F01, F03 and their touchpoints) at the offer-aligned drafts; nothing is enabled.
+Re-running it once the drafts are current changes nothing; run it again after a contact merge and the acquisition
+refresh so each plan's copy matches its track. Nothing is sent. Use --dry-run to write the planned changes to runtime/
+without touching the database, and --database to try it on a copy (its report then stays in runtime/). Afterwards run
+npm run build:workbook (export and rebuild) and scripts/master/verify_master.py.
 """
 from __future__ import annotations
 
@@ -419,6 +421,7 @@ def main() -> int:
         for segment, (audience, offer, qualification) in NEW_SEGMENTS.items():
             if not con.execute("SELECT 1 FROM outreach_segments WHERE segment=?", (segment,)).fetchone():
                 con.execute("INSERT INTO outreach_segments VALUES (?,?,?,?,?)", (segment, audience, offer, qualification, "F01"))
+        align_recipes(con)
         integrity = con.execute("PRAGMA integrity_check").fetchone()[0]
         fks = con.execute("PRAGMA foreign_key_check").fetchall()
         enabled = con.execute("SELECT COUNT(*) FROM automation_configuration WHERE enabled=1").fetchone()[0]
@@ -442,12 +445,37 @@ def main() -> int:
     return 0
 
 
+RECIPE_CONFIGURATION = "automation-2026-09-23-offer-v4"
+SACCOS_V3_COPY = "Offer an optional member information session without a loan, subsidy or discount claim"
+SACCOS_V4_COPY = ("State the family offer and the member-association rate exactly as the offer register records them (Finance must extend "
+                  "the KINEFA rate first); no loan, subsidy or referral claim")
+
+
+def align_recipes(con) -> None:
+    """Point the design-only send steps at the offer-aligned drafts. They named the v3 copy column (which still holds the
+    earlier copy) and ruled out any discount for SACCOS. The earlier text stays in automation_recipe_history under
+    automation-2026-09-09-marketing-v3; the changed steps move to a new design-only configuration. Nothing is enabled."""
+    con.execute("INSERT OR IGNORE INTO automation_configuration SELECT ?, '2026-09-23-offer-v4', 0, timezone, mode, ?, stop_events_json, "
+                "source_id, 'Design only; the send steps use the offer-aligned drafts; no sending integration or recurring job is active.' "
+                "FROM automation_configuration WHERE configuration_id='automation-2026-09-09-marketing-v3'",
+                (RECIPE_CONFIGURATION, json.dumps({"copy": "outreach_plans subject, body, follow_up_1, follow_up_2 (offer v4)",
+                                                   "terms": "data/reference/silverleaf-offer-register.json"})))
+    for table, column in (("automation_recipes", "action"), ("outreach_flows", "action"), ("campaign_touchpoints", "purpose")):
+        for old, new in (("campaign_message_v3", "offer-aligned message (subject and body)"),
+                         ("campaign_follow_up_1_v3", "offer-aligned follow_up_1"), ("campaign_follow_up_2_v3", "offer-aligned follow_up_2")):
+            con.execute(f'UPDATE {table} SET "{column}"=REPLACE("{column}", ?, ?) WHERE "{column}" LIKE ?', (old, new, f"%{old}%"))
+    for table, column in (("automation_recipes", "example_copy"), ("outreach_flows", "example_copy"), ("campaign_touchpoints", "draft_copy")):
+        con.execute(f'UPDATE {table} SET "{column}"=? WHERE "{column}"=?', (SACCOS_V4_COPY, SACCOS_V3_COPY))
+    con.execute("UPDATE automation_recipes SET configuration_id=? WHERE action LIKE '%offer-aligned%'", (RECIPE_CONFIGURATION,))
+
+
 def merge_notes(existing, notes) -> str:
-    """Add notes to a '; '-separated field without repeating any, so re-running the script changes nothing."""
-    parts = [x.strip() for x in str(existing or "").split("; ") if x.strip()]
+    """Add notes to a '; '-separated field without repeating any, so re-running the script changes nothing.
+
+    Some notes contain '; ' themselves, so notes are compared part by part, and parts repeated by earlier runs are dropped."""
+    parts = list(dict.fromkeys(x.strip() for x in str(existing or "").split("; ") if x.strip()))
     for note in notes:
-        if note and note not in parts:
-            parts.append(note)
+        parts += [p for p in dict.fromkeys(x.strip() for x in str(note or "").split("; ") if x.strip()) if p not in parts]
     return "; ".join(parts)
 
 

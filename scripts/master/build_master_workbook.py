@@ -114,11 +114,18 @@ def main() -> int:
     report, counts = data["report"], data["report"]["counts"]
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     message_by_id = {m["message_id"]: m for m in data["messages"]}
+    # What research found about each lead, with a link per fact, shown beside every draft for that organisation.
+    briefs = data.get("lead_briefs", [])
+    brief_by_org, plans_by_org = {}, {}
+    for f in briefs:
+        brief_by_org.setdefault(f["organisation_id"], []).append(f"• {f['fact']} ({f['source_url']})")
+    for p in data["outreach_plans"]:
+        plans_by_org.setdefault(p["organisation_id"], []).append(p["message_id"])
     offer = report.get("offer_messages") or {}
     merge = report.get("contact_merge") or {}
     b = Builder()
 
-    b.sheet("Start here", f"Silverleaf master intelligence: organisations, contacts, offer-aligned outreach drafts, campaign positioning and "
+    b.sheet("Start here", f"Silverleaf master intelligence: organisations, contacts, request-first outreach drafts, campaign positioning and "
             f"design-only automation · generated {generated} from the canonical SQLite database",
             ["Table", "Records / use", "How to use it"], [
                 ["Organisations", counts["organisations"], "Filter by segment, route_status and selection. Choose at most one current recipient per "
@@ -126,9 +133,12 @@ def main() -> int:
                 ["Contacts", counts["contacts"], "Business contacts only, each with decision_maker, best route and pdpa_risk. A named person is not "
                  "evidence that they are a parent."],
                 ["Enquiries", counts["enquiries"], "Historical public childcare and school enquiries. Use the one-reply review flow."],
-                ["Messages", counts["messages"], "Offer-aligned drafts (offer v4) for every organisation and contact plan: subject, message, follow-ups "
-                 "and the Kiswahili version where one exists. Offer terms come only from data/reference/silverleaf-offer-register.json; Finance must "
-                 "confirm the 2027 terms before anything is sent. Earlier versions remain in SQLite message_versions."],
+                ["Messages", counts["messages"], "Request-first drafts for every organisation and contact plan, signed by Mariam Haji: the message "
+                 "asks for a short meeting and states no offer terms; offer_message (and AQ02's follow-up 1) states the offer, taken only from "
+                 "data/reference/silverleaf-offer-register.json. Finance must confirm the 2027 terms before the offer message is sent. lead_brief "
+                 "summarises what research found about the lead. Earlier versions remain in SQLite message_versions."],
+                ["Lead briefs", len(data.get("lead_briefs", [])), "Facts about each researched lead, each with its source link, page title, "
+                 "verbatim excerpt and the date it was read. Open the links to learn about a lead when they reply."],
                 ["Review", counts["review"], "Decisions for a person: differing values, possible overlaps and contact-research warnings (possible "
                  "closures, lost or hijacked websites, duplicates). Nothing here is applied automatically."],
                 ["Verified hooks", counts["verified_hooks"], "Recipient hooks appear only where their exact claims were verified; every other hook "
@@ -203,16 +213,26 @@ def main() -> int:
             "out, and each row's route, recipient and copy need review first. Hooks appear only where verified.",
             ["message_id", "target_name", "organisation_name", "target_type", "segment", "acquisition_track_id", "review_status", "contact_channel",
              "subject", "message", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "offer_ids", "offer_version", "hook_status",
-             "hook", "value_module_ids", "campaign_copy_status", "channel_attribution", "conditions", "missing_information", "strategy_id",
-             "source_record_id"],
+             "hook", "evidence_url", "lead_brief", "value_module_ids", "campaign_copy_status", "channel_attribution", "conditions",
+             "missing_information", "strategy_id", "source_record_id"],
             [[p["message_id"], p["target_name"], p["organisation_name"], p["target_type"], p["segment"], p["acquisition_track_id"],
               p["review_status"], p["contact_channel"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p.get("offer_message"),
-              p["offer_message_sw"], p["offer_ids"], p["offer_version"], p["hook_status"], p["hook"], p["value_module_ids"],
-              p["campaign_copy_status"], p["channel_attribution"], message_by_id.get(p["message_id"], {}).get("conditions"),
+              p["offer_message_sw"], p["offer_ids"], p["offer_version"], p["hook_status"], p["hook"],
+              p["evidence_url"] if str(p["hook_status"] or "").startswith("Verified") else "", "\n".join(brief_by_org.get(p["organisation_id"], [])),
+              p["value_module_ids"], p["campaign_copy_status"], p["channel_attribution"], message_by_id.get(p["message_id"], {}).get("conditions"),
               p["missing_information"], message_by_id.get(p["message_id"], {}).get("strategy_id"),
               message_by_id.get(p["message_id"], {}).get("source_record_id")]
              for p in data["outreach_plans"]],
-            [22, 28, 42, 16, 24, 20, 18, 34, 48, 90, 105, 70, 105, 90, 22, 26, 30, 60, 42, 48, 45, 95, 80, 24, 24], 175, "TMessages")
+            [22, 28, 42, 16, 24, 20, 18, 34, 48, 90, 105, 70, 105, 90, 22, 26, 30, 60, 45, 90, 42, 48, 45, 95, 80, 24, 24], 175, "TMessages")
+
+    b.sheet("Lead Briefs", "What research found about each lead, so a person can learn about it quickly if the lead replies. Every fact has "
+            "its source link, page title, the page's own date where shown, a verbatim excerpt and the date it was read; record_id points to the "
+            "full research record in SQLite. Only published organisation facts are recorded.",
+            ["organisation_name", "organisation_id", "message_ids", "fact_type", "fact", "source_url", "source_title", "source_date", "excerpt",
+             "accessed_on", "record_id"],
+            [[f["organisation_name"], f["organisation_id"], "; ".join(plans_by_org.get(f["organisation_id"], [])), f["fact_type"], f["fact"],
+              f["source_url"], f["source_title"], f["source_date"], f["excerpt"], f["accessed_on"], f["record_id"]] for f in briefs],
+            [34, 18, 40, 20, 70, 50, 40, 14, 80, 14, 18], 90, "TLeadBriefs")
 
     strategy_rows = []
     for s in data["strategies"]:
@@ -390,6 +410,7 @@ def main() -> int:
     # Reconcile every sheet with the export before saving.
     plans = counts["outreach_plans"]
     expected = {"Organisations": counts["organisations"], "Contacts": counts["contacts"], "Enquiries": counts["enquiries"], "Messages": plans,
+                "Lead Briefs": len(briefs),
                 "Campuses": counts["campuses"], "Review": counts["review"], "Facts": len(data["facts"]), "Source rows": counts["source_records"],
                 "Source files": counts["source_files"], "Outreach plans": plans, "Sequences": plans, "Segments": counts["outreach_segments"],
                 "Flows": counts["automation_steps"], "Knowledge sources": counts["knowledge_documents"],

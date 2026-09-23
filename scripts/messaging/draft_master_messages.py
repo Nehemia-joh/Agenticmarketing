@@ -167,8 +167,9 @@ def saccos_copy(plan: dict, org: dict, track: str) -> dict:
     org_name = L.display_name(plan.get("organisation_name") or org.get("name"))
     named = plan.get("target_type") == "contact" and plan.get("target_name")
     greet = f"Dear {L.greeting_name(plan['target_name'])}," if named else f"Dear {org_name} committee,"
+    hook = hook_sentence(plan)
     body = (f"{greet}\n\nI am writing to explore how Silverleaf Academy could support the education of {org_name} members' children, and "
-            f"would like to speak with your committee.\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+            f"would like to speak with your committee.{(' ' + hook) if hook else ''}\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
 
     def offer_text(opener: str) -> str:
         return (f"{greet}\n\n{opener} Every Silverleaf family can get {L.family_offer_en()}. We also offer member associations "

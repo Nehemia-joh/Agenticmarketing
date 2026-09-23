@@ -32,3 +32,22 @@ Use the workbook fields as follows:
 Compare message versions at the organisation level. Do not send version 1 to one contact and version 2 to another person in the same organisation. Count one organisation once, and compare positive replies and meetings only after source and channel quality are similar across the test groups.
 
 This database uses a verified-only rule. As of 7 September 2026, six message variants across two organisations have an active hook. The other hook fields are blank, and those messages open directly with the request (request-first, 23 September 2026).
+
+## Research waves and lead briefs
+
+Hooks for a batch of leads are researched in waves. Each lead's facts are kept as a brief, so a person can learn about the lead quickly if they reply.
+
+1. **Plan.** `python scripts/messaging/plan_hook_research.py --date <date> --track AQ02 --budget <searches>` groups the track's plans by organisation. It writes one slice and one agent prompt per research agent under `runtime/hooks/`: at most four agents, with 10% of the searches held back.
+2. **Research.** Each agent reads pages with `python scripts/contacts/read_page.py <url>`, which caches pages, spaces requests to a site 1.5 s apart, honours robots.txt Disallow and reports blocks. It writes `data/raw/hook-research/hooks_<slice>_<date>.jsonl` and a coverage log. For each organisation it records:
+   - a role check for each named contact, on the page the contact came from;
+   - a lead brief: up to five published facts, each with its source URL, page title, page date, a verbatim excerpt and the date it was read;
+   - at most one hook sentence, in the second person and supported entirely by one of those facts, or none.
+3. **Merge.** `python scripts/messaging/apply_hook_research.py --date <date>` previews the merge, and `--apply` runs it in one transaction:
+   - the source files and records;
+   - the `lead_briefs` table;
+   - verified hooks on every plan for the organisation;
+   - review items. A changed or missing role holds that contact's drafts.
+
+   Then run `draft_master_messages.py`, `refresh_acquisition_metadata.py`, `npm run build:workbook` and `verify_master.py`.
+
+The master workbook's Lead Briefs sheet lists every fact with a clickable source link. The Messages sheet shows each draft's brief and hook source beside the copy. `verify_master.py` fails if a verified hook has no source link, or a brief fact lacks its link, excerpt or research record.

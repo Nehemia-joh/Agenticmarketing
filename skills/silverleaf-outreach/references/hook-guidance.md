@@ -27,3 +27,22 @@ Adjust the closing request to the recipient:
 When comparing two first-message versions, assign one version per resolved organisation. Do not send different variants to multiple contacts at the same organisation. Compare positive replies and meetings only after source and channel quality are similar across the groups.
 
 For batch work, treat role-led, locality-led and value-led opening ideas as research candidates until their exact claims are verified. No hook is preferable to an inaccurate one.
+
+## Research waves and lead briefs
+
+Hooks for a batch of leads are researched in waves. Each lead's facts are kept as a brief, so a person can learn about the lead quickly if they reply.
+
+1. **Plan.** `python scripts/messaging/plan_hook_research.py --date <date> --track AQ02 --budget <searches>` groups the track's plans by organisation. It writes one slice and one agent prompt per research agent under `runtime/hooks/`: at most four agents, with 10% of the searches held back.
+2. **Research.** Each agent reads pages with `python scripts/contacts/read_page.py <url>`, which caches pages, spaces requests to a site 1.5 s apart, honours robots.txt Disallow and reports blocks. It writes `data/raw/hook-research/hooks_<slice>_<date>.jsonl` and a coverage log. For each organisation it records:
+   - a role check for each named contact, on the page the contact came from;
+   - a lead brief: up to five published facts, each with its source URL, page title, page date, a verbatim excerpt and the date it was read;
+   - at most one hook sentence, in the second person and supported entirely by one of those facts, or none.
+3. **Merge.** `python scripts/messaging/apply_hook_research.py --date <date>` previews the merge, and `--apply` runs it in one transaction:
+   - the source files and records;
+   - the `lead_briefs` table;
+   - verified hooks on every plan for the organisation;
+   - review items. A changed or missing role holds that contact's drafts.
+
+   Then run `draft_master_messages.py`, `refresh_acquisition_metadata.py`, `npm run build:workbook` and `verify_master.py`.
+
+The master workbook's Lead Briefs sheet lists every fact with a clickable source link. The Messages sheet shows each draft's brief and hook source beside the copy. `verify_master.py` fails if a verified hook has no source link, or a brief fact lacks its link, excerpt or research record.

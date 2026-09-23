@@ -44,6 +44,16 @@ def main() -> int:
         "verified": connection.execute("SELECT COUNT(*) FROM outreach_plans WHERE hook_status LIKE 'Verified%' AND COALESCE(hook,'')<>''").fetchone()[0],
         "active_unverified": connection.execute("SELECT COUNT(*) FROM outreach_plans WHERE COALESCE(hook,'')<>'' AND hook_status NOT LIKE 'Verified%'").fetchone()[0],
     }
+    # Every verified hook links to its source, and every lead-brief fact keeps its link, excerpt and research record.
+    hooks["verified_without_source"] = connection.execute(
+        "SELECT COUNT(*) FROM outreach_plans WHERE hook_status LIKE 'Verified%' AND COALESCE(hook,'')<>'' AND COALESCE(evidence_url,'') NOT LIKE 'http%'"
+    ).fetchone()[0]
+    briefs = {"facts": 0, "untraceable": 0}
+    if connection.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lead_briefs'").fetchone():
+        briefs["facts"] = connection.execute("SELECT COUNT(*) FROM lead_briefs").fetchone()[0]
+        briefs["untraceable"] = connection.execute(
+            "SELECT COUNT(*) FROM lead_briefs WHERE source_url NOT LIKE 'http%' OR COALESCE(excerpt,'')='' OR record_id NOT IN "
+            "(SELECT record_id FROM source_records)").fetchone()[0]
     assignments = {
         "plans": counts["outreach_plans"],
         "with_track": connection.execute("SELECT COUNT(*) FROM outreach_plans WHERE COALESCE(acquisition_track_id,'')<>''").fetchone()[0],
@@ -63,6 +73,8 @@ def main() -> int:
         "workbook_exists": args.workbook.is_file(),
         "all_plans_classified": assignments["plans"] == assignments["with_track"],
         "hooks_supported": hooks["active_unverified"] == 0,
+        "hooks_link_to_sources": hooks["verified_without_source"] == 0,
+        "lead_briefs_traceable": briefs["untraceable"] == 0,
         "automations_disabled": enabled_automations == 0,
         "no_generated_dependency_debris": not unwanted,
     }
@@ -76,6 +88,7 @@ def main() -> int:
         "checks": checks,
         "counts": counts,
         "hooks": hooks,
+        "lead_briefs": briefs,
         "assignments": assignments,
         "enabled_automations": enabled_automations,
         "unwanted_paths": unwanted,

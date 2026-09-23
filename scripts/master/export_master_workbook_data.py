@@ -272,6 +272,10 @@ def main() -> int:
         "acquisition_tracks": rows(connection, "SELECT * FROM acquisition_tracks ORDER BY track_id"),
         "value_proposition_modules": rows(connection, "SELECT * FROM value_proposition_modules ORDER BY module_id"),
         "lead_intake_rules": rows(connection, "SELECT * FROM lead_intake_rules ORDER BY stage_order"),
+        # Facts about each researched lead, each with its source, so a person can learn about the lead if they reply.
+        "lead_briefs": rows(connection, "SELECT b.*, o.name AS organisation_name FROM lead_briefs b JOIN organisations o USING(organisation_id) "
+                                        "ORDER BY o.name, b.position") if connection.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='lead_briefs'").fetchone() else [],
     }
     connection.close()
     args.output.parent.mkdir(parents=True, exist_ok=True)

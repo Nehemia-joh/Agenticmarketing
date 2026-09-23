@@ -25,7 +25,8 @@ ROOT = L.ROOT
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 RUNS = {"welfare": "arusha-welfare-2026-09", "government": "arusha-government-2026-09"}
 BLUE, WHITE = "002368", "FFFFFF"
-WRAP = {"subject", "body", "follow_up_1", "follow_up_2", "kiswahili_version", "english_meaning", "conditions", "terms", "use_note", "restriction",
+WRAP = {"subject", "body", "follow_up_1", "follow_up_2", "offer_message", "lead_brief", "kiswahili_version", "english_meaning", "conditions", "terms",
+        "use_note", "restriction",
         "text", "offer", "recipient", "issue"}
 
 
@@ -74,7 +75,12 @@ def main() -> int:
 
     m = ro(MASTER)
     corporate_headers = ["message_id", "organisation", "recipient", "recipient_role", "contact_channel", "segment", "track", "review_status", "selection",
-                         "subject", "body", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "offer_ids", "conditions"]
+                         "subject", "body", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "lead_brief", "offer_ids", "conditions"]
+    # What research found about each lead, one line per fact with its source link (scripts/messaging/apply_hook_research.py).
+    brief = {}
+    if m.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lead_briefs'").fetchone():
+        for oid, fact, url in m.execute("SELECT organisation_id, fact, source_url FROM lead_briefs ORDER BY organisation_id, position"):
+            brief.setdefault(oid, []).append(f"• {fact} ({url})")
     corporate = []
     for r in m.execute("""SELECT p.*, msg.conditions AS conditions FROM outreach_plans p JOIN messages msg USING(message_id)
                           ORDER BY CASE p.acquisition_track_id WHEN 'AQ02' THEN 0 WHEN 'AQ01' THEN 1 ELSE 2 END, p.segment, p.organisation_name"""):
@@ -86,7 +92,8 @@ def main() -> int:
             issues += [["corporate", r["message_id"], problem] for problem in L.check_first_message(r[field], ignore=names)]
         corporate.append([r["message_id"], r["organisation_name"], r["target_name"] if r["target_type"] == "contact" else "Organisation route",
                           r["recipient_role"], r["contact_channel"], r["segment"], r["acquisition_track_id"], r["review_status"], r["selection"],
-                          r["subject"], r["body"], r["follow_up_1"], r["follow_up_2"], r["offer_message"], r["offer_message_sw"], r["offer_ids"],
+                          r["subject"], r["body"], r["follow_up_1"], r["follow_up_2"], r["offer_message"], r["offer_message_sw"],
+                          "\n".join(brief.get(r["organisation_id"], [])), r["offer_ids"],
                           "; ".join(x for x in (r["missing_information"], r["conditions"]) if x)])
     parents = []
     for r in m.execute("SELECT d.*, e.enquiry_date, e.platform FROM parent_enquiry_drafts d JOIN enquiries e USING(enquiry_id) ORDER BY d.status, e.enquiry_date"):
@@ -170,7 +177,7 @@ def main() -> int:
               "(AQ02's follow-up 1, or the reply). Earlier versions are in message_versions ('2026-09-23-before-offer-v4', "
               "'2026-09-23-before-request-first').",
               corporate_headers, corporate, {"organisation": 34, "body": 80, "follow_up_1": 90, "offer_message": 90, "kiswahili_version": 80,
-                                             "conditions": 70})
+                                             "lead_brief": 80, "conditions": 70})
     add_sheet(wb, "Parent Replies", "Historical public enquiries in the master: 'Review only' rows carry one reply with the family offer; the rest get none.",
               ["enquiry_id", "enquiry_date", "platform", "status", "route_status", "subject", "body"], parents, {"body": 90, "status": 50})
     add_sheet(wb, "Welfare Messages", "Welfare run drafts: a meeting request first (sponsorship requests for funders only), then the partner "

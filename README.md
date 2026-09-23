@@ -404,11 +404,35 @@ python scripts/messaging/build_offer_messages_workbook.py     # one review workb
 ```
 
 On 23 September 2026, after the contact research below, the drafts were:
-- **Company master:** 1,626: the 1,314 organisation plans plus 312 plans for newly found contacts; 82 are AQ02, 1,192 AQ01 and 352 on hold.
+- **Company master:** 1,626: the 1,314 organisation plans plus 312 plans for newly found contacts; 81 are AQ02, 1,192 AQ01 and 353 on hold.
 - **Welfare:** 490, of which 63 are ready and 427 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
 All of them pass the offer-register checks, and no first message states offer terms. Finance must confirm that the 2025 terms apply to 2027 before any message that states them is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
+
+### Lead briefs and hooks for the named leads
+
+On 23 September 2026, four research agents checked the 58 organisations behind the 82 named decision-makers (AQ02). They used 5 web searches; everything else came from the organisations' own pages. Results:
+- **Lead briefs:** 270 facts. Each has its source link, the page title, a verbatim excerpt and the date it was read. The master workbook lists them on the Lead Briefs sheet, and the Messages sheet shows each draft's brief. When a lead replies, the links show who they are.
+- **Hooks:** 45 organisations have a verified hook, now in the first message of all 235 of their drafts. Examples:
+  - long-serving staff (Cheli & Peacock, African Environments, Duma Explorer, Corto)
+  - a published team size (Tanzania Experience's 80 permanent employees)
+  - staff-welfare policies (Serengeti Big Cats, Good Earth, Matembezi)
+  - education or community programmes (Kojuu, Meru Slopes, Kiliclimb, Kingse, Wonders of Creation)
+
+  13 organisations have no hook. For 8, including Rivertrees by design, no fact supported one. The other 5 were rejected in review as generic or weakly sourced (`data/raw/hook-research/coordinator-review_2026-09-23.json`).
+- **Roles:** the agents re-checked each named contact on the page they came from:
+  - 75 of 81 were confirmed;
+  - one was promoted (a review item);
+  - one is no longer listed, so that draft is held;
+  - four pages could not be read (review items).
+- **35 review items** for a person. 28 are checks the agents raised: possibly better addressees, public bodies that may need approval, names to confirm, companies based in Moshi and a duplicate record. The rest are the role items.
+
+```powershell
+python scripts/messaging/plan_hook_research.py --date <date> --track AQ02 --budget <searches>   # then run the agents
+python scripts/messaging/apply_hook_research.py --date <date>            # preview
+python scripts/messaging/apply_hook_research.py --date <date> --apply    # one transaction; then redraft, refresh, build and verify
+```
 
 ## Contact profiles and contact leads
 

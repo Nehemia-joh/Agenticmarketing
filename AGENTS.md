@@ -12,6 +12,8 @@ Use `outputs/master/Silverleaf Master Database.sqlite` as the canonical lead dat
 - For welfare institutions as paying customers (children's homes, care programmes, specialised centres, and their funders), follow `skills/silverleaf-welfare-leads/SKILL.md`. Its runs live in `data/runs/<run-id>/` and `outputs/runs/<run-id>/` and never modify the master.
 - For local government offices that can convene community meetings (barazas) where Silverleaf can meet parents, follow `skills/silverleaf-government-leads/SKILL.md`. Its runs are separate in the same way. They record officials only as officially published and never hold parent, resident or party data.
 
+- For contact profiles and contact leads across the three databases (published organisation routes and the named decision-makers an organisation publishes), follow `docs/methodology/contact-research.md` and the scripts in `scripts/contacts/`. The master takes the results through the update skill's validator, preflight and one transaction; the welfare and government runs take them through their pipelines.
+
 Read the referenced data contract before creating fields or changing match rules.
 
 Any message that states an offer, discount or fee term takes it from `data/reference/silverleaf-offer-register.json` (`skills/silverleaf-outreach/references/offer-register.md`). Draft with the scripts in `scripts/messaging/`; they check every term against the register.

@@ -16,6 +16,7 @@ from collections import defaultdict
 
 import welfare_lib as W
 
+SUPPLEMENTARY_SLICES = {"W"}
 SCALAR_FIELDS = ["organisation_name", "segment", "subtype", "care_model", "description", "operator_or_umbrella",
                  "religious_affiliation_published", "founded", "registration_published", "licence_claim", "address",
                  "locality", "ward", "district", "region", "latitude", "longitude", "geocode_basis", "website",
@@ -41,30 +42,35 @@ def merge_organisations(orgs: list[dict]) -> tuple[list[dict], list[dict]]:
     def union(i, j):
         parent[find(i)] = find(j)
 
+    # One slot per name (and per domain) for funders and one for institutions, so a third record with a shared name
+    # still finds its own kind: a funder and the institution it supports stay separate, and neither is duplicated.
     by_key, by_domain, reviews = {}, {}, []
     for i, org in enumerate(orgs):
+        funder = is_funder(org)
         keys = {W.name_key(org.get("organisation_name"))} | {W.name_key(a) for a in W.as_list(org.get("alternative_names"))}
         for k in keys - {""}:
-            if k in by_key and is_funder(orgs[by_key[k]]) == is_funder(org):
-                union(i, by_key[k])
-            elif k not in by_key:
-                by_key[k] = i
+            if (k, funder) in by_key:
+                union(i, by_key[(k, funder)])
+            else:
+                by_key[(k, funder)] = i
         dom = W.own_domain(org.get("website"))
         if dom:
-            if dom in by_domain and is_funder(orgs[by_domain[dom]]) == is_funder(org):
-                union(i, by_domain[dom])
-            elif dom in by_domain:
-                reviews.append({"kind": "shared_domain_funder_and_institution", "entity": org.get("organisation_name"),
-                                "related": orgs[by_domain[dom]].get("organisation_name"), "detail": {"domain": dom},
-                                "action": "A funder and an institution cite the same website; kept separate. Confirm which organisation the site belongs to."})
+            if (dom, funder) in by_domain:
+                union(i, by_domain[(dom, funder)])
             else:
-                by_domain[dom] = i
+                by_domain[(dom, funder)] = i
+                if (dom, not funder) in by_domain:
+                    reviews.append({"kind": "shared_domain_funder_and_institution", "entity": org.get("organisation_name"),
+                                    "related": orgs[by_domain[(dom, not funder)]].get("organisation_name"), "detail": {"domain": dom},
+                                    "action": "A funder and an institution cite the same website; kept separate. Confirm which organisation the site belongs to."})
     groups = defaultdict(list)
     for i in range(len(orgs)):
         groups[find(i)].append(orgs[i])
     merged = []
     for members in groups.values():
-        members.sort(key=lambda o: (W.VERIFICATION_RANK.get(o.get("verification_status"), 9), -len(W.as_list(o.get("sources")))))
+        # Contact-profile records (slice W, scripts/contacts/) only fill blanks: the organisation's own research leads.
+        members.sort(key=lambda o: (o.get("slice") in SUPPLEMENTARY_SLICES, W.VERIFICATION_RANK.get(o.get("verification_status"), 9),
+                                    -len(W.as_list(o.get("sources")))))
         base = {"members": [f"{m['_file']}:{m['_line']}" for m in members], "slices": sorted({str(m.get("slice", "")) for m in members})}
         conflicts = {}
         for field in SCALAR_FIELDS:

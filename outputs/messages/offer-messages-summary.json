@@ -1,16 +1,16 @@
 {
- "generated": "2026-09-22 23:17 UTC",
+ "generated": "2026-09-23 01:10 UTC",
  "offer_version": "2026-09-23-offer-v4",
- "corporate_drafts": 1314,
+ "corporate_drafts": 1482,
  "corporate_by_track": {
-  "AQ02": 62,
-  "AQ01": 805,
-  "AQ00": 447
+  "AQ02": 80,
+  "AQ01": 1041,
+  "AQ00": 361
  },
  "parent_replies_reviewable": 9,
  "welfare": {
-  "draft_ready": 21,
-  "needs_review": 469
+  "draft_ready": 48,
+  "needs_review": 442
  },
  "government": {
   "draft_ready": 4,

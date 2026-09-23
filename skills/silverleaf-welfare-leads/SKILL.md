@@ -58,6 +58,13 @@ Run these commands from the repository root.
    ```
    This writes one prompt per slice to `runtime/welfare/<run-id>/prompts/`, and `research-plan.json` with each slice's allocation and wave. Put the previous run's `next_run_priorities` (in `references/research-slices.json`) first.
 4. **Run the research agents,** at most four per wave, each with its prompt. They write `research_<slice>_<name>_<date>.jsonl` and a coverage log into `data/raw/welfare-research/`.
+
+   Contact research (`docs/methodology/contact-research.md`) adds `research_W_contact_profiles_<date>.jsonl` through `scripts/contacts/export_run_contact_research.py`, and lists it in the run's `research_files`. Slice W is supplementary in `consolidate_research.py`:
+   - it fills blank fields and adds routes and named leads
+   - it never replaces what the research recorded
+   - it never gives an organisation a website that another run record already uses
+
+   The export writes every lead each time, so rebuilding the run keeps them.
 5. **Curate.** Record reviewed decisions in `data/runs/<run-id>/links.json`: register matches with evidence, location overrides for multi-site organisations, map links and company-master IDs.
 6. **Build and verify** without any network calls:
    ```bash

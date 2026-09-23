@@ -191,6 +191,16 @@ def welfare(con, now, run_cfg) -> dict:
 
 
 # ------------------------------------------------------------------ government
+def postal_lines(address) -> tuple[str, str]:
+    """('S.L.P. 3013,\\nARUSHA.', 'P.O. Box 3013, Arusha') from a published postal address in either language; ('', '') if none."""
+    text = str(address or "").strip()
+    m = re.search(r"(?:P\.?\s*O\.?\s*Box|S\.?\s*L\.?\s*P\.?)\s*(?:No\.?\s*)?(\d{1,6})[\s,.]*([A-Za-z' ]*)", text, re.I)
+    if not m:
+        return (f"{text.rstrip('.')}." if text else ""), text
+    number, town = m.group(1), " ".join(m.group(2).split())
+    return (f"S.L.P. {number},\n{town.upper()}." if town else f"S.L.P. {number}."), (f"P.O. Box {number}, {town.title()}" if town else f"P.O. Box {number}")
+
+
 def director_title(council: dict) -> str:
     name = council["name"]
     if "City" in name:
@@ -245,17 +255,20 @@ def government(con, now, run_cfg) -> dict:
             ward_en = (f"\n\nWe would like to start in the wards nearest our campuses, such as {', '.join(wards[:-1])} and {wards[-1]}." if len(wards) > 1
                        else (f"\n\nWe would like to start in {wards[0]} ward, near our campuses." if wards else ""))
             subject = "YAH: OMBI LA UTAMBULISHO ILI KUTOA ELIMU KWA WAZAZI KUHUSU MAANDALIZI YA WATOTO KUANZA SHULE"
-            body = (f"{title},\n{council.get('name_sw', o['council_name'])}.\n\n{subject}\n\n{ABOUT_SW}\n\nTunaomba ushauri wako na barua ya utambulisho "
+            # The official postal address, when contact research found one, completes the formal address block.
+            postal_sw, postal = postal_lines(o.get("address"))
+            addressee = f"{council.get('name_sw', o['council_name'])},\n{postal_sw}" if postal_sw else f"{council.get('name_sw', o['council_name'])}."
+            body = (f"{title},\n{addressee}\n\n{subject}\n\n{ABOUT_SW}\n\nTunaomba ushauri wako na barua ya utambulisho "
                     f"kwa Watendaji wa Kata ili, pale itakapofaa, tupewe muda mfupi wa dakika 15 hadi 20 katika mikutano ya wananchi. Tutatoa "
                     f"{SESSION_SW}. Kila mzazi atapata kijitabu kinachoeleza ada na nafuu zinazopatikana kwa familia zote: {L.family_offer_sw()}."
                     f"{ward_sw}\n\n{SAFEGUARDS_SW}\n\nTutashukuru kupata nafasi ya kukutana nawe kwa dakika 15 kueleza zaidi.\n\n{CLOSE_SW}")
             english = (f"To the {'City Director' if 'City' in o['council_name'] else 'Municipal Director' if 'Municipal' in o['council_name'] else 'District Executive Director'}, "
-                       f"{o['council_name']}.\n\nRE: REQUEST FOR AN INTRODUCTION TO GIVE PARENTS INFORMATION ON PREPARING CHILDREN TO START SCHOOL\n\n{ABOUT_EN}\n\n"
+                       f"{o['council_name']}{', ' + postal if postal else ''}.\n\nRE: REQUEST FOR AN INTRODUCTION TO GIVE PARENTS INFORMATION ON PREPARING CHILDREN TO START SCHOOL\n\n{ABOUT_EN}\n\n"
                        f"We ask for your advice and a letter introducing us to the ward executive officers so that, where appropriate, we can have a "
                        f"short 15 to 20 minutes at community meetings. We will give {SESSION_EN}. Every parent will receive a booklet explaining the "
                        f"fees and the savings open to all families: {FAMILY_EN}.{ward_en}\n\n{SAFEGUARDS_EN}\n\nWe would welcome 15 minutes with you to "
                        f"explain more.\n\n{CLOSE_EN}")
-            follow = (f"{title},\n{council.get('name_sw', o['council_name'])}.\n\nYAH: UFUATILIAJI WA BARUA YETU YA OMBI LA UTAMBULISHO\n\nTunafuatilia "
+            follow = (f"{title},\n{addressee}\n\nYAH: UFUATILIAJI WA BARUA YETU YA OMBI LA UTAMBULISHO\n\nTunafuatilia "
                       f"barua yetu kuhusu elimu kwa wazazi kuhusu maandalizi ya watoto kuanza shule. Tutashukuru kujua kama tunaweza kupanga kikao "
                       f"kifupi na ofisi yako, au afisa unayemteua.\n\n{CLOSE_SW}")
             modules, cta = "VM14; VM15; VM16; VM17", "Protocol introduction"

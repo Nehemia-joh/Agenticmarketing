@@ -14,6 +14,8 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `data/interim/welfare-leads/` | Welfare organisation, contact, relationship and register tables from the latest welfare run. |
 | `data/raw/government-research/` | Census ward tables, council-site captures, councillor-list transcriptions, Wikipedia and OpenStreetMap extracts, with a hash manifest. |
 | `data/interim/government-leads/` | Wards, convening offices, official posts, office triage and convening signals from the latest government run. |
+| `data/raw/contact-research/` | Contact research: website-crawl extracts, OpenStreetMap contact tags, budgeted search records and their coverage logs. |
+| `data/interim/contact-profiles/` | Organisation contact profiles and contact leads across the three databases, from the latest contact research. |
 | `data/runs/` | Inputs for separate runs: run config, reviewed curation (`links.json`), research plan and intake. |
 | `references/` | Original Silverleaf business and marketing source documents. |
 | `docs/scope/` | Agreed project scope. |
@@ -25,12 +27,14 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `scripts/master/` | Acquisition refresh, workbook export/build, and master verification. |
 | `scripts/welfare/` | Welfare-lead collectors, research planner, run pipeline and the shared rate-limited HTTP helper. |
 | `scripts/government/` | Government-lead collectors (census, council sites, OpenStreetMap, Wikipedia), run pipeline and verification. |
+| `scripts/contacts/` | Contact research: polite website crawler, OpenStreetMap contacts, profile builder, wave planner, master merge, run exports and the review workbook. |
 | `scripts/messaging/` | Offer-aligned message drafting for all three databases, the offer-register checks and the combined review workbook. |
 | `skills/` | Reusable create-list, update-list, outreach, welfare-leads and government-leads skills. |
 | `outputs/master/` | Canonical SQLite database and consolidated review workbook. |
 | `outputs/config/` | Disabled automation recipes. |
 | `outputs/reports/` | Current verification results. |
 | `outputs/runs/` | Separate run outputs: database (ignored by Git), review workbook, validation and verification reports. |
+| `outputs/contacts/` | The contact-profiles review workbook and the master merge report. |
 | `outputs/messages/` | The combined review workbook of offer-aligned drafts and its reconciliation reports. |
 | `plans/` | Plans for new lead tracks and presentations. |
 | `runtime/` | Ignored scratch space for generated working files, HTTP caches and rendered research prompts. |
@@ -387,13 +391,63 @@ python scripts/government/run_pipeline.py --run-id arusha-government-2026-09 --r
 python scripts/messaging/build_offer_messages_workbook.py     # one review workbook for all three
 ```
 
-On 23 September 2026 the drafts were:
-- **Company master:** 1,314. That is 927 rewritten plus 387 new plans for organisations that had none; 62 are AQ02, 805 AQ01 and 447 on hold.
-- **Welfare:** 490, of which 21 are ready and 469 held with a reason.
-- **Government:** 149, of which the 4 council letters are ready and 145 are held.
+On 23 September 2026, after the contact research below, the drafts were:
+- **Company master:** 1,482: the 1,314 offer-aligned organisation plans plus 168 plans for newly found contacts; 80 are AQ02, 1,041 AQ01 and 361 on hold.
+- **Welfare:** 490, of which 48 are ready and 442 held with a reason.
+- **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
 All of them pass the offer-register checks. Finance must confirm that the 2025 terms apply to 2027 before anything is sent. The consolidated master workbook needs `npm run build:workbook` in an environment with `@oai/artifact-tool`; until then, `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` is the review view.
 
+## Contact profiles and contact leads
+
+Every organisation in the three databases has a contact profile. The profile holds the organisation's published website, emails, phones, postal address and official social pages, and its contact leads: the named people who lead or decide for it, exactly as the organisation or an official source publishes them. The method, rules and agent brief are in `docs/methodology/contact-research.md`.
+
+```powershell
+python scripts/contacts/crawl_org_websites.py --date <date>            # own websites; cached, robots.txt honoured
+python scripts/contacts/collect_osm_contacts.py --date <date>
+python scripts/contacts/build_contact_profiles.py --date <date>
+python scripts/contacts/plan_contact_research.py --date <date> --wave 1 --budget <searches>   # then run the agents
+python scripts/contacts/build_contact_workbook.py --date <date> --baseline   # before any merge
+python scripts/contacts/merge_master_contacts.py            # validator and preflight reports
+python scripts/contacts/merge_master_contacts.py --apply    # one transaction
+python scripts/contacts/export_run_contact_research.py      # then the welfare and government pipelines with --rebuild-db
+python scripts/contacts/build_contact_workbook.py --date <date>
+```
+
+On 23 September 2026 the research used:
+- **Own websites:** 581 crawled. 487 were readable, 87 were not, and robots.txt disallowed 7.
+- **Search agents:** 354 records from 7 agents in two waves, using 189 searches.
+
+It left these results (review them in `outputs/contacts/Silverleaf Contact Profiles - 2026-09-23.xlsx`):
+
+| | Company master | Welfare | Government |
+|---|---|---|---|
+| Organisations with a published email or phone | 598 → 702 of 955 | 101 → 158 of 497 | 28 → 37 of 149 |
+| Organisations with a named decision-maker | 160 → 221 | 52 → 106 | 9 (unchanged) |
+| Contact leads | 353 → 514 | 131 → 331 | 459 (office posts) |
+| Contact leads reachable by their own or their organisation's route | 510 | 313 | 79 |
+
+- **Master:** 377 empty fields filled, 161 contacts added and 87 held drafts released because a route was found. 53 review items raised:
+  - website conflicts
+  - lost or hijacked domains
+  - possible duplicates
+  - three possible closures (FBME Arusha, Fastjet's ticket office and Impala Hotel), whose drafts are held
+- **Welfare:** 200 new named leads and 57 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
+- **Government:** every council in the run and the Arusha and Kilimanjaro Regional Secretariats now have their official email, office phone and P.O. Box, from their own letterheads and service charters. Only Manyara's secretariat lacks an email and phone; it has its P.O. Box.
+- **Filtered out:**
+  - template names, headings and client testimonials
+  - former roles and staff outside outreach (chefs, guides, accountants)
+  - people beyond six new leads per organisation
+- **Flags:** the Flags sheet lists 146 research warnings for a person to check.
+
+Still without a route:
+- savings groups, reached through KINEFA
+- register-only NGOs with no web presence
+- ward and village offices
+- 132 organisations that no search reached: 55 welfare funders and specialised centres, 40 homes and programmes, and 37 employers
+
+The planner (`plan_contact_research.py --wave 3`) puts those 132 in the next session's first wave; the WebSearch cap resets with each session.
+
 ## Current verified master
 
-The current verified master contains 955 organisations, 353 contacts, 32 enquiries, 927 messages and outreach plans, 959 campaign assignments, 139 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.
+The current verified master contains 955 organisations, 514 contacts, 32 enquiries, 1,482 messages and outreach plans, 1,514 campaign assignments, 140 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.

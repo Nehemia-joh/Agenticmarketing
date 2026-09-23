@@ -1,0 +1,784 @@
+{
+ "retrieved": "2026-09-23",
+ "note": "Published office routes found by contact research (budgeted searches of official documents and directories). Office titles only; no officials' personal details.",
+ "offices": {
+  "Sekretarieti ya Mkoa wa Arusha (Arusha Regional Secretariat)": {
+   "emails": [
+    {
+     "email": "ras@arusha.go.tz",
+     "type": "general",
+     "person": "",
+     "source_url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "email": "rc@arusha.go.tz",
+     "type": "general",
+     "person": "",
+     "source_url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272544950",
+     "type": "office",
+     "source_url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272545608",
+     "type": "office",
+     "source_url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 3050, Arusha"
+   ],
+   "physical": [
+    "Regional Commissioner's Building, 2 Makongoro Road, 23101 Sekei, Arusha"
+   ],
+   "sources": [
+    {
+     "url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "title": "Arusha Region Investment Guide (published in the Arusha Regional Secretariat website's documents, uploaded 2026-03-12), 5.2.1 Regional Commissioner's Office, p.95",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Regional Commissioner (RC) 3050 Arusha +255 27 254 5608 rc@arusha.go.tz Regional Administrative Secretary (RAS) 3050 Arusha +255 27 254 4950 ras@arusha.go.tz"
+    },
+    {
+     "url": "https://www.nbs.go.tz/offices",
+     "title": "NBS | Regional Offices (National Bureau of Statistics office directory)",
+     "facts": [
+      "physical_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Regional Commissioner's Building, 2 Makongoro Road, 23101 Sekei, Arusha."
+    },
+    {
+     "url": "https://arusha.go.tz/",
+     "title": "Arusha Regional Commissioner's office (home page; JavaScript shell) - search result Q32",
+     "facts": [
+      "postal_address"
+     ],
+     "fetched": false,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "S.L.P 3050 ARUSHA"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Sekretarieti ya Mkoa wa Kilimanjaro (Kilimanjaro Regional Secretariat)": {
+   "emails": [
+    {
+     "email": "ras@kilimanjaro.go.tz",
+     "type": "general",
+     "person": "",
+     "source_url": "https://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772615865561-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "email": "ras.kilimanjaro@tamisemi.go.tz",
+     "type": "general",
+     "person": "",
+     "source_url": "https://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772615865561-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272752189",
+     "type": "office",
+     "source_url": "https://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772615865561-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272752184",
+     "type": "office",
+     "source_url": "https://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772615865561-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272758248",
+     "type": "office",
+     "source_url": "https://www.undp.org/sites/g/files/zskgke326/files/2023-11/kilimanjaro_investment_guide.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "Katibu Tawala, Ofisi ya Mkoa wa Kilimanjaro, P.O. Box 3070, Moshi (S.L.P 3070)"
+   ],
+   "physical": [
+    "Regional Commissioner's Building, 17 Florida Road, 25107 Moshi"
+   ],
+   "sources": [
+    {
+     "url": "https://kilimanjaro.go.tz/minio/kilimanjaro.go.tz/attachments/1772615865561-MKATABA%20WA%20HUDUMA%20KWA%20WATEJA%20KILIMANJARO.pdf",
+     "title": "Mkataba wa Huduma kwa Wateja, Ofisi ya Mkuu wa Mkoa Kilimanjaro (Client Service Charter, February 2025), section 10 contacts",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Katibu Tawala Ofisi ya Mkoa wa Kilimanjaro, S. L. P 3070, MOSHI. Simu: (+255) 027 - 2752189 (+255) 027 - 2752184 Barua pepe: ras@kilimanjaro.go.tz"
+    },
+    {
+     "url": "https://www.nbs.go.tz/offices",
+     "title": "NBS | Regional Offices (National Bureau of Statistics office directory)",
+     "facts": [
+      "physical_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Regional Commissioner's Building, Kilimanjaro Region, 17 Florida Road, 25107 Moshi."
+    },
+    {
+     "url": "https://www.undp.org/sites/g/files/zskgke326/files/2023-11/kilimanjaro_investment_guide.pdf",
+     "title": "Kilimanjaro Region Investment Guide (2018), Part Five Key Contacts, p.60",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Regional Commissioner (RC) 3070, Moshi +255 027 2758248 ras@kilimanjaro.go.tz/ras. kilimanjaro@tamisemi.go.tz"
+    },
+    {
+     "url": "https://kilimanjaro.go.tz/announcement/kwa-huduma-bora-ya-ukumbi-wa-kisasa-wa-mikutano-tafadhali-fika-ofisini-au-wasiliana-nasi-kwa-sl-p-3070-moshi-au-piga-simu-namba-027-2758248027-2751",
+     "title": "Regional announcement on the conference hall (search result Q28)",
+     "facts": [
+      "postal_address",
+      "phone"
+     ],
+     "fetched": false,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "wasiliana nasi kwa S.L. P 3070, Moshi. au Piga simu namba 027 2758248"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Sekretarieti ya Mkoa wa Manyara (Manyara Regional Secretariat)": {
+   "emails": [],
+   "phones": [],
+   "postal": [
+    "P.O. Box 310, Babati"
+   ],
+   "physical": [
+    "Regional Commissioner's Building, 2 Mkoani Road, Komoto, 27301 Bagara, Babati CBD"
+   ],
+   "sources": [
+    {
+     "url": "https://manyara.go.tz/othercontacts",
+     "title": "OtherContacts | Manyara Regional Secretariat (now a JavaScript shell) - search result Q27",
+     "facts": [
+      "postal_address"
+     ],
+     "fetched": false,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Barabara ya Babati - Singida ... P.O. Box 310 Babati"
+    },
+    {
+     "url": "https://www.nbs.go.tz/offices",
+     "title": "NBS | Regional Offices (National Bureau of Statistics office directory)",
+     "facts": [
+      "physical_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Regional Commissioner's Building, Manyara Region, 2 Mkoani Road, Komoto, 27301 Bagara, Babati CBD."
+    },
+    {
+     "url": "https://www.facebook.com/www.manyara.go.tz/",
+     "title": "Ofisi Ya Mkuu Wa Mkoa Wa Manyara | Facebook - search result Q35",
+     "facts": [
+      "socials"
+     ],
+     "fetched": false,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Ofisi Ya Mkuu Wa Mkoa Wa Manyara | Facebook"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Jiji la Arusha (Arusha City Council)": {
+   "emails": [
+    {
+     "email": "cd@arushacc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://arushacc.go.tz/minio/arushacc.go.tz/attachments/1786443519698-TANGAZO-KWA-UMMA-MIKOPO-KWA-VIKUNDI.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272548072",
+     "type": "office",
+     "source_url": "https://arushacc.go.tz/minio/arushacc.go.tz/attachments/1786443519698-TANGAZO-KWA-UMMA-MIKOPO-KWA-VIKUNDI.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 3013, Arusha (S.L.P 3013)"
+   ],
+   "physical": [
+    "Ofisi Kuu ya Halmashauri ya Jiji (City Council head office), Barabara ya Boma (Boma Road), Arusha"
+   ],
+   "sources": [
+    {
+     "url": "https://arushacc.go.tz/minio/arushacc.go.tz/attachments/1786443519698-TANGAZO-KWA-UMMA-MIKOPO-KWA-VIKUNDI.pdf",
+     "title": "Arusha City Council public notice on loans to women, youth and disabled groups (announcement dated 2026-08-06), letterhead footer",
+     "facts": [
+      "postal_address",
+      "physical_address",
+      "phone",
+      "email",
+      "fax"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Ofisi Kuu ya Halmashauri ya Jiji, Barabara ya Boma, S.L.P 3013 , Arusha, Simu: +255 272548072, Nukushi:+255 272545 768 ,Barua pepe:cd@arushacc.go.tz"
+    },
+    {
+     "url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "title": "Arusha Region Investment Guide (Arusha Regional Secretariat), Part 5 Key Contacts, p.95",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "City Director 3013 Arusha +255 27 2548072 cd@arushacc.go.tz"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Arusha (Arusha District Council)": {
+   "emails": [
+    {
+     "email": "ded@arushadc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773137254232-KERO.docx",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255736500476",
+     "type": "mobile",
+     "source_url": "https://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773137254232-KERO.docx",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272502737",
+     "type": "office",
+     "source_url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 2330, Arusha (S.L.P. 2330)"
+   ],
+   "physical": [],
+   "sources": [
+    {
+     "url": "https://arushadc.go.tz/minio/arushadc.go.tz/attachments/1773137254232-KERO.docx",
+     "title": "Arusha District Council notice 'KUTATUA KERO' (announcement dated 2026-03-10), document footer",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email",
+      "fax"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Ofisi ya Mkurugenzi Mtendaji Halmashauri ya Arusha, S.L.P. 2330, Mkoa wa Arusha, Simu 0736 500 476 nukushi 2503701, Barua pepe ded@arushadc.go.tz"
+    },
+    {
+     "url": "https://arushadc.go.tz/minio/arushadc.go.tz/attachments/1776405458749-mkataba.pdf",
+     "title": "Arusha District Council job advert 'Tangazo la nafasi za kazi' (14.04.2026), application address",
+     "facts": [
+      "postal_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Ofisi ya Mkurugenzi Mtendaji Halmashauri ya Wilaya ya Arusha, S.L.P 2330, ARUSHA."
+    },
+    {
+     "url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "title": "Arusha Region Investment Guide, Part 5 Key Contacts, p.96",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Arusha District Council 2330 Arusha +255 27 2502737 ded@arushadc.go.tz"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Meru (Meru District Council)": {
+   "emails": [
+    {
+     "email": "ded@merudc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://merudc.go.tz/minio/merudc.go.tz/attachments/1773138378840-3_tangazo.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272970482",
+     "type": "office",
+     "source_url": "https://merudc.go.tz/minio/merudc.go.tz/attachments/1773138378840-3_tangazo.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 462, Usa River, Arusha (S.L.P 462)"
+   ],
+   "physical": [],
+   "sources": [
+    {
+     "url": "https://merudc.go.tz/minio/merudc.go.tz/attachments/1773138378840-3_tangazo.pdf",
+     "title": "Meru District Council notice of a special full-council meeting (20.02.2026), letterhead footer",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email",
+      "fax"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Halmashauri ya Wilaya ya Meru, S.L.P 462, Usa River, Arusha, Simu: + 25527 297 0482, Nukushi:+ 25527 297 0483, Barua pepe: ded@merudc.go.tz"
+    },
+    {
+     "url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "title": "Arusha Region Investment Guide, Part 5 Key Contacts, p.96",
+     "facts": [
+      "postal_address",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Meru District Council 462 Usa River + 255 27 297-482 ded@merudc.go.tz"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Hai (Hai District Council)": {
+   "emails": [
+    {
+     "email": "ded@haidc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://haidc.go.tz/minio/haidc.go.tz/attachments/1773665732845-Tangazo%20la%20mikopo%20-Hai.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272974369",
+     "type": "office",
+     "source_url": "https://haidc.go.tz/minio/haidc.go.tz/attachments/1773665732845-Tangazo%20la%20mikopo%20-Hai.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 27, Hai, Kilimanjaro (S.L.P. 27)"
+   ],
+   "physical": [
+    "Ofisi ya Mkurugenzi Mtendaji, 3BR-TTCL-Kanisani, 25382 Bomang'ombe, Hai, Kilimanjaro"
+   ],
+   "sources": [
+    {
+     "url": "https://haidc.go.tz/minio/haidc.go.tz/attachments/1773665732845-Tangazo%20la%20mikopo%20-Hai.pdf",
+     "title": "Hai District Council notice on loans to groups (13/03/2026), letterhead",
+     "facts": [
+      "phone",
+      "fax",
+      "email",
+      "postal_address",
+      "physical_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Simu : 27-29 74369 Fax : 27- 29 74368 Email: ded@haidc.go.tz ... Halmashauri ya Wilaya Hai, 3BR-TTCL-Kanisani, 25382. Bomang'ombe, S.L.P. 27"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Siha (Siha District Council)": {
+   "emails": [
+    {
+     "email": "ded@sihadc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://sihadc.go.tz/minio/sihadc.go.tz/attachments/1788507748692-TANGAZO-LA-NAFASI-ZA-KAZI-YA-MKATABA.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272970677",
+     "type": "office",
+     "source_url": "https://sihadc.go.tz/minio/sihadc.go.tz/attachments/1788507748692-TANGAZO-LA-NAFASI-ZA-KAZI-YA-MKATABA.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 129, Siha, Kilimanjaro (S.L.P. 129)"
+   ],
+   "physical": [
+    "Ofisi ya Mkurugenzi Mtendaji, 5 BR Sanya Juu - Elerai, 25482 Siha, Kilimanjaro"
+   ],
+   "sources": [
+    {
+     "url": "https://sihadc.go.tz/minio/sihadc.go.tz/attachments/1788507748692-TANGAZO-LA-NAFASI-ZA-KAZI-YA-MKATABA.pdf",
+     "title": "Siha District Council contract job advert (03 September 2026), page footer",
+     "facts": [
+      "physical_address",
+      "postal_address",
+      "phone",
+      "fax",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Ofisi ya Mkurugenzi Mtendaji, 5 BR Sanya Juu - Elerai, S.L.P. 129, 25482 Siha- Kilimanjaro Simu: 0272-970677 Nukushi: 027-2970678 Baruapepe:ded@sihadc.go.tz"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Moshi (Moshi District Council)": {
+   "emails": [
+    {
+     "email": "ded@moshidc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://moshidc.go.tz/minio/moshidc.go.tz/attachments/1778249639160-mikopo123_0001.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "email": "info@moshidc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://moshidc.go.tz/minio/moshidc.go.tz/attachments/1778249639160-mikopo123_0001.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272755172",
+     "type": "office",
+     "source_url": "https://moshidc.go.tz/minio/moshidc.go.tz/attachments/1778249639160-mikopo123_0001.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272751865",
+     "type": "office",
+     "source_url": "https://moshidc.go.tz/minio/moshidc.go.tz/attachments/1778249639160-mikopo123_0001.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 3003, 25202 Kimochi, Moshi, Kilimanjaro (S.L.P 3003)"
+   ],
+   "physical": [
+    "Ofisi ya Mkurugenzi Mtendaji, 611 Kommbe, Kijiji cha Sango, Kimochi, Moshi, Kilimanjaro"
+   ],
+   "sources": [
+    {
+     "url": "https://moshidc.go.tz/minio/moshidc.go.tz/attachments/1778249639160-mikopo123_0001.pdf",
+     "title": "Moshi District Council public notice on group loans (20/04/2026), page footer",
+     "facts": [
+      "physical_address",
+      "postal_address",
+      "phone"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Halmashauri ya Wilaya ya Moshi, 611 Kommbe,Kijiji cha Sango, S.L.P 3003, 25202 Kimochi, Moshi-Kilimanjaro, Simu: 027 2755172/2751865"
+    },
+    {
+     "url": "https://moshidc.go.tz/api/footer",
+     "title": "Moshi District Council website footer (public GWF CORE API)",
+     "facts": [
+      "email",
+      "postal_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "\"email\": \"ded@moshidc.go.tz\" ... \"poBox\": \"PO.BOX 3003 MOSHI\""
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Manispaa ya Moshi (Moshi Municipal Council)": {
+   "emails": [
+    {
+     "email": "md@moshimc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://moshimc.go.tz/minio/moshimc.go.tz/attachments/1787036120500-Tangazo-la-nafasi-100-za-Mkataba-.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272752344",
+     "type": "office",
+     "source_url": "https://moshimc.go.tz/minio/moshimc.go.tz/attachments/1787036120500-Tangazo-la-nafasi-100-za-Mkataba-.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272754371",
+     "type": "office",
+     "source_url": "https://moshimc.go.tz/minio/moshimc.go.tz/attachments/1787036120500-Tangazo-la-nafasi-100-za-Mkataba-.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 318, Moshi, Kilimanjaro (S.L.P 318)"
+   ],
+   "physical": [
+    "Ukumbi wa Manispaa (Municipal Hall), Moshi, Kilimanjaro"
+   ],
+   "sources": [
+    {
+     "url": "https://moshimc.go.tz/minio/moshimc.go.tz/attachments/1787036120500-Tangazo-la-nafasi-100-za-Mkataba-.pdf",
+     "title": "Moshi Municipal Council advert for 100 temporary revenue-collection posts (14/08/2026), page footer",
+     "facts": [
+      "physical_address",
+      "postal_address",
+      "phone",
+      "fax",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Ukumbi wa Manispaa, S.L.P 318, MOSHI, KILIMANJARO. Simu: +255-027-2752344, +255-027-2754371/4, Nukushi: +255-027-2752906, Barua pepe md@moshimc.go.tz"
+    },
+    {
+     "url": "https://moshimc.go.tz/api/footer",
+     "title": "Moshi Municipal Council website footer (public GWF CORE API)",
+     "facts": [
+      "email",
+      "phone",
+      "postal_address"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "\"email\": \"md@moshimc.go.tz\", \"phone\": \"+255-027-274371/4\", \"poBox\": \"P.O BOX 318 MOSHI\""
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Monduli (Monduli District Council)": {
+   "emails": [
+    {
+     "email": "ded@mondulidc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://mondulidc.go.tz/minio/mondulidc.go.tz/attachments/1773136531032-tangazo1.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255272538006",
+     "type": "office",
+     "source_url": "https://mondulidc.go.tz/minio/mondulidc.go.tz/attachments/1773136531032-tangazo1.pdf",
+     "fetched": true,
+     "method": "search"
+    },
+    {
+     "phone": "+255272538005",
+     "type": "office",
+     "source_url": "https://mondulidc.go.tz/minio/mondulidc.go.tz/attachments/1773136531032-tangazo1.pdf",
+     "fetched": true,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 1, Monduli (S.L.P 1)"
+   ],
+   "physical": [],
+   "sources": [
+    {
+     "url": "https://mondulidc.go.tz/minio/mondulidc.go.tz/attachments/1773136531032-tangazo1.pdf",
+     "title": "Monduli District Council notice on 10% loan applications (announcement dated 2026-03-10), page footer",
+     "facts": [
+      "postal_address",
+      "phone",
+      "fax",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Halmashauri ya Wilaya, SLP 1, Monduli. Simu: +255 (027)-2538006,+255(027) 2538005.Nukushi +255 (027) 2538136/361. Barua pepe:ded@mondulidc.go.tz"
+    },
+    {
+     "url": "https://arusha.go.tz/minio/arusha.go.tz/files/1773298211815-Arusha%20Investment%20Guide%20-%20Eng%20(1).pdf",
+     "title": "Arusha Region Investment Guide, Part 5 Key Contacts, p.96",
+     "facts": [
+      "postal_address",
+      "phone",
+      "email"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "Monduli District Council 1 Monduli +255 27 2538006 ded@mondulidc.go.tz"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  },
+  "Halmashauri ya Wilaya ya Simanjiro (Simanjiro District Council)": {
+   "emails": [
+    {
+     "email": "ded@simanjirodc.go.tz",
+     "type": "role",
+     "person": "",
+     "source_url": "https://simanjirodc.go.tz/othercontacts",
+     "fetched": false,
+     "method": "search"
+    }
+   ],
+   "phones": [
+    {
+     "phone": "+255686061600",
+     "type": "mobile",
+     "source_url": "https://simanjirodc.go.tz/othercontacts",
+     "fetched": false,
+     "method": "search"
+    }
+   ],
+   "postal": [
+    "P.O. Box 9596, Orkesumet, Simanjiro, Manyara"
+   ],
+   "physical": [
+    "Bomani Street, Orkesumet, Simanjiro"
+   ],
+   "sources": [
+    {
+     "url": "https://simanjirodc.go.tz/othercontacts",
+     "title": "Halmashauri ya Wilaya Simanjiro Bomani street-Orkesumet (council 'Other contacts' page; now a JavaScript shell) - search result Q26",
+     "facts": [
+      "postal_address",
+      "physical_address",
+      "phone",
+      "email"
+     ],
+     "fetched": false,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "P.O Box 9596, Orkesumet, Simanjiro, Manyara ... Tel: 027-29707889 and +255-686061600 ... ded@simanjirodc.go.tz"
+    },
+    {
+     "url": "https://simanjirodc.go.tz/minio/simanjirodc.go.tz/attachments/1774194438846-Mpango%20Mkakati%20wa%20%20Halmashauri.pdf",
+     "title": "Simanjiro District Council Strategic Plan 2026/27-2030/31 (cover page)",
+     "facts": [
+      "identity"
+     ],
+     "fetched": true,
+     "method": "search",
+     "accessed_on": "2026-09-23",
+     "excerpt": "District Executive Director's Office Simanjiro District Council (SDC) Simanjiro, Tanzania Email: ded@sdc.ac.tz"
+    }
+   ],
+   "methods": [
+    "search"
+   ]
+  }
+ }
+}

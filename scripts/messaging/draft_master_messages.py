@@ -24,6 +24,7 @@ import re
 import sqlite3
 from collections import Counter
 from datetime import date
+from pathlib import Path
 
 import offer_lib as L
 
@@ -258,6 +259,29 @@ def main() -> int:
         new_rows.append((plan, org, track, route, copy, missing))
         outcomes[f"new plan ({track})"] += 1
 
+    # Named contacts without a plan (for example leads added by contact research) get their own draft, kept as an
+    # alternative to the organisation's draft: AQ02 when the person has a direct route, AQ01 otherwise.
+    segment_of = {p["organisation_id"]: p["segment"] for p in plans}
+    segment_of.update({p["organisation_id"]: p["segment"] for p, *_ in new_rows})
+    planned_contacts = {p["target_id"] for p in plans if p["target_type"] == "contact"}
+    for c in [dict(r) for r in con.execute("SELECT * FROM contacts ORDER BY contact_id")]:
+        if c["contact_id"] in planned_contacts or not c["name"] or c["organisation_id"] not in segment_of:
+            continue
+        org = orgs.get(c["organisation_id"], {})
+        direct = c.get("named_email") or c.get("role_phone") or c.get("published_role_email")
+        route = direct or c.get("shared_email") or c.get("organisation_phone") or org.get("email") or org.get("phone")
+        track = "AQ02" if direct else ("AQ01" if route else "AQ00")
+        plan = {"message_id": sid("M", "offer-v4-contact", c["contact_id"]), "target_id": c["contact_id"], "target_type": "contact",
+                "organisation_id": c["organisation_id"], "target_name": c["name"], "organisation_name": org.get("name", ""),
+                "segment": segment_of[c["organisation_id"]], "cta_type": "Information offer" if track == "AQ02" else "Welfare referral",
+                "hook": "", "hook_status": "", "recipient_role": c.get("role") or "Named contact", "selection": "Alternative"}
+        copy = saccos_copy(plan, org) if plan["segment"] == "SACCOS members" else employer_copy(plan, org, track)
+        missing = [] if route else ["No published route for this person or the organisation; find one before any message."]
+        if direct:
+            missing.append("Named contact with a direct published route; consider selecting this draft instead of the organisation route.")
+        new_rows.append((plan, org, track, route, copy, missing))
+        outcomes[f"new contact plan ({track})"] += 1
+
     parents = [dict(r) for r in con.execute("SELECT * FROM parent_enquiry_drafts WHERE status LIKE 'Review only%'")]
     enquiries = {r["enquiry_id"]: dict(r) for r in con.execute("SELECT * FROM enquiries")}
     parent_updates = [(d, parent_reply(d, enquiries.get(d["enquiry_id"], {}))) for d in parents]
@@ -301,12 +325,12 @@ def main() -> int:
         for column in ("offer_version", "offer_ids", "offer_evidence", "offer_message_sw"):
             if column not in columns:
                 con.execute(f'ALTER TABLE outreach_plans ADD COLUMN "{column}" TEXT')
-        con.executemany("INSERT OR REPLACE INTO message_versions (version, message_id, original_json) VALUES (?,?,?)",
+        con.executemany("INSERT OR IGNORE INTO message_versions (version, message_id, original_json) VALUES (?,?,?)",  # keep the first backup
                         [(BACKUP_VERSION, mid, blob) for mid, blob in backups])
         evidence = "PE025; PE026; PE027; PE028"
         for plan, copy, notes in updates:
             vm = plan["value_module_ids"] if "VM19" in str(plan["value_module_ids"]) else f"{plan['value_module_ids']}; VM19"
-            missing = "; ".join(x for x in [plan.get("missing_information") or "", *notes] if x)
+            missing = merge_notes(plan.get("missing_information"), notes)
             con.execute("""UPDATE outreach_plans SET subject=?, body=?, follow_up_1=?, follow_up_2=?, proposed_offer=?, value_module_ids=?,
                            missing_information=?, campaign_copy_status=?, offer_version=?, offer_ids=?, offer_evidence=?, offer_message_sw=?,
                            strategy_version=? WHERE message_id=?""",
@@ -322,40 +346,47 @@ def main() -> int:
             record = org_record.get(plan["organisation_id"])
             status = "Needs research" if track == "AQ00" else "Draft review"
             conditions = f"{L.CONFIRM_2027} {' '.join(missing)}".strip()
+            is_contact = plan["target_type"] == "contact"
             con.execute("INSERT INTO messages (message_id, target_type, target_id, subject, body, strategy_id, status, conditions, source_record_id) "
                         "VALUES (?,?,?,?,?,?,?,?,?)",
-                        (plan["message_id"], "organisation", plan["organisation_id"], copy["subject"], copy["body"], STRATEGY_ID,
+                        (plan["message_id"], plan["target_type"], plan["target_id"], copy["subject"], copy["body"], STRATEGY_ID,
                          "Draft - not sent; offer-aligned v4 review", conditions, record))
-            modules = "VM01; VM02; VM03; VM04; VM05; VM19"
+            modules = "VM01; VM02; VM03; VM06; VM19" if plan["segment"] == "SACCOS members" else "VM01; VM02; VM03; VM04; VM05; VM19"
             con.execute("""INSERT INTO outreach_plans (message_id, target_id, target_type, organisation_id, target_name, organisation_name, strategy_version,
                            segment, recipient_role, persona, contact_channel, channel_attribution, evidence_url, evidence_date, verified_on, evidence_basis,
                            evidence_record_ids, relevance_reason, proposed_offer, cta_type, flow_id, review_status, missing_information, selection,
                            subject, body, follow_up_1, follow_up_2, hook_status, campaign_copy_status, acquisition_version, acquisition_track_id,
                            value_module_ids, strategy_scope, offer_version, offer_ids, offer_evidence, offer_message_sw)
                            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
-                        (plan["message_id"], plan["organisation_id"], "organisation", plan["organisation_id"], org["name"], org["name"], "offer-v4",
-                         plan["segment"], "Organisation routing", "Employer route", route or "",
-                         "Organisation's published route in the master" if route else "", org.get("source_url") or "", "", TODAY, "reference_file",
-                         record or "", f"Employer in the lead list ({org.get('segment') or 'unclassified'}); staff school-fee benefit and family offer.",
-                         offer_summary(copy["offer_ids"]), plan["cta_type"], "F01", status, "; ".join([*missing, L.CONFIRM_2027]),
-                         "Candidate for review", copy["subject"], copy["body"], copy["follow_up_1"], copy["follow_up_2"],
-                         "No hook: offer-led opening", "Draft; offer-aligned v4 (offer register); not sent", "2026-09-09-new-contact-acquisition-v4",
-                         track, modules, "New-contact acquisition. Approved Silverleaf positioning may be reused where relevant; the acquisition track controls cadence.",
-                         L.OFFER_VERSION, "; ".join(copy["offer_ids"]), evidence, ""))
+                        (plan["message_id"], plan["target_id"], plan["target_type"], plan["organisation_id"], plan["target_name"], org["name"], "offer-v4",
+                         plan["segment"], plan.get("recipient_role", "Organisation routing"), "Named contact" if is_contact else "Employer route", route or "",
+                         ("Published route of the named contact or organisation in the master" if is_contact else "Organisation's published route in the master")
+                         if route else "", org.get("source_url") or "", "", TODAY, "reference_file", record or "",
+                         (f"Named {plan.get('recipient_role') or 'contact'} at {org['name']}, as the organisation publishes it; staff school-fee benefit and family offer."
+                          if is_contact else f"Employer in the lead list ({org.get('segment') or 'unclassified'}); staff school-fee benefit and family offer."),
+                         offer_summary(copy["offer_ids"]), plan["cta_type"], "F03" if plan["segment"] == "SACCOS members" else "F01", status,
+                         "; ".join([*missing, L.CONFIRM_2027]), plan.get("selection", "Candidate for review"), copy["subject"], copy["body"],
+                         copy["follow_up_1"], copy["follow_up_2"], "No hook: offer-led opening", "Draft; offer-aligned v4 (offer register); not sent",
+                         "2026-09-09-new-contact-acquisition-v4", track, modules,
+                         "New-contact acquisition. Approved Silverleaf positioning may be reused where relevant; the acquisition track controls cadence.",
+                         L.OFFER_VERSION, "; ".join(copy["offer_ids"]), evidence, copy.get("sw", "")))
             con.execute("INSERT OR REPLACE INTO campaign_lead_assignments (assignment_id, campaign_id, target_type, target_id, message_id, selection, "
                         "eligibility_status, reason, next_action, acquisition_track_id, value_module_ids, strategy_scope) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-                        (sid("A", "offer-v4", plan["message_id"]), "C01", "organisation", plan["organisation_id"], plan["message_id"], "Candidate for review",
-                         "Needs research" if track == "AQ00" else "Candidate after checks", "Offer-aligned v4 draft for an organisation without a plan",
-                         "Resolve route and owner" if track == "AQ00" else "Human review, then the AQ01 routing request", track, modules,
-                         "New-contact acquisition; track-selected and independent of the internal marketing calendar."))
+                        (sid("A", "offer-v4", plan["message_id"]), "C02" if plan["segment"] == "SACCOS members" else "C01", plan["target_type"],
+                         plan["target_id"], plan["message_id"], plan.get("selection", "Candidate for review"),
+                         "Needs research" if track == "AQ00" else ("Alternative - inactive" if is_contact else "Candidate after checks"),
+                         "Offer-aligned v4 draft for a named contact without a plan" if is_contact else "Offer-aligned v4 draft for an organisation without a plan",
+                         "Resolve route and owner" if track == "AQ00" else ("Human review; choose one recipient per organisation" if is_contact
+                                                                             else "Human review, then the AQ01 routing request"),
+                         track, modules, "New-contact acquisition; track-selected and independent of the internal marketing calendar."))
         # message_versions only accepts message IDs, so parent-reply history gets its own table.
         con.execute("CREATE TABLE IF NOT EXISTS parent_enquiry_draft_versions (version TEXT, enquiry_id TEXT REFERENCES enquiries(enquiry_id), "
                     "original_json TEXT NOT NULL, PRIMARY KEY(version, enquiry_id))")
         for d, body in parent_updates:
-            con.execute("INSERT OR REPLACE INTO parent_enquiry_draft_versions (version, enquiry_id, original_json) VALUES (?,?,?)",
+            con.execute("INSERT OR IGNORE INTO parent_enquiry_draft_versions (version, enquiry_id, original_json) VALUES (?,?,?)",
                         (BACKUP_VERSION, d["enquiry_id"], json.dumps(d, ensure_ascii=False)))
             con.execute("UPDATE parent_enquiry_drafts SET body=?, evidence_ids=? WHERE enquiry_id=?",
-                        (body, (d["evidence_ids"] or "") + "; PE025; PE027; PE028", d["enquiry_id"]))
+                        (body, merge_notes(d["evidence_ids"], ["PE025", "PE027", "PE028"]), d["enquiry_id"]))
         con.execute("INSERT OR REPLACE INTO value_proposition_modules VALUES (?,?,?,?,?,?,?,?,?,?)",
                     ("VM19", "Employers, SACCOS and families", "Documented Silverleaf offer",
                      "The recipient sees concrete, documented savings: staff tuition discounts, the free uniform for full-year payment, sibling discounts and four instalments.",
@@ -401,11 +432,23 @@ def main() -> int:
     counts = {t: con.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in ("messages", "outreach_plans", "message_versions", "campaign_lead_assignments")}
     con.close()
     report = {"run_on": date.today().isoformat(), "offer_version": L.OFFER_VERSION, **summary, "counts_after": counts}
-    out = ROOT / "outputs" / "messages"
+    # The reconciliation report belongs with the outputs only for the canonical master; a trial on a copy stays in runtime/.
+    trial = Path(args.database).resolve() != MASTER.resolve()
+    out = ROOT / "runtime" / "messaging" if trial else ROOT / "outputs" / "messages"
     out.mkdir(parents=True, exist_ok=True)
-    (out / "master-offer-messages-reconciliation.json").write_text(json.dumps(report, indent=1) + "\n", encoding="utf-8")
+    (out / ("trial-reconciliation.json" if trial else "master-offer-messages-reconciliation.json")).write_text(json.dumps(report, indent=1) + "\n",
+                                                                                                             encoding="utf-8")
     print(json.dumps(report, indent=1))
     return 0
+
+
+def merge_notes(existing, notes) -> str:
+    """Add notes to a '; '-separated field without repeating any, so re-running the script changes nothing."""
+    parts = [x.strip() for x in str(existing or "").split("; ") if x.strip()]
+    for note in notes:
+        if note and note not in parts:
+            parts.append(note)
+    return "; ".join(parts)
 
 
 def offer_summary(ids) -> str:

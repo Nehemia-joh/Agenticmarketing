@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-09-22T23:20:17.266819+00:00",
+  "checked_at": "2026-09-23T01:10:36.199835+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "0aca78751cacf7e0e9661c66f0db62b1c4d0d3abd77d34b12c443cf5a7a7c875",
+  "database_sha256": "7ba2a043dc6575f4df8b99ddc2b077424f77c59b3c38acc89ca09b4f64d4b901",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
   "workbook_sha256": "515d305cb936d66bad81e1835e23fce67596348817724efbb0d0d5a5fa836d33",
   "checks": {
@@ -15,16 +15,16 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 74,
-    "source_records": 7783,
+    "source_files": 83,
+    "source_records": 8504,
     "organisations": 955,
-    "contacts": 353,
+    "contacts": 514,
     "enquiries": 32,
-    "messages": 1314,
-    "outreach_plans": 1314,
+    "messages": 1482,
+    "outreach_plans": 1482,
     "strategies": 140,
     "automation_recipes": 54,
-    "campaign_lead_assignments": 1346,
+    "campaign_lead_assignments": 1514,
     "acquisition_tracks": 3,
     "value_proposition_modules": 8,
     "lead_intake_rules": 9
@@ -34,8 +34,8 @@
     "active_unverified": 0
   },
   "assignments": {
-    "plans": 1314,
-    "with_track": 1314
+    "plans": 1482,
+    "with_track": 1482
   },
   "enabled_automations": 0,
   "unwanted_paths": []

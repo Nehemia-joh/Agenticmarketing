@@ -792,6 +792,38 @@ def main() -> int:
                                                                         "Transcribed from a scanned official list; check against the scan." if e.get("transcribed") else "") if x)}
         make_posts(rec, "ward", site_for.get(u["council"]), holders)
 
+    # ---- published office routes found by contact research (scripts/contacts/export_run_contact_research.py)
+    for path in sorted(raw.glob("office_contacts_*.json")):
+        found = json.loads(path.read_text(encoding="utf-8")).get("offices", {})
+        for rec in offices:
+            info = found.get(rec["name"])
+            if not info or rec["office_level"] not in ("council", "region", "district"):
+                continue
+            email = next((e["email"] for e in info["emails"] if e["type"] in ("role", "general")), "")
+            phone = next((p["phone"] for p in info["phones"]), "")
+            if email and not rec.get("public_email"):
+                rec["public_email"] = rec["role_email"] = email
+            if phone and not rec.get("public_phone"):
+                rec["public_phone"] = phone
+            if info["postal"] and not rec.get("po_box"):
+                rec["po_box"] = info["postal"][0]
+            if email or phone or info["postal"]:
+                rec["route_attribution"] = rec.get("route_attribution") or f"Official route found by contact research ({path.name})"
+                rec["missing_information"] = ("; ".join(x for x, known in (("published phone", rec.get("public_phone")), ("published email", rec.get("public_email")),
+                                                                            ("postal address", rec.get("po_box"))) if not known))
+                rec["missing_information"] = f"Not found: {rec['missing_information']}." if rec["missing_information"] else ""
+                # The director's post was built before this research was read; give it the office routes too.
+                for post in posts:
+                    if post["office_key"] == rec["record_key"] and post["post_key"] == "council_director":
+                        post["published_role_email"] = post["published_role_email"] or rec.get("role_email", "")
+                        post["organisation_phone"] = post["organisation_phone"] or rec.get("public_phone", "")
+                        post["channel_attribution"] = post["channel_attribution"] or rec["route_attribution"]
+                        if post["contact_route"] == "source_url" and post["published_role_email"]:
+                            post["contact_route"] = "published_role_email"
+            for s in info["sources"][:4]:
+                rec["all_sources"].append(source(s["url"], s.get("title", ""), "official" if ".go.tz" in s["url"] else "published", date,
+                                                 ["office contact route"], s.get("excerpt", ""), fetched=bool(s.get("fetched"))))
+
     # ---- OpenStreetMap offices: classify, log exclusions, link conveners
     office_links = links.get("osm_office_links", {})
     triage = []

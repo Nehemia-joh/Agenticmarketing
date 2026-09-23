@@ -31,6 +31,8 @@ python scripts/government/run_pipeline.py --run-id <run-id> --rebuild-db
 
 Offer terms in any message come only from `../data/reference/silverleaf-offer-register.json`; draft with `scripts/messaging/` (see `../skills/silverleaf-outreach/references/offer-register.md`).
 
+Contact profiles and contact leads for all three databases follow `../docs/methodology/contact-research.md` with the scripts in `scripts/contacts/`. Crawl and collect first. Plan search waves with `scripts/contacts/plan_contact_research.py`. Then merge: `merge_master_contacts.py` (preflight, then `--apply`) for the master, and `export_run_contact_research.py` followed by each run's pipeline for the welfare and government runs.
+
 Research is rate-limited; read `../skills/silverleaf-create-lead-list/references/research-rate-limits.md` first.
 - WebSearch has a per-session cap shared by all subagents: plan budgets with `scripts/welfare/plan_research.py`.
 - Run deterministic collectors first, and launch at most four research agents per wave.

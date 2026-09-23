@@ -5,10 +5,13 @@ Runs after the run database is built (initialize_lead_db.py plus the track's aug
 It replaces the run's messages and outreach_plans, so it is safe to repeat. Terms come only from
 data/reference/silverleaf-offer-register.json and every draft is checked against it.
 
-Welfare (plans/b2b-welfare-leads-plan.md): one English draft per in-scope organisation: the NGO partner rate (OF03)
-with the free uniform (OF01) and four instalments (OF09) for homes and programmes, a sponsor version for funders,
-and one neutral reply for current, in-fit public parent enquiries. Routes come from the organisation or a low- or
-medium-risk contact, never a risky one. WA01 organisations with a route are 'draft_ready'; everything else is held.
+Welfare (plans/b2b-welfare-leads-plan.md): one English sequence per in-scope organisation, request first (23 September
+2026). The first message asks for a short meeting and states no offer terms: about the education of the children in a
+home's or programme's care, or, for funders only, a request to sponsor students, with the funder's verified support
+for a home as the reason when the run records one. The follow-up states the offer: the NGO partner rate (OF03), the
+free uniform (OF01) and four instalments (OF09). One neutral reply goes to each current, in-fit public parent enquiry.
+Routes come from the organisation or a low- or medium-risk contact, never a risky one. WA01 organisations with a route
+are 'draft_ready'; everything else is held.
 
 Government (plans/b2b-government-leads-plan.md): one Kiswahili letter per office with an English meaning for review.
 Councils get the GA01 introduction letter, wards and villages the convening request (held until GA01), district and
@@ -72,7 +75,8 @@ def add(con, now, plan: dict, subject: str, body: str, follow_up: str = "", tran
                    route_value, recipient, language, offer_ids, offer_version, follow_up_message_id, translation_message_id, subject, outcome)
                    VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (mid, plan["target_id"], plan["target_type"], plan.get("organisation_id"), plan["relevance_reason"],
-                 "; ".join(f"{i} {L.OFFERS[i]['name']}" for i in plan["offer_ids"]), plan["cta_type"], "", "", "", plan["track"], plan["modules"],
+                 "; ".join(f"{i} {L.OFFERS[i]['name']}" for i in plan["offer_ids"]), plan["cta_type"], plan.get("hook", ""),
+                 plan.get("hook_source_url", ""), plan.get("hook_verified_on", ""), plan["track"], plan["modules"],
                  plan["review_status"], "; ".join(plan["missing"]), plan.get("contact_route", ""), plan.get("route_value", ""), plan.get("recipient", ""),
                  plan["language"], "; ".join(plan["offer_ids"]), L.OFFER_VERSION, mid + "-F1" if follow_up else "", mid + "-EN" if translation else "",
                  subject, plan["outcome"]))
@@ -83,11 +87,22 @@ def precise(p: dict) -> bool:
     return str(p.get("geocode_precision") or "") in ("address", "locality", "point") and p.get("distance_km") not in (None, "")
 
 
-def greeting_name(name: str) -> str:
-    """A name as published, without research annotations or post-nominal letters: 'Noemi Glaser, BA (desk)' -> 'Noemi Glaser'."""
-    name = re.sub(r"\s*\([^)]*\)", "", str(name or "")).strip()
-    name = re.sub(r",\s*(BA|BSc|MA|MSc|MBA|PhD|Dr|Mr|Mrs|Ms|CPA|MD|RN|Hon\.?)\b.*$", "", name).strip(" ,")
-    return name
+greeting_name = L.greeting_name
+
+
+def funder_reasons(con) -> dict:
+    """For each funder, the home or programme it supports, from a verified 'funds' relationship with a fetched source: the
+    sourced reason for its sponsorship request. The source URL and date go with the plan as its hook."""
+    names = dict(con.execute("SELECT organisation_id, name FROM organisations").fetchall())
+    reasons = {}
+    for funder, supported, supported_id, sources in con.execute(
+            "SELECT from_organisation_id, to_organisation, to_organisation_id, sources_json FROM organisation_relationships "
+            "WHERE relationship_type='funds' AND verification_status='verified' ORDER BY to_organisation"):
+        fetched = [s for s in json.loads(sources or "[]") if s.get("fetched") and s.get("url")]
+        if funder and fetched and funder not in reasons:
+            reasons[funder] = {"supported": L.display_name(names.get(supported_id) or supported), "url": fetched[0]["url"],
+                               "verified_on": fetched[0].get("accessed_on", "")}
+    return reasons
 
 
 def welfare(con, now, run_cfg) -> dict:
@@ -97,6 +112,7 @@ def welfare(con, now, run_cfg) -> dict:
     for r in con.execute("SELECT * FROM contacts ORDER BY contact_id"):
         contacts_by_org.setdefault(r["organisation_id"], []).append({**dict(r), **con_payload.get(r["contact_id"], {})})
     outcomes, issues = Counter(), []
+    reasons = funder_reasons(con)
     for oid, o in sorted(orgs.items(), key=lambda kv: kv[1]["name"]):
         p = {**org_payload.get(oid, {}), **{k: v for k, v in o.items() if v not in (None, "")}}
         track = p.get("proposed_welfare_track") or "WA00 Hold"
@@ -104,14 +120,15 @@ def welfare(con, now, run_cfg) -> dict:
             outcomes["excluded: no message"] += 1
             continue
         model = p.get("care_model") or ""
-        missing = [L.CONFIRM_2027]
+        name = L.display_name(o["name"])
+        missing = [L.REQUEST_FIRST, L.CONFIRM_2027]
         # Route: the organisation's own published email or phone first; otherwise a low- or medium-risk contact; never a risky one.
         route, value, recipient = "", "", ""
         if p.get("email") and p.get("pdpa_risk") != "risky":
             route, value = "shared_email", p["email"]
         elif p.get("phone") and p.get("pdpa_risk") != "risky":
             route, value = "organisation_phone", p["phone"]
-        greet = f"Hello {o['name']} team,"
+        greet = f"Dear {name} team,"
         for c in contacts_by_org.get(oid, []):
             if c.get("pdpa_risk") == "risky":
                 continue
@@ -123,7 +140,7 @@ def welfare(con, now, run_cfg) -> dict:
                     route = "named_email" if c.get("named_email") and email else ("published_role_email" if email else "role_phone")
                     value = email or c.get("role_phone") or c.get("organisation_phone")
                 if c.get("contact_name") and c.get("pdpa_risk") == "medium" and greeting_name(c["contact_name"]):
-                    greet = f"Hello {greeting_name(c['contact_name'])},"
+                    greet = f"Dear {greeting_name(c['contact_name'])},"
                     recipient = f"{greeting_name(c['contact_name'])} ({c.get('role') or 'role not published'})"
                 break
         if not route:
@@ -137,35 +154,50 @@ def welfare(con, now, run_cfg) -> dict:
         if p.get("red_flags"):
             missing.append(f"Review the recorded red flags before any contact: {str(p['red_flags'])[:160]}.")
         campus = (L.campus_line_en(p.get("campus") or "", p.get("distance_km"), True, "you") if precise(p) else L.network_line_en())
+        # The first message is a request with no offer terms; the follow-up states the offer. Sponsorship is asked of funders only.
         if model == "funder" or p.get("segment") == "Welfare funder":
-            subject = "Silverleaf partner rates for the children you support"
-            body = (f"{greet}\n\nIf {o['name']} funds schooling for children in homes or programmes around Arusha and Moshi, Silverleaf Academy's "
-                    f"partner rates could stretch that support further. When an organisation places all its primary-age children with us, each "
-                    f"child receives 3% off tuition at 10 children, rising to 18% at 60 or more. Paying the year's tuition before the school year "
-                    f"opens adds a free uniform set (worth TZS 110,000) per child, and tuition can be paid in four instalments.\n\n{L.network_line_en()}\n\n"
-                    f"Would a short call to see whether this fits the programmes you support be useful?\n\n{L.SIGNATURE}")
+            reason = reasons.get(oid)
+            hook = f"I am reaching out because you support {reason['supported']}." if reason else ""
+            subject = "Sponsorship request: students at Silverleaf Academy"
+            body = (f"{greet}\n\nI am writing to ask whether {name} would consider sponsoring students at Silverleaf Academy.{(' ' + hook) if hook else ''} "
+                    f"We are seeking sponsorship for two to three students to start, to help cover school fees and other education-related costs."
+                    f"\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+            follow = (f"{greet}\n\nFollowing up on my earlier note, here is how sponsorship can go further at Silverleaf. When an organisation places "
+                      f"all its primary-age children with us, each child receives 3% off tuition at 10 children, rising to 18% at 60 or more. Paying the "
+                      f"year's tuition before the school year opens adds a free uniform set (worth TZS 110,000) per child, and tuition can be paid in "
+                      f"four instalments.\n\n{L.network_line_en()}\n\nShall I send a one-page summary of the partner rates?\n\n{L.SIGNATURE}")
             cta, modules = "Sponsor conversation", "VM08; VM09; VM13"
+            relevance = (f"{p.get('segment')}: sponsorship request{'; supports ' + reason['supported'] if reason else ''}; partner rates in the "
+                         f"follow-up.")
         else:
+            reason, hook = None, ""
             who = "an organisation" if model == "family_based" else "a home"
             care = "in your programme" if model == "family_based" else "in your care"
-            subject = f"School places for the children {care}: Silverleaf partner rates"
+            subject = f"Meeting request: education for the children {care}"
             needs = (" Before any placement we would talk through each child's needs with you." if model == "specialised" else "")
-            body = (f"{greet}\n\nSilverleaf Academy offers {L.EN['OF03'].replace('a home', who)}. Paying the year's tuition before the school year opens "
-                    f"also brings a free uniform set (worth TZS 110,000) for each child, and tuition can be paid in four instalments.{needs}\n\n{campus}\n\n"
-                    f"Would a 20-minute call to talk through school plans for 2027 for the children {care} be useful?\n\n{L.SIGNATURE}")
+            body = (f"{greet}\n\nI am writing to explore how Silverleaf Academy could work with {name} on the education of the children {care}."
+                    f"\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+            follow = (f"{greet}\n\nFollowing up on my earlier note, here is what we can offer. Silverleaf Academy offers "
+                      f"{L.EN['OF03'].replace('a home', who)}. Paying the year's tuition before the school year opens also brings a free uniform set "
+                      f"(worth TZS 110,000) for each child, and tuition can be paid in four instalments. Our admissions team checks each child's level "
+                      f"before a place is confirmed.{needs}\n\n{campus}\n\nWould a 20-minute call to talk through school plans for 2027 for the "
+                      f"children {care} be useful?\n\n{L.SIGNATURE}")
             cta, modules = "Placement conversation", "VM08; VM09; VM13"
+            relevance = (f"{p.get('segment')}: education partnership request; partner rates in the follow-up; nearest campus "
+                         f"{p.get('campus') or 'unknown'}.")
             if model == "specialised":
                 missing.append("Specialised centre: confirm Silverleaf can meet the children's needs before contacting.")
-        follow = (f"{greet}\n\nA quick follow-up: the partner rate grows with the number of children placed, and our admissions team checks each "
-                  f"child's level before a place is confirmed. Shall I send a one-page summary of the partner rates?\n\n{L.SIGNATURE}")
         ready = str(track).startswith("WA01") and route and model != "specialised" and not p.get("red_flags") and not personal_inbox
         plan = {"message_id": sid("welfare", oid), "target_id": oid, "target_type": "organisation", "organisation_id": oid,
-                "relevance_reason": f"{p.get('segment')}: partner rates for placed children; nearest campus {p.get('campus') or 'unknown'}.",
-                "cta_type": cta, "track": str(track).split(" ")[0], "modules": modules, "review_status": "draft_ready" if ready else "needs_review",
-                "missing": missing, "contact_route": route, "route_value": value, "recipient": recipient or f"{o['name']} (organisation route)",
-                "language": "English", "offer_ids": WELFARE_OFFERS, "outcome": "drafted" if ready else "drafted, held"}
+                "relevance_reason": relevance, "cta_type": cta, "track": str(track).split(" ")[0], "modules": modules,
+                "review_status": "draft_ready" if ready else "needs_review", "missing": missing, "contact_route": route, "route_value": value,
+                "recipient": recipient or f"{o['name']} (organisation route)", "language": "English", "offer_ids": WELFARE_OFFERS,
+                "outcome": "drafted" if ready else "drafted, held",
+                **({"hook": hook, "hook_source_url": reason["url"], "hook_verified_on": reason["verified_on"]} if reason else {})}
+        names = (o["name"], name, recipient.split(" (")[0], reason["supported"] if reason else "")
         for text in (body, follow):
-            issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, WELFARE_OFFERS, ignore=(o["name"], recipient.split(" (")[0]))]
+            issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, WELFARE_OFFERS, ignore=names)]
+        issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_first_message(body, ignore=names)]
         add(con, now, plan, subject, body, follow)
         outcomes[plan["outcome"]] += 1
     for e in [dict(r) for r in con.execute("SELECT * FROM enquiries")]:
@@ -224,7 +256,7 @@ ABOUT_EN = ("Silverleaf Academy is a private English-medium school with five cam
 FAMILY_EN = ("a free uniform set (worth TZS 110,000) for parents who pay the year's tuition before the school year opens; 10% off tuition for a "
              "third child and 20% for a fourth; and tuition in four instalments")
 CLOSE_SW = f"Wako katika ujenzi wa Taifa,\n\n{L.SIGNATURE_SW}"
-CLOSE_EN = f"Yours in nation building,\n\n{L.SENDER}\n[Title], Silverleaf Academy"
+CLOSE_EN = f"Yours in nation building,\n\n{L.SENDER}\n{L.SENDER_TITLE}, Silverleaf Academy"
 
 
 def government(con, now, run_cfg) -> dict:

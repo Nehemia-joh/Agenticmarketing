@@ -262,7 +262,9 @@ def locate_wards(cfg, census, wiki, places, districts, gaz, links, reviews, offi
         allowed = {n.casefold() for n in councils[council].get("wikipedia_district_names", [])}
         own = councils[council]["osm_district"]
         c = {"keys": keys, "wiki": [], "wiki_rejected": [], "place": [], "group": [], "gaz": []}
-        for key in keys:
+        # The census spelling first, then aliases in a fixed order: the first matching evidence is used, so a set's
+        # arbitrary order would make the ward location differ between runs.
+        for key in [G.squash(ward), *sorted(keys - {G.squash(ward)})]:
             for p in wiki_by_key.get(key, []):
                 if p.get("lat") is None:
                     continue

@@ -185,7 +185,9 @@ def main() -> int:
              (f"Generated {generated} from {db.name} (SQLite is the source of truth; this workbook is a generated review view). "
               "Separate from the company-leads master in outputs/master/.", "sub"), ("", ""), ("Scope", "h"),
              (cfg.get("scope", "Welfare institutions near Silverleaf's campuses."), ""),
-             ("Drafts only: offer-aligned messages are on the Outreach Plans sheet (offer register v4). Nothing was sent or scheduled, and every automation remains disabled.", ""), ("", ""),
+             ("Drafts only, request first: the Outreach Plans sheet holds a meeting request for each organisation (sponsorship requests for "
+              "funders only), signed by Mariam Haji, and the offer register v4 terms in the follow-up. Nothing was sent or scheduled, and every "
+              "automation remains disabled.", ""), ("", ""),
              ("Coverage and accuracy", "h"),
              (f"Sources: {len(slices)} research slices (web), the NGOs Information System register ({counts['registry_ngos']} NGOs pinned within "
               f"{cfg.get('register_radius_km', 30)} km) and OpenStreetMap. Research period: {cfg.get('research_period', cfg['research_date'])}.", "")]
@@ -234,8 +236,9 @@ def main() -> int:
     add_sheet(wb, "Search Coverage", "What each research slice searched, what was blocked, and known gaps.", ["slice", "line_no", "text"], coverage_rows, {"text": 140})
     note = "Design only; nothing is scheduled or enabled. See plans/b2b-welfare-leads-plan.md."
     outreach_rows = OL.outreach_sheet_rows(con)
-    add_sheet(wb, "Outreach Plans", "Offer-aligned drafts (offer register v4): one per in-scope organisation, plus replies to in-fit parent enquiries. "
-              "draft_ready rows still need Finance to confirm the 2027 terms; needs_review rows are held for the reason in conditions. Nothing is sent.",
+    add_sheet(wb, "Outreach Plans", "Request-first drafts: body asks for a short meeting and states no offer terms; follow_up_1 states the offer "
+              "register v4 terms. One per in-scope organisation, plus replies to in-fit parent enquiries. Finance must confirm the 2027 terms before "
+              "a follow-up is sent; needs_review rows are held for the reason in conditions. Nothing is sent.",
               OL.OUTREACH_HEADERS, outreach_rows, {"target": 36, "subject": 40, "body": 90, "follow_up_1": 70, "conditions": 70, "recipient": 30})
     add_sheet(wb, "Campaigns", note, ["campaign_id", "name", "audience", "activation_gate", "status"],
               [["C10", "Welfare institutional placements", "Verified welfare institutions within the catchment",

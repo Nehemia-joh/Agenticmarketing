@@ -74,16 +74,19 @@ def main() -> int:
 
     m = ro(MASTER)
     corporate_headers = ["message_id", "organisation", "recipient", "recipient_role", "contact_channel", "segment", "track", "review_status", "selection",
-                         "subject", "body", "follow_up_1", "follow_up_2", "kiswahili_version", "offer_ids", "conditions"]
+                         "subject", "body", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "offer_ids", "conditions"]
     corporate = []
     for r in m.execute("""SELECT p.*, msg.conditions AS conditions FROM outreach_plans p JOIN messages msg USING(message_id)
                           ORDER BY CASE p.acquisition_track_id WHEN 'AQ02' THEN 0 WHEN 'AQ01' THEN 1 ELSE 2 END, p.segment, p.organisation_name"""):
         ids = [x.strip() for x in str(r["offer_ids"] or "").split(";") if x.strip()]
-        for field in ("body", "follow_up_1", "follow_up_2", "offer_message_sw"):
-            check("corporate", r["message_id"], r[field], ids, (r["organisation_name"], r["target_name"]))
+        names = tuple(n for raw in (r["organisation_name"], r["target_name"]) if raw for n in (raw, L.display_name(raw), L.greeting_name(raw)))
+        for field in ("body", "follow_up_1", "follow_up_2", "offer_message", "offer_message_sw"):
+            check("corporate", r["message_id"], r[field], ids, names)
+        for field in ("body", "offer_message_sw"):  # the first message, in English and Kiswahili, is a request with no offer terms
+            issues += [["corporate", r["message_id"], problem] for problem in L.check_first_message(r[field], ignore=names)]
         corporate.append([r["message_id"], r["organisation_name"], r["target_name"] if r["target_type"] == "contact" else "Organisation route",
                           r["recipient_role"], r["contact_channel"], r["segment"], r["acquisition_track_id"], r["review_status"], r["selection"],
-                          r["subject"], r["body"], r["follow_up_1"], r["follow_up_2"], r["offer_message_sw"], r["offer_ids"],
+                          r["subject"], r["body"], r["follow_up_1"], r["follow_up_2"], r["offer_message"], r["offer_message_sw"], r["offer_ids"],
                           "; ".join(x for x in (r["missing_information"], r["conditions"]) if x)])
     parents = []
     for r in m.execute("SELECT d.*, e.enquiry_date, e.platform FROM parent_enquiry_drafts d JOIN enquiries e USING(enquiry_id) ORDER BY d.status, e.enquiry_date"):
@@ -117,19 +120,29 @@ def main() -> int:
              (f"Generated {generated}. Drafts from the company master and the welfare and government runs (their SQLite databases are the source of "
               f"truth). Offer register version {L.OFFER_VERSION}. Nothing here has been sent, and no automation is enabled.", "sub"), ("", ""),
              ("What changed", "h"),
-             ("Every draft now states Silverleaf's documented offer for its audience, taken only from data/reference/silverleaf-offer-register.json, "
-              "which records each term with its source file, page or row, and SHA-256 hash (references/Offers & Discounts).", ""),
-             ("Employers: a staff school-fee benefit at no cost to the employer (20% off tuition for heads of department for as long as the child studies "
-              "at Silverleaf; 10% off the first year for all other staff), then the family offer in the follow-up. Savings groups: the family offer and a "
-              "member-association group rate. Welfare homes and programmes: the NGO partner rate (3–18% per child when all primary-age children are "
-              "placed). Government offices: Kiswahili letters asking to give parents a free school-readiness talk; they describe the family offer for "
-              "parents only and never offer officials a benefit. Rivertrees: renewal of its 2025 proposal.", ""),
-             ("Family offer, open to every family: a free uniform set (worth TZS 110,000) when the year's tuition is paid before the school year opens; 10% "
-              "off tuition for a third child and 20% for a fourth; tuition in four instalments.", ""),
-             ("Personalisation only where the fact is relevant and safe: a verified hook (six drafts), the nearest campus and distance when the lead's "
-              "location is precise, the recipient's role, and the wards nearest our campuses in council letters. Otherwise the message leads with the offer.", ""),
+             ("Request first (23 September 2026). The first message to an organisation makes a relevant request and states no offer terms: its "
+              "purpose, who is writing (Mariam Haji, Marketing and Partnership Coordinator) and a short meeting, in person or by phone. The offer "
+              "follows in the next message.", ""),
+             ("Employers: a meeting about an education benefit for the children of their staff; where the decision-maker is unknown (AQ01), the "
+              "message also asks to be pointed to whoever looks after staff welfare. Savings groups: a meeting with the committee about members' "
+              "children's education. Welfare homes and programmes: working together on the education of the children in their care. Welfare "
+              "funders only: a request to sponsor students (two or three to start), with the funder's verified support for a home as the reason "
+              "where the welfare run records one. Rivertrees: renewing its 2025 partnership. Government offices: the Kiswahili letters were "
+              "already requests (a free school-readiness talk for parents) and are unchanged apart from the signature.", ""),
+             ("The offer, taken only from data/reference/silverleaf-offer-register.json: employers get a staff school-fee benefit at no cost to "
+              "the employer (20% off tuition for heads of department for as long as the child studies at Silverleaf; 10% off the first year for all "
+              "other staff) and the family offer; savings groups the family offer and a member-association group rate; homes and funders the NGO "
+              "partner rate (3–18% per child when all primary-age children are placed). Family offer, open to every family: a free uniform set "
+              "(worth TZS 110,000) when the year's tuition is paid before the school year opens; 10% off tuition for a third child and 20% for a "
+              "fourth; tuition in four instalments.", ""),
+             ("Where the offer appears: company master AQ02 drafts send it as follow-up 1, and every company draft holds it in offer_message, the "
+              "reply to send once someone answers (on AQ01, once they name the right colleague). Welfare drafts send it as the follow-up.", ""),
+             ("Personalisation only where the fact is relevant and safe: a verified hook (six company drafts), a funder's verified support for a "
+              "home, the nearest campus and distance when the lead's location is precise, the recipient's role, and the wards nearest our campuses "
+              "in council letters.", ""),
              ("", ""), ("Before anything is sent", "h"),
-             ("1. Finance confirms that the 2025 terms apply to the 2027 school year (2027 enrolment plan tasks A1 and A2). Every draft carries this condition.", ""),
+             ("1. Finance confirms that the 2025 terms apply to the 2027 school year (2027 enrolment plan tasks A1 and A2) before any message that "
+              "states them. First messages state no terms.", ""),
              ("2. The 40% rate is Rivertrees' negotiated term only. The member-association rate is documented for KINEFA; Finance must agree to extend it.", ""),
              ("3. Tuition figures are not quoted in first messages; send the current fee schedule on request (the website's figures carry no school year).", ""),
              ("4. Kiswahili drafts need native-speaker review. Government letters also need the campaign C11 gates (session content, guide, privacy notice).", ""),
@@ -139,7 +152,8 @@ def main() -> int:
               f". Historical parent replies reviewable: {summary['parent_replies_reviewable']}.", ""),
              ("Welfare run: " + "; ".join(f"{k} {v}" for k, v in sorted(run_counts["welfare"].items())) +
               ". Government run: " + "; ".join(f"{k} {v}" for k, v in sorted(run_counts["government"].items())) + ".", ""),
-             (f"Conformance issues: {len(issues)} (every percentage and amount matches the register; no expired referral reward; no benefit to officials).", ""),
+             (f"Conformance issues: {len(issues)} (every percentage and amount matches the register; no expired referral reward; no benefit to "
+              f"officials; no offer terms in a first message).", ""),
              ("", ""), ("Sheets", "h"),
              ("Offer Register · Offer Sources · Corporate Messages · Parent Replies · Welfare Messages · Government Letters · Conformance", "")]
     for i, (text, kind) in enumerate(lines, 1):
@@ -152,11 +166,15 @@ def main() -> int:
               ["offer_id", "name", "audience", "terms", "use", "use_note", "source", "locator", "tracks"], offer_rows, {"terms": 80, "use_note": 70})
     add_sheet(wb, "Offer Sources", "Files and pages behind the register.", ["source_id", "path_or_url", "sha256", "title", "locator_or_checked_on"],
               source_rows, {"path_or_url": 70, "title": 60, "locator_or_checked_on": 70})
-    add_sheet(wb, "Corporate Messages", "Company master outreach plans, offer v4. Earlier versions are in message_versions ('2026-09-23-before-offer-v4').",
-              corporate_headers, corporate, {"organisation": 34, "body": 90, "follow_up_1": 80, "kiswahili_version": 80, "conditions": 70})
+    add_sheet(wb, "Corporate Messages", "Company master outreach plans, request first: body asks for a meeting; offer_message states the offer "
+              "(AQ02's follow-up 1, or the reply). Earlier versions are in message_versions ('2026-09-23-before-offer-v4', "
+              "'2026-09-23-before-request-first').",
+              corporate_headers, corporate, {"organisation": 34, "body": 80, "follow_up_1": 90, "offer_message": 90, "kiswahili_version": 80,
+                                             "conditions": 70})
     add_sheet(wb, "Parent Replies", "Historical public enquiries in the master: 'Review only' rows carry one reply with the family offer; the rest get none.",
               ["enquiry_id", "enquiry_date", "platform", "status", "route_status", "subject", "body"], parents, {"body": 90, "status": 50})
-    add_sheet(wb, "Welfare Messages", "Welfare run drafts: partner rates for homes and programmes, sponsor version for funders, replies to in-fit enquiries.",
+    add_sheet(wb, "Welfare Messages", "Welfare run drafts: a meeting request first (sponsorship requests for funders only), then the partner "
+              "rates in follow_up_1; replies to in-fit enquiries.",
               L.OUTREACH_HEADERS, run_rows["welfare"], {"target": 36, "body": 90, "follow_up_1": 70, "conditions": 70})
     add_sheet(wb, "Government Letters", "Government run letters in Kiswahili with an English meaning. GA01 councils first; everything else is held.",
               L.OUTREACH_HEADERS, run_rows["government"], {"target": 40, "body": 90, "english_meaning": 90, "conditions": 70})

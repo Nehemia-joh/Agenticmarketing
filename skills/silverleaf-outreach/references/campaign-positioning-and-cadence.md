@@ -37,11 +37,11 @@ Lead with a useful next step: help the parent identify the right campus and curr
 
 ### Employer and institutional partners
 
-Lead with the staff benefit and the low lift for the organisation: Silverleaf Academy can provide one optional Q&A and a concise guide; the organisation decides whether to circulate the invitation; interested parents contact Silverleaf directly. Do not assert that staff are parents or need school places. The recipient's role decides the ask: review the outline, nominate the right owner or suggest a workable format.
+Open with the request, a short meeting about an education benefit for the children of the organisation's staff, and state no terms. In the offer message, lead with the staff benefit and the low lift for the organisation: Silverleaf Academy can provide one optional Q&A and a concise guide; the organisation decides whether to circulate the invitation; interested parents contact Silverleaf directly. Do not assert that staff are parents or need school places. The recipient's role decides the ask: review the outline, nominate the right owner or suggest a workable format.
 
 ### SACCOS
 
-Offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the member-association group rate, exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy. Finance must agree to extend the group rate, which is documented for KINEFA, and must confirm the terms for 2027 before sending.
+Open with a request to meet the committee about members' children's education. In the offer message, offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the member-association group rate, exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy. Finance must agree to extend the group rate, which is documented for KINEFA, and must confirm the terms for 2027 before sending.
 
 ### Existing Silverleaf families at early-years campuses
 

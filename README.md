@@ -28,14 +28,14 @@ This repository holds Silverleaf's sourced lead intelligence, partnership strate
 | `scripts/welfare/` | Welfare-lead collectors, research planner, run pipeline and the shared rate-limited HTTP helper. |
 | `scripts/government/` | Government-lead collectors (census, council sites, OpenStreetMap, Wikipedia), run pipeline and verification. |
 | `scripts/contacts/` | Contact research: polite website crawler, OpenStreetMap contacts, profile builder, wave planner, master merge, run exports and the review workbook. |
-| `scripts/messaging/` | Offer-aligned message drafting for all three databases, the offer-register checks and the combined review workbook. |
+| `scripts/messaging/` | Request-first message drafting for all three databases (the offer follows in the next message), the offer-register checks and the combined review workbook. |
 | `skills/` | Reusable create-list, update-list, outreach, welfare-leads and government-leads skills. |
 | `outputs/master/` | Canonical SQLite database and consolidated review workbook. |
 | `outputs/config/` | Disabled automation recipes. |
 | `outputs/reports/` | Current verification results. |
 | `outputs/runs/` | Separate run outputs: database (ignored by Git), review workbook, validation and verification reports. |
 | `outputs/contacts/` | The contact-profiles review workbook and the master merge report. |
-| `outputs/messages/` | The combined review workbook of offer-aligned drafts and its reconciliation reports. |
+| `outputs/messages/` | The combined review workbook of every draft and its reconciliation reports. |
 | `plans/` | Plans for new lead tracks and presentations. |
 | `runtime/` | Ignored scratch space for generated working files, HTTP caches and rendered research prompts. |
 
@@ -379,13 +379,21 @@ The current government run, `arusha-government-2026-09`, holds:
 
 All 27 verification checks pass. The Read Me sheet lists the coverage gaps: most councils publish no ward-by-ward councillor list, and no council publishes its executive officers' names or phones.
 
-## Offer-aligned messages
+## Outreach messages: request first
 
-Every lead's draft states Silverleaf's documented offer for its audience. The terms come only from `data/reference/silverleaf-offer-register.json`, which records each term with its source in `references/Offers & Discounts/` (see `skills/silverleaf-outreach/references/offer-register.md`).
+Since 23 September 2026 the first message to an organisation makes a relevant request and states no offer terms. This follows Kilusu's recommendation. The first message gives its purpose, introduces the sender and asks for a short meeting, in person or by phone. Mariam Haji, Marketing and Partnership Coordinator, signs every draft in all three databases.
+- **Employers:** a meeting about an education benefit for the children of their staff. Where the decision-maker is unknown (AQ01), the message also asks who looks after staff welfare or benefits.
+- **Welfare homes and programmes:** working together on the education of the children in their care.
+- **Welfare funders:** a request to sponsor students, two or three to start. Sponsorship is asked of funders only. When the welfare run records a funder's verified support for a home, that becomes the reason (46 of 98 funders).
+- **Savings groups:** a meeting with the committee, with a Kiswahili version for review.
+- **Government offices:** the Kiswahili letters were already requests to give parents a free school-readiness talk. Only the signature changed, and they never offer officials a benefit.
+
+What Silverleaf offers comes in the next message. Company-master AQ02 drafts send it as follow-up 1. Every company draft also keeps it in `offer_message`, the reply to send once someone answers; on AQ01 that is once they name the right colleague. Welfare drafts send it as the follow-up. The terms come only from `data/reference/silverleaf-offer-register.json`, which records each term with its source in `references/Offers & Discounts/` (see `skills/silverleaf-outreach/references/offer-register.md`).
 - **Employers:** a staff school-fee benefit at no cost to the employer. Heads of department get 20% off tuition for as long as their child studies with us; other staff get 10% off the first year.
 - **Every family:** a free uniform set for full-year payment, 10–20% off for a third or fourth child, and four instalments.
-- **Welfare homes and programmes:** the NGO partner rate of 3–18% per child.
-- **Government offices:** Kiswahili letters asking to give parents a free school-readiness talk. They never offer officials a benefit.
+- **Welfare homes, programmes and funders:** the NGO partner rate of 3–18% per child.
+
+The earlier, offer-led copies are kept in `message_versions` (`2026-09-23-before-request-first`).
 
 ```powershell
 python scripts/messaging/draft_master_messages.py --dry-run   # preview the company-master rewrite
@@ -396,11 +404,11 @@ python scripts/messaging/build_offer_messages_workbook.py     # one review workb
 ```
 
 On 23 September 2026, after the contact research below, the drafts were:
-- **Company master:** 1,626: the 1,314 offer-aligned organisation plans plus 312 plans for newly found contacts; 82 are AQ02, 1,192 AQ01 and 352 on hold.
+- **Company master:** 1,626: the 1,314 organisation plans plus 312 plans for newly found contacts; 82 are AQ02, 1,192 AQ01 and 352 on hold.
 - **Welfare:** 490, of which 63 are ready and 427 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
-All of them pass the offer-register checks. Finance must confirm that the 2025 terms apply to 2027 before anything is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
+All of them pass the offer-register checks, and no first message states offer terms. Finance must confirm that the 2025 terms apply to 2027 before any message that states them is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
 
 ## Contact profiles and contact leads
 
@@ -462,4 +470,4 @@ Only 13 in-scope organisations were never searched (12 welfare homes, programmes
 
 ## Current verified master
 
-The current verified master contains 955 organisations, 659 contacts, 32 enquiries, 1,626 messages and outreach plans, 1,658 campaign assignments, 140 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.
+The current verified master contains 955 organisations, 659 contacts, 32 enquiries, 1,626 messages and outreach plans, 1,658 campaign assignments, 141 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.

@@ -28,14 +28,14 @@ These intervals are acquisition tests. They are independent of the school market
 
 ## Message construction
 
-Build each first message from four parts:
+Build each first message as a request (decided 23 September 2026), from four parts:
 
-1. **Reason:** one verified reason this recipient or route is appropriate. If none exists, use a routing question or hold the record.
-2. **Recipient value:** the practical benefit they can assess, such as an organised way for interested staff to obtain current school information.
-3. **Silverleaf contribution:** the specific deliverable Silverleaf can provide, such as a concise guide or optional Q&A, subject to owner confirmation.
-4. **One next action:** review the outline, nominate the right colleague, or choose a practical format.
+1. **Purpose:** what Silverleaf would like to explore with this organisation, such as an education benefit for the children of its staff. Sponsorship is asked of welfare funders only.
+2. **Reason:** one verified reason this recipient or route is appropriate, when one exists. If none exists, leave it out. Use a routing question when the owner is unknown, or hold the record.
+3. **Who is writing:** Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy.
+4. **One next action:** a short meeting, in person or by phone, or the name of the right colleague.
 
-Open with the offer when a verified recipient hook is unavailable. State discounts only as the [offer register](offer-register.md) records them. Avoid inferred parenthood, workforce needs, urgency, subsidies, financing, transport, capacity or outcomes.
+The first message states no offer terms. The recipient value and Silverleaf's contribution follow in the offer message: follow-up 1 on AQ02, or the reply once an AQ01 route names the right colleague. State discounts there only as the [offer register](offer-register.md) records them. Avoid inferred parenthood, workforce needs, urgency, subsidies, financing, transport, capacity or outcomes.
 
 ## Value proposition modules
 

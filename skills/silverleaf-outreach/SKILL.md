@@ -42,22 +42,29 @@ The partner circulates an invitation; interested parents contact Silverleaf dire
 
 ## Draft and personalize
 
-Use the source principles in the reference. For Silverleaf, normally aim for 60–110 words in the initial email, excluding signature. Adjust when the channel or request needs it. Use a plain subject that accurately names the purpose.
+Use the source principles in the reference. For Silverleaf, normally aim for 50–100 words in the initial email, excluding signature. Adjust when the channel or request needs it. Use a plain subject that accurately names the purpose.
+
+**Request first.** The first message to an organisation makes a relevant request and states no offer terms. It covers:
+- **Purpose:** an education benefit for the children of its staff; a meeting with a savings-group committee; working together on the education of the children in a home's care; or, for welfare funders only, sponsorship.
+- **Who is writing:** Mariam Haji, Marketing and Partnership Coordinator, the sender for all three databases.
+- **One ask:** a short meeting, in person or by phone, or the name of the right colleague.
+
+What Silverleaf offers comes in the next message, as the offer register's table sets out. Never ask an employer for sponsorship.
 
 Personalization must change the reason, offer or next action—not merely the salutation. If a relevant organisation fact is verified but the recipient's role is uncertain, draft a routing request. If evidence is insufficient, mark `Needs research` and identify the missing fact rather than manufacture a personalized claim.
 
-For an alternate first message with a recipient-centred opening, read [hook-guidance.md](references/hook-guidance.md). Use a hook only when its exact claim has a traceable source URL and a verification date. A current role or local connection qualifies only when the cited source supports it. If that evidence is missing, leave the hook blank and open directly with the offer. Keep unverified ideas out of the active message and preserve earlier drafts in version history or a backup.
+For an alternate first message with a recipient-centred opening, read [hook-guidance.md](references/hook-guidance.md). Use a hook only when its exact claim has a traceable source URL and a verification date. A current role or local connection qualifies only when the cited source supports it. If that evidence is missing, leave the hook blank and open directly with the request. Keep unverified ideas out of the active message and preserve earlier drafts in version history or a backup.
 
 Keep strategic hypotheses separate from facts: a hospital may operate shifts, but that does not prove this recipient's staff need daycare. Existing school donations may justify a conversation, but do not establish endorsement of Silverleaf. Never imply a prior conversation, existing account relationship or referral that did not happen.
 
 No invented sender identity, testimonial, statistics, familiarity, urgency or calendar availability. Omit optional proof when none is verified. Retain research citations in the review record; include them naturally in the message only when useful to the recipient.
 
-## Regenerate the offer-aligned drafts
+## Regenerate the drafts
 
-The scripts in `scripts/messaging/` draft every lead's messages from the offer register:
-- `draft_master_messages.py`: company master; saves earlier versions in `message_versions` first; use `--dry-run` to preview.
+The scripts in `scripts/messaging/` draft every lead's messages: the request first, then the offer from the offer register.
+- `draft_master_messages.py`: company master. The offer is in `offer_message`, and AQ02 also sends it as follow-up 1. Earlier versions are saved in `message_versions` first; use `--dry-run` to preview.
 - `draft_run_messages.py --track welfare|government`: a pipeline step in each separate run.
-- `build_offer_messages_workbook.py`: one review workbook for all three databases; fails if any draft breaks a register rule.
+- `build_offer_messages_workbook.py`: one review workbook for all three databases. It fails if any draft breaks a register rule, or if a first message states offer terms.
 
 Edit the register (`data/reference/silverleaf-offer-register.json` and this reference) when Finance approves new terms, then re-run them.
 

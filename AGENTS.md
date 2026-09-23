@@ -16,7 +16,7 @@ Use `outputs/master/Silverleaf Master Database.sqlite` as the canonical lead dat
 
 Read the referenced data contract before creating fields or changing match rules.
 
-Any message that states an offer, discount or fee term takes it from `data/reference/silverleaf-offer-register.json` (`skills/silverleaf-outreach/references/offer-register.md`). Draft with the scripts in `scripts/messaging/`; they check every term against the register.
+Any message that states an offer, discount or fee term takes it from `data/reference/silverleaf-offer-register.json` (`skills/silverleaf-outreach/references/offer-register.md`). Draft with the scripts in `scripts/messaging/`; they check every term against the register. The first message to an organisation is a request that states no offer terms; the offer follows in the next message. Mariam Haji, Marketing and Partnership Coordinator, is the sender. Sponsorship is asked of welfare funders only.
 
 Before writing any script, check `scripts/README.md`: reusable scripts are catalogued there by task. Extend an existing script rather than writing a one-off. New reusable scripts go under `scripts/<task>/` and into the catalogue. `runtime/` holds only generated working files.
 

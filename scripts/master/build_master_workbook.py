@@ -91,14 +91,17 @@ class Builder:
 
 
 def sequence_for(row: dict) -> list:
-    """Timing per acquisition track: AQ00 holds, AQ01 routes with one check-in, AQ02 tests three touches."""
+    """Timing per acquisition track: AQ00 holds, AQ01 routes with one check-in, AQ02 tests three touches. The first message
+    is a request; the offer message states the offer (AQ02's follow-up 1, or the reply once an AQ01 route names the owner)."""
+    offer = row.get("offer_message") or ""
     if row["acquisition_track_id"] == "AQ00":
-        return ["Hold for verification; do not send", "", "No follow-up", "", "No follow-up", "", "Held"]
+        return ["Hold for verification; do not send", "", "No follow-up", "", "No follow-up", "", "Held", offer, "Held"]
     if row["acquisition_track_id"] == "AQ01":
         return ["After route and copy review", row["body"], "5 working days after actual delivery", row["follow_up_1"],
-                "Stop; no second follow-up", "", "Routing-first test"]
+                "Stop; no second follow-up", "", "As the reply, once someone names the right colleague", offer, "Routing-first test"]
     return ["After identity, role and copy review", row["body"], "4 working days after actual delivery", row["follow_up_1"],
-            "4 working days after follow-up 1 delivery", row["follow_up_2"], "Direct-recipient test"]
+            "4 working days after follow-up 1 delivery", row["follow_up_2"], "As the reply if the recipient answers the request first", offer,
+            "Direct-recipient test"]
 
 
 def main() -> int:
@@ -194,19 +197,22 @@ def main() -> int:
               e["source_record_id"]] for e in data["enquiries"]],
             [18, 22, 22, 16, 26, 30, 70, 60, 20, 30, 60, 28, 70, 18, 60, 18], 90, "TEnquiries")
 
-    b.sheet("Messages", "Offer-aligned drafts (offer v4) for every organisation and contact plan. Nothing is sent: Finance must confirm that the "
-            "offer terms apply to 2027, and each row's route, recipient and copy need review first. Hooks appear only where verified.",
+    b.sheet("Messages", "Request-first drafts for every organisation and contact plan, signed by Mariam Haji. The message asks for a short meeting "
+            "and states no offer terms; the offer message states the offer register's terms (AQ02 sends it as follow-up 1; on AQ01 it is the reply "
+            "once someone names the right colleague). Nothing is sent: Finance must confirm the terms apply to 2027 before the offer message goes "
+            "out, and each row's route, recipient and copy need review first. Hooks appear only where verified.",
             ["message_id", "target_name", "organisation_name", "target_type", "segment", "acquisition_track_id", "review_status", "contact_channel",
-             "subject", "message", "follow_up_1", "follow_up_2", "kiswahili_version", "offer_ids", "offer_version", "hook_status", "hook",
-             "value_module_ids", "campaign_copy_status", "channel_attribution", "conditions", "missing_information", "strategy_id",
+             "subject", "message", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "offer_ids", "offer_version", "hook_status",
+             "hook", "value_module_ids", "campaign_copy_status", "channel_attribution", "conditions", "missing_information", "strategy_id",
              "source_record_id"],
             [[p["message_id"], p["target_name"], p["organisation_name"], p["target_type"], p["segment"], p["acquisition_track_id"],
-              p["review_status"], p["contact_channel"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p["offer_message_sw"],
-              p["offer_ids"], p["offer_version"], p["hook_status"], p["hook"], p["value_module_ids"], p["campaign_copy_status"],
-              p["channel_attribution"], message_by_id.get(p["message_id"], {}).get("conditions"), p["missing_information"],
-              message_by_id.get(p["message_id"], {}).get("strategy_id"), message_by_id.get(p["message_id"], {}).get("source_record_id")]
+              p["review_status"], p["contact_channel"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p.get("offer_message"),
+              p["offer_message_sw"], p["offer_ids"], p["offer_version"], p["hook_status"], p["hook"], p["value_module_ids"],
+              p["campaign_copy_status"], p["channel_attribution"], message_by_id.get(p["message_id"], {}).get("conditions"),
+              p["missing_information"], message_by_id.get(p["message_id"], {}).get("strategy_id"),
+              message_by_id.get(p["message_id"], {}).get("source_record_id")]
              for p in data["outreach_plans"]],
-            [22, 28, 42, 16, 24, 20, 18, 34, 48, 105, 90, 70, 90, 22, 26, 30, 60, 42, 48, 45, 95, 80, 24, 24], 175, "TMessages")
+            [22, 28, 42, 16, 24, 20, 18, 34, 48, 90, 105, 70, 105, 90, 22, 26, 30, 60, 42, 48, 45, 95, 80, 24, 24], 175, "TMessages")
 
     strategy_rows = []
     for s in data["strategies"]:
@@ -248,24 +254,26 @@ def main() -> int:
             ["message_id", "target_name", "organisation_name", "segment", "acquisition_track_id", "value_module_ids", "acquisition_version",
              "strategy_scope", "recipient_role", "persona", "selection", "review_status", "contact_channel", "channel_attribution", "hook_status",
              "hook", "hook_evidence", "offer_version", "offer_ids", "offer_evidence", "subject", "message", "follow_up_1", "follow_up_2",
-             "kiswahili_version", "campaign_copy_status", "relevance_reason", "proposed_offer", "cta_type", "flow_id", "evidence_url",
-             "evidence_date", "verified_on", "evidence_basis", "evidence_record_ids", "missing_information"],
+             "offer_message", "kiswahili_version", "campaign_copy_status", "relevance_reason", "proposed_offer", "cta_type", "flow_id",
+             "evidence_url", "evidence_date", "verified_on", "evidence_basis", "evidence_record_ids", "missing_information"],
             [[p["message_id"], p["target_name"], p["organisation_name"], p["segment"], p["acquisition_track_id"], p["value_module_ids"],
               p["acquisition_version"], p["strategy_scope"], p["recipient_role"], p["persona"], p["selection"], p["review_status"],
               p["contact_channel"], p["channel_attribution"], p["hook_status"], p["hook"], p["hook_evidence"], p["offer_version"], p["offer_ids"],
-              p["offer_evidence"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p["offer_message_sw"], p["campaign_copy_status"],
-              p["relevance_reason"], p["proposed_offer"], p["cta_type"], p["flow_id"], p["evidence_url"], p["evidence_date"], p["verified_on"],
-              p["evidence_basis"], p["evidence_record_ids"], p["missing_information"]] for p in data["outreach_plans"]],
-            [22, 28, 42, 24, 20, 42, 40, 85, 28, 18, 23, 22, 34, 48, 30, 80, 75, 26, 22, 60, 48, 105, 90, 70, 90, 48, 80, 75, 24, 12, 55, 18, 18,
-             50, 90, 100], 175, "TOutreachPlans")
+              p["offer_evidence"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p.get("offer_message"), p["offer_message_sw"],
+              p["campaign_copy_status"], p["relevance_reason"], p["proposed_offer"], p["cta_type"], p["flow_id"], p["evidence_url"],
+              p["evidence_date"], p["verified_on"], p["evidence_basis"], p["evidence_record_ids"], p["missing_information"]]
+             for p in data["outreach_plans"]],
+            [22, 28, 42, 24, 20, 42, 40, 85, 28, 18, 23, 22, 34, 48, 30, 80, 75, 26, 22, 60, 48, 90, 105, 70, 105, 90, 48, 80, 75, 24, 12, 55,
+             18, 18, 50, 90, 100], 175, "TOutreachPlans")
 
     b.sheet("Sequences", "Acquisition-track sequences are independent of the internal marketing calendar. AQ00 holds, AQ01 routes with one "
-            "check-in, and AQ02 tests three touches. The copy is each row's offer-aligned draft.",
+            "check-in, and AQ02 tests three touches. The initial message is a request with no offer terms; the offer message states the offer.",
             ["message_id", "recipient", "organisation", "segment", "acquisition_track_id", "selection", "initial_subject", "initial_timing",
-             "initial_message", "delay_to_follow_up_1", "follow_up_1", "delay_to_follow_up_2", "follow_up_2", "track_status", "copy_status"],
+             "initial_message", "delay_to_follow_up_1", "follow_up_1", "delay_to_follow_up_2", "follow_up_2", "offer_message_timing",
+             "offer_message", "track_status", "copy_status"],
             [[p["message_id"], p["target_name"], p["organisation_name"], p["segment"], p["acquisition_track_id"], p["selection"], p["subject"],
               *sequence_for(p), p["campaign_copy_status"]] for p in data["outreach_plans"]],
-            [22, 28, 42, 24, 20, 22, 48, 38, 105, 38, 90, 38, 72, 30, 50], 175, "TSequences")
+            [22, 28, 42, 24, 20, 22, 48, 38, 90, 38, 105, 38, 72, 38, 105, 30, 50], 175, "TSequences")
 
     b.sheet("Segments", "Use the segment to select the offer. Acquisition track selects cadence; recipient evidence and role select the reason "
             "and CTA.", ["segment", "audience", "offer", "qualification", "flow_id"],

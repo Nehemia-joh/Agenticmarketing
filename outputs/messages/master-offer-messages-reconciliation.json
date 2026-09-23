@@ -2,25 +2,20 @@
  "run_on": "2026-09-23",
  "offer_version": "2026-09-23-offer-v4",
  "outcomes": {
-  "rewritten": 1608,
+  "rewritten": 1626,
   "government track (government run)": 6,
   "welfare track (welfare run)": 6,
   "excluded: no message": 5,
-  "new contact plan (AQ01)": 18,
   "historical parent replies updated": 9,
   "parent enquiries without a draft (unchanged)": 23
  },
  "conformance_issues": 0,
- "tracks_new": {
-  "AQ01": 18
- },
- "segments_new": {
-  "Corporate employers": 18
- },
+ "tracks_new": {},
+ "segments_new": {},
  "counts_after": {
   "messages": 1626,
   "outreach_plans": 1626,
-  "message_versions": 3348,
+  "message_versions": 4974,
   "campaign_lead_assignments": 1658
  }
 }

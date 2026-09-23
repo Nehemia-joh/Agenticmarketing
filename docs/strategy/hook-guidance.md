@@ -31,4 +31,4 @@ Use the workbook fields as follows:
 
 Compare message versions at the organisation level. Do not send version 1 to one contact and version 2 to another person in the same organisation. Count one organisation once, and compare positive replies and meetings only after source and channel quality are similar across the test groups.
 
-This database uses a verified-only rule. As of 7 September 2026, six message variants across two organisations have an active hook. The other 921 hook fields are blank and their alternate messages open directly with the offer.
+This database uses a verified-only rule. As of 7 September 2026, six message variants across two organisations have an active hook. The other hook fields are blank, and those messages open directly with the request (request-first, 23 September 2026).

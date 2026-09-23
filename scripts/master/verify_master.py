@@ -53,6 +53,8 @@ def main() -> int:
     unwanted = []
     for path in ROOT.rglob("*"):
         relative_parts = path.relative_to(ROOT).parts
+        if relative_parts[:2] == (".claude", "worktrees"):
+            continue  # other sessions' git worktrees are separate checkouts (git excludes them), not part of this one
         if "node_modules" in relative_parts or "__pycache__" in relative_parts or path.name.endswith(".inspect.ndjson"):
             unwanted.append(str(path.relative_to(ROOT)))
     checks = {

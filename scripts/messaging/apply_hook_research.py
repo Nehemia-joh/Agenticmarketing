@@ -163,7 +163,9 @@ def write_manifest() -> None:
     for path in sorted(RAW.rglob("*")):
         if path.is_file() and path.name != "MANIFEST.md":
             rel = path.relative_to(RAW).as_posix()
-            kind = "Coverage log: pages read, queries, blocks and gaps" if rel.startswith("coverage/") else "Research records: lead brief, hook and role checks per organisation"
+            kind = ("Coverage log: pages read, queries, blocks and gaps" if rel.startswith("coverage/") else
+                    "Coordinator review: decisions on proposed hooks and checks for a person" if rel.startswith("coordinator-review_") else
+                    "Research records: lead brief, hook and role checks per organisation")
             rows.append(f"| `{rel}` | `{hashlib.sha256(path.read_bytes()).hexdigest()[:16]}…` | {kind} |")
     (RAW / "MANIFEST.md").write_text(
         "# Hook research raw evidence\n\nResearch behind the first-message hooks and lead briefs of the company master's named leads. Planned by "

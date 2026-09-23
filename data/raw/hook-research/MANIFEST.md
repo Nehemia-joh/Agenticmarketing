@@ -4,7 +4,7 @@ Research behind the first-message hooks and lead briefs of the company master's 
 
 | File | SHA-256 | Contents |
 |---|---|---|
-| `coordinator-review_2026-09-23.json` | `4bba77acd902ba5a…` | Research records: lead brief, hook and role checks per organisation |
+| `coordinator-review_2026-09-23.json` | `4bba77acd902ba5a…` | Coordinator review: decisions on proposed hooks and checks for a person |
 | `coverage/hooks_a_coverage.md` | `963839d58601afe2…` | Coverage log: pages read, queries, blocks and gaps |
 | `coverage/hooks_b_coverage.md` | `c0ca8e10c86116f3…` | Coverage log: pages read, queries, blocks and gaps |
 | `coverage/hooks_c_coverage.md` | `5564d37f21522cb1…` | Coverage log: pages read, queries, blocks and gaps |

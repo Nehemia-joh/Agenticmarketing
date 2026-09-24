@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-09-24T02:51:45.932137+00:00",
+  "checked_at": "2026-09-24T02:57:27.495022+00:00",
   "result": "passed",
-  "database": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\nervous-cannon-499cbc\\outputs\\master\\Silverleaf Master Database.sqlite",
+  "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
   "database_sha256": "ea9e9ad674d8bae2f236dd33793cf3676b32ff82d3d0ad2596b3e29463d8533c",
-  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\nervous-cannon-499cbc\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
+  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
   "workbook_sha256": "d41853e3295a8ab9dc9b6b8d26193180dd50e9d27f3f4e40ed0b1c19b25d2c1a",
   "checks": {
     "integrity": true,

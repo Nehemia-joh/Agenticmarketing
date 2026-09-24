@@ -51,8 +51,30 @@ def contact_risk(name: str, emails: list[str]) -> tuple[str, str]:
     return "medium", "Named person and role as the organisation or an official source publishes them."
 
 
+RISK_ORDER = {"low": 0, "medium": 1, "risky": 2}
+
+
+def stored_risks(con) -> dict:
+    """contact_id -> (pdpa_risk, reason) as the research recorded it on the contact's source record (for example 'risky' for a
+    person read from a site whose robots.txt disallows crawling), the riskiest when there are several."""
+    cols = {r[1] for r in con.execute("PRAGMA table_info(entity_sources)")}
+    key = "source_record_id" if "source_record_id" in cols else "record_id"
+    out = {}
+    for cid, payload in con.execute(f"SELECT es.entity_id, sr.payload_json FROM entity_sources es JOIN source_records sr ON sr.{key} = es.{key} "
+                                    "WHERE es.entity_type='contact'"):
+        try:
+            p = json.loads(payload or "{}")
+        except json.JSONDecodeError:
+            continue
+        if isinstance(p, dict) and p.get("pdpa_risk") in RISK_ORDER:
+            if RISK_ORDER[p["pdpa_risk"]] >= RISK_ORDER.get(out.get(cid, ("", ""))[0], -1):
+                out[cid] = (p["pdpa_risk"], p.get("pdpa_risk_reason") or "")
+    return out
+
+
 def load(db: str) -> tuple[list[dict], list[dict]]:
     con = ro(DBS[db])
+    stored = stored_risks(con)
     level = {}
     if db == "government":
         level = {r["organisation_id"]: r["office_level"] for r in con.execute("SELECT organisation_id, office_level FROM government_office_profiles")}
@@ -70,6 +92,8 @@ def load(db: str) -> tuple[list[dict], list[dict]]:
         source = r.get("source_url") or r.get("profile_url") or ""
         verification = r.get("verification") or r.get("role_certainty") or ""
         risk, reason = contact_risk(r.get("name") or "", [r.get("named_email") or ""])
+        if r["contact_id"] in stored and RISK_ORDER[stored[r["contact_id"]][0]] > RISK_ORDER[risk]:
+            risk, reason = stored[r["contact_id"]][0], stored[r["contact_id"]][1] or reason
         # The best route to this person: their own published email or phone, else the organisation's published inbox or phone
         # (a personal-domain address linked to the person is never used).
         own_email = r.get("named_email") if r.get("named_email") and not W.PERSONAL_EMAIL.search(r["named_email"]) else ""
@@ -83,7 +107,8 @@ def load(db: str) -> tuple[list[dict], list[dict]]:
                          "role_email": r.get("published_role_email") or r.get("shared_email") or "", "role_phone": r.get("role_phone") or "",
                          "organisation_phone": r.get("organisation_phone") or "", "direct": bool(emails or phones), "source": source,
                          "best_route_type": best[0], "best_route": best[1], "reachable": best[0] != "website or profile page only",
-                         "attribution": r.get("channel_attribution") or "", "verification": verification, "pdpa_risk": risk, "pdpa_risk_reason": reason})
+                         "attribution": r.get("channel_attribution") or "", "verification": verification, "pdpa_risk": risk, "pdpa_risk_reason": reason,
+                         "name_status": C.name_status(r["name"]) if r.get("name") else "role desk"})
     con.close()
     return orgs, contacts
 
@@ -91,7 +116,7 @@ def load(db: str) -> tuple[list[dict], list[dict]]:
 def research_flags(date_: str) -> list[list]:
     """Warnings the research agents and the crawler left for a person to check."""
     rows = []
-    for path in sorted(C.RAW.glob(f"search_*_{date_}.jsonl")):
+    for path in sorted(C.RAW.glob(f"search_*_{date_}.jsonl")) + sorted(C.RAW.glob(f"browser_*_{date_}.jsonl")):
         for line in path.read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
@@ -100,6 +125,9 @@ def research_flags(date_: str) -> list[list]:
             kinds = [kind for kind, _ in C.note_flags(note)]
             if r.get("identity") == "uncertain":
                 kinds.append("identity uncertain")
+            # Read with a browser although its robots.txt disallows crawling (the user's decision): kept, tagged risky, flagged.
+            if r.get("robots") == "disallowed" and r.get("status") in ("found", "partial") and r.get("identity") != "uncertain":
+                kinds.append("robots.txt disallows (read with a browser)")
             if kinds:
                 rows.append([r.get("db", ""), r.get("organisation_id", ""), r.get("organisation_name", ""), "; ".join(kinds), note[:600], path.name])
     crawl = C.RAW / f"website_contacts_{date_}.jsonl"
@@ -191,7 +219,7 @@ def build(research: dict) -> tuple[dict, list, list, list]:
             counts["contact leads with a direct route"] += c["direct"]
             counts["contact leads reachable (own or organisation route)"] += c["reachable"]
             counts[f"pdpa {c['pdpa_risk']}"] += 1
-            lead_rows.append([db, c["contact_id"], c["organisation"], c["name"] or "(office or role desk)", c["role"], "yes" if c["decision_maker"] else "no",
+            lead_rows.append([db, c["contact_id"], c["organisation"], c["name"] or "(office or role desk)", c["name_status"], c["role"], "yes" if c["decision_maker"] else "no",
                               c["best_route_type"], c["best_route"], c["contact_route"], c["named_email"], c["role_email"], c["role_phone"], c["organisation_phone"], c["source"], c["attribution"],
                               c["verification"], c["pdpa_risk"], c["pdpa_risk_reason"]])
         summary[db] = {m: counts.get(m, 0) for m in MEASURES}
@@ -237,7 +265,7 @@ def main() -> int:
               f"{sites.get('robots_disallowed', 0)}"],
              ["Research: readable sites crawled with robots.txt unreachable (flagged)", sites.get("readable, crawled with robots.txt unreachable (flagged)", 0)],
              ["Research: OpenStreetMap exact-name matches", research_summary.get("osm_matches", 0)],
-             ["Research: budgeted search records", json.dumps(research_summary.get("search_records", {}))],
+             ["Research: search-agent and browser records", json.dumps(research_summary.get("search_records", {}))],
              ["Research: extracted people not recorded", json.dumps(research_summary.get("people_not_recorded", {}))]]
     add_sheet(wb, "Summary", f"Contact profiles across the three databases, built {args.date}"
               + (f"; 'before' is the databases on {before.get('date')} before the contact merges" if before else "")
@@ -247,7 +275,8 @@ def main() -> int:
               "contacts.", ["database", "organisation_id", "name", "segment", "route_status", "email", "phone", "website", "address", "socials",
                             "named_contacts", "decision_makers", "role_desks", "research", "sources"], org_rows)
     add_sheet(wb, "Contact Leads", "One row per contact. A named email is used only when the organisation publishes it for that person; a "
-              "personal-domain address linked to a person is never a route.", ["database", "contact_id", "organisation", "name", "role", "decision_maker",
+              "personal-domain address linked to a person is never a route. A name the source gives only in part is kept and labelled "
+              "in name_status.", ["database", "contact_id", "organisation", "name", "name_status", "role", "decision_maker",
                                                                                   "best_route_type", "best_route", "contact_route", "named_email", "role_email", "role_phone",
                                                                                   "organisation_phone", "source", "attribution", "verification", "pdpa_risk",
                                                                                   "pdpa_risk_reason"], lead_rows)

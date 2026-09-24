@@ -211,6 +211,27 @@ def allowed(robots: Robots | None, url: str) -> bool:
     return True if robots is None else robots.allows(url)
 
 
+# The crawler never reads a page robots.txt disallows. By the user's decision (24 September 2026) such a site may be read
+# with a browser, a few public pages as a visitor would (records in browser_*_<date>.jsonl with robots "disallowed"): what it
+# publishes for contact is kept, every person from it is tagged risky, and the organisation is flagged. Bot checks, CAPTCHAs,
+# logins, 403 and 429 answers and certificate warnings are still never passed.
+ROBOTS_BROWSER_RISK = ("Read with a browser from a website whose robots.txt disallows crawling (the user's decision, 24 September 2026); "
+                       "risky source.")
+ROBOTS_BROWSER_FLAG = "robots.txt disallows crawling; read with a browser"
+
+
+def robots_browser_flag(site: str, day: str) -> str:
+    return f"{site}: {ROBOTS_BROWSER_FLAG} at the user's direction on {day}; everything taken from it is tagged risky"
+
+
+def crawl_flag_kinds(flags) -> dict:
+    """A profile's crawl flags by kind: 'robots.txt unreachable' (crawled anyway) or 'robots.txt disallows' (read with a browser)."""
+    kinds = {}
+    for flag in flags or []:
+        kinds.setdefault("robots.txt disallows" if ROBOTS_BROWSER_FLAG in flag else "robots.txt unreachable", []).append(flag)
+    return kinds
+
+
 # ------------------------------------------------------------------ extraction
 EMAIL = re.compile(r"[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}")
 OBFUSCATED = re.compile(r"([A-Za-z0-9._%+\-]+)\s*[\[(]\s*at\s*[\])]\s*([A-Za-z0-9.\-]+)\s*[\[(]\s*dot\s*[\])]\s*([A-Za-z]{2,})", re.I)
@@ -227,7 +248,7 @@ ROLE = re.compile(r"\b(co-?founder|founder|managing director|executive director|
                   r"patron|social worker|supervisor|team leader|trustee|board member|representative|partner|mkurugenzi|meneja|mratibu|"
                   r"mwenyekiti|katibu|mhasibu|afisa)\b", re.I)
 DECISION = re.compile(r"founder|director|ceo|chief|chair|president|owner|proprietor|manager|head|principal|\brector\b|vice[- ]chancellor|provost|"
-                      r"co-?ordinator|administrator|"
+                      r"co-?ordinator|administrator|partner|in[- ]charge|bishop|"
                       r"human resources|\bhr\b|representative|mkurugenzi|meneja|mratibu|mwenyekiti", re.I)
 NOT_A_NAME = re.compile(r"\b(Our|The|About|Contact|Team|Staff|Welcome|Karibu|Read|More|Home|Safari|Safaris|Tours?|Lodge|Hotel|Camp|Ltd|Limited|"
                         r"Company|School|Children|Home|Centre|Center|Trust|Foundation|Group|Services|Office|Department|Programme|Program|"
@@ -281,8 +302,8 @@ NOTE_FLAGS = [("possible closure", CLOSURE),
               ("fit to check", re.compile(r"not (specifically )?(for )?child(ren)?\b|doubtful fit|not child-focused|vocational training, not|"
                                           r"peer school|competitor", re.I)),
               # a record filed under the wrong kind of business ('A pest-control company (TATO affiliate), not a tour operator')
-              ("segment to check", re.compile(r"not an? (tour|safari) (operator|company)|segment is wrong|wrong segment|mis-?labell?ed as|"
-                                              r"miscategori[sz]ed|mis-?classified", re.I)),
+              ("segment to check", re.compile(r"not an? (tour|safari)(?: or (?:tour|safari))? (operator|company)|segment is wrong|wrong segment|"
+                                              r"different kind of business|mis-?labell?ed as|miscategori[sz]ed|mis-?classified", re.I)),
               ("possible duplicate", re.compile(r"duplicate|probably (the same|now)|same (organi[sz]ation|bank|company|charity|school) as|"
                                                 r"older name|former name|renamed|now (called|named|known as)|appears twice|is really|twin", re.I)),
               ("check before outreach", re.compile(r"allegation|abuse|manual review|check (it )?before", re.I))]
@@ -311,7 +332,8 @@ PLACEHOLDER_NAMES = {"john doe", "jane doe", "leslie alexander", "floyd miles", 
 # beside an emeritus one still counts), or that is an office rather than a person's title.
 NOT_CURRENT = re.compile(r"^\s*(former|past|late|retired|emeritus|deceased|in (loving )?memory|ex-)|\bformer\b|\bpast (president|chair\w*|director)\b|"
                          r"^[^,;/&]*\bemeritus\b[^,;/&]*$", re.I)
-NOT_A_ROLE = re.compile(r"^\s*(head office|head quarters|headquarters|office\b|branch\b|proud to|partner with|we |our |the |your\b|stop\b|"
+NOT_A_ROLE = re.compile(r"^\s*(head office|head quarters|headquarters|office\b(?!\s+(?:manager|co-?ordinator|administrator|secretary|head))|"
+                        r"branch\b(?!\s+(?:manager|head|co-?ordinator))|proud to|partner with|we |our |the |your\b|stop\b|"
                         r"welcome|thank|about\b|with\b)|trusted|tanzania['’]s|first (female )?president|president of (the united republic|tanzania)|"
                         r"^business owner$|years as|certified partner|head office|patron saint|"
                         # a link, heading or sentence rather than a title ('Read a letter from our Executive Director', 'Director's
@@ -327,7 +349,8 @@ IRRELEVANT_ROLE = re.compile(r"\b(chef|cook|kitchen|waiter|waitress|driver|porte
 RELEVANT_ROLE = re.compile(r"human resources?|\bhr\b|people|personnel|administrat|welfare|social work|programme|program|partnership|"
                            r"community|secretary|treasurer|trustee|board|matron|patron", re.I)
 # A head of something that is not a decision role ("Head Chef", "Head Mountain Guide", "Chief Security Officer", "Chief Accountant").
-NOT_A_HEAD = re.compile(r"\b(?:head|chief)\s+(?:\w+\s+)?(chef|cook|guide|driver|porter|security|guard|teacher|accountant)\b", re.I)
+# A head teacher leads a school, so is a decision role.
+NOT_A_HEAD = re.compile(r"\b(?:head|chief)\s+(?:\w+\s+)?(chef|cook|guide|driver|porter|security|guard|accountant)\b", re.I)
 # Words that mark another organisation in a role ("HR Manager, Mwanzo Corporate Offices, Dar es Salaam"): a client testimonial.
 ORG_WORDS = re.compile(r"\b(ltd|limited|centre|center|complex|offices|boutique|hotel|lodge|hospital|clinic|bank|company|group|corporation|"
                        r"agri\w*|processing|medical|school|university|college)\b", re.I)
@@ -478,22 +501,58 @@ def extract(url: str, html: bytes) -> dict:
     return out
 
 
-def is_name(text: str) -> bool:
+def is_name(text: str, partial: bool = False) -> bool:
     """A person's name: 2-4 capitalised words in any alphabet with Latin capitals (Ståle, Zoë, O'Brien, Jean-Pierre), with
-    optional initials after the first word; not a role title, heading, place or acronym ('KPP Energy')."""
+    optional initials after the first word; not a role title, heading, place or acronym ('KPP Energy').
+
+    partial: a person a research agent or browser reader recorded as a person, so named in any form the source uses — only in
+    part ('Mogens', 'Mr. Jeffrey', 'Prudence T. B', 'Pascal (surname not published)'), with particles ('Gijs de Raadt', 'Ken
+    deLaski'), several titles ('Rt. Rev. Ludovick Minde'), post-nominals ('Fr Joe Mitchell, CP') or a place word as the surname
+    ('Doreen Moshi'). Only text that is plainly not a name is refused. A crawled page's words are not treated this way,
+    since a single capitalised word there is usually a heading or a place."""
+    if partial:
+        return agent_name(text)
     text = " ".join(str(text or "").split()).strip(" ,-–—|:")
     if len(text) > 48 or NOT_A_NAME.search(text) or ROLE.search(text):
         return False
     words = re.sub(rf"^{HONORIFIC}", "", text, flags=re.I).split()
-    if not 2 <= len(words) <= 4:
+    if not (1 if partial else 2) <= len(words) <= 4:
         return False
     for i, word in enumerate(words):
-        initial = i > 0 and re.fullmatch(r"[^\W\d_]\.", word) is not None
+        initial = i > 0 and re.fullmatch(r"[^\W\d_]\." if not partial else r"[^\W\d_]\.?", word) is not None
         if not word[0].isupper() or not (initial or re.fullmatch(r"[^\W\d_](?:[^\W\d_]|['’\-])+", word)):
             return False
         if re.fullmatch(r"[B-DF-HJ-NP-TV-XZ]{2,}", word):
             return False  # capitals without a vowel are an acronym, not a name
     return True
+
+
+def agent_name(text: str) -> bool:
+    """A person's name as a research agent recorded it: refused only when it is plainly not one (empty, digits or an address in
+    it, a heading or label whose first word is a page word such as 'Human Resources' or 'Contact Us', or a bare role title)."""
+    text = re.sub(r"\([^)]*\)", " ", str(text or ""))
+    text = re.sub(r",\s*[A-Za-z.]{1,6}$", "", " ".join(text.split())).strip(" \"'“”‘’,-–—|:")
+    if not text or len(text) > 60 or re.search(r"[\d@/\\]", text) or ROLE.fullmatch(text):
+        return False
+    words = re.findall(r"[^\W\d_]+(?:['’\-][^\W\d_]+)*", text)
+    content = [w for w in words if w.lower().rstrip(".") not in TITLES and w.lower() not in ("rt", "pr", "fr", "sr", "br", "&")]
+    if not content or not any(w[0].isupper() for w in content):
+        return False
+    return not NOT_A_NAME.fullmatch(content[0]) and not all(NOT_A_NAME.fullmatch(w) for w in content)
+
+
+def name_status(name: str) -> str:
+    """'complete' for a given name and a surname; otherwise what is missing, so an incomplete lead is kept and labelled
+    rather than dropped (the user's decision, 24 September 2026)."""
+    text = re.sub(rf"^{HONORIFIC}", "", " ".join(re.sub(r"\([^)]*\)", " ", str(name or "")).split()), flags=re.I)
+    words = [w.strip(".,") for w in text.split()]  # a hyphenated first name ('Gert-Jan') is one name
+    words = [w for w in words if w and w.lower() not in TITLES]
+    full, initials = [w for w in words if len(w) > 1], [w for w in words if len(w) == 1]
+    if len(full) >= 2:
+        return "complete"
+    if len(full) == 1 and initials:
+        return "incomplete: surname given only as an initial"
+    return "incomplete: one name only"
 
 
 def clean_role(name: str, role: str) -> str:
@@ -515,23 +574,41 @@ def clean_role(name: str, role: str) -> str:
     return DEGREE_PREFIX.sub("", role).strip(" ,-–—|:")[:80]
 
 
-def clean_person(name: str, role: str, org_name: str = "", domain: str = ""):
+def clean_person(name: str, role: str, org_name: str = "", domain: str = "", partial: bool = False):
     """(name, role, decision_maker) for a person worth recording, or None.
 
     Drops template names, headings, organisation names read as people, roles the person no longer holds, and staff whose roles
     have no bearing on the outreach (data minimisation).
+
+    partial: a person a research agent or browser reader recorded deliberately. Every such lead is kept (the user's decision,
+    24 September 2026: better incomplete data labelled incomplete than dropped data): any name form (see is_name), any role
+    the source gives, including one with no recognised title ('Booking contact') or outside the decision roles, and one tied to
+    a unit or partner the agent judged to belong to the organisation. Only a template name, a role the person no longer
+    holds, or a phone number read as a role is refused. name_status labels an incomplete name.
     """
     name = " ".join(str(name or "").split()).strip(" ,-–—|:")
     role = clean_role(name, role)
-    if not is_name(name) or not role or not ROLE.search(role) or len(role.split()) > 12 or is_phone(role):
+    if not is_name(name, partial) or not role or is_phone(role) or len(role.split()) > (30 if partial else 12):
+        return None
+    if not partial and not ROLE.search(role):
         return None
     bare = re.sub(r"^" + HONORIFIC, "", name, flags=re.I).lower()
     if bare in PLACEHOLDER_NAMES or name.lower() in PLACEHOLDER_NAMES:
         return None
-    if NOT_CURRENT.search(role) or NOT_A_ROLE.search(role):
+    if NOT_CURRENT.search(role):
+        return None
+    if partial:
+        return name, role, bool(DECISION.search(NOT_A_HEAD.sub("", role)))
+    if NOT_A_ROLE.search(role):
         return None
     squashed = re.sub(r"[^a-z]", "", bare)
-    if len(squashed) >= 6 and (squashed in re.sub(r"[^a-z]", "", domain.lower()) or squashed in re.sub(r"[^a-z]", "", org_name.lower())):
+    org_squashed = re.sub(r"[^a-z]", "", org_name.lower())
+    # An organisation named after its founder ('Robin Hurt' of Robin Hurt Safaris) keeps the person; the organisation's own name
+    # read as a person ('Duma Explorer' of Duma Explorers, 'ROAM Humanitarian') is dropped.
+    named_after = len(squashed) >= 6 and squashed in org_squashed and re.fullmatch(
+        r"(?:safaris?|tours?|travels?|adventures?|expeditions?|foundation|trust|charity|ltd|limited|company|co|inc|group|holdings?|lodges?|"
+        r"camps?|hotels?|and|the|of|africa|tanzania)+", org_squashed.replace(squashed, "", 1) or "-") is not None
+    if not named_after and len(squashed) >= 6 and (squashed in re.sub(r"[^a-z]", "", domain.lower()) or squashed in org_squashed):
         return None  # the organisation's own name read as a person
     if org_name and "," in role and another_organisation(role.split(",", 1)[1], org_name):
         return None  # someone at another organisation, usually a client testimonial

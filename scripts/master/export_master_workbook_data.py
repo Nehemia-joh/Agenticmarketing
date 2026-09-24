@@ -5,7 +5,8 @@ Writes runtime/artifacts/workbook-input.json for scripts/master/build_master_wor
 the review enrichment the workbook shows next to each record, all derived from the database:
 - organisations: route status, official social pages, named contacts and decision-makers, the contact-research methods
   and the research warnings raised as review items;
-- contacts: decision-maker flag, best route (own, else the organisation's published route) and pdpa_risk.
+- contacts: decision-maker flag, best route (own, else the organisation's published route), pdpa_risk and name_status (a name the
+  source gives only in part is kept and labelled).
 """
 
 from __future__ import annotations
@@ -49,7 +50,7 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
     org_by_id = {o["organisation_id"]: o for o in organisations}
     facts = defaultdict(dict)
     for entity_id, field, value in connection.execute(
-            "SELECT entity_id, field, value FROM facts WHERE entity_type='contact' AND field IN ('pdpa_risk','decision_maker')"):
+            "SELECT entity_id, field, value FROM facts WHERE entity_type='contact' AND field IN ('pdpa_risk','decision_maker','name_status')"):
         facts[entity_id][field] = value
     socials = defaultdict(dict)
     for entity_id, field, value in connection.execute(
@@ -80,6 +81,8 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
         decides = facts[c["contact_id"]].get("decision_maker")
         c["decision_maker"] = ("yes" if decides == "true" else "no") if decides else ("yes" if named and decision_maker(c["role"]) else "no")
         c["best_route_type"], c["best_route"], c["pdpa_risk"] = route[0], route[1], risk
+        # A name the source gives only in part is kept and labelled (the user's decision, 24 September 2026).
+        c["name_status"] = facts[c["contact_id"]].get("name_status") or (C.name_status(named) if named else "role desk")
         people[c["organisation_id"]].append(c)
 
     for o in organisations:

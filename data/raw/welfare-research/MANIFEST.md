@@ -12,7 +12,7 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `coverage/F_specialised_centres_coverage.md` | `6742241c0d76995c…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/G_funders_registers_coverage.md` | `32a1042077b73626…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/H_parent_enquiries_coverage.md` | `04d0cfce8a49519c…` | Queries, blocked sources and gaps for one research slice |
-| `coverage/W_contact_profiles_coverage.md` | `d59a2b0766e4da8a…` | Queries, blocked sources and gaps for one research slice |
+| `coverage/W_contact_profiles_coverage.md` | `12b0728dae8cd6a2…` | Queries, blocked sources and gaps for one research slice |
 | `nis_catchment_2026-09-22.json` | `fa137e965fae7fec…` | NGOs Information System map entries (name, pin, vision) within the register radius |
 | `nis_catchment_profiles_2026-09-22.jsonl` | `f2715df95b1e6b60…` | NGOs Information System profiles for every NGO pinned within the register radius |
 | `nis_mapping_source_2026-09-22.json` | `baee08854d68f02a…` | Provenance of the NGOs Information System map extract |
@@ -28,4 +28,4 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `research_F_specialised_centres_2026-09-22.jsonl` | `cef1081d1ccb5642…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_G_funders_registers_2026-09-22.jsonl` | `fad7f656f8961999…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_H_parent_enquiries_2026-09-22.jsonl` | `3554744d1f02c258…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
-| `research_W_contact_profiles_2026-09-23.jsonl` | `ab6cf84e9de60944…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
+| `research_W_contact_profiles_2026-09-23.jsonl` | `1356ae0c37373b7d…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |

@@ -133,6 +133,15 @@ def resolve_unconfirmed(con, oid, field, value, stats) -> None:
 
 ROBOTS_ACTION = ("The site's robots.txt could not be read when it was crawled (server, network or certificate error). By decision, such sites "
                  "are crawled anyway and their details used; check the site's own terms if in doubt.")
+ROBOTS_BROWSER_ACTION = ("The site's robots.txt disallows crawling. By the user's decision (24 September 2026) its public pages were read with a "
+                         "browser, as a visitor would, and everything taken from them is tagged risky (pdpa_risk risky on its people). Check the "
+                         "site's own terms before relying on it.")
+NAME_ACTION = ("The source gives only part of this person's name. The lead is kept, labelled incomplete, rather than dropped (the user's "
+               "decision, 24 September 2026); find the full name from the organisation before relying on it. Drafts are not held.")
+# Crawl-flag kind -> (review ID part, review kind, action). The first keeps the ID earlier merges gave it.
+ROBOTS_REVIEWS = {"robots.txt unreachable": ("contact-robots", "Contact research: robots.txt unreachable", ROBOTS_ACTION),
+                  "robots.txt disallows": ("contact-robots-browser", "Contact research: robots.txt disallows (read with a browser)",
+                                           ROBOTS_BROWSER_ACTION)}
 
 
 def repair_research_emails(con, stats) -> None:
@@ -166,8 +175,33 @@ def best_phone(profile) -> str:
 
 def raw_files(run_date: str) -> list:
     files = [C.RAW / f"website_contacts_{run_date}.jsonl", C.RAW / f"osm_contacts_{run_date}.json"]
-    files += sorted(C.RAW.glob(f"search_*_{run_date}.jsonl"))
+    files += sorted(C.RAW.glob(f"search_*_{run_date}.jsonl")) + sorted(C.RAW.glob(f"browser_*_{run_date}.jsonl"))
     return [f for f in files if f.exists()]
+
+
+def record_files(run_date: str) -> dict:
+    """organisation_id -> the agent and browser files that hold a record for it (the source file of its source records)."""
+    out = {}
+    for path in raw_files(run_date):
+        if not path.name.startswith(("search_", "browser_")):
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            try:
+                oid = json.loads(line).get("organisation_id") if line.strip() else None
+            except json.JSONDecodeError:
+                oid = None
+            if oid and path.name not in out.setdefault(oid, []):
+                out[oid].append(path.name)
+    return out
+
+
+def file_for(method: str, oid: str, by_org: dict, source_ids: dict, run_date: str) -> str:
+    """The raw file a finding came from: the crawl file, else this organisation's browser or search record file."""
+    if method == "website":
+        return f"website_contacts_{run_date}.jsonl"
+    prefix = "browser_" if method == "browser" else "search_"
+    return next((n for n in by_org.get(oid, []) if n.startswith(prefix)),
+                next((n for n in source_ids if n.startswith(prefix)), f"osm_contacts_{run_date}.json"))
 
 
 def intake(profiles, run_date, orgs) -> list[dict]:
@@ -249,7 +283,7 @@ def main() -> int:
                    if r["organisation_id"] in orgs for ident in identities(orgs[r["organisation_id"]])}
     stats = {"organisations_updated": 0, "fields_filled": 0, "facts": 0, "contacts_inserted": 0, "reviews": 0, "plans_unheld": 0,
              "plans_held_for_closure": 0, "plans_held_for_unconfirmed_route": 0, "plans_released_route_confirmed": 0,
-             "research_emails_cleaned": 0, "contacts_on_twin_records_skipped": 0, "source_files": 0}
+             "research_emails_cleaned": 0, "contacts_on_twin_records_skipped": 0, "contacts_with_incomplete_names": 0, "source_files": 0}
     try:
         con.execute("BEGIN")
         source_ids = {}
@@ -262,11 +296,12 @@ def main() -> int:
             source_ids[path.name] = sid
             stats["source_files"] += 1
         default_source = next(iter(source_ids.values()))
+        by_org = record_files(run_date)
         repair_research_emails(con, stats)
         for p in profiles:
             oid, org = p["organisation_id"], orgs[p["organisation_id"]]
-            file_name = f"website_contacts_{run_date}.jsonl" if "website" in p["methods"] else next(
-                (n for n in source_ids if n.startswith("search_")), f"osm_contacts_{run_date}.json")
+            file_name = file_for("website" if "website" in p["methods"] else ("browser" if "browser" in p["methods"] else "search"),
+                                 oid, by_org, source_ids, run_date)
             record = hid("R", "contact-research", run_date, oid)
             payload = {k: p[k] for k in ("websites", "emails", "phones", "postal", "physical", "socials", "methods", "sources", "blocked")}
             con.execute("INSERT OR REPLACE INTO source_records (record_id, source_id, location, payload_json) VALUES (?,?,?,?)",
@@ -349,15 +384,17 @@ def main() -> int:
                     con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
                                 (hid("D", "contact-note", oid, kind), f"Contact research: {kind}", oid, "", "research note", note[:400], NOTE_ACTIONS[kind]))
                     stats["reviews"] += 1
-            # A site crawled while its robots.txt could not be read: flagged, not held (the user's decision).
-            robots_review = hid("D", "contact-robots", oid)
-            if p.get("crawl_flags"):
-                con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
-                            (robots_review, "Contact research: robots.txt unreachable", oid, "", "website", "; ".join(p["crawl_flags"])[:400],
-                             ROBOTS_ACTION))
-                stats["reviews"] += 1
-            else:
-                con.execute("DELETE FROM review WHERE review_id=?", (robots_review,))
+            # A site crawled while its robots.txt could not be read, or read with a browser although its robots.txt disallows
+            # crawling: flagged, not held (the user's decisions of 23 and 24 September 2026).
+            flag_kinds = C.crawl_flag_kinds(p.get("crawl_flags"))
+            for flag_kind, (id_part, review_kind, action) in ROBOTS_REVIEWS.items():
+                robots_review = hid("D", id_part, oid)
+                if flag_kind in flag_kinds:
+                    con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                                (robots_review, review_kind, oid, "", "website", "; ".join(flag_kinds[flag_kind])[:400], action))
+                    stats["reviews"] += 1
+                else:
+                    con.execute("DELETE FROM review WHERE review_id=?", (robots_review,))
             email_default = best_email(p, org["name"]) or org["email"] or ""
             phone_default = best_phone(p) or org["phone"] or ""
             for person in p["people"]:
@@ -373,22 +410,34 @@ def main() -> int:
                 named = person["email"] if person["email"] and not W.PERSONAL_EMAIL.search(person["email"]) else ""
                 cid = hid("C", oid, W.name_key(person["name"]))
                 route = "named_email" if named else ("shared_email" if email_default else ("organisation_phone" if phone_default else "profile_url"))
+                name_status = person.get("name_status") or C.name_status(person["name"])
                 verification = (f"Published by the organisation ({person['method']}, {'fetched' if person.get('fetched') else 'search snippet'}) "
-                                f"{run_date}; pdpa_risk {person['pdpa_risk']}; decision-maker {'yes' if person['decision_maker'] else 'no'}")
+                                f"{person.get('accessed_on') or run_date}; pdpa_risk {person['pdpa_risk']}; "
+                                f"decision-maker {'yes' if person['decision_maker'] else 'no'}"
+                                + (f"; name {name_status}" if name_status != "complete" else ""))
                 con.execute("INSERT INTO contacts (contact_id, organisation_id, name, role, campus, source_url, verification, shared_email, organisation_phone, "
                             "contact_route, published_role_email, role_phone, named_email) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
                             (cid, oid, person["name"], person["role"], org["campus"] or "", person["source_url"], verification,
                              "" if named else email_default, phone_default, route, "", person["phone"] or "", named))
                 crecord = hid("R", "contact-research-person", run_date, cid)
                 con.execute("INSERT OR REPLACE INTO source_records (record_id, source_id, location, payload_json) VALUES (?,?,?,?)",
-                            (crecord, source_ids.get(f"website_contacts_{run_date}.jsonl" if person["method"] == "website" else file_name, default_source),
+                            (crecord, source_ids.get(file_for(person["method"], oid, by_org, source_ids, run_date), default_source),
                              person["source_url"] or f"contact {cid}", json.dumps(person, ensure_ascii=False)))
                 con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) VALUES ('contact', ?, ?)", (cid, crecord))
                 for field, value in (("role", person["role"]), ("pdpa_risk", person["pdpa_risk"]), ("decision_maker", str(person["decision_maker"]).lower()),
-                                     ("named_email", named), ("role_phone", person["phone"])):
+                                     ("named_email", named), ("role_phone", person["phone"]),
+                                     ("name_status", name_status if name_status != "complete" else "")):
                     if value:
                         con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
                                     (hid("X", cid, field, value), "contact", cid, field, value, crecord))
+                if name_status != "complete":
+                    # Kept, not dropped (the user's decision, 24 September 2026): a person someone can complete later. Drafts are not held;
+                    # they address the person by the name the source gives.
+                    con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                                (hid("D", "contact-name-incomplete", cid), "Contact name incomplete", oid, cid, "name",
+                                 f"{person['name']} | {person['role']} | {name_status} | {person['source_url']}"[:400], NAME_ACTION))
+                    stats["contacts_with_incomplete_names"] += 1
+                    stats["reviews"] += 1
                 stats["contacts_inserted"] += 1
         integrity = con.execute("PRAGMA integrity_check").fetchone()[0]
         fks = con.execute("PRAGMA foreign_key_check").fetchall()

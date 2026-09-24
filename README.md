@@ -215,7 +215,7 @@ python3 scripts/master/verify_master.py
 
 The export writes `runtime/artifacts/workbook-input.json`, with each organisation's and contact's enrichment derived from the database:
 - organisations: route status, social pages, decision-makers, research methods and flags
-- contacts: best route and pdpa_risk
+- contacts: best route, pdpa_risk and name_status (a name the source gives only in part is kept and labelled)
 
 The builder then regenerates `outputs/master/Silverleaf Master Database - Consolidated.xlsx` from scratch in the same layout. Messages, Outreach plans and Sequences show the current offer-aligned drafts. It checks every sheet's row count against the database and records the result in `outputs/reports/workbook-verification.json`, exiting with an error on any mismatch.
 
@@ -332,9 +332,9 @@ Research agents then work through the prompts that `plan_research.py` writes to 
 
 The current welfare run, `arusha-welfare-2026-09`, holds:
 - 497 organisations: 253 researched, and 243 from the NGO register only
-- 528 contacts: 20 low, 481 medium and 27 risky for data protection
+- 687 contacts: 20 low, 636 medium and 31 risky for data protection
 - 3 public parent enquiries, all risky
-- 214 funder and partner links, and 100 review items
+- 214 funder and partner links, and 101 review items
 
 All 23 verification checks pass. Its web research is incomplete because the search cap was reached; each slice's coverage log lists the gaps.
 
@@ -408,8 +408,8 @@ python scripts/messaging/build_offer_messages_workbook.py     # one review workb
 ```
 
 On 23 September 2026, after the contact research below, the drafts were:
-- **Company master:** 1,678: the 1,314 organisation plans plus 364 plans for newly found contacts; 86 are AQ02, 1,239 AQ01 and 353 on hold.
-- **Welfare:** 490, of which 65 are ready and 425 held with a reason.
+- **Company master:** 1,817: the 1,314 organisation plans plus 503 plans for newly found contacts; 110 are AQ02, 1,353 AQ01 and 354 on hold.
+- **Welfare:** 490, of which 66 are ready and 424 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
 All of them pass the offer-register checks, and no first message states offer terms. Finance must confirm that the 2025 terms apply to 2027 before any message that states them is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
@@ -447,6 +447,7 @@ python scripts/contacts/crawl_org_websites.py --date <date>            # own web
 python scripts/contacts/collect_osm_contacts.py --date <date>
 python scripts/contacts/build_contact_profiles.py --date <date>
 python scripts/contacts/plan_contact_research.py --date <date> --wave 1 --budget <searches>   # then run the agents
+python scripts/contacts/plan_browser_pass.py --date <date>            # robots-disallowed (tagged risky) and script-built sites; browser agents
 python scripts/contacts/build_contact_workbook.py --date <date> --baseline   # before any merge
 python scripts/contacts/merge_master_contacts.py            # validator and preflight reports
 python scripts/contacts/merge_master_contacts.py --apply    # one transaction
@@ -454,43 +455,58 @@ python scripts/contacts/export_run_contact_research.py      # then the welfare a
 python scripts/contacts/build_contact_workbook.py --date <date>
 ```
 
-On 23 September 2026 the research used:
+On 23 and 24 September 2026 the research used:
 - **Own websites:** 731 crawled, including the 150 websites the research found. 618 were readable, 104 were not, and robots.txt disallowed 9.
   - A robots.txt that cannot be read (server, network or certificate error) no longer stops the crawl: the site is crawled and its details are flagged.
   - Of the 52 sites affected, 48 were down altogether. Tropical Trails and Kilpath African Safaris were read and flagged. Roy Safaris and Neema International now serve a readable robots.txt.
-  - robots.txt rules are now matched as RFC 9309 specifies. This opened kilivikings.com and closed sunnyadventures.co.tz and the parked afroplanfoundation.com. Merges never delete, so the master keeps the one record merged from sunnyadventures.co.tz before the fix; the only value in it that no other source gives is a P.O. Box.
+  - robots.txt rules are now matched as RFC 9309 specifies. This opened kilivikings.com and closed sunnyadventures.co.tz and afroplanfoundation.com.
   - Six tour operators' pages came gzip-compressed and had been read as noise. They were crawled again, which added their founders and managers (Lion King Adventures, Zara Tanzania Adventures, African Scenic Safaris and others).
-- **Search agents:** 603 records from 14 agents in four waves, using 426 searches.
+- **Browser pass (24 September), `plan_browser_pass.py`:**
+  - **Sites whose robots.txt disallows crawling:** by the user's decision these are read with a browser and everything from them is tagged risky. Four were read: Kitamu Africa (its founder), Sibusiso Foundation (its Executive Director, board chair, programme coordinator and founder), Safarini Africa and Sunny Adventure Safaris. Three safari operators on one host showed a BitNinja CAPTCHA, which was not passed. The rest were down or expired.
+  - **Sites built by script:** two browser agents read 28 of 47 sites that a plain crawler saw as nearly empty. Four showed a bot check, which was not passed. The other 15 were expired, parked, taken over, empty or down.
+  - 53 named people came from the browser records.
+- **Search agents:** 699 records from 16 agents in five waves, using 503 searches. Every in-scope organisation without a route has now been searched at least once.
 - **Pages read again with better rules (no network):** named sentences ("founded by …", "our founder, …"), rectors and vice-chancellors, and one name spelled two ways in the same post (Prof. Musa and Prof. Mussa N. Chacha, both Rector) counted once.
 
 It left these results (review them in `outputs/contacts/Silverleaf Contact Profiles - 2026-09-23.xlsx`):
 
 | | Company master | Welfare | Government |
 |---|---|---|---|
-| Organisations with a published email or phone | 598 → 709 of 955 | 101 → 215 of 497 | 28 → 37 of 149 |
-| Organisations with a named decision-maker | 160 → 266 | 52 → 163 | 9 (unchanged) |
-| Contact leads | 353 → 711 | 131 → 528 | 459 (office posts) |
-| Contact leads reachable by their own or their organisation's route | 707 | 498 | 79 |
+| Organisations with a published email or phone | 598 → 726 of 955 | 101 → 217 of 497 | 28 → 37 of 149 |
+| Organisations with a named decision-maker | 160 → 313 | 52 → 171 | 9 (unchanged) |
+| Contact leads | 353 → 854 | 131 → 687 | 459 (office posts) |
+| Contact leads reachable by their own or their organisation's route | 850 | 655 | 79 |
 
-The master's 598 also counted 21 organisations whose phone field holds a directory code ('AFF/FIN', 'TO/DMC/MAIN') rather than a number; the 709 counts only real numbers and addresses.
+The master's 598 also counted 21 organisations whose phone field holds a directory code ('AFF/FIN', 'TO/DMC/MAIN') rather than a number; the 726 counts only real numbers and addresses.
 
-- **Master:** five merges filled 526 empty fields, added 358 contacts and released 97 held drafts because a route was found. 131 contact-research review items are open:
-  - website conflicts and phone fields holding codes
-  - lost, parked or hijacked domains
-  - possible duplicates
-  - 15 records filed under the wrong kind of business ("segment to check"): TATO affiliate members recorded as tour operators, such as PwC, NSK Hospitals, a forex bureau and a pest-control company
-  - five records whose details come from a site crawled although its robots.txt could not be read: three Tropical Trails duplicates and two Kilpath records. They are flagged, and their drafts are not held
-  - possible closures, whose drafts are held: FBME Arusha, Fastjet's ticket office, Impala Hotel, Tin Tin Tours (two records), Lemuta & Khaki Safaris and Meru Mountain Treks & Safari
-- **Welfare:** 397 new leads and 114 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
+- **Master:** seven merges filled 591 empty fields, added 501 contacts and released 98 held drafts because a route was found. Open review items:
+  - **Contact research (195 items):**
+    - website conflicts
+    - lost, parked or hijacked domains
+    - possible duplicates
+    - 25 records filed under the wrong kind of business ("segment to check"), such as PwC, NSK Hospitals, a forex bureau and a pest-control company recorded as tour operators
+    - five records whose details come from a site crawled although its robots.txt could not be read: three Tropical Trails duplicates and two Kilpath records. They are flagged, and their drafts are not held
+    - four organisations read with a browser although their robots.txt disallows crawling, whose people are tagged risky: Kitamu Africa, Sibusiso Foundation, Safarini Africa and Sunny Adventure Safaris. Their drafts are not held
+  - **Fields holding the wrong thing (49 items):** 26 phone fields hold a directory code and 23 website fields hold a phone number. Each item gives the value research found.
+  - **Incomplete names (18 items, "Contact name incomplete"):** contacts named only in part, kept rather than dropped.
+  - **Possible closures (10 items), whose drafts are held:** FBME Arusha, Fastjet's ticket office, Impala Hotel, Tin Tin Tours (two records), Lemuta & Khaki Safaris, Meru Mountain Treks & Safari, Kili Star Tours, Afric'Aventure and Trekking and Safari Adventures.
+- **Welfare:** 556 new leads and 116 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
 - **Government:** every council in the run and the Arusha and Kilimanjaro Regional Secretariats now have their official email, office phone and P.O. Box, from their own letterheads and service charters. Only Manyara's secretariat lacks an email and phone; it has its P.O. Box.
-- **Filtered out:**
-  - template names, headings and client testimonials
+- **Leads kept:** since 24 September 2026 every lead is kept ("better incomplete data labelled incomplete than dropped data").
+  - There is no limit per organisation. Until then only six new leads per organisation were recorded.
+  - A name given only in part is kept and labelled in `name_status`: 18 in the master (for example "Mogens", founder of Mobila Tours) and 3 in the welfare run.
+  - A person a research agent or browser reader recorded is kept in any name form and with any role the source gives. Only template names, former roles and phone numbers read as roles are refused.
+  - When a search agent and a website list the same person, the lead takes the agent's name and role.
+  - Leads are ordered by their most senior role: founders, executives, rectors and head teachers first, then management (including partners of a firm and a facility's officer in charge), then board officers above coordinators.
+- **Filtered out:** only what is not a current lead of the organisation, from names the crawler reads off page layouts:
+  - template names and headings
+  - client testimonials and roles held at another organisation (a trustee's own business, another board, a partner NGO)
   - branch addresses, departments and page labels read as names ('Jomo Kenyatta Avenue', 'Human Resources', 'Select Page')
-  - roles held at another organisation: a trustee's own business, another board, a partner NGO
-  - former roles and staff outside outreach (chefs, guides, security, accountants)
-  - people beyond six new leads per organisation
-- **Leads kept:** when a search agent and a website list the same person, the lead takes the agent's name and role. People an agent confirmed are always kept; the rest rank by their most senior role, with board officers above coordinators. Rectors, vice-chancellors and provosts rank with founders and executives, and a deputy or assistant of the head ranks with management.
-- **Flags:** the Flags sheet lists 265 research warnings for a person to check, including the five robots.txt flags.
+  - former roles
+  - staff outside outreach (chefs, guides, security, accountants)
+
+  In this build, 15 entries were filtered.
+- **Flags:** the Flags sheet lists 353 research warnings for a person to check. They include five sites crawled with an unreachable robots.txt and five organisation records read with a browser although robots.txt disallows crawling.
 
 Still without a route:
 - savings groups, reached through KINEFA
@@ -498,8 +514,8 @@ Still without a route:
 - ward and village offices
 - organisations every wave searched without finding a route (the Gaps sheet lists them with what was tried)
 
-Only 5 in-scope organisations without a route were never searched: four welfare homes (two of them 110 and 500 km away) and one employer, Kili Star Tours. `plan_contact_research.py --wave 5` puts them in the next wave. With `--target decision-makers` it also plans the 94 organisations that have a route but no named decision-maker and whose website the crawler could not read.
+Every in-scope organisation without a route has been searched at least once. `plan_contact_research.py --target decision-makers` still plans 7 employers that have a route but no named decision-maker. The browser pass left out seven sites behind a bot check or CAPTCHA, which are never passed.
 
 ## Current verified master
 
-The current verified master contains 955 organisations, 711 contacts, 32 enquiries, 1,678 messages and outreach plans, 1,710 campaign assignments, 141 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.
+The current verified master contains 955 organisations, 854 contacts, 32 enquiries, 1,817 messages and outreach plans, 1,849 campaign assignments, 141 strategy records, and 54 automation steps. All automations are disabled. Run `python scripts/master/verify_master.py` on Windows or `python3 scripts/master/verify_master.py` on macOS and Linux for current counts.

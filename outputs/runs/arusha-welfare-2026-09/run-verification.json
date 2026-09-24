@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-09-23T18:04:28.238605+00:00",
+ "checked_at": "2026-09-24T02:52:48.566720+00:00",
  "run_id": "arusha-welfare-2026-09",
  "result": "passed",
  "checks": {
@@ -29,28 +29,28 @@
  },
  "db_counts": {
   "organisations": 497,
-  "contacts": 528,
+  "contacts": 687,
   "enquiries": 3,
   "outreach_plans": 490,
   "automation_recipes": 0,
   "organisation_relationships": 214,
   "registry_ngos": 898,
-  "review": 100,
-  "source_records": 1028,
+  "review": 101,
+  "source_records": 1187,
   "source_files": 26
  },
  "intake_by_type": {
   "organisation": 497,
-  "contact": 528,
+  "contact": 687,
   "enquiry": 3
  },
  "sheet_rows": {
   "Organisations": 497,
-  "Contacts": 528,
+  "Contacts": 687,
   "Parent Enquiries": 3,
   "Relationships": 214,
   "NGO Register": 898,
-  "Review Queue": 100,
+  "Review Queue": 101,
   "Outreach Plans": 490
  },
  "details": {
@@ -61,9 +61,9 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-09-23T20:55:57",
-   "master_db_sha256": "3b3df27c02910c443209e2db1399e4043d84f69ab2bbf34bdfe3c2b744b99e76",
-   "master_workbook_sha256": "b1ec2baa0fa1065872c7629798f5e8bb6efc05381e4a1f069e3e2afe9a950eb9"
+   "recorded_at": "2026-09-24T05:52:09",
+   "master_db_sha256": "ea9e9ad674d8bae2f236dd33793cf3676b32ff82d3d0ad2596b3e29463d8533c",
+   "master_workbook_sha256": "d41853e3295a8ab9dc9b6b8d26193180dd50e9d27f3f4e40ed0b1c19b25d2c1a"
   },
   "script_copies_out_of_sync": [],
   "message_issues": [],

@@ -26,7 +26,12 @@ The scripts enforce the network limits in code: `scripts/welfare/welfare_lib.py`
   - Reddit (not fetchable)
   - Tanzanian council sites on the GWF CORE framework (pages render in JavaScript and deep links redirect to the home page). Their public JSON API works; see the next section.
 - **Handling blocks.** Record a blocked source in the coverage log and move on. Do not retry in a loop, sign in or bypass a bot check.
-- **Pages that render in JavaScript** return only a shell. Look for data embedded in the page (the NGO register map embeds every NGO as a JavaScript array) and collect it with a script, or ask the user before using a browser.
+- **Pages that render in JavaScript** return only a shell. Look for data embedded in the page (the NGO register map embeds every NGO as a JavaScript array) and collect it with a script, or read the page with the built-in browser (next item).
+- **Browser pass.** On 24 September 2026 the user allowed the built-in browser for organisations' own websites the crawler could not use (`scripts/contacts/plan_browser_pass.py`; rules in `docs/methodology/contact-research.md`):
+  - sites built by script
+  - sites whose robots.txt disallows crawling; everything taken from them is tagged risky
+
+  Browser agents use no web search. Each works in its own tab, reads at most five pages per site one at a time, and counts toward the four research agents at a time. BitNinja and Cloudflare challenges, CAPTCHAs, logins, 403 and 429 answers, and certificate warnings are never passed. On 24 September three safari operators on one host showed a BitNinja CAPTCHA and were recorded as blocked.
 
 ## Council and regional websites (GWF CORE API)
 

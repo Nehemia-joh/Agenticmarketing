@@ -2,8 +2,9 @@
 """Combine contact research into one contact profile per organisation and a list of contact leads. No network calls.
 
 Inputs (data/raw/contact-research/): website_contacts_<date>.jsonl (crawl_org_websites.py), osm_contacts_<date>.json
-(collect_osm_contacts.py) and search_*_<date>.jsonl (budgeted research agents; brief in docs/methodology/contact-research.md). Databases are
-read-only: the company master, the welfare run and the government run.
+(collect_osm_contacts.py), search_*_<date>.jsonl (budgeted research agents; brief in docs/methodology/contact-research.md) and
+browser_*_<date>.jsonl (pages read with a browser: sites built by script, and sites whose robots.txt disallows crawling, which are
+read at the user's direction and tagged risky). Databases are read-only: the company master, the welfare run and the government run.
 
 For every organisation it records what was already known and what was found (website, typed emails, typed phones,
 postal and physical address, official social pages) with sources, and every named person the organisation publishes
@@ -123,14 +124,16 @@ def load_orgs() -> dict:
     return orgs
 
 
-# Named leads kept per organisation, most senior first; the rest are counted but not recorded (data minimisation).
-LEADS_PER_ORGANISATION = 6
+# Every lead is kept, most senior first: no cap per organisation, and a person named only in part is kept with its
+# name_status (the user's decision, 24 September 2026: better incomplete data labelled incomplete than dropped data).
 # Ranks, most senior first. A role that matches several ranks takes the most senior of them.
 SENIORITY = [re.compile(r"founder|\bceo\b|chief exec|managing director|(?<!non )(?<!non-)executive director|country director|director general|"
                         r"general manager|proprietor|owner|principal|\brector\b|vice[- ]chancellor|provost|head of school|headmaster|headmistress|"
-                        r"mkurugenzi|meneja mkuu", re.I),
-             # management: people and administration, directors, managers, heads of departments, other chief officers, matrons
-             re.compile(r"human resources?|\bhr\b|people|personnel|administrat|\bchief\b(?! patron)|director|head of|manager|matron|meneja", re.I),
+                        r"head ?teacher|(?:managing|senior|executive|founding) partner|\bbishop\b|mkurugenzi|meneja mkuu", re.I),
+             # management: people and administration, directors, managers, heads of departments, other chief officers, matrons,
+             # partners of a firm, the officer in charge of a health facility
+             re.compile(r"human resources?|\bhr\b|people|personnel|administrat|\bchief\b(?! patron)|director|head of|manager|matron|meneja|"
+                        r"\bpartner\b|in[- ]charge", re.I),
              # board officers
              re.compile(r"chair|president|secretary|treasurer|mwenyekiti|katibu", re.I),
              # programme and welfare staff
@@ -172,12 +175,14 @@ def misread_role(entry: dict, names: list[str]) -> bool:
 
 def combine(entries: list[dict]) -> dict:
     """One lead from every record of the same person. Name, role and source come from one record, so the lead stays traceable
-    to it: a confirmed search-agent record first (agents confirm each person), then the organisation's website, then a record
-    whose identity an agent left uncertain; within that source, the most senior role, and on a tie a 'Name / Role' layout
-    over a sentence ('Founder & Managing Director' over 'founded by ...'). The lead ranks by the most senior role in any
-    record. A work email or phone that another record links to the person is added."""
+    to it: a confirmed search-agent record first (agents confirm each person), then the organisation's website (crawled or read
+    with a browser), then a record whose identity an agent left uncertain; within that source, the most senior role, and on a
+    tie a 'Name / Role' layout over a sentence ('Founder & Managing Director' over 'founded by ...'). The lead ranks by the
+    most senior role in any record. A work email or phone that another record links to the person is added."""
     def preference(entry):
-        return 0 if entry["method"] == "search" and entry.get("identity") != "uncertain" else (1 if entry["method"] != "search" else 2)
+        if entry.get("identity") == "uncertain":
+            return 2
+        return 0 if entry["method"] == "search" else 1
     best = min(preference(x) for x in entries)
     chosen = min((x for x in entries if preference(x) == best), key=lambda x: (seniority(x["role"]), bool(x.get("prose"))))  # first on a tie
     lead = dict(chosen)
@@ -212,6 +217,8 @@ MANIFEST_KINDS = [("website_contacts_", "Own-website crawl: per site, the pages 
                                         "official social pages and named people with roles; no page text"),
                   ("osm_contacts_", "OpenStreetMap contact tags (phone, email, website) in the catchment"),
                   ("search_", "Budgeted search-agent records, one per organisation, with per-fact sources"),
+                  ("browser_", "Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt "
+                               "disallows crawling (read at the user's direction; everything from them tagged risky)"),
                   ("coverage/", "Searches, fetches, blocked sources and organisations not reached, for one agent slice")]
 
 
@@ -239,10 +246,10 @@ def main() -> int:
     # Research records can carry a stale organisation ID (see contact_lib.Resolver).
     resolve = C.Resolver((db, oid, o["name"]) for (db, oid), o in orgs.items())
 
-    def add_source(entry, url, title, facts, fetched, method, excerpt=""):
+    def add_source(entry, url, title, facts, fetched, method, excerpt="", accessed_on=""):
         if url and not any(s["url"] == url and s["method"] == method for s in entry["sources"]):
-            entry["sources"].append({"url": url, "title": title, "facts": facts, "fetched": fetched, "method": method, "accessed_on": args.date,
-                                     "excerpt": C.W.norm_text(excerpt)[:200]})
+            entry["sources"].append({"url": url, "title": title, "facts": facts, "fetched": fetched, "method": method,
+                                     "accessed_on": accessed_on or args.date, "excerpt": C.W.norm_text(excerpt)[:200]})
 
     # 1. website crawl
     crawl_path = C.RAW / f"website_contacts_{args.date}.jsonl"
@@ -338,9 +345,13 @@ def main() -> int:
         e["status"].add("openstreetmap")
         osm_matches += 1
 
-    # 3. budgeted search research
+    # 3. budgeted search research, then pages read with a browser. A browser record whose site's robots.txt disallows
+    # crawling was read at the user's direction (24 September 2026): its people are tagged risky and the organisation is
+    # flagged, so the data is kept and its source is visible.
     search_stats = Counter()
-    for path in sorted(C.RAW.glob(f"search_*_{args.date}.jsonl")):
+    records = [("search", path) for path in sorted(C.RAW.glob(f"search_*_{args.date}.jsonl"))] + \
+              [("browser", path) for path in sorted(C.RAW.glob(f"browser_*_{args.date}.jsonl"))]
+    for method, path in records:
         for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not line.strip():
                 continue
@@ -354,45 +365,62 @@ def main() -> int:
             if not key or key not in orgs:
                 search_stats["unmatched records"] += 1
                 continue
-            search_stats[f"{r.get('status', 'unknown')}"] += 1
+            search_stats[f"{method}: {r.get('status', 'unknown')}" if method != "search" else f"{r.get('status', 'unknown')}"] += 1
             # Notes are kept whatever the outcome: a search that found nothing may still report a closure or a lost domain.
             if r.get("notes"):
                 found[key].setdefault("notes", []).append(str(r["notes"])[:600])
             if r.get("status") in ("not_found", "blocked") and not any(r.get(k) for k in ("website", "emails", "phones", "people")):
-                found[key]["status"].add(f"search:{r.get('status')}")
+                found[key]["status"].add(f"{method}:{r.get('status')}")
                 continue
             e = found[key]
             uncertain = r.get("identity") == "uncertain"
+            risky_source = method == "browser" and r.get("robots") == "disallowed"
+            accessed = next((s.get("accessed_on") for s in r.get("sources") or [] if s.get("accessed_on")), "")
             if r.get("website") and not uncertain:
-                e["websites"].setdefault(r["website"], "search")
+                e["websites"].setdefault(r["website"], method)
             for item in r.get("emails") or []:
                 email = C.clean_email(str(item.get("value") or ""))
+                if "platform" in str(item.get("type") or "").lower():
+                    # A shared booking or website platform's inbox the site shows for enquiries (support@pindestinations.com on
+                    # Boker Adventures' page): recorded as evidence, never the organisation's own route.
+                    search_stats["platform inboxes not used"] += 1
+                    continue
                 if email and not uncertain:
-                    e["emails"].setdefault(email, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": "search"})
+                    e["emails"].setdefault(email, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": method})
             for item in r.get("phones") or []:
                 phone = W.norm_phone(str(item.get("value") or ""))
                 if len(re.sub(r"\D", "", phone)) >= 10 and not uncertain and not C.template_phone(phone):
-                    e["phones"].setdefault(phone, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": "search"})
+                    e["phones"].setdefault(phone, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": method})
             for field, target in (("postal_address", "postal"), ("physical_address", "physical")):
                 value = (r.get(field) or {}).get("value") if isinstance(r.get(field), dict) else r.get(field)
                 if value and not uncertain:
                     e[target].setdefault(str(value)[:120], {"source_url": (r.get(field) or {}).get("source_url", "") if isinstance(r.get(field), dict) else "",
-                                                             "method": "search"})
+                                                             "method": method})
             for item in r.get("socials") or []:
                 if item.get("url") and not uncertain:
                     e["socials"].setdefault(item.get("platform") or "other", item["url"])
             for p in r.get("people") or []:
                 if not p.get("name") or not p.get("role"):
                     continue
+                risk = p.get("pdpa_risk") or "medium"
+                reason = p.get("pdpa_risk_reason") or "Named person in a professional role, as published."
+                if risky_source:
+                    reason = C.ROBOTS_BROWSER_RISK + (f" {reason}" if risk == "risky" and reason != C.ROBOTS_BROWSER_RISK else "")
+                    risk = "risky"
                 e["people"].append({"name": C.W.norm_text(p["name"]), "role": C.W.norm_text(p["role"]), "decision_maker": bool(C.DECISION.search(p["role"])),
                                     "email": C.clean_email(str(p.get("email") or "")), "phone": W.norm_phone(str(p.get("phone") or "")) if p.get("phone") else "",
-                                    "source_url": p.get("source_url", ""), "fetched": bool(p.get("fetched")), "method": "search",
-                                    "excerpt": p.get("excerpt", ""), "pdpa_risk": p.get("pdpa_risk") or "medium",
-                                    "pdpa_risk_reason": p.get("pdpa_risk_reason") or "Named person in a professional role, as published.",
-                                    "identity": r.get("identity", "confirmed")})
+                                    "source_url": p.get("source_url", ""), "fetched": bool(p.get("fetched")), "method": method,
+                                    "excerpt": p.get("excerpt", ""), "pdpa_risk": risk, "pdpa_risk_reason": reason,
+                                    "identity": r.get("identity", "confirmed"), "accessed_on": accessed})
             for s in r.get("sources") or []:
-                add_source(e, s.get("url"), s.get("title", ""), s.get("facts", []), bool(s.get("fetched")), "search", s.get("excerpt", ""))
-            e["status"].add("search")
+                add_source(e, s.get("url"), s.get("title", ""), s.get("facts", []), bool(s.get("fetched")), method, s.get("excerpt", ""),
+                           s.get("accessed_on", ""))
+            if risky_source and not uncertain:
+                site = W.own_domain(r.get("website") or next((s.get("url") for s in r.get("sources") or [] if s.get("url")), ""))
+                flag = C.robots_browser_flag(site, accessed or args.date)
+                if flag not in e["crawl_flags"]:
+                    e["crawl_flags"].append(flag)
+            e["status"].add(method)
 
     # 4. profiles
     profiles, leads = [], []
@@ -403,12 +431,14 @@ def main() -> int:
         domains = " ".join(h for w in [o["website"], *((e["websites"] if e else {}).keys())] for h in re.findall(r"[a-z0-9\-]+(?:\.[a-z0-9\-]+)+", w.lower()))
         entries = []
         for p in (e["people"] if e else []):
-            person = C.clean_person(p["name"], p["role"], o["name"], domains)
+            # A research agent's or browser reader's person may be named only in part ('Mogens', founder): kept and labelled. A
+            # crawled page's single capitalised word is not taken as a name (usually a heading or a place).
+            person = C.clean_person(p["name"], p["role"], o["name"], domains, partial=p["method"] in ("search", "browser"))
             if not person or (key[0] == "government" and p["method"] == "search"):
                 # Government offices are addressed by office title; officials are named only from the run's own official sources.
                 dropped["government official (office title only)" if person else "not a current, relevant, named person"] += 1
                 continue
-            entries.append({**p, "name": person[0], "role": person[1], "decision_maker": person[2]})
+            entries.append({**p, "name": person[0], "role": person[1], "decision_maker": person[2], "name_status": C.name_status(person[0])})
         known = [c["name"] for c in o["contacts"] if C.is_name(c["name"])]
         misread = {id(x) for x in entries if misread_role(x, [y["name"] for y in entries] + known)}
         if misread:
@@ -430,13 +460,9 @@ def main() -> int:
             lead["already_in_database"] = any(W.name_key(x["name"]) == W.name_key(c["name"]) or C.same_person(x["name"], c["name"])
                                               for x in group for c in o["contacts"] if c["name"])
             people.append(lead)
-        # People a search agent confirmed come first (the brief allows at most six per organisation, so all are kept), then the
-        # website's, most senior first.
-        new = sorted((p for p in people if not p["already_in_database"]), key=lambda p: (p["preference"], p["rank"]))
-        if len(new) > LEADS_PER_ORGANISATION:
-            dropped[f"beyond {LEADS_PER_ORGANISATION} new leads per organisation"] += len(new) - LEADS_PER_ORGANISATION
-            keep = {id(p) for p in new[:LEADS_PER_ORGANISATION]}
-            people = [p for p in people if p["already_in_database"] or id(p) in keep]
+        # Every lead is kept: people a search agent confirmed first, then the website's (crawled or read with a browser), most
+        # senior first.
+        people.sort(key=lambda p: (p["preference"], p["rank"]))
         for p in people:
             del p["rank"], p["preference"]
             p.pop("prose", None)
@@ -467,7 +493,7 @@ def main() -> int:
         for p in people:
             leads.append({"db": key[0], "organisation_id": key[1], "organisation": o["name"], **{k: p.get(k, "") for k in (
                 "name", "role", "decision_maker", "email", "phone", "source_url", "fetched", "method", "excerpt", "pdpa_risk", "pdpa_risk_reason",
-                "already_in_database", "identity")}})
+                "already_in_database", "identity", "name_status")}})
     C.WORK.mkdir(parents=True, exist_ok=True)
     (C.WORK / "profiles.json").write_text(json.dumps({"date": args.date, "profiles": profiles}, ensure_ascii=False, indent=1), encoding="utf-8")
     interim = C.ROOT / "data" / "interim" / "contact-profiles"
@@ -482,7 +508,7 @@ def main() -> int:
                              " | ".join(p["postal"]), " | ".join(f"{k}: {v}" for k, v in p["socials"].items()), p["named_before"], p["named_new"],
                              ", ".join(p["methods"]), " | ".join(p["blocked"])])
     lead_fields = ["db", "organisation_id", "organisation", "name", "role", "decision_maker", "email", "phone", "source_url", "fetched", "method",
-                   "pdpa_risk", "pdpa_risk_reason", "already_in_database", "identity"]
+                   "pdpa_risk", "pdpa_risk_reason", "already_in_database", "identity", "name_status"]
     with open(interim / "contact_leads.tsv", "w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=lead_fields, delimiter="\t", extrasaction="ignore")
         writer.writeheader()
@@ -495,7 +521,9 @@ def main() -> int:
                        "with_named_contact_before": sum(1 for p in rows if p["named_before"]),
                        "with_named_contact_after": sum(1 for p in rows if p["named_before"] or p["named_new"]),
                        "new_named_leads": sum(p["named_new"] for p in rows),
-                       "new_decision_maker_leads": sum(1 for p in rows for x in p["people"] if not x["already_in_database"] and x["decision_maker"])}
+                       "new_decision_maker_leads": sum(1 for p in rows for x in p["people"] if not x["already_in_database"] and x["decision_maker"]),
+                       "new_leads_with_incomplete_names": sum(1 for p in rows for x in p["people"]
+                                                              if not x["already_in_database"] and x.get("name_status", "complete") != "complete")}
     (C.WORK / "profiles-summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     write_manifest()
     print(json.dumps(summary, indent=1))

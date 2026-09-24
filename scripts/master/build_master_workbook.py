@@ -189,15 +189,15 @@ def main() -> int:
 
     b.sheet("Contacts", f"{counts['contacts']} published business contacts. Named people are professional routes only; they are not evidence "
             "of parent status. The best route is the person's own published route, else the organisation's; a personal-domain address "
-            "linked to a person is never used.",
-            ["contact_id", "name", "organisation_id", "organisation_name", "role", "decision_maker", "best_route_type", "best_route", "pdpa_risk",
+            "linked to a person is never used. A name the source gives only in part is kept and labelled in name_status.",
+            ["contact_id", "name", "name_status", "organisation_id", "organisation_name", "role", "decision_maker", "best_route_type", "best_route", "pdpa_risk",
              "campus", "named_email", "published_role_email", "role_phone", "shared_email", "organisation_phone", "contact_route", "verification",
              "message_ids", "source_url", "source_record_ids"],
-            [[c["contact_id"], c["name"], c["organisation_id"], c["organisation_name"], c["role"], c["decision_maker"], c["best_route_type"],
+            [[c["contact_id"], c["name"], c.get("name_status", ""), c["organisation_id"], c["organisation_name"], c["role"], c["decision_maker"], c["best_route_type"],
               c["best_route"], c["pdpa_risk"], c["campus"], c["named_email"], c["published_role_email"], c["role_phone"], c["shared_email"],
               c["organisation_phone"], c["contact_route"], c["verification"], c["message_ids"], c["source_url"], c["source_record_ids"]]
              for c in data["contacts"]],
-            [20, 30, 20, 44, 48, 14, 24, 40, 12, 24, 34, 34, 28, 34, 28, 42, 66, 38, 70, 88], 96, "TContacts")
+            [20, 30, 22, 20, 44, 48, 14, 24, 40, 12, 24, 34, 34, 28, 34, 28, 42, 66, 38, 70, 88], 96, "TContacts")
 
     b.sheet("Enquiries", "Public enquiries remain distinct from business contacts. Most are historical and unqualified.",
             ["enquiry_id", "name", "type", "enquiry_date", "date_qualification", "locality", "request", "campus_fit", "phone", "email",

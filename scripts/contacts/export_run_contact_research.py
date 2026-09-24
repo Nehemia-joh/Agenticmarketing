@@ -75,6 +75,9 @@ def main() -> int:
         socials = {k if k in ("facebook", "instagram", "youtube", "linkedin") else ("x" if k == "twitter" else "other"): v for k, v in p["socials"].items()}
         risk, reason = (("medium", "The organisation publishes an inbox on a personal email domain; confirm it is the official address.") if personal
                         else ("low", "Organisation-level routes published by the organisation."))
+        flag_kinds = C.crawl_flag_kinds(p.get("crawl_flags"))
+        if "robots.txt disallows" in flag_kinds:
+            risk, reason = "risky", C.ROBOTS_BROWSER_RISK
         record = {"record_type": "organisation", "slice": "W", "organisation_name": p["name"], "segment": p["segment"],
                   "website": website, "public_emails": org_emails,
                   "public_phones": [x["phone"] for x in p["phones"]], "social_media": socials,
@@ -88,7 +91,9 @@ def main() -> int:
                                      *(f"Check before outreach ({kind}; see the contact-profiles workbook, Flags)."
                                        for kind in dict.fromkeys(k for k, _ in C.note_flags(p.get("notes")))),
                                      *(["Website crawled although its robots.txt could not be read (flagged; see the contact-profiles workbook, "
-                                        "Flags)."] if p.get("crawl_flags") else [])])}
+                                        "Flags)."] if "robots.txt unreachable" in flag_kinds else []),
+                                     *(["Website read with a browser although its robots.txt disallows crawling (the user's decision; tagged "
+                                        "risky; see the contact-profiles workbook, Flags)."] if "robots.txt disallows" in flag_kinds else [])])}
         records.append(record)
         counts["organisations"] += 1
         for person in p["people"]:
@@ -101,11 +106,15 @@ def main() -> int:
                             "phones": [person["phone"]] if person["phone"] else [], "phone_type": "mobile" if person["phone"] else "unknown",
                             "profile_url": person["source_url"],
                             "channel_attribution": f"Published by the organisation ({person['method']}) at {person['source_url']}",
-                            "sources": [{"url": person["source_url"], "title": "", "source_date": "", "accessed_on": run_date, "evidence_basis": "published",
+                            "sources": [{"url": person["source_url"], "title": "", "source_date": "", "accessed_on": person.get("accessed_on") or run_date,
+                                         "evidence_basis": "published",
                                          "fetched": bool(person.get("fetched")), "facts_supported": ["name", "role"] + (["email"] if email else []),
                                          "evidence_excerpt": (person.get("excerpt") or f"{person['name']}, {person['role']}")[:160]}],
                             "verification_status": "verified" if person.get("fetched") else "unverified", "pdpa_risk": person["pdpa_risk"],
-                            "pdpa_risk_reason": person["pdpa_risk_reason"], "notes": "Decision-maker" if person["decision_maker"] else ""})
+                            "pdpa_risk_reason": person["pdpa_risk_reason"],
+                            "notes": "; ".join(n for n in ("Decision-maker" if person["decision_maker"] else "",
+                                                           f"Name {person['name_status']}: kept and labelled; find the full name"
+                                                           if person.get("name_status", "complete") != "complete" else "") if n)})
             counts["contacts"] += 1
     raw = C.ROOT / "data" / "raw" / "welfare-research"
     out = raw / f"research_W_contact_profiles_{run_date}.jsonl"
@@ -116,10 +125,12 @@ def main() -> int:
         f"- Own websites crawled: {summary['sites_crawled']} across all databases ({summary['sites']}); explicit robots.txt Disallow rules "
         f"honoured, one request at a time per site, 1.5 s apart. A site whose robots.txt could not be read (server, network or certificate "
         f"error) was crawled anyway and flagged.\n"
+        f"- Pages read with a browser (browser_*_{run_date}.jsonl): sites built by script, and, by the user's decision, sites whose robots.txt "
+        f"disallows crawling; everything from the latter is tagged risky and flagged.\n"
         f"- Welfare organisations for which the research found a published email or phone: "
         f"{sum(1 for p in data['profiles'] if p['db'] == 'welfare' and (p['emails'] or p['phones']))} of {summary['welfare']['organisations']}; "
         f"with named people found: {sum(1 for p in data['profiles'] if p['db'] == 'welfare' and p['people'])}; named people recorded: "
-        f"{sum(len(p['people']) for p in data['profiles'] if p['db'] == 'welfare')} (at most six new per organisation, most senior first).\n"
+        f"{sum(len(p['people']) for p in data['profiles'] if p['db'] == 'welfare')} (every lead kept, most senior first; a name given only in part is labelled incomplete).\n"
         f"- Before-and-after counts for the run are in the contact-profiles workbook (outputs/contacts/).\n"
         f"- Budgeted searches: every welfare slice in data/raw/contact-research/coverage/ (homes and programmes, specialised centres "
         f"and funders, in each wave).\n"

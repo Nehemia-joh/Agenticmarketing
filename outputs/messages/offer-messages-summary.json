@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-25 18:44 UTC",
+ "generated": "2026-09-25 22:40 UTC",
  "offer_version": "2026-09-23-offer-v4",
  "corporate_drafts": 1834,
  "corporate_by_track": {
@@ -9,8 +9,8 @@
  },
  "parent_replies_reviewable": 9,
  "welfare": {
-  "draft_ready": 67,
-  "needs_review": 423
+  "draft_ready": 73,
+  "needs_review": 417
  },
  "government": {
   "draft_ready": 4,

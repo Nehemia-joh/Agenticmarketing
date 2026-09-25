@@ -160,6 +160,9 @@ def seniority(role: str) -> int:
 
 
 RISK_ORDER = {"low": 0, "medium": 1, "risky": 2}
+# A number a record labels as a hotline or helpline (NAFGEM's 24/7 line for reporting a case) serves people who need help:
+# kept as evidence in the record, never offered as a route for partnership outreach.
+HOTLINE = re.compile(r"hot\s*line|help\s*line|toll[- ]?free|report(?:ing)? (?:a )?case", re.I)
 
 
 def plain_words(text: str) -> str:
@@ -348,7 +351,7 @@ def main() -> int:
     # 3. budgeted search research, then pages read with a browser. A browser record whose site's robots.txt disallows
     # crawling was read at the user's direction (24 September 2026): its people are tagged risky and the organisation is
     # flagged, so the data is kept and its source is visible.
-    search_stats = Counter()
+    search_stats, hotlines = Counter(), set()
     records = [("search", path) for path in sorted(C.RAW.glob(f"search_*_{args.date}.jsonl"))] + \
               [("browser", path) for path in sorted(C.RAW.glob(f"browser_*_{args.date}.jsonl"))]
     for method, path in records:
@@ -389,6 +392,11 @@ def main() -> int:
                     e["emails"].setdefault(email, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": method})
             for item in r.get("phones") or []:
                 phone = W.norm_phone(str(item.get("value") or ""))
+                if HOTLINE.search(str(item.get("type") or "")):
+                    # Another record may give the same number unlabelled; it is left out of every route (step 4).
+                    hotlines.add((key, phone))
+                    search_stats["hotlines not used"] += 1
+                    continue
                 if len(re.sub(r"\D", "", phone)) >= 10 and not uncertain and not C.template_phone(phone):
                     e["phones"].setdefault(phone, {"source_url": item.get("source_url", ""), "fetched": bool(item.get("fetched")), "method": method})
             for field, target in (("postal_address", "postal"), ("physical_address", "physical")):
@@ -476,7 +484,7 @@ def main() -> int:
                 p["email"] = linked
             if p["email"] and W.PERSONAL_EMAIL.search(p["email"]):
                 p["pdpa_risk"], p["pdpa_risk_reason"] = "risky", "Named person linked to a personal-domain email."
-        phones = [{"phone": ph, "type": phone_type(ph), **info} for ph, info in (e["phones"].items() if e else [])]
+        phones = [{"phone": ph, "type": phone_type(ph), **info} for ph, info in (e["phones"].items() if e else []) if (key, ph) not in hotlines]
         profile = {"db": key[0], "organisation_id": key[1], "name": o["name"], "segment": o["segment"],
                    "known": {"website": o["website"], "email": o["email"], "phone": o["phone"], "address": o["address"], "contacts": len(o["contacts"])},
                    "websites": sorted((e["websites"] if e else {}).keys()), "emails": emails, "phones": phones,

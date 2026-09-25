@@ -31,7 +31,8 @@ Government offices are addressed by office title. Officials are named only from 
        - `all`: either
      - with `--include-unclassified`, also plans the welfare run's register-only NGOs whose type is not yet known
      - leaves out savings groups (reached through KINEFA), government offices, and closed or out-of-scope records
-     - ranks the candidates nearest first and splits the budget over at most four slices; `--max-per-slice` keeps only the nearest so one agent's work stays manageable (about 45 organisations), and the rest wait for a later wave
+     - ranks the candidates nearest first and splits the budget over at most four slices; `--max-per-slice` keeps only the nearest so one agent's work stays manageable (about 35 to 45 organisations), and the rest wait for a later wave
+     - with `--split` as well, a larger slice is divided into balanced parts (`<slice>_a`, `<slice>_b`, ...) of at most that size, each with its own agent, still at most four agents in all
      - writes each slice and its agent prompt under `runtime/contacts/`
    - Give each agent a fixed share of the session's WebSearch cap. Launch at most four agents per wave.
    - Each agent writes `data/raw/contact-research/search_<slice>_<date>.jsonl` and a coverage log in `data/raw/contact-research/coverage/`.
@@ -67,6 +68,7 @@ Government offices are addressed by office title. Officials are named only from 
 - **Blocks are never worked around.** A block (403, 429, login wall, captcha, TLS failure) is recorded.
 - **Page junk and placeholders are removed.** Addresses are cleaned of URL-encoded spaces, zero-width characters and words glued onto the domain (`info@x.comarusha`). Theme and site-builder placeholders (`info@mysite.com`, `+255 712 345 678`) are dropped.
 - **Shared values are dropped.** A number or address found on three or more different websites belongs to a shared platform, such as a booking portal or a web designer, and is not used.
+- **Hotlines are not routes.** A number that a record's phone `type` labels as a hotline or helpline (for example "mobile; the 24/7 hotline for reporting a case") serves people who need help. It stays in the record as evidence but is never offered as a route, even where another record gives the same number without the label. Agents label such numbers in `type`.
 - **Hijacked pages are skipped.** A page with gambling or parked-domain content is not used, even on the organisation's own site, and the site appears on the Flags sheet.
 - **Person filter** (`contact_lib.clean_person`). Names may be in any Latin alphabet (Ståle, Zoë).
   - **People a research agent or browser reader recorded.** They are kept in any name form: only in part ("Mogens"), with particles ("Gijs de Raadt", "Ken deLaski"), with several titles ("Rt. Rev. Ludovick Minde") or with a place word as the surname ("Doreen Moshi"). They are kept with any role the source gives, including contacts with no recognised title ("Booking contact"). Only a template name, a role the person no longer holds, or a phone number read as a role is refused (see "Every lead is kept" below).

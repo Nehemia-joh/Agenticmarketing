@@ -409,7 +409,7 @@ python scripts/messaging/build_offer_messages_workbook.py     # one review workb
 
 On 23 September 2026, after the contact research below, the drafts were:
 - **Company master:** 1,834: the 1,314 organisation plans plus 520 plans for newly found contacts; 109 are AQ02, 1,369 AQ01 and 356 on hold.
-- **Welfare:** 490, of which 67 are ready and 423 held with a reason.
+- **Welfare:** 490, of which 73 are ready and 417 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
 All of them pass the offer-register checks, and no first message states offer terms. Finance must confirm that the 2025 terms apply to 2027 before any message that states them is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
@@ -483,7 +483,7 @@ On 23 and 24 September 2026 the research used:
   - **Sites whose robots.txt disallows crawling:** by the user's decision these are read with a browser and everything from them is tagged risky. Four were read: Kitamu Africa (its founder), Sibusiso Foundation (its Executive Director, board chair, programme coordinator and founder), Safarini Africa and Sunny Adventure Safaris. Three safari operators on one host showed a BitNinja CAPTCHA, which was not passed. The rest were down or expired.
   - **Sites built by script:** two browser agents read 28 of 47 sites that a plain crawler saw as nearly empty. Four showed a bot check, which was not passed. The other 15 were expired, parked, taken over, empty or down.
   - 53 named people came from the browser records.
-- **Search agents:** 748 records from 18 agents in six waves, using 550 searches. Every in-scope organisation without a route has now been searched at least once.
+- **Search agents:** 815 records from 20 agents in seven waves, using 626 searches. Every in-scope organisation without a route, and every register-only NGO, has now been searched at least once.
 - **Pages read again with better rules (no network):** named sentences ("founded by …", "our founder, …"), rectors and vice-chancellors, and one name spelled two ways in the same post (Prof. Musa and Prof. Mussa N. Chacha, both Rector) counted once.
 
 On 25 September 2026 a sixth run added the following. Its files keep the research date key 2026-09-23, so the profile builder combines every wave.
@@ -493,20 +493,55 @@ On 25 September 2026 a sixth run added the following. Its files keep the researc
   - The OSOTUWA Foundation gave its four leaders.
   - Upendo Kwanza's domain has expired.
 - **Search agents (wave 6), 47 searches:**
-  - **Register-only NGOs (welfare):** 43 whose type was unknown. The agents found routes for 12 and 59 named leads, and noted what kind of organisation each one is: 21 clearly child-focused, 12 partly, 10 doubtful. 67 such NGOs wait for a later wave.
+  - **Register-only NGOs (welfare):** 43 whose type was unknown. The agents found routes for 12 and 59 named leads, and noted what kind of organisation each one is: 21 clearly child-focused, 12 partly, 10 doubtful. The other 67 such NGOs were researched in wave 7.
   - **Master employers:** 6 without a named decision-maker. Namiri Tours and Safari Avventura now have theirs.
 - **Government:** nothing new to add.
   - The council sites, captured on 23 September, describe each department without naming its head.
   - No official source this track uses publishes ward executive officers or most councils' councillor rosters.
 
+On 26 September 2026 a seventh run added the following, under the same date key.
+- **Search agents (wave 7), 76 searches, none refused:** the last 67 register-only NGOs whose type was unknown, split between two agents (34 and 33) with the planner's new `--split` option instead of leaving the rest for a later wave.
+  - 20 now have a published email or phone and 18 a named decision-maker; 90 leads in all, counting those from their websites.
+  - The agents noted what kind of organisation each one is: 35 clearly child-focused, 29 partly and 3 not specifically child-focused or a doubtful fit.
+    - Children's homes: Bassari (Ngyani, Meru), Le Solstice and MACAO.
+    - African Moons is a US funder of two Arusha homes.
+    - MILELO and Young Minds are schools, not welfare programmes.
+- **Own websites:** 32 more crawled, the websites waves 6 and 7 found, for 804 in all. 28 were readable, 3 were not, and one's robots.txt disallows crawling.
+- **Browser pass:** three sites.
+  - The Same Qualities Foundation (robots.txt disallows crawling) showed a bot check, which was not passed.
+  - Dyslexia Tanzania's pages gave its co-founder and a clinical psychiatrist.
+  - NAFGEM's routes and staff, which the search agent had read from the data its pages load, are now confirmed on pages a person can open. Its About page named three more staff.
+- **Hotlines:** a number a record labels as a hotline or helpline is no longer offered as a route. This affects one number, NAFGEM's 24/7 line for reporting a case; the page excerpt that shows it stays as evidence.
+- **ADRA:** the register's "Adventist Development and Relief Agency" is the company master's "Adventist Development Agency": same website, email and office phone. The welfare run's `links.json` now links the two, with that evidence, so its workbook shows the master ID.
+- **Company master and government:** unchanged. Wave 7 held no master organisation, and a trial merge on a copy changed nothing.
+- **For a person to check** (the contact-profiles workbook's Flags sheet has each one):
+  - **Location (7):**
+    - MACAO's own listing places it near Loliondo.
+    - An old search result places Kujengana Network in Kyela.
+    - Lipo Tumaini, SAWATA and Jamii Innovation are registered in Simanjiro (Manyara).
+    - Ndoto Zetu works in Mianzini, Arusha city, not at its register pin.
+    - Usa-River Children Centre's pin is about 30 km from Usa River.
+    - The register places many NGOs at shared points, so distances for register-only NGOs are rough.
+  - **Websites:** four have gone, and Kujengana's now shows a gambling site.
+  - **Routes:**
+    - Seeds of Kindness's only routes are a person's Gmail and a French mobile, from its Idealist profile.
+    - Dyslexia Tanzania's published address gives a house number; confirm it is an office.
+  - **Le Solstice:** its site answered HTTP 429 (too many requests), so its contact page is untried. Retry in a later session.
+  - **Shalom Center (Kisongo):** its only source is a forum thread that makes an allegation against it. African Moons funds a "Shalom Centre Orphanage" that may be the same centre. Its draft is held for review.
+  - **TRMEGA:** its leaders are named only on its funder's page, which the brief does not cover, so they were not recorded.
+  - **Possible new welfare leads** seen in passing, not in the run:
+    - Ereto East Africa Foundation (Sekei)
+    - Safe Home for Children with Disabilities
+    - Huruma Orphanage (Nshupu, near Usa River)
+
 It left these results (review them in `outputs/contacts/Silverleaf Contact Profiles - 2026-09-23.xlsx`):
 
 | | Company master | Welfare | Government |
 |---|---|---|---|
-| Organisations with a published email or phone | 598 → 726 of 955 | 101 → 229 of 497 | 28 → 37 of 149 |
-| Organisations with a named decision-maker | 160 → 316 | 52 → 185 | 9 (unchanged) |
-| Contact leads | 353 → 871 | 131 → 781 | 459 (office posts) |
-| Contact leads reachable by their own or their organisation's route | 867 | 740 | 79 |
+| Organisations with a published email or phone | 598 → 726 of 955 | 101 → 250 of 497 | 28 → 37 of 149 |
+| Organisations with a named decision-maker | 160 → 316 | 52 → 203 | 9 (unchanged) |
+| Contact leads | 353 → 871 | 131 → 875 | 459 (office posts) |
+| Contact leads reachable by their own or their organisation's route | 867 | 833 | 79 |
 
 The master's 598 also counted 21 organisations whose phone field holds a directory code ('AFF/FIN', 'TO/DMC/MAIN') rather than a number; the 726 counts only real numbers and addresses.
 
@@ -521,11 +556,11 @@ The master's 598 also counted 21 organisations whose phone field holds a directo
   - **Fields holding the wrong thing (49 items):** 26 phone fields hold a directory code and 23 website fields hold a phone number. Each item gives the value research found.
   - **Incomplete names (19 items, "Contact name incomplete"):** contacts named only in part, kept rather than dropped.
   - **Possible closures (11 items), whose drafts are held:** Silver Palm (its website shows only a maintenance page), FBME Arusha, Fastjet's ticket office, Impala Hotel, Tin Tin Tours (two records), Lemuta & Khaki Safaris, Meru Mountain Treks & Safari, Kili Star Tours, Afric'Aventure and Trekking and Safari Adventures.
-- **Welfare:** 650 new leads and 128 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
+- **Welfare:** 744 new leads and 149 more organisations with a direct route. Organisation records are unchanged: 497 before and after.
 - **Government:** every council in the run and the Arusha and Kilimanjaro Regional Secretariats now have their official email, office phone and P.O. Box, from their own letterheads and service charters. Only Manyara's secretariat lacks an email and phone; it has its P.O. Box.
 - **Leads kept:** since 24 September 2026 every lead is kept ("better incomplete data labelled incomplete than dropped data").
   - There is no limit per organisation. Until then only six new leads per organisation were recorded.
-  - A name given only in part is kept and labelled in `name_status`: 19 in the master (for example "Mogens", founder of Mobila Tours) and 10 in the welfare run.
+  - A name given only in part is kept and labelled in `name_status`: 19 in the master (for example "Mogens", founder of Mobila Tours) and 18 in the welfare run.
   - A person a research agent or browser reader recorded is kept in any name form and with any role the source gives. Only template names, former roles and phone numbers read as roles are refused.
   - When a search agent and a website list the same person, the lead takes the agent's name and role.
   - Leads are ordered by their most senior role: founders, executives, rectors and head teachers first, then management (including partners of a firm and a facility's officer in charge), then board officers above coordinators.
@@ -537,7 +572,7 @@ The master's 598 also counted 21 organisations whose phone field holds a directo
   - staff outside outreach (chefs, guides, security, accountants)
 
   In this build, 24 entries were filtered.
-- **Flags:** the Flags sheet lists 378 research warnings for a person to check. They include five sites crawled with an unreachable robots.txt and five organisation records read with a browser although robots.txt disallows crawling.
+- **Flags:** the Flags sheet lists 396 research warnings for a person to check. They include five sites crawled with an unreachable robots.txt and five organisation records read with a browser although robots.txt disallows crawling.
 
 Still without a route:
 - savings groups, reached through KINEFA

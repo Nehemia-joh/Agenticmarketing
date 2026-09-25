@@ -13,7 +13,8 @@ Left out by rule:
 - welfare records out of scope, and unclassified register-only NGOs unless --include-unclassified;
 - organisations a search found closed.
 Candidates are ranked nearest first within each slice; --max-per-slice keeps only the nearest so one agent's work stays
-manageable (the rest wait for a later wave). The search budget is split across at most four slices in proportion to
+manageable (the rest wait for a later wave), or with --split divides a larger slice into balanced parts (<slice>_a, _b, ...)
+that each get an agent, still at most four in all. The search budget is split across at most four slices in proportion to
 their size (at least 5 each). Writes runtime/contacts/slices/wave<N>_<slice>.json and one agent prompt per slice in
 runtime/contacts/prompts/, and prints the plan. Launch at most four agents per wave and never exceed the session's
 WebSearch cap (skills/silverleaf-create-lead-list/references/research-rate-limits.md).
@@ -22,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sqlite3
 from collections import defaultdict
 
@@ -92,6 +94,8 @@ def main() -> int:
     parser.add_argument("--target", choices=("routes", "decision-makers", "all"), default="routes",
                         help="what the organisations still lack: a published email or phone (default), a named decision-maker, or either")
     parser.add_argument("--max-per-slice", type=int, default=0, help="keep only the nearest N organisations in each slice (0 keeps all)")
+    parser.add_argument("--split", action="store_true",
+                        help="with --max-per-slice, divide a larger slice into balanced parts of at most that size instead of deferring the rest")
     args = parser.parse_args()
     profiles = json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))["profiles"]
     # Research records can carry a stale organisation ID (see contact_lib.Resolver).
@@ -152,13 +156,22 @@ def main() -> int:
         same_db = [n for n in slices if n != name and n.split("_")[0] == name.split("_")[0]]
         if len(slices[name]) < MIN_SLICE and same_db:
             slices[max(same_db, key=lambda n: len(slices[n]))].extend(slices.pop(name))
-    chosen = sorted(slices.items(), key=lambda kv: -len(kv[1]))[:MAX_SLICES]
-    waiting = {}
-    for name, items in chosen:
+    top = sorted(slices.items(), key=lambda kv: -len(kv[1]))[:MAX_SLICES]
+    waiting, parts = {}, []
+    for name, items in top:
         items.sort(key=lambda o: (o["distance_km"] in (None, ""), float(o["distance_km"] or 0)))
         if args.max_per_slice and len(items) > args.max_per_slice:
+            if args.split:
+                # Balanced parts of at most --max-per-slice each, nearest first; each part gets its own agent.
+                count = math.ceil(len(items) / args.max_per_slice)
+                size = math.ceil(len(items) / count)
+                parts += [(f"{name}_{chr(ord('a') + i)}", items[i * size:(i + 1) * size]) for i in range(count)]
+                continue
             waiting[name] = len(items) - args.max_per_slice
             del items[args.max_per_slice:]
+        parts.append((name, items))
+    chosen = parts[:MAX_SLICES]  # still at most four agents; any further part waits for a later wave
+    waiting.update({name: len(items) for name, items in parts[MAX_SLICES:]})
     total = sum(len(v) for _, v in chosen)
     plan, out_dir, prompt_dir = [], C.WORK / "slices", C.WORK / "prompts"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -180,7 +193,7 @@ def main() -> int:
         (prompt_dir / f"{slug}.md").write_text(prompt, encoding="utf-8")
         plan.append({"slice": slug, "organisations": len(items), "searches": budgets[name], "prompt": (prompt_dir / f"{slug}.md").relative_to(C.ROOT).as_posix(),
                      "needs": {n: sum(1 for o in items if n in o["needs"]) for n in ("published route", "named decision-maker")}})
-    left_out = {name: len(items) for name, items in sorted(slices.items()) if name not in dict(chosen)}
+    left_out = {name: len(items) for name, items in sorted(slices.items()) if name not in dict(top)}
     print(json.dumps({"wave": args.wave, "target": args.target, "budget": args.budget, "searches_planned": sum(budgets.values()), "slices": plan,
                       "not_planned": left_out, "waiting_beyond_slice_limit": waiting, "already_searched": len(searched), "closed": len(closed)},
                      indent=1))

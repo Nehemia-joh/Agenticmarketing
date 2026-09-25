@@ -5,12 +5,14 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | File | SHA-256 | Contents |
 |---|---|---|
 | `browser_robots_2026-09-23.jsonl` | `76a745160209138f…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
-| `browser_sites_a_2026-09-23.jsonl` | `5276a0b7a4726e73…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
-| `browser_sites_b_2026-09-23.jsonl` | `dd0406a076cb5cc3…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
+| `browser_sites_a_2026-09-23.jsonl` | `35d902b59e6873f9…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
+| `browser_sites_b_2026-09-23.jsonl` | `5add8679bfd81d93…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `coverage/A_welfare_care_coverage.md` | `d25d2249d7910c7d…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/B_welfare_specialised_funders_coverage.md` | `b2ac59894fdfab1e…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_robots_coverage.md` | `3136ae9823ac6c4c…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/browser_sites_a_2026-09-25_coverage.md` | `d433a56f52734a11…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_sites_a_coverage.md` | `82e1fc9df44608ce…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/browser_sites_b_2026-09-25_coverage.md` | `da4dd8505a7cb726…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_sites_b_coverage.md` | `c0ef0a56a05fbc40…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/C_master_employers_coverage.md` | `f6f5cd6306e80656…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/D_hotels_government_coverage.md` | `fc9dc46c62816a26…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
@@ -26,6 +28,8 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `coverage/wave4_welfare_funders_specialised_coverage.md` | `1c80cb5a86e8156e…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave5_search_a_coverage.md` | `5d2b4a4b3e048f76…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave5_search_b_coverage.md` | `8712a32032ae1238…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave6_master_employers_coverage.md` | `47e936db9f9c10b8…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave6_welfare_care_coverage.md` | `d5ed55abecebf50c…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `osm_contacts_2026-09-23.json` | `b46ccf133bda5b5b…` | OpenStreetMap contact tags (phone, email, website) in the catchment |
 | `search_A_welfare_care_2026-09-23.jsonl` | `2b6257d8f4570ffe…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_B_welfare_specialised_funders_2026-09-23.jsonl` | `46a22d46af279409…` | Budgeted search-agent records, one per organisation, with per-fact sources |
@@ -43,4 +47,6 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `search_wave4_welfare_funders_specialised_2026-09-23.jsonl` | `d884cf588831c7eb…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave5_search_a_2026-09-23.jsonl` | `2aa63edc2ecd1ebb…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave5_search_b_2026-09-23.jsonl` | `66768011e693d0c9…` | Budgeted search-agent records, one per organisation, with per-fact sources |
-| `website_contacts_2026-09-23.jsonl` | `b53c69e790fdddcb…` | Own-website crawl: per site, the pages read (URL, status, SHA-256), published emails, phones, postal addresses, official social pages and named people with roles; no page text |
+| `search_wave6_master_employers_2026-09-23.jsonl` | `60d49d5f6763cf1a…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave6_welfare_care_2026-09-23.jsonl` | `a90b982093952d1c…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `website_contacts_2026-09-23.jsonl` | `6914c800cd464af7…` | Own-website crawl: per site, the pages read (URL, status, SHA-256), published emails, phones, postal addresses, official social pages and named people with roles; no page text |

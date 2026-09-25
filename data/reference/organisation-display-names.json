@@ -1,0 +1,33 @@
+{
+ "about": "The name to use in messages when an organisation's record name is not the name it trades under. Each entry is reviewed and sourced; the record name stays unchanged in the database. Read by scripts/messaging/offer_lib.py (display_name). Keyed by company-master organisation_id.",
+ "organisations": {
+  "O89f99ae48244": {
+   "record_name": "ET Investments Ltd (Tanzania Experience)",
+   "name": "Tanzania Experience",
+   "source_url": "https://www.tanzania-experience.com/about-us/",
+   "reason": "The company trades as Tanzania Experience. 'ET Investments Ltd' does not appear on its website (hook research, 23 September 2026), so the first email used a name the recipient would not recognise.",
+   "decided_on": "2026-09-25"
+  },
+  "Ob961626c2241": {
+   "record_name": "Nyamazela Trading Co (T) LTD",
+   "name": "Meserani Snake Park",
+   "source_url": "https://meseranisnakepark.net/contact/",
+   "reason": "The public knows the business as Meserani Snake Park; its website gives 'Nyamazela Trading Co (T) Ltd.' only as the company name in its contact details (hook research, 25 September 2026).",
+   "decided_on": "2026-09-25"
+  },
+  "O82b9889f302c": {
+   "record_name": "Ngare Sero Mountain Retreat",
+   "name": "Ngare Sero Mountain Lodge",
+   "source_url": "https://ngare-sero-lodge.co.tz/",
+   "reason": "The website names the business Ngare Sero Mountain Lodge (Ngare Sero Mountain Lodge Ltd.), not 'Mountain Retreat' as on record (hook research, 25 September 2026).",
+   "decided_on": "2026-09-25"
+  },
+  "O201e20990155": {
+   "record_name": "RiverStone Africa Safaris",
+   "name": "RiverStone Safaris",
+   "source_url": "https://www.riverstonesafaris.co.tz/about/",
+   "reason": "The About page calls the company 'Riverstone Safaris Limited' and the site styles it RiverStone; 'RiverStone Africa Safaris' as on record is not the name it uses (hook research, 25 September 2026).",
+   "decided_on": "2026-09-25"
+  }
+ }
+}

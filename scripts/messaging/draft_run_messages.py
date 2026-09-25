@@ -120,7 +120,7 @@ def welfare(con, now, run_cfg) -> dict:
             outcomes["excluded: no message"] += 1
             continue
         model = p.get("care_model") or ""
-        name = L.display_name(o["name"])
+        name = L.display_name(o["name"], oid)
         missing = [L.REQUEST_FIRST, L.CONFIRM_2027]
         # Route: the organisation's own published email or phone first; otherwise a low- or medium-risk contact; never a risky one.
         route, value, recipient = "", "", ""

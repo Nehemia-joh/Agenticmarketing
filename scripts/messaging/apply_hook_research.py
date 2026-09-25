@@ -55,7 +55,8 @@ FACT_TYPES = {"what_they_do", "workforce", "locations", "education_programme", "
               "other"}
 HOOK_TYPES = {"workforce", "staff_welfare", "education_programme", "community_programme", "locality", "growth"}
 ROLE_CHECKS = {"confirmed", "changed", "not_found", "unreachable"}
-FAMILY = re.compile(r"\b(parents?|famil(?:y|ies)|kids|mothers?|fathers?|households?)\b", re.I)
+# "mother" and "father" count only in lower case: a capitalised "Father Babu Road" is a place or a title, not a family.
+FAMILY = re.compile(r"\b(?:[Pp]arents?|[Ff]amil(?:y|ies)|[Kk]ids|mothers?|fathers?|[Hh]ouseholds?)\b")
 ROLE_NOTE = "Role not confirmed by hook research; confirm who holds the role before any message."
 # A role hold is released only when nothing else holds the draft.
 HOLD = re.compile(BLOCKER.pattern + r"|Role not confirmed|No public email or phone|No published route", re.I)
@@ -185,10 +186,14 @@ def release(con, message_id: str, stats: Counter) -> None:
 
 
 def add_checks(con, checks: list, names: dict, stats: Counter) -> None:
-    """The coordinator's list of points for a person to check, each as a review item on its organisation."""
+    """The coordinator's list of points for a person to check, each as a review item on its organisation. A check marked
+    "resolved" (with how) removes its review item instead."""
     for item in checks:
         oid, note = item.get("organisation_id"), text(item.get("check"), 600)
-        if oid in names and note:
+        if oid in names and note and item.get("resolved"):
+            con.execute("DELETE FROM review WHERE review_id=?", (hid("D", "hook-check", oid, note),))
+            stats["checks_resolved"] += 1
+        elif oid in names and note:
             con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
                         (hid("D", "hook-check", oid, note), "Hook research: check before outreach", oid, "", "research note", note, NOTE_ACTION))
             stats["reviews"] += 1

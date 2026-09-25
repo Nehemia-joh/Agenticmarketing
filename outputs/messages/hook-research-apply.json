@@ -91,6 +91,49 @@
     "Wilkinson Tours Ltd: hook not used (the coordinator's review: generic team description ('experienced driver guides and supporting staff') that fits any operator; generic value statements are not research-backed hooks): Your website describes your team of experienced driver guides and supporting staff, so such a benefit could reach your whole team.",
     "Udaay Safari and Tours Ltd: hook not used (the coordinator's review: generic operating fact ('each trip is led by a driver / guide') that fits any operator; generic value statements are not research-backed hooks): Your website says each trip is led by a driver-guide, so such a benefit could reach the guides your trips depend on."
    ]
+  },
+  {
+   "run_date": "2026-09-25",
+   "applied_on": "2026-09-25",
+   "trial": false,
+   "source_files": 4,
+   "brief_facts": 107,
+   "role_unreachable": 12,
+   "reviews": 39,
+   "role_confirmed": 17,
+   "plans_with_hook": 49,
+   "organisations_with_hook": 11,
+   "plans_held_for_closure": 2,
+   "lead_briefs_after": 377,
+   "left_out": [
+    "RiverStone Africa Safaris: hook not used (the coordinator's review: location only ('mainly based in Arusha town'): every lead is in the Arusha area, so it gives the reader no reason): Your About page says Riverstone Safaris is mainly based in Arusha town, so such a benefit could reach the team who work there.",
+    "New Safari Hotel: hook not used (the coordinator's review: location only, and only 'the heart of Arusha': every lead is in the Arusha area, so it gives the reader no reason): Your website describes New Safari Hotel as a historic landmark in the heart of Arusha, so such a benefit could reach the team who work there",
+    "ZAFS Tours: hook not used (the coordinator's review: location only ('a local team in Arusha'), quoted from the page's hidden description rather than text a visitor sees; the association profile places the company in Moshi): Your website says your safaris and climbs are run by a local team in Arusha, so such a benefit could reach that team."
+   ]
+  },
+  {
+   "run_date": "2026-09-23",
+   "applied_on": "2026-09-25",
+   "trial": false,
+   "source_files": 4,
+   "brief_facts": 270,
+   "role_unreachable": 4,
+   "reviews": 34,
+   "plans_with_hook": 236,
+   "organisations_with_hook": 45,
+   "role_confirmed": 75,
+   "role_not_found": 1,
+   "plans_held_role_not_confirmed": 1,
+   "role_changed": 1,
+   "checks_resolved": 1,
+   "lead_briefs_after": 377,
+   "left_out": [
+    "Wild Ways Tanzania Adventure: hook not used (the coordinator's review: the only basis is a company-supplied, undated '5-10 employees' figure on a third-party listing (SafariBookings), which may be out of date): Your company profile gives your size as 5-10 employees, so such a benefit could include everyone on your team.",
+    "African Big Cats Safaris: hook not used (the coordinator's review: generic team description ('from skilled safari guides to dedicated support staff') that fits any operator; generic value statements are not research-backed hooks): Your company profile describes a team from skilled safari guides to dedicated support staff, so such a benefit could reach everyone behind y",
+    "Hanspaul Group: hook not used (the coordinator's review: the basis is an undated third-party association profile of one subsidiary (Hanspaul Automechs), quoted as two joined passages; the group's own site could not be read (HTTP 403)): Your profile says Hanspaul Automechs has an entirely qualified team handling administration and production, so such a benefit could reach pe",
+    "Wilkinson Tours Ltd: hook not used (the coordinator's review: generic team description ('experienced driver guides and supporting staff') that fits any operator; generic value statements are not research-backed hooks): Your website describes your team of experienced driver guides and supporting staff, so such a benefit could reach your whole team.",
+    "Udaay Safari and Tours Ltd: hook not used (the coordinator's review: generic operating fact ('each trip is led by a driver / guide') that fits any operator; generic value statements are not research-backed hooks): Your website says each trip is led by a driver-guide, so such a benefit could reach the guides your trips depend on."
+   ]
   }
  ]
 }

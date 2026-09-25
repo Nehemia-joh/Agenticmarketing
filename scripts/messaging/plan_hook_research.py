@@ -136,6 +136,7 @@ def main() -> int:
     parser.add_argument("--agents", type=int, default=4, help="at most four research agents per wave")
     parser.add_argument("--budget", type=int, default=48, help="WebSearch calls for the whole wave, before the 10%% reserve")
     parser.add_argument("--database", default=str(MASTER))
+    parser.add_argument("--only-unresearched", action="store_true", help="skip organisations that already have a lead brief")
     args = parser.parse_args()
     agents = max(1, min(args.agents, 4))
     con = sqlite3.connect(f"file:{Path(args.database).resolve().as_posix()}?mode=ro", uri=True)
@@ -145,9 +146,12 @@ def main() -> int:
                           FROM outreach_plans p JOIN organisations o USING(organisation_id)
                           LEFT JOIN contacts c ON c.contact_id = p.target_id AND p.target_type = 'contact'
                           WHERE p.acquisition_track_id = ? ORDER BY o.name, p.message_id""", (args.track,)).fetchall()
+    if args.only_unresearched and con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lead_briefs'").fetchone():
+        researched = {oid for (oid,) in con.execute("SELECT DISTINCT organisation_id FROM lead_briefs")}
+        rows = [r for r in rows if r["organisation_id"] not in researched]
     orgs = {}
     for r in rows:
-        name = L.display_name(r["name"])
+        name = L.display_name(r["name"], r["organisation_id"])
         o = orgs.setdefault(r["organisation_id"], {
             "organisation_id": r["organisation_id"], "organisation_name": r["name"], "website": domain(r["website"]),
             "locality": r["locality"] or "", "segment": r["segment"], "contacts": [], "organisation_route_message_ids": [],
@@ -175,7 +179,7 @@ def main() -> int:
         leads_path = folder / "leads.json"
         leads_path.write_text(json.dumps(part, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         output_path = RAW / f"{name}_{args.date}.jsonl"
-        coverage_path = RAW / "coverage" / f"{name}_coverage.md"
+        coverage_path = RAW / "coverage" / f"{name}_{args.date}_coverage.md"  # dated, so a later wave keeps earlier logs
         special = ("Rivertrees Country Inn is an existing relationship: record its brief, and set hook to null."
                    if any(o["organisation_name"].startswith("Rivertrees") for o in part) else
                    "Every organisation here gets the employer purpose sentence, except a savings group, whose hook follows the committee sentence.")

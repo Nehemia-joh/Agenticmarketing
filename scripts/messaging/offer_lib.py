@@ -69,9 +69,17 @@ SW = {
 }
 
 
-def display_name(name: str) -> str:
-    """An organisation's name for a message, without the note the databases add in brackets at the end:
+DISPLAY_NAMES_PATH = ROOT / "data" / "reference" / "organisation-display-names.json"
+# Reviewed trading names, for records whose name is a legal name the recipient would not recognise.
+DISPLAY_NAMES = json.loads(DISPLAY_NAMES_PATH.read_text(encoding="utf-8"))["organisations"] if DISPLAY_NAMES_PATH.exists() else {}
+
+
+def display_name(name: str, organisation_id: str | None = None) -> str:
+    """An organisation's name for a message. A reviewed trading name (data/reference/organisation-display-names.json) comes
+    first; otherwise the record name without the note the databases add in brackets at the end:
     'OMAWA (Moshi)' -> 'OMAWA', 'Arusha Coffee Lodge (Elewana)' -> 'Arusha Coffee Lodge'."""
+    if organisation_id in DISPLAY_NAMES:
+        return DISPLAY_NAMES[organisation_id]["name"]
     text = " ".join(str(name or "").split())
     return re.sub(r"\s*\([^()]*\)$", "", text).strip() or text
 

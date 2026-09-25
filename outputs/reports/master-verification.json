@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-09-24T02:57:27.495022+00:00",
+  "checked_at": "2026-09-25T16:40:25.578678+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "ea9e9ad674d8bae2f236dd33793cf3676b32ff82d3d0ad2596b3e29463d8533c",
+  "database_sha256": "c879640f2476024a51ec6d019e2a45507d4e5961e565d26643d3822fb2b0a431",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "d41853e3295a8ab9dc9b6b8d26193180dd50e9d27f3f4e40ed0b1c19b25d2c1a",
+  "workbook_sha256": "b8002fd2045ec261f16d8db459bfe4c64430526a1ac142dd2c7633789c5371ec",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -17,8 +17,8 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 99,
-    "source_records": 9081,
+    "source_files": 103,
+    "source_records": 9107,
     "organisations": 955,
     "contacts": 854,
     "enquiries": 32,
@@ -32,12 +32,12 @@
     "lead_intake_rules": 9
   },
   "hooks": {
-    "verified": 242,
+    "verified": 291,
     "active_unverified": 0,
     "verified_without_source": 0
   },
   "lead_briefs": {
-    "facts": 270,
+    "facts": 377,
     "untraceable": 0
   },
   "assignments": {

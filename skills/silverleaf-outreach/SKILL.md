@@ -51,6 +51,8 @@ Use the source principles in the reference. For Silverleaf, normally aim for 50â
 
 What Silverleaf offers comes in the next message, as the offer register's table sets out. Never ask an employer for sponsorship.
 
+Name the organisation as it trades. When a record carries a legal name the recipient would not recognise, add a reviewed entry to `data/reference/organisation-display-names.json` with the name, its source and the reason. The drafters use that name; the record itself stays unchanged.
+
 Personalization must change the reason, offer or next actionâ€”not merely the salutation. If a relevant organisation fact is verified but the recipient's role is uncertain, draft a routing request. If evidence is insufficient, mark `Needs research` and identify the missing fact rather than manufacture a personalized claim.
 
 For an alternate first message with a recipient-centred opening, read [hook-guidance.md](references/hook-guidance.md). Use a hook only when its exact claim has a traceable source URL and a verification date. A current role or local connection qualifies only when the cited source supports it. If that evidence is missing, leave the hook blank and open directly with the request. Keep unverified ideas out of the active message and preserve earlier drafts in version history or a backup.

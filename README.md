@@ -432,8 +432,26 @@ On 23 September 2026, four research agents checked the 58 organisations behind t
   - four pages could not be read (review items).
 - **35 review items** for a person. 28 are checks the agents raised: possibly better addressees, public bodies that may need approval, names to confirm, companies based in Moshi and a duplicate record. The rest are the role items.
 
+On 25 September 2026, a second wave covered the 26 organisations behind the 29 named leads that the contact merges had added since. It used 12 web searches. Results:
+- **Lead briefs:** 107 more facts, so the Lead Briefs sheet now holds 377.
+- **Hooks:** 11 organisations have a verified hook, in 49 drafts. Examples:
+  - PwC Tanzania's 290 staff in Dar es Salaam and Arusha
+  - Victory Attorneys' yearly student moot court
+  - Ngare Sero's local staff, some there for over 20 years
+  - Top Nature's desks and solar power for 133 students
+
+  Three hooks that rested only on being "in Arusha" were rejected (`coordinator-review_2026-09-25.json`).
+- **Roles:** 17 contacts were confirmed. 12 could not be checked; most come from a 2023 event hotel list that gives no roles.
+- **Review items:** 24 checks, including hotels whose only contact comes from that list. Silver Palm's website shows only a maintenance page, so its drafts are held as a possible closure.
+
+**Trading names.** Messages name an organisation as it trades when its record carries a name the recipient would not recognise. Each such name is reviewed and sourced in `data/reference/organisation-display-names.json`, and the record itself is unchanged. There are four so far:
+- Tanzania Experience (ET Investments Ltd)
+- Meserani Snake Park (Nyamazela Trading Co)
+- Ngare Sero Mountain Lodge
+- RiverStone Safaris
+
 ```powershell
-python scripts/messaging/plan_hook_research.py --date <date> --track AQ02 --budget <searches>   # then run the agents
+python scripts/messaging/plan_hook_research.py --date <date> --track AQ02 --budget <searches> --only-unresearched   # then run the agents
 python scripts/messaging/apply_hook_research.py --date <date>            # preview
 python scripts/messaging/apply_hook_research.py --date <date> --apply    # one transaction; then redraft, refresh, build and verify
 ```

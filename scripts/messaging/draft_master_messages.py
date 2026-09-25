@@ -134,7 +134,7 @@ def employer_offer(greet: str, opener: str, org_name: str, staff: str, org: dict
 
 
 def employer_copy(plan: dict, org: dict, track: str) -> dict:
-    org_name = L.display_name(plan.get("organisation_name") or org.get("name"))
+    org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     named = plan.get("target_type") == "contact" and plan.get("target_name")
     greet = f"Dear {L.greeting_name(plan['target_name'])}," if named else f"Dear {org_name} team,"
     staff = "local staff" if plan.get("segment") == "NGO employers" else "staff"
@@ -164,7 +164,7 @@ def employer_copy(plan: dict, org: dict, track: str) -> dict:
 
 
 def saccos_copy(plan: dict, org: dict, track: str) -> dict:
-    org_name = L.display_name(plan.get("organisation_name") or org.get("name"))
+    org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     named = plan.get("target_type") == "contact" and plan.get("target_name")
     greet = f"Dear {L.greeting_name(plan['target_name'])}," if named else f"Dear {org_name} committee,"
     hook = hook_sentence(plan)

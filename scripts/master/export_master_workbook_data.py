@@ -85,7 +85,28 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
         c["name_status"] = facts[c["contact_id"]].get("name_status") or (C.name_status(named) if named else "role desk")
         people[c["organisation_id"]].append(c)
 
+    try:  # the first-message variant recorded by assign_message_variants.py (A sponsorship, B staff-benefit partnership)
+        variant = dict(connection.execute("SELECT organisation_id, MIN(message_variant) FROM outreach_plans GROUP BY organisation_id"))
+    except sqlite3.OperationalError:
+        variant = {}
+    # Each company's chosen first message: the variant draft when the plan holds one, else the plan's own request. A duplicate record
+    # points at the record that carries its message.
+    try:
+        chosen = {r[0]: r for r in connection.execute(
+            "SELECT organisation_id, target_name, recipient_role, contact_channel, review_status, "
+            "COALESCE(NULLIF(variant_subject,''), subject), COALESCE(NULLIF(variant_body,''), body) FROM outreach_plans WHERE selection='Candidate for review'")}
+    except sqlite3.OperationalError:
+        chosen = {}
+    duplicate_of = dict(connection.execute(
+        "SELECT r.entity_id, p.name FROM review r JOIN organisations p ON p.organisation_id=r.related_id "
+        "WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%'"))
     for o in organisations:
+        o["message_variant"] = variant.get(o["organisation_id"]) or ""
+        pick = chosen.get(o["organisation_id"])
+        o["chosen_recipient"], o["chosen_role"], o["chosen_route"] = (pick[1], pick[2], pick[3]) if pick else ("", "", "")
+        o["first_message_subject"], o["first_message"] = (pick[5], pick[6]) if pick else ("", "")
+        o["send_status"] = (("Ready for review" if pick[4] == "Draft review" else "Held: needs research") if pick
+                            else (f"Held: duplicate of {duplicate_of[o['organisation_id']]}" if o["organisation_id"] in duplicate_of else "No company draft"))
         team = people.get(o["organisation_id"], [])
         # Only a real address or number counts: directory imports left category codes in some phone fields.
         direct = bool("@" in (o["email"] or "") or C.is_phone(o["phone"]) or any(c["best_route_type"] in ("own email", "role email", "own phone")

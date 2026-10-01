@@ -163,6 +163,8 @@ RISK_ORDER = {"low": 0, "medium": 1, "risky": 2}
 # A number a record labels as a hotline or helpline (NAFGEM's 24/7 line for reporting a case) serves people who need help:
 # kept as evidence in the record, never offered as a route for partnership outreach.
 HOTLINE = re.compile(r"hot\s*line|help\s*line|toll[- ]?free|report(?:ing)? (?:a )?case", re.I)
+# Reviewed values that are not the organisation's route (another body's inbox, a fax, a dead domain): left out of its profile.
+REJECTED = C.ROOT / "data" / "reference" / "rejected-routes.json"
 
 
 def plain_words(text: str) -> str:
@@ -248,6 +250,11 @@ def main() -> int:
                                  "status": set(), "blocked": [], "crawl_flags": []})
     # Research records can carry a stale organisation ID (see contact_lib.Resolver).
     resolve = C.Resolver((db, oid, o["name"]) for (db, oid), o in orgs.items())
+    rejected = defaultdict(set)
+    for x in (json.loads(REJECTED.read_text(encoding="utf-8"))["routes"] if REJECTED.exists() else []):
+        key = resolve(x["db"], x.get("organisation_id"), x["organisation_name"])
+        if key:
+            rejected[key].add(C.clean_email(x["value"]) if x["kind"] == "email" else W.norm_phone(x["value"]))
 
     def add_source(entry, url, title, facts, fetched, method, excerpt="", accessed_on=""):
         if url and not any(s["url"] == url and s["method"] == method for s in entry["sources"]):
@@ -474,17 +481,22 @@ def main() -> int:
         for p in people:
             del p["rank"], p["preference"]
             p.pop("prose", None)
-        emails = []
+        emails, bad = [], rejected.get(key, set())
         for email, info in (e["emails"].items() if e else []):
+            if email in bad:
+                search_stats["rejected routes not used"] += 1
+                continue
             etype, person = email_type(email, [x["name"] for x in people] + [c["name"] for c in o["contacts"] if c["name"]])
             emails.append({"email": email, "type": etype, "person": person, **info})
         for p in people:
+            p["email"], p["phone"] = ("" if p["email"] in bad else p["email"]), ("" if p["phone"] in bad else p["phone"])
             if not p["email"]:
                 linked = next((x["email"] for x in emails if x["person"] == p["name"]), "")
                 p["email"] = linked
             if p["email"] and W.PERSONAL_EMAIL.search(p["email"]):
                 p["pdpa_risk"], p["pdpa_risk_reason"] = "risky", "Named person linked to a personal-domain email."
-        phones = [{"phone": ph, "type": phone_type(ph), **info} for ph, info in (e["phones"].items() if e else []) if (key, ph) not in hotlines]
+        phones = [{"phone": ph, "type": phone_type(ph), **info} for ph, info in (e["phones"].items() if e else []) if (key, ph) not in hotlines and ph not in bad]
+        search_stats["rejected routes not used"] += sum(1 for ph in (e["phones"] if e else {}) if ph in bad)
         profile = {"db": key[0], "organisation_id": key[1], "name": o["name"], "segment": o["segment"],
                    "known": {"website": o["website"], "email": o["email"], "phone": o["phone"], "address": o["address"], "contacts": len(o["contacts"])},
                    "websites": sorted((e["websites"] if e else {}).keys()), "emails": emails, "phones": phones,

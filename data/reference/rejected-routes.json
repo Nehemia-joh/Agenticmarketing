@@ -1,0 +1,29 @@
+{
+ "about": "Published values that research found attached to an organisation but that are not its route: another organisation's inbox or phone, a fax, or an inbox on a domain that does not exist. Each entry is reviewed and sourced. scripts/contacts/build_contact_profiles.py leaves the value out of that organisation's profile, so the welfare and government runs never take it and the company-master merge never adds it. A value already in the company master is corrected through skills/silverleaf-update-lead-list instead. Match is by database and organisation (the name resolves a changed organisation ID) and by the value, normalised.",
+ "routes": [
+  {"db": "welfare", "organisation_id": "ORG_d015b3a0176fcb44", "organisation_name": "SOS Children's Village Arusha", "kind": "email", "value": "info@soskenya.org",
+   "reason": "SOS Children's Villages Kenya's inbox: the international site's country-redirect page served SOS Kenya's footer to the crawler.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_d015b3a0176fcb44", "organisation_name": "SOS Children's Village Arusha", "kind": "phone", "value": "+2540725455554",
+   "reason": "SOS Children's Villages Kenya's phone, +254 (0)725 455 554, from the same country-redirect page.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_d015b3a0176fcb44", "organisation_name": "SOS Children's Village Arusha", "kind": "phone", "value": "+255725455554",
+   "reason": "SOS Kenya's phone misread with Tanzania's code (+255 instead of +254).",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_8c2d70b606133ece", "organisation_name": "CONVOY OF HOPE", "kind": "phone", "value": "+14178238244",
+   "reason": "The US parent's fax, f: (417) 823-8244 on convoyofhope.org, not a phone.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_ca6e294c4a7b83a9", "organisation_name": "CANDENEZ MISSION FOR EMPOWERING VULNERABLE CHILDREN", "kind": "email", "value": "info@candenez.org",
+   "reason": "candenez.org does not exist (no mail or address records at 8.8.8.8, 26 September 2026): mail to it cannot be delivered.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_cdd665fb4444ba64", "organisation_name": "Mshikamano Orphanage Center", "kind": "email", "value": "contact@mshikamano.or.tz",
+   "reason": "mshikamano.or.tz does not exist (no mail or address records at 8.8.8.8, 26 September 2026): mail to it cannot be delivered.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_da3328db35c3c8ac", "organisation_name": "Kilimanjaro Children's Fund", "kind": "email", "value": "greg@kilimanjaro-children.org",
+   "reason": "kilimanjaro-children.org does not exist (no mail or address records at 8.8.8.8, 26 September 2026): mail to it cannot be delivered.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_024737bc97309aad", "organisation_name": "Tanzania Youth Support and Self Reliance Organization", "kind": "email", "value": "info@tanzaniayouth.com",
+   "reason": "tanzaniayouth.com does not exist (no mail or address records at 8.8.8.8, 26 September 2026): mail to it cannot be delivered.",
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"}
+ ]
+}

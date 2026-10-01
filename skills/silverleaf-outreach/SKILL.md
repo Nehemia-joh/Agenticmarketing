@@ -45,11 +45,11 @@ The partner circulates an invitation; interested parents contact Silverleaf dire
 Use the source principles in the reference. For Silverleaf, normally aim for 50–100 words in the initial email, excluding signature. Adjust when the channel or request needs it. Use a plain subject that accurately names the purpose.
 
 **Request first.** The first message to an organisation makes a relevant request and states no offer terms. It covers:
-- **Purpose:** an education benefit for the children of its staff; a meeting with a savings-group committee; working together on the education of the children in a home's care; or, for welfare funders only, sponsorship.
+- **Purpose:** an education benefit for the children of its staff; a meeting with a savings-group committee; working together on the education of the children in a home's care; or sponsorship, asked only of welfare funders and of employers that publish education or community giving.
 - **Who is writing:** Mariam Haji, Marketing and Partnership Coordinator, the sender for all three databases.
 - **One ask:** a short meeting, in person or by phone, or the name of the right colleague.
 
-What Silverleaf offers comes in the next message, as the offer register's table sets out. Never ask an employer for sponsorship.
+What Silverleaf offers comes in the next message, as the offer register's table sets out. Ask an employer for sponsorship only when a sourced fact shows it funds education or community projects (`data/reference/employer-sponsorship-reasons.json`); every other employer is asked about a staff benefit.
 
 Name the organisation as it trades. When a record carries a legal name the recipient would not recognise, add a reviewed entry to `data/reference/organisation-display-names.json` with the name, its source and the reason. The drafters use that name; the record itself stays unchanged.
 
@@ -72,7 +72,7 @@ Edit the register (`data/reference/silverleaf-offer-register.json` and this refe
 
 ## Sequence and response decisions
 
-Choose cadence by audience state. Newly acquired organisation and business-contact leads use AQ00, AQ01 or AQ02 from the acquisition framework. AQ01 uses one routing request and one check-in after five working days. AQ02 uses Day 0, +4 working days and +4 working days as an independent test. These tracks do not inherit the internal marketing calendar. Fresh opted-in parent enquiries use the shorter service flow; historical public enquiries receive at most one reviewed reply. Event production begins at T-21 only for a confirmed event, while direct reminders require an RSVP or explicit opt-in. Treat every schedule as design-only until an owner activates an approved campaign. Stop on any reply, refusal, opt-out, referral, hard bounce, out-of-office response, application or enrolment as applicable.
+Choose cadence by audience state. Newly acquired organisation and business-contact leads use AQ00, AQ01 or AQ02 from the acquisition framework. AQ01 uses one partnership request and a second touch after five working days that asks who is best to speak to about staff welfare or benefits. AQ02 uses Day 0, +4 working days and +4 working days as an independent test. These tracks do not inherit the internal marketing calendar. Fresh opted-in parent enquiries use the shorter service flow; historical public enquiries receive at most one reviewed reply. Event production begins at T-21 only for a confirmed event, while direct reminders require an RSVP or explicit opt-in. Treat every schedule as design-only until an owner activates an approved campaign. Stop on any reply, refusal, opt-out, referral, hard bounce, out-of-office response, application or enrolment as applicable.
 
 For worked sequences, response branches, SACCOS outreach, partner invitations and parent qualification, read [flows-and-automations.md](references/flows-and-automations.md). Use the organisation segment to choose the offer and the recipient's role to choose the ask. Personalize the evidence and relevance within that structure. Distinguish automation recipes from activated delivery integrations.
 

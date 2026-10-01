@@ -1,6 +1,6 @@
 {
   "output": "outputs/master/Silverleaf Master Database - Consolidated.xlsx",
-  "generated_at": "2026-09-25 18:43 UTC",
+  "generated_at": "2026-10-01 06:29 UTC",
   "builder": "scripts/master/build_master_workbook.py",
   "sheets": {
     "Start here": 24,
@@ -11,7 +11,7 @@
     "Lead Briefs": 377,
     "Strategies": 214,
     "Campuses": 5,
-    "Review": 1137,
+    "Review": 1240,
     "Facts": 52646,
     "Source rows": 9125,
     "Source files": 105,
@@ -38,7 +38,7 @@
     "Messages": 1834,
     "Lead Briefs": 377,
     "Campuses": 5,
-    "Review": 1137,
+    "Review": 1240,
     "Facts": 52646,
     "Source rows": 9125,
     "Source files": 105,

@@ -101,6 +101,18 @@
    "lon": 36.62,
    "precision": "estimated",
    "basis": "SOS pages place the village about 13 km from Arusha centre on the Arusha-Nairobi highway; placed at Ngaramtoni, the nearest gazetteer point on that road (estimate)"
+  },
+  "Mshikamano Orphanage Center": {
+   "lat": -3.34865,
+   "lon": 37.34352,
+   "precision": "town",
+   "basis": "Its own site places it in Moshi (P.O. Box 6988 Moshi; it serves Kaloleni, Kalimani, Pasua and Njoro), not Arusha's Kaloleni (contact research wave 8, 26 September 2026). Moshi town point from the repository gazetteer."
+  },
+  "ZORAH ORGANIZATION": {
+   "lat": -3.37333,
+   "lon": 36.78601,
+   "precision": "town",
+   "basis": "Its own contact page gives Patandi Village, Akheri Ward, Tengeru (contact research wave 8, 26 September 2026); the NGO register's map pin is about 24 km from Usa River. Tengeru point from the repository gazetteer."
   }
  },
  "nis_to_org_evidence": {

@@ -129,7 +129,9 @@ def main() -> int:
             f"design-only automation · generated {generated} from the canonical SQLite database",
             ["Table", "Records / use", "How to use it"], [
                 ["Organisations", counts["organisations"], "Filter by segment, route_status and selection. Choose at most one current recipient per "
-                 "resolved organisation. Route status, social pages, decision-makers and research flags come from the contact research."],
+                 "resolved organisation. message_variant: A asks for sponsorship (only companies that fund education); B asks for a partnership on an education "
+                 "benefit for staff (every other company); n/a for savings groups. send_status, chosen_recipient and first_message show the one message to send "
+                 "for each company. Route status, social pages, decision-makers and research flags come from the contact research."],
                 ["Contacts", counts["contacts"], "Business contacts only, each with decision_maker, best route and pdpa_risk. A named person is not "
                  "evidence that they are a parent."],
                 ["Enquiries", counts["enquiries"], "Historical public childcare and school enquiries. Use the one-reply review flow."],
@@ -175,16 +177,16 @@ def main() -> int:
 
     b.sheet("Organisations", f"{counts['organisations']} organisations in the canonical database. Route status: 'direct route' means a published "
             "email or phone for the organisation or one of its contacts. Check source records and verification before outreach.",
-            ["organisation_id", "name", "segment", "priority", "campus", "locality", "distance_km", "geocode_precision", "route_status", "phone",
+            ["organisation_id", "name", "segment", "message_variant", "send_status", "chosen_recipient", "chosen_role", "chosen_route", "first_message_subject", "first_message", "priority", "campus", "locality", "distance_km", "geocode_precision", "route_status", "phone",
              "email", "website", "address", "social_pages", "named_contacts", "decision_makers", "contact_research", "research_flags", "headcount",
              "size_evidence", "education_angle", "desk_tier", "desk_score", "verification", "strategy_id", "owner", "outreach_status", "next_action",
              "next_action_date", "message_ids", "source_record_ids", "source_url"],
-            [[o["organisation_id"], o["name"], o["segment"], o["priority"], o["campus"], o["locality"], o["distance_km"], o["geocode_precision"],
+            [[o["organisation_id"], o["name"], o["segment"], o.get("message_variant", ""), o.get("send_status", ""), o.get("chosen_recipient", ""), o.get("chosen_role", ""), o.get("chosen_route", ""), o.get("first_message_subject", ""), o.get("first_message", ""), o["priority"], o["campus"], o["locality"], o["distance_km"], o["geocode_precision"],
               o["route_status"], o["phone"], o["email"], o["website"], o["address"], o["social_pages"], o["named_contacts"], o["decision_makers"],
               o["contact_research"], o["research_flags"], o["headcount"], o["size_evidence"], o["education_angle"], o["desk_tier"], o["desk_score"],
               o["verification"], o["strategy_id"], o["owner"], o["outreach_status"], o["next_action"], o["next_action_date"], o["message_ids"],
               o["source_record_ids"], o["source_url"]] for o in data["organisations"]],
-            [20, 38, 24, 14, 24, 32, 14, 22, 16, 24, 34, 44, 48, 60, 14, 70, 30, 55, 14, 50, 70, 16, 14, 54, 28, 18, 25, 45, 20, 35, 80, 60],
+            [20, 38, 24, 12, 26, 30, 30, 34, 48, 100, 14, 24, 32, 14, 22, 16, 24, 34, 44, 48, 60, 14, 70, 30, 55, 14, 50, 70, 16, 14, 54, 28, 18, 25, 45, 20, 35, 80, 60],
             82, "TOrganisations")
 
     b.sheet("Contacts", f"{counts['contacts']} published business contacts. Named people are professional routes only; they are not evidence "
@@ -272,18 +274,18 @@ def main() -> int:
     b.sheet("Outreach plans", "One row per organisation/contact draft. The acquisition track controls cadence; segment and value modules shape "
             "the offer; offer IDs name the register terms the copy states; exact evidence controls hooks.",
             ["message_id", "target_name", "organisation_name", "segment", "acquisition_track_id", "value_module_ids", "acquisition_version",
-             "strategy_scope", "recipient_role", "persona", "selection", "review_status", "contact_channel", "channel_attribution", "hook_status",
+             "strategy_scope", "recipient_role", "persona", "selection", "message_variant", "variant_reason", "variant_subject", "variant_message", "review_status", "contact_channel", "channel_attribution", "hook_status",
              "hook", "hook_evidence", "offer_version", "offer_ids", "offer_evidence", "subject", "message", "follow_up_1", "follow_up_2",
              "offer_message", "kiswahili_version", "campaign_copy_status", "relevance_reason", "proposed_offer", "cta_type", "flow_id",
              "evidence_url", "evidence_date", "verified_on", "evidence_basis", "evidence_record_ids", "missing_information"],
             [[p["message_id"], p["target_name"], p["organisation_name"], p["segment"], p["acquisition_track_id"], p["value_module_ids"],
-              p["acquisition_version"], p["strategy_scope"], p["recipient_role"], p["persona"], p["selection"], p["review_status"],
+              p["acquisition_version"], p["strategy_scope"], p["recipient_role"], p["persona"], p["selection"], p.get("message_variant"), p.get("variant_reason"), p.get("variant_subject"), p.get("variant_body"), p["review_status"],
               p["contact_channel"], p["channel_attribution"], p["hook_status"], p["hook"], p["hook_evidence"], p["offer_version"], p["offer_ids"],
               p["offer_evidence"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p.get("offer_message"), p["offer_message_sw"],
               p["campaign_copy_status"], p["relevance_reason"], p["proposed_offer"], p["cta_type"], p["flow_id"], p["evidence_url"],
               p["evidence_date"], p["verified_on"], p["evidence_basis"], p["evidence_record_ids"], p["missing_information"]]
              for p in data["outreach_plans"]],
-            [22, 28, 42, 24, 20, 42, 40, 85, 28, 18, 23, 22, 34, 48, 30, 80, 75, 26, 22, 60, 48, 90, 105, 70, 105, 90, 48, 80, 75, 24, 12, 55,
+            [22, 28, 42, 24, 20, 42, 40, 85, 28, 18, 23, 12, 70, 48, 100, 22, 34, 48, 30, 80, 75, 26, 22, 60, 48, 90, 105, 70, 105, 90, 48, 80, 75, 24, 12, 55,
              18, 18, 50, 90, 100], 175, "TOutreachPlans")
 
     b.sheet("Sequences", "Acquisition-track sequences are independent of the internal marketing calendar. AQ00 holds, AQ01 routes with one "

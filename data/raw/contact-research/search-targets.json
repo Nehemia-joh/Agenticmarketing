@@ -1,0 +1,92 @@
+{
+ "about": "What each search file's wave looked for: 'published route' (organisations with no published email or phone) or 'named decision-maker' (organisations that had a route but no named decision-maker), or both. Read by scripts/contacts/plan_contact_research.py: a second pass (--second-pass) leaves out organisations an earlier wave already searched for a decision-maker. The planner adds each new wave's files; files before wave 8 were classified from their coverage logs on 26 September 2026.",
+ "files": {
+  "search_A_welfare_care_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_B_welfare_specialised_funders_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_C_master_employers_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_D_hotels_government_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave2_master_employers_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave2_welfare_care_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave2_welfare_funders_specialised_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave3_master_employers_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave3_welfare_care_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave3_welfare_funders_specialised_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave4_master_employers_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave4_master_hotels_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave4_welfare_care_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave4_welfare_funders_specialised_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave5_search_a_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave5_search_b_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave6_master_employers_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave6_welfare_care_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave7_welfare_care_a_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave7_welfare_care_b_2026-09-23.jsonl": [
+   "published route"
+  ],
+  "search_wave8_funder_pages_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave8_master_employers_a_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave8_master_employers_b_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave8_welfare_care_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave8_welfare_funders_specialised_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave99_master_employers_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave99_master_hotels_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave9_master_employers_a_2026-09-23.jsonl": [
+   "named decision-maker"
+  ],
+  "search_wave9_master_employers_b_2026-09-23.jsonl": [
+   "named decision-maker"
+  ]
+ }
+}

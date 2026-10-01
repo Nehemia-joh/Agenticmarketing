@@ -7,12 +7,15 @@ only fetched known pages and found nothing does not count) and that, by --target
 - decision-makers: have a route but no named decision-maker, and no own website the crawler could read (a site it read
   is left to the crawler);
 - all: either.
+--include-crawled also plans decision-makers for organisations whose own website the crawler read without finding one, and
+--second-pass also plans organisations an earlier wave searched only for a route: data/raw/contact-research/search-targets.json
+records what each search file looked for (the planner adds each new wave's files).
 Left out by rule:
 - company master savings groups (reached through KINEFA, not one by one) and government offices (the government run
   covers them);
 - welfare records out of scope, and unclassified register-only NGOs unless --include-unclassified;
 - organisations a search found closed.
-Candidates are ranked nearest first within each slice; --max-per-slice keeps only the nearest so one agent's work stays
+Candidates are ranked nearest first within each slice (--rank tier puts the company master's desk tier first: A, B, C, D); --max-per-slice keeps only the nearest so one agent's work stays
 manageable (the rest wait for a later wave), or with --split divides a larger slice into balanced parts (<slice>_a, _b, ...)
 that each get an agent, still at most four in all. The search budget is split across at most four slices in proportion to
 their size (at least 5 each). Writes runtime/contacts/slices/wave<N>_<slice>.json and one agent prompt per slice in
@@ -37,6 +40,8 @@ WELFARE_SKIP = {"Out of scope"}
 UNCLASSIFIED = "Welfare (unclassified child-focused NGO)"
 MAX_SLICES = 4
 MIN_SLICE = 10
+TARGETS = C.RAW / "search-targets.json"
+TIER_ORDER = {"A": 0, "B": 1, "C": 2, "D": 3}
 SLICE_OF = {"master": lambda seg: "master_hotels" if seg in ("tourism:hotel", "guest_house", "tourism:guest_house") else "master_employers",
             "welfare": lambda seg: "welfare_funders_specialised" if seg in ("Welfare funder", "Welfare specialised centre") else "welfare_care"}
 
@@ -60,8 +65,9 @@ Tanzania); several names joined with OR give unreliable results. Then fetch the 
 pages. A domain that now shows unrelated content (gambling, escort, parked or for sale) no longer belongs to the
 organisation: record that in notes and use nothing from it. Say in notes if an organisation looks closed, outside the
 Arusha-Kilimanjaro area, or the same as another record. Record the organisation's published routes (website, role or general email, phones, postal and physical address,
-official social pages) and the named people who lead or decide for it, exactly as the organisation, an official register
-or a parent body publishes them, with a work email or phone only when that same source gives it for contact. Never record
+official social pages) and the named people who lead or decide for it, exactly as the organisation, an official register,
+a parent body, or a funder or partner naming its current leaders publishes them, with a work email or phone only when that
+same source gives it for contact. Never record
 personal social profiles, home addresses, family details, biographies, anything about children, parents or residents, or
 party affiliation. Mark snippet-only facts fetched: false, and anything not clearly the same organisation identity: uncertain.
 
@@ -96,6 +102,16 @@ def main() -> int:
     parser.add_argument("--max-per-slice", type=int, default=0, help="keep only the nearest N organisations in each slice (0 keeps all)")
     parser.add_argument("--split", action="store_true",
                         help="with --max-per-slice, divide a larger slice into balanced parts of at most that size instead of deferring the rest")
+    parser.add_argument("--include-crawled", action="store_true",
+                        help="decision-makers: also organisations whose own website the crawler read without finding one")
+    parser.add_argument("--second-pass", action="store_true",
+                        help="also organisations an earlier wave searched, unless it already looked for what they still lack (search-targets.json)")
+    parser.add_argument("--db", choices=("master", "welfare"), help="plan only this database's organisations")
+    parser.add_argument("--exclude-wave", type=int, action="append", default=[],
+                        help="leave out organisations already in this wave's slices (a wave whose agents are still running)")
+    parser.add_argument("--max-slices", type=int, default=MAX_SLICES, help="agents in this plan (at most four)")
+    parser.add_argument("--rank", choices=("distance", "tier"), default="distance",
+                        help="order within a slice: nearest first (default), or the company master's desk tier first, then nearest")
     args = parser.parse_args()
     profiles = json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))["profiles"]
     # Research records can carry a stale organisation ID (see contact_lib.Resolver).
@@ -109,7 +125,9 @@ def main() -> int:
             read_by_crawler |= {resolve(o["db"], o["organisation_id"], o["name"]) for o in site["orgs"]}
     # Named decision-makers already known: in the databases, or found by this research and not merged yet.
     deciders = {(p["db"], p["organisation_id"]) for p in profiles if any(x["decision_maker"] for x in p["people"])}
+    targets = json.loads(TARGETS.read_text(encoding="utf-8")) if TARGETS.exists() else {"files": {}}
     searched, closed = set(), set()
+    searched_for = defaultdict(set)  # what earlier waves searched each organisation for
     for path in C.RAW.glob(f"search_*_{args.date}.jsonl"):
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
@@ -118,14 +136,19 @@ def main() -> int:
                 # An organisation an agent only fetched pages for (no search) and found no route for stays a candidate.
                 if r.get("searches_used", 1) or r.get("status") == "found":
                     searched.add(key)
+                    searched_for[key] |= set(targets["files"].get(path.name, ["published route", "named decision-maker"]))
                 if C.CLOSURE.search(str(r.get("notes") or "")):
                     closed.add(key)
+    # Organisations handed to a wave that is still running: their records are not all written yet.
+    assigned = {(o["db"], o["organisation_id"]) for wave in args.exclude_wave for path in (C.WORK / "slices").glob(f"wave{wave}_*.json")
+                for o in json.loads(path.read_text(encoding="utf-8"))}
     place, planned = {}, set()
     for db, path in DBS.items():
         con = ro(path)
         columns = {r[1] for r in con.execute("PRAGMA table_info(organisations)")}
         source = "source_url" if "source_url" in columns else "website AS source_url"
-        for r in con.execute(f"SELECT organisation_id, locality, campus, distance_km, {source} FROM organisations"):
+        tier = "desk_tier" if "desk_tier" in columns else "'' AS desk_tier"
+        for r in con.execute(f"SELECT organisation_id, locality, campus, distance_km, {tier}, {source} FROM organisations"):
             place[(db, r["organisation_id"])] = dict(r)
         # Only organisations outreach is planned for: triage exclusions (religious bodies, welfare-linked records) are not researched.
         planned |= {(db, oid) for (oid,) in con.execute("SELECT DISTINCT organisation_id FROM outreach_plans")}
@@ -135,31 +158,36 @@ def main() -> int:
     slices = defaultdict(list)
     for p in profiles:
         key = (p["db"], p["organisation_id"])
-        if p["db"] not in SLICE_OF or key in searched or key in closed or key not in planned:
+        if (p["db"] not in SLICE_OF or (args.db and p["db"] != args.db) or key in closed or key not in planned or key in assigned
+                or (key in searched and not args.second_pass)):
             continue
         direct = p["known"]["email"] or p["known"]["phone"] or p["emails"] or p["phones"]
         skip = MASTER_SKIP if p["db"] == "master" else WELFARE_SKIP | (set() if args.include_unclassified else {UNCLASSIFIED})
         needs = []
         if not direct and args.target in ("routes", "all"):
             needs.append("published route")
-        if direct and key not in deciders and key not in read_by_crawler and args.target in ("decision-makers", "all"):
+        if direct and key not in deciders and (key not in read_by_crawler or args.include_crawled) and args.target in ("decision-makers", "all"):
             needs.append("named decision-maker")
+        # A second pass looks again only for what no earlier wave searched this organisation for.
+        needs = [n for n in needs if n not in searched_for.get(key, set())]
         if not needs or p["segment"] in skip:
             continue
         info = place.get(key, {})
         slices[SLICE_OF[p["db"]](p["segment"])].append({
             "db": p["db"], "organisation_id": p["organisation_id"], "name": p["name"], "segment": p["segment"], "locality": info.get("locality") or "",
-            "campus": info.get("campus") or "", "distance_km": info.get("distance_km"), "needs": needs,
+            "campus": info.get("campus") or "", "distance_km": info.get("distance_km"), "desk_tier": info.get("desk_tier") or "", "needs": needs,
             "known_sources": [s for s in [info.get("source_url"), *(w for w in p["websites"])] if s][:3]})
     # A slice too small to justify its own agent joins the largest slice of the same database.
     for name in sorted(slices, key=lambda n: len(slices[n])):
         same_db = [n for n in slices if n != name and n.split("_")[0] == name.split("_")[0]]
         if len(slices[name]) < MIN_SLICE and same_db:
             slices[max(same_db, key=lambda n: len(slices[n]))].extend(slices.pop(name))
-    top = sorted(slices.items(), key=lambda kv: -len(kv[1]))[:MAX_SLICES]
+    max_slices = max(1, min(args.max_slices, MAX_SLICES))
+    top = sorted(slices.items(), key=lambda kv: -len(kv[1]))[:max_slices]
     waiting, parts = {}, []
     for name, items in top:
-        items.sort(key=lambda o: (o["distance_km"] in (None, ""), float(o["distance_km"] or 0)))
+        items.sort(key=lambda o: ((TIER_ORDER.get(str(o["desk_tier"])[:1], 4),) if args.rank == "tier" else ()) +
+                   (o["distance_km"] in (None, ""), float(o["distance_km"] or 0)))
         if args.max_per_slice and len(items) > args.max_per_slice:
             if args.split:
                 # Balanced parts of at most --max-per-slice each, nearest first; each part gets its own agent.
@@ -170,8 +198,8 @@ def main() -> int:
             waiting[name] = len(items) - args.max_per_slice
             del items[args.max_per_slice:]
         parts.append((name, items))
-    chosen = parts[:MAX_SLICES]  # still at most four agents; any further part waits for a later wave
-    waiting.update({name: len(items) for name, items in parts[MAX_SLICES:]})
+    chosen = parts[:max_slices]  # still at most four agents; any further part waits for a later wave
+    waiting.update({name: len(items) for name, items in parts[max_slices:]})
     total = sum(len(v) for _, v in chosen)
     plan, out_dir, prompt_dir = [], C.WORK / "slices", C.WORK / "prompts"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -193,6 +221,10 @@ def main() -> int:
         (prompt_dir / f"{slug}.md").write_text(prompt, encoding="utf-8")
         plan.append({"slice": slug, "organisations": len(items), "searches": budgets[name], "prompt": (prompt_dir / f"{slug}.md").relative_to(C.ROOT).as_posix(),
                      "needs": {n: sum(1 for o in items if n in o["needs"]) for n in ("published route", "named decision-maker")}})
+        targets["files"][output_path.name] = sorted({n for o in items for n in o["needs"]}, reverse=True)
+    if chosen:
+        targets["files"] = dict(sorted(targets["files"].items()))
+        TARGETS.write_text(json.dumps(targets, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     left_out = {name: len(items) for name, items in sorted(slices.items()) if name not in dict(top)}
     print(json.dumps({"wave": args.wave, "target": args.target, "budget": args.budget, "searches_planned": sum(budgets.values()), "slices": plan,
                       "not_planned": left_out, "waiting_beyond_slice_limit": waiting, "already_searched": len(searched), "closed": len(closed)},

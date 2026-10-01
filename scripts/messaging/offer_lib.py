@@ -87,7 +87,8 @@ def display_name(name: str, organisation_id: str | None = None) -> str:
 def greeting_name(name: str) -> str:
     """A person's name as published, without research annotations or post-nominal letters: 'Noemi Glaser, BA (desk)' -> 'Noemi Glaser'."""
     name = re.sub(r"\s*\([^)]*\)", "", str(name or "")).strip()
-    return re.sub(r",\s*(BA|BSc|MA|MSc|MBA|PhD|Dr|Mr|Mrs|Ms|CPA|MD|RN|Hon\.?)\b.*$", "", name).strip(" ,")
+    name = re.sub(r",\s*(BA|BSc|MA|MSc|MBA|PhD|Dr|Mr|Mrs|Ms|CPA|MD|RN|Hon\.?)\b.*$", "", name).strip(" ,")
+    return name.title() if len(name) > 3 and name.isupper() else name  # 'GILBERT BOOT' is written 'Gilbert Boot'
 
 
 def family_offer_en() -> str:

@@ -5,7 +5,7 @@ This is how Silverleaf builds contact profiles for the organisations in its thre
 ## What a profile holds
 
 - **Organisation contact profile**: website, typed emails (role, general, named, personal domain), typed phones (office, mobile, international), postal and physical address, and official social pages, each with its source.
-- **Contact lead**: a named person the organisation itself publishes (its own site, an official register or directory, or a parent body's official page). A lead records:
+- **Contact lead**: a named person published as leading or deciding for the organisation: on its own site, in an official register or directory, on a parent body's official page, or on a funder's or partner's own page that names the organisation's current leaders (allowed by the user's decision of 26 September 2026). A lead records:
   - name and role
   - a decision-maker flag
   - a work email or phone, only when the same source links it to that person
@@ -33,6 +33,9 @@ Government offices are addressed by office title. Officials are named only from 
      - leaves out savings groups (reached through KINEFA), government offices, and closed or out-of-scope records
      - ranks the candidates nearest first and splits the budget over at most four slices; `--max-per-slice` keeps only the nearest so one agent's work stays manageable (about 35 to 45 organisations), and the rest wait for a later wave
      - with `--split` as well, a larger slice is divided into balanced parts (`<slice>_a`, `<slice>_b`, ...) of at most that size, each with its own agent, still at most four agents in all
+     - `--include-crawled` also plans decision-makers for organisations whose own website the crawler read without finding one; an agent reads their about and team pages before searching
+     - `--second-pass` also plans organisations an earlier wave searched, but only for what no wave searched them for yet. `data/raw/contact-research/search-targets.json` records what each search file looked for (a published route or a named decision-maker); the planner adds each new wave's files
+     - `--db master|welfare` plans one database, `--max-slices` sets the number of agents (at most four), `--rank tier` puts the company master's desk tier first (A, B, C, D, then nearest), and `--exclude-wave <n>` leaves out organisations a wave still running already holds, so the next wave can start as agents finish
      - writes each slice and its agent prompt under `runtime/contacts/`
    - Give each agent a fixed share of the session's WebSearch cap. Launch at most four agents per wave.
    - Each agent writes `data/raw/contact-research/search_<slice>_<date>.jsonl` and a coverage log in `data/raw/contact-research/coverage/`.
@@ -69,6 +72,7 @@ Government offices are addressed by office title. Officials are named only from 
 - **Page junk and placeholders are removed.** Addresses are cleaned of URL-encoded spaces, zero-width characters and words glued onto the domain (`info@x.comarusha`). Theme and site-builder placeholders (`info@mysite.com`, `+255 712 345 678`) are dropped.
 - **Shared values are dropped.** A number or address found on three or more different websites belongs to a shared platform, such as a booking portal or a web designer, and is not used.
 - **Hotlines are not routes.** A number that a record's phone `type` labels as a hotline or helpline (for example "mobile; the 24/7 hotline for reporting a case") serves people who need help. It stays in the record as evidence but is never offered as a route, even where another record gives the same number without the label. Agents label such numbers in `type`.
+- **Rejected routes are left out.** `data/reference/rejected-routes.json` lists reviewed values that research found but that are not the organisation's route: another organisation's inbox or phone (SOS Kenya's footer served on SOS Arusha's page), a fax, or an inbox on a domain that does not exist. Each entry gives the organisation, the value, the reason, the source and the date. The builder leaves the value out of that organisation's profile and its leads, matching the organisation by name when its ID has changed, so the runs never take it and the company-master merge never adds it. A value already in the company master is corrected through the update skill.
 - **Hijacked pages are skipped.** A page with gambling or parked-domain content is not used, even on the organisation's own site, and the site appears on the Flags sheet.
 - **Person filter** (`contact_lib.clean_person`). Names may be in any Latin alphabet (Ståle, Zoë).
   - **People a research agent or browser reader recorded.** They are kept in any name form: only in part ("Mogens"), with particles ("Gijs de Raadt", "Ken deLaski"), with several titles ("Rt. Rev. Ludovick Minde") or with a place word as the surname ("Doreen Moshi"). They are kept with any role the source gives, including contacts with no recognised title ("Booking contact"). Only a template name, a role the person no longer holds, or a phone number read as a role is refused (see "Every lead is kept" below).
@@ -132,6 +136,7 @@ Government offices are addressed by office title. Officials are named only from 
 Give every research agent the following, with its slice file, its search allowance and its output paths.
 
 - **Goal:** for each organisation, fill the organisation profile, and find contact leads who lead or decide for it: founder, director, manager, head, coordinator, HR, administrator, owner, principal. Record every such person, most senior first. Record a person the source names only in part ("Mogens", founder) exactly as given; the builder labels the name incomplete rather than dropping it.
+- **Sources for people:** the organisation's own site or report, an official register, a parent body's official page, the organisation's own text on a membership or operator directory (such as TATO's), or a funder's or partner's own page that names the organisation's current leaders. For a funder or partner page, fetch it, quote the sentence that names the person and their role at the organisation, and say in `notes` that the source is a funder or partner. News stories, personal profiles and people-search sites are not sources for people.
 - **Search budget:**
   - Use at most the allowance, and number every search in the log (Q1/40, Q2/40 …).
   - One search per organisation is normal, for example `"<exact name>" Arusha`. Then fetch the organisation's own contact, about or team pages instead of searching again.

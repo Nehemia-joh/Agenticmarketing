@@ -460,7 +460,7 @@ def parse_rosters(sites, transcriptions, census, cfg, links, reviews):
         ward, how = match(row["council"], row["ward_as_published"])
         out.append({"council": row["council"], "ward_as_published": row["ward_as_published"], "name_as_published": row["name_as_published"],
                     "phone_as_published": row["phone_as_published"], "source_url": row["source_url"], "source_title": row["document_title"],
-                    "source_path": row["_file"], "source_location": f"line {row['_line']} (PDF page {row['pdf_page']}, row {row['row_sn']})",
+                    "source_path": row["_file"], "source_location": f"line {row['_line']} ({'image' if row['source_url'].lower().endswith(('.png', '.jpg', '.jpeg')) else 'PDF page'} {row['pdf_page']}, row {row['row_sn']})",
                     "published_on": "", "match": how, "ward": ward["ward"] if ward else "", "note": row.get("note", ""),
                     "evidence_basis": "official", "transcribed": True})
     for e in out:

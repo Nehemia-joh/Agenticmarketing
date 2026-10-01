@@ -24,6 +24,13 @@ Evidence behind the government runs, most recently `arusha-government-2026-09`. 
 | `osm_government_offices_2026-09-23.json` | `b093b0da23f437b6…` | OpenStreetMap government offices (tags and names), with both queries |
 | `osm_named_facilities_2026-09-23.json` | `4486e65e5b514e8a…` | OpenStreetMap schools and health facilities named after catchment wards, with the query; used only through reviewed ward_locations overrides |
 | `osm_places_2026-09-23.json` | `4f7dfd5d66496852…` | OpenStreetMap place nodes in the bounding box, with the query |
+| `transcriptions/arushacc_madiwani_2025-2030_2026-09-26.csv` | `6118fc5db51ddb04…` | Transcription of a scanned official document, with page and row locators |
 | `transcriptions/arushadc_madiwani_2025-2030_2026-09-23.csv` | `27df913d7bba45d1…` | Transcription of a scanned official document, with page and row locators |
-| `transcriptions/README.md` | `dd647bb24bd18156…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/merudc_madiwani_2025-2030_2026-09-26.csv` | `29d55106b66cb184…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/mondulidc_madiwani_2025-2030_2026-09-26.csv` | `22f7916877792bcd…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/moshidc_madiwani_2025-2030_2026-09-26.csv` | `4c5bf0bb196353f5…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/moshimc_madiwani_2025-2030_2026-09-26.csv` | `3dec34fa95c6ac9b…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/README.md` | `f8dcc5aacf571a15…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/sihadc_madiwani_2025-2030_2026-09-26.csv` | `d7fa719cb6f9ca88…` | Transcription of a scanned official document, with page and row locators |
+| `transcriptions/simanjirodc_madiwani_2025-2030_2026-09-26.csv` | `c6508bc55faeea8e…` | Transcription of a scanned official document, with page and row locators |
 | `wikipedia_wards_2026-09-23.json` | `076142bc3a68847d…` | Wikipedia ward articles: title, revision, coordinates and first sentence (CC BY-SA 4.0) |

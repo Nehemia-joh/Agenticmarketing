@@ -57,8 +57,8 @@ Request first (decided 23 September 2026, on Kilusu's recommendation). The first
 
 | Audience | First message (request, no terms) | Offer message | Later |
 |---|---|---|---|
-| Employer (AQ02) | A short meeting about an education benefit for the children of its staff | Follow-up 1: the staff school-fee benefit at no cost to the employer (OF04), the family offer (OF01, OF02, OF09), levels and campuses; the employer can present the benefit as its own or add to it | A close after 4 more working days |
-| Employer (AQ01 routing) | The same purpose, and who looks after staff welfare or benefits | The reply once someone names the right colleague | One check-in after 5 working days |
+| Employer (AQ02) | A partnership to provide an education benefit for the children of its staff, and a short meeting | Follow-up 1: the staff school-fee benefit at no cost to the employer (OF04), the family offer (OF01, OF02, OF09), levels and campuses; the employer can present the benefit as its own or add to it | A close after 4 more working days |
+| Employer (AQ01 routing) | The same partnership request | The reply once someone names the right colleague | Second touch after 5 working days: who is best to speak to about staff welfare or benefits |
 | Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the member-association rate (OF07) | One check-in, or a close |
 | Welfare home or programme | Working together on the education of the children in its care | Follow-up: the partner rate (OF03), the free uniform and instalments; admissions checks each child's level | None |
 | Welfare funder | Sponsorship for two or three students to start, with its verified support for a home as the reason where the run records one | Follow-up: the partner rate as a way to stretch sponsorship | None |

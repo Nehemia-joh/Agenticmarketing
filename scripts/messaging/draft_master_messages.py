@@ -5,7 +5,9 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
 - Every existing outreach plan gets a request-first sequence (strategy S-request-first-v5, 23 September 2026). Its
   message_id, target, acquisition track and call to action are kept.
   - The first message names the purpose, introduces the sender (Mariam Haji, Marketing and Partnership Coordinator)
-    and asks for a short meeting. It states no offer terms.
+    and asks for a short meeting. It states no offer terms. For employers the purpose is a partnership to provide an
+    education benefit for the children of staff; on a plan that routes, the second touch asks who is best to speak to
+    about staff welfare or benefits.
   - The offer message (outreach_plans.offer_message) states the offer register's terms. AQ02 sends it as follow-up 1;
     on AQ01 it is the reply once someone names the right colleague. AQ01 otherwise sends one routing check-in.
   - Earlier copies are saved in message_versions first: '2026-09-23-before-offer-v4' (the pre-offer copy) and
@@ -42,6 +44,7 @@ WELFARE_DB = ROOT / "outputs" / "runs" / "arusha-welfare-2026-09" / "lead-databa
 GOVERNMENT_DB = ROOT / "outputs" / "runs" / "arusha-government-2026-09" / "lead-database.sqlite"
 BACKUP_VERSION = "2026-09-23-before-offer-v4"
 REQUEST_FIRST_BACKUP = "2026-09-23-before-request-first"
+REDRAFT_BACKUP = "2026-10-01-before-partnership-wording"  # the copy before the employer first message became a partnership request
 OFFER_STRATEGY_ID = "S-offer-aligned-v4"
 STRATEGY_ID = "S-request-first-v5"
 COPY_VERSION = "request-first-v5"
@@ -140,22 +143,20 @@ def employer_copy(plan: dict, org: dict, track: str) -> dict:
     staff = "local staff" if plan.get("segment") == "NGO employers" else "staff"
     extra = " It concerns your staff's own children, not student admissions." if plan.get("segment") == "Education employers" else ""
     hook = hook_sentence(plan)
-    purpose = f"I am writing to explore an education benefit for the children of {staff} at {org_name}.{extra}{(' ' + hook) if hook else ''}"
+    # The first message states the objective: a partnership to provide an education benefit for staff children (1 October 2026).
+    # Who looks after staff welfare or benefits is the second touch, on a plan that routes.
+    purpose = (f"We are looking to set up a partnership with {org_name} to provide an education benefit for the children of your {staff}.{extra}"
+               f"{(' ' + hook) if hook else ''} I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.")
+    subject = f"A partnership on education benefits for {org_name} staff"
+    body = f"{greet}\n\n{L.INTRO}\n\n{purpose}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}"
     offer_cta = CTA.get(plan.get("cta_type") or "", CTA["Information offer"])
     if routing_plan(plan, track):
-        referral = CTA.get(plan.get("cta_type") or "", CTA["Welfare referral"])
-        if "point me" not in referral:
-            referral = CTA["Welfare referral"]
-        subject = f"An education benefit for {org_name} staff: who should I speak to?"
-        body = (f"{greet}\n\n{purpose}\n\n{L.INTRO}\n\n{referral} I would welcome a short meeting with them, either in person or by phone."
-                f"\n\n{L.SIGNATURE}")
-        follow_1 = (f"{greet}\n\nA quick check on my note about an education benefit for staff at {org_name}: could you point me to the right "
-                    f"colleague? If it is not relevant, just say so and I will close this.\n\n{L.SIGNATURE}")
+        follow_1 = (f"{greet}\n\nFollowing up on my note about a partnership to provide an education benefit for the children of {staff} at {org_name}. "
+                    f"Who would be the best person to speak to about staff welfare or benefits? If it is not relevant, just say so and I will close this."
+                    f"\n\n{L.SIGNATURE}")
         follow_2 = ""
         offer_cta = CTA["Information offer"] if "point me" in offer_cta else offer_cta
     else:
-        subject = f"Meeting request: an education benefit for {org_name} staff"
-        body = f"{greet}\n\n{purpose}\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}"
         follow_1 = employer_offer(greet, FOLLOW_UP_OPENER, org_name, staff, org, offer_cta)
         follow_2 = f"{greet}\n\nShould I send the one-page staff offer sheet for a quick look, or close this for now?\n\n{L.SIGNATURE}"
     offer = employer_offer(greet, REPLY_OPENER, org_name, staff, org, offer_cta)
@@ -261,7 +262,7 @@ def main() -> int:
         elif plan.get("strategy_version") != COPY_VERSION:
             label = REQUEST_FIRST_BACKUP
         else:
-            label = f"{date.today().isoformat()}-before-redraft" if stored != tuple(copy[k] or "" for k in COPY_FIELDS) else ""
+            label = REDRAFT_BACKUP if stored != tuple(copy[k] or "" for k in COPY_FIELDS) else ""
         if label:
             backups.append((label, plan["message_id"], json.dumps({"outreach_plan": plan, "message": messages.get(plan["message_id"])},
                                                                   ensure_ascii=False, default=str)))

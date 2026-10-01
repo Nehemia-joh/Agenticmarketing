@@ -1,9 +1,12 @@
 {
  "_about": "Reviewed curation for the arusha-government-2026-09 run. Each entry records a decision a person (or the agent, marked for review) took after checking the evidence. build_government_run.py applies them; nothing here is inferred automatically.",
  "ward_aliases": {
-  "_about": "Spellings used by official rosters, Wikipedia titles or OpenStreetMap names, mapped to the census ward name, per council. Each was checked on 23 September 2026: the source names the same council or district, and no other ward in that council has a closer spelling.",
+  "_about": "Spellings used by official rosters, Wikipedia titles or OpenStreetMap names, mapped to the census ward name, per council. Each was checked on 23 September 2026 (Murriet, Olmot and Osunyai, from the Arusha City roster, on 26 September 2026): the source names the same council or district, and no other ward in that council has a closer spelling.",
   "Arusha City Council": {
-   "Sokoni I": "Sokon I"
+   "Sokoni I": "Sokon I",
+   "Murriet": "Muriet",
+   "Olmot": "Olmoti",
+   "Osunyai": "Osunyai Jr"
   },
   "Arusha District Council": {
    "OLTURUTO": "Olturoto",

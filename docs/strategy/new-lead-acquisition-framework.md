@@ -21,7 +21,7 @@ A recipient hook is optional. Use it only when the exact statement has a traceab
 | Track | Use when | Touchpoints | Outcome |
 |---|---|---|---|
 | AQ00 — Hold for verification | Identity, route, role, current operation or relevance is unresolved | No message | Research or close with a recorded reason |
-| AQ01 — Routing first | The public business route is usable, but the decision-maker is uncertain | One routing request; one check-in after 5 working days; then stop | Obtain a named owner or close |
+| AQ01 — Routing first | The public business route is usable, but the decision-maker is uncertain | One partnership request; a second touch after 5 working days asking who is best to speak to about staff welfare or benefits; then stop | Obtain a named owner or close |
 | AQ02 — Direct recipient test | The recipient's role, route and relevance are sufficiently verified | Initial message; follow-ups after 4 and 4 working days; then stop | Earn permission for a discussion or outline |
 
 These intervals are acquisition tests. They are independent of the school marketing calendar and should change when measured results justify a better cadence. Stop every track on any reply, referral, refusal, opt-out, hard bounce, out-of-office response or duplicate active account.

@@ -291,7 +291,7 @@ def main() -> int:
               "The master and this workbook hold counts only.", ["enquiry_id", "type", "enquiry_date", "request", "platform", "source_url"], [])
     note = "Design only; nothing is drafted, scheduled or enabled in this research run. See plans/b2b-government-leads-plan.md §5.6–5.7."
     outreach_rows = OL.outreach_sheet_rows(con)
-    add_sheet(wb, "Outreach Plans", "Offer-aligned letters in Kiswahili, each with an English meaning for review: GA01 council introductions, then held ward, village, district and regional letters. They describe the family offer for parents only and never offer officials a benefit. Nothing is sent.",
+    add_sheet(wb, "Outreach Plans", "Offer-aligned letters in Kiswahili, each with an English meaning for review: GA01 council introductions, then held ward, village, district and regional letters. They state no offer, fee or service and never offer officials a benefit. Nothing is sent.",
               OL.OUTREACH_HEADERS, outreach_rows, {"target": 40, "subject": 44, "body": 90, "english_meaning": 90, "conditions": 70, "recipient": 30})
     add_sheet(wb, "Campaigns", note, ["campaign_id", "name", "audience", "activation_gate", "status"],
               [["C11", "Community convening via local government", "GA01 councils, then GA02 ward, village and mtaa offices",

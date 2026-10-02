@@ -12,32 +12,32 @@
   "duplicate_organisations_held": 103,
   "candidates_after": 835,
   "candidates_before": 938,
-  "plans_changed": 417,
-  "plans_now_candidate": 157,
-  "plans_now_alternative": 260,
-  "named_contacts_now_candidate": 136
+  "plans_changed": 463,
+  "plans_now_candidate": 175,
+  "plans_now_alternative": 288,
+  "named_contacts_now_candidate": 153
  },
  "clusters": [
   {
    "kind": "same organisation",
-   "primary": "Mount Meru Regional Referral Hospital (O9ffcbf6bd74a)",
+   "primary": "Mount Meru Regional Hospital (O216c53fa91a0)",
    "duplicates": [
-    "Mount Meru Regional Hospital (O216c53fa91a0)"
+    "Mount Meru Regional Referral Hospital (O9ffcbf6bd74a)"
    ]
   },
   {
    "kind": "same organisation",
-   "primary": "LEOPARD TOURS LTD (Ocfbf08472950)",
+   "primary": "Leopard Tours Ltd. (O3b30310b0a95)",
    "duplicates": [
-    "Leopard Tours Ltd. (O3b30310b0a95)",
+    "LEOPARD TOURS LTD (Ocfbf08472950)",
     "Leopard Tours Ltd. (Oe4dd5e417342)"
    ]
   },
   {
    "kind": "same organisation",
-   "primary": "University of Arusha (Ofcb6a215ae14)",
+   "primary": "University of Arusha (O2f7c986453fc)",
    "duplicates": [
-    "University of Arusha (O2f7c986453fc)"
+    "University of Arusha (Ofcb6a215ae14)"
    ]
   },
   {
@@ -63,9 +63,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Arusha Technical College (Odd507e2892f9)",
+   "primary": "Arusha Technical College (O6be0bd0c9352)",
    "duplicates": [
-    "Arusha Technical College (O6be0bd0c9352)"
+    "Arusha Technical College (Odd507e2892f9)"
    ]
   },
   {
@@ -77,11 +77,11 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Alika Africa (O99edb02a90e9)",
+   "primary": "Duma Explorer (Alika Africa) (O1abe9227eaf0)",
    "duplicates": [
-    "Duma Explorer (Alika Africa) (O1abe9227eaf0)",
     "Duma Explorers (O53a36854f8df)",
-    "Duma Explorers (O8d12f5792f73)"
+    "Duma Explorers (O8d12f5792f73)",
+    "Alika Africa (O99edb02a90e9)"
    ]
   },
   {
@@ -100,9 +100,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Gran Melia Arusha (Oc0616ccade39)",
+   "primary": "Gran Melia Arusha (Obf2f0abb3e36)",
    "duplicates": [
-    "Gran Melia Arusha (Obf2f0abb3e36)"
+    "Gran Melia Arusha (Oc0616ccade39)"
    ]
   },
   {
@@ -114,9 +114,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Institute of Accountancy Arusha (IAA) (Oc041bab2c73f)",
+   "primary": "Institute of Accountancy Arusha (IAA) (Ob7e888d5495e)",
    "duplicates": [
-    "Institute of Accountancy Arusha (IAA) (Ob7e888d5495e)"
+    "Institute of Accountancy Arusha (IAA) (Oc041bab2c73f)"
    ]
   },
   {
@@ -128,16 +128,16 @@
   },
   {
    "kind": "shared inbox",
-   "primary": "SNV Tanzania (O2aae84638d6a)",
+   "primary": "SNV (Netherlands Development Organisation) (Ob22b699ef52d)",
    "duplicates": [
-    "SNV (Netherlands Development Organisation) (Ob22b699ef52d)"
+    "SNV Tanzania (O2aae84638d6a)"
    ]
   },
   {
    "kind": "same organisation",
-   "primary": "St. Augustine University of Tanzania - Arusha Campus (O7c1f7a743d65)",
+   "primary": "St. Augustine University of Tanzania - Arusha Campus (O7a1d0ab89a11)",
    "duplicates": [
-    "St. Augustine University of Tanzania - Arusha Campus (O7a1d0ab89a11)"
+    "St. Augustine University of Tanzania - Arusha Campus (O7c1f7a743d65)"
    ]
   },
   {
@@ -256,10 +256,10 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Top Of Africa Treks and Safaris LTD (Obac7c18e9b22)",
+   "primary": "Top Of Africa Treks and Safaris LTD (O7fc518549456)",
    "duplicates": [
-    "Top Of Africa Treks and Safaris LTD (O7fc518549456)",
-    "Top Of Africa Treks and Safaris LTD (O99340cb45985)"
+    "Top Of Africa Treks and Safaris LTD (O99340cb45985)",
+    "Top Of Africa Treks and Safaris LTD (Obac7c18e9b22)"
    ]
   },
   {
@@ -286,10 +286,10 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Tropical Trails (Odbafad48a43f)",
+   "primary": "Tropical Trails (Oc1fde769168e)",
    "duplicates": [
     "Tropical Trails (O8f339275dd81)",
-    "Tropical Trails (Oc1fde769168e)"
+    "Tropical Trails (Odbafad48a43f)"
    ]
   },
   {
@@ -301,9 +301,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Kiriwe Travel And Trekking Safaris Ltd (O4722dd9c1cd3)",
+   "primary": "Kiriwe Travel and Trekking Safari Ltd (O137e0f50cfca)",
    "duplicates": [
-    "Kiriwe Travel and Trekking Safari Ltd (O137e0f50cfca)"
+    "Kiriwe Travel And Trekking Safaris Ltd (O4722dd9c1cd3)"
    ]
   },
   {
@@ -343,9 +343,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "RushTrek Tours (Occ16e6404a0d)",
+   "primary": "RushTrek Tours Company LTD (Oc47bbedbdb18)",
    "duplicates": [
-    "RushTrek Tours Company LTD (Oc47bbedbdb18)"
+    "RushTrek Tours (Occ16e6404a0d)"
    ]
   },
   {
@@ -610,9 +610,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "NMB Bank Tanzania (O0bbdb67730d3)",
+   "primary": "NMB Bank (Oac4e9b66f049)",
    "duplicates": [
-    "NMB Bank (Oac4e9b66f049)",
+    "NMB Bank Tanzania (O0bbdb67730d3)",
     "NMB Arusha Market (Obd04b9954e18)"
    ]
   },
@@ -661,9 +661,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "HANSPAUL AUTOMECHS LTD (Oa7c6400ff33c)",
+   "primary": "Hanspaul Group (O9a0a3606387c)",
    "duplicates": [
-    "Hanspaul Group (O9a0a3606387c)"
+    "HANSPAUL AUTOMECHS LTD (Oa7c6400ff33c)"
    ]
   },
   {
@@ -675,6 +675,24 @@
   }
  ],
  "now_candidate": [
+  {
+   "message_id": "Mf8702397df92",
+   "organisation": "Active Tanzania Adventures Limited",
+   "recipient": "Thomas Mwanyika Disii",
+   "role": "General Manager"
+  },
+  {
+   "message_id": "M7bc6104a3011",
+   "organisation": "Cheli Peacock Safaris T Ltd",
+   "recipient": "Kieran Day",
+   "role": "CEO"
+  },
+  {
+   "message_id": "M64884eff6fa7",
+   "organisation": "African Environments Ltd",
+   "recipient": "Elia Amon",
+   "role": "General Manager"
+  },
   {
    "message_id": "Me2a30c44e6f0",
    "organisation": "Dakik Expeditions LTD",
@@ -694,6 +712,48 @@
    "role": "Director of Operations"
   },
   {
+   "message_id": "Mc6fce416393e",
+   "organisation": "Ecological Wilderness Adventure & Car Hire",
+   "recipient": "Brian Mengoriki",
+   "role": "Co-Founder & Lead Guide"
+  },
+  {
+   "message_id": "M6f55a07ef01e",
+   "organisation": "Eyes Of Tanzania Limited",
+   "recipient": "Rose Mato",
+   "role": "Owner/co-founder (wife of Albert Brink; 20+ yrs organising safaris)"
+  },
+  {
+   "message_id": "Mb38be40422a3",
+   "organisation": "Get together adventure",
+   "recipient": "Savilinyi Mwachula",
+   "role": "Director"
+  },
+  {
+   "message_id": "M75f54f8ef3b0",
+   "organisation": "Hazzes Adventure Limited",
+   "recipient": "Vincent Swai",
+   "role": "Managing Director / Co-founder"
+  },
+  {
+   "message_id": "Mc458a27ea268",
+   "organisation": "K&K Safaris",
+   "recipient": "Kitanga Zuberi",
+   "role": "Co-founder / Guide naturaliste"
+  },
+  {
+   "message_id": "M91af3bdb63b3",
+   "organisation": "Kilimanjaro Unforgettable Limited",
+   "recipient": "Frank Robert",
+   "role": "Director"
+  },
+  {
+   "message_id": "M20f63d6ab8e3",
+   "organisation": "Kilipeak Adventure",
+   "recipient": "Abel Ernest Lema",
+   "role": "Managing Director (Co-founder)"
+  },
+  {
    "message_id": "Mf729bcc512e1",
    "organisation": "Kingse Safaris",
    "recipient": "Peter Nanyaro",
@@ -706,15 +766,39 @@
    "role": "Partner / co-owner (tour operations)"
   },
   {
+   "message_id": "Mfbce41902fea",
+   "organisation": "Rupia Adventure",
+   "recipient": "Matt Rupia",
+   "role": "CEO / Founder"
+  },
+  {
    "message_id": "Mfc7fd7f669f9",
    "organisation": "Serengeti African Tours",
    "recipient": "Lucas David",
    "role": "Leader / Operations Manager (founder message signed 'Lucas & the Serengeti Team Founders')"
   },
   {
-   "message_id": "M0bcd2eb74514",
+   "message_id": "M6fb19733b988",
    "organisation": "Serengeti Balloon Safaris",
-   "recipient": "Serengeti Balloon Safaris",
+   "recipient": "Colin MacKinnon",
+   "role": "Founder"
+  },
+  {
+   "message_id": "Mdceb4f0224c5",
+   "organisation": "Wilkinson Tours Ltd",
+   "recipient": "Debbie Bachmann (née Wilkinson)",
+   "role": "Director / Co-founder"
+  },
+  {
+   "message_id": "M1e2087c0ca55",
+   "organisation": "Golden Trips Tanzania",
+   "recipient": "Samson Simon",
+   "role": "Tour Consultant and Chairperson"
+  },
+  {
+   "message_id": "Mffe72b907591",
+   "organisation": "Safaris-R-Us Ltd",
+   "recipient": "Safaris-R-Us Ltd",
    "role": "Organisation routing"
   },
   {
@@ -724,10 +808,22 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Mf1ec5c5b08d5",
+   "organisation": "Easy Travel and Tours Ltd",
+   "recipient": "Easy Travel and Tours Ltd",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M0a4cac6e00a5",
    "organisation": "Augustine's Adventure Africa ltd (AA Africa)",
    "recipient": "Augustine Minja",
    "role": "Owner / Managing Director (Eva Minja is Director of Accounts and Reservations)"
+  },
+  {
+   "message_id": "Meac6c1f32ef4",
+   "organisation": "Maasai Wanderings Limited",
+   "recipient": "Maasai Wanderings Limited",
+   "role": "Organisation routing"
   },
   {
    "message_id": "M317a2527ee90",
@@ -766,9 +862,9 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "M0b111db7f60a",
-   "organisation": "Ecological Wilderness Adventure & Car Hire",
-   "recipient": "Ecological Wilderness Adventure & Car Hire",
+   "message_id": "M793f0890bafd",
+   "organisation": "Everyday Safaris",
+   "recipient": "Everyday Safaris",
    "role": "Organisation routing"
   },
   {
@@ -778,39 +874,15 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "Ma643590fa468",
-   "organisation": "Active Tanzania Adventures Limited",
-   "recipient": "Active Tanzania Adventures Limited",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "Mc11a2819b6fc",
-   "organisation": "Hazzes Adventure Limited",
-   "recipient": "Hazzes Adventure Limited",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "Ma0061f3c6738",
-   "organisation": "K&K Safaris",
-   "recipient": "K&K Safaris",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M796314620f3d",
-   "organisation": "Kiliclimb Africa Safaris",
-   "recipient": "Kiliclimb Africa Safaris",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M08785379d9fc",
-   "organisation": "Kilipeak Adventure",
-   "recipient": "Kilipeak Adventure",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "M82edf6068213",
    "organisation": "Lappet Faced Safaris",
    "recipient": "Lappet Faced Safaris",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M1865fbbd41cc",
+   "organisation": "Livingstone's Africa Ltd",
+   "recipient": "Livingstone's Africa Ltd",
    "role": "Organisation routing"
   },
   {
@@ -826,21 +898,39 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Mdab93df2ac7f",
+   "organisation": "Tanzania Safari Bug Ltd.",
+   "recipient": "Tanzania Safari Bug Ltd.",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M1c88b7fb6761",
    "organisation": "Wildlife Explorer E.A. Ltd",
    "recipient": "Wildlife Explorer E.A. Ltd",
    "role": "Organisation routing"
   },
   {
-   "message_id": "M3ab70a033e1e",
-   "organisation": "Meru Slopes Tours And Safaris Ltd",
-   "recipient": "Meru Slopes Tours And Safaris Ltd",
+   "message_id": "M8073d8cd8c54",
+   "organisation": "Ozon Light Tours",
+   "recipient": "Ozon Light Tours",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M2e8bbbbf3eb8",
+   "organisation": "Epic Luxury Safaris (Toya Limited)",
+   "recipient": "Epic Luxury Safaris (Toya Limited)",
    "role": "Organisation routing"
   },
   {
    "message_id": "M4093595f65dc",
    "organisation": "Afrika Roots Safari Company Limited",
    "recipient": "Afrika Roots Safari Company Limited",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M4decf66ae07d",
+   "organisation": "Wild Ways Tanzania Adventure",
+   "recipient": "Wild Ways Tanzania Adventure",
    "role": "Organisation routing"
   },
   {
@@ -934,6 +1024,12 @@
    "role": "Managing Director"
   },
   {
+   "message_id": "M38beecef4c31",
+   "organisation": "St. Augustine University of Tanzania - Arusha Campus",
+   "recipient": "Rev. Dr. Charles G. Rufyiriza",
+   "role": "Director, SAUT Arusha Campus"
+  },
+  {
    "message_id": "M308c51f58c14",
    "organisation": "NMB Bank",
    "recipient": "Emmanuel Akonaay",
@@ -974,6 +1070,12 @@
    "organisation": "Kiboko Safaris",
    "recipient": "John Haygaru",
    "role": "Founder of Kiboko Safaris / owner and CEO."
+  },
+  {
+   "message_id": "M7e5b7d71e09b",
+   "organisation": "Lusungulwamtwa Safaris",
+   "recipient": "Helen Chiwanga",
+   "role": "Operations Manager"
   },
   {
    "message_id": "Mb22b2595b2a3",
@@ -1462,6 +1564,12 @@
    "role": "Co-founder"
   },
   {
+   "message_id": "Mc7652e219dde",
+   "organisation": "Ronjoo Safaris",
+   "recipient": "Grace Njau",
+   "role": "Operations Manager"
+  },
+  {
    "message_id": "M1005aa08a9d6",
    "organisation": "Easyota",
    "recipient": "Matthew Bell",
@@ -1626,6 +1734,12 @@
    "role": "Managing Director"
   },
   {
+   "message_id": "M21ce974bb297",
+   "organisation": "Cheli Peacock Safaris T Ltd",
+   "recipient": "Patrick Bourgeix",
+   "role": "General Manager Tanzania"
+  },
+  {
    "message_id": "M5329074df346",
    "organisation": "Hazzes Adventure Limited",
    "recipient": "Hazze Sandström",
@@ -1642,12 +1756,6 @@
    "organisation": "K&K Safaris",
    "recipient": "Karine Laurioux",
    "role": "Co-founder / Créatrice de safaris (safari designer; primary client contact)"
-  },
-  {
-   "message_id": "Ma41194a3e60a",
-   "organisation": "Kiliclimb Africa Safaris",
-   "recipient": "Moses Yohanes",
-   "role": "Founder & Expert Guide"
   },
   {
    "message_id": "M2c44d8f0421f",
@@ -1686,10 +1794,22 @@
    "role": "Founder (footer lists a 'Managing Director' line)"
   },
   {
+   "message_id": "M0e7f3feeec1c",
+   "organisation": "Wild Ways Tanzania Adventure",
+   "recipient": "Joan Mariki",
+   "role": "Operations & Reservations Director"
+  },
+  {
    "message_id": "Ma26174d51bbc",
    "organisation": "Wildersun Safaris Tours T Ltd",
    "recipient": "Lillian Nunes",
    "role": "General Manager (since 2009)"
+  },
+  {
+   "message_id": "M247c4be7ab73",
+   "organisation": "African Environments Ltd",
+   "recipient": "Richard Beatty",
+   "role": "Director (joined 1998)"
   },
   {
    "message_id": "M819db4a342e5",
@@ -1734,6 +1854,30 @@
    "role": "Managing Director"
   },
   {
+   "message_id": "M2da30a67f0d9",
+   "organisation": "Epic Luxury Safaris (Toya Limited)",
+   "recipient": "Almudena Parrondo",
+   "role": "PR Manager, Head Office"
+  },
+  {
+   "message_id": "Mbc1b30ff8d42",
+   "organisation": "Everyday Safaris",
+   "recipient": "Pamela Stephen Lyamuya",
+   "role": "Director"
+  },
+  {
+   "message_id": "M41e811f2ba55",
+   "organisation": "Eyes Of Tanzania Limited",
+   "recipient": "Deogratias Morris",
+   "role": "Operations Manager"
+  },
+  {
+   "message_id": "Mdfab04421d06",
+   "organisation": "Golden Trips Tanzania",
+   "recipient": "Joel Hagai",
+   "role": "General Manager and Chief Supervisor"
+  },
+  {
    "message_id": "M1e4bb91e7e08",
    "organisation": "Good Earth Safaris & Tours Ltd",
    "recipient": "Baraka Maro",
@@ -1752,6 +1896,12 @@
    "role": "Director"
   },
   {
+   "message_id": "M4baad4198fc7",
+   "organisation": "Kilimanjaro Unforgettable Limited",
+   "recipient": "Nassoro",
+   "role": "Managing Director"
+  },
+  {
    "message_id": "Mc6808b939fc5",
    "organisation": "Kiwoito Africa Safaris",
    "recipient": "Charles Mosses",
@@ -1764,10 +1914,22 @@
    "role": "Founder"
   },
   {
-   "message_id": "M1193c20e6143",
-   "organisation": "Meru Slopes Tours And Safaris Ltd",
-   "recipient": "Geofrey Ephata Nassari",
-   "role": "Managing Director"
+   "message_id": "M944722fbdbfd",
+   "organisation": "Livingstone's Africa Ltd",
+   "recipient": "Kaanaeli Ndeoya",
+   "role": "Managing Director / Tour Operator (also head guide; of Maasai descent)"
+  },
+  {
+   "message_id": "M9d03be54ea28",
+   "organisation": "Maasai Wanderings Limited",
+   "recipient": "Donna Duggan",
+   "role": "Co-founder"
+  },
+  {
+   "message_id": "Mb1b24ec00997",
+   "organisation": "Ozon Light Tours",
+   "recipient": "Winnie Simplis",
+   "role": "Board of Directors"
   },
   {
    "message_id": "M2fab7c992c09",
@@ -1780,6 +1942,12 @@
    "organisation": "Serengeti Pride Safaris Tour Co",
    "recipient": "Lema Peter",
    "role": "Co-Founder & Guide"
+  },
+  {
+   "message_id": "M0998c92d6a92",
+   "organisation": "Tanzania Safari Bug Ltd.",
+   "recipient": "Michael Msuya",
+   "role": "Co-Founder / Owner (senior safari guide)"
   },
   {
    "message_id": "M31f127385f66",
@@ -1806,6 +1974,12 @@
    "role": "Marketing"
   },
   {
+   "message_id": "M109673b9eec9",
+   "organisation": "Get together adventure",
+   "recipient": "Hamza Rashku",
+   "role": "General Overseer"
+  },
+  {
    "message_id": "M7cfbb7d3c4dc",
    "organisation": "Kingse Safaris",
    "recipient": "Samara Imhoof",
@@ -1816,6 +1990,12 @@
    "organisation": "Paradies Safaris Ltd",
    "recipient": "Robin Keil",
    "role": "Administrative contact (Administrativer Ansprechpartner, Impressum)"
+  },
+  {
+   "message_id": "M173802ad2111",
+   "organisation": "Rupia Adventure",
+   "recipient": "Samora Komanya",
+   "role": "Trekking Operations"
   },
   {
    "message_id": "M1122a55bad83",
@@ -1848,6 +2028,12 @@
    "role": "Vice Chancellor"
   },
   {
+   "message_id": "M34589ac94056",
+   "organisation": "Safaris-R-Us Ltd",
+   "recipient": "Richard Sisia",
+   "role": "Director (co-founder with Gemma Sisia)"
+  },
+  {
    "message_id": "M031f7127a996",
    "organisation": "Elewana Arusha Coffee Lodge",
    "recipient": "Elewana Arusha Coffee Lodge",
@@ -1870,6 +2056,12 @@
    "organisation": "CHELI & PEACOCK SAFARIS (T) LTD",
    "recipient": "CHELI & PEACOCK SAFARIS (T) LTD",
    "role": "Organisation routing"
+  },
+  {
+   "message_id": "M6df0a3cb5a31",
+   "organisation": "Easy Travel and Tours Ltd",
+   "recipient": "Sayyedah and Musaddiq (surnames not published)",
+   "role": "Directors"
   },
   {
    "message_id": "M8c74e9b53186",
@@ -1908,6 +2100,12 @@
    "role": "General Manager (since 2009)"
   },
   {
+   "message_id": "M1c5db812d9c3",
+   "organisation": "Wilkinson Tours Ltd",
+   "recipient": "Horst Bachmann",
+   "role": "Director (with Debbie Bachmann)"
+  },
+  {
    "message_id": "M42aea8b79ece",
    "organisation": "NORTHLAND SAFARIS LTD",
    "recipient": "George Munge",
@@ -1923,6 +2121,18 @@
    "message_id": "M48c5fe764bb5",
    "organisation": "LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD)",
    "recipient": "LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD)",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M4f3608d901a3",
+   "organisation": "Nature Discovery",
+   "recipient": "Nature Discovery",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M7c294bb69484",
+   "organisation": "Anderson's African Adventures Ltd",
+   "recipient": "Anderson's African Adventures Ltd",
    "role": "Organisation routing"
   },
   {
@@ -1968,6 +2178,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M91cc9691f931",
+   "organisation": "Kiriwe Travel And Trekking Safaris Ltd",
+   "recipient": "Kiriwe Travel And Trekking Safaris Ltd",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M30126cf2fcd2",
    "organisation": "Grumeti Expeditions Ltd",
    "recipient": "Grumeti Expeditions Ltd",
@@ -1995,6 +2211,24 @@
    "message_id": "M9c463027c723",
    "organisation": "Base Camp Tanzania",
    "recipient": "Base Camp Tanzania",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Mad39ba77cee9",
+   "organisation": "Goldfinch Adventures",
+   "recipient": "Goldfinch Adventures",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M7dc449aa264e",
+   "organisation": "Ronjoo Safaris",
+   "recipient": "Ronjoo Safaris",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M5fcd8c2ad7bf",
+   "organisation": "RushTrek Tours",
+   "recipient": "RushTrek Tours",
    "role": "Organisation routing"
   },
   {
@@ -2028,9 +2262,21 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M3dbbbd73d80d",
+   "organisation": "Experiential Travel Africa",
+   "recipient": "Experiential Travel Africa",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Mbe6ecb15c69f",
    "organisation": "Hadzabe Safari Adventure",
    "recipient": "Hadzabe Safari Adventure",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M70e00cff73f4",
+   "organisation": "Off The Beaten Path Safari Ltd",
+   "recipient": "Off The Beaten Path Safari Ltd",
    "role": "Organisation routing"
   },
   {
@@ -2079,6 +2325,12 @@
    "message_id": "M875d2cf3fcd7",
    "organisation": "Duma Explorers",
    "recipient": "Duma Explorers",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M6efc997ac98b",
+   "organisation": "Mrembo Safaris",
+   "recipient": "Mrembo Safaris",
    "role": "Organisation routing"
   },
   {
@@ -2226,6 +2478,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M6e946e1c79a1",
+   "organisation": "Amazing Tanzania Ltd",
+   "recipient": "Amazing Tanzania Ltd",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M33afa00d7ae9",
    "organisation": "Bongoplan",
    "recipient": "Bongoplan",
@@ -2307,6 +2565,18 @@
    "message_id": "M40daba7983c5",
    "organisation": "Legendary Expeditions",
    "recipient": "Legendary Expeditions",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M602945fc9ed1",
+   "organisation": "Lusungulwamtwa Safaris",
+   "recipient": "Lusungulwamtwa Safaris",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M234a052527f4",
+   "organisation": "Macho Halisi Limited",
+   "recipient": "Macho Halisi Limited",
    "role": "Organisation routing"
   },
   {
@@ -2985,6 +3255,12 @@
    "message_id": "M808d471e0719",
    "organisation": "Shubhomis Adventure (Ronjoo Safaris)",
    "recipient": "Shubhomis Adventure (Ronjoo Safaris)",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M10fde0c85496",
+   "organisation": "St. Augustine University of Tanzania - Arusha Campus",
+   "recipient": "St. Augustine University of Tanzania - Arusha Campus",
    "role": "Organisation routing"
   },
   {

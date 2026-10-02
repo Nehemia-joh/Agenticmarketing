@@ -43,7 +43,7 @@ Checked on the admissions page on 23 September 2026:
 2. **No offer terms in first messages.** The first message to an organisation is a request; the terms appear from the offer message on. Tuition figures are sent on request, never in a first message; offer the current fee schedule instead.
 3. **No referral rewards** of any kind until a 2027 scheme is approved.
 4. **OF08's 40% is for Rivertrees only.** OF07's group rate needs Finance to extend it.
-5. **Government convening letters** describe the family offer for parents (OF01, OF02, OF09) and never offer officials or their staff a discount. A personal benefit to officials whose cooperation Silverleaf seeks could look like an inducement.
+5. **Government convening letters** state no offer, fee or service (changed 1 October 2026: they read as too salesy); they describe a free talk and a parent booklet, and never offer officials or their staff a discount. A personal benefit to officials whose cooperation Silverleaf seeks could look like an inducement.
 6. **No offer guarantees** a place, transport route or capacity.
 7. **Record the offer IDs of every message** and the 2027 confirmation condition.
 
@@ -60,10 +60,10 @@ Request first (decided 23 September 2026, on Kilusu's recommendation). The first
 | Employer (AQ02) | A partnership to provide an education benefit for the children of its staff, and a short meeting | Follow-up 1: the staff school-fee benefit at no cost to the employer (OF04), the family offer (OF01, OF02, OF09), levels and campuses; the employer can present the benefit as its own or add to it | A close after 4 more working days |
 | Employer (AQ01 routing) | The same partnership request | The reply once someone names the right colleague | Second touch after 5 working days: who is best to speak to about staff welfare or benefits |
 | Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the member-association rate (OF07) | One check-in, or a close |
-| Welfare home or programme | Working together on the education of the children in its care | Follow-up: the partner rate (OF03), the free uniform and instalments; admissions checks each child's level | None |
+| Welfare home or programme | A partnership on the education of the children in its care, and a short meeting | Follow-up: the partner rate (OF03), the free uniform and instalments; admissions checks each child's level | None |
 | Employer that funds education (variant A) | Sponsorship of students, any size including textbooks, transport or meals, with its own published education giving as the reason (no offer terms) | None until it replies | None |
 | Every other employer (variant B, the catch-all) | A partnership on an education benefit for the children of staff, with its published giving as the reason where there is one (no offer terms) | The staff school-fee benefit (OF04) and the family offer, as above | A close after 4 more working days |
-| Welfare funder | Sponsorship for two or three students to start, with its verified support for a home as the reason where the run records one | Follow-up: the partner rate as a way to stretch sponsorship | None |
-| Council (GA01) | Already a request: a free Kiswahili school-readiness talk at community meetings, plus a parent booklet with the family offer | None | A written follow-up after 5 working days |
+| Welfare funder | Sponsorship of students, any size including textbooks, transport or meals, with its verified support for a home as the reason; held when the run has no verified reason | Follow-up: the partner rate as a way to stretch sponsorship | None |
+| Council (GA01) | Already a request: a free Kiswahili school-readiness talk at community meetings, plus a parent booklet; no offer, fee or service is stated | None | A written follow-up after 5 working days |
 | Ward, village, district, region | The same talk and booklet; held until the council introduction | None | None |
 | Parent enquiry | A reply, not outreach: levels, campuses and the family offer; ask for age or grade and area | None | None (one reply at most) |

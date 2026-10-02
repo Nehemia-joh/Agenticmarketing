@@ -1,9 +1,155 @@
-# Employer drafts, 2026-10-01: every company's first message
+# Who we are writing to: the company audience
+
+*As of 2026-10-02, from the master database. Every number below is counted from the database; the personas are working hypotheses to test, not findings.*
+
+## In one minute
+
+- We start from **955 organisations** near the campuses. After merging 103 duplicate records we write to **835 separate businesses**: 718 companies and 117 savings groups.
+- **597 (83%) of the companies are ready for review now** (a draft and a usable route). The rest are held, mostly for want of a published route.
+- The audience is **overwhelmingly tourism**: 607 (85%) are safari operators, travel agencies, hotels or lodges. The rest are banks and other companies, hospitals, colleges and NGOs.
+- **Founders and owners are the largest named role group in our contact list** (270 of 899 people), and HR contacts are rare (13). So the person who decides is usually the founder, managing director or general manager, not an HR department.
+- We ask **one of two things** of a company. A strong fit (it already funds education) is asked to sponsor students. Every other company is asked to set up a partnership on an education benefit for its staff's children. Neither first message states an offer.
+
+## Kinds of company
+
+| Kind of company | Businesses | Share | Ready for review |
+|---|---|---|---|
+| Safari operators and travel agencies | 490 | 68% | 459 |
+| Hotels, lodges and camps | 117 | 16% | 71 |
+| Banks and other companies | 43 | 6% | 31 |
+| Hospitals and clinics | 27 | 4% | 18 |
+| Colleges and universities | 16 | 2% | 12 |
+| Public bodies | 16 | 2% | 0 |
+| NGOs and research bodies | 9 | 1% | 6 |
+
+## Where they are
+
+| Distance to the nearest campus | Businesses |
+|---|---|
+| 0-5 km | 453 |
+| 6-10 km | 65 |
+| 11-25 km | 39 |
+| More than 25 km | 39 |
+| Location not recorded | 122 |
+
+| Nearest campus | Businesses |
+|---|---|
+| Ilboru | 248 |
+| Kijenge | 166 |
+| Arusha City | 100 |
+| Boma Ng'ombe | 88 |
+| Not recorded | 67 |
+| Usa River | 49 |
+
+Desk-research tiers (A is the strongest fit): A 257, B 81, C 41, D 22, X (out of range) 39, unscored 278.
+
+## Size
+
+Staff numbers are published for only 14 of 718 companies, so we do not size the audience by headcount. Where a site does say, the range is wide: a hospital with 650 staff, a university with 150, safari operators with 11 to 100.
+
+## Who receives the message
+
+| Recipient | Businesses | Share |
+|---|---|---|
+| Owner, founder, MD or CEO | 188 | 26% |
+| General manager or director | 16 | 2% |
+| Owner, founder, MD or CEO (role not yet confirmed) | 15 | 2% |
+| HR / people | 14 | 2% |
+| Other senior director | 13 | 2% |
+| Other named manager | 6 | 1% |
+| Other senior director (role not yet confirmed) | 2 | 0% |
+| Company team (no named person) | 464 | 65% |
+
+| Route | Businesses | Share |
+|---|---|---|
+| email | 569 | 79% |
+| phone only | 30 | 4% |
+| no route yet | 119 | 17% |
+
+Our contact list holds **899 people**. 519 hold a senior role (HR, owner, founder, MD, CEO, general manager or director), 425 of them with a role we have confirmed on a published page. 82 have a published email of their own or for their role; most are reachable only through the company's shared inbox, and we do not guess personal addresses.
+
+| Role on file | People |
+|---|---|
+| Founder, owner or co-founder | 270 |
+| Other roles | 236 |
+| General manager or director | 177 |
+| Operations, reservations, sales or marketing | 123 |
+| Managing director, CEO or chairman | 80 |
+| HR or people | 13 |
+
+## What they publish that gives us a reason to write
+
+102 businesses publish a fact we have verified and quoted (the page and the exact words are on file): workforce 32, community programme 20, staff welfare 19, education programme 16, locality 11, other 2, growth 2. The rest get the plain partnership request, which is honest and needs no hook.
+
+Of these, **14 companies already fund education** and are asked for sponsorship (variant A); the other 704 companies are asked for a staff-benefit partnership (variant B); 117 savings groups are asked for a meeting with their committee.
+
+## Personas (working hypotheses)
+
+Use these to talk about the audience, and to decide what to test. None of this claims that any staff member is a parent.
+
+### Owner-led safari operator or travel agency (490)
+
+- **Who they are:** A founder or managing director who runs a team of office staff, guides and drivers, much of it seasonal and based locally.
+- **What may matter to them:** A benefit that helps them keep a settled local team, at no cost to the company; for those that already fund education, a chance to extend what they do.
+- **Who to write to:** Founder, owner, MD or GM. Often the only decision-maker; no HR department.
+
+### Hotel, lodge or camp (117)
+
+- **Who they are:** Larger resident teams in hospitality and operations, with a general manager and sometimes an HR officer.
+- **What may matter to them:** Staff welfare and retention; a benefit that reaches many staff through one arrangement.
+- **Who to write to:** General manager first; HR or the owner if one is published.
+
+### Bank or other company (43)
+
+- **Who they are:** Offices with an HR function and a corporate-benefits process.
+- **What may matter to them:** A structured, low-effort benefit the HR team can offer; clarity on process.
+- **Who to write to:** HR head or the managing director; regional offices often defer to head office.
+
+### Hospital or clinic (27)
+
+- **Who they are:** Large, shift-working teams on site, and a hospital director or administrator.
+- **What may matter to them:** Staff welfare for people who work long and irregular hours.
+- **Who to write to:** Hospital director, administrator or HR.
+
+### College or university (16)
+
+- **Who they are:** Academic and administrative staff, with a registrar, principal or vice-chancellor.
+- **What may matter to them:** A staff benefit, kept clearly separate from student admissions.
+- **Who to write to:** HR or the administration; the principal or vice-chancellor for sign-off.
+
+### NGO or research body (9)
+
+- **Who they are:** Programme teams, often partly funded by donors, with a country or executive director.
+- **What may matter to them:** A modest staff benefit and a link to local education work.
+- **Who to write to:** Country director or executive director.
+
+### Public body (16)
+
+- **Who they are:** Government agencies and parastatals, as employers.
+- **What may matter to them:** An employee benefit offered through the HR route only, after a compliance check; never combined with a request for official action.
+- **Who to write to:** The HR route; held until the compliance check.
+
+### Savings group (SACCOS) (117)
+
+- **Who they are:** A member-owned group governed by a committee. Members, not employees.
+- **What may matter to them:** Information on schools for members' children, delivered through the committee; handled in a separate Kiswahili request.
+- **Who to write to:** The committee; no individual published.
+
+## Limits to state when presenting
+
+- Most companies publish only a shared inbox; a named person with a direct email is rare, and we do not infer one.
+- The persona descriptions are hypotheses drawn from the kind of business and the roles on file. The first replies will tell us which ones hold.
+- Reply counts will be small, so report them per variant with their denominators and read them as a direction.
+
+
+---
+
+# Employer drafts, 2026-10-02: every company's first message
 
 Review copy only: nothing is sent. One first message per company, one recipient each. Four parts:
 
-1. **Companies whose giving funds or supports education (17).** Variant **A** (sponsorship of students, any size, including textbooks, transport or meals) for the 12 that fund education; variant **B** (a partnership on an education benefit for the children of staff) for the other 5. Each draft rests on one fact the company publishes, with its page. These drafts are stored in the master (variant_subject, variant_body).
-2. **All other companies, variant B, ready for review (580).** The partnership request (the same ask as variant B, without a giving fact): set up a partnership to provide an education benefit for staff children, and a short meeting. No offer terms. The second touch asks who is best to speak to about staff welfare or benefits. 45 of them have a phone number as their only route and are marked.
+1. **Companies whose giving funds or supports education (21).** Variant **A** (sponsorship of students, any size, including textbooks, transport or meals) for the 14 that fund education; variant **B** (a partnership on an education benefit for the children of staff) for the other 7. Each draft rests on one fact the company publishes, with its page. These drafts are stored in the master (variant_subject, variant_body).
+2. **All other companies, variant B, ready for review (576).** The partnership request (the same ask as variant B, without a giving fact): set up a partnership to provide an education benefit for staff children, and a short meeting. No offer terms. The second touch asks who is best to speak to about staff welfare or benefits. 45 of them have a phone number as their only route and are marked.
 3. **Held, variant B (237).** The same request, but there is no email route or another check is open, so it cannot go yet.
 4. **Duplicate records held (103),** so each business gets one message.
 
@@ -17,19 +163,18 @@ Fit: strong = the company funds education; moderate = it funds education-related
 
 ## 1.1 Kiliclimb Africa Safaris (strong fit): variant A
 
-- To: Kiliclimb Africa Safaris team
+- To: Moses Yohanes, Founder & Expert Guide
 - Route: info@kiliclimbafricasafaris.com
 - Organisation record: Oc0530432f635 (Kiliclimb Africa Safaris)
-- Addressed to the team because no contact here is verified. Confirm this person, then address them: Moses Yohanes (Founder & Expert Guide); Naite Saruni (Co-Founder & Tour Consultant)
 - Source: https://kiliclimbafricasafaris.com/giving-back-to-the-community/ (read 2026-09-23)
 - Excerpt: "MOSES AND FRIENDS is dedicated to providing educational support to children, helping them access quality education and create brighter futures. Your safari helps fund school supplies, scholarships, and educational programs"
 
-Subject: Sponsorship for students at Silverleaf Academy (162 words)
+Subject: Sponsorship for students at Silverleaf Academy (160 words)
 
 ```
-Dear Kiliclimb Africa Safaris team,
+Dear Moses Yohanes,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that Kiliclimb Africa Safaris supports children's education through its partnership with Moses and Friends, with its safaris helping to fund school supplies, scholarships and educational programmes. It is this commitment to supporting children's education that led me to write. I would be grateful if this could reach whoever leads the company's community or charitable giving.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that you are the Founder & Expert Guide of Kiliclimb Africa Safaris, and that the company supports children's education through its partnership with Moses and Friends, with its safaris helping to fund school supplies, scholarships and educational programmes. It is this commitment to supporting children's education that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Kiliclimb Africa Safaris' current community or charitable initiatives.
 
@@ -127,19 +272,18 @@ Silverleaf Academy
 
 ## 1.5 Ecological Wilderness Adventure & Car Hire (moderate fit): variant B
 
-- To: Ecological Wilderness Adventure & Car Hire team
+- To: Brian Mengoriki, Co-Founder & Lead Guide
 - Route: info@ecologicaladventure.com
 - Organisation record: Ob737186864b2 (Ecological Wilderness Adventure & Car Hire)
-- Addressed to the team because no contact here is verified. Confirm this person, then address them: Brian Mengoriki (Co-Founder & Lead Guide)
 - Source: https://www.ecologicaladventure.com/about (read 2026-09-23)
 - Excerpt: "We support local communities by hiring locally and contributing to education and healthcare initiatives."
 
-Subject: A partnership on education benefits for Ecological Wilderness Adventure & Car Hire staff (151 words)
+Subject: A partnership on education benefits for Ecological Wilderness Adventure & Car Hire staff (147 words)
 
 ```
-Dear Ecological Wilderness Adventure & Car Hire team,
+Dear Brian Mengoriki,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that Ecological Wilderness Adventure & Car Hire supports local communities by hiring locally and contributing to education and healthcare initiatives. It is this commitment to supporting local communities and education that led me to write. I would be grateful if this could reach whoever looks after staff welfare or benefits.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that you are a co-founder & lead guide of Ecological Wilderness Adventure & Car Hire, and that the company supports local communities by hiring locally and contributing to education and healthcare initiatives. It is this commitment to supporting local communities and education that led me to reach out to you directly.
 
 We are looking to set up a partnership with Ecological Wilderness Adventure & Car Hire to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
@@ -183,19 +327,18 @@ Silverleaf Academy
 
 ## 1.7 Meru Slopes Tours And Safaris (strong fit): variant A
 
-- To: Meru Slopes Tours And Safaris team
+- To: Geofrey Ephata Nassari, Managing Director
 - Route: info@meruslopestours.com
 - Organisation record: Ob239c19c3f17 (Meru Slopes Tours And Safaris Ltd)
-- Addressed to the team because no contact here is verified. Confirm this person, then address them: Geofrey Ephata Nassari (Managing Director)
 - Source: https://meruslopestours.com/community-development/ (read 2026-09-23)
 - Excerpt: "Meru Slope Tours and Safaris actively supports girls’ education through sustainable tourism. The company funds programs, provides resources, and collaborates with local organizations to ensure girls have access to education and opportunities."
 
-Subject: Sponsorship for students at Silverleaf Academy (164 words)
+Subject: Sponsorship for students at Silverleaf Academy (159 words)
 
 ```
-Dear Meru Slopes Tours And Safaris team,
+Dear Geofrey Ephata Nassari,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that Meru Slopes Tours And Safaris supports girls' education by funding programmes, providing resources and working with local organisations so that girls have access to education. It is this commitment to education that led me to write. I would be grateful if this could reach whoever leads the company's community or charitable giving.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that you are the Managing Director of Meru Slopes Tours And Safaris, and that the company supports girls' education by funding programmes, providing resources and working with local organisations so that girls have access to education. It is this commitment to education that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Meru Slopes Tours And Safaris' current community or charitable initiatives.
 
@@ -211,19 +354,18 @@ Silverleaf Academy
 
 ## 1.8 Serengeti Balloon Safaris (strong fit): variant A
 
-- To: Serengeti Balloon Safaris team
-- Route: pascal@balloonsafaris.co.tz
+- To: Colin MacKinnon, Founder
+- Route: balloons@habari.co.tz
 - Organisation record: O108f9c734a63 (Serengeti Balloon Safaris)
-- Addressed to the team because no contact here is verified. Confirm this person, then address them: Colin MacKinnon (Founder); Tony Pascoe (Founder)
 - Source: https://www.balloonsafaris.com/responsibility (read 2026-09-23)
 - Excerpt: "We support the good work of Focus on Tanzanian Communities (FoTZC) and over the years have entirely built and equipped a classroom at Robanda Technical School"
 
-Subject: Sponsorship for students at Silverleaf Academy (158 words)
+Subject: Sponsorship for students at Silverleaf Academy (153 words)
 
 ```
-Dear Serengeti Balloon Safaris team,
+Dear Colin MacKinnon,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that Serengeti Balloon Safaris supports Focus on Tanzanian Communities and has built and equipped a classroom at Robanda Technical School. It is this commitment to supporting education in local communities that led me to write. I would be grateful if this could reach whoever leads the company's community or charitable giving.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that you are the Founder of Serengeti Balloon Safaris, and that the company supports Focus on Tanzanian Communities and has built and equipped a classroom at Robanda Technical School. It is this commitment to supporting education in local communities that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Serengeti Balloon Safaris' current community or charitable initiatives.
 
@@ -481,13 +623,123 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
+## 1.18 Safaris-R-Us (strong fit): variant A
+
+- To: Safaris-R-Us team
+- Route: info@safaris-r-us.com
+- Organisation record: O79dedb6329bb (Safaris-R-Us Ltd)
+- Addressed to the team because no contact here is verified. Confirm this person, then address them: Richard Sisia (Director (co-founder with Gemma Sisia))
+- Source: https://www.safaris-r-us.com/ (read 2026-10-02)
+- Excerpt: "Support for Tanzania’s future through The School of St Jude."
+
+Subject: Sponsorship for students at Silverleaf Academy (144 words)
+
+```
+Dear Safaris-R-Us team,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that Safaris-R-Us supports Tanzania's future through The School of St Jude. It is this commitment to supporting education in Tanzania that led me to write. I would be grateful if this could reach whoever leads the company's community or charitable giving.
+
+We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Safaris-R-Us' current community or charitable initiatives.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Thank you very much for your time and consideration.
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
+## 1.19 Tanzania Safari Bug (strong fit): variant A
+
+- To: Tanzania Safari Bug team
+- Route: info@tanzania-safari-bug.com
+- Organisation record: O7b205e374ee6 (Tanzania Safari Bug Ltd.)
+- Addressed to the team because no contact here is verified. Confirm this person, then address them: Michael Msuya (Co-Founder / Owner (senior safari guide)); Sandra Msuya (Co-Founder / Owner (sales & marketing, trip planning))
+- Source: https://tanzania-safari-bug.com/about-us/ (read 2026-10-02)
+- Excerpt: "Supporting education is vital. We fund scholarships and train students to become team members. Our in-house training includes a year with a Senior Guide"
+
+Subject: Sponsorship for students at Silverleaf Academy (150 words)
+
+```
+Dear Tanzania Safari Bug team,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that Tanzania Safari Bug funds scholarships and trains students to become team members. It is this commitment to supporting students through education that led me to write. I would be grateful if this could reach whoever leads the company's community or charitable giving.
+
+We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Tanzania Safari Bug's current community or charitable initiatives.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Thank you very much for your time and consideration.
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
+## 1.20 Destiny Explorers (moderate fit): variant B
+
+- To: Issa Hamisi, Founder
+- Route: info@destinyexplorers.com
+- Organisation record: O46d07ec685eb (Destiny Explorers Limited)
+- Source: https://destinyexplorers.com/destiny-explorers/ (read 2026-10-02)
+- Excerpt: "We actively support the community and grass roots projects where possible. A number of projects have been undertaken with our guests and corporate groups over the years for instance tree-planting, entrepreneurship studies to youth AND school fee support to the vulnerable children etc."
+
+Subject: A partnership on education benefits for Destiny Explorers staff (136 words)
+
+```
+Dear Issa Hamisi,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that you are the Founder of Destiny Explorers, and that the company supports community projects with its guests and corporate groups, including school fee support. It is this commitment to supporting local communities and education that led me to reach out to you directly.
+
+We are looking to set up a partnership with Destiny Explorers to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Thank you very much for your time and consideration.
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
+## 1.21 Unique Safaris (moderate fit): variant B
+
+- To: Ally Msami, Founder & Managing Director
+- Route: uniquesafaris@uniquesafaris.co.tz
+- Organisation record: Ob74a5ef280ed (A & N Uniques Safaris (2000) Ltd)
+- Source: https://uniquesafaris.com/commitment-to-communities/ (read 2026-10-02)
+- Excerpt: "Currently we help to support two significant projects in Tanzania focusing on health care deliver and education."
+
+Subject: A partnership on education benefits for Unique Safaris staff (138 words)
+
+```
+Dear Ally Msami,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy, based in Arusha. I understand that you are the Founder & Managing Director of Unique Safaris, and that the company supports two Tanzanian projects, one in health care and one in education. It is this commitment to supporting local communities and education that led me to reach out to you directly.
+
+We are looking to set up a partnership with Unique Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Thank you very much for your time and consideration.
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
 ## Not drafted
 
 - **Maternity Africa Arusha** (Of98c6c86c3c8): The only fact is training for its own health-care staff. Nothing says it funds education or children's schooling, so a school-fee sponsorship request has no honest reason. It is a health charity; leave it out unless a fact about education support turns up.
 
 ---
 
-# 2. All other companies, ready for review (580)
+# 2. All other companies, ready for review (576)
 
 ### 2.1 Akiba Commercial Bank (Corporate employers): variant B
 
@@ -1081,14 +1333,14 @@ Silverleaf Academy
 
 - To: VODACOM SERVICE CENTER team | Route: customercare@vodacom.co.tz | Plan: M9895794d2dee
 
-Subject: A partnership on education benefits for VODACOM SERVICE CENTER staff
+Subject: A partnership on education benefits for Vodacom Service Center staff
 
 ```
-Dear VODACOM SERVICE CENTER team,
+Dear Vodacom Service Center team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with VODACOM SERVICE CENTER to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Vodacom Service Center to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -1310,12 +1562,12 @@ Silverleaf Academy
 
 ### 2.40 St. Augustine University of Tanzania - Arusha Campus (Education employers): variant B
 
-- To: St. Augustine University of Tanzania - Arusha Campus team | Route: admission@sautarusha.ac.tz | Plan: M10fde0c85496
+- To: Rev. Dr. Charles G. Rufyiriza, Director, SAUT Arusha Campus | Route: sautarusha@saut.ac.tz | Plan: M38beecef4c31
 
 Subject: A partnership on education benefits for St. Augustine University of Tanzania - Arusha Campus staff
 
 ```
-Dear St. Augustine University of Tanzania - Arusha Campus team,
+Dear Rev. Dr. Charles G. Rufyiriza,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -1466,7 +1718,7 @@ Dear Dr Goodwill Kivuyo,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Arusha Lutheran Medical Centre to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Arusha Lutheran Medical Centre to provide an education benefit for the children of your staff. Your welcome note describes a team of dedicated and compassionate staff, both medical and non-medical, so such a benefit could support that whole team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -1938,28 +2190,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.70 A & N Uniques Safaris (2000) Ltd (Tourism employers): variant B
-
-- To: Ally Msami, Founder & Managing Director | Route: uniquesafaris@uniquesafaris.co.tz | Plan: Mb8e9f5a245ab
-
-Subject: A partnership on education benefits for A & N Uniques Safaris (2000) Ltd staff
-
-```
-Dear Ally Msami,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
-
-We are looking to set up a partnership with A & N Uniques Safaris (2000) Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 2.71 A Tent With A View Safaris (Tourism employers): variant B
+### 2.70 A Tent With A View Safaris (Tourism employers): variant B
 
 - To: A Tent With A View Safaris team | Route: info@tentwithaview.com | Plan: Ma79c40645e61
 
@@ -1980,7 +2211,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.72 A1 Hotel and Resort (Tourism employers): variant B
+### 2.71 A1 Hotel and Resort (Tourism employers): variant B
 
 - To: A1 Hotel and Resort team | Route: +255 765 061 525 | Plan: M9d06c1fa3015 | **Phone route only: call or message, this is not an email address**
 
@@ -2001,18 +2232,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.73 AFRICA SAFARI EXPERTS LTD (Tourism employers): variant B
+### 2.72 AFRICA SAFARI EXPERTS LTD (Tourism employers): variant B
 
 - To: Adili Sirikwa, Co-owner, runs on-site operations in Arusha | Route: info@safari-experts.de | Plan: Mf40700cec234
 
-Subject: A partnership on education benefits for AFRICA SAFARI EXPERTS LTD staff
+Subject: A partnership on education benefits for Africa Safari Experts Ltd staff
 
 ```
 Dear Adili Sirikwa,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with AFRICA SAFARI EXPERTS LTD to provide an education benefit for the children of your staff. Your website says you have your own team in Arusha organising trips on the ground, so such a benefit could reach the staff based there. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Africa Safari Experts Ltd to provide an education benefit for the children of your staff. Your website says you have your own team in Arusha organising trips on the ground, so such a benefit could reach the staff based there. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2022,7 +2253,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.74 AFRICAN GALLERIA Ltd (Tourism employers): variant B
+### 2.73 AFRICAN GALLERIA Ltd (Tourism employers): variant B
 
 - To: AFRICAN GALLERIA Ltd team | Route: info@africangalleria.co.tz | Plan: Me3127f802e73
 
@@ -2043,7 +2274,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.75 AGLOW SAFARIS Venture into the Wild (Tourism employers): variant B
+### 2.74 AGLOW SAFARIS Venture into the Wild (Tourism employers): variant B
 
 - To: AGLOW SAFARIS Venture into the Wild team | Route: info@aglowsafaris.com | Plan: Mb68f67804b77
 
@@ -2064,7 +2295,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.76 ALEX WALKER SAFARIS / Serian (Tourism employers): variant B
+### 2.75 ALEX WALKER SAFARIS / Serian (Tourism employers): variant B
 
 - To: ALEX WALKER SAFARIS / Serian team | Route: safaris@serian.com | Plan: M5993056c9d77
 
@@ -2085,18 +2316,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.77 ALLEN TANZANIA SAFARIS (Tourism employers): variant B
+### 2.76 ALLEN TANZANIA SAFARIS (Tourism employers): variant B
 
 - To: Allen Mnyenye, Director | Route: info@allentanzaniasafaris.com | Plan: M9dfe4a45765a
 
-Subject: A partnership on education benefits for ALLEN TANZANIA SAFARIS staff
+Subject: A partnership on education benefits for Allen Tanzania Safaris staff
 
 ```
 Dear Allen Mnyenye,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with ALLEN TANZANIA SAFARIS to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Allen Tanzania Safaris to provide an education benefit for the children of your staff. Your about page says your mission includes empowering local communities, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2106,7 +2337,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.78 AMREF Flying Doctors (Tourism employers): variant B
+### 2.77 AMREF Flying Doctors (Tourism employers): variant B
 
 - To: Stephen Gitau, CEO & Accountable Manager | Route: info@flydoc.org | Plan: M470bb8056432
 
@@ -2127,18 +2358,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.79 ARUSHA HOTEL (Tourism employers): variant B
+### 2.78 ARUSHA HOTEL (Tourism employers): variant B
 
 - To: ARUSHA HOTEL team | Route: reservations@fourpointsthearushahotel.com | Plan: Mb15e34654933
 
-Subject: A partnership on education benefits for ARUSHA HOTEL staff
+Subject: A partnership on education benefits for Arusha Hotel staff
 
 ```
-Dear ARUSHA HOTEL team,
+Dear Arusha Hotel team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with ARUSHA HOTEL to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Arusha Hotel to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2148,7 +2379,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.80 Aaa Express Adventure Ltd (Tourism employers): variant B
+### 2.79 Aaa Express Adventure Ltd (Tourism employers): variant B
 
 - To: Aaa Express Adventure Ltd team | Route: www.aaaexpressadventure.com | Plan: M554b4f28105d | **Phone route only: call or message, this is not an email address**
 
@@ -2169,7 +2400,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.81 Aafrin Medihealth Solutions Ltd (Tourism employers): variant B
+### 2.80 Aafrin Medihealth Solutions Ltd (Tourism employers): variant B
 
 - To: Sonia Hanspaul, Founder & Managing Director | Route: sonia@aafrinmedihealth.com | Plan: Mfcfacf175f60
 
@@ -2190,7 +2421,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.82 Aardvark Expeditions (T) Limited (Tourism employers): variant B
+### 2.81 Aardvark Expeditions (T) Limited (Tourism employers): variant B
 
 - To: Aardvark Expeditions (T) Limited team | Route: info@aardvark-expeditions.com | Plan: M0c29ee9e651e
 
@@ -2211,7 +2442,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.83 Abercrombie & Kent (Tourism employers): variant B
+### 2.82 Abercrombie & Kent (Tourism employers): variant B
 
 - To: Abercrombie & Kent team | Route: gwood@abercrombiekent.co.tz | Plan: M3d0228d57ce1
 
@@ -2232,7 +2463,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.84 Absolute Wilderness Travel and Tours (Tourism employers): variant B
+### 2.83 Absolute Wilderness Travel and Tours (Tourism employers): variant B
 
 - To: Henry Obed Mejooli, Founder | Route: info@absolutewilderness.com; henryobedi.mejooli@absolutewilderness.com | Plan: Mf686d9885bd7
 
@@ -2243,7 +2474,7 @@ Dear Henry Obed Mejooli,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Absolute Wilderness Travel and Tours to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Absolute Wilderness Travel and Tours to provide an education benefit for the children of your staff. Your website describes an Arusha-based team, so an education benefit for your staff could be a practical way to support the people behind your safaris. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2253,7 +2484,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.85 Acatree Tours and Safaris (Tourism employers): variant B
+### 2.84 Acatree Tours and Safaris (Tourism employers): variant B
 
 - To: Acatree Tours and Safaris team | Route: info@acatreetours.co.tz​ / | Plan: Mbbb7ce8c768b
 
@@ -2274,7 +2505,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.86 Access 2 Tanzania (Tourism employers): variant B
+### 2.85 Access 2 Tanzania (Tourism employers): variant B
 
 - To: Karen Stupic, Owner & Director of Sales | Route: info@access2tanzania.com | Plan: M043c649b369d
 
@@ -2295,18 +2526,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.87 Active Tanzania Adventures Limited (Tourism employers): variant B
+### 2.86 Active Tanzania Adventures Limited (Tourism employers): variant B
 
-- To: Active Tanzania Adventures Limited team | Route: info@activetanzania.com | Plan: Ma643590fa468
+- To: Thomas Mwanyika Disii, General Manager | Route: info@activetanzania.com | Plan: Mf8702397df92
 
 Subject: A partnership on education benefits for Active Tanzania Adventures Limited staff
 
 ```
-Dear Active Tanzania Adventures Limited team,
+Dear Thomas Mwanyika Disii,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Active Tanzania Adventures Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Active Tanzania Adventures Limited to provide an education benefit for the children of your staff. Your Who we support page says you take great care of your porters and pay them well and promptly, so an education benefit for your staff would extend that care. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2316,7 +2547,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.88 Africa Dream Safaris (Tourism employers): variant B
+### 2.87 Africa Dream Safaris (Tourism employers): variant B
 
 - To: Michael Wishner, Co-Founder | Route: +255 752 225 554 | Plan: M5933a377431f | **Phone route only: call or message, this is not an email address**
 
@@ -2327,7 +2558,7 @@ Dear Michael Wishner,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Africa Dream Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Africa Dream Safaris to provide an education benefit for the children of your staff. Your about page says you now engage over 100 individuals, most of them local Tanzanians, so such a benefit could reach a wide team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2337,7 +2568,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.89 Africa Travel Bureau Ltd (Tourism employers): variant B
+### 2.88 Africa Travel Bureau Ltd (Tourism employers): variant B
 
 - To: Joseph David, Director, Strategy & Stakeholder Engagement | Route: info@africatravelbureau.co.tz | Plan: M44b1c422b9d2
 
@@ -2358,7 +2589,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.90 Africa VIP Travel (Tourism employers): variant B
+### 2.89 Africa VIP Travel (Tourism employers): variant B
 
 - To: Kambona Ole Tirra Mollel, Manager and director (published: 'managed and directed by') | Route: info@africaviptravel.com | Plan: M9265554ba384
 
@@ -2379,7 +2610,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.91 African Big Cats Safaris (Tourism employers): variant B
+### 2.90 African Big Cats Safaris (Tourism employers): variant B
 
 - To: Emmanuel Kavishe, Managing Director | Route: info@africanbigcatssafaris.com; info@africanbigcatssafaris.com | Plan: Mac32618658ea
 
@@ -2390,7 +2621,7 @@ Dear Emmanuel Kavishe,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with African Big Cats Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with African Big Cats Safaris to provide an education benefit for the children of your staff. Your company profile describes a team of safari guides and dedicated support staff, so an education benefit could recognise people across the whole team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2400,18 +2631,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.92 African Environments Ltd (Tourism employers): variant B
+### 2.91 African Environments Ltd (Tourism employers): variant B
 
-- To: Richard Beatty, Director (joined 1998) | Route: adventure@africanenvironments.com | Plan: M247c4be7ab73
+- To: Elia Amon, General Manager | Route: adventure@africanenvironments.com | Plan: M64884eff6fa7
 
 Subject: A partnership on education benefits for African Environments Ltd staff
 
 ```
-Dear Richard Beatty,
+Dear Elia Amon,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with African Environments Ltd to provide an education benefit for the children of your staff. Your website says many members of your team have spent decades working with you, so such a benefit could reward that loyalty. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with African Environments Ltd to provide an education benefit for the children of your staff. Your about page says many members of your team have spent decades working with you, so such a benefit could reward that long service. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2421,7 +2652,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.93 African Horizons Ltd (Tourism employers): variant B
+### 2.92 African Horizons Ltd (Tourism employers): variant B
 
 - To: Tomas Lund Sorensen, Founder | Route: safariplans@gmail.com | Plan: M584880786003
 
@@ -2442,7 +2673,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.94 African Polecat Safaris (Polecat Safaris) (Tourism employers): variant B
+### 2.93 African Polecat Safaris (Polecat Safaris) (Tourism employers): variant B
 
 - To: African Polecat Safaris (Polecat Safaris) team | Route: info@africanpolecatsafaris.com | Plan: M2c76391de7cd
 
@@ -2463,7 +2694,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.95 African Queen Adventure (Tourism employers): variant B
+### 2.94 African Queen Adventure (Tourism employers): variant B
 
 - To: African Queen Adventure team | Route: DMC | Plan: M4e27ac66c0be | **Phone route only: call or message, this is not an email address**
 
@@ -2484,7 +2715,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.96 African Safari Travel (Tourism employers): variant B
+### 2.95 African Safari Travel (Tourism employers): variant B
 
 - To: African Safari Travel team | Route: info@africansafari.travel | Plan: Mdd9701f350dc
 
@@ -2505,7 +2736,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.97 African Savannah Trekkers (Tourism employers): variant B
+### 2.96 African Savannah Trekkers (Tourism employers): variant B
 
 - To: African Savannah Trekkers team | Route: info@africantrekkers.com | Plan: M386014e8ba0e
 
@@ -2526,7 +2757,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.98 African Scenic Safaris Ltd (Tourism employers): variant B
+### 2.97 African Scenic Safaris Ltd (Tourism employers): variant B
 
 - To: Simbo Natai, Founder and CEO | Route: info@africanscenicsafaris.com | Plan: Mc95ee02a439e
 
@@ -2547,7 +2778,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.99 African Spoonbill Tours and Safaris Ltd (Tourism employers): variant B
+### 2.98 African Spoonbill Tours and Safaris Ltd (Tourism employers): variant B
 
 - To: African Spoonbill Tours and Safaris Ltd team | Route: info@africanspoonbilltours.com | Plan: Mb5848326df72
 
@@ -2568,7 +2799,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.100 African Trails Ltd (Tours & Car Hire) (Tourism employers): variant B
+### 2.99 African Trails Ltd (Tours & Car Hire) (Tourism employers): variant B
 
 - To: African Trails Ltd (Tours & Car Hire) team | Route: africantrails@habari.co.tz | Plan: M421fc7c58047
 
@@ -2589,7 +2820,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.101 African Tulip (Tourism employers): variant B
+### 2.100 African Tulip (Tourism employers): variant B
 
 - To: African Tulip team | Route: info@theafricantulip.co.tz | Plan: Mb9773372c154
 
@@ -2610,7 +2841,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.102 African View Lodge (Tourism employers): variant B
+### 2.101 African View Lodge (Tourism employers): variant B
 
 - To: African View Lodge team | Route: info@africanview.co.tz | Plan: M368907a281ad
 
@@ -2631,7 +2862,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.103 Africanzoom Safaris (Tourism employers): variant B
+### 2.102 Africanzoom Safaris (Tourism employers): variant B
 
 - To: Africanzoom Safaris team | Route: info@africanzoom.com | Plan: Mc8a6ac1db034
 
@@ -2652,7 +2883,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.104 Afrikabisa – Ethical Tours (Tourism employers): variant B
+### 2.103 Afrikabisa – Ethical Tours (Tourism employers): variant B
 
 - To: Hendry Teweli Mworia, Founder and owner | Route: info@afrikabisatours.com | Plan: Mf835f965930c
 
@@ -2673,7 +2904,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.105 Afrisafaris Tanzania Ltd (Tourism employers): variant B
+### 2.104 Afrisafaris Tanzania Ltd (Tourism employers): variant B
 
 - To: Afrisafaris Tanzania Ltd team | Route: kibwana.issa@afrisafaristanzania.com; info@afrisafaristanzania.com | Plan: M97349302220c
 
@@ -2694,7 +2925,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.106 Afrishare Trekking and Safaris (Tourism employers): variant B
+### 2.105 Afrishare Trekking and Safaris (Tourism employers): variant B
 
 - To: Ibrahim J. Mkwizu, CEO /Safari Specialist | Route: info@afrisharetrekkingandsafaris.com | Plan: M7bffbcf225d0
 
@@ -2715,7 +2946,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.107 Afroriginal Tours & Safaris Ltd (Tourism employers): variant B
+### 2.106 Afroriginal Tours & Safaris Ltd (Tourism employers): variant B
 
 - To: Désirée de Ridder, Owner / Co-owner (safari specialist) | Route: info@afroriginaltours.com | Plan: M263792f47274
 
@@ -2736,7 +2967,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.108 Ahsante Tours & Safaris Ltd (Tourism employers): variant B
+### 2.107 Ahsante Tours & Safaris Ltd (Tourism employers): variant B
 
 - To: Stella Swai, Managing Director | Route: info@ahsantetours.com | Plan: M1797a4b2e95d
 
@@ -2757,7 +2988,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.109 Aim 2 Goal Safaris Ltd (Tourism employers): variant B
+### 2.108 Aim 2 Goal Safaris Ltd (Tourism employers): variant B
 
 - To: Aim 2 Goal Safaris Ltd team | Route: info@aim2goalsafaris.co.tz; sales@aim2goalsafaris.co.tz | Plan: Ma6d4207c056b
 
@@ -2778,7 +3009,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.110 Air Excel Ltd. (Tourism employers): variant B
+### 2.109 Air Excel Ltd. (Tourism employers): variant B
 
 - To: Abbas Takim, Director | Route: reservations@airexcelonline.co.tz | Plan: M3f0be44012c4
 
@@ -2799,7 +3030,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.111 Airport Planet Lodge (Tourism employers): variant B
+### 2.110 Airport Planet Lodge (Tourism employers): variant B
 
 - To: Airport Planet Lodge team | Route: bookings@planet-lodges.com | Plan: Mccc62ef685d8
 
@@ -2820,7 +3051,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.112 Aishi Machame Hotel (Tourism employers): variant B
+### 2.111 Aishi Machame Hotel (Tourism employers): variant B
 
 - To: Aishi Machame Hotel team | Route: booking@aishi-machame.com | Plan: Mda992adeafd5
 
@@ -2841,7 +3072,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.113 Ajabu Adventures Ltd. (Tourism employers): variant B
+### 2.112 Ajabu Adventures Ltd. (Tourism employers): variant B
 
 - To: Jan Gevaert, Owner | Route: : info@ajabu-adventures.com | Plan: M2b26fbe3f0e9
 
@@ -2852,7 +3083,7 @@ Dear Jan Gevaert,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Ajabu Adventures Ltd. to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Ajabu Adventures Ltd. to provide an education benefit for the children of your staff. Your team page says your guides have been working for Ajabu Adventures since the start, so such a benefit could reward that loyalty. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -2862,7 +3093,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.114 Akshar Tours and Safaris (Tourism employers): variant B
+### 2.113 Akshar Tours and Safaris (Tourism employers): variant B
 
 - To: Akshar Tours and Safaris team | Route: travel@akshartoursandsafaris.co.tz and parimalpatel@akshartoursandsafaris.co.tz | Plan: M31cdb92910c8
 
@@ -2883,7 +3114,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.115 All day in Africa (Tourism employers): variant B
+### 2.114 All day in Africa (Tourism employers): variant B
 
 - To: All day in Africa team | Route: info@alldayinafrica.com | Plan: M07446f98e065
 
@@ -2904,7 +3135,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.116 All season bureau de change (Tourism employers): variant B
+### 2.115 All season bureau de change (Tourism employers): variant B
 
 - To: All season bureau de change team | Route: AFF/FIN | Plan: M98059bdf3635 | **Phone route only: call or message, this is not an email address**
 
@@ -2925,7 +3156,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.117 Allengeti Adventures (Tourism employers): variant B
+### 2.116 Allengeti Adventures (Tourism employers): variant B
 
 - To: Geeke Wolters, Owner | Route: info@allengetiadventures.co.tz | Plan: M14e80b1ace90
 
@@ -2946,7 +3177,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.118 Altezza Travel (Tourism employers): variant B
+### 2.117 Altezza Travel (Tourism employers): variant B
 
 - To: Altezza Travel team | Route: office@altezza.travel | Plan: Mdeb75e5edb4d
 
@@ -2967,7 +3198,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.119 Amani Villa (Tourism employers): variant B
+### 2.118 Amani Villa (Tourism employers): variant B
 
 - To: Amani Villa team | Route: reservations@amani.villas | Plan: Mad5c17df269f
 
@@ -2988,18 +3219,39 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.120 Amazing Tanzania Ltd (Tourism employers): variant B
+### 2.119 Amazing Tanzania Ltd (Tourism employers): variant B
 
-- To: Amazing Tanzania Ltd team | Route: info@amazingtanzania.com | Plan: M6e946e1c79a1
+- To: Jombi Kivuyo, Managing Director | Route: info@amazingtanzania.com | Plan: M75daea76bfdb
 
 Subject: A partnership on education benefits for Amazing Tanzania Ltd staff
 
 ```
-Dear Amazing Tanzania Ltd team,
+Dear Jombi Kivuyo,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
 We are looking to set up a partnership with Amazing Tanzania Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
+### 2.120 Anderson's African Adventures Ltd (Tourism employers): variant B
+
+- To: Helinah Walker, USA Representative | Route: helinah@andersons.co.za | Plan: M171b9b1d720b
+
+Subject: A partnership on education benefits for Anderson's African Adventures Ltd staff
+
+```
+Dear Helinah Walker,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
+
+We are looking to set up a partnership with Anderson's African Adventures Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -3286,14 +3538,14 @@ Silverleaf Academy
 
 - To: Mustafa Panju, Managing Director | Route: bushbuck@bushbucksafaris.co.tz | Plan: M0536776d6577
 
-Subject: A partnership on education benefits for BUSHBUCK SAFARIS LIMITED staff
+Subject: A partnership on education benefits for Bushbuck Safaris Limited staff
 
 ```
 Dear Mustafa Panju,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with BUSHBUCK SAFARIS LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Bushbuck Safaris Limited to provide an education benefit for the children of your staff. Your drivers page says all your drivers are permanently hired on a full-time basis, so an education benefit would fit that commitment to your own staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -3398,7 +3650,7 @@ Dear Justin Mathias Mosha,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Bearfoot Expeditions to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Bearfoot Expeditions to provide an education benefit for the children of your staff. Your website says Bearfoot Expeditions has grown into a business of 19 staff, so such a benefit could reach your whole team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -3503,7 +3755,7 @@ Dear Elisante Sebastian,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Blessed Africa Tours and Safaris Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Blessed Africa Tours and Safaris Ltd to provide an education benefit for the children of your staff. Your website says you are committed to creating lasting positive economic impacts for local communities, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -3524,7 +3776,7 @@ Dear Shakeel Sheriff,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Blue Lotus Travel & Tours Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Blue Lotus Travel & Tours Ltd to provide an education benefit for the children of your staff. Your about page says Blue Lotus is headquartered in Arusha with a branch office in Dar es Salaam, so such a benefit could reach your team in both offices. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -3692,7 +3944,7 @@ Dear Jackson Solomon,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Bush 2 City Adventure to provide an education benefit for the children of your staff. Your website says your company supports native-born guides, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Bush 2 City Adventure to provide an education benefit for the children of your staff. Your director's message says you support numerous conservation and community initiatives across Africa, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -3809,16 +4061,16 @@ Silverleaf Academy
 
 ### 2.159 Cheli Peacock Safaris T Ltd (Tourism employers): variant B
 
-- To: Patrick Bourgeix, General Manager Tanzania | Route: patrick.bourgeix@chelipeacock.com | Plan: M21ce974bb297
+- To: Kieran Day, CEO | Route: kieran.day@chelipeacock.com | Plan: M7bc6104a3011
 
 Subject: A partnership on education benefits for Cheli Peacock Safaris T Ltd staff
 
 ```
-Dear Patrick Bourgeix,
+Dear Kieran Day,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Cheli Peacock Safaris T Ltd to provide an education benefit for the children of your staff. Your team page says some of your team have been with you for over 15 years, so such a benefit could reward that loyalty. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Cheli Peacock Safaris T Ltd to provide an education benefit for the children of your staff. Your team page says some of your staff have been with you for over 15 years, so such a benefit could reward that loyalty. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -4101,28 +4353,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.173 Destiny Explorers Limited (Tourism employers): variant B
-
-- To: Issa Hamisi, Founder | Route: info@destinyexplorers.com | Plan: M932bffff272c
-
-Subject: A partnership on education benefits for Destiny Explorers Limited staff
-
-```
-Dear Issa Hamisi,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
-
-We are looking to set up a partnership with Destiny Explorers Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 2.174 Destiny Winners Safari and Tour (Tourism employers): variant B
+### 2.173 Destiny Winners Safari and Tour (Tourism employers): variant B
 
 - To: Destiny Winners Safari and Tour team | Route: info@destinywinnerssafariandtour.com | Plan: M0116a7128765
 
@@ -4143,7 +4374,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.175 Dik Dik Hotel (Tourism employers): variant B
+### 2.174 Dik Dik Hotel (Tourism employers): variant B
 
 - To: Dik Dik Hotel team | Route: dikdik@habari.co.tz | Plan: M9e2135340216
 
@@ -4164,7 +4395,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.176 Discover Tanzania Safaris Ltd (Tourism employers): variant B
+### 2.175 Discover Tanzania Safaris Ltd (Tourism employers): variant B
 
 - To: Discover Tanzania Safaris Ltd team | Route: discovertanzania@habari.co.tz | Plan: M7a25d7db4b7a
 
@@ -4185,7 +4416,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.177 Dismass Kilimanjaro Experience Ltd (Tourism employers): variant B
+### 2.176 Dismass Kilimanjaro Experience Ltd (Tourism employers): variant B
 
 - To: Dismass Mariki, Company CEO | Route: info@kilimanjaroexperience.com | Plan: M3484c154e8fc
 
@@ -4206,7 +4437,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.178 Dolphin Tours & Safaris Ltd (Tourism employers): variant B
+### 2.177 Dolphin Tours & Safaris Ltd (Tourism employers): variant B
 
 - To: Dolphin Tours & Safaris Ltd team | Route: info@carhiretz.com | Plan: M2d4554f981ae
 
@@ -4227,7 +4458,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.179 Dorobo Tours & Safaris (Tourism employers): variant B
+### 2.178 Dorobo Tours & Safaris (Tourism employers): variant B
 
 - To: Dorobo Tours & Safaris team | Route: office@dorobo.co.tz | Plan: M0746df42d166
 
@@ -4248,7 +4479,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.180 Dream Peak Safaris (Tourism employers): variant B
+### 2.179 Dream Peak Safaris (Tourism employers): variant B
 
 - To: Stella Silayo, Director of Operations (co-founder) - Arusha | Route: info@dreampeaksafaris.com | Plan: Mf6bf9da7cd46
 
@@ -4269,7 +4500,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.181 Dropping Zone (Tourism employers): variant B
+### 2.180 Dropping Zone (Tourism employers): variant B
 
 - To: Dropping Zone team | Route: +255 755 304 053 | +255 759 880 969 | Plan: Mf62241a84c4d | **Phone route only: call or message, this is not an email address**
 
@@ -4290,7 +4521,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.182 Duma Explorer (Alika Africa) (Tourism employers): variant B
+### 2.181 Duma Explorer (Alika Africa) (Tourism employers): variant B
 
 - To: Omary Ridhiwan, Owner, Alika Africa - manages all Tanzania ground operations | Route: info@dumaexplorer.com | Plan: M2aaa15980b78
 
@@ -4311,7 +4542,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.183 E&H Tanzanian Adventures Limited (Tourism employers): variant B
+### 2.182 E&H Tanzanian Adventures Limited (Tourism employers): variant B
 
 - To: E&H Tanzanian Adventures Limited team | Route: info@ehtanzanianadventures.com | Plan: Mfb28129b7d9d
 
@@ -4332,7 +4563,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.184 ET Investments Ltd (Tanzania Experience) (Tourism employers): variant B
+### 2.183 ET Investments Ltd (Tanzania Experience) (Tourism employers): variant B
 
 - To: Andrew Cowie, Operations Manager | Route: contact@tanzania-experience.com | Plan: M2a1e961f42f6
 
@@ -4353,7 +4584,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.185 EWA Safari Outfitters (Extreme Wilderness Adventure) (Tourism employers): variant B
+### 2.184 EWA Safari Outfitters (Extreme Wilderness Adventure) (Tourism employers): variant B
 
 - To: EWA Safari Outfitters (Extreme Wilderness Adventure) team | Route: info@theextremewilderness.com | Plan: M6facb25da228
 
@@ -4374,7 +4605,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.186 Earthlife Expeditions Company Limited (Tourism employers): variant B
+### 2.185 Earthlife Expeditions Company Limited (Tourism employers): variant B
 
 - To: Daniel Losika, Director of Operations | Route: info@earthlifeexpeditions.com | Plan: Mb52c15105dd6
 
@@ -4395,7 +4626,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.187 East African Voyage (Tourism employers): variant B
+### 2.186 East African Voyage (Tourism employers): variant B
 
 - To: Mr. Alex Lemunge, Director | Route: info@eastafricanvoyage.com | Plan: M5df6729bafae
 
@@ -4416,14 +4647,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.188 Easy Travel and Tours Ltd (Tourism employers): variant B
+### 2.187 Easy Travel and Tours Ltd (Tourism employers): variant B
 
-- To: Sayyedah and Musaddiq (surnames not published), Directors | Route: info@easytravel.co.tz | Plan: M6df0a3cb5a31
+- To: Easy Travel and Tours Ltd team | Route: info@easytravel.co.tz | Plan: Mf1ec5c5b08d5
 
 Subject: A partnership on education benefits for Easy Travel and Tours Ltd staff
 
 ```
-Dear Sayyedah and Musaddiq,
+Dear Easy Travel and Tours Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4437,7 +4668,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.189 Easyota (Tourism employers): variant B
+### 2.188 Easyota (Tourism employers): variant B
 
 - To: Matthew Bell, CEO / CTO | Route: sales@easyota.com | Plan: M1005aa08a9d6
 
@@ -4458,7 +4689,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.190 Ebony Tours & Safaris Ltd (Tourism employers): variant B
+### 2.189 Ebony Tours & Safaris Ltd (Tourism employers): variant B
 
 - To: Ebony Tours & Safaris Ltd team | Route: arkoff@ebony-safaris.com; massimo@ebony-safaris.com | Plan: M1c69d8c35cd4
 
@@ -4479,7 +4710,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.191 Eco-Africa Climbing (Tourism employers): variant B
+### 2.190 Eco-Africa Climbing (Tourism employers): variant B
 
 - To: Eco-Africa Climbing team | Route: info@eco-africaclimbing.com; ecoafricaclimbingsafari@gmail.com | Plan: M5616a2a93fcd
 
@@ -4500,7 +4731,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.192 Elewana Arusha Coffee Lodge (Tourism employers): variant B
+### 2.191 Elewana Arusha Coffee Lodge (Tourism employers): variant B
 
 - To: Hazel Gumpo, General Manager, Elewana Arusha Coffee Lodge | Route: reservations@elewana.com | Plan: Maac667761f93
 
@@ -4521,7 +4752,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.193 Enclose Africa Safaris (Tourism employers): variant B
+### 2.192 Enclose Africa Safaris (Tourism employers): variant B
 
 - To: Enclose Africa Safaris team | Route: info@encloseafricasafaris.com | Plan: M968cefa79c08
 
@@ -4542,7 +4773,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.194 Endelea (Tourism employers): variant B
+### 2.193 Endelea (Tourism employers): variant B
 
 - To: Rahim Dawood, Founder | Route: safari@endelea-africa.com | Plan: M63f529160290
 
@@ -4563,14 +4794,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.195 Epic Luxury Safaris (Toya Limited) (Tourism employers): variant B
+### 2.194 Epic Luxury Safaris (Toya Limited) (Tourism employers): variant B
 
-- To: Almudena Parrondo, PR Manager, Head Office | Route: press@epicluxurysafaris.com | Plan: M2da30a67f0d9
+- To: Epic Luxury Safaris (Toya Limited) team | Route: operations@epicluxurysafaris.com | Plan: M2e8bbbbf3eb8
 
 Subject: A partnership on education benefits for Epic Luxury Safaris staff
 
 ```
-Dear Almudena Parrondo,
+Dear Epic Luxury Safaris team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4584,7 +4815,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.196 EvMak Tanzania (Tourism employers): variant B
+### 2.195 EvMak Tanzania (Tourism employers): variant B
 
 - To: EvMak Tanzania team | Route: info@evmak.com | Plan: M4f023eb0d6c2
 
@@ -4605,18 +4836,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.197 Everyday Safaris (Tourism employers): variant B
+### 2.196 Everyday Safaris (Tourism employers): variant B
 
-- To: Pamela Stephen Lyamuya, Director | Route: info@everydaysafaris.com | Plan: Mbc1b30ff8d42
+- To: Everyday Safaris team | Route: info@everydaysafaris.com | Plan: M793f0890bafd
 
 Subject: A partnership on education benefits for Everyday Safaris staff
 
 ```
-Dear Pamela Stephen Lyamuya,
+Dear Everyday Safaris team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Everyday Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Everyday Safaris to provide an education benefit for the children of your staff. Your about page says local employment, fair crew systems and porter welfare should be practical parts of your operations, so an education benefit for staff would fit that approach. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -4626,7 +4857,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.198 Experience Safaris (Tourism employers): variant B
+### 2.197 Experience Safaris (Tourism employers): variant B
 
 - To: Regnald (Reggie) Mushi, Founder | Route: info@experiencesafaris.com | Plan: Mec992a75d877
 
@@ -4637,7 +4868,7 @@ Dear Regnald Mushi,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Experience Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Experience Safaris to provide an education benefit for the children of your staff. Your vision speaks of meaningful empowerment of local communities through social and economic growth, so an education benefit for your own staff would fit that aim. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -4647,14 +4878,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.199 Experiential Travel Africa (Tourism employers): variant B
+### 2.198 Experiential Travel Africa (Tourism employers): variant B
 
-- To: Experiential Travel Africa team | Route: info@experientialtravelafrica.com | Plan: M3dbbbd73d80d
+- To: Gumbo Mbelwa Mhandeni, Founder | Route: info@experientialtravelafrica.com | Plan: M7dccd705fb64
 
 Subject: A partnership on education benefits for Experiential Travel Africa staff
 
 ```
-Dear Experiential Travel Africa team,
+Dear Gumbo Mbelwa Mhandeni,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4668,7 +4899,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.200 Explora V Tanzania (Tourism employers): variant B
+### 2.199 Explora V Tanzania (Tourism employers): variant B
 
 - To: Explora V Tanzania team | Route: info@exploravtanzania.com | Plan: M1ed7faaac522
 
@@ -4689,7 +4920,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.201 Extramile International Ltd (Tourism employers): variant B
+### 2.200 Extramile International Ltd (Tourism employers): variant B
 
 - To: Extramile International Ltd team | Route: info@extramileinternational.com | Plan: M51b197a5ae02
 
@@ -4710,7 +4941,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.202 Extraordinary Experience Ltd (Tourism employers): variant B
+### 2.201 Extraordinary Experience Ltd (Tourism employers): variant B
 
 - To: Extraordinary Experience Ltd team | Route: extraordinarexperience@gmail.com | Plan: M264f8773f177
 
@@ -4731,7 +4962,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.203 Exuberant Kilimanjaro Travel (Tourism employers): variant B
+### 2.202 Exuberant Kilimanjaro Travel (Tourism employers): variant B
 
 - To: Exuberant Kilimanjaro Travel team | Route: info@exuberantkilimanjarosafaris.com | Plan: M2d5e0ec238f8
 
@@ -4752,14 +4983,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.204 Eyes Of Tanzania Limited (Tourism employers): variant B
+### 2.203 Eyes Of Tanzania Limited (Tourism employers): variant B
 
-- To: Deogratias Morris, Operations Manager | Route: info@eyes-of-tanzania.com | Plan: M41e811f2ba55
+- To: Rose Mato, Owner/co-founder (wife of Albert Brink; 20+ yrs organising safaris) | Route: info@eyes-of-tanzania.com | Plan: M6f55a07ef01e
 
 Subject: A partnership on education benefits for Eyes Of Tanzania Limited staff
 
 ```
-Dear Deogratias Morris,
+Dear Rose Mato,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4773,18 +5004,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.205 FANTASY ADVENTURES LIMITED (Tourism employers): variant B
+### 2.204 FANTASY ADVENTURES LIMITED (Tourism employers): variant B
 
 - To: FANTASY ADVENTURES LIMITED team | Route: info@manyaluxurycamps.com | Plan: Ma9abb4dcdd28
 
-Subject: A partnership on education benefits for FANTASY ADVENTURES LIMITED staff
+Subject: A partnership on education benefits for Fantasy Adventures Limited staff
 
 ```
-Dear FANTASY ADVENTURES LIMITED team,
+Dear Fantasy Adventures Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with FANTASY ADVENTURES LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Fantasy Adventures Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -4794,7 +5025,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.206 Fairtrek Jicho Tanzania (Tourism employers): variant B
+### 2.205 Fairtrek Jicho Tanzania (Tourism employers): variant B
 
 - To: Fairtrek Jicho Tanzania team | Route: info@fairtrek-jicho-tanzania.com | Plan: M7e3acd2d2822
 
@@ -4815,7 +5046,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.207 Faune & Flore Ltd (Tourism employers): variant B
+### 2.206 Faune & Flore Ltd (Tourism employers): variant B
 
 - To: Joseph Aweth, Co-founder / owner (also driver guide) | Route: joseph@faune-flore.com | Plan: M796b64e8d42d
 
@@ -4836,7 +5067,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.208 Feimac Travels Company Limited (Tourism employers): variant B
+### 2.207 Feimac Travels Company Limited (Tourism employers): variant B
 
 - To: Feimac Travels Company Limited team | Route: info@feimactravel.com | Plan: Mafbceefb954b
 
@@ -4857,7 +5088,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.209 Firstpace African Travel Co Ltd (Tourism employers): variant B
+### 2.208 Firstpace African Travel Co Ltd (Tourism employers): variant B
 
 - To: Firstpace African Travel Co Ltd team | Route: info@firstpaceafrica.com; firstpace.africantravel@gmail.com | Plan: Meb180fa00fde
 
@@ -4878,7 +5109,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.210 Flightlink (Tourism employers): variant B
+### 2.209 Flightlink (Tourism employers): variant B
 
 - To: Capt Munawer Pyarali Dhirani, Founder, Accountable Manager, Managing Director | Route: reservations.kenya@flightlink.co.tz | Plan: Mf0639616eb39
 
@@ -4899,7 +5130,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.211 Fortes Africa Ltd (Tourism employers): variant B
+### 2.210 Fortes Africa Ltd (Tourism employers): variant B
 
 - To: Fortes Africa Ltd team | Route: fortes@fortes-africa.com | Plan: M4777b8e24290
 
@@ -4920,7 +5151,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.212 Full Package Adventures Ltd (Tourism employers): variant B
+### 2.211 Full Package Adventures Ltd (Tourism employers): variant B
 
 - To: Joseph, Owner & Managing Director | Route: info@fullpackageadventures.com | Plan: Mced40c666483
 
@@ -4941,7 +5172,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.213 Fun Retreat Resort Hotel (Tourism employers): variant B
+### 2.212 Fun Retreat Resort Hotel (Tourism employers): variant B
 
 - To: Fun Retreat Resort Hotel team | Route: info@funretreat.com | Plan: M071c3c5d4512
 
@@ -4962,7 +5193,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.214 GADGETRONIX (Tourism employers): variant B
+### 2.213 GADGETRONIX (Tourism employers): variant B
 
 - To: Hasnain Sajan, Founder | Route: sales@gadgetronix.net | Plan: Mffe2749d8248
 
@@ -4983,18 +5214,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.215 GO TANZANIA (Tourism employers): variant B
+### 2.214 GO TANZANIA (Tourism employers): variant B
 
 - To: GO TANZANIA team | Route: info@gotanzania.co.tz | Plan: Mf0dab2addfa9
 
-Subject: A partnership on education benefits for GO TANZANIA staff
+Subject: A partnership on education benefits for GO Tanzania staff
 
 ```
-Dear GO TANZANIA team,
+Dear GO Tanzania team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with GO TANZANIA to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with GO Tanzania to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5004,7 +5235,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.216 Game Drive Travel Africa Safari Agency (Tourism employers): variant B
+### 2.215 Game Drive Travel Africa Safari Agency (Tourism employers): variant B
 
 - To: Game Drive Travel Africa Safari Agency team | Route: info@travelafricasafariagency.com | Plan: M2bd5556b7112
 
@@ -5025,7 +5256,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.217 Gazelle Adventures (Tourism employers): variant B
+### 2.216 Gazelle Adventures (Tourism employers): variant B
 
 - To: Christopher S. Kilawila, Founder | Route: info@gazelleadventures.com | Plan: M7967a2f49cbe
 
@@ -5046,7 +5277,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.218 Gemuka Adventures Limited (Tourism employers): variant B
+### 2.217 Gemuka Adventures Limited (Tourism employers): variant B
 
 - To: Gemuka Adventures Limited team | Route: info@gemukaadventures.com | Plan: Med1281ec7cd0
 
@@ -5067,18 +5298,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.219 Get together adventure (Tourism employers): variant B
+### 2.218 Get together adventure (Tourism employers): variant B
 
-- To: Hamza Rashku, General Overseer | Route: info@gettogetheradventures.com; sales@gettogetheradventures.com | Plan: M109673b9eec9
+- To: Savilinyi Mwachula, Director | Route: info@gettogetheradventures.com; sales@gettogetheradventures.com | Plan: Mb38be40422a3
 
 Subject: A partnership on education benefits for Get together adventure staff
 
 ```
-Dear Hamza Rashku,
+Dear Savilinyi Mwachula,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Get together adventure to provide an education benefit for the children of your staff. Your website says your safari specialists, driver-guides and trip designers are based in Arusha, so such a benefit could reach that whole team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Get together adventure to provide an education benefit for the children of your staff. Your About page lists you as an Amref Health Africa supporter, so an education benefit for your own staff would fit that community commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5088,7 +5319,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.220 Gifted African Adventures Ltd (Tourism employers): variant B
+### 2.219 Gifted African Adventures Ltd (Tourism employers): variant B
 
 - To: Gifted African Adventures Ltd team | Route: info@giftedadventures.com; giftmollel422@gmail.com | Plan: M110de993dca8
 
@@ -5109,7 +5340,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.221 Gilmag Safaris (Tourism employers): variant B
+### 2.220 Gilmag Safaris (Tourism employers): variant B
 
 - To: Gilmag Safaris team | Route: info@gilmagsafaris.com | Plan: M7d32b46f34a4
 
@@ -5130,7 +5361,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.222 Gladys Adventure & Safaris (Tourism employers): variant B
+### 2.221 Gladys Adventure & Safaris (Tourism employers): variant B
 
 - To: Hilary Mallya, Company CEO | Route: info@gladysadventure.com | Plan: Mc7b68f9cd679
 
@@ -5151,7 +5382,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.223 Go Expeditions Africa Limited (Tourism employers): variant B
+### 2.222 Go Expeditions Africa Limited (Tourism employers): variant B
 
 - To: Elihuruma Msengi, Founder and Managing Director | Route: info@goexpeditionsafrica.com | Plan: M5362f1ecb934
 
@@ -5162,7 +5393,7 @@ Dear Elihuruma Msengi,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Go Expeditions Africa Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Go Expeditions Africa Limited to provide an education benefit for the children of your staff. Your website says you believe travel can be a powerful catalyst in empowering local communities, so an education benefit for your own staff would fit that belief. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5172,7 +5403,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.224 Gold Crest Hotel (Tourism employers): variant B
+### 2.223 Gold Crest Hotel (Tourism employers): variant B
 
 - To: Gold Crest Hotel team | Route: reservations@goldcresthotel.com | Plan: Mbb493ebb30a7
 
@@ -5193,14 +5424,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.225 Golden Trips Tanzania (Tourism employers): variant B
+### 2.224 Golden Trips Tanzania (Tourism employers): variant B
 
-- To: Joel Hagai, General Manager and Chief Supervisor | Route: info@goldentrips.co.tz | Plan: Mdfab04421d06
+- To: Samson Simon, Tour Consultant and Chairperson | Route: info@goldentrips.co.tz | Plan: M1e2087c0ca55
 
 Subject: A partnership on education benefits for Golden Trips Tanzania staff
 
 ```
-Dear Joel Hagai,
+Dear Samson Simon,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -5214,14 +5445,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.226 Goldfinch Adventures (Tourism employers): variant B
+### 2.225 Goldfinch Adventures (Tourism employers): variant B
 
-- To: Goldfinch Adventures team | Route: info@goldfinch-adventures.com | Plan: Mad39ba77cee9
+- To: Deo Robert, Founder & Advisor, Goldfinch Adventures | Route: info@goldfinch-adventures.com | Plan: M364c519df1ea
 
 Subject: A partnership on education benefits for Goldfinch Adventures staff
 
 ```
-Dear Goldfinch Adventures team,
+Dear Deo Robert,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -5235,7 +5466,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.227 Golos of Africa (Tourism employers): variant B
+### 2.226 Golos of Africa (Tourism employers): variant B
 
 - To: Mikhail Sergeevich Chernov (Михаил Чернов), Founder / Head of company / sole proprietor (ИП Чернов Михаил Сергеевич) | Route: info@golosafrica.com; info@golos.africa | Plan: M0bb744d24119
 
@@ -5256,7 +5487,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.228 Good Earth Safaris & Tours Ltd (Tourism employers): variant B
+### 2.227 Good Earth Safaris & Tours Ltd (Tourism employers): variant B
 
 - To: Narry Ernest, Co-Founder & Partner | Route: info@goodearthtours.com | Plan: Mfef761e03615
 
@@ -5277,7 +5508,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.229 Gosheni Safaris Limited (Tourism employers): variant B
+### 2.228 Gosheni Safaris Limited (Tourism employers): variant B
 
 - To: Peter Robert, Founder | Route: info@goshenisafaris.com | Plan: Mc2c012d718f7
 
@@ -5298,7 +5529,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.230 Graceland Hotel (Tourism employers): variant B
+### 2.229 Graceland Hotel (Tourism employers): variant B
 
 - To: Graceland Hotel team | Route: info@gracelandhotel.co.tz | Plan: Mc5e530698ae4
 
@@ -5319,7 +5550,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.231 Gran Melia Arusha (Tourism employers): variant B
+### 2.230 Gran Melia Arusha (Tourism employers): variant B
 
 - To: Gran Melia Arusha team | Route: gran.melia.arusha@melia.com | Plan: M4e7927435a6b
 
@@ -5340,7 +5571,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.232 Great Image Expedition Ltd (Tourism employers): variant B
+### 2.231 Great Image Expedition Ltd (Tourism employers): variant B
 
 - To: Humphrey Lema, General Manager [MD] | Route: info@gie.co.tz | Plan: Md37fd2cc8c63
 
@@ -5351,7 +5582,7 @@ Dear Humphrey Lema,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Great Image Expedition Ltd to provide an education benefit for the children of your staff. Your website says your own guides lead every safari, unlike operators who outsource them, so such a benefit could reach the guides at the core of your work. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Great Image Expedition Ltd to provide an education benefit for the children of your staff. Your website says Great Image Expedition is fighting HIV/AIDS around Tanzania, so an education benefit for your own staff would fit that community commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5361,7 +5592,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.233 Green Mountain Hotel (Tourism employers): variant B
+### 2.232 Green Mountain Hotel (Tourism employers): variant B
 
 - To: Green Mountain Hotel team | Route: info@greenmountainhotel.co.tz | Plan: Mcdfb6a75ed5b
 
@@ -5382,7 +5613,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.234 GreenHippo Travels (Tourism employers): variant B
+### 2.233 GreenHippo Travels (Tourism employers): variant B
 
 - To: GreenHippo Travels team | Route: office@greenhippotravels.com | Plan: M62a4f9c2d7c9
 
@@ -5403,7 +5634,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.235 Greenlink (Tourism employers): variant B
+### 2.234 Greenlink (Tourism employers): variant B
 
 - To: Eligrania Johnson, HR Manager & Administration | Route: info@greenlink-regen.com | Plan: Mb22b2595b2a3
 
@@ -5424,7 +5655,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.236 Greenside Hotel Arusha (Tourism employers): variant B
+### 2.235 Greenside Hotel Arusha (Tourism employers): variant B
 
 - To: Greenside Hotel Arusha team | Route: +255 765 111 119 | Plan: M78247341d85f | **Phone route only: call or message, this is not an email address**
 
@@ -5445,7 +5676,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.237 Grumeti Expeditions Ltd (Lemala Camps) (Tourism employers): variant B
+### 2.236 Grumeti Expeditions Ltd (Lemala Camps) (Tourism employers): variant B
 
 - To: Leanne Haigh, Chief Executive Officer, Lemala Camps & Lodges | Route: res@lemalacamps.com | Plan: Mc95d775d24db
 
@@ -5466,7 +5697,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.238 Gupta Auto Spares and Hardware Limited (Tourism employers): variant B
+### 2.237 Gupta Auto Spares and Hardware Limited (Tourism employers): variant B
 
 - To: Gupta Auto Spares and Hardware Limited team | Route: sales@gash.co.tz | Plan: M10e9a12dc4ff
 
@@ -5487,7 +5718,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.239 Gypsy Tours and Safaris Limited (Tourism employers): variant B
+### 2.238 Gypsy Tours and Safaris Limited (Tourism employers): variant B
 
 - To: Gypsy Tours and Safaris Limited team | Route: trip@gypsytanzaniatours.fun | Plan: M52ad83ad2e7f
 
@@ -5508,7 +5739,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.240 H & A Holidays ltd (Tourism employers): variant B
+### 2.239 H & A Holidays ltd (Tourism employers): variant B
 
 - To: Irene Mkini, Managing Director | Route: hello@haholidays.com | Plan: Mfccaabd1ba01
 
@@ -5529,7 +5760,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.241 HP Safaris (T) Limited (Tourism employers): variant B
+### 2.240 HP Safaris (T) Limited (Tourism employers): variant B
 
 - To: Gary Bourgoin, Co-founder (Hors Pistes; brothers Gary and Jonathan founded the agency) | Route: gary@horspistes.ch | Plan: M022789d8440a
 
@@ -5540,7 +5771,7 @@ Dear Gary Bourgoin,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with HP Safaris (T) Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with HP Safaris (T) Limited to provide an education benefit for the children of your staff. Your website says the agency employs more than 100 local people, including guides, receptionists and cooks, so such a benefit could reach a wide team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5550,7 +5781,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.242 Habitat Adventures Travel (Tourism employers): variant B
+### 2.241 Habitat Adventures Travel (Tourism employers): variant B
 
 - To: Habitat Adventures Travel team | Route: info@thehabitatadventures.com | Plan: M4528b9d346f9
 
@@ -5571,7 +5802,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.243 Hadzabe Safari Adventure (Tourism employers): variant B
+### 2.242 Hadzabe Safari Adventure (Tourism employers): variant B
 
 - To: Herman Kyara, Founder | Route: info@hadzabesafaris.com | Plan: M12fa6ef6ea3c
 
@@ -5592,7 +5823,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.244 Hanspaul Assurance Brokers Limited (Tourism employers): variant B
+### 2.243 Hanspaul Assurance Brokers Limited (Tourism employers): variant B
 
 - To: Hanspaul Assurance Brokers Limited team | Route: info@hanspaulassurance.co.tz | Plan: Mab1f3b6f8112
 
@@ -5613,7 +5844,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.245 Haradali Home (Tourism employers): variant B
+### 2.244 Haradali Home (Tourism employers): variant B
 
 - To: Haradali Home team | Route: bookings@haradalihome.com | Plan: M0c65d1f0a07c
 
@@ -5634,18 +5865,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.246 Hazzes Adventure Limited (Tourism employers): variant B
+### 2.245 Hazzes Adventure Limited (Tourism employers): variant B
 
-- To: Hazzes Adventure Limited team | Route: info@hazzesadventure.com/hazzesadventure@gmail.com | Plan: Mc11a2819b6fc
+- To: Vincent Swai, Managing Director / Co-founder | Route: info@hazzesadventure.com/hazzesadventure@gmail.com | Plan: M75f54f8ef3b0
 
 Subject: A partnership on education benefits for Hazzes Adventure Limited staff
 
 ```
-Dear Hazzes Adventure Limited team,
+Dear Vincent Swai,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Hazzes Adventure Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Hazzes Adventure Limited to provide an education benefit for the children of your staff. Your about page says your safaris contribute to wildlife conservation and community empowerment, so an education benefit for your own staff would fit that mission. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5655,7 +5886,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.247 Hike Talkstay Adventures (Tourism employers): variant B
+### 2.246 Hike Talkstay Adventures (Tourism employers): variant B
 
 - To: Hike Talkstay Adventures team | Route: info@hiketalkstay.com | Plan: M48c07fa5d330
 
@@ -5676,7 +5907,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.248 Hola Africa Ltd (Tourism employers): variant B
+### 2.247 Hola Africa Ltd (Tourism employers): variant B
 
 - To: Fadhili Mlema, Founder | Route: info@hola-africa.com | Plan: Mf2aaddb6ddb9
 
@@ -5697,7 +5928,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.249 Hoopoe Safaris T Ltd (Tourism employers): variant B
+### 2.248 Hoopoe Safaris T Ltd (Tourism employers): variant B
 
 - To: Steven Laiser, Co-founder / heads the company | Route: information@hoopoe.com | Plan: Mae80ed3d467c
 
@@ -5708,7 +5939,7 @@ Dear Steven Laiser,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Hoopoe Safaris T Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Hoopoe Safaris T Ltd to provide an education benefit for the children of your staff. Your Who We Are page says many guides have grown with you for nearly 30 years, so such a benefit could reward that long service. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5718,7 +5949,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.250 Horn & Horizon Safaris (Tourism employers): variant B
+### 2.249 Horn & Horizon Safaris (Tourism employers): variant B
 
 - To: Horn & Horizon Safaris team | Route: info@hornandhorizonsafaris.com | Plan: Me78d7bd03ec3
 
@@ -5739,7 +5970,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.251 Hotel Mr. Bodo (Tourism employers): variant B
+### 2.250 Hotel Mr. Bodo (Tourism employers): variant B
 
 - To: Hotel Mr. Bodo team | Route: customersupport@mr-bodo.com | Plan: M8c44de0d32eb
 
@@ -5760,18 +5991,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.252 INTREPID TRAVEL TANZANIA LIMITED (Tourism employers): variant B
+### 2.251 INTREPID TRAVEL TANZANIA LIMITED (Tourism employers): variant B
 
 - To: INTREPID TRAVEL TANZANIA LIMITED team | Route: Elirehema.Mshana@intrepidtravel.com | Plan: M78b494ebebf8
 
-Subject: A partnership on education benefits for INTREPID TRAVEL TANZANIA LIMITED staff
+Subject: A partnership on education benefits for Intrepid Travel Tanzania Limited staff
 
 ```
-Dear INTREPID TRAVEL TANZANIA LIMITED team,
+Dear Intrepid Travel Tanzania Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with INTREPID TRAVEL TANZANIA LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Intrepid Travel Tanzania Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5781,7 +6012,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.253 Ibhanilfa Safaris & Tours Limited (Tourism employers): variant B
+### 2.252 Ibhanilfa Safaris & Tours Limited (Tourism employers): variant B
 
 - To: Ibhanilfa Safaris & Tours Limited team | Route: info@ibhanilfasafaris.com | Plan: Medcacad7c853
 
@@ -5802,7 +6033,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.254 Ignite Energy Access UK Ltd (Tourism employers): variant B
+### 2.253 Ignite Energy Access UK Ltd (Tourism employers): variant B
 
 - To: Ignite Energy Access UK Ltd team | Route: peter.ngota@igniteaccess.com | Plan: Mefb73c160ab7
 
@@ -5823,7 +6054,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.255 Ilboru Safari Lodge (Tourism employers): variant B
+### 2.254 Ilboru Safari Lodge (Tourism employers): variant B
 
 - To: Ilboru Safari Lodge team | Route: sales@ilborusafarilodge.net | Plan: Md279b942f301
 
@@ -5844,7 +6075,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.256 Imaging Smart (Tourism employers): variant B
+### 2.255 Imaging Smart (Tourism employers): variant B
 
 - To: Muffaddal Jamalee, Managing Director | Route: info@imagingsmart.com | Plan: Md076279e5f16
 
@@ -5865,7 +6096,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.257 Imara Kilele Safaris (Tourism employers): variant B
+### 2.256 Imara Kilele Safaris (Tourism employers): variant B
 
 - To: Imara Kilele Safaris team | Route: info@imarakilelenisafaris.com | Plan: Ma14fd2f07f5d
 
@@ -5886,7 +6117,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.258 Itaka Safaris (Tourism employers): variant B
+### 2.257 Itaka Safaris (Tourism employers): variant B
 
 - To: Ángel, Principal / team member (Arusha-based; Honorary Consul of Spain in Arusha; role title not stated) | Route: itaka@itakasafaris.com | Plan: Mbf338ef1f0a7
 
@@ -5907,7 +6138,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.259 Jackpot Safaris (TZ) Ltd (Tourism employers): variant B
+### 2.258 Jackpot Safaris (TZ) Ltd (Tourism employers): variant B
 
 - To: Andrew Malalika, Founder (runs company with wife Esther) | Route: info@jackpotsafaris.co.tz | Plan: M3745e990b04d
 
@@ -5918,7 +6149,7 @@ Dear Andrew Malalika,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Jackpot Safaris (TZ) Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Jackpot Safaris (TZ) Ltd to provide an education benefit for the children of your staff. Your website says every booking supports local communities, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5928,7 +6159,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.260 Jambo Masai Tours (Tourism employers): variant B
+### 2.259 Jambo Masai Tours (Tourism employers): variant B
 
 - To: Raphael Salewa, Founder | Route: info@jambomasaitours.com.; jambomasaitours255@gmail.com | Plan: M5f1cb1218f1d
 
@@ -5939,7 +6170,7 @@ Dear Raphael Salewa,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Jambo Masai Tours to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Jambo Masai Tours to provide an education benefit for the children of your staff. Your about page says your team has 30+ certified guides, naturalists and travel professionals, so such a benefit could reach a wide team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -5949,7 +6180,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.261 Jaribu Africa Adventures Co Ltd (Tourism employers): variant B
+### 2.260 Jaribu Africa Adventures Co Ltd (Tourism employers): variant B
 
 - To: Jaribu Africa Adventures Co Ltd team | Route: info@jaribuafrica.com | Plan: M77fda290d65f
 
@@ -5970,7 +6201,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.262 Joagro Safaris Tanzania (Tourism employers): variant B
+### 2.261 Joagro Safaris Tanzania (Tourism employers): variant B
 
 - To: Jonas Ndunguru, Founder & CEO | Route: info@joagrosafaris.com | Plan: M056859bed71b
 
@@ -5991,7 +6222,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.263 Joash Africa Wilderness Insight Ltd (Tourism employers): variant B
+### 2.262 Joash Africa Wilderness Insight Ltd (Tourism employers): variant B
 
 - To: Joshua Monah, Owner (owns and runs the company), Maasai elder & guide | Route: info@jafricasafari.com | Plan: Ma82308d1d562
 
@@ -6012,7 +6243,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.264 Josh Dreamland Safaris (Tourism employers): variant B
+### 2.263 Josh Dreamland Safaris (Tourism employers): variant B
 
 - To: Josh Dreamland Safaris team | Route: info@joshdreamlandsafari.com; joshdreamlandsafari@gmail.com | Plan: M317a2527ee90
 
@@ -6023,7 +6254,7 @@ Dear Josh Dreamland Safaris team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Josh Dreamland Safaris to provide an education benefit for the children of your staff. Your website says you follow responsible tourism standards, including fair wages, so such a benefit could extend that care to your team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Josh Dreamland Safaris to provide an education benefit for the children of your staff. Your website says you follow responsible tourism standards, including fair wages and deep care for local communities, so an education benefit for your own staff would fit. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6033,14 +6264,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.265 K&K Safaris (Tourism employers): variant B
+### 2.264 K&K Safaris (Tourism employers): variant B
 
-- To: K&K Safaris team | Route: infos@kandksafaris.com | Plan: Ma0061f3c6738
+- To: Kitanga Zuberi, Co-founder / Guide naturaliste | Route: infos@kandksafaris.com | Plan: Mc458a27ea268
 
 Subject: A partnership on education benefits for K&K Safaris staff
 
 ```
-Dear K&K Safaris team,
+Dear Kitanga Zuberi,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -6054,18 +6285,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.266 KARIBU KILIFAIR (Tourism employers): variant B
+### 2.265 KARIBU KILIFAIR (Tourism employers): variant B
 
 - To: KARIBU KILIFAIR team | Route: info@kilifair.com | Plan: Me5653b138854
 
-Subject: A partnership on education benefits for KARIBU KILIFAIR staff
+Subject: A partnership on education benefits for Karibu Kilifair staff
 
 ```
-Dear KARIBU KILIFAIR team,
+Dear Karibu Kilifair team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with KARIBU KILIFAIR to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Karibu Kilifair to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6075,18 +6306,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.267 KIBO GUIDES (T) LTD (Tourism employers): variant B
+### 2.266 KIBO GUIDES (T) LTD (Tourism employers): variant B
 
 - To: Willy Chambulo, Founder | Route: info@kiboguides.com | Plan: M0836d3c23bb7
 
-Subject: A partnership on education benefits for KIBO GUIDES (T) LTD staff
+Subject: A partnership on education benefits for Kibo Guides (T) Ltd staff
 
 ```
 Dear Willy Chambulo,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with KIBO GUIDES (T) LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kibo Guides (T) Ltd to provide an education benefit for the children of your staff. Your About page says 'Our people are our success', so such a benefit could be one more way to recognise your team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6096,18 +6327,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.268 KILI VIKINGS LIMITED (Tourism employers): variant B
+### 2.267 KILI VIKINGS LIMITED (Tourism employers): variant B
 
 - To: KILI VIKINGS LIMITED team | Route: info@kilivikings.com | Plan: M4409a908a4c8
 
-Subject: A partnership on education benefits for KILI VIKINGS LIMITED staff
+Subject: A partnership on education benefits for Kili Vikings Limited staff
 
 ```
-Dear KILI VIKINGS LIMITED team,
+Dear Kili Vikings Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with KILI VIKINGS LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kili Vikings Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6117,7 +6348,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.269 Kahawa House (Tourism employers): variant B
+### 2.268 Kahawa House (Tourism employers): variant B
 
 - To: Willy Chambulo, Managing Director | Route: info@twctanzania.com | Plan: M00feed33f75c
 
@@ -6138,7 +6369,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.270 Kananga (Rumangabo International Ltd) (Tourism employers): variant B
+### 2.269 Kananga (Rumangabo International Ltd) (Tourism employers): variant B
 
 - To: Kananga (Rumangabo International Ltd) team | Route: info@kananga.co.tz | Plan: Ma88244db1463
 
@@ -6159,7 +6390,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.271 Karama Lodge & Spa (Tourism employers): variant B
+### 2.270 Karama Lodge & Spa (Tourism employers): variant B
 
 - To: Karama Lodge & Spa team | Route: reservationkaramalodge@gmail.com | Plan: M88e00d7d901d
 
@@ -6180,7 +6411,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.272 Karibu Africa Safaris (Tourism employers): variant B
+### 2.271 Karibu Africa Safaris (Tourism employers): variant B
 
 - To: Karibu Africa Safaris team | Route: info@karibuafricasafaris.com | Plan: M698a7dfb2e9d
 
@@ -6201,7 +6432,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.273 Karibu Camps (Tourism employers): variant B
+### 2.272 Karibu Camps (Tourism employers): variant B
 
 - To: Karibu Camps team | Route: info@karibucamps.com | Plan: Mb52d8fb69eaf
 
@@ -6222,7 +6453,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.274 Karis Expeditions Ltd (Tourism employers): variant B
+### 2.273 Karis Expeditions Ltd (Tourism employers): variant B
 
 - To: Karis Expeditions Ltd team | Route: hello@karisexpeditions.com | Plan: Mb2db38e61e83
 
@@ -6243,7 +6474,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.275 Kearsleys Travel & Tours (Tourism employers): variant B
+### 2.274 Kearsleys Travel & Tours (Tourism employers): variant B
 
 - To: Kearsleys Travel & Tours team | Route: sales@kearsleys.com | Plan: M0c561c6052bd
 
@@ -6264,7 +6495,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.276 Kibo Palace Hotel (Tourism employers): variant B
+### 2.275 Kibo Palace Hotel (Tourism employers): variant B
 
 - To: Kibo Palace Hotel team | Route: sales@kibopalacehotel.com | Plan: M2189490071cb
 
@@ -6285,7 +6516,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.277 Kiboko Safaris (Tourism employers): variant B
+### 2.276 Kiboko Safaris (Tourism employers): variant B
 
 - To: John Haygaru, Founder of Kiboko Safaris / owner and CEO. | Route: kibokosafari1@gmail.com | Plan: M7e8db8b35bd7
 
@@ -6306,7 +6537,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.278 Kibowhy Safaris Ltd (Tourism employers): variant B
+### 2.277 Kibowhy Safaris Ltd (Tourism employers): variant B
 
 - To: Kibowhy Safaris Ltd team | Route: info@kibowhysafaris.co.tz | Plan: M6dd20fa47a32
 
@@ -6327,7 +6558,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.279 Kibuyu African Safaris (Tourism employers): variant B
+### 2.278 Kibuyu African Safaris (Tourism employers): variant B
 
 - To: Kibuyu African Safaris team | Route: info@kibuyuafricansafaris.com | Plan: Mc39b0512f6e8
 
@@ -6348,7 +6579,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.280 Kifaru Expeditions (Tourism employers): variant B
+### 2.279 Kifaru Expeditions (Tourism employers): variant B
 
 - To: Kifaru Expeditions team | Route: safaris@kifaruexpeditions.tz | Plan: Mc5c5e3fbc16e
 
@@ -6369,7 +6600,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.281 Kilele Climb Tours (Tourism employers): variant B
+### 2.280 Kilele Climb Tours (Tourism employers): variant B
 
 - To: Yitzhack Mmasi, Director/CEO | Route: info@kileleclimb.com | Plan: M4a17c19f5cf4
 
@@ -6390,7 +6621,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.282 Kilidove Tours (Tourism employers): variant B
+### 2.281 Kilidove Tours (Tourism employers): variant B
 
 - To: George Joseph, Founder | Route: kili@kilidovetours.com | Plan: Mfa8751e22223
 
@@ -6401,7 +6632,7 @@ Dear George Joseph,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Kilidove Tours to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kilidove Tours to provide an education benefit for the children of your staff. Your about page says you prioritise hiring local guides and are committed to community empowerment through tourism, so an education benefit for your own staff would fit. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6411,7 +6642,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.283 Kilimandscharo Active Tours (KAT) (Tourism employers): variant B
+### 2.282 Kilimandscharo Active Tours (KAT) (Tourism employers): variant B
 
 - To: Kilimandscharo Active Tours (KAT) team | Route: info@kat-moshi.com | Plan: M4befcce88e92
 
@@ -6432,7 +6663,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.284 Kilimanjaro Adventure Safari Club (KASC) (Tourism employers): variant B
+### 2.283 Kilimanjaro Adventure Safari Club (KASC) (Tourism employers): variant B
 
 - To: Aenea Makoninde, Sales Director (described as owner/director in client reviews) | Route: info@kilimanjarotrekk.com | Plan: M5874887b9862
 
@@ -6453,7 +6684,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.285 Kilimanjaro Bliss Safaris (Tourism employers): variant B
+### 2.284 Kilimanjaro Bliss Safaris (Tourism employers): variant B
 
 - To: Aristarick Benard Swai, Company Director and Founder | Route: info@kilimanjarobliss.com | Plan: M5c06f4229da4
 
@@ -6474,7 +6705,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.286 Kilimanjaro Heroes Adventures (Tourism employers): variant B
+### 2.285 Kilimanjaro Heroes Adventures (Tourism employers): variant B
 
 - To: Evarist Ndererubusa, Director | Route: Info@kilimanjaroheroes.com | Plan: Mfc16e3c558e8
 
@@ -6485,7 +6716,7 @@ Dear Evarist Ndererubusa,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Kilimanjaro Heroes Adventures to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kilimanjaro Heroes Adventures to provide an education benefit for the children of your staff. Your website says your guides and support crew are all local Tanzanians, so such a benefit could reach that whole crew. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6495,7 +6726,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.287 Kilimanjaro Responsible Trekking Organization (Tourism employers): variant B
+### 2.286 Kilimanjaro Responsible Trekking Organization (Tourism employers): variant B
 
 - To: Kilimanjaro Responsible Trekking Organization team | Route: info@kiliporters.org | Plan: M1c19cb464756
 
@@ -6516,7 +6747,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.288 Kilimanjaro Tropical Adventures (Tourism employers): variant B
+### 2.287 Kilimanjaro Tropical Adventures (Tourism employers): variant B
 
 - To: Kilimanjaro Tropical Adventures team | Route: info@kiliwilderness.co.tz; kiliwilderness2011@hotmail.com; kiliwilderness@gmail.com | Plan: M19858696bc50
 
@@ -6537,14 +6768,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.289 Kilimanjaro Unforgettable Limited (Tourism employers): variant B
+### 2.288 Kilimanjaro Unforgettable Limited (Tourism employers): variant B
 
-- To: Nassoro, Managing Director | Route: info@kilimanjarounforgettable.com | Plan: M4baad4198fc7
+- To: Frank Robert, Director | Route: info@kilimanjarounforgettable.com | Plan: M91af3bdb63b3
 
 Subject: A partnership on education benefits for Kilimanjaro Unforgettable Limited staff
 
 ```
-Dear Nassoro,
+Dear Frank Robert,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -6558,18 +6789,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.290 Kilipeak Adventure (Tourism employers): variant B
+### 2.289 Kilipeak Adventure (Tourism employers): variant B
 
-- To: Kilipeak Adventure team | Route: info@kilipeakadventure.com | Plan: M08785379d9fc
+- To: Abel Ernest Lema, Managing Director (Co-founder) | Route: info@kilipeakadventure.com | Plan: M20f63d6ab8e3
 
 Subject: A partnership on education benefits for Kilipeak Adventure staff
 
 ```
-Dear Kilipeak Adventure team,
+Dear Abel Ernest Lema,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Kilipeak Adventure to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kilipeak Adventure to provide an education benefit for the children of your staff. Your about page says your guides have refresher courses and training annually, so an education benefit for your staff would sit well alongside that training. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6579,7 +6810,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.291 Kilpath African Safaris (Tourism employers): variant B
+### 2.290 Kilpath African Safaris (Tourism employers): variant B
 
 - To: Kilpath African Safaris team | Route: info@kilpathafricansafaris.com | Plan: M7ccfb1da0f00
 
@@ -6600,7 +6831,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.292 King Mart (Tourism employers): variant B
+### 2.291 King Mart (Tourism employers): variant B
 
 - To: Kush Lodhia, Co-founder | Route: md@kingmart.co.tz | Plan: M94b6ddc80a24
 
@@ -6621,7 +6852,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.293 Kirengo Tours And Safaris Limited (Tourism employers): variant B
+### 2.292 Kirengo Tours And Safaris Limited (Tourism employers): variant B
 
 - To: Jefta (surname not published), Director de Operaciones (Operations Director, Tanzania) | Route: info@kirengotours.com | Plan: M9f835ac6548b
 
@@ -6642,18 +6873,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.294 Kiriwe Travel And Trekking Safaris Ltd (Tourism employers): variant B
+### 2.293 Kiriwe Travel and Trekking Safari Ltd (Tourism employers): variant B
 
-- To: Kiriwe Travel And Trekking Safaris Ltd team | Route: kiriwetravel@gmail.com; info@kiriwetravel.co.tz; frank@kiriwetravel.co.tz | Plan: M91cc9691f931
+- To: Frank Swai, Founder | Route: frank@kiriwetravel.co.tz | Plan: Mf94a87f09843
 
-Subject: A partnership on education benefits for Kiriwe Travel And Trekking Safaris Ltd staff
+Subject: A partnership on education benefits for Kiriwe Travel and Trekking Safari Ltd staff
 
 ```
-Dear Kiriwe Travel And Trekking Safaris Ltd team,
+Dear Frank Swai,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Kiriwe Travel And Trekking Safaris Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kiriwe Travel and Trekking Safari Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6663,7 +6894,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.295 Kitamu Africa LTD (Tourism employers): variant B
+### 2.294 Kitamu Africa LTD (Tourism employers): variant B
 
 - To: Kitamu Africa LTD team | Route: kitamuafrica@gmail.com | Plan: Mf6209705f102
 
@@ -6684,7 +6915,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.296 Kiwoito Africa Safaris (Tourism employers): variant B
+### 2.295 Kiwoito Africa Safaris (Tourism employers): variant B
 
 - To: Charles Moses, Director – Kiwoito Africa Safaris | Route: info@kiwoitoafricasafaris.com | Plan: Me6ccbe85fff4
 
@@ -6705,7 +6936,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.297 Korona Villa Hotel (Tourism employers): variant B
+### 2.296 Korona Villa Hotel (Tourism employers): variant B
 
 - To: Korona Villa Hotel team | Route: +255687666808 | Plan: M454c50b5e512 | **Phone route only: call or message, this is not an email address**
 
@@ -6726,7 +6957,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.298 Kotia Photographic Safaris and Tours (Tourism employers): variant B
+### 2.297 Kotia Photographic Safaris and Tours (Tourism employers): variant B
 
 - To: Amelia Lee, Founder | Route: info@kotiasafaris.co.tz | Plan: M5a902f11f92d
 
@@ -6747,7 +6978,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.299 Krisha African Safaris Ltd (Tourism employers): variant B
+### 2.298 Krisha African Safaris Ltd (Tourism employers): variant B
 
 - To: Mr. Raju Modha, CEO | Route: ceo@krishasafaris.com | Plan: Me40212bcb9d5
 
@@ -6768,7 +6999,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.300 Kukua Tours And Safaris Limited (Tourism employers): variant B
+### 2.299 Kukua Tours And Safaris Limited (Tourism employers): variant B
 
 - To: Carlo Rossi, Project Director (based in Tanzania; 25+ yrs in Africa) | Route: reservations@kukuasafaris.com | Plan: Mba0bedb3f1a1
 
@@ -6789,18 +7020,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.301 LAITOLYA TOURS & SAFARIS LTD (Tourism employers): variant B
+### 2.300 LAITOLYA TOURS & SAFARIS LTD (Tourism employers): variant B
 
 - To: Laura Joackim Minde, Non-executive Director | Route: info@laitolya.com | Plan: M390c86d440d5
 
-Subject: A partnership on education benefits for LAITOLYA TOURS & SAFARIS LTD staff
+Subject: A partnership on education benefits for Laitolya Tours & Safaris Ltd staff
 
 ```
 Dear Laura Joackim Minde,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with LAITOLYA TOURS & SAFARIS LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Laitolya Tours & Safaris Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6810,18 +7041,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.302 LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD) (Tourism employers): variant B
+### 2.301 LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD) (Tourism employers): variant B
 
 - To: Jean-Claude McMenamin, CEO, Legendary Expeditions | Route: enquiries@legendaryexpeditions.co.tz | Plan: Madad6ad75511
 
-Subject: A partnership on education benefits for LEGENDARY EXPEDITIONS staff
+Subject: A partnership on education benefits for Legendary Expeditions staff
 
 ```
 Dear Jean-Claude McMenamin,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with LEGENDARY EXPEDITIONS to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Legendary Expeditions to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6831,18 +7062,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.303 LUBE JUNCTION (Tourism employers): variant B
+### 2.302 LUBE JUNCTION (Tourism employers): variant B
 
 - To: LUBE JUNCTION team | Route: tellusmore@lubejunction.com | Plan: M6a8944f1700f
 
-Subject: A partnership on education benefits for LUBE JUNCTION staff
+Subject: A partnership on education benefits for Lube Junction staff
 
 ```
-Dear LUBE JUNCTION team,
+Dear Lube Junction team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with LUBE JUNCTION to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Lube Junction to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -6852,7 +7083,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.304 La Bella Luna Hotel (Tourism employers): variant B
+### 2.303 La Bella Luna Hotel (Tourism employers): variant B
 
 - To: La Bella Luna Hotel team | Route: +255272544169 | Plan: M43aa95694f10 | **Phone route only: call or message, this is not an email address**
 
@@ -6873,7 +7104,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.305 Lady Tusk Safaris (Tourism employers): variant B
+### 2.304 Lady Tusk Safaris (Tourism employers): variant B
 
 - To: Sophie Kwaslema, Founder & Lead Guide, Lady Tusk Safaris | Route: info@ladytusksafaris.com | Plan: M39503de629ab
 
@@ -6894,7 +7125,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.306 Lake Duluti Lodge (Tourism employers): variant B
+### 2.305 Lake Duluti Lodge (Tourism employers): variant B
 
 - To: Lake Duluti Lodge team | Route: sales@lakedulutilodge.com | Plan: M853271d8797d
 
@@ -6915,7 +7146,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.307 Lamai Africa Safaris (Tourism employers): variant B
+### 2.306 Lamai Africa Safaris (Tourism employers): variant B
 
 - To: Mody Gichero, Founder | Route: info@lamaisafaris.com | Plan: M0dc0a205ee25
 
@@ -6936,7 +7167,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.308 Land Savannah and Trekking (Tourism employers): variant B
+### 2.307 Land Savannah and Trekking (Tourism employers): variant B
 
 - To: Land Savannah and Trekking team | Route: info@landsavannahandtrekking.com | Plan: Me355b04e2f9a
 
@@ -6957,7 +7188,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.309 Lappet Faced Safaris (Tourism employers): variant B
+### 2.308 Lappet Faced Safaris (Tourism employers): variant B
 
 - To: Lappet Faced Safaris team | Route: sales@lappetfacedsafaris.com /info@lappetfacedsafaris.com | Plan: M82edf6068213
 
@@ -6978,7 +7209,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.310 Lapwings (Tourism employers): variant B
+### 2.309 Lapwings (Tourism employers): variant B
 
 - To: Lapwings team | Route: info@lapwings.co.tz | Plan: Mc20fe502b8af
 
@@ -6999,7 +7230,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.311 Lashku Forex Bureau Limited (Tourism employers): variant B
+### 2.310 Lashku Forex Bureau Limited (Tourism employers): variant B
 
 - To: Lashku Forex Bureau Limited team | Route: forex@praxisaccounts.com | Plan: M40d1d0b84268
 
@@ -7020,7 +7251,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.312 Lazy Lion Safaris (Tourism employers): variant B
+### 2.311 Lazy Lion Safaris (Tourism employers): variant B
 
 - To: Bastiaan Witvliet, Founder | Route: info@lazylionsafaris.com | Plan: Md2d30a76a732
 
@@ -7031,7 +7262,7 @@ Dear Bastiaan Witvliet,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Lazy Lion Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Lazy Lion Safaris to provide an education benefit for the children of your staff. Your about page describes a small team that works in Arusha, so an education benefit for your staff could suit a locally based team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -7041,7 +7272,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.313 Le Jacaranda (Tourism employers): variant B
+### 2.312 Le Jacaranda (Tourism employers): variant B
 
 - To: Le Jacaranda team | Route: +255272544624 | Plan: Mba63e2ee5699 | **Phone route only: call or message, this is not an email address**
 
@@ -7062,7 +7293,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.314 LeKobe Adventures & Safaris (Tourism employers): variant B
+### 2.313 LeKobe Adventures & Safaris (Tourism employers): variant B
 
 - To: LeKobe Adventures & Safaris team | Route: info@lekobeadventures.com | Plan: M5fdd545e9097
 
@@ -7083,7 +7314,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.315 Legacy Destinations & DMC (Tourism employers): variant B
+### 2.314 Legacy Destinations & DMC (Tourism employers): variant B
 
 - To: Mike Amani, Managing Director | Route: info@legacydestinations-dmc.com | Plan: Mc17a78e85dfc
 
@@ -7104,7 +7335,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.316 Leken Adventurte Ltd (Tourism employers): variant B
+### 2.315 Leken Adventurte Ltd (Tourism employers): variant B
 
 - To: Leken Adventurte Ltd team | Route: info@lekenadventure.com | Plan: Mfcfc29afa8c8
 
@@ -7125,7 +7356,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.317 Let’S Discover Africa Limited (Tourism employers): variant B
+### 2.316 Let’S Discover Africa Limited (Tourism employers): variant B
 
 - To: Let’S Discover Africa Limited team | Route: contactus@letsdiscoverafrica.com | Plan: M16cbec072997
 
@@ -7146,7 +7377,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.318 Lifetime Safaris (Tourism employers): variant B
+### 2.317 Lifetime Safaris (Tourism employers): variant B
 
 - To: Beatrice Boniface Mollel, Founder | Route: info@lifetimesafaristz.com | Plan: M2fe97f6e1d4e
 
@@ -7167,7 +7398,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.319 Lion King Adventures (King Kidaisho) (Tourism employers): variant B
+### 2.318 Lion King Adventures (King Kidaisho) (Tourism employers): variant B
 
 - To: James Fanuel Mlanga, Founder / Safari Guide | Route: info@lionkingadventures.com | Plan: M2de64f75f605
 
@@ -7178,7 +7409,7 @@ Dear James Fanuel Mlanga,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Lion King Adventures to provide an education benefit for the children of your staff. Your office team page lists tour consultants, accountants and mechanics, so such a benefit could reach staff across your business. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Lion King Adventures to provide an education benefit for the children of your staff. Your team page says a member of your team has worked with you for ten years, so such a benefit could reward that long service. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -7188,28 +7419,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.320 Livingstone's Africa Ltd (Tourism employers): variant B
-
-- To: Kaanaeli Ndeoya, Managing Director / Tour Operator (also head guide; of Maasai descent) | Route: enquiries@livingstonesafrica.com | Plan: M944722fbdbfd
-
-Subject: A partnership on education benefits for Livingstone's Africa Ltd staff
-
-```
-Dear Kaanaeli Ndeoya,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
-
-We are looking to set up a partnership with Livingstone's Africa Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 2.321 Local Moshi adventures Limited (Tourism employers): variant B
+### 2.319 Local Moshi adventures Limited (Tourism employers): variant B
 
 - To: Anya Beutler, Founder and Guest Support Leader | Route: info@localmoshi.com | Plan: Mf2956ee3a4e5
 
@@ -7230,7 +7440,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.322 Lomo Tanzania Safari (Tourism employers): variant B
+### 2.320 Lomo Tanzania Safari (Tourism employers): variant B
 
 - To: Lomo Tanzania Safari team | Route: info@lomotanzaniasafari.com | Plan: Mda1a6c85dd33
 
@@ -7251,7 +7461,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.323 Luitours and Safaris (Tourism employers): variant B
+### 2.321 Luitours and Safaris (Tourism employers): variant B
 
 - To: Luitours and Safaris team | Route: info@luitours.com; luitours@gmail.com | Plan: M14f6c13f4ea6
 
@@ -7272,7 +7482,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.324 Lush Garden Business Hotel (Tourism employers): variant B
+### 2.322 Lush Garden Business Hotel (Tourism employers): variant B
 
 - To: Lush Garden Business Hotel team | Route: +255 786 401 140 | Plan: Ma71aee8e261e | **Phone route only: call or message, this is not an email address**
 
@@ -7293,7 +7503,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.325 Lush Garden Hotel (Tourism employers): variant B
+### 2.323 Lush Garden Hotel (Tourism employers): variant B
 
 - To: Lush Garden Hotel team | Route: reservation@lushgardenhotels.com | Plan: M3afee6fb7ed7
 
@@ -7314,14 +7524,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.326 Lusungulwamtwa Safaris (Tourism employers): variant B
+### 2.324 Lusungulwamtwa Safaris (Tourism employers): variant B
 
-- To: Lusungulwamtwa Safaris team | Route: info@lusungulwatwasafaris.com | Plan: M602945fc9ed1
+- To: Helen Chiwanga, Operations Manager | Route: info@lusungulwatwasafaris.com | Plan: M7e5b7d71e09b
 
 Subject: A partnership on education benefits for Lusungulwamtwa Safaris staff
 
 ```
-Dear Lusungulwamtwa Safaris team,
+Dear Helen Chiwanga,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -7335,18 +7545,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.327 MAASAI MAGIC SAFARI COMPANY LTD (Tourism employers): variant B
+### 2.325 MAASAI MAGIC SAFARI COMPANY LTD (Tourism employers): variant B
 
 - To: MAASAI MAGIC SAFARI COMPANY LTD team | Route: info@maasai-magic.com | Plan: M18c247232127
 
-Subject: A partnership on education benefits for MAASAI MAGIC SAFARI COMPANY LTD staff
+Subject: A partnership on education benefits for Maasai Magic Safari Company Ltd staff
 
 ```
-Dear MAASAI MAGIC SAFARI COMPANY LTD team,
+Dear Maasai Magic Safari Company Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with MAASAI MAGIC SAFARI COMPANY LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Maasai Magic Safari Company Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -7356,7 +7566,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.328 MAGS Travel and Tours Agency Limited (Tourism employers): variant B
+### 2.326 MAGS Travel and Tours Agency Limited (Tourism employers): variant B
 
 - To: MAGS Travel and Tours Agency Limited team | Route: info@magstravel.co.tz | Plan: M5e58f182cbe2
 
@@ -7377,18 +7587,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.329 MEGA TENTS (AL-ANVER OUTFITTERS LTD) (Tourism employers): variant B
+### 2.327 MEGA TENTS (AL-ANVER OUTFITTERS LTD) (Tourism employers): variant B
 
 - To: MEGA TENTS (AL-ANVER OUTFITTERS LTD) team | Route: murtaza@alanvertents.com | Plan: Me989cb002293
 
-Subject: A partnership on education benefits for MEGA TENTS staff
+Subject: A partnership on education benefits for Mega Tents staff
 
 ```
-Dear MEGA TENTS team,
+Dear Mega Tents team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with MEGA TENTS to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Mega Tents to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -7398,18 +7608,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.330 MKIZUGHUNO COMPANY LIMITED (Tourism employers): variant B
+### 2.328 MKIZUGHUNO COMPANY LIMITED (Tourism employers): variant B
 
 - To: MKIZUGHUNO COMPANY LIMITED team | Route: williammvungi12@gmail.com | Plan: M4297da9f591b
 
-Subject: A partnership on education benefits for MKIZUGHUNO COMPANY LIMITED staff
+Subject: A partnership on education benefits for Mkizughuno Company Limited staff
 
 ```
-Dear MKIZUGHUNO COMPANY LIMITED team,
+Dear Mkizughuno Company Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with MKIZUGHUNO COMPANY LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Mkizughuno Company Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -7419,7 +7629,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.331 Maape Tanzania Safaris Ltd (Tourism employers): variant B
+### 2.329 Maape Tanzania Safaris Ltd (Tourism employers): variant B
 
 - To: Allan Mollel, Founder / Director / Lead Safari Guide (page: 'Director's Message'; 'manager of Maape Tanzania Safaris') | Route: info@maapetanzaniasafaris.com | Plan: M2f76d34b8c3e
 
@@ -7440,18 +7650,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.332 Maasai Wanderings Limited (Tourism employers): variant B
+### 2.330 Maasai Wanderings Limited (Tourism employers): variant B
 
-- To: Donna Duggan, Co-founder | Route: info@maasaiwanderings.com | Plan: M9d03be54ea28
+- To: Maasai Wanderings Limited team | Route: info@maasaiwanderings.com | Plan: Meac6c1f32ef4
 
 Subject: A partnership on education benefits for Maasai Wanderings Limited staff
 
 ```
-Dear Donna Duggan,
+Dear Maasai Wanderings Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Maasai Wanderings Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Maasai Wanderings Limited to provide an education benefit for the children of your staff. Your team page describes guides, camp staff and skilled chefs, so an education benefit could reach across your whole team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -7461,14 +7671,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.333 Macho Halisi Limited (Tourism employers): variant B
+### 2.331 Macho Halisi Limited (Tourism employers): variant B
 
-- To: Macho Halisi Limited team | Route: info@machohalisi.com | Plan: M234a052527f4
+- To: Dawson Minja, Founder | Route: info@machohalisi.com | Plan: M6c6f9a6d9983
 
 Subject: A partnership on education benefits for Macho Halisi Limited staff
 
 ```
-Dear Macho Halisi Limited team,
+Dear Dawson Minja,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -7482,7 +7692,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.334 Magilani Safaris (Tourism employers): variant B
+### 2.332 Magilani Safaris (Tourism employers): variant B
 
 - To: Magilani Safaris team | Route: info@magilani-safaris.com | Plan: M3589c2b0e474
 
@@ -7503,7 +7713,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.335 MajorityMart Suppliers (Tourism employers): variant B
+### 2.333 MajorityMart Suppliers (Tourism employers): variant B
 
 - To: MajorityMart Suppliers team | Route: info@majoritysuppliers.com | Plan: M172b4afd295e
 
@@ -7524,7 +7734,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.336 Makasa Tanzania Safaris Ltd (Tourism employers): variant B
+### 2.334 Makasa Tanzania Safaris Ltd (Tourism employers): variant B
 
 - To: Makasa Tanzania Safaris Ltd team | Route: info@makasatanzania.com | Plan: M1f92715f38a5
 
@@ -7545,7 +7755,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.337 Make My Safari Limited (Tourism employers): variant B
+### 2.335 Make My Safari Limited (Tourism employers): variant B
 
 - To: Talib Chagani, Director (Founder and Owner per about page; testimonials call him 'the owner') | Route: info@makemysafari.com | Plan: M07271c28e232
 
@@ -7566,7 +7776,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.338 Makini Tanzania (Tourism employers): variant B
+### 2.336 Makini Tanzania (Tourism employers): variant B
 
 - To: Lucas David, CEO, Founder | Route: info@makinitanzaniasafaris.com | Plan: Md2345d3558cc
 
@@ -7587,7 +7797,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.339 Makisala Safaris (Tourism employers): variant B
+### 2.337 Makisala Safaris (Tourism employers): variant B
 
 - To: Makisala Safaris team | Route: info@makisala.com | Plan: M4cbecc2f46dc
 
@@ -7608,7 +7818,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.340 Mama Africa Safaris (Tourism employers): variant B
+### 2.338 Mama Africa Safaris (Tourism employers): variant B
 
 - To: Mama Africa Safaris team | Route: info@mamaafricasafaris.co.tz; lucy@mamaafricasafaris.co.tz | Plan: Mcaf8144397df
 
@@ -7629,7 +7839,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.341 Maradawa Tours Company Limited (Tourism employers): variant B
+### 2.339 Maradawa Tours Company Limited (Tourism employers): variant B
 
 - To: Maradawa Tours Company Limited team | Route: info@maradawa.com | Plan: M2efcf9d26347
 
@@ -7650,7 +7860,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.342 Marangu forex bureau (Tourism employers): variant B
+### 2.340 Marangu forex bureau (Tourism employers): variant B
 
 - To: Marangu forex bureau team | Route: info@mfb.co.tz | Plan: M8c1f53ea0150
 
@@ -7671,7 +7881,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.343 Masumin Tours and Safaris (Tourism employers): variant B
+### 2.341 Masumin Tours and Safaris (Tourism employers): variant B
 
 - To: Masumin Tours and Safaris team | Route: masumins@thenet.co.tz | Plan: M6fbad3534fba
 
@@ -7692,7 +7902,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.344 Matembezi Company Ltd (Tourism employers): variant B
+### 2.342 Matembezi Company Ltd (Tourism employers): variant B
 
 - To: Ilan Kessel, Partner / co-owner (tour operations) | Route: info@matembezi.co.tz | Plan: Mfee8d4fac314
 
@@ -7713,7 +7923,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.345 Mauly Tours Safaris (Tourism employers): variant B
+### 2.343 Mauly Tours Safaris (Tourism employers): variant B
 
 - To: Mauly Tours Safaris team | Route: info@mauly-tours.com | Plan: M12e7b39188e8
 
@@ -7734,7 +7944,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.346 Mbali Mbali Lodges and Camps Limited (Tourism employers): variant B
+### 2.344 Mbali Mbali Lodges and Camps Limited (Tourism employers): variant B
 
 - To: Mbali Mbali Lodges and Camps Limited team | Route: finance@mbalimbali.com | Plan: M2b24031e128f
 
@@ -7755,7 +7965,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.347 Mbasha Holdings Ltd (Tourism employers): variant B
+### 2.345 Mbasha Holdings Ltd (Tourism employers): variant B
 
 - To: Mbasha Holdings Ltd team | Route: rlmbasha@yahoo.com | Plan: M1f3f4182bd34
 
@@ -7776,7 +7986,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.348 Mega Adventures travel (Tourism employers): variant B
+### 2.346 Mega Adventures travel (Tourism employers): variant B
 
 - To: Mega Adventures travel team | Route: info@megaadventurestravel.com | Plan: M87cd4ca7d9d1
 
@@ -7797,7 +8007,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.349 Meijo Safaris Limited (Tourism employers): variant B
+### 2.347 Meijo Safaris Limited (Tourism employers): variant B
 
 - To: Meijo Safaris Limited team | Route: info@meijosafaris.com | Plan: M80af45eac801
 
@@ -7818,7 +8028,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.350 Memorable Sunrise To Sunset Safaris Limited (Tourism employers): variant B
+### 2.348 Memorable Sunrise To Sunset Safaris Limited (Tourism employers): variant B
 
 - To: Memorable Sunrise To Sunset Safaris Limited team | Route: info@memorablesafari.com | Plan: M66bdd96729eb
 
@@ -7839,7 +8049,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.351 Meru House Inn (Tourism employers): variant B
+### 2.349 Meru House Inn (Tourism employers): variant B
 
 - To: Meru House Inn team | Route: annammbaga40@gmail.com | Plan: M32abb997db2a
 
@@ -7860,7 +8070,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.352 Meru Mbega Lodge (Tourism employers): variant B
+### 2.350 Meru Mbega Lodge (Tourism employers): variant B
 
 - To: Meru Mbega Lodge team | Route: christopher@baobabvillage.com | Plan: M838e090dae6d
 
@@ -7881,7 +8091,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.353 Migada Adventures Tours and Safaris (Tourism employers): variant B
+### 2.351 Migada Adventures Tours and Safaris (Tourism employers): variant B
 
 - To: Migada Adventures Tours and Safaris team | Route: info@migadadventures.com | Plan: Md571f0af927a
 
@@ -7902,7 +8112,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.354 Miles To Smile Company Ltd (Tourism employers): variant B
+### 2.352 Miles To Smile Company Ltd (Tourism employers): variant B
 
 - To: Miles To Smile Company Ltd team | Route: contact@miles-to-smile.com | Plan: M6410d64fbefc
 
@@ -7923,7 +8133,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.355 Mind & Soul (TZ) Travel Ltd (Tourism employers): variant B
+### 2.353 Mind & Soul (TZ) Travel Ltd (Tourism employers): variant B
 
 - To: Linus Thadayo Mallya, Co-owner / operator | Route: info@mindsoultravel.co.tz | Plan: M096706c61f41
 
@@ -7944,7 +8154,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.356 Miracle Experience (Tourism employers): variant B
+### 2.354 Miracle Experience (Tourism employers): variant B
 
 - To: Hasnain Sajan, CEO & Founder | Route: balloon@miracleexperience.co.tz | Plan: Mc47e19181da8
 
@@ -7965,7 +8175,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.357 Mobila Tours & Safaris (Tourism employers): variant B
+### 2.355 Mobila Tours & Safaris (Tourism employers): variant B
 
 - To: Mobila Tours & Safaris team | Route: info@mobilasafaris.com | Plan: M2c6ec2105377
 
@@ -7986,7 +8196,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.358 Moivaro Coffee Lodge (Tourism employers): variant B
+### 2.356 Moivaro Coffee Lodge (Tourism employers): variant B
 
 - To: Gijs de Raadt, Founder, Moivaro Group (as published) | Route: information@moivaro-tanzania.com | Plan: Mfb92d82d9d0a
 
@@ -8007,7 +8217,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.359 Monkey Adventures (Tourism employers): variant B
+### 2.357 Monkey Adventures (Tourism employers): variant B
 
 - To: Hafsa Manyaka, Founder & Director | Route: support@monkey.travel | Plan: M36a3f3291932
 
@@ -8028,7 +8238,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.360 Mount Kilimanjaro Safari Club (Tourism employers): variant B
+### 2.358 Mount Kilimanjaro Safari Club (Tourism employers): variant B
 
 - To: Mount Kilimanjaro Safari Club team | Route: info@tanganyika.com | Plan: M579333a98f09
 
@@ -8049,7 +8259,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.361 Mount Royal Safaris (Tourism employers): variant B
+### 2.359 Mount Royal Safaris (Tourism employers): variant B
 
 - To: Mount Royal Safaris team | Route: info@mountroyalsafaris.com | Plan: M25a7ef0906ea
 
@@ -8070,7 +8280,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.362 Mountain Warriors Tour and Safaris (Tourism employers): variant B
+### 2.360 Mountain Warriors Tour and Safaris (Tourism employers): variant B
 
 - To: Mountain Warriors Tour and Safaris team | Route: Info@mountain-warriors.com | Plan: M8196b2ebbec7
 
@@ -8091,14 +8301,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.363 Mrembo Safaris (Tourism employers): variant B
+### 2.361 Mrembo Safaris (Tourism employers): variant B
 
-- To: Mrembo Safaris team | Route: info@mrembosafaris.com | Plan: M6efc997ac98b
+- To: Elizabeth Ayo, Founder; Chairperson of TAWTO (Tanzania Association of Women Tour Operators) | Route: info@mrembosafaris.com | Plan: Mf225fcaad070
 
 Subject: A partnership on education benefits for Mrembo Safaris staff
 
 ```
-Dear Mrembo Safaris team,
+Dear Elizabeth Ayo,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -8112,7 +8322,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.364 Mrimba Palm Hotel (Tourism employers): variant B
+### 2.362 Mrimba Palm Hotel (Tourism employers): variant B
 
 - To: Mrimba Palm Hotel team | Route: info@mrimbapalmhotel.co.tz | Plan: M2c902aecc251
 
@@ -8133,7 +8343,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.365 Msafiri Tanzania (Tourism employers): variant B
+### 2.363 Msafiri Tanzania (Tourism employers): variant B
 
 - To: Msafiri Tanzania team | Route: info@msafiritanzania.com | Plan: M4fa4bde69a64
 
@@ -8154,7 +8364,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.366 Mshele Tanzania Adventures (Tourism employers): variant B
+### 2.364 Mshele Tanzania Adventures (Tourism employers): variant B
 
 - To: Gift Ludwig Maimu, Director (Managing Directors section) | Route: info@msheleadventures.com | Plan: M20b75f99e403
 
@@ -8175,7 +8385,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.367 Mt. Meru Game Lodge (Tourism employers): variant B
+### 2.365 Mt. Meru Game Lodge (Tourism employers): variant B
 
 - To: Mt. Meru Game Lodge team | Route: info@mtmerugamelodge.co.tz | Plan: Maf1e8613c3a2
 
@@ -8196,7 +8406,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.368 Multichoice Safaris Ltd (Tourism employers): variant B
+### 2.366 Multichoice Safaris Ltd (Tourism employers): variant B
 
 - To: Multichoice Safaris Ltd team | Route: multichoice@habari.co.tz | Plan: M63a10cc05c37
 
@@ -8217,7 +8427,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.369 Myriad Safari Limited (Tourism employers): variant B
+### 2.367 Myriad Safari Limited (Tourism employers): variant B
 
 - To: Myriad Safari Limited team | Route: info@myriadsafaris.com | Plan: M0ffe7f0f5e8c
 
@@ -8238,7 +8448,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.370 NBC Bank Tanzania (Tourism employers): variant B
+### 2.368 NBC Bank Tanzania (Tourism employers): variant B
 
 - To: Theobald Sabi, Managing Director | Route: contact.centre@nbc.co.tz | Plan: Ma934bb154ef1
 
@@ -8259,18 +8469,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.371 NORTHLAND SAFARIS LTD (Tourism employers): variant B
+### 2.369 NORTHLAND SAFARIS LTD (Tourism employers): variant B
 
 - To: NORTHLAND SAFARIS LTD team | Route: info@northlandsafaris.com | Plan: M254565ac5c2b
 
-Subject: A partnership on education benefits for NORTHLAND SAFARIS LTD staff
+Subject: A partnership on education benefits for Northland Safaris Ltd staff
 
 ```
-Dear NORTHLAND SAFARIS LTD team,
+Dear Northland Safaris Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with NORTHLAND SAFARIS LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Northland Safaris Ltd to provide an education benefit for the children of your staff. Your team page says you work from an office in Arusha, so an education benefit for your staff could suit a locally based team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -8280,18 +8490,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.372 NSK HOSPITALS LTD (Tourism employers): variant B
+### 2.370 NSK HOSPITALS LTD (Tourism employers): variant B
 
 - To: NSK HOSPITALS LTD team | Route: ijaz.lalji@nsktz.com | Plan: Mfac00e18fd46
 
-Subject: A partnership on education benefits for NSK HOSPITALS LTD staff
+Subject: A partnership on education benefits for NSK Hospitals Ltd staff
 
 ```
-Dear NSK HOSPITALS LTD team,
+Dear NSK Hospitals Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with NSK HOSPITALS LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with NSK Hospitals Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -8301,7 +8511,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.373 Naaz Hotel & Restaurant (Tourism employers): variant B
+### 2.371 Naaz Hotel & Restaurant (Tourism employers): variant B
 
 - To: Naaz Hotel & Restaurant team | Route: reservation@arushanaaz.net | Plan: M1821aa9b94ec
 
@@ -8322,7 +8532,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.374 Nale Moru experiential travel (Tourism employers): variant B
+### 2.372 Nale Moru experiential travel (Tourism employers): variant B
 
 - To: Robert Chekwaze, Founder / Director / Guide | Route: +255743911186 | Plan: M8118c8871dd0 | **Phone route only: call or message, this is not an email address**
 
@@ -8343,7 +8553,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.375 Namiri Tours And Safaris Limited (Tourism employers): variant B
+### 2.373 Namiri Tours And Safaris Limited (Tourism employers): variant B
 
 - To: Shivam Barot, CEO | Route: info@namiritours.co.tz | Plan: M8b1b4fa5b91d
 
@@ -8364,7 +8574,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.376 Napenda Adventures Ltd (Tourism employers): variant B
+### 2.374 Napenda Adventures Ltd (Tourism employers): variant B
 
 - To: Napenda Adventures Ltd team | Route: khuzeima@na.co.tz | Plan: M931becb8c4d0
 
@@ -8385,7 +8595,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.377 Natron Palace Hotel (Tourism employers): variant B
+### 2.375 Natron Palace Hotel (Tourism employers): variant B
 
 - To: Natron Palace Hotel team | Route: info@natronpalacehotel.com | Plan: M88a1dd9e2eb6
 
@@ -8406,7 +8616,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.378 Natural Smile Expeditions (Tourism employers): variant B
+### 2.376 Natural Smile Expeditions (Tourism employers): variant B
 
 - To: Natural Smile Expeditions team | Route: info@naturalsmileexpeditions.com; pololetpatrick@gmail.com; greta2408@gmail.com | Plan: M988b6056317f
 
@@ -8427,14 +8637,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.379 Nature Discovery (Tourism employers): variant B
+### 2.377 Nature Discovery (Tourism employers): variant B
 
-- To: Nature Discovery team | Route: info@naturediscovery.com | Plan: M4f3608d901a3
+- To: Thomas Holden, General Manager (since 2003, per the partner's article) | Route: info@naturediscovery.com | Plan: Mb1b7af86c063
 
 Subject: A partnership on education benefits for Nature Discovery staff
 
 ```
-Dear Nature Discovery team,
+Dear Thomas Holden,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -8448,7 +8658,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.380 Nature Inspirit Travel (Tourism employers): variant B
+### 2.378 Nature Inspirit Travel (Tourism employers): variant B
 
 - To: David (surname not published), Founder | Route: info@natureinspirit.com | Plan: M5d34029acc00
 
@@ -8469,7 +8679,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.381 Nature Responsible Safaris Ltd (Tourism employers): variant B
+### 2.379 Nature Responsible Safaris Ltd (Tourism employers): variant B
 
 - To: Fransisca Masika, Director | Route: info@natureresponsiblesafari.com | Plan: M8a267a626334
 
@@ -8490,7 +8700,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.382 Nature’s Land Safaris & Rentals Limited (Tourism employers): variant B
+### 2.380 Nature’s Land Safaris & Rentals Limited (Tourism employers): variant B
 
 - To: Bakir Manji, Founder & Director | Route: travel@naturesland.co.tz | Plan: M1b6f099e8b7f
 
@@ -8511,7 +8721,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.383 Ndoto Kubwa Tours and Safaris Company LTD (Tourism employers): variant B
+### 2.381 Ndoto Kubwa Tours and Safaris Company LTD (Tourism employers): variant B
 
 - To: Ndoto Kubwa Tours and Safaris Company LTD team | Route: info@ndotokubwatours.com; sales@ndotokubwatours.com | Plan: Mcf4608a78ff0
 
@@ -8532,7 +8742,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.384 New Safari Hotel (Tourism employers): variant B
+### 2.382 New Safari Hotel (Tourism employers): variant B
 
 - To: New Safari Hotel team | Route: reservation@newsafarihotel.com | Plan: Mcc162ec6876a
 
@@ -8553,7 +8763,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.385 New Way Hotel (Tourism employers): variant B
+### 2.383 New Way Hotel (Tourism employers): variant B
 
 - To: New Way Hotel team | Route: info@newwayhotel.co.tz | Plan: Mf90fa21fbc0a
 
@@ -8574,7 +8784,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.386 Ngare Sero Mountain Retreat (Tourism employers): variant B
+### 2.384 Ngare Sero Mountain Retreat (Tourism employers): variant B
 
 - To: Ngare Sero Mountain Retreat team | Route: reservations@ngaresero.com | Plan: M3f936bcf178d
 
@@ -8595,7 +8805,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.387 Ngurdoto Mountain Lodge (Tourism employers): variant B
+### 2.385 Ngurdoto Mountain Lodge (Tourism employers): variant B
 
 - To: Ngurdoto Mountain Lodge team | Route: +255272542217 | Plan: M9ccc1f955807 | **Phone route only: call or message, this is not an email address**
 
@@ -8616,7 +8826,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.388 Njiro Climax Resort Hotel (Tourism employers): variant B
+### 2.386 Njiro Climax Resort Hotel (Tourism employers): variant B
 
 - To: Njiro Climax Resort Hotel team | Route: njiroclimaxresorts@gmail.com | Plan: Mbf81f99aae03
 
@@ -8637,7 +8847,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.389 Nkollo Tours & Safaris (Tourism employers): variant B
+### 2.387 Nkollo Tours & Safaris (Tourism employers): variant B
 
 - To: Nkollo Tours & Safaris team | Route: info@nkollotours.com | Plan: M3d5780eab2be
 
@@ -8658,7 +8868,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.390 Nndeeafrika (Tourism employers): variant B
+### 2.388 Nndeeafrika (Tourism employers): variant B
 
 - To: Evance, Co-founder (Tanzanian-born safari expert; handles itineraries/logistics) | Route: safari@nndeeafrika.co.tz | Plan: Mee2e00779b20
 
@@ -8679,7 +8889,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.391 Nnko & Smith Safaris Ltd (Tourism employers): variant B
+### 2.389 Nnko & Smith Safaris Ltd (Tourism employers): variant B
 
 - To: Aminiel Nnko, Director (published: company 'directed by' him) | Route: nnko@nnkosmith.com | Plan: M7c317f9faf50
 
@@ -8700,7 +8910,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.392 Nomad Tanzania (Tourism employers): variant B
+### 2.390 Nomad Tanzania (Tourism employers): variant B
 
 - To: Nomad Tanzania team | Route: info@nomad-tanzania.com | Plan: M571c1a776557
 
@@ -8721,7 +8931,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.393 Nuru Tours And Safaris (Tourism employers): variant B
+### 2.391 Nuru Tours And Safaris (Tourism employers): variant B
 
 - To: Nuru Tours And Safaris team | Route: sheickynuru@nurutursandsafaris.com | Plan: M1b76c5f49860
 
@@ -8742,7 +8952,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.394 Nyange Adventures Ltd. (Tourism employers): variant B
+### 2.392 Nyange Adventures Ltd. (Tourism employers): variant B
 
 - To: Praise Nyange, Founder | Route: praise@nyangeadventures.com | Plan: M97491a88593a
 
@@ -8763,7 +8973,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.395 OKKA House (Tourism employers): variant B
+### 2.393 OKKA House (Tourism employers): variant B
 
 - To: OKKA House team | Route: houseokka@gmail.com | Plan: M8678498464de
 
@@ -8784,7 +8994,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.396 ONA Safari (Tourism employers): variant B
+### 2.394 ONA Safari (Tourism employers): variant B
 
 - To: ONA Safari team | Route: bookings@ona-safari.com | Plan: Me9dd2dcb2a31
 
@@ -8805,14 +9015,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.397 Off The Beaten Path Safari Ltd (Tourism employers): variant B
+### 2.395 Off The Beaten Path Safari Ltd (Tourism employers): variant B
 
-- To: Off The Beaten Path Safari Ltd team | Route: contact@offthebeatenpathsafaris.com | Plan: M70e00cff73f4
+- To: Salim Mrindoko, Managing Director (MD); the About page also has him say he is the company owner | Route: contact@offthebeatenpathsafaris.com | Plan: M2099b421e53d
 
 Subject: A partnership on education benefits for Off The Beaten Path Safari Ltd staff
 
 ```
-Dear Off The Beaten Path Safari Ltd team,
+Dear Salim Mrindoko,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -8826,7 +9036,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.398 Okota Waste Management Ltd (Tourism employers): variant B
+### 2.396 Okota Waste Management Ltd (Tourism employers): variant B
 
 - To: Andrew Wallace, CEO | Route: info@okota.co | Plan: Md4c81efc4526
 
@@ -8847,7 +9057,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.399 Old Explorer Limited (Tourism employers): variant B
+### 2.397 Old Explorer Limited (Tourism employers): variant B
 
 - To: Old Explorer Limited team | Route: post@tanzaniaexplorer.com | Plan: M9a4b27d94ec6
 
@@ -8868,7 +9078,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.400 Olerai Lodge (Tourism employers): variant B
+### 2.398 Olerai Lodge (Tourism employers): variant B
 
 - To: Olerai Lodge team | Route: info@owc-africa.com | Plan: M3aee79071a28
 
@@ -8889,7 +9099,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.401 Onsea House (Tourism employers): variant B
+### 2.399 Onsea House (Tourism employers): variant B
 
 - To: Onsea House team | Route: info@onseahouse.com | Plan: M5c5bc0bb53ed
 
@@ -8910,7 +9120,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.402 Osim Bnb (Tourism employers): variant B
+### 2.400 Osim Bnb (Tourism employers): variant B
 
 - To: Osim Bnb team | Route: +255 758 758 995 | Plan: M3670bdbebef6 | **Phone route only: call or message, this is not an email address**
 
@@ -8931,14 +9141,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.403 Ozon Light Tours (Tourism employers): variant B
+### 2.401 Ozon Light Tours (Tourism employers): variant B
 
-- To: Winnie Simplis, Board of Directors | Route: info@ozonlighttours.com | Plan: Mb1b24ec00997
+- To: Ozon Light Tours team | Route: info@ozonlighttours.com | Plan: M8073d8cd8c54
 
 Subject: A partnership on education benefits for Ozon Light Tours staff
 
 ```
-Dear Winnie Simplis,
+Dear Ozon Light Tours team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -8952,7 +9162,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.404 PAG Tours & Safaris Limited (Tourism employers): variant B
+### 2.402 PAG Tours & Safaris Limited (Tourism employers): variant B
 
 - To: PAG Tours & Safaris Limited team | Route: info@pagsafaris.com; benedict.eliabu@pagsafaris.com | Plan: M9f23d4dfd49b
 
@@ -8973,18 +9183,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.405 PAJOTA SAFARIS LTD (Tourism employers): variant B
+### 2.403 PAJOTA SAFARIS LTD (Tourism employers): variant B
 
 - To: Pascaline (surname not published), Director of the Tanzania agency | Route: info@pajotasafaris.com | Plan: M8c78e73d6617
 
-Subject: A partnership on education benefits for PAJOTA SAFARIS LTD staff
+Subject: A partnership on education benefits for Pajota Safaris Ltd staff
 
 ```
 Dear Pascaline,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with PAJOTA SAFARIS LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Pajota Safaris Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -8994,7 +9204,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.406 Palace Hotel (Tourism employers): variant B
+### 2.404 Palace Hotel (Tourism employers): variant B
 
 - To: Palace Hotel team | Route: info@palacehotelarusha.com | Plan: M659c946cfa77
 
@@ -9015,7 +9225,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.407 Pamoja Kilimanjaro & Safaris (Tourism employers): variant B
+### 2.405 Pamoja Kilimanjaro & Safaris (Tourism employers): variant B
 
 - To: Richard Moshy, Founder | Route: info@pamojakilisafaris.com | Plan: Mbc659bd3703b
 
@@ -9036,7 +9246,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.408 Papagei Tours and Safaris (Tourism employers): variant B
+### 2.406 Papagei Tours and Safaris (Tourism employers): variant B
 
 - To: Papagei Tours and Safaris team | Route: info@papageitours.com; papageisafari@gmail.com | Plan: Mb0ff9cff6ac1
 
@@ -9057,7 +9267,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.409 Paradies Safaris Ltd (Tourism employers): variant B
+### 2.407 Paradies Safaris Ltd (Tourism employers): variant B
 
 - To: Hilde Keil, Director | Route: hilde.keil@paradiessafaris.com | Plan: M4c0f047bb613
 
@@ -9078,7 +9288,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.410 Paradise and Wilderness Limited (Tourism employers): variant B
+### 2.408 Paradise and Wilderness Limited (Tourism employers): variant B
 
 - To: Bert Schoonvelde, Owner | Route: info@paradise-wilderness.com | Plan: Ma96d8540d78e
 
@@ -9099,7 +9309,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.411 Parks East Africa Ltd (Tourism employers): variant B
+### 2.409 Parks East Africa Ltd (Tourism employers): variant B
 
 - To: Emmanuel Wera, Incoming principal (son of founders Jubilant and Rose) | Route: office@parkeastafrica.com | Plan: Mbe94efa763e2
 
@@ -9110,7 +9320,7 @@ Dear Emmanuel Wera,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Parks East Africa Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Parks East Africa Ltd to provide an education benefit for the children of your staff. Your website lists 20+ local guides, so such a benefit could reach a sizeable part of your team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9120,7 +9330,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.412 Passionate Guides Tanzania (Tourism employers): variant B
+### 2.410 Passionate Guides Tanzania (Tourism employers): variant B
 
 - To: Beatus A. Fungomali, Founder & Expert Guide | Route: info@thepassionateguides.com | Plan: M9c85f1ab9887
 
@@ -9141,7 +9351,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.413 Pazuri Inn Lodge (Tourism employers): variant B
+### 2.411 Pazuri Inn Lodge (Tourism employers): variant B
 
 - To: Pazuri Inn Lodge team | Route: info@pazuriinn.com | Plan: M4017db3dd93d
 
@@ -9162,7 +9372,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.414 Peacock Tours & Safaris (Tourism employers): variant B
+### 2.412 Peacock Tours & Safaris (Tourism employers): variant B
 
 - To: Peacock Tours & Safaris team | Route: info@peacocksafaris.com | Plan: Mc70a66ad9909
 
@@ -9183,7 +9393,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.415 Pooja Travel Tour (Tourism employers): variant B
+### 2.413 Pooja Travel Tour (Tourism employers): variant B
 
 - To: Pooja Travel Tour team | Route: info@poojatravelstour.com | Plan: M043d0f485553
 
@@ -9204,7 +9414,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.416 Popote Africa Adventures (Tourism employers): variant B
+### 2.414 Popote Africa Adventures (Tourism employers): variant B
 
 - To: Popote Africa Adventures team | Route: info@popoteafrica.com | Plan: M37104f816e65
 
@@ -9225,7 +9435,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.417 Portfolio Kibo Slopes T Ltd (Tourism employers): variant B
+### 2.415 Portfolio Kibo Slopes T Ltd (Tourism employers): variant B
 
 - To: Abdi S. Jama, Group Operations & Finance Director | Route: arusha@kiboslopes.com | Plan: Mac060e528bbc
 
@@ -9246,7 +9456,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.418 Precious Moments Safaris (Tourism employers): variant B
+### 2.416 Precious Moments Safaris (Tourism employers): variant B
 
 - To: Precious Moments Safaris team | Route: bookings@preciousmomentssafaris.com | Plan: M5ccfbfd2ef49
 
@@ -9267,7 +9477,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.419 Precision Air (Tourism employers): variant B
+### 2.417 Precision Air (Tourism employers): variant B
 
 - To: Patrick Mwanri, Group Managing Director and CEO | Route: contactcentre@precisionairtz.com | Plan: Mb2ac6aa6e4c6
 
@@ -9288,7 +9498,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.420 Premier Palace Hotel (Tourism employers): variant B
+### 2.418 Premier Palace Hotel (Tourism employers): variant B
 
 - To: Premier Palace Hotel team | Route: reservations@premierpalace-hotel.com | Plan: M36e686058c6f
 
@@ -9309,7 +9519,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.421 Print Plus Media Limited (Tourism employers): variant B
+### 2.419 Print Plus Media Limited (Tourism employers): variant B
 
 - To: Print Plus Media Limited team | Route: sales@printpluszanzibar.com | Plan: Ma075a8948312
 
@@ -9330,7 +9540,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.422 Pristine Trails Adventures & Safaris Co Ltd (Tourism employers): variant B
+### 2.420 Pristine Trails Adventures & Safaris Co Ltd (Tourism employers): variant B
 
 - To: Edward Lyimo, Founder & Owner | Route: sales@pristinetrails.com | Plan: M51ed2e992ab2
 
@@ -9351,7 +9561,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.423 Pure Afro Travels Tanzania (Tourism employers): variant B
+### 2.421 Pure Afro Travels Tanzania (Tourism employers): variant B
 
 - To: Method Bube Tibaijuka, Co-founder / Director | Route: info@pure-afro.com | Plan: Md03b2f77668e
 
@@ -9362,7 +9572,7 @@ Dear Method Bube Tibaijuka,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Pure Afro Travels Tanzania to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Pure Afro Travels Tanzania to provide an education benefit for the children of your staff. Your about page says you actively support local conservation and community development, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9372,7 +9582,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.424 PwC Tanzania (Tourism employers): variant B
+### 2.422 PwC Tanzania (Tourism employers): variant B
 
 - To: PwC Tanzania team | Route: info@pwc.co.tz | Plan: M49f521e6c2bb
 
@@ -9393,18 +9603,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.425 RSA LIMITED (Tourism employers): variant B
+### 2.423 RSA LIMITED (Tourism employers): variant B
 
 - To: RSA LIMITED team | Route: rsa@rsaafrica.com | Plan: Mbe48fbc88f36
 
-Subject: A partnership on education benefits for RSA LIMITED staff
+Subject: A partnership on education benefits for RSA Limited staff
 
 ```
-Dear RSA LIMITED team,
+Dear RSA Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with RSA LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with RSA Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9414,7 +9624,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.426 Ra Expeditions (Tourism employers): variant B
+### 2.424 Ra Expeditions (Tourism employers): variant B
 
 - To: Ra Expeditions team | Route: www.rasafaris.com | Plan: Mc79f1c5737c9 | **Phone route only: call or message, this is not an email address**
 
@@ -9435,7 +9645,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.427 Rafiki Tembo Tours & Safaris (Tourism employers): variant B
+### 2.425 Rafiki Tembo Tours & Safaris (Tourism employers): variant B
 
 - To: Rafiki Tembo Tours & Safaris team | Route: info@rafikitembotours.com; rafikitembotours@gmail.com | Plan: M9c62630760e4
 
@@ -9456,7 +9666,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.428 Ranger Safaris (Tourism employers): variant B
+### 2.426 Ranger Safaris (Tourism employers): variant B
 
 - To: Ranger Safaris team | Route: info@rangersafaris.com | Plan: M25e5669a48aa
 
@@ -9477,7 +9687,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.429 Regal African Safaris Limited (Tourism employers): variant B
+### 2.427 Regal African Safaris Limited (Tourism employers): variant B
 
 - To: Regal African Safaris Limited team | Route: info@regal-africa.com | Plan: M401ecf54d139
 
@@ -9498,7 +9708,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.430 Rioba Safaris (Tourism employers): variant B
+### 2.428 Rioba Safaris (Tourism employers): variant B
 
 - To: Joseph Pius Cosmas, Managing Director | Route: info@riobasafaris.com | Plan: M8415a8dcb844
 
@@ -9519,7 +9729,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.431 RiverStone Africa Safaris (Tourism employers): variant B
+### 2.429 RiverStone Africa Safaris (Tourism employers): variant B
 
 - To: Reuben Ngusaru, Founder & Executive Director | Route: rngusaru@riverstonesafaris.co.tz | Plan: M9aaf5ca84dd2
 
@@ -9540,7 +9750,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.432 Rivertrees Country Inn (Tourism employers): variant B
+### 2.430 Rivertrees Country Inn (Tourism employers): variant B
 
 - To: Rivertrees Country Inn team | Route: info@rivertrees.com | Plan: M671f7e6c6916
 
@@ -9561,7 +9771,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.433 Ro scavenger safaris ltd (Tourism employers): variant B
+### 2.431 Ro scavenger safaris ltd (Tourism employers): variant B
 
 - To: Ro scavenger safaris ltd team | Route: info@roscavengersafaris.co.tz | Plan: M86c926dd65ee
 
@@ -9582,7 +9792,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.434 Robin Hurt Safaris (Tourism employers): variant B
+### 2.432 Robin Hurt Safaris (Tourism employers): variant B
 
 - To: Roger Hurt, Vice-Chairman | Route: info@robinhurt.com | Plan: M5e123d4a7ae2
 
@@ -9603,14 +9813,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.435 Ronjoo Safaris (Tourism employers): variant B
+### 2.433 Ronjoo Safaris (Tourism employers): variant B
 
-- To: Ronjoo Safaris team | Route: deepak@ronjoosafaris.co.tz | Plan: M7dc449aa264e
+- To: Grace Njau, Operations Manager | Route: deepak@ronjoosafaris.co.tz | Plan: Mc7652e219dde
 
 Subject: A partnership on education benefits for Ronjoo Safaris staff
 
 ```
-Dear Ronjoo Safaris team,
+Dear Grace Njau,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -9624,7 +9834,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.436 Rudra distributors (Tourism employers): variant B
+### 2.434 Rudra distributors (Tourism employers): variant B
 
 - To: Rudra distributors team | Route: www.rudradistributors.co.tz | Plan: Mdaf20beee017 | **Phone route only: call or message, this is not an email address**
 
@@ -9645,18 +9855,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.437 Rupia Adventure (Tourism employers): variant B
+### 2.435 Rupia Adventure (Tourism employers): variant B
 
-- To: Samora Komanya, Trekking Operations | Route: info@rupiaadventure.com | Plan: M173802ad2111
+- To: Matt Rupia, CEO / Founder | Route: info@rupiaadventure.com | Plan: Mfbce41902fea
 
 Subject: A partnership on education benefits for Rupia Adventure staff
 
 ```
-Dear Samora Komanya,
+Dear Matt Rupia,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Rupia Adventure to provide an education benefit for the children of your staff. Your company was founded with a focus on customer and staff satisfaction, so such a benefit would fit that commitment to your team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Rupia Adventure to provide an education benefit for the children of your staff. Your about page says Rupia Adventure was created with a focus on customer and staff satisfaction, so such a benefit would fit that focus on your team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9666,18 +9876,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.438 RushTrek Tours (Tourism employers): variant B
+### 2.436 RushTrek Tours Company LTD (Tourism employers): variant B
 
-- To: RushTrek Tours team | Route: bookings@rushtrektours.com; info@rushtrektours.com | Plan: M5fcd8c2ad7bf
+- To: Erik Matthews, CEO (as named on the organisation's own About page) | Route: sales@rushtrektours.com | Plan: M30941e79a293
 
-Subject: A partnership on education benefits for RushTrek Tours staff
+Subject: A partnership on education benefits for RushTrek Tours Company LTD staff
 
 ```
-Dear RushTrek Tours team,
+Dear Erik Matthews,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with RushTrek Tours to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with RushTrek Tours Company LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9687,18 +9897,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.439 SERENGETI SAFARI MARATHON (Tourism employers): variant B
+### 2.437 SERENGETI SAFARI MARATHON (Tourism employers): variant B
 
 - To: SERENGETI SAFARI MARATHON team | Route: www.serengetisafarimarathon.or.tz | Plan: Mbee425f88c3c | **Phone route only: call or message, this is not an email address**
 
-Subject: A partnership on education benefits for SERENGETI SAFARI MARATHON staff
+Subject: A partnership on education benefits for Serengeti Safari Marathon staff
 
 ```
-Dear SERENGETI SAFARI MARATHON team,
+Dear Serengeti Safari Marathon team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with SERENGETI SAFARI MARATHON to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Serengeti Safari Marathon to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9708,18 +9918,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.440 SIBROS (T) LIMITED (Tourism employers): variant B
+### 2.438 SIBROS (T) LIMITED (Tourism employers): variant B
 
 - To: SIBROS (T) LIMITED team | Route: Info@sibros.co.tz | Plan: M5775b11d09c0
 
-Subject: A partnership on education benefits for SIBROS (T) LIMITED staff
+Subject: A partnership on education benefits for Sibros (T) Limited staff
 
 ```
-Dear SIBROS (T) LIMITED team,
+Dear Sibros (T) Limited team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with SIBROS (T) LIMITED to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Sibros (T) Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9729,18 +9939,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.441 SIDAI DESIGNS (Safari Atelier) (Tourism employers): variant B
+### 2.439 SIDAI DESIGNS (Safari Atelier) (Tourism employers): variant B
 
 - To: SIDAI DESIGNS (Safari Atelier) team | Route: safaris@safariatelier.com | Plan: M32f0ccd6a982
 
-Subject: A partnership on education benefits for SIDAI DESIGNS staff
+Subject: A partnership on education benefits for Sidai Designs staff
 
 ```
-Dear SIDAI DESIGNS team,
+Dear Sidai Designs team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with SIDAI DESIGNS to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Sidai Designs to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -9750,7 +9960,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.442 Sabrahm Consulting Ltd (Tourism employers): variant B
+### 2.440 Sabrahm Consulting Ltd (Tourism employers): variant B
 
 - To: Sabrahm Consulting Ltd team | Route: sabrahmconsulting@gmail.com | Plan: Me1ea28fcea78
 
@@ -9771,7 +9981,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.443 Sabrahm Safaris (Tourism employers): variant B
+### 2.441 Sabrahm Safaris (Tourism employers): variant B
 
 - To: Elisante Ayo, Founder | Route: sabrahm@sabrahm-safaris.com | Plan: M3c83899f1b35
 
@@ -9792,7 +10002,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.444 Sadio Events (Tourism employers): variant B
+### 2.442 Sadio Events (Tourism employers): variant B
 
 - To: Sadio Events team | Route: info@sadioevents.co.tz | Plan: M30bbc619216a
 
@@ -9813,7 +10023,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.445 Safari Asap (Tourism employers): variant B
+### 2.443 Safari Asap (Tourism employers): variant B
 
 - To: Thomas Nyaki, Founder and Owner at Safari ASAP | Route: thomas@safariasap.com | Plan: M4b46301eec9d
 
@@ -9834,7 +10044,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.446 Safari Avventura T Ltd (Tourism employers): variant B
+### 2.444 Safari Avventura T Ltd (Tourism employers): variant B
 
 - To: Gianluca Donati, Manager (co-founder); marketing and customer support | Route: info@safariavventura.com | Plan: Mb3e095394479
 
@@ -9855,7 +10065,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.447 Safari Bike Africa (Tourism employers): variant B
+### 2.445 Safari Bike Africa (Tourism employers): variant B
 
 - To: Safari Bike Africa team | Route: info@safaribikeafrica.com | Plan: Mbb82da64c278
 
@@ -9876,7 +10086,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.448 Safari Crew Tanzania (Tourism employers): variant B
+### 2.446 Safari Crew Tanzania (Tourism employers): variant B
 
 - To: Safari Crew Tanzania team | Route: safari@safaricrewtanzania.com | Plan: M4a507f20bc44
 
@@ -9897,7 +10107,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.449 Safari Jens/Kitulano Investment Ltd (Tourism employers): variant B
+### 2.447 Safari Jens/Kitulano Investment Ltd (Tourism employers): variant B
 
 - To: Safari Jens/Kitulano Investment Ltd team | Route: info@safari-jens.dk | Plan: Mceb85d4b8f5f
 
@@ -9918,7 +10128,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.450 Safari Kings Tanzania Ltd (Tourism employers): variant B
+### 2.448 Safari Kings Tanzania Ltd (Tourism employers): variant B
 
 - To: Mark Fitzsimmons, Co-owner | Route: info@SafariKings.com | Plan: M3f53dc4c970b
 
@@ -9939,7 +10149,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.451 Safari Soles (Tourism employers): variant B
+### 2.449 Safari Soles (Tourism employers): variant B
 
 - To: Bryson Robert Mbise, Founder | Route: marketing@safarisolestours.com | Plan: Me1d38e226098
 
@@ -9960,7 +10170,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.452 Safari Tanzania (Tourism employers): variant B
+### 2.450 Safari Tanzania (Tourism employers): variant B
 
 - To: Safari Tanzania team | Route: info@safaritanzania.com | Plan: Md58595d60c0f
 
@@ -9981,7 +10191,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.453 Safari Wholesalers and Retailers Limited (Tourism employers): variant B
+### 2.451 Safari Wholesalers and Retailers Limited (Tourism employers): variant B
 
 - To: Safari Wholesalers and Retailers Limited team | Route: safariwholesalers@gmail.com | Plan: Md4605716fb3a
 
@@ -10002,7 +10212,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.454 Safari plus ltd (Tourism employers): variant B
+### 2.452 Safari plus ltd (Tourism employers): variant B
 
 - To: Safari plus ltd team | Route: kieran@safariplus.co.tz | Plan: M25f9a5b498d7
 
@@ -10023,7 +10233,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.455 Safari – HQ (Tourism employers): variant B
+### 2.453 Safari – HQ (Tourism employers): variant B
 
 - To: Safari – HQ team | Route: info@safarihq.com | Plan: Mdc9e8897bc1d
 
@@ -10044,7 +10254,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.456 Safari-tz (Tourism employers): variant B
+### 2.454 Safari-tz (Tourism employers): variant B
 
 - To: Safari-tz team | Route: info@safari-tz.com | Plan: Mae6daca73713
 
@@ -10065,7 +10275,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.457 Safari.Africa (Tourism employers): variant B
+### 2.455 Safari.Africa (Tourism employers): variant B
 
 - To: Florida Elkummay, Director & Co-owner | Route: info@safari.africa | Plan: M17285ee4b794
 
@@ -10086,7 +10296,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.458 Safarini Africa Ltd (Tourism employers): variant B
+### 2.456 Safarini Africa Ltd (Tourism employers): variant B
 
 - To: Safarini Africa Ltd team | Route: karibu@safarini.com | Plan: M0a1a9a03eb12
 
@@ -10107,7 +10317,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.459 Safaris Africa United (Tourism employers): variant B
+### 2.457 Safaris Africa United (Tourism employers): variant B
 
 - To: Safaris Africa United team | Route: info@safarisafricaunited.com | Plan: M5031e9de5a1b
 
@@ -10128,28 +10338,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.460 Safaris-R-Us Ltd (Tourism employers): variant B
-
-- To: Richard Sisia, Director (co-founder with Gemma Sisia) | Route: info@safaris-r-us.com | Plan: M34589ac94056
-
-Subject: A partnership on education benefits for Safaris-R-Us Ltd staff
-
-```
-Dear Richard Sisia,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
-
-We are looking to set up a partnership with Safaris-R-Us Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 2.461 Sali Safaris (Tourism employers): variant B
+### 2.458 Sali Safaris (Tourism employers): variant B
 
 - To: Sali Safaris team | Route: 0754430400 / 0713252627 | Plan: M721fb539f103 | **Phone route only: call or message, this is not an email address**
 
@@ -10170,7 +10359,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.462 Sameer Parts Limited (Tourism employers): variant B
+### 2.459 Sameer Parts Limited (Tourism employers): variant B
 
 - To: Sameer Parts Limited team | Route: info@sameer.co.tz | Plan: M71b1c87f8c91
 
@@ -10191,7 +10380,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.463 Samora Explorers Ltd (Tourism employers): variant B
+### 2.460 Samora Explorers Ltd (Tourism employers): variant B
 
 - To: Iddy Kimaro, Founder / Director | Route: info@samoraexplorers.com; samoraexp@gmail.com | Plan: M456be492bf54
 
@@ -10212,7 +10401,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.464 See Endless Adventures Tanzania (Tourism employers): variant B
+### 2.461 See Endless Adventures Tanzania (Tourism employers): variant B
 
 - To: See Endless Adventures Tanzania team | Route: info@see-adventures.com | Plan: M40ca4a326079
 
@@ -10233,7 +10422,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.465 Senator Hotel (Tourism employers): variant B
+### 2.462 Senator Hotel (Tourism employers): variant B
 
 - To: Senator Hotel team | Route: +255767606204 | Plan: M58935dd27a4c | **Phone route only: call or message, this is not an email address**
 
@@ -10254,7 +10443,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.466 Senjaro Pay Technologies Limited (Tourism employers): variant B
+### 2.463 Senjaro Pay Technologies Limited (Tourism employers): variant B
 
 - To: Senjaro Pay Technologies Limited team | Route: info@senjaropay.com | Plan: M1f8ce2de2577
 
@@ -10275,7 +10464,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.467 Sereland Africa Safaris (Tourism employers): variant B
+### 2.464 Sereland Africa Safaris (Tourism employers): variant B
 
 - To: Mike Kuley, Co-Founder & CEO / Managing Director | Route: info@serelandafricasafaris.com | Plan: M2c973b6df9f8
 
@@ -10296,7 +10485,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.468 Serengeti African Tours (Tourism employers): variant B
+### 2.465 Serengeti African Tours (Tourism employers): variant B
 
 - To: Lucas David, Leader / Operations Manager (founder message signed 'Lucas & the Serengeti Team Founders') | Route: info@serengetiafricantours.com | Plan: Mfc7fd7f669f9
 
@@ -10317,7 +10506,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.469 Serengeti Big Cats Safaris Ltd (Tourism employers): variant B
+### 2.466 Serengeti Big Cats Safaris Ltd (Tourism employers): variant B
 
 - To: Freddy (surname not published), Co-founder; Directeur des Opérations (Operations Director) | Route: marketing@serengeti-big-cats-safaris.com; bookings@serengeti-big-cats-safaris.com | Plan: M48de9a0ac8f1
 
@@ -10338,7 +10527,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.470 Serengeti Clarity (Tourism employers): variant B
+### 2.467 Serengeti Clarity (Tourism employers): variant B
 
 - To: Serengeti Clarity team | Route: info@serengeticlarity.com | Plan: Mff333fa2aec5
 
@@ -10349,7 +10538,7 @@ Dear Serengeti Clarity team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Serengeti Clarity to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Serengeti Clarity to provide an education benefit for the children of your staff. Your About page says your volunteer programmes contribute to education, healthcare and community development initiatives, so an education benefit for your own staff would fit that commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -10359,7 +10548,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.471 Serengeti Pride Safaris (Tourism employers): variant B
+### 2.468 Serengeti Pride Safaris (Tourism employers): variant B
 
 - To: Lema Peter, Co-Founder & Guide | Route: info@serengetipridesafaris.com | Plan: M39a32a501b47
 
@@ -10370,7 +10559,7 @@ Dear Lema Peter,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Serengeti Pride Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Serengeti Pride Safaris to provide an education benefit for the children of your staff. Your about page highlights your dedicated office staff, so such a benefit could recognise the people behind each trip's logistics. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -10380,7 +10569,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.472 Serengeti Wakanda Tours & Safaris (Tourism employers): variant B
+### 2.469 Serengeti Wakanda Tours & Safaris (Tourism employers): variant B
 
 - To: Serengeti Wakanda Tours & Safaris team | Route: info@serengetiwakandatours.com | Plan: Ma86f17d31e4f
 
@@ -10401,7 +10590,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.473 Shades of Africa Ltd (Tourism employers): variant B
+### 2.470 Shades of Africa Ltd (Tourism employers): variant B
 
 - To: Shades of Africa Ltd team | Route: account@albatros.co.tz | Plan: M7d534d25dcea
 
@@ -10422,7 +10611,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.474 Shah Tours Travels Ltd (Tourism employers): variant B
+### 2.471 Shah Tours Travels Ltd (Tourism employers): variant B
 
 - To: Harshit Shah, Managing Director | Route: +255272752370 | Plan: M14d6d3ebfd57 | **Phone route only: call or message, this is not an email address**
 
@@ -10443,7 +10632,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.475 Shaw Safaris Ltd (Tourism employers): variant B
+### 2.472 Shaw Safaris Ltd (Tourism employers): variant B
 
 - To: Shaw Safaris Ltd team | Route: hello@shawsafaris.co.tz | Plan: M4086ed23c3e6
 
@@ -10464,7 +10653,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.476 Shayona Safaris & Tours (Tourism employers): variant B
+### 2.473 Shayona Safaris & Tours (Tourism employers): variant B
 
 - To: Shayona Safaris & Tours team | Route: info@shayonasafaris.com | Plan: M0b3146e2aaf2
 
@@ -10485,7 +10674,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.477 Shemeji Safari (Tourism employers): variant B
+### 2.474 Shemeji Safari (Tourism employers): variant B
 
 - To: Shemeji Safari team | Route: contact@shemejisafari.com | Plan: M751793c5c47c
 
@@ -10506,7 +10695,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.478 Sher East Africa (Tourism employers): variant B
+### 2.475 Sher East Africa (Tourism employers): variant B
 
 - To: Sher East Africa team | Route: tanveer@sher.co.tz; Fleet@sher.co.tz | Plan: M2c8a77f0b10b
 
@@ -10527,7 +10716,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.479 Shidolya Tours & Safaris Ltd (Tourism employers): variant B
+### 2.476 Shidolya Tours & Safaris Ltd (Tourism employers): variant B
 
 - To: Shidolya Tours & Safaris Ltd team | Route: admin@shidolya.co.tz | Plan: M97ed5f8cf2cf
 
@@ -10548,7 +10737,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.480 Shilashi self-drive car hire and safaris (Tourism employers): variant B
+### 2.477 Shilashi self-drive car hire and safaris (Tourism employers): variant B
 
 - To: Shilashi self-drive car hire and safaris team | Route: info@shilashicarhire.com | Plan: Mbda7bc9e48e8
 
@@ -10569,7 +10758,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.481 Shiri Adventures and Safaris (Tourism employers): variant B
+### 2.478 Shiri Adventures and Safaris (Tourism employers): variant B
 
 - To: Linus James, Managing Director | Route: info@shiriadventures.com | Plan: Md1ee40db1de0
 
@@ -10590,7 +10779,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.482 Simba Safaris Ltd (Tourism employers): variant B
+### 2.479 Simba Safaris Ltd (Tourism employers): variant B
 
 - To: Firoz Simba, Founder | Route: marketing@simbasafaris.co.tz | Plan: M518abf73d295
 
@@ -10601,7 +10790,7 @@ Dear Firoz Simba,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Simba Safaris Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Simba Safaris Ltd to provide an education benefit for the children of your staff. Your about page says you invest in diligent staff training, so an education benefit for your staff would sit alongside that investment in your people. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -10611,7 +10800,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.483 Siri Maasai Safaris Limited (Tourism employers): variant B
+### 2.480 Siri Maasai Safaris Limited (Tourism employers): variant B
 
 - To: Siri Maasai Safaris Limited team | Route: info@sirimaasaisafari.com | Plan: Md6f0a8afc322
 
@@ -10632,7 +10821,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.484 Six and Seven Tours (Tourism employers): variant B
+### 2.481 Six and Seven Tours (Tourism employers): variant B
 
 - To: Six and Seven Tours team | Route: info@sixandseventours.com | Plan: M19e1c20ab8bc
 
@@ -10653,7 +10842,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.485 Skylink Travel Ltd (Tourism employers): variant B
+### 2.482 Skylink Travel Ltd (Tourism employers): variant B
 
 - To: MOUSTAFA KHATAW, Managing Director | Route: hello@fcmtravel.co.tz | Plan: Mfa4a81e5a6a5
 
@@ -10674,7 +10863,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.486 Snow Africa Adventures (Tourism employers): variant B
+### 2.483 Snow Africa Adventures (Tourism employers): variant B
 
 - To: Caroline, Co-Founder & Operations | Route: info@snowafricaadventure.com | Plan: M8797a73dcdf1
 
@@ -10695,7 +10884,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.487 Spazio Safari Limited (Tourism employers): variant B
+### 2.484 Spazio Safari Limited (Tourism employers): variant B
 
 - To: Spazio Safari Limited team | Route: info@spaziosafari.com | Plan: M3b231704ccee
 
@@ -10716,7 +10905,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.488 Stan Tours & Safaris (Tourism employers): variant B
+### 2.485 Stan Tours & Safaris (Tourism employers): variant B
 
 - To: Stan Tours & Safaris team | Route: info@stansafaris.com | Plan: Mb78511461c30
 
@@ -10737,7 +10926,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.489 Stavo Adventures (Tourism employers): variant B
+### 2.486 Stavo Adventures (Tourism employers): variant B
 
 - To: Stavo Adventures team | Route: info@stavoadventures.com | Plan: M7dbd67cdcf0f
 
@@ -10758,7 +10947,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.490 Stereo Hotel (Tourism employers): variant B
+### 2.487 Stereo Hotel (Tourism employers): variant B
 
 - To: Stereo Hotel team | Route: +255759979795 | Plan: M39c680dc4729 | **Phone route only: call or message, this is not an email address**
 
@@ -10779,7 +10968,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.491 Still Waters Safaris (Tourism employers): variant B
+### 2.488 Still Waters Safaris (Tourism employers): variant B
 
 - To: Amanda Kessy, Co-founder | Route: info@stillwaterssafaris.co.tz | Plan: M26abe087a0a2
 
@@ -10800,7 +10989,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.492 Stone Town Tours and Safari (Tourism employers): variant B
+### 2.489 Stone Town Tours and Safari (Tourism employers): variant B
 
 - To: Stone Town Tours and Safari team | Route: marketing@stonetowntoursandsafari.com; info@stonetowntoursandsafari.com | Plan: M3d161b9b7540
 
@@ -10821,7 +11010,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.493 Summit 2 Sand Safaris (Tourism employers): variant B
+### 2.490 Summit 2 Sand Safaris (Tourism employers): variant B
 
 - To: David Livingstone, Managing Director / Head Guide | Route: david@summit2sandsafaris.com | Plan: M2cfa64f0d3d8
 
@@ -10842,7 +11031,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.494 Summit Expeditions Nomadic Experience (Tourism employers): variant B
+### 2.491 Summit Expeditions Nomadic Experience (Tourism employers): variant B
 
 - To: Simon Mtuy, Director | Route: info@nomadicexperience.com | Plan: Mfee8d6bd6548
 
@@ -10863,7 +11052,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.495 Summits Africa (Tourism employers): variant B
+### 2.492 Summits Africa (Tourism employers): variant B
 
 - To: Ake Lindstrom, Director | Route: info@summits-africa.com | Plan: M31e01e36c162
 
@@ -10884,7 +11073,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.496 Sundown African Adventures LTD (Tourism employers): variant B
+### 2.493 Sundown African Adventures LTD (Tourism employers): variant B
 
 - To: Sundown African Adventures LTD team | Route: info@sundownadventuressafaris.com/ booking@sundownadventuressafaris.com; sundownafricaadventures@gmail.com | Plan: M81cd0e16087c
 
@@ -10905,7 +11094,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.497 Suniva Insurance Brokers Ltd (Tourism employers): variant B
+### 2.494 Suniva Insurance Brokers Ltd (Tourism employers): variant B
 
 - To: Rajeev Deshpande, Managing Director | Route: md@suniva.co.tz | Plan: M0ec557746bfe
 
@@ -10926,7 +11115,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.498 Superdoll Trailer Manufacturer Co (T) Ltd (Tourism employers): variant B
+### 2.495 Superdoll Trailer Manufacturer Co (T) Ltd (Tourism employers): variant B
 
 - To: Superdoll Trailer Manufacturer Co (T) Ltd team | Route: arusha@superdoll-tz.com | Plan: Mff57f1e45da1
 
@@ -10947,7 +11136,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.499 Swala Safaris LTD (Tourism employers): variant B
+### 2.496 Swala Safaris LTD (Tourism employers): variant B
 
 - To: Swala Safaris LTD team | Route: info@swalasafaris.com | Plan: M60494ec96618
 
@@ -10968,18 +11157,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.500 TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS (Tourism employers): variant B
+### 2.497 TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS (Tourism employers): variant B
 
 - To: TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS team | Route: tfsp.tanzania@gmail.com | Plan: M151f9df8d08e
 
-Subject: A partnership on education benefits for TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS staff
+Subject: A partnership on education benefits for Tanzania Federation of Tourism Service Providers staff
 
 ```
-Dear TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS team,
+Dear Tanzania Federation of Tourism Service Providers team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Tanzania Federation of Tourism Service Providers to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -10989,18 +11178,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.501 TGN COMPANY LTD (Tourism employers): variant B
+### 2.498 TGN COMPANY LTD (Tourism employers): variant B
 
 - To: Pauline Edward, CEO | Route: info@tgn.co.tz | Plan: M3cef04e6b82d
 
-Subject: A partnership on education benefits for TGN COMPANY LTD staff
+Subject: A partnership on education benefits for TGN Company Ltd staff
 
 ```
 Dear Pauline Edward,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with TGN COMPANY LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with TGN Company Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -11010,7 +11199,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.502 Takims Holidays Tours & Safaris Ltd (Tourism employers): variant B
+### 2.499 Takims Holidays Tours & Safaris Ltd (Tourism employers): variant B
 
 - To: Takims Holidays Tours & Safaris Ltd team | Route: +255-22-2110346 | Plan: M5584f4846c28 | **Phone route only: call or message, this is not an email address**
 
@@ -11031,7 +11220,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.503 Tales of Tanzania Safaris Ltd (Tourism employers): variant B
+### 2.500 Tales of Tanzania Safaris Ltd (Tourism employers): variant B
 
 - To: Tales of Tanzania Safaris Ltd team | Route: info@talesoftanzaniasafaris.com | Plan: M90f98684a8f1
 
@@ -11052,7 +11241,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.504 Tamega Adventure & Safaris Ltd (Tourism employers): variant B
+### 2.501 Tamega Adventure & Safaris Ltd (Tourism employers): variant B
 
 - To: Tamega Adventure & Safaris Ltd team | Route: Aggrey.makia@tamegasafaris.co.tz; aggreymakia2@gmail.com | Plan: Ma26d801c3d20
 
@@ -11073,7 +11262,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.505 Tandala Expeditions Limited (Tourism employers): variant B
+### 2.502 Tandala Expeditions Limited (Tourism employers): variant B
 
 - To: Aziz Hajee, Director/Owner | Route: tandala@tandala.co.tz | Plan: M0d24b3430ca7
 
@@ -11084,7 +11273,7 @@ Dear Aziz Hajee,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Tandala Expeditions Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Tandala Expeditions Limited to provide an education benefit for the children of your staff. Your team page says one of your guides has been with Tandala Expeditions since 1997, so such a benefit could reward that kind of long service. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -11094,7 +11283,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.506 Tanganyika Outdoor Safari Guide (Tourism employers): variant B
+### 2.503 Tanganyika Outdoor Safari Guide (Tourism employers): variant B
 
 - To: Tanganyika Outdoor Safari Guide team | Route: ndemfoo@tanganyikaoutdoorsafari.com | Plan: M746072a2344e
 
@@ -11115,7 +11304,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.507 Tanger Safaris (Tourism employers): variant B
+### 2.504 Tanger Safaris (Tourism employers): variant B
 
 - To: Wilfried Bernhard Zielke, Co-founder / Owner | Route: info@tangersafaris.com | Plan: M3a66f6cbec79
 
@@ -11136,7 +11325,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.508 Tanmanagement Insurance Brokers Ltd (JW SEAGON) (Tourism employers): variant B
+### 2.505 Tanmanagement Insurance Brokers Ltd (JW SEAGON) (Tourism employers): variant B
 
 - To: Hussein Kermalli, CEO – Tanzania | Route: info@tm.co.tz | Plan: M35a3b7a96951
 
@@ -11157,7 +11346,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.509 Tanzania Choice Safaris (Tourism employers): variant B
+### 2.506 Tanzania Choice Safaris (Tourism employers): variant B
 
 - To: Kakasii Kimaro, Founder (guiding) | Route: safaris@tanzaniachoicesafaris.com | Plan: M2d64c71d1b5d
 
@@ -11178,7 +11367,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.510 Tanzania Classic Tours (Tourism employers): variant B
+### 2.507 Tanzania Classic Tours (Tourism employers): variant B
 
 - To: Tanzania Classic Tours team | Route: info@tanzaniaclassictours.com | Plan: M38bdc69f1892
 
@@ -11199,7 +11388,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.511 Tanzania Emotion Safari (Tourism employers): variant B
+### 2.508 Tanzania Emotion Safari (Tourism employers): variant B
 
 - To: Martha Samson Sesera, Director, partner & co-founder | Route: info@tanzaniaemotionasafaris.com | Plan: M496c8f47ef79
 
@@ -11220,7 +11409,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.512 Tanzania Hugos Safaris (Tourism employers): variant B
+### 2.509 Tanzania Hugos Safaris (Tourism employers): variant B
 
 - To: Goodluck Materu, Co - Founder | Route: info@tanzaniahugossafaris.com | Plan: M04c48a8fa216
 
@@ -11241,7 +11430,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.513 Tanzania Outfitter & Safaris (Tourism employers): variant B
+### 2.510 Tanzania Outfitter & Safaris (Tourism employers): variant B
 
 - To: Tanzania Outfitter & Safaris team | Route: tosafari@tosafari.co.tz | Plan: M74466fdf0881
 
@@ -11262,7 +11451,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.514 Tanzania Roadside Expeditions (Tourism employers): variant B
+### 2.511 Tanzania Roadside Expeditions (Tourism employers): variant B
 
 - To: Paul Justin Mchome, Founder & CEO | Route: info@roadsidetanzania.com | Plan: M4816c11690e3
 
@@ -11283,28 +11472,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.515 Tanzania Safari Bug Ltd. (Tourism employers): variant B
-
-- To: Michael Msuya, Co-Founder / Owner (senior safari guide) | Route: info@tanzania-safari-bug.com | Plan: M0998c92d6a92
-
-Subject: A partnership on education benefits for Tanzania Safari Bug Ltd. staff
-
-```
-Dear Michael Msuya,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
-
-We are looking to set up a partnership with Tanzania Safari Bug Ltd. to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 2.516 Tanzania Serengeti Adventure Limited (Tourism employers): variant B
+### 2.512 Tanzania Serengeti Adventure Limited (Tourism employers): variant B
 
 - To: Tanzania Serengeti Adventure Limited team | Route: jordan@abouttanzania.com | Plan: M2610cf2ae71c
 
@@ -11325,7 +11493,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.517 Tanzania Unique Adventures (Tourism employers): variant B
+### 2.513 Tanzania Unique Adventures (Tourism employers): variant B
 
 - To: Ally Hamad, Director, Tanzania Unique Adventures LTD Arusha | Route: info@tanzania-unique-adventures.com | Plan: M343f111df324
 
@@ -11336,7 +11504,7 @@ Dear Ally Hamad,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Tanzania Unique Adventures to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Tanzania Unique Adventures to provide an education benefit for the children of your staff. Your About page says you work directly with your own team in Arusha, so such a benefit could reach that local team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -11346,7 +11514,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.518 Tanzania à la Carte Safaris Company (Tourism employers): variant B
+### 2.514 Tanzania à la Carte Safaris Company (Tourism employers): variant B
 
 - To: Tanzania à la Carte Safaris Company team | Route: sales@tanzaniaalacarte.com | Plan: M51de354d25d1
 
@@ -11367,7 +11535,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.519 Tanzanie Authentique (Tourism employers): variant B
+### 2.515 Tanzanie Authentique (Tourism employers): variant B
 
 - To: Valentine (surname not published), Co-manager / trip planning lead (joined founder to develop the agency) | Route: info@tanzanieauthentique.com | Plan: M2f969a1259e3
 
@@ -11388,7 +11556,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.520 Taste of Kilimanjaro Adventures (T) Limited (Tourism employers): variant B
+### 2.516 Taste of Kilimanjaro Adventures (T) Limited (Tourism employers): variant B
 
 - To: Taste of Kilimanjaro Adventures (T) Limited team | Route: frank@tasteofkilimanjaro.com; info@tasteofkilimanjaro.com | Plan: Mde0b82e98d0f
 
@@ -11409,7 +11577,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.521 Tazama Africa Safari (Tourism employers): variant B
+### 2.517 Tazama Africa Safari (Tourism employers): variant B
 
 - To: Tazama Africa Safari team | Route: info@tazamaafricasafari.com; james@tazamaafricasafari.com CONTACT: +255 744 400 043 EMAIL; info@tazamaafricasafari.com | Plan: Ma0db2286a538
 
@@ -11430,7 +11598,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.522 Teamwise Tanzania Travel Limited (Tourism employers): variant B
+### 2.518 Teamwise Tanzania Travel Limited (Tourism employers): variant B
 
 - To: Teamwise Tanzania Travel Limited team | Route: info@teamwise.travel | Plan: Me325c06be065
 
@@ -11451,7 +11619,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.523 Telly Africa Tours and Safaris (Tourism employers): variant B
+### 2.519 Telly Africa Tours and Safaris (Tourism employers): variant B
 
 - To: Telly Africa Tours and Safaris team | Route: info@tellysafaris.co.tz | Plan: Mcb78c575bf51
 
@@ -11472,7 +11640,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.524 Termite Tour Travel (Tourism employers): variant B
+### 2.520 Termite Tour Travel (Tourism employers): variant B
 
 - To: Benjamin Haran Hosea, CEO & Founder | Route: info@termitetourtravel.com | Plan: M013fc2b1f22a
 
@@ -11493,7 +11661,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.525 The African Footprint Co Ltd Bush 2 Beach (Tourism employers): variant B
+### 2.521 The African Footprint Co Ltd Bush 2 Beach (Tourism employers): variant B
 
 - To: The African Footprint Co Ltd Bush 2 Beach team | Route: info@bush2beach.com | Plan: M9e3ed3e460f5
 
@@ -11514,7 +11682,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.526 The Charity Hotel (Tourism employers): variant B
+### 2.522 The Charity Hotel (Tourism employers): variant B
 
 - To: The Charity Hotel team | Route: info@thecharityhotel.com | Plan: Mf5a91e1f7aef
 
@@ -11535,7 +11703,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.527 The East African Hotel All Suites (Tourism employers): variant B
+### 2.523 The East African Hotel All Suites (Tourism employers): variant B
 
 - To: The East African Hotel All Suites team | Route: +255272050075 | Plan: Mbbbfc0822bc4 | **Phone route only: call or message, this is not an email address**
 
@@ -11556,7 +11724,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.528 The Exclusive Portfolio (Tourism employers): variant B
+### 2.524 The Exclusive Portfolio (Tourism employers): variant B
 
 - To: The Exclusive Portfolio team | Route: theexclusiveportfolio@gmail.com | Plan: M852e1f4d2289
 
@@ -11577,7 +11745,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.529 The First Lady Tour Safari (Tourism employers): variant B
+### 2.525 The First Lady Tour Safari (Tourism employers): variant B
 
 - To: The First Lady Tour Safari team | Route: thefirstladytoursafari@gmail.com View Details | Plan: M958aeb7bb553
 
@@ -11598,7 +11766,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.530 The Map's Edge Limited (Tourism employers): variant B
+### 2.526 The Map's Edge Limited (Tourism employers): variant B
 
 - To: The Map's Edge Limited team | Route: admin@maps-edge.com | Plan: M787aef78b181
 
@@ -11619,7 +11787,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.531 The Rickshaw Travels Ltd (Tourism employers): variant B
+### 2.527 The Rickshaw Travels Ltd (Tourism employers): variant B
 
 - To: The Rickshaw Travels Ltd team | Route: md@rickshawtz.com | Plan: M1c14fe4daa93
 
@@ -11640,7 +11808,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.532 The Safari Doctors (Tourism employers): variant B
+### 2.528 The Safari Doctors (Tourism employers): variant B
 
 - To: The Safari Doctors team | Route: info@thesafaridoctors.co.tz | Plan: M00b33d789743
 
@@ -11661,7 +11829,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.533 The Smiling Zebra Limited (Tourism employers): variant B
+### 2.529 The Smiling Zebra Limited (Tourism employers): variant B
 
 - To: Zoe, Founder | Route: info@thesmilingzebra.com | Plan: Me3c4e376ef4a
 
@@ -11682,7 +11850,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.534 The Wanderer Tanzania Ltd (Tourism employers): variant B
+### 2.530 The Wanderer Tanzania Ltd (Tourism employers): variant B
 
 - To: Victor John, Operations Manager | Route: info@wanderertanzania.com; manager@wanderertanzania.com | Plan: M710de9292211
 
@@ -11703,7 +11871,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.535 Thomson Safaris Ltd (Tourism employers): variant B
+### 2.531 Thomson Safaris Ltd (Tourism employers): variant B
 
 - To: Rick Thomson, Co-Founder | Route: info@thomsonsafaris.com | Plan: M27d0442c77ea
 
@@ -11724,7 +11892,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.536 Topguides Africa Limited (Tourism employers): variant B
+### 2.532 Topguides Africa Limited (Tourism employers): variant B
 
 - To: Victor Nyakiriga, Founder / Head of Topguides Safaris | Route: info@topguidessafaris.com | Plan: M3510edea7b60
 
@@ -11745,7 +11913,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.537 Tracks Of Africa Safari Adventure (Tourism employers): variant B
+### 2.533 Tracks Of Africa Safari Adventure (Tourism employers): variant B
 
 - To: Tracks Of Africa Safari Adventure team | Route: office@tracksofafrica.net | Plan: Me3b0159a64b3
 
@@ -11766,7 +11934,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.538 Transcendent Journeys Tanzania Trading name: TJT (Tourism employers): variant B
+### 2.534 Transcendent Journeys Tanzania Trading name: TJT (Tourism employers): variant B
 
 - To: Victor Bubelwa Izoba, Founder / Owner | Route: victor@transcendentjourneystz.com | Plan: M977135d977a3
 
@@ -11787,7 +11955,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.539 Translen Investments and Trading Ltd (Tourism employers): variant B
+### 2.535 Translen Investments and Trading Ltd (Tourism employers): variant B
 
 - To: Leonard Mmari, Founder and CEO | Route: info@transleninvestments.com | Plan: M15d86a15c759
 
@@ -11798,7 +11966,7 @@ Dear Leonard Mmari,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Translen Investments and Trading Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Translen Investments and Trading Ltd to provide an education benefit for the children of your staff. Your about page says your guides are trained every year in vehicle handling, hospitality and first aid, so an education benefit would fit that investment in learning. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -11808,7 +11976,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.540 Travel Booking Guide Ltd (Tourism employers): variant B
+### 2.536 Travel Booking Guide Ltd (Tourism employers): variant B
 
 - To: Travel Booking Guide Ltd team | Route: info@travelbookingtz.com | Plan: M5475a4c83285
 
@@ -11829,7 +11997,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.541 Travelling Monkey Safari (Tourism employers): variant B
+### 2.537 Travelling Monkey Safari (Tourism employers): variant B
 
 - To: Travelling Monkey Safari team | Route: contact@travelling-monkey.com | Plan: M599ca4247b4e
 
@@ -11850,7 +12018,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.542 Triumph Travel & Film Safaris Ltd (Tourism employers): variant B
+### 2.538 Triumph Travel & Film Safaris Ltd (Tourism employers): variant B
 
 - To: Triumph Travel & Film Safaris Ltd team | Route: info@triumphsafaris.com | Plan: Mf89682de63dd
 
@@ -11871,7 +12039,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.543 Tulia Retreat Hotel (Tourism employers): variant B
+### 2.539 Tulia Retreat Hotel (Tourism employers): variant B
 
 - To: Tulia Retreat Hotel team | Route: retreat@tuliahotelandspa.com | Plan: Mfc66420277d1
 
@@ -11892,7 +12060,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.544 Twalan Company Ltd (Tourism employers): variant B
+### 2.540 Twalan Company Ltd (Tourism employers): variant B
 
 - To: Twalan Company Ltd team | Route: info@twalan.co.tz | Plan: Me9886bc74acd
 
@@ -11913,7 +12081,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.545 Twiga Craft Brewery (1001 Organic Limited) (Tourism employers): variant B
+### 2.541 Twiga Craft Brewery (1001 Organic Limited) (Tourism employers): variant B
 
 - To: Twiga Craft Brewery (1001 Organic Limited) team | Route: twigabrewery.com | Plan: M945f164cb099 | **Phone route only: call or message, this is not an email address**
 
@@ -11934,7 +12102,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.546 Udaay Safari and Tours Ltd (Tourism employers): variant B
+### 2.542 Udaay Safari and Tours Ltd (Tourism employers): variant B
 
 - To: Kalpesh Sangar, Managing Director | Route: info@udaaysafaris.com | Plan: M883d1f6e5e63
 
@@ -11955,7 +12123,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.547 Udare Safari (Tourism employers): variant B
+### 2.543 Udare Safari (Tourism employers): variant B
 
 - To: Udare Safari team | Route: info@udaresafari.com | Plan: M9b48dab4c622
 
@@ -11976,7 +12144,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.548 United Aviation Services Company Ltd (Tourism employers): variant B
+### 2.544 United Aviation Services Company Ltd (Tourism employers): variant B
 
 - To: United Aviation Services Company Ltd team | Route: uas@uas.co.tz | Plan: M8c31bae10ab7
 
@@ -11997,7 +12165,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.549 United Tansania e.V (Tourism employers): variant B
+### 2.545 United Tansania e.V (Tourism employers): variant B
 
 - To: Judith Lazak, Founder & CEO | Route: unitedtansania@gmail.com | Plan: M9d09df07ecce
 
@@ -12018,7 +12186,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.550 Urth Expedition Limited (Tourism employers): variant B
+### 2.546 Urth Expedition Limited (Tourism employers): variant B
 
 - To: Gabriele Brown, Travel curator, Founder of Urth Expedition | Route: info@urthsafari.com | Plan: M8c2111cdabb2
 
@@ -12039,7 +12207,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.551 Utopia Safaris Ltd (Tourism employers): variant B
+### 2.547 Utopia Safaris Ltd (Tourism employers): variant B
 
 - To: Exaud Marandu, Founder | Route: info@utopia-safaris.com | Plan: Mb8d1de741ec4
 
@@ -12060,7 +12228,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.552 Van Mo Safaris (Tourism employers): variant B
+### 2.548 Van Mo Safaris (Tourism employers): variant B
 
 - To: Van Mo Safaris team | Route: info@vanmosafaris.com | Plan: M323f3c5ab4f6
 
@@ -12081,7 +12249,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.553 Vehicle Pharmacy (Tourism employers): variant B
+### 2.549 Vehicle Pharmacy (Tourism employers): variant B
 
 - To: Vehicle Pharmacy team | Route: info@vehiclepharmacy.com | Plan: Ma2919195aaea
 
@@ -12102,7 +12270,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.554 Venice Hotel (Tourism employers): variant B
+### 2.550 Venice Hotel (Tourism employers): variant B
 
 - To: Venice Hotel team | Route: info@venicehotel.co.tz | Plan: M22bafd065f35
 
@@ -12123,7 +12291,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.555 Vimat Safaris Ltd (Tourism employers): variant B
+### 2.551 Vimat Safaris Ltd (Tourism employers): variant B
 
 - To: Vimat Safaris Ltd team | Route: info@vimatsafaris.com | Plan: M550471f06701
 
@@ -12144,7 +12312,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.556 Viola Tours & Travel (Tourism employers): variant B
+### 2.552 Viola Tours & Travel (Tourism employers): variant B
 
 - To: Viola Tours & Travel team | Route: info@violatours.com | Plan: M914a14ecaa52
 
@@ -12165,7 +12333,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.557 Vision Safari & Tours (Tourism employers): variant B
+### 2.553 Vision Safari & Tours (Tourism employers): variant B
 
 - To: Vision Safari & Tours team | Route: info@visionsafaritours.com | Plan: M4495df1195c0
 
@@ -12186,7 +12354,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.558 Volunteers Africa Heart’s Desire Limited (Tourism employers): variant B
+### 2.554 Volunteers Africa Heart’s Desire Limited (Tourism employers): variant B
 
 - To: Psten Nuru Mbwambo (Psteen), Manager / co-founder (Gründer) | Route: info@africaheartsdesire.com | Plan: M044c7dd390b3
 
@@ -12197,7 +12365,7 @@ Dear Psten Nuru Mbwambo,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Volunteers Africa Heart’s Desire Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Volunteers Africa Heart’s Desire Limited to provide an education benefit for the children of your staff. Your website lists volunteer projects including USA River Primary School and Young Roses Pre-And Primary School, so an education benefit for your own staff would fit that focus on schools. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -12207,7 +12375,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.559 Wakali Safaris (Tourism employers): variant B
+### 2.555 Wakali Safaris (Tourism employers): variant B
 
 - To: Jonathan, Founder & CEO | Route: info@wakalisafaris.co.tz | Plan: M648045ad7879
 
@@ -12228,7 +12396,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.560 Warriors of Africa Safari (Tourism employers): variant B
+### 2.556 Warriors of Africa Safari (Tourism employers): variant B
 
 - To: Warriors of Africa Safari team | Route: warriorsofafricasafari@gmail.com | Plan: Mf299c79f5496
 
@@ -12249,7 +12417,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.561 Wasim Trans Garage (Tourism employers): variant B
+### 2.557 Wasim Trans Garage (Tourism employers): variant B
 
 - To: Wasim Trans Garage team | Route: wasimlimited.com | Plan: M413d7db57aa1 | **Phone route only: call or message, this is not an email address**
 
@@ -12270,7 +12438,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.562 Weru Weru River Lodge (Tourism employers): variant B
+### 2.558 Weru Weru River Lodge (Tourism employers): variant B
 
 - To: Weru Weru River Lodge team | Route: info@weruweruriverlodge.com | Plan: M3e681b2fe3ae
 
@@ -12291,7 +12459,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.563 West Wild Limited (Tourism employers): variant B
+### 2.559 West Wild Limited (Tourism employers): variant B
 
 - To: West Wild Limited team | Route: booking@westwildadventure.com | Plan: M2e9e8a7a7f95
 
@@ -12312,7 +12480,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.564 Westway Safaris Ltd (Tourism employers): variant B
+### 2.560 Westway Safaris Ltd (Tourism employers): variant B
 
 - To: Christian Ayo, Founder & Managing Director | Route: info@westwaysafaris.com; reservation@westwaysafaris.com | Plan: M977229f52bf9
 
@@ -12333,7 +12501,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.565 Whistling Travel (Tourism employers): variant B
+### 2.561 Whistling Travel (Tourism employers): variant B
 
 - To: Whistling Travel team | Route: info@whistlingtravel.co.tz | Plan: M37ce60a37426
 
@@ -12354,7 +12522,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.566 Wild Pride Safaris (Tourism employers): variant B
+### 2.562 Wild Pride Safaris (Tourism employers): variant B
 
 - To: Lilian Mamuya, Managing Director | Route: info@wildpridesafaris.com | Plan: M8e89e6c2cfe5
 
@@ -12365,7 +12533,7 @@ Dear Lilian Mamuya,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Wild Pride Safaris to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Wild Pride Safaris to provide an education benefit for the children of your staff. Your Managing Director's message thanks your dedicated employees, so an education benefit for your team could be one practical way to recognise them. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -12375,14 +12543,14 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.567 Wild Ways Tanzania Adventure (Tourism employers): variant B
+### 2.563 Wild Ways Tanzania Adventure (Tourism employers): variant B
 
-- To: Joan Mariki, Operations & Reservations Director | Route: joan@wildwaystanzania.com (from input; site lists info@) | Plan: M0e7f3feeec1c
+- To: Wild Ways Tanzania Adventure team | Route: info@wildwaystanzania.com; joan@wildwaystanzania.com; mariki@wildwaystanzania.com | Plan: M4decf66ae07d
 
 Subject: A partnership on education benefits for Wild Ways Tanzania Adventure staff
 
 ```
-Dear Joan Mariki,
+Dear Wild Ways Tanzania Adventure team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -12396,7 +12564,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.568 Wilderness Collection (Tourism employers): variant B
+### 2.564 Wilderness Collection (Tourism employers): variant B
 
 - To: Wilderness Collection team | Route: reservations@thewildernesscollection.com View Details | Plan: M3c5b8800b7ae
 
@@ -12417,7 +12585,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.569 Wilderness Experience Tanzania Limited (Tourism employers): variant B
+### 2.565 Wilderness Experience Tanzania Limited (Tourism employers): variant B
 
 - To: Wilderness Experience Tanzania Limited team | Route: info@wildernessexperience.co.tz; kennedy@wildernessexperience.co.tz | Plan: Mebb9cf3df502
 
@@ -12438,7 +12606,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.570 Wildfrontiers (Chelete Adventures LTD) (Tourism employers): variant B
+### 2.566 Wildfrontiers (Chelete Adventures LTD) (Tourism employers): variant B
 
 - To: Wildfrontiers (Chelete Adventures LTD) team | Route: wildfrontiers@habari.co.tz | Plan: Mdd9d250b8223
 
@@ -12459,7 +12627,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.571 Wildreality Safari (Tourism employers): variant B
+### 2.567 Wildreality Safari (Tourism employers): variant B
 
 - To: Allen Kimbelwa, CEO & Founder | Route: info@wildrealitysafari.com | Plan: M78802d0a6486
 
@@ -12480,18 +12648,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.572 Wilkinson Tours Ltd (Tourism employers): variant B
+### 2.568 Wilkinson Tours Ltd (Tourism employers): variant B
 
-- To: Horst Bachmann, Director (with Debbie Bachmann) | Route: info@wilkinson-tours.com | Plan: M1c5db812d9c3
+- To: Debbie Bachmann (née Wilkinson), Director / Co-founder | Route: info@wilkinson-tours.com | Plan: Mdceb4f0224c5
 
 Subject: A partnership on education benefits for Wilkinson Tours Ltd staff
 
 ```
-Dear Horst Bachmann,
+Dear Debbie Bachmann,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Wilkinson Tours Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Wilkinson Tours Ltd to provide an education benefit for the children of your staff. Your about page lists charity projects, including Future Stars Academy, which teaches life skills through football training in the Arusha area, so an education benefit for your staff would fit. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -12501,7 +12669,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.573 Williamson Adventures Limited (Tourism employers): variant B
+### 2.569 Williamson Adventures Limited (Tourism employers): variant B
 
 - To: William Sanga, Head of Operations; Founder of Williamson Adventures | Route: info@williamsonadventures.com | Plan: M5e8963800458
 
@@ -12522,7 +12690,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.574 Wilmaar Insurance Brokers Ltd (Tourism employers): variant B
+### 2.570 Wilmaar Insurance Brokers Ltd (Tourism employers): variant B
 
 - To: Jessica Brown, Founder & CEO | Route: info@wib.co.tz | Plan: Ma757db598f42
 
@@ -12543,7 +12711,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.575 Wise Safari Tanzania Limited (Tourism employers): variant B
+### 2.571 Wise Safari Tanzania Limited (Tourism employers): variant B
 
 - To: Bruno Nassary, Founder / Director (image alt: 'Bruno Nassary - Travel Wise Safari Director'; fb:admins brunonassari) | Route: info@travelwisesafari.com | Plan: Mcd867e8e211c
 
@@ -12554,7 +12722,7 @@ Dear Bruno Nassary,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Wise Safari Tanzania Limited to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Wise Safari Tanzania Limited to provide an education benefit for the children of your staff. Your about page says your team has grown to over 12 professionals in the office, so such a benefit could reach a growing team. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -12564,7 +12732,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.576 YAS Tanzania (Tourism employers): variant B
+### 2.572 YAS Tanzania (Tourism employers): variant B
 
 - To: Pierre Canton-Bacara, CEO | Route: customercare@yas.co.tz | Plan: M2b15f7ea758d
 
@@ -12585,7 +12753,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.577 ZAFS Tours (Tourism employers): variant B
+### 2.573 ZAFS Tours (Tourism employers): variant B
 
 - To: ZAFS Tours team | Route: info@zafstours.com | Plan: M915cc09b662a
 
@@ -12606,7 +12774,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.578 Zanzi Trekking and Safaris Limited (Tourism employers): variant B
+### 2.574 Zanzi Trekking and Safaris Limited (Tourism employers): variant B
 
 - To: Abdu, Co-founder (engineer) | Route: info@zanzisafaris.com; honest.ngowi@zanzisafaris.com | Plan: M626e960d2524
 
@@ -12627,7 +12795,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.579 Zohar African Safaris Ltd (Tourism employers): variant B
+### 2.575 Zohar African Safaris Ltd (Tourism employers): variant B
 
 - To: Lilian M. Kramer, Founder & Managing Director | Route: bookings@zoharafricansafaris.com | Plan: Mfef2a9f450a3
 
@@ -12648,7 +12816,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 2.580 andBeyond Travel Limited (Tourism employers): variant B
+### 2.576 andBeyond Travel Limited (Tourism employers): variant B
 
 - To: andBeyond Travel Limited team | Route: reservations@andbeyond.com | Plan: Mf061b0fc5607
 
@@ -16159,28 +16327,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.167 Anderson's African Adventures Ltd (Tourism employers): variant B
-
-- To: Anderson's African Adventures Ltd team | Route: info@andersons.co.za | Plan: M7c294bb69484 | **Held: needs research**
-
-Subject: A partnership on education benefits for Anderson's African Adventures Ltd staff
-
-```
-Dear Anderson's African Adventures Ltd team,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
-
-We are looking to set up a partnership with Anderson's African Adventures Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 3.168 Aquiline Hotel (Tourism employers): variant B
+### 3.167 Aquiline Hotel (Tourism employers): variant B
 
 - To: Aquiline Hotel team | Route: none recorded | Plan: M6c3fcb00f230 | **Held: no contact route recorded**
 
@@ -16201,7 +16348,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.169 Arusha Crown Hotel (Tourism employers): variant B
+### 3.168 Arusha Crown Hotel (Tourism employers): variant B
 
 - To: Arusha Crown Hotel team | Route: none recorded | Plan: M087b6223966a | **Held: no contact route recorded**
 
@@ -16222,7 +16369,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.170 Arusha Tours (Tourism employers): variant B
+### 3.169 Arusha Tours (Tourism employers): variant B
 
 - To: Arusha Tours team | Route: +255786233938 | Plan: Mda165f9b5f75 | **Held: needs research; raw map point, not yet matched to a real company**
 
@@ -16243,7 +16390,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.171 Auric Air (Tourism employers): variant B
+### 3.170 Auric Air (Tourism employers): variant B
 
 - To: Auric Air team | Route: none recorded | Plan: M37c9daa8dae4 | **Held: no contact route recorded; raw map point, not yet matched to a real company**
 
@@ -16264,7 +16411,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.172 Bay Leaf (Tourism employers): variant B
+### 3.171 Bay Leaf (Tourism employers): variant B
 
 - To: Bay Leaf team | Route: none recorded | Plan: M3b47fb1d6411 | **Held: no contact route recorded**
 
@@ -16285,7 +16432,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.173 Boma Masai Garden (Tourism employers): variant B
+### 3.172 Boma Masai Garden (Tourism employers): variant B
 
 - To: Boma Masai Garden team | Route: none recorded | Plan: Mb2745c6ec171 | **Held: no contact route recorded**
 
@@ -16306,7 +16453,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.174 Dar Express Booking Office (Tourism employers): variant B
+### 3.173 Dar Express Booking Office (Tourism employers): variant B
 
 - To: Dar Express Booking Office team | Route: none recorded | Plan: Mf463f62a870e | **Held: no contact route recorded; raw map point, not yet matched to a real company**
 
@@ -16327,7 +16474,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.175 Davos Hotel (Tourism employers): variant B
+### 3.174 Davos Hotel (Tourism employers): variant B
 
 - To: Davos Hotel team | Route: none recorded | Plan: M50d644c5651b | **Held: no contact route recorded**
 
@@ -16348,7 +16495,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.176 Enosa Expedition (Tourism employers): variant B
+### 3.175 Enosa Expedition (Tourism employers): variant B
 
 - To: Enosa Expedition team | Route: none recorded | Plan: Med2fbcc603ab | **Held: no contact route recorded; possible duplicate**
 
@@ -16369,7 +16516,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.177 Explore Active (Tourism employers): variant B
+### 3.176 Explore Active (Tourism employers): variant B
 
 - To: Explore Active team | Route: info@exploreactive.com | Plan: M80550dc57410 | **Held: needs research; possible duplicate**
 
@@ -16390,7 +16537,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.178 Fastjet ticket office Shuttlebus (Tourism employers): variant B
+### 3.177 Fastjet ticket office Shuttlebus (Tourism employers): variant B
 
 - To: Fastjet ticket office Shuttlebus team | Route: none recorded | Plan: M33c8cfc103f4 | **Held: no contact route recorded; raw map point, not yet matched to a real company; possible closure**
 
@@ -16411,7 +16558,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.179 Forest Hill Hotel (Tourism employers): variant B
+### 3.178 Forest Hill Hotel (Tourism employers): variant B
 
 - To: Forest Hill Hotel team | Route: none recorded | Plan: Mb516f7e5d295 | **Held: no contact route recorded**
 
@@ -16432,7 +16579,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.180 Freedom Lodge (Tourism employers): variant B
+### 3.179 Freedom Lodge (Tourism employers): variant B
 
 - To: Freedom Lodge team | Route: none recorded | Plan: Mf88f9d59f8d9 | **Held: no contact route recorded**
 
@@ -16453,7 +16600,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.181 GMV Lodge (Tourism employers): variant B
+### 3.180 GMV Lodge (Tourism employers): variant B
 
 - To: GMV Lodge team | Route: none recorded | Plan: M2e43fcf1874b | **Held: no contact route recorded**
 
@@ -16474,7 +16621,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.182 Golden Rose (Tourism employers): variant B
+### 3.181 Golden Rose (Tourism employers): variant B
 
 - To: Golden Rose team | Route: none recorded | Plan: Mfca8b9ff4ea2 | **Held: no contact route recorded**
 
@@ -16495,7 +16642,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.183 Green leaf lodge (Tourism employers): variant B
+### 3.182 Green leaf lodge (Tourism employers): variant B
 
 - To: Green leaf lodge team | Route: none recorded | Plan: Md7502b52c759 | **Held: no contact route recorded**
 
@@ -16516,7 +16663,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.184 Hotel Pallsons (Tourism employers): variant B
+### 3.183 Hotel Pallsons (Tourism employers): variant B
 
 - To: Hotel Pallsons team | Route: none recorded | Plan: M347e70a758a9 | **Held: no contact route recorded**
 
@@ -16537,7 +16684,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.185 Impala Hotel Arusha (Tourism employers): variant B
+### 3.184 Impala Hotel Arusha (Tourism employers): variant B
 
 - To: Impala Hotel Arusha team | Route: none recorded | Plan: M8bf2f81cff50 | **Held: no contact route recorded; possible closure**
 
@@ -16558,7 +16705,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.186 JM Tours Ltd (Tourism employers): variant B
+### 3.185 JM Tours Ltd (Tourism employers): variant B
 
 - To: JM Tours Ltd team | Route: info@jmtours.com | Plan: M88db12a87a5f | **Held: needs research; possible duplicate**
 
@@ -16569,7 +16716,7 @@ Dear JM Tours Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with JM Tours Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with JM Tours Ltd to provide an education benefit for the children of your staff. Your website says J.M. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -16579,7 +16726,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.187 Jevas Hotel (Tourism employers): variant B
+### 3.186 Jevas Hotel (Tourism employers): variant B
 
 - To: Jevas Hotel team | Route: none recorded | Plan: M11db4101b09e | **Held: no contact route recorded**
 
@@ -16600,18 +16747,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.188 KILAWENI LTD (Tourism employers): variant B
+### 3.187 KILAWENI LTD (Tourism employers): variant B
 
 - To: KILAWENI LTD team | Route: info@kilaweni.com | Plan: M1501faa05c4b | **Held: needs research**
 
-Subject: A partnership on education benefits for KILAWENI LTD staff
+Subject: A partnership on education benefits for Kilaweni Ltd staff
 
 ```
-Dear KILAWENI LTD team,
+Dear Kilaweni Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with KILAWENI LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Kilaweni Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -16621,7 +16768,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.189 Kessy Brothers (Tourism employers): variant B
+### 3.188 Kessy Brothers (Tourism employers): variant B
 
 - To: Kessy Brothers team | Route: none recorded | Plan: M513d1ffe8e5e | **Held: no contact route recorded; raw map point, not yet matched to a real company**
 
@@ -16642,7 +16789,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.190 Kigongoni Lodge (Tourism employers): variant B
+### 3.189 Kigongoni Lodge (Tourism employers): variant B
 
 - To: Kigongoni Lodge team | Route: none recorded | Plan: Me03c7d1ec4af | **Held: no contact route recorded**
 
@@ -16663,7 +16810,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.191 Kili Star Tours (Tourism employers): variant B
+### 3.190 Kili Star Tours (Tourism employers): variant B
 
 - To: Kili Star Tours team | Route: none recorded | Plan: M7db37133df07 | **Held: no contact route recorded; possible duplicate**
 
@@ -16684,7 +16831,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.192 Kilimanjaro Outfitters Limited (Tourism employers): variant B
+### 3.191 Kilimanjaro Outfitters Limited (Tourism employers): variant B
 
 - To: Kilimanjaro Outfitters Limited team | Route: damian@honeyguide.org | Plan: Me2c0e92b4b32 | **Held: needs research**
 
@@ -16705,7 +16852,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.193 Kipepeo (Tourism employers): variant B
+### 3.192 Kipepeo (Tourism employers): variant B
 
 - To: Kipepeo team | Route: +255755753576 | Plan: M0156ee4626b3 | **Held: needs research; possible duplicate**
 
@@ -16726,7 +16873,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.194 Kudu Safaris ltd (Tourism employers): variant B
+### 3.193 Kudu Safaris ltd (Tourism employers): variant B
 
 - To: Kudu Safaris ltd team | Route: info@KuduSafaris.co.tz | Plan: M6b2083669614 | **Held: needs research**
 
@@ -16747,7 +16894,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.195 L'Oasis (Tourism employers): variant B
+### 3.194 L'Oasis (Tourism employers): variant B
 
 - To: L'Oasis team | Route: none recorded | Plan: M36fb82900b56 | **Held: no contact route recorded**
 
@@ -16768,7 +16915,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.196 Lemuta & Khaki Safaris (Tourism employers): variant B
+### 3.195 Lemuta & Khaki Safaris (Tourism employers): variant B
 
 - To: Lemuta & Khaki Safaris team | Route: none recorded | Plan: M4280f0859a92 | **Held: no contact route recorded; possible closure**
 
@@ -16789,7 +16936,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 3.197 Lim Safaris Booking Office (Tourism employers): variant B
+### 3.196 Lim Safaris Booking Office (Tourism employers): variant B
 
 - To: Lim Safaris Booking Office team | Route: none recorded | Plan: M4b0bd507762c | **Held: no contact route recorded; raw map point, not yet matched to a real company**
 
@@ -16801,6 +16948,27 @@ Dear Lim Safaris Booking Office team,
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
 We are looking to set up a partnership with Lim Safaris Booking Office to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
+### 3.197 Livingstone's Africa Ltd (Tourism employers): variant B
+
+- To: Livingstone's Africa Ltd team | Route: enquiries@livingstonesafrica.com | Plan: M1865fbbd41cc | **Held: needs research; possible closure**
+
+Subject: A partnership on education benefits for Livingstone's Africa Ltd staff
+
+```
+Dear Livingstone's Africa Ltd team,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
+
+We are looking to set up a partnership with Livingstone's Africa Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -17115,7 +17283,7 @@ Dear Nihapa Tours team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with Nihapa Tours to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with Nihapa Tours to provide an education benefit for the children of your staff. Your About page describes your own NGO, Nature Steward and Partners, so an education benefit for your own staff would fit that community commitment. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -17213,14 +17381,14 @@ Silverleaf Academy
 
 - To: ROY SAFARIS LTD team | Route: enquiries@roysafaris.co.tz | Plan: M391dace821d5 | **Held: needs research; possible duplicate**
 
-Subject: A partnership on education benefits for ROY SAFARIS LTD staff
+Subject: A partnership on education benefits for ROY Safaris Ltd staff
 
 ```
-Dear ROY SAFARIS LTD team,
+Dear ROY Safaris Ltd team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
-We are looking to set up a partnership with ROY SAFARIS LTD to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
+We are looking to set up a partnership with ROY Safaris Ltd to provide an education benefit for the children of your staff. I would welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.
 
 Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
 
@@ -17705,7 +17873,7 @@ These records keep their IDs. Their drafts are alternatives so each business get
 - Kilimanjaro Bliss Safaris (O4f3f8078260d) -> Kilimanjaro Bliss Safaris (O093920d51418)
 - Kilipath African Safaris (O5cfe7f0b8dbc) -> Kilpath African Safaris (O694a46db51f5)
 - Kipepeo (Obd0df41bdc7d) -> Kipepeo (Of6951631ee8a)
-- Kiriwe Travel and Trekking Safari Ltd (O137e0f50cfca) -> Kiriwe Travel And Trekking Safaris Ltd (O4722dd9c1cd3)
+- Kiriwe Travel And Trekking Safaris Ltd (O4722dd9c1cd3) -> Kiriwe Travel and Trekking Safari Ltd (O137e0f50cfca)
 - LEOPARD TOURS LTD (Ocfbf08472950) -> Leopard Tours Ltd. (O3b30310b0a95)
 - Legendary Expeditions (O9790b08e6804) -> LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD) (O7f949d75cae7)
 - Leopard Tours Ltd. (Oe4dd5e417342) -> Leopard Tours Ltd. (O3b30310b0a95)
@@ -17727,7 +17895,7 @@ These records keep their IDs. Their drafts are alternatives so each business get
 - Pure Afro Travels (O9e952fbeb04a) -> Pure Afro Travels Tanzania (O7ad5c517e4a6)
 - Roving Africa Safaris (O93751be22b05) -> Roving Africa Safaris (O9771d97fcc71)
 - Roy Safaris (O3ef35929664c) -> ROY SAFARIS LTD (O648c07c096fa)
-- RushTrek Tours Company LTD (Oc47bbedbdb18) -> RushTrek Tours (Occ16e6404a0d)
+- RushTrek Tours (Occ16e6404a0d) -> RushTrek Tours Company LTD (Oc47bbedbdb18)
 - SNV Tanzania (O2aae84638d6a) -> SNV (Netherlands Development Organisation) (Ob22b699ef52d)
 - Serengeti Balloon Safaris (Tourism and PR Services Ltd) (Oca5815df6c4f) -> Serengeti Balloon Safaris (O108f9c734a63)
 - Serengeti Pride Safaris Tour Co (O87a8b6fda78a) -> Serengeti Pride Safaris (Oa94c42988eac)

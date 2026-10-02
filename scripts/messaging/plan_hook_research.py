@@ -34,7 +34,7 @@ PROMPT = """You are researching {count} Silverleaf Academy leads, organisations 
 - so that each first email can carry one verified, relevant reason;
 - so that Mariam Haji, who signs the emails, can learn about a lead quickly if they reply.
 
-Silverleaf Academy is a private English-medium school: Daycare to Grade 7, with five campuses in Arusha, Usa River and Boma Ng'ombe. The first email asks each organisation for a short meeting about an education benefit for the children of its staff. It opens with the sentence in each lead's "purpose".
+Silverleaf Academy is a private English-medium school: Daycare to Grade 7, with five campuses in Arusha, Usa River and Boma Ng'ombe. The first email asks each organisation for a short meeting about a partnership to provide an education benefit for the children of its staff. It opens with the sentence in each lead's "purpose".
 
 Your leads: {leads_path}
 (JSON: for each organisation, its website, the purpose sentence, and the named contacts we will write to, each with the page where they were found.)
@@ -129,6 +129,27 @@ def domain(value) -> str:
     return m.group(0) if m and not re.fullmatch(r"[\d.\-]+", m.group(0)) else ""
 
 
+def unverified_senior_contacts(con) -> dict:
+    """{organisation_id: {contact_id, ...}} for chosen company recipients (not savings groups) with no verified senior contact whose record names
+    a senior one that has a source page: these are the contacts a role check can confirm."""
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts" / "master"))
+    import resolve_master_recipients as R
+    chosen = {oid for (oid,) in con.execute("SELECT organisation_id FROM outreach_plans WHERE selection='Candidate for review' AND segment<>'SACCOS members'")}
+    people = {}
+    for oid, cid, name, role, verification, source in con.execute("SELECT organisation_id, contact_id, name, role, verification, source_url FROM contacts"):
+        if oid in chosen and R.role_rank(role) is not None and len(L.greeting_name(name).split()) >= 2:
+            people.setdefault(oid, []).append((cid, verification or "", source or ""))
+    out = {}
+    for oid, plist in people.items():
+        if any(R.VERIFIED.search(v) and not R.UNUSABLE.search(v) for _, v, _ in plist):
+            continue
+        ids = {cid for cid, v, src in plist if src and not R.UNUSABLE.search(v)}
+        if ids:
+            out[oid] = ids
+    return out
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=date.today().isoformat())
@@ -137,15 +158,25 @@ def main() -> int:
     parser.add_argument("--budget", type=int, default=48, help="WebSearch calls for the whole wave, before the 10%% reserve")
     parser.add_argument("--database", default=str(MASTER))
     parser.add_argument("--only-unresearched", action="store_true", help="skip organisations that already have a lead brief")
+    parser.add_argument("--unverified-senior", action="store_true",
+                        help="plan the role check instead of a track: companies whose chosen recipient has no verified senior contact but whose record names "
+                             "one with a source page (the agents confirm the role on that page)")
     args = parser.parse_args()
     agents = max(1, min(args.agents, 4))
     con = sqlite3.connect(f"file:{Path(args.database).resolve().as_posix()}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
-    rows = con.execute("""SELECT p.message_id, p.target_type, p.target_id, p.organisation_id, p.segment, o.name, o.website, o.locality,
-                                 c.name AS contact_name, c.role, c.source_url
-                          FROM outreach_plans p JOIN organisations o USING(organisation_id)
-                          LEFT JOIN contacts c ON c.contact_id = p.target_id AND p.target_type = 'contact'
-                          WHERE p.acquisition_track_id = ? ORDER BY o.name, p.message_id""", (args.track,)).fetchall()
+    sql = """SELECT p.message_id, p.target_type, p.target_id, p.organisation_id, p.segment, o.name, o.website, o.locality,
+                    c.name AS contact_name, c.role, c.source_url
+             FROM outreach_plans p JOIN organisations o USING(organisation_id)
+             LEFT JOIN contacts c ON c.contact_id = p.target_id AND p.target_type = 'contact'
+             WHERE {where} ORDER BY o.name, p.message_id"""
+    if args.unverified_senior:
+        rows = [r for r in con.execute(sql.format(where="1=1"))]
+        wanted = unverified_senior_contacts(con)
+        rows = [r for r in rows if r["organisation_id"] in wanted and
+                (r["target_type"] == "organisation" or r["target_id"] in wanted[r["organisation_id"]])]
+    else:
+        rows = con.execute(sql.format(where="p.acquisition_track_id = ?"), (args.track,)).fetchall()
     if args.only_unresearched and con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lead_briefs'").fetchone():
         researched = {oid for (oid,) in con.execute("SELECT DISTINCT organisation_id FROM lead_briefs")}
         rows = [r for r in rows if r["organisation_id"] not in researched]
@@ -157,7 +188,7 @@ def main() -> int:
             "locality": r["locality"] or "", "segment": r["segment"], "contacts": [], "organisation_route_message_ids": [],
             "purpose": (f"I am writing to explore how Silverleaf Academy could support the education of {name} members' children, and would "
                         f"like to speak with your committee." if r["segment"] == "SACCOS members" else
-                        f"I am writing to explore an education benefit for the children of staff at {name}.")})
+                        f"We are looking to set up a partnership with {name} to provide an education benefit for the children of your staff.")})
         if r["name"].startswith("Rivertrees"):
             o["purpose"] = "Existing relationship: the first email renews the 2025 staff education partnership. Brief only; the hook must be null."
         if r["target_type"] == "contact":

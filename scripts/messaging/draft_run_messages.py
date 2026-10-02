@@ -105,6 +105,45 @@ def funder_reasons(con) -> dict:
     return reasons
 
 
+LEADER_TOP = re.compile(r"founder|owner|\bceo\b|chief executive|executive director|president|chair|director|bishop|head of", re.I)
+LEADER_MID = re.compile(r"manager|coordinator|pastor|leader|principal|administrator", re.I)
+NOT_LEADER = re.compile(r"treasurer|secretary|volunteer|intern|assistant|adviser|advisor|trustee|board member|accountant|nurse|teacher|social worker|"
+                        r"programme officer|vice|deputy", re.I)
+FOREIGN_ROUTE = re.compile(r"kenya|uganda|rwanda|burundi|zambia|malawi|congo|southafrica|\.(ke|ug|rw|bi|cd|zm|mw|za)$", re.I)
+
+
+def leader_rank(role: str):
+    """0 founder, owner, chief executive, director or president; 1 manager or coordinator; None for anyone else (treasurer, volunteer, board member)."""
+    role = role or ""
+    if NOT_LEADER.search(role):
+        return None
+    if LEADER_TOP.search(role):
+        return 0
+    return 1 if LEADER_MID.search(role) else None
+
+
+def role_phrase(role: str) -> str:
+    """How a published role reads in 'I understand that you are ... of <organisation>'; '' when it is too long or messy to quote."""
+    role = " ".join(str(role or "").split())
+    if not role or len(role) > 45 or re.search(r"[();/]", role):
+        return ""
+    return f"a {role.lower()}" if role.lower().startswith("co-") else f"the {role}"
+
+
+def best_leader(contacts) -> dict | None:
+    """The organisation's most senior named, confirmed, medium-risk contact with a full name, or None."""
+    best = None
+    for c in contacts:
+        name = greeting_name(c.get("contact_name") or "")
+        rank = leader_rank(c.get("role") or "")
+        if (c.get("pdpa_risk") != "medium" or c.get("role_certainty") != "confirmed" or len(name.split()) < 2 or re.search(r"\d|\?", name) or rank is None):
+            continue
+        key = (rank, 0 if (c.get("named_email") or c.get("published_role_email")) else 1, name)
+        if best is None or key < best[0]:
+            best = (key, c, name)
+    return {**best[1], "greet_name": best[2]} if best else None
+
+
 def welfare(con, now, run_cfg) -> dict:
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
     org_payload, con_payload = payloads(con, "organisation"), payloads(con, "contact")
@@ -128,7 +167,9 @@ def welfare(con, now, run_cfg) -> dict:
             route, value = "shared_email", p["email"]
         elif p.get("phone") and p.get("pdpa_risk") != "risky":
             route, value = "organisation_phone", p["phone"]
-        greet = f"Dear {name} team,"
+        leader = best_leader(contacts_by_org.get(oid, []))
+        greet = f"Dear {leader['greet_name']}," if leader else f"Dear {name} team,"
+        recipient = f"{leader['greet_name']} ({leader.get('role') or 'role not published'})" if leader else ""
         for c in contacts_by_org.get(oid, []):
             if c.get("pdpa_risk") == "risky":
                 continue
@@ -139,12 +180,17 @@ def welfare(con, now, run_cfg) -> dict:
                 if not route:
                     route = "named_email" if c.get("named_email") and email else ("published_role_email" if email else "role_phone")
                     value = email or c.get("role_phone") or c.get("organisation_phone")
-                if c.get("contact_name") and c.get("pdpa_risk") == "medium" and greeting_name(c["contact_name"]):
-                    greet = f"Dear {greeting_name(c['contact_name'])},"
-                    recipient = f"{greeting_name(c['contact_name'])} ({c.get('role') or 'role not published'})"
                 break
         if not route:
             missing.append("No usable published route (risky routes are never used); find the organisation's own email or phone.")
+        route_problem = False
+        if route == "organisation_phone" or route == "role_phone":
+            if not str(value).replace(" ", "").startswith("+255"):
+                route_problem = True
+                missing.append("The only route is a phone number outside Tanzania; find an email address.")
+        elif value and (model != "funder" and p.get("segment") != "Welfare funder") and FOREIGN_ROUTE.search(str(value).split("@")[-1]):
+            route_problem = True
+            missing.append("The email address is on a domain outside Tanzania; confirm it reaches this organisation.")
         personal_inbox = bool(PERSONAL_DOMAIN.search(str(value or "")))
         if personal_inbox:
             missing.append("The organisation's published inbox is on a personal email domain; confirm it is the official address and not a "
@@ -157,11 +203,23 @@ def welfare(con, now, run_cfg) -> dict:
         # The first message is a request with no offer terms; the follow-up states the offer. Sponsorship is asked of funders only.
         if model == "funder" or p.get("segment") == "Welfare funder":
             reason = reasons.get(oid)
-            hook = f"I am reaching out because you support {reason['supported']}." if reason else ""
+            hook = f"I understand that {name} supports {reason['supported']}." if reason else ""
             subject = "Sponsorship request: students at Silverleaf Academy"
-            body = (f"{greet}\n\nI am writing to ask whether {name} would consider sponsoring students at Silverleaf Academy.{(' ' + hook) if hook else ''} "
-                    f"We are seeking sponsorship for two to three students to start, to help cover school fees and other education-related costs."
-                    f"\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+            asks = ("We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, "
+                    "including a contribution towards textbooks, transport or meals.")
+            if reason and leader and role_phrase(leader.get("role")):
+                opening = (f"I understand that you are {role_phrase(leader.get('role'))} of {name}, which supports {reason['supported']}. "
+                           f"It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.")
+            elif reason:
+                opening = (f"{hook} It is this commitment to supporting communities in Tanzania that led me to write."
+                           f"{'' if leader else ' I would be grateful if this could reach whoever leads ' + name + chr(39) + 's giving.'}")
+            else:
+                opening = f"I am writing to ask whether {name} would consider sponsoring students at Silverleaf Academy."
+            body = (f"{greet}\n\n{L.INTRO} {opening}\n\n{asks} I would welcome the chance to share more about our school and students, and to discuss "
+                    f"whether this might fit within {name}{chr(39) if name.endswith('s') else chr(39) + 's'} current giving.\n\n{L.MEETING_ASK}\n\n"
+                    f"Thank you very much for your time and consideration.\n\n{L.SIGNATURE}")
+            if not reason:
+                missing.append("No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.")
             follow = (f"{greet}\n\nFollowing up on my earlier note, here is how sponsorship can go further at Silverleaf. When an organisation places "
                       f"all its primary-age children with us, each child receives 3% off tuition at 10 children, rising to 18% at 60 or more. Paying the "
                       f"year's tuition before the school year opens adds a free uniform set (worth TZS 110,000) per child, and tuition can be paid in "
@@ -173,10 +231,11 @@ def welfare(con, now, run_cfg) -> dict:
             reason, hook = None, ""
             who = "an organisation" if model == "family_based" else "a home"
             care = "in your programme" if model == "family_based" else "in your care"
-            subject = f"Meeting request: education for the children {care}"
+            subject = f"A partnership on education for the children {care}"
             needs = (" Before any placement we would talk through each child's needs with you." if model == "specialised" else "")
-            body = (f"{greet}\n\nI am writing to explore how Silverleaf Academy could work with {name} on the education of the children {care}."
-                    f"\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+            body = (f"{greet}\n\n{L.INTRO}\n\nWe are looking to set up a partnership with {name} on the education of the children {care}. I would "
+                    f"welcome the chance to explain how it could work, and to discuss whether it might suit you and your team.\n\n{L.MEETING_ASK}"
+                    f"\n\n{L.SIGNATURE}")
             follow = (f"{greet}\n\nFollowing up on my earlier note, here is what we can offer. Silverleaf Academy offers "
                       f"{L.EN['OF03'].replace('a home', who)}. Paying the year's tuition before the school year opens also brings a free uniform set "
                       f"(worth TZS 110,000) for each child, and tuition can be paid in four instalments. Our admissions team checks each child's level "
@@ -187,14 +246,16 @@ def welfare(con, now, run_cfg) -> dict:
                          f"{p.get('campus') or 'unknown'}.")
             if model == "specialised":
                 missing.append("Specialised centre: confirm Silverleaf can meet the children's needs before contacting.")
-        ready = str(track).startswith("WA01") and route and model != "specialised" and not p.get("red_flags") and not personal_inbox
+        funder = model == "funder" or p.get("segment") == "Welfare funder"
+        ready = (str(track).startswith("WA01") and route and model != "specialised" and not p.get("red_flags") and not personal_inbox
+                 and not route_problem and (reason is not None if funder else True))
         plan = {"message_id": sid("welfare", oid), "target_id": oid, "target_type": "organisation", "organisation_id": oid,
                 "relevance_reason": relevance, "cta_type": cta, "track": str(track).split(" ")[0], "modules": modules,
                 "review_status": "draft_ready" if ready else "needs_review", "missing": missing, "contact_route": route, "route_value": value,
                 "recipient": recipient or f"{o['name']} (organisation route)", "language": "English", "offer_ids": WELFARE_OFFERS,
                 "outcome": "drafted" if ready else "drafted, held",
                 **({"hook": hook, "hook_source_url": reason["url"], "hook_verified_on": reason["verified_on"]} if reason else {})}
-        names = (o["name"], name, recipient.split(" (")[0], reason["supported"] if reason else "")
+        names = (o["name"], name, recipient.split(" (")[0], reason["supported"] if reason else "", leader["greet_name"] if leader else "")
         for text in (body, follow):
             issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, WELFARE_OFFERS, ignore=names)]
         issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_first_message(body, ignore=names)]
@@ -249,12 +310,14 @@ SAFEGUARDS_SW = ("Mzazi atakayependa taarifa zaidi atajaza fomu yetu kwa hiari y
 SAFEGUARDS_EN = ("Parents who want more information will fill in our form only if they choose to. We will not ask for resident lists or any "
                  "residents' information, and we will not offer payments or gifts to anyone.")
 ABOUT_SW = ("Silverleaf Academy ni shule binafsi inayofundisha kwa lugha ya Kiingereza, yenye kampasi tano: Arusha City (Sakina), Kijenge na "
-            "Ilboru jijini Arusha, Usa River, na Boma Ng'ombe. Tunatoa huduma ya kulelea watoto wadogo (daycare), elimu ya awali na elimu ya "
-            "msingi hadi darasa la saba.")
+            "Ilboru jijini Arusha, Usa River, na Boma Ng'ombe.")
 ABOUT_EN = ("Silverleaf Academy is a private English-medium school with five campuses: Arusha City (Sakina), Kijenge and Ilboru in Arusha, "
-            "Usa River, and Boma Ng'ombe. We offer daycare, pre-primary and primary education to Grade 7.")
-FAMILY_EN = ("a free uniform set (worth TZS 110,000) for parents who pay the year's tuition before the school year opens; 10% off tuition for a "
-             "third child and 20% for a fourth; and tuition in four instalments")
+            "Usa River, and Boma Ng'ombe.")
+# The letters describe no services, fees or offers (1 October 2026): they ask for a slot and a short meeting.
+MEETING_SW = "Je, itawezekana kupanga kikao kifupi, ana kwa ana au kwa simu, ili kujadili maelezo?"
+MEETING_EN = "Would it be possible to arrange a short meeting, either in person or by phone, to discuss the details?"
+BOOKLET_SW = "Kila mzazi atapata kijitabu cha mzazi."
+BOOKLET_EN = "Every parent will receive a parent booklet."
 CLOSE_SW = f"Wako katika ujenzi wa Taifa,\n\n{L.SIGNATURE_SW}"
 CLOSE_EN = f"Yours in nation building,\n\n{L.SENDER}\n{L.SENDER_TITLE}, Silverleaf Academy"
 
@@ -275,7 +338,7 @@ def government(con, now, run_cfg) -> dict:
     for o in offices:
         level, track = o["office_level"], o["proposed_government_track"] or "GA00 Hold"
         council = councils.get(o.get("council_name") or "", {})
-        missing = [L.CONFIRM_2027, L.NATIVE_REVIEW, "Letter on Silverleaf letterhead, delivered by hand or to the official address; approve the session "
+        missing = [L.NATIVE_REVIEW, "Letter on Silverleaf letterhead, delivered by hand or to the official address; approve the session "
                    "content, parent guide and privacy notice first (campaign C11 gates)."]
         ready = False
         if level == "council":
@@ -292,17 +355,16 @@ def government(con, now, run_cfg) -> dict:
             addressee = f"{council.get('name_sw', o['council_name'])},\n{postal_sw}" if postal_sw else f"{council.get('name_sw', o['council_name'])}."
             body = (f"{title},\n{addressee}\n\n{subject}\n\n{ABOUT_SW}\n\nTunaomba ushauri wako na barua ya utambulisho "
                     f"kwa Watendaji wa Kata ili, pale itakapofaa, tupewe muda mfupi wa dakika 15 hadi 20 katika mikutano ya wananchi. Tutatoa "
-                    f"{SESSION_SW}. Kila mzazi atapata kijitabu kinachoeleza ada na nafuu zinazopatikana kwa familia zote: {L.family_offer_sw()}."
-                    f"{ward_sw}\n\n{SAFEGUARDS_SW}\n\nTutashukuru kupata nafasi ya kukutana nawe kwa dakika 15 kueleza zaidi.\n\n{CLOSE_SW}")
+                    f"{SESSION_SW}. {BOOKLET_SW}"
+                    f"{ward_sw}\n\n{SAFEGUARDS_SW}\n\n{MEETING_SW}\n\n{CLOSE_SW}")
             english = (f"To the {'City Director' if 'City' in o['council_name'] else 'Municipal Director' if 'Municipal' in o['council_name'] else 'District Executive Director'}, "
                        f"{o['council_name']}{', ' + postal if postal else ''}.\n\nRE: REQUEST FOR AN INTRODUCTION TO GIVE PARENTS INFORMATION ON PREPARING CHILDREN TO START SCHOOL\n\n{ABOUT_EN}\n\n"
                        f"We ask for your advice and a letter introducing us to the ward executive officers so that, where appropriate, we can have a "
-                       f"short 15 to 20 minutes at community meetings. We will give {SESSION_EN}. Every parent will receive a booklet explaining the "
-                       f"fees and the savings open to all families: {FAMILY_EN}.{ward_en}\n\n{SAFEGUARDS_EN}\n\nWe would welcome 15 minutes with you to "
-                       f"explain more.\n\n{CLOSE_EN}")
+                       f"short 15 to 20 minutes at community meetings. We will give {SESSION_EN}. {BOOKLET_EN}"
+                       f"{ward_en}\n\n{SAFEGUARDS_EN}\n\n{MEETING_EN}\n\n{CLOSE_EN}")
             follow = (f"{title},\n{addressee}\n\nYAH: UFUATILIAJI WA BARUA YETU YA OMBI LA UTAMBULISHO\n\nTunafuatilia "
-                      f"barua yetu kuhusu elimu kwa wazazi kuhusu maandalizi ya watoto kuanza shule. Tutashukuru kujua kama tunaweza kupanga kikao "
-                      f"kifupi na ofisi yako, au afisa unayemteua.\n\n{CLOSE_SW}")
+                      f"barua yetu kuhusu elimu kwa wazazi kuhusu maandalizi ya watoto kuanza shule. {MEETING_SW}"
+                      f"\n\n{CLOSE_SW}")
             modules, cta = "VM14; VM15; VM16; VM17", "Protocol introduction"
             ready = track.startswith("GA01")
             if not ready:
@@ -313,20 +375,24 @@ def government(con, now, run_cfg) -> dict:
             name = o["admin_unit_name"]
             place_sw = "kata yenu" if level == "ward" else "kijiji chenu"
             located = o.get("latitude") not in (None, "") and o.get("campus")
-            campus_sw = L.campus_line_sw(o.get("campus") or "", o.get("distance_km"), bool(located), place_sw) if located else L.campus_line_sw("", None, False)
-            campus_en = (L.campus_line_en(o.get("campus") or "", o.get("distance_km"), True, f"your {level}") if located else L.network_line_en())
+            key = L.campus_key(o.get("campus") or "")
+            near = bool(located and key and o.get("distance_km") not in (None, "") and float(o["distance_km"]) <= 25)
+            km = round(float(o["distance_km"])) if near else 0
+            campus_sw = (f"Kampasi yetu iliyo karibu zaidi ni {L.campus_display(key)} (takriban kilomita {km} kutoka {place_sw})." if near and km >= 1
+                         else (f"Kampasi yetu iliyo karibu zaidi ni {L.campus_display(key)}, chini ya kilomita 1 kutoka {place_sw}." if near else ""))
+            campus_en = (f"Our nearest campus is {L.campus_display(key)}, about {km} km from your {level}." if near and km >= 1
+                         else (f"Our nearest campus is {L.campus_display(key)}, less than 1 km from your {level}." if near else ""))
             forum_sw = f"mkutano ujao wa wananchi wa Kata ya {name}" if level == "ward" else f"mkutano mkuu ujao wa Kijiji cha {name}"
             forum_en = f"the next community meeting of {name} ward" if level == "ward" else f"the next village assembly of {name}"
             head_sw = f"Afisa Mtendaji wa Kata ya {name}" if level == "ward" else f"Afisa Mtendaji wa Kijiji cha {name}"
             subject = f"YAH: OMBI LA NAFASI FUPI KATIKA {'MKUTANO WA WANANCHI WA KATA YA' if level == 'ward' else 'MKUTANO MKUU WA KIJIJI CHA'} {name.upper()}"
             body = (f"{head_sw},\n{council.get('name_sw', o.get('council_name') or '')}.\n\n{subject}\n\nKufuatia utambulisho wa Halmashauri, "
-                    f"Silverleaf Academy inaomba nafasi ya dakika 15 hadi 20 katika {forum_sw}, ili kutoa {SESSION_SW}.\n\n{campus_sw}\n\nKila mzazi "
-                    f"atapata kijitabu kinachoeleza ada na nafuu zinazopatikana kwa familia zote: {L.family_offer_sw()}.\n\n{SAFEGUARDS_SW}\n\n"
-                    f"Tunaomba kujulishwa tarehe ya mkutano ujao unaofaa.\n\n{CLOSE_SW}")
+                    f"Silverleaf Academy inaomba nafasi ya dakika 15 hadi 20 katika {forum_sw}, ili kutoa {SESSION_SW}.\n\n{campus_sw + chr(10) + chr(10) if campus_sw else ''}{BOOKLET_SW}"
+                    f"\n\n{SAFEGUARDS_SW}\n\n{MEETING_SW}\n\n{CLOSE_SW}")
             english = (f"To the {'Ward' if level == 'ward' else 'Village'} Executive Officer, {name}, {o.get('council_name') or ''}.\n\nRE: REQUEST FOR A "
                        f"SHORT SLOT AT {forum_en.upper()}\n\nFollowing the council's introduction, Silverleaf Academy asks for 15 to 20 minutes at "
-                       f"{forum_en}, to give {SESSION_EN}.\n\n{campus_en}\n\nEvery parent will receive a booklet explaining the fees and the savings "
-                       f"open to all families: {FAMILY_EN}.\n\n{SAFEGUARDS_EN}\n\nPlease let us know the date of the next suitable meeting.\n\n{CLOSE_EN}")
+                       f"{forum_en}, to give {SESSION_EN}.\n\n{campus_en + chr(10) + chr(10) if campus_en else ''}{BOOKLET_EN}"
+                       f"\n\n{SAFEGUARDS_EN}\n\n{MEETING_EN}\n\n{CLOSE_EN}")
             follow = ""
             modules, cta = "VM14; VM15; VM16; VM17", "Convening request"
             missing.append("Held until the council introduction (GA01) is recorded and this post is verified within 90 days (GA02 gate).")
@@ -350,7 +416,7 @@ def government(con, now, run_cfg) -> dict:
             modules, cta = "VM14", "Courtesy notice"
             missing.append("District and regional offices are not a v1 target (plan §1): hold; coordinate with the B2G owner first.")
         post = posts.get(o["organisation_id"], {}).get(recipient_post, {})
-        offer_ids = FAMILY_OFFERS if level in ("council", "ward", "village") else []
+        offer_ids = []  # the letters state no offer, fee or service
         plan = {"message_id": sid("government", o["organisation_id"]), "target_id": o["organisation_id"], "target_type": "organisation",
                 "organisation_id": o["organisation_id"],
                 "relevance_reason": f"{level.title()} office that can convene or introduce community meetings ({o.get('council_name') or o['admin_unit_name']}).",

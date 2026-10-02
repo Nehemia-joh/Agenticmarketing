@@ -31,7 +31,7 @@ Everything stays separate from `outputs/master/` and from the welfare runs.
 - **Education officers** carry `b2g_check_required = yes`: check with the B2G owner before any contact.
 - **Sanitise captures.** Never keep CMS editor names or emails, officials' photos or biographies, or the text of news stories.
 - **The company master is read-only** here, used only for campus coordinates and its `office:government` records. Verification fails if the master database or workbook changes during a run.
-- **Drafts only.** `run_pipeline.py` writes one Kiswahili letter per office with an English meaning (`scripts/messaging/draft_run_messages.py`): the family offer for parents only, never a benefit for officials. Nothing is sent or scheduled; keep automations disabled.
+- **Drafts only.** `run_pipeline.py` writes one Kiswahili letter per office with an English meaning (`scripts/messaging/draft_run_messages.py`): a free talk and a parent booklet; no offer, fee or service is stated, and never a benefit for officials. The closing ask is a short meeting, in person or by phone. Nothing is sent or scheduled; keep automations disabled.
 
 ## Rate limits
 

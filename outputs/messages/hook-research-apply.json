@@ -177,6 +177,46 @@
     "New Safari Hotel: hook not used (the coordinator's review: location only, and only 'the heart of Arusha': every lead is in the Arusha area, so it gives the reader no reason): Your website describes New Safari Hotel as a historic landmark in the heart of Arusha, so such a benefit could reach the team who work there",
     "ZAFS Tours: hook not used (the coordinator's review: location only ('a local team in Arusha'), quoted from the page's hidden description rather than text a visitor sees; the association profile places the company in Moshi): Your website says your safaris and climbs are run by a local team in Arusha, so such a benefit could reach that team."
    ]
+  },
+  {
+   "run_date": "2026-10-02",
+   "applied_on": "2026-10-02",
+   "trial": false,
+   "source_files": 4,
+   "role_unreachable": 11,
+   "reviews": 29,
+   "brief_facts": 206,
+   "role_confirmed": 143,
+   "plans_with_hook": 209,
+   "organisations_with_hook": 57,
+   "role_changed": 1,
+   "role_not_found": 2,
+   "plans_held_role_not_confirmed": 2,
+   "plans_held_for_closure": 5,
+   "lead_briefs_after": 487,
+   "left_out": [
+    "Nelson Mandela African Institution of Science and Technology: hook not used (the coordinator's review: The staff count comes from Wikipedia, not the institution's own site (the hook-research agent: 'not stated on official site'); the institution's home page does not name its Vice-Chancellor either.): Wikipedia lists your institution with 71 academic staff and 48 administrative staff, so such a benefit could reach a broad team."
+   ]
+  },
+  {
+   "run_date": "2026-10-02",
+   "applied_on": "2026-10-02",
+   "trial": false,
+   "source_files": 4,
+   "role_unreachable": 11,
+   "reviews": 29,
+   "brief_facts": 206,
+   "role_confirmed": 143,
+   "plans_with_hook": 209,
+   "organisations_with_hook": 57,
+   "role_changed": 1,
+   "role_not_found": 2,
+   "plans_held_role_not_confirmed": 2,
+   "plans_held_for_closure": 5,
+   "lead_briefs_after": 573,
+   "left_out": [
+    "Nelson Mandela African Institution of Science and Technology: hook not used (the coordinator's review: The staff count comes from Wikipedia, not the institution's own site (the hook-research agent: 'not stated on official site'); the institution's home page does not name its Vice-Chancellor either.): Wikipedia lists your institution with 71 academic staff and 48 administrative staff, so such a benefit could reach a broad team."
+   ]
   }
  ]
 }

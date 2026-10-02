@@ -7,7 +7,7 @@ them). Two stages:
 - --apply: one transaction, following silverleaf-update-lead-list:
   - Register each raw file in source_files, and one source record per organisation. Link it to the organisation and
     to the contacts whose roles it checked.
-  - Replace the organisation's lead brief (table lead_briefs): one row per fact, with its source URL, page title and
+  - Merge into the organisation's lead brief (table lead_briefs; earlier waves' facts are kept): one row per fact, with its source URL, page title and
     date, verbatim excerpt, the date it was read and its source record. A person can then learn about the lead quickly
     if they reply.
   - Set a verified hook on every outreach plan for the organisation, when the record's hook passes the checks below.
@@ -221,8 +221,10 @@ def apply(con, files: list[Path], clean: list[dict], run_date: str, stats: Count
             con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) SELECT ?,?,? WHERE NOT EXISTS "
                         "(SELECT 1 FROM entity_sources WHERE entity_type=? AND entity_id=? AND record_id=?)",
                         (entity_type, entity_id, record, entity_type, entity_id, record))
-        # The brief is replaced as a whole: it shows the latest research, and earlier waves stay in their source records.
-        con.execute("DELETE FROM lead_briefs WHERE organisation_id=?", (oid,))
+        # The brief keeps earlier waves' facts: a fact this wave repeats is refreshed, the others move down behind the new ones.
+        new_ids = [hid("B", oid, f["source_url"], f["excerpt"]) for f in r["brief"]]
+        con.execute(f"DELETE FROM lead_briefs WHERE organisation_id=? AND brief_id IN ({','.join('?' * len(new_ids)) or 'NULL'})", (oid, *new_ids))
+        con.execute("UPDATE lead_briefs SET position = position + ? WHERE organisation_id=?", (len(r["brief"]), oid))
         for position, f in enumerate(r["brief"], 1):
             con.execute("INSERT INTO lead_briefs VALUES (?,?,?,?,?,?,?,?,?,?,?)",
                         (hid("B", oid, f["source_url"], f["excerpt"]), oid, position, f["type"], f["fact"], f["source_url"], f["source_title"],

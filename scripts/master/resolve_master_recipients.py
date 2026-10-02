@@ -45,6 +45,7 @@ GM = re.compile(r"general manager|country manager|director general|country direc
 OTHER_DIRECTOR = re.compile(r"\bdirector\b|head of (finance|operations)|chief (finance|operating) officer|\bcfo\b|\bcoo\b", re.I)
 NOT_SENIOR = re.compile(r"board|non-executive|trustee|advis|assistant|\bass\.|deputy|guide|reservation|sales|marketing|logistics|trip|camp|field|audit|"
                         r"credit|risk|compliance|patient|research|technical|\bict?\b|engineer|kenya|kisumu|nairobi|uganda", re.I)
+FALLBACK_OK = re.compile(r"director|operations manager|communications|public relations|pr|marketing", re.I)
 VERIFIED = re.compile(r"^(Published by the organisation|Verified \d{4}-\d\d-\d\d)|role confirmed \d{4}-\d\d-\d\d", re.I)
 UNUSABLE = re.compile(r"name incomplete|pdpa_risk risky|decision-maker no", re.I)
 
@@ -186,6 +187,8 @@ def eligible(plan, contacts):
     if not VERIFIED.search(verification) or UNUSABLE.search(verification):
         return None
     rank = role_rank(contact["role"])
+    if rank is None and FALLBACK_OK.search(contact["role"] or "") and not re.search(r"sales|reservation|representative|agent|assistant|deputy", contact["role"] or "", re.I):
+        rank = 4  # behind every senior role: a director by another title, an operations manager, or public relations, communications or marketing
     if rank is None:
         return None
     direct = bool(contact["named_email"] or contact["published_role_email"] or contact["role_phone"])
@@ -216,6 +219,11 @@ def plan_key(plan, contacts, primary_org):
     chosen = plan["selection"] == "Candidate for review"
     mine = plan["organisation_id"] == primary_org
     org_type = plan["target_type"] == "organisation"
+    # A named person is kept as the recipient when the role can act on the request or pass it on: any director, an operations manager, or
+    # public relations, communications or marketing. A sales or reservations agent, or an overseas sales representative, is not.
+    junior = (plan["target_type"] == "contact" and role_rank(plan.get("recipient_role")) is None
+              and not FALLBACK_OK.search(plan.get("recipient_role") or ""))
+    chosen = chosen and not junior
     tier = (0 if chosen and by_email else 1 if org_type and by_email else 2 if chosen and ready else 3 if by_email else 4 if ready else 5)
     return (1, (tier, 0 if mine else 1, 0 if org_type else 1), plan["message_id"])
 

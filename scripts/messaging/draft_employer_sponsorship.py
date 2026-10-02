@@ -71,6 +71,14 @@ def suggestion(contacts):
     return "; ".join(f"{n} ({r})" for _, n, r in seen[:2])
 
 
+def role_of(role) -> str:
+    """'the Managing Director of' from a published role, or '' when it is too long or messy to quote."""
+    r = " ".join(str(role or "").split())
+    if not r or len(r) > 45 or re.search(r"[();/]", r):
+        return ""
+    return f"a {r.lower()} of" if r.lower().startswith("co-") else f"the {r} of"
+
+
 def possessive(name: str) -> str:
     return f"{name}'" if name.endswith("s") else f"{name}'s"
 
@@ -144,6 +152,10 @@ def build_drafts(con):
             issues.append(f"{name}: no lead brief starts with the cited fact")
             continue
         who = addressee(contacts)
+        if who and not reason.get("role"):  # a named addressee needs a role that reads well; otherwise address the team
+            phrase = role_of(who[0]["role"])
+            reason = {**reason, "role": phrase} if phrase else reason
+            who = who if phrase else None
         chosen = con.execute("SELECT contact_channel, channel_attribution FROM outreach_plans WHERE organisation_id=? AND selection='Candidate for review'", (oid,)).fetchone()
         route = pick_route(who, org, contacts, chosen)
         bodies = {v: compose(name, who, reason, v) for v in ASK}
@@ -184,7 +196,9 @@ def write_file(con, rows, today: str) -> Path:
         "JOIN organisations p ON p.organisation_id=r.related_id WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%' ORDER BY o.name")]
     ready = [p for p in others if p["review_status"] == "Draft review"]
     held = [p for p in others if p["review_status"] != "Draft review"]
-    lines = [f"# Employer drafts, {today}: every company's first message", "",
+    import build_company_audience_profile as P  # the audience profile goes first, for presenting
+
+    lines = P.profile_lines(con) + ["", "---", "", f"# Employer drafts, {today}: every company's first message", "",
              "Review copy only: nothing is sent. One first message per company, one recipient each. Four parts:", "",
              f"1. **Companies whose giving funds or supports education ({len(drafted)}).** Variant **A** (sponsorship of students, any size, including textbooks, "
              f"transport or meals) for the {sum(r['arm'] == 'A' for r in drafted)} that fund education; variant **B** (a partnership on an education benefit for the "

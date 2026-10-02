@@ -1,0 +1,62 @@
+{
+ "hooks": {
+  "Ob130f68ba9de": {
+   "decision": "reject",
+   "reason": "The staff count comes from Wikipedia, not the institution's own site (the hook-research agent: 'not stated on official site'); the institution's home page does not name its Vice-Chancellor either."
+  }
+ },
+ "checks": [
+  {
+   "organisation_id": "O220baf9b6782",
+   "check": "Golos of Africa is a Moscow-registered sole proprietor serving Russian-speaking travellers, with only an office in Arusha: check whether it employs staff in Arusha before any message."
+  },
+  {
+   "organisation_id": "O6b5052009b1e",
+   "check": "Its own site shows a recent review alleging an unresolved financial dispute: read it before contacting, and confirm the HIV/AIDS programme in the hook is current."
+  },
+  {
+   "organisation_id": "Oe6f197b846aa",
+   "check": "The site says the brand was registered in 2024 under a parent company and also 'since 1991', and the named person has no title: confirm which organisation is behind safari-tz.com."
+  },
+  {
+   "organisation_id": "O3340b71aeb41",
+   "check": "Its contact's page is the safari-tz.com brand, not safaritanzania.com: confirm they are the same organisation."
+  },
+  {
+   "organisation_id": "Of5bbe1d9b42c",
+   "check": "Every page on Livingstone's Africa's site returns 404 and its three contacts could not be checked: a possible closure or rebrand. Confirm it still operates."
+  },
+  {
+   "organisation_id": "O772be5f49cd4",
+   "check": "almc.or.tz looks dated (footer 2020, awards to 2019) and the record has no website: confirm the current site and leadership."
+  },
+  {
+   "organisation_id": "O79dedb6329bb",
+   "check": "Its directors founded The School of St Jude, a free school: keep the tone careful. A strong candidate for the sponsorship request."
+  },
+  {
+   "organisation_id": "O2cb714416e6b",
+   "check": "Romain Coulomb is co-founder of a partner company (Mister Safari), not a director of Lion King Adventures: confirm who leads the company."
+  },
+  {
+   "organisation_id": "O42071d8e1589",
+   "check": "wildlife-explorer.com now redirects to Explorer Travel Co: confirm which entity employs the Arusha staff."
+  },
+  {
+   "organisation_id": "O438b54aab8b7",
+   "check": "Its pages show awards that look copied from another operator: do not quote them."
+  },
+  {
+   "organisation_id": "Oa94c42988eac",
+   "check": "The about page shows a placeholder-looking address ('123 Safari Road'): confirm the real address."
+  },
+  {
+   "organisation_id": "Od8d3fcf6317f",
+   "check": "robots.txt could not be read (4xx) and the site gives two founding dates (1988 and 1992): confirm before quoting."
+  },
+  {
+   "organisation_id": "O6ca0b7c8b95f",
+   "check": "robots.txt disallows the whole site, so nothing was read: a person decides whether to read it with the browser."
+  }
+ ]
+}

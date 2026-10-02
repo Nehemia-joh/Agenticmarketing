@@ -74,14 +74,48 @@ DISPLAY_NAMES_PATH = ROOT / "data" / "reference" / "organisation-display-names.j
 DISPLAY_NAMES = json.loads(DISPLAY_NAMES_PATH.read_text(encoding="utf-8"))["organisations"] if DISPLAY_NAMES_PATH.exists() else {}
 
 
+COMMON_SHORT = {"the", "and", "for", "new", "our", "all", "one", "sun", "joy", "boy", "man", "day", "way", "aid", "his", "her", "she", "you", "hope"}
+LOWER_WORDS = {"and", "for", "of", "the", "in", "on", "to", "at", "a", "an"}
+
+
+def tidy_case(text: str) -> str:
+    """A registry name written in capitals reads as 'Tanzania Inclusive Education Support Organization (TIESO)' in a message.
+    Words of up to three letters, and words with no vowel, stay in capitals (NSK, NMB, SNV); text in brackets is left alone."""
+    letters = re.sub(r"\([^()]*\)", "", text)
+    if len(letters.split()) < 2 or letters != letters.upper() or letters == letters.lower():
+        return text
+
+    def fix(word: str, first: bool) -> str:
+        low = word.lower()
+        if not re.search(r"[A-Za-z]", word):
+            return word
+        if low in LOWER_WORDS and not first:
+            return low
+        if low in ("ltd", "plc", "inc", "llc"):
+            return low.capitalize()
+        if low not in COMMON_SHORT and (len(re.sub(r"[^A-Za-z]", "", word)) <= 3 or not re.search(r"[aeiouAEIOU]", word)):
+            return word
+        return word[:1] + word[1:].lower() if "'" not in word else "'".join(part.capitalize() for part in word.split("'"))
+
+    pieces = re.split(r"(\([^()]*\))", text)
+    out, first = [], True
+    for piece in pieces:
+        if piece.startswith("("):
+            out.append(piece)
+        else:
+            out.append(" ".join(fix(w, first and i == 0) for i, w in enumerate(piece.split(" "))) if piece.strip() else piece)
+        first = False
+    return "".join(out)
+
+
 def display_name(name: str, organisation_id: str | None = None) -> str:
     """An organisation's name for a message. A reviewed trading name (data/reference/organisation-display-names.json) comes
-    first; otherwise the record name without the note the databases add in brackets at the end:
-    'OMAWA (Moshi)' -> 'OMAWA', 'Arusha Coffee Lodge (Elewana)' -> 'Arusha Coffee Lodge'."""
+    first; otherwise the record name without the note the databases add in brackets at the end, and without capitals when the
+    registry wrote it that way: 'OMAWA (Moshi)' -> 'OMAWA', 'Arusha Coffee Lodge (Elewana)' -> 'Arusha Coffee Lodge'."""
     if organisation_id in DISPLAY_NAMES:
         return DISPLAY_NAMES[organisation_id]["name"]
     text = " ".join(str(name or "").split())
-    return re.sub(r"\s*\([^()]*\)$", "", text).strip() or text
+    return tidy_case(re.sub(r"\s*\([^()]*\)$", "", text).strip() or text)
 
 
 def greeting_name(name: str) -> str:

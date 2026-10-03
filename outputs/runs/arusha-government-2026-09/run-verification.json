@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-02T10:38:57.335371+00:00",
+ "checked_at": "2026-10-03T09:46:06.980432+00:00",
  "run_id": "arusha-government-2026-09",
  "result": "passed",
  "checks": {
@@ -78,10 +78,10 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-02T13:38:53",
-   "master_db_sha256": "c75f96644daba5d77a7eb05276130a3b112b01d7732dab5cef15db136c2edc70",
-   "master_workbook_sha256": "a9ceee4cd45964570c6f05347362d3a9b7126780c240f431d1ca48517b831783",
-   "note": "Re-recorded 2026-10-02 after deliberate master changes (wave-10 contacts and role checks, recipients); this run does not open the master."
+   "recorded_at": "2026-10-02T19:54:21",
+   "master_db_sha256": "e4b82ace20d80be70e3862e117d2d9c0d7d93fe2849a8f9d94e9a36186677760",
+   "master_workbook_sha256": "f626ece63332321e6d393525679bdef2644f4f72d87ff40e959784204a5c6a4f",
+   "note": "Re-recorded 2026-10-02 after deliberate master changes (wave 12, introducers, corrections, reach tiers); these runs do not open the master."
   },
   "script_copies_out_of_sync": [],
   "catchment_wards_without_office": 0,

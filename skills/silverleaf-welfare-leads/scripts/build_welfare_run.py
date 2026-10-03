@@ -104,6 +104,8 @@ def proposed_track(org: dict) -> tuple[str, str]:
     if org.get("segment") == "Welfare funder":
         if not org.get("_funds_in_catchment"):
             reasons.append("no verified link to an institution or children in the catchment")
+    elif str(org.get("segment", "")).startswith("Welfare network"):
+        pass  # an introducer network may be national; what matters is its members near the campuses, recorded as relationships
     elif km is None:
         reasons.append("location unresolved")
     elif km > 25:

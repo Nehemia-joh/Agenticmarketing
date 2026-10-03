@@ -94,15 +94,37 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
     try:
         chosen = {r[0]: r for r in connection.execute(
             "SELECT organisation_id, target_name, recipient_role, contact_channel, review_status, "
-            "COALESCE(NULLIF(variant_subject,''), subject), COALESCE(NULLIF(variant_body,''), body) FROM outreach_plans WHERE selection='Candidate for review'")}
+            "COALESCE(NULLIF(variant_subject,''), subject), COALESCE(NULLIF(variant_body,''), body), target_id FROM outreach_plans WHERE selection='Candidate for review'")}
     except sqlite3.OperationalError:
         chosen = {}
     duplicate_of = dict(connection.execute(
         "SELECT r.entity_id, p.name FROM review r JOIN organisations p ON p.organisation_id=r.related_id "
         "WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%'"))
+    # Candidate addresses (infer_candidate_emails.py): inferred from the company's own published pattern, unverified, kept apart from every route.
+    try:
+        candidates = {r[0]: r for r in connection.execute("SELECT contact_id, address, confidence, pattern, evidence FROM candidate_emails WHERE status LIKE 'candidate%' OR status LIKE 'approved%'")}
+    except sqlite3.OperationalError:
+        candidates = {}
+    # An HR or recruitment desk the research found (for example hr@ or recruitment@): a better first route than a booking inbox for a staff benefit.
+    hr_desk = {}
+    for entity_id, value in connection.execute("SELECT entity_id, value FROM facts WHERE entity_type='organisation' AND field LIKE '%email%'"):
+        for a in re.findall(r"[\w.+-]+@[\w.-]+", value or ""):
+            if re.match(r"^(hr|humanresources?|human\.resources|people|peopleandculture|recruitment|tzrecruitment)@", a, re.I):
+                hr_desk.setdefault(entity_id, [])
+                if a.lower() not in hr_desk[entity_id]:
+                    hr_desk[entity_id].append(a.lower())
+    try:  # reach tiers (rank_employer_reach.py)
+        reach = {r[0]: (r[1], r[2]) for r in connection.execute("SELECT organisation_id, tier, score FROM employer_reach")}
+    except sqlite3.OperationalError:
+        reach = {}
     for o in organisations:
+        o["reach_tier"], o["reach_score"] = reach.get(o["organisation_id"], ("", ""))
+        o["hr_desk_email"] = "; ".join(hr_desk.get(o["organisation_id"], []))
         o["message_variant"] = variant.get(o["organisation_id"]) or ""
         pick = chosen.get(o["organisation_id"])
+        cand = candidates.get(pick[7]) if pick else None
+        o["candidate_email"] = cand[1] if cand else ""
+        o["candidate_basis"] = f"{cand[2]} confidence, {cand[3]} pattern, unverified; evidence {cand[4]}" if cand else ""
         o["chosen_recipient"], o["chosen_role"], o["chosen_route"] = (pick[1], pick[2], pick[3]) if pick else ("", "", "")
         o["first_message_subject"], o["first_message"] = (pick[5], pick[6]) if pick else ("", "")
         o["send_status"] = (("Ready for review" if pick[4] == "Draft review" else "Held: needs research") if pick
@@ -258,6 +280,13 @@ def main() -> int:
             ORDER BY o.name,c.name,c.contact_id
         """)
     enrich(connection, organisations, contacts)
+    try:
+        cands = {r[0]: f"{r[1]} ({r[2]} confidence, {r[3]} pattern, unverified; evidence {r[4]})" for r in connection.execute(
+            "SELECT contact_id, address, confidence, pattern, evidence FROM candidate_emails WHERE status LIKE 'candidate%' OR status LIKE 'approved%'")}
+    except sqlite3.OperationalError:
+        cands = {}
+    for c in contacts:
+        c["candidate_email"] = cands.get(c["contact_id"], "")
     names = {("organisation", o["organisation_id"]): o["name"] for o in organisations}
     names |= {("contact", c["contact_id"]): c["name"] or c["role"] for c in contacts}
     names |= {("enquiry", r["enquiry_id"]): r["name"] for r in connection.execute("SELECT enquiry_id, name FROM enquiries")}
@@ -288,7 +317,8 @@ def main() -> int:
         "parent_enquiry_drafts": rows(connection, "SELECT * FROM parent_enquiry_drafts ORDER BY enquiry_id"),
         "automation_recipes": rows(connection, "SELECT * FROM automation_recipes ORDER BY flow_id,step"),
         "messages": rows(connection, "SELECT * FROM messages ORDER BY message_id"),
-        "outreach_plans": rows(connection, "SELECT * FROM outreach_plans ORDER BY message_id"),
+        "outreach_plans": [{**p, "candidate_email": cands.get(p["target_id"], "") if p["target_type"] == "contact" else ""}
+                           for p in rows(connection, "SELECT * FROM outreach_plans ORDER BY message_id")],
         "strategies": rows(connection, "SELECT * FROM strategies ORDER BY title,strategy_id"),
         "source_files": rows(connection, "SELECT source_id,path,sha256,bytes,kind,encoding FROM source_files ORDER BY path"),
         "source_rows": rows(connection, "SELECT r.record_id,r.source_id,f.path AS source_file,r.location FROM source_records r JOIN source_files f USING(source_id) ORDER BY r.record_id"),

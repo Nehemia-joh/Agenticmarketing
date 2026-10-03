@@ -73,9 +73,11 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
     contacts = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
     plans = [dict(r) for r in con.execute("SELECT * FROM outreach_plans WHERE selection='Candidate for review'")]
-    companies = [p for p in plans if p["segment"] != "SACCOS members"]
+    companies = [p for p in plans if p["segment"] not in ("SACCOS members", "Introducers")]
+    introducers = [p for p in plans if p["segment"] == "Introducers"]
     groups = [p for p in plans if p["segment"] == "SACCOS members"]
     total_orgs = len(orgs)
+    no_plan = con.execute("SELECT COUNT(*) FROM organisations o WHERE NOT EXISTS (SELECT 1 FROM outreach_plans p WHERE p.organisation_id = o.organisation_id)").fetchone()[0]
     held_dups = con.execute("SELECT COUNT(DISTINCT entity_id) FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%'").fetchone()[0]
     ready = [p for p in companies if p["review_status"] == "Draft review"]
     kinds = Counter(kind_of(p, orgs[p["organisation_id"]]) for p in companies)
@@ -92,8 +94,9 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
     lines = ["# Who we are writing to: the company audience", "",
              f"*As of {date.today().isoformat()}, from the master database. Every number below is counted from the database; the personas are working hypotheses to test, not findings.*", "",
              "## In one minute", "",
-             f"- We start from **{total_orgs} organisations** near the campuses. After merging {held_dups} duplicate records we write to **{N + len(groups)} separate businesses**: "
-             f"{N} companies and {len(groups)} savings groups.",
+             f"- We start from **{total_orgs} organisations** on file. {no_plan} belong to the welfare or government runs or are excluded, and {held_dups} are duplicate "
+             f"records, so we write to **{N + len(groups)} separate businesses** ({N} companies and {len(groups)} savings groups)"
+             f"{f', plus {len(introducers)} introducers (associations, chambers and HR bodies)' if introducers else ''}.",
              f"- **{pct(len(ready), N)} of the companies are ready for review now** (a draft and a usable route). The rest are held, mostly for want of a published route.",
              f"- The audience is **overwhelmingly tourism**: {pct(kinds['Safari operators and travel agencies'] + kinds['Hotels, lodges and camps'], N)} are safari operators, travel agencies, hotels or lodges. "
              "The rest are banks and other companies, hospitals, colleges and NGOs.",
@@ -148,6 +151,23 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
     lines += [f"Of these, **{variants.get('A', 0)} companies already fund education** and are asked for sponsorship (variant A); the other "
               f"{variants.get('B', 0)} companies are asked for a staff-benefit partnership (variant B); {len(groups)} savings groups are asked for a meeting with their committee.", ""]
 
+    # Reach tiers (rank_employer_reach.py): depth goes to the employers whose staff benefit reaches most people.
+    try:
+        reach = {r[0]: (r[1], r[2]) for r in con.execute("SELECT organisation_id, tier, score FROM employer_reach")}
+    except sqlite3.OperationalError:
+        reach = {}
+    if reach:
+        tiers = Counter(reach.get(p["organisation_id"], ("unranked", 0))[0] for p in companies)
+        named = Counter(reach.get(p["organisation_id"], ("unranked", 0))[0] for p in companies if p["target_type"] == "contact")
+        rows = [[t, tiers[t], named[t], share(named[t], tiers[t])] for t in ("P1", "P2", "P3", "X") if tiers[t]]
+        lines += ["## Where we go deep: reach tiers", "",
+                  "Each company is scored on the kind of employer, published staff numbers, verified workforce facts, named people on file and distance "
+                  "to a campus. P1 is the 100 employers whose staff benefit could reach the most people; X is held as outside the catchment or not an employer.", ""]
+        lines += table(["Tier", "Companies", "Named recipient", "Share named"], rows)
+    if introducers:
+        lines += ["## Introducers", "",
+                  f"{len(introducers)} associations, chambers and HR bodies are asked to share the staff benefit with their members (a bulletin, a members' or "
+                  "HR forum). One partnership can reach many employers' HR teams at once.", ""]
     lines += ["## Personas (working hypotheses)", "",
               "Use these to talk about the audience, and to decide what to test. None of this claims that any staff member is a parent.", ""]
     persona = [

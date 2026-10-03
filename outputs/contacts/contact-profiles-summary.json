@@ -54,21 +54,21 @@
  },
  "after": {
   "master": {
-   "organisations": 955,
-   "direct route": 726,
-   "indirect only": 133,
-   "no route": 96,
-   "with named contact": 356,
-   "with named decision-maker": 332,
-   "contact leads": 899,
-   "named contact leads": 899,
-   "decision-maker leads": 807,
-   "contact leads with a direct route": 893,
-   "contact leads reachable (own or organisation route)": 895,
+   "organisations": 971,
+   "direct route": 753,
+   "indirect only": 134,
+   "no route": 84,
+   "with named contact": 394,
+   "with named decision-maker": 368,
+   "contact leads": 1003,
+   "named contact leads": 1003,
+   "decision-maker leads": 887,
+   "contact leads with a direct route": 995,
+   "contact leads reachable (own or organisation route)": 997,
    "pdpa low": 0,
-   "pdpa medium": 888,
-   "pdpa risky": 11,
-   "research flags": 31
+   "pdpa medium": 991,
+   "pdpa risky": 12,
+   "research flags": 56
   },
   "welfare": {
    "organisations": 500,
@@ -113,25 +113,28 @@
   },
   "osm_matches": 0,
   "search_records": {
-   "partial": 115,
-   "found": 30,
+   "partial": 207,
+   "found": 435,
    "not_found": 11,
    "blocked": 4,
+   "hotlines not used": 8,
+   "browser: partial": 8,
+   "browser: found": 1,
    "rejected routes not used": 0
   },
   "people_not_recorded": {
-   "role holding another listed person's name": 4,
-   "not a current, relevant, named person": 4
+   "not a current, relevant, named person": 7,
+   "role holding another listed person's name": 4
   },
   "master": {
-   "organisations": 955,
-   "route_before": 741,
-   "route_after": 741,
-   "with_named_contact_before": 337,
-   "with_named_contact_after": 368,
-   "new_named_leads": 48,
-   "new_decision_maker_leads": 42,
-   "new_leads_with_incomplete_names": 14
+   "organisations": 971,
+   "route_before": 768,
+   "route_after": 769,
+   "with_named_contact_before": 386,
+   "with_named_contact_after": 408,
+   "new_named_leads": 51,
+   "new_decision_maker_leads": 45,
+   "new_leads_with_incomplete_names": 5
   },
   "welfare": {
    "organisations": 500,

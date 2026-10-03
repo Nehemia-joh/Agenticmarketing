@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-02T10:38:55.578627+00:00",
+ "checked_at": "2026-10-03T11:23:52.527373+00:00",
  "run_id": "arusha-welfare-2026-09",
  "result": "passed",
  "checks": {
@@ -28,30 +28,30 @@
   "skill_script_copies_in_sync": true
  },
  "db_counts": {
-  "organisations": 500,
-  "contacts": 876,
+  "organisations": 497,
+  "contacts": 980,
   "enquiries": 3,
-  "outreach_plans": 493,
+  "outreach_plans": 441,
   "automation_recipes": 0,
-  "organisation_relationships": 216,
+  "organisation_relationships": 281,
   "registry_ngos": 898,
-  "review": 104,
-  "source_records": 1379,
-  "source_files": 28
+  "review": 246,
+  "source_records": 1480,
+  "source_files": 44
  },
  "intake_by_type": {
-  "organisation": 500,
-  "contact": 876,
+  "organisation": 497,
+  "contact": 980,
   "enquiry": 3
  },
  "sheet_rows": {
-  "Organisations": 500,
-  "Contacts": 876,
+  "Organisations": 497,
+  "Contacts": 980,
   "Parent Enquiries": 3,
-  "Relationships": 216,
+  "Relationships": 281,
   "NGO Register": 898,
-  "Review Queue": 104,
-  "Outreach Plans": 493
+  "Review Queue": 246,
+  "Outreach Plans": 441
  },
  "details": {
   "missing_risk": [],
@@ -61,14 +61,13 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-02T13:38:53",
-   "master_db_sha256": "c75f96644daba5d77a7eb05276130a3b112b01d7732dab5cef15db136c2edc70",
-   "master_workbook_sha256": "a9ceee4cd45964570c6f05347362d3a9b7126780c240f431d1ca48517b831783",
-   "note": "Re-recorded 2026-10-02 after deliberate master changes (wave-10 contacts and role checks, recipients); this run does not open the master."
+   "recorded_at": "2026-10-03T14:21:31",
+   "master_db_sha256": "e4b82ace20d80be70e3862e117d2d9c0d7d93fe2849a8f9d94e9a36186677760",
+   "master_workbook_sha256": "f626ece63332321e6d393525679bdef2644f4f72d87ff40e959784204a5c6a4f"
   },
   "script_copies_out_of_sync": [],
   "message_issues": [],
-  "messages_checked": 984,
+  "messages_checked": 880,
   "undrafted_in_scope": []
  }
 }

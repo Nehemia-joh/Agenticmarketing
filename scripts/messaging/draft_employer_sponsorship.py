@@ -184,7 +184,7 @@ def other_companies(con, reviewed: set):
     """Every other company's chosen draft, ready-for-review drafts first."""
     sql = """SELECT p.*, o.name AS org_name FROM outreach_plans p JOIN organisations o USING(organisation_id)
              WHERE p.selection='Candidate for review' ORDER BY p.review_status, p.segment, o.name"""
-    return [dict(r) for r in con.execute(sql) if r["organisation_id"] not in reviewed]
+    return [dict(r) for r in con.execute(sql) if r["organisation_id"] not in reviewed and r["segment"] != "Introducers"]
 
 
 def write_file(con, rows, today: str) -> Path:
@@ -208,7 +208,8 @@ def write_file(con, rows, today: str) -> Path:
              f"set up a partnership to provide an education benefit for staff children, and a short meeting. No offer terms. The second touch asks who is best to speak to about staff welfare or benefits. {sum('@' not in (p['contact_channel'] or '') for p in ready)} of them have a phone number as "
              "their only route and are marked.",
              f"3. **Held, variant B ({len(held)}).** The same request, but there is no email route or another check is open, so it cannot go yet.",
-             f"4. **Duplicate records held ({len(held_dups)}),** so each business gets one message.", "",
+             f"4. **Duplicate records held ({len(held_dups)}),** so each business gets one message.",
+             "5. **Introducers:** associations, chambers and HR bodies asked to share the benefit with their members.", "",
              "Follow-up and offer messages are in the master workbook's Outreach plans sheet. Welfare funders and homes, and the government letters, are separate "
              "runs with their own workbooks and are not in this file. Savings groups appear in part 2 or 3 with their own request to the committee (variant n/a).", "",
              "Fit: strong = the company funds education; moderate = it funds education-related items or community projects; weak = community giving with "
@@ -252,6 +253,14 @@ def write_file(con, rows, today: str) -> Path:
     lines += ["---", "", f"# 4. Duplicate records held ({len(held_dups)})", "",
               "These records keep their IDs. Their drafts are alternatives so each business gets one message; the message goes to the record named on the right.", ""]
     lines += [f"- {d['dup']} ({d['entity_id']}) -> {d['primary_name']} ({d['related_id']})" for d in held_dups]
+    intro = [dict(r) for r in con.execute("SELECT p.*, o.name AS org_name FROM outreach_plans p JOIN organisations o USING(organisation_id) "
+                                           "WHERE p.selection='Candidate for review' AND p.segment='Introducers' ORDER BY o.name")]
+    if intro:
+        lines += ["", "---", "", f"# 5. Introducers: associations, chambers and HR bodies ({len(intro)})", "",
+                  "Each is asked to share the staff education benefit with its members (a bulletin, a members' or HR forum). One partnership can reach many "
+                  "employers' HR teams at once. No offer terms in the first message.", ""]
+        for i, p in enumerate(intro, 1):
+            lines += entry(f"5.{i}", p)
     OUT.mkdir(parents=True, exist_ok=True)
     path = OUT / f"Silverleaf Employer Sponsorship Drafts - {today}.md"
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")

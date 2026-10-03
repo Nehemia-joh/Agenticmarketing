@@ -71,6 +71,7 @@ CTA = {
     "Committee referral": "Could you share this with your committee, or tell me who should receive the one-page member offer sheet?",
 }
 SEGMENT_MAP = [  # master organisation segment -> outreach segment for new plans
+    (r"^Introducer", "Introducers"),
     (r"safari|tour|travel|guide|hotel|lodge|guest|attraction|tourism", "Tourism employers"),
     (r"hospital|clinic|health", "Healthcare employers"),
     (r"college|universit|educational", "Education employers"),
@@ -164,6 +165,27 @@ def employer_copy(plan: dict, org: dict, track: str) -> dict:
             "offer_ids": EMPLOYER_OFFERS, "sw": ""}
 
 
+def introducer_copy(plan: dict, org: dict, track: str) -> dict:
+    """An association, chamber or HR body that could share the staff benefit with its members (decided 2 October 2026). The first
+    message asks for a partnership and a meeting and states no offer terms; the offer follows in the reply."""
+    org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
+    the = "" if org_name.split()[0].isupper() else "the "  # 'the Association of Tanzania Employers', but 'TNCC Arusha Regional Chamber'
+    named = plan.get("target_type") == "contact" and plan.get("target_name")
+    greet = f"Dear {L.greeting_name(plan['target_name'])}," if named else f"Dear {org_name} team,"
+    subject = f"A partnership on education benefits for members of {the}{org_name}"
+    body = (f"{greet}\n\n{L.INTRO}\n\nWe are looking to set up a partnership with {the}{org_name} so that its members can offer an education benefit "
+            f"for the children of their staff. I would welcome the chance to explain how it could work, and to discuss whether {the}{org_name} might share "
+            f"it with members, for example in a member bulletin or at a members' or HR forum.\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+    follow_1 = (f"{greet}\n\nFollowing up on my note about a partnership so that members of {the}{org_name} can offer an education benefit for the children of "
+                f"their staff. Who would be the best person to speak to about member benefits or communications? If it is not relevant, just say so and "
+                f"I will close this.\n\n{L.SIGNATURE}")
+    offer = (f"{greet}\n\n{REPLY_OPENER} Silverleaf Academy would like to offer the staff of {the}{org_name} member organisations {L.EN['OF04']}. Every Silverleaf family "
+             f"can also get {L.family_offer_en()}.\n\n{LEVELS_EN} {CAMPUSES_EN}\n\n{(the + org_name)[:1].upper() + (the + org_name)[1:]} would only share the offer with members; interested parents "
+             f"deal with our admissions team directly, and applications for the 2027 school year are open. We can provide a one-page note for your bulletin "
+             f"or forum.\n\n{CTA['Information offer']}\n\n{L.SIGNATURE}")
+    return {"subject": subject, "body": body, "follow_up_1": follow_1, "follow_up_2": "", "offer_message": offer, "offer_ids": EMPLOYER_OFFERS, "sw": ""}
+
+
 def saccos_copy(plan: dict, org: dict, track: str) -> dict:
     org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     named = plan.get("target_type") == "contact" and plan.get("target_name")
@@ -249,6 +271,8 @@ def main() -> int:
         track = plan["acquisition_track_id"]
         if plan["segment"] == "SACCOS members":
             copy = saccos_copy(plan, org, track)
+        elif plan["segment"] == "Introducers":
+            copy = introducer_copy(plan, org, track)
         elif org.get("name", "").startswith("Rivertrees"):
             copy = rivertrees_copy(org)
         else:
@@ -295,7 +319,7 @@ def main() -> int:
         plan = {"message_id": sid("M", "offer-v4", oid), "target_id": oid, "target_type": "organisation", "organisation_id": oid,
                 "target_name": org["name"], "organisation_name": org["name"], "segment": segment, "cta_type": "Planning conversation" if rivertrees else "Welfare referral",
                 "hook": "", "hook_status": ""}
-        copy = rivertrees_copy(org) if rivertrees else employer_copy(plan, org, "AQ01")
+        copy = rivertrees_copy(org) if rivertrees else (introducer_copy(plan, org, "AQ01") if segment == "Introducers" else employer_copy(plan, org, "AQ01"))
         missing = []
         if not route:
             missing.append("No public email or phone; find the organisation's route before any message.")
@@ -324,7 +348,8 @@ def main() -> int:
                 "organisation_id": c["organisation_id"], "target_name": c["name"], "organisation_name": org.get("name", ""),
                 "segment": segment_of[c["organisation_id"]], "cta_type": "Information offer" if track == "AQ02" else "Welfare referral",
                 "hook": "", "hook_status": "", "recipient_role": c.get("role") or "Named contact", "selection": "Alternative"}
-        copy = saccos_copy(plan, org, track) if plan["segment"] == "SACCOS members" else employer_copy(plan, org, track)
+        copy = (saccos_copy(plan, org, track) if plan["segment"] == "SACCOS members" else
+                introducer_copy(plan, org, track) if plan["segment"] == "Introducers" else employer_copy(plan, org, track))
         missing = [] if route else ["No published route for this person or the organisation; find one before any message."]
         if direct:
             missing.append("Named contact with a direct published route; consider selecting this draft instead of the organisation route.")

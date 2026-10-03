@@ -2,319 +2,319 @@ db	organisation_id	name	segment	route_before	route_after	websites	emails	phones	
 master	O9ffcbf6bd74a	Mount Meru Regional Referral Hospital	Hospital	True	True						2	0		
 master	Ocfbf08472950	LEOPARD TOURS LTD	Safari operator	True	True						1	0		
 master	Ofcb6a215ae14	University of Arusha	University	True	True						1	0		
-master	Ob130f68ba9de	Nelson Mandela African Institution of Science and Technology	University	True	True						1	0		
+master	Ob130f68ba9de	Nelson Mandela African Institution of Science and Technology	University	True	True	https://nm-aist.ac.tz	vc@nm-aist.ac.tz (role) | sweetbert.mutagurwa@nm-aist.ac.tz (named)	+255272970007 (office)	P.O.BOX 447, Arusha (404 Nganana, 23311 Kikwe, Arumeru)		2	1	search	
 master	O624575550ed4	Africa Dream Safaris	Safari operator	True	True						1	0		
 master	O108f9c734a63	Serengeti Balloon Safaris	Safari operator	True	True						5	0		
-master	O772be5f49cd4	Arusha Lutheran Medical Centre (ALMC)	Hospital	True	True						1	0		
+master	O772be5f49cd4	Arusha Lutheran Medical Centre (ALMC)	Hospital	True	True	https://almc.or.tz	info@almc.or.tz (role)	+255272548030 (office) | +255745121686 (mobile) | +255766909113 (mobile)	P.O.Box 17047, Arusha, Tanzania		1	0	search	
 master	O98e535c184cf	Selian Lutheran Hospital	Hospital	True	True						1	0		
 master	O79dedb6329bb	Safaris-R-Us Ltd	Safari operator	True	True						1	0		
-master	O35c0ce5e291d	Elewana Arusha Coffee Lodge	Hotel / lodge group	True	True						3	0		
+master	O35c0ce5e291d	Elewana Arusha Coffee Lodge	Hotel / lodge group	True	True	https://www.elewanacollection.com | https://www.elewanacollection.com/arusha-coffee-lodge/at-a-glance	gm.coffeelodge@elewana.co.tz (role) | reservations.dutymanager@elewana.com (role) | info@elewana.com (role)	+255784250630 (mobile) | +255754250630 (mobile)			3	0	search	
 master	Odd507e2892f9	Arusha Technical College	College	True	True						3	0		
-master	O13d6874ab549	Shadows of Africa Ltd	Safari operator	True	True						3	0		
+master	O13d6874ab549	Shadows of Africa Ltd	Safari operator	True	True	https://www.shadowsofafrica.com | shadowsofafrica.com	legal.dept@shadowsofafrica.com (general) | info@shadowsofafrica.com (role)	+255716625008 (mobile)			3	0	search	
 master	O1abe9227eaf0	Duma Explorer (Alika Africa)	Safari operator	True	True						1	0		
 master	Of71c0f704b70	CORTO SAFARIS Ltd	Safari operator	True	True						5	0		
 master	O59ec53702e66	Parks East Africa Ltd	Safari operator	True	True						1	0		
 master	O8d7a8c0ff2cd	Serengeti Big Cats Safaris Ltd	Safari operator	True	True						3	0		
-master	Oeacd041c2d5f	Matembezi Company Ltd	Safari operator	True	True						4	0		
+master	Oeacd041c2d5f	Matembezi Company Ltd	Safari operator	True	True	https://matembezi.co.tz	stephanie@matembezi.co.tz (named) | christian@matembezi.co.tz (named) | info@matembezi.co.tz (role)	+255677019621 (mobile)			4	1	search	
 master	O502fd116053c	Aga Khan Health Services - Arusha	Clinic	True	True						16	0		
 master	O8e2124eb99e3	BUSHBUCK SAFARIS LIMITED	Safari operator	True	True						1	0		
 master	O6b0bb1aea506	CHELI & PEACOCK SAFARIS (T) LTD	Safari operator	True	True						1	0		
 master	O8c14707e75de	Easy Travel and Tours Ltd	Safari operator	True	True						1	0		
 master	Oc0616ccade39	Gran Melia Arusha	Hotel	True	True						0	0		
-master	O260986e0bfff	Grumeti Expeditions Ltd (Lemala Camps)	Safari operator	True	True						1	0		
+master	O260986e0bfff	Grumeti Expeditions Ltd (Lemala Camps)	Safari operator	True	True	https://lemalacamps.com | https://www.lemalacamps.com	james@tourvesteastafrica.com (general)	+255682933933 (mobile) | +255783398633 (mobile)	P.O. Box 14529 Arusha, Tanzania | P.O. Box 14529, Arusha, Tanzania		1	0	search	
 master	Oc041bab2c73f	Institute of Accountancy Arusha (IAA)	College	True	True						1	0		
-master	O648c07c096fa	ROY SAFARIS LTD	Safari operator	True	True	https://roysafaris.co.tz	enquiries@roysafaris.co.tz (role)	+255272970713 (office) | +255745182923 (mobile)			0	0	search	
+master	O648c07c096fa	ROY SAFARIS LTD	Safari operator	True	True	https://roysafaris.co.tz	enquiries@roysafaris.co.tz (role)	+255272970713 (office) | +255745182923 (mobile) | +25527297071345 (office)			0	0	search	
 master	Oca648bce3527	Simba Safaris Ltd	Safari operator	True	True						1	0		
 master	O2aae84638d6a	SNV Tanzania	NGO	True	True						1	0		
 master	O7c1f7a743d65	St. Augustine University of Tanzania - Arusha Campus	University	True	True						1	0		
 master	Oae7daca781fb	St. Elizabeth Hospital Arusha	Hospital	True	True						0	0		
 master	Oafdc286a337a	WILDERSUN SAFARIS & TOURS (T) LTD	Safari operator	True	True						1	0		
 master	Oa2d6e2841852	Wilkinson Tours Ltd	Safari operator	True	True						5	0		
-master	O4ae59fde9a4a	Earthlife Expeditions Company Limited	Safari operator	True	True						3	0		
+master	O4ae59fde9a4a	Earthlife Expeditions Company Limited	Safari operator	True	True	https://www.earthlifeexpeditions.com					3	0	search	
 master	O2b82864aa6da	ALLEN TANZANIA SAFARIS	Safari operator	True	True						2	0		
 master	Oa94c42988eac	Serengeti Pride Safaris	Safari operator	True	True						1	0		
-master	O1bfb37e37c41	NORTHLAND SAFARIS LTD	Safari operator	True	True						2	0		
+master	O1bfb37e37c41	NORTHLAND SAFARIS LTD	Safari operator	True	True	https://northlandsafaris.com	info@northlandsafaris.com (role)		P.O Box 1662 Arusha-Tanzania		2	0	search	
 master	Oe5f29492ff37	AFRICA SAFARI EXPERTS LTD	Safari operator	True	True						1	0		
-master	O6923841a0f82	Africa Travel Bureau Ltd	Safari operator	True	True						1	0		
+master	O6923841a0f82	Africa Travel Bureau Ltd	Safari operator	True	True	https://africatravelbureau.com	info@africatravelbureau.co.tz (role)	+255272503849 (office) | +255755887229 (mobile)	P.O. Box 1440 Arusha, Tanzania		1	0	search	
 master	Od55a251feb55	Afroriginal Tours & Safaris Ltd	Safari operator	True	True						2	0		
 master	Ob57f8d39dff5	ALEX WALKER SAFARIS / Serian	Safari operator	True	True						1	0		
 master	Oc62b4be73d7e	Augustine's Adventure Africa ltd (AA Africa)	Safari operator	True	True						2	0		
-master	O494abeb4606d	Base Camp Tanzania	Safari operator	True	True						2	0		
-master	O6968a792722b	INTREPID TRAVEL TANZANIA LIMITED	Safari operator	True	True	https://www.intrepidtravel.com	elirehema.mshana@intrepidtravel.com (named) | bosco.omondi@intrepidtravel.com (general) | samuel.karani@intrepidtravel.com (general)	+255787906871 (mobile) | +255758509579 (mobile)	6101 Arusha, Tanzania		1	0	search	
+master	O494abeb4606d	Base Camp Tanzania	Safari operator	True	True	https://basecamptanzania.co.tz | https://basecamptanzania.com	management@basecamptanzania.com (general)	+255784186422 (mobile) | +255748000026 (mobile)	P.O. Box 568 Arusha, Tanzania | P.O. Box 568, Arusha, Tanzania		2	0	search	
+master	O6968a792722b	INTREPID TRAVEL TANZANIA LIMITED	Safari operator	True	True	https://intrepidtravel.com | https://www.intrepidtravel.com	elirehema.mshana@intrepidtravel.com (named) | bosco.omondi@intrepidtravel.com (general) | samuel.karani@intrepidtravel.com (general)	+255787906871 (mobile) | +255758509579 (mobile)	6101 Arusha, Tanzania		1	0	search	
 master	Of48b5e9fdc05	KIBO GUIDES (T) LTD	Safari operator	True	True						1	0		
-master	Ocbc0a898c461	KILI VIKINGS LIMITED	Safari operator	True	True						2	0		
+master	Ocbc0a898c461	KILI VIKINGS LIMITED	Safari operator	True	True	https://kilivikings.com	info@kilivikings.com (role)	+255769654036 (mobile)			2	0	search	
 master	Od74a05b7e925	Krisha African Safaris Ltd	Safari operator	True	True						1	0		
 master	O7f949d75cae7	LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD)	Safari operator	True	True						1	0		
 master	Ob86dcb58b76c	MAASAI MAGIC SAFARI COMPANY LTD	Safari operator	True	True						0	0	search:not_found	
 master	O846b61ccdd7b	Maasai Wanderings Limited	Safari operator	True	True						1	0		
-master	O884bad8b04b8	Migada Adventures Tours and Safaris	Safari operator	True	True	https://migadadventures.com	info@migadadventures.com (role)		P O Box 2199 (city not given)		0	0	search	
-master	Oe3fbf24d4ddb	Nature Discovery	Safari operator	True	True	https://naturediscovery.com	info@naturediscovery.com (role)	+255739971859 (mobile) | +255754813614 (mobile)	PO Box 10574, Arusha		0	1	search	
+master	O884bad8b04b8	Migada Adventures Tours and Safaris	Safari operator	True	True	https://migadadventures.com | https://migadadventures.com/	info@migadadventures.com (role)	+255787370023 (mobile) | +255786370023 (mobile)	P O Box 2199 (city not given)	instagram: https://www.instagram.com/migadadventurestours | youtube: https://www.youtube.com/@migadadventures | facebook: https://web.facebook.com/profile.php?id=100066979786257	0	0	browser, search	
+master	Oe3fbf24d4ddb	Nature Discovery	Safari operator	True	True	https://naturediscovery.com	info@naturediscovery.com (role)	+255739971859 (mobile) | +255754813614 (mobile)	PO Box 10574, Arusha		1	0	search	
 master	O9ec8db8e8b63	PAJOTA SAFARIS LTD	Safari operator	True	True						1	0		
 master	Ofa40434a1f64	Shaw Safaris Ltd	Safari operator	True	True	https://shawsafaris.co.tz	info@shawsafaris.com (role)				0	0	search	
-master	Ob2f968f00c1d	Shidolya Tours & Safaris Ltd	Safari operator	True	True	https://shidolyasafaris.com	admin@shidolya.co.tz (role)	+255754773655 (mobile) | +255769680497 (mobile) | +255783410514 (mobile)			0	0	search	
+master	Ob2f968f00c1d	Shidolya Tours & Safaris Ltd	Safari operator	True	True	https://shidolyasafaris.com	admin@shidolya.co.tz (role)	+255754773655 (mobile) | +255769680497 (mobile) | +255783410514 (mobile)	P.O Box 1436 Arusha, Tanzania		0	0	search	
 master	Ob1eafb06d91d	Swala Safaris LTD	Safari operator	True	True	https://swalasafaris.com	info@swalasafaris.com (role) | swala@habari.co.tz (general)	+255737008008 (mobile) | +255738709014 (mobile)			0	0	search	
-master	Oc01d9612e3c1	Tandala Expeditions Limited	Safari operator	True	True						3	0		
-master	Oe5bd1b3cf183	Anderson's African Adventures Ltd	Safari operator	True	True	https://andersons.co.za	helinah@andersons.co.za (named)	+16787541455 (international) | +255754456456 (mobile)	PO Box 2765 (city not given)		0	1	search	
+master	Oc01d9612e3c1	Tandala Expeditions Limited	Safari operator	True	True	https://tandala.com	tandala@tandala.co.tz (general)	+255784194194 (mobile)	P.O.BOX 11540 Arusha.		3	0	search	
+master	Oe5bd1b3cf183	Anderson's African Adventures Ltd	Safari operator	True	True	https://andersons.co.za	helinah@andersons.co.za (named)	+16787541455 (international) | +255754456456 (mobile)	PO Box 2765 (city not given)		1	0	search	
 master	O165bb1966844	KILAWENI LTD	Safari operator	True	True						0	0	search	
 master	O5680f8038d8d	Kilimanjaro Outfitters Limited	Safari operator	True	True						0	0	search:not_found	
 master	Oa9f2f6cfc8fa	Kudu Safaris ltd	Safari operator	True	True						0	1	search	
-master	O49acf40de67b	Sunny Adventure Safaris Ltd	Safari operator	True	True	http://www.sunnyadventures.co.tz	info@sunnyadventures.co.tz (role) | sunnyadventures@habari.co.tz (general)	+255754600786 (mobile) | +255784600786 (mobile) | +255754471086 (mobile) | +255787559966 (mobile)	P.O.Box 972 (city not given)		0	0	search	
+master	O49acf40de67b	Sunny Adventure Safaris Ltd	Safari operator	True	True	http://www.sunnyadventures.co.tz | https://sunnyadventures.co.tz/	info@sunnyadventures.co.tz (role) | sunnyadventures@habari.co.tz (general)	+255754600786 (mobile) | +255784600786 (mobile) | +255754471086 (mobile) | +255787559966 (mobile) | +2552725441423 (office)	P.O.Box 972 (city not given) | P.O.Box 972, Arusha, Tanzania	facebook: https://www.facebook.com/sunnyadventuresafaris/	0	0	browser, search	
 master	O42071d8e1589	Wildlife Explorer E.A. Ltd	Safari operator	True	True						4	0		
 master	Ob72608b5c4c9	Yembi Adventure Ltd	Safari operator	True	True	http://www.yembitz.com	yembi@africanonline.co.tz (general)	+255754475924 (mobile)	P.O. Box 1990 (city not given)		0	0	search	
-master	O2d34e3b7235b	Bearfoot Expeditions	Safari / tour operator	True	True						1	0		
-master	O0f81299a660f	Bush 2 City Adventure	Safari / tour operator	True	True						3	0		
-master	Ocd3ccb5ffe99	Dream Peak Safaris	Safari / tour operator	True	True						7	0		
-master	O5de8e5bade24	EWA Safari Outfitters (Extreme Wilderness Adventure)	Safari / tour operator	True	True						1	0		
-master	O400ac25b3261	Josh Dreamland Safaris	Safari / tour operator	True	True						3	0		
-master	O0367110283a3	Safari Kings Tanzania Ltd	Safari / tour operator	True	True						2	0		
-master	O3ef6297075e2	Safari.Africa	Safari / tour operator	True	True						6	0		
-master	O06f6a9866546	Serengeti African Tours	Safari / tour operator	True	True						4	0		
-master	Oed0d744628cc	JM Tours Ltd	Safari / tour operator	True	True						5	0		
-master	O96691b5cc950	Eyes Of Tanzania Limited	Safari / tour operator	True	True						3	0		
-master	Oe70f925d1706	I Dream of Africa Ltd	Safari / tour operator	True	True						2	0		
-master	O3f6d85c3cbe1	Kotia Photographic Safaris and Tours	Safari / tour operator	True	True						2	0		
-master	O68f2287b470b	Volunteers Africa Heart’s Desire Limited	Safari / tour operator	True	True						2	0		
-master	Oc97677178b3b	Wildfinder Tours & Safaris Limited	Safari / tour operator	True	True						4	0		
-master	O695d7410f683	Kilimanjaro Heroes Adventures	Safari / tour operator	True	True						2	0		
+master	O2d34e3b7235b	Bearfoot Expeditions	Safari / tour operator	True	True	https://bearfootexpeditions.com	info@bearfootexpeditions.com (role) | sales@bearfootexpeditions.com (role)	+255754368332 (mobile) | +255739972480 (mobile)	P.O. Box 1878 Arusha Tanzania.		1	0	search	
+master	O0f81299a660f	Bush 2 City Adventure	Safari / tour operator	True	True	https://bush2cityadventure.com	info@bush2cityadventure.com (role)	+255789725322 (mobile)			3	0	search	
+master	Ocd3ccb5ffe99	Dream Peak Safaris	Safari / tour operator	True	True	https://dreampeaksafaris.com	info@dreampeaksafaris.com (role)	+255744333398 (mobile) | +61438840617 (international)	P.O. Box 13108 ARUSHA		7	0	search	
+master	O5de8e5bade24	EWA Safari Outfitters (Extreme Wilderness Adventure)	Safari / tour operator	True	True	https://theextremewilderness.com	info@theextremewilderness.com (role)	+255747999070 (mobile)	P.O.Box 23103 Arusha, Tanzania		1	0	search	
+master	O400ac25b3261	Josh Dreamland Safaris	Safari / tour operator	True	True	https://joshdreamlandsafari.com	info@joshdreamlandsafari.com (role) | joshdreamlandsafari@gmail.com (personal_domain)	+2550750152246 (unknown)			3	0	search	
+master	O0367110283a3	Safari Kings Tanzania Ltd	Safari / tour operator	True	True	https://safarikings.com	info@safarikings.com (role)	+61290531940 (international) | +255765436897 (mobile)	P.O Box 7309,Arusha, Tanzania		2	0	search	
+master	O3ef6297075e2	Safari.Africa	Safari / tour operator	True	True	https://safari.africa | https://www.safari.africa	florida@safari.africa (named) | info@safari.africa (role)	+255787082545 (mobile) | +46733243634 (international)			6	0	search	
+master	O06f6a9866546	Serengeti African Tours	Safari / tour operator	True	True	https://serengetiafricantours.com	info@serengetiafricantours.com (role) | careers@serengetiafricantours.com (role)	+255762468213 (mobile)	P.O.BOX 303, Arusha		4	0	search	
+master	Oed0d744628cc	JM Tours Ltd	Safari / tour operator	True	True	https://jmtours.co.tz | https://jmtours.com	info@jmtours.com (role)	+255747099995 (mobile)			5	0	search	
+master	O96691b5cc950	Eyes Of Tanzania Limited	Safari / tour operator	True	True	https://eyes-of-tanzania.com | https://www.eyes-of-tanzania.com	info@eyes-of-tanzania.com (role)	+255759194113 (mobile) | +31686119597 (international)	P.O.Box 784 Arusha, Tanzania		3	0	search	
+master	Oe70f925d1706	I Dream of Africa Ltd	Safari / tour operator	True	True	https://idreamofafrica.com	info@idreamofafrica.com (role)	+255754461594 (mobile)	P.O.BOX: 2281 Arusha,Tanzania		2	0	search	
+master	O3f6d85c3cbe1	Kotia Photographic Safaris and Tours	Safari / tour operator	True	True	https://kotiasafaris.co.tz	info@kotiasafaris.co.tz (role)	+255767463608 (mobile) | +255693722520 (mobile)	P. O. Box 518, USA – RIVER		2	0	search	
+master	O68f2287b470b	Volunteers Africa Heart’s Desire Limited	Safari / tour operator	True	True	https://africaheartsdesire.com	info@africaheartsdesire.com (role)	+255718219720 (mobile) | +255746108950 (mobile)	P.O. Box 332, Arusha, Tanzania		2	0	search	
+master	Oc97677178b3b	Wildfinder Tours & Safaris Limited	Safari / tour operator	True	True	https://wildfindersafaris.com	info@wildfindersafaris.com (role)	+255754065196 (mobile)	P.O.Box 15204, Arusha, Tanzania		4	0	search	
+master	O695d7410f683	Kilimanjaro Heroes Adventures	Safari / tour operator	True	True	https://kilimanjaroheroes.com	info@kilimanjaroheroes.com (role)	+255716588188 (mobile) | +14132441490 (international)	P.O. Box 1176, Moshi, Tanzania		2	0	search	
 master	Od0023f367e33	Nihapa Tours	Safari / tour operator	True	True						3	0		
-master	O1af965cf52f3	4StrokeMaasai Limited	Safari / tour operator	True	True						1	0		
-master	O6d449264b4dd	Experience Safaris	Safari / tour operator	True	True						1	0		
+master	O1af965cf52f3	4StrokeMaasai Limited	Safari / tour operator	True	True	https://4strokemaasai.com	info@4strokemaasai.com (role)	+255784555573 (mobile)	P O Box 1183, Themi Industrial Area,		1	0	search	
+master	O6d449264b4dd	Experience Safaris	Safari / tour operator	True	True	https://experiencesafaris.com	info@experiencesafaris.com (role)	+255619514306 (mobile)	P.O. Box 4034, Arusha, Tanzania		1	0	search	
 master	O483d0fae5e8d	Golden Trips Tanzania	Safari / tour operator	True	True						3	0		
-master	O691bf1115e5b	Kilimanjaro Adventure Safari Club (KASC)	Safari / tour operator	True	True						1	0		
-master	O3dfafceee7e7	Samora Explorers Ltd	Safari / tour operator	True	True						1	0		
-master	O015d8165a12d	Snow Africa Adventures	Safari / tour operator	True	True						2	0		
-master	O626b2499c34b	Miracle Experience	Safari / tour operator	True	True						1	0		
-master	O98f2a93d24da	Paradies Safaris Ltd	Safari / tour operator	True	True						4	0		
-master	Ob737186864b2	Ecological Wilderness Adventure & Car Hire	Safari / tour operator	True	True						3	0		
-master	Ob07802fda2b4	Everyday Safaris	Safari / tour operator	True	True						1	0		
-master	O5949d6cb9379	Faune & Flore Ltd	Safari / tour operator	True	True						2	0		
-master	Obf0e5263d356	Get together adventure	Safari / tour operator	True	True						10	0		
-master	O50681a94d557	Sereland Africa Safaris	Safari / tour operator	True	True						2	0		
-master	O63d909522c13	Kirengo Tours And Safaris Limited	Safari / tour operator	True	True						3	0		
-master	O6f0d075219ea	Maape Tanzania Safaris Ltd	Safari / tour operator	True	True						1	0		
-master	O151facbf1136	Make My Safari Limited	Safari / tour operator	True	True						3	0		
-master	O578e11869c3b	Passionate Guides Tanzania	Safari / tour operator	True	True						1	0		
-master	O37276f92b44e	Arusha Local Triips Tanzania Limited	Safari / tour operator	True	True						2	0		
-master	O31664fbad51c	Joash Africa Wilderness Insight Ltd	Safari / tour operator	True	True						1	0		
-master	O1e8ab08eca4f	Kilidove Tours	Safari / tour operator	True	True						1	0		
+master	O691bf1115e5b	Kilimanjaro Adventure Safari Club (KASC)	Safari / tour operator	True	True	https://kilimanjarotrekk.com	makonindesafari@gmail.com (named) | info@kilimanjarotrekk.com (role)		P.O. Box 12895 Arusha,Tanzania.		1	0	search	
+master	O3dfafceee7e7	Samora Explorers Ltd	Safari / tour operator	True	True	https://samoraexplorers.com	info@samoraexplorers.com (role) | samoraexp@gmail.com (personal_domain) | info@tropictz.com (role)	+255765766462 (mobile) | +255745466255 (mobile) | +255759466015 (mobile)	P.O.Box 1803, Arusha, Tanzania		1	0	search	
+master	O015d8165a12d	Snow Africa Adventures	Safari / tour operator	True	True	https://snowafricaadventure.com	info@snowafricaadventure.com (role)	+255766657854 (mobile) | +255784696796 (mobile)			2	1	search	
+master	O626b2499c34b	Miracle Experience	Safari / tour operator	True	True	https://miracleexperience.co.tz	balloon@miracleexperience.co.tz (general)	+255789300009 (mobile)	P.O. BOX 2706 Arusha, Tanzania		1	0	search	
+master	O98f2a93d24da	Paradies Safaris Ltd	Safari / tour operator	True	True	https://paradiessafaris.com	info@paradiessafaris.com (role) | hilde.keil@paradiessafaris.com (named) | robin.keil@paradiessafaris.com (named) | accounts@paradiessafaris.com (role)	+255784999510 (mobile) | +4942139048937 (international)	P.O.BOX 2632 Arusha,Tanzania		4	0	search	
+master	Ob737186864b2	Ecological Wilderness Adventure & Car Hire	Safari / tour operator	True	True	https://ecologicaladventure.com	info@ecologicaladventure.com (role) | safaris@ecologicaladventure.com (role)	+255780900003 (mobile) | +255694950644 (mobile)	P.O.Box 10064 Arusha, Tanzania.		3	0	search	
+master	Ob07802fda2b4	Everyday Safaris	Safari / tour operator	True	True	https://everydaysafaris.com	info@everydaysafaris.com (role)		P.O Box 8101 Arusha, Tanzania		1	0	search	
+master	O5949d6cb9379	Faune & Flore Ltd	Safari / tour operator	True	True	https://faune-flore.com	info@faune-flore.com (role)	+255784378153 (mobile) | +255784680068 (mobile)	P.O. Box 14786, Arusha, Tanzania		2	0	search	
+master	Obf0e5263d356	Get together adventure	Safari / tour operator	True	True	https://gettogetheradventures.com	info@gettogetheradventures.com (role) | sales@gettogetheradventures.com (role)	+255758109933 (mobile)			10	0	search	
+master	O50681a94d557	Sereland Africa Safaris	Safari / tour operator	True	True	https://serelandafricasafaris.com	info@serelandafricasafaris.com (role)	+255719977446 (mobile) | +255743170649 (mobile)			2	0	search	
+master	O63d909522c13	Kirengo Tours And Safaris Limited	Safari / tour operator	True	True	https://kirengotours.com	info@kirengotours.com (role)	+255754040939 (mobile)			3	0	search	
+master	O6f0d075219ea	Maape Tanzania Safaris Ltd	Safari / tour operator	True	True	https://maapetanzaniasafaris.com	info@maapetanzaniasafaris.com (role) | twendetzsafaris1@gmail.com (personal_domain)	+255788913757 (mobile) | +13018542972 (international)	PO Box 12586 Arusha, Tanzania		1	0	search	
+master	O151facbf1136	Make My Safari Limited	Safari / tour operator	True	True	https://makemysafari.com	info@makemysafari.com (role)	+255622667667 (mobile)	P.O.Box 11276 Arusha, Tanzania		3	0	search	
+master	O578e11869c3b	Passionate Guides Tanzania	Safari / tour operator	True	True	https://thepassionateguides.com	info@thepassionateguides.com (role)	+255710122066 (mobile)			1	0	search	
+master	O37276f92b44e	Arusha Local Triips Tanzania Limited	Safari / tour operator	True	True	https://arushatrips.com	office.arushatrips@gmail.com (personal_domain) | info@arushatrips.com (role)	+31636163544 (international) | +255752243063 (mobile)			2	0	search	
+master	O31664fbad51c	Joash Africa Wilderness Insight Ltd	Safari / tour operator	True	True	https://jafricasafari.com	info@jafricasafari.com (role)	+255784950540 (mobile) | +255620190792 (mobile)	P.O.BOX 15296 Arusha,Tanzania		1	0	search	
+master	O1e8ab08eca4f	Kilidove Tours	Safari / tour operator	True	True	https://kilidovetours.com	kili@kilidovetours.com (general)	+255713404912 (mobile) | +255753181516 (mobile) | +255787955466 (mobile)	P.O. Box 12270, Arusha, Tanzania		1	0	search	
 master	O472b960097c8	Wildersun Safaris Tours T Ltd	Safari / tour operator	True	True						4	0		
-master	Oebc842b7212d	Active Tanzania Adventures Limited	Safari / tour operator	True	True						2	0		
-master	O894cfb463c23	Wild Pride Safaris	Safari / tour operator	True	True						1	0		
-master	Ob74a5ef280ed	A & N Uniques Safaris (2000) Ltd	Safari / tour operator	True	True						2	0		
-master	O6ff2001b487d	Absolute Wilderness Travel and Tours	Safari / tour operator	True	True						1	0		
-master	O6a6698b3c6d5	African Big Cats Safaris	Safari / tour operator	True	True						4	0		
+master	Oebc842b7212d	Active Tanzania Adventures Limited	Safari / tour operator	True	True	https://activetanzania.com	info@activetanzania.com (role)	+255784605785 (mobile)	P.O.BOX: 16543 Arusha,Tanzania		2	0	search	
+master	O894cfb463c23	Wild Pride Safaris	Safari / tour operator	True	True	https://wildpridesafaris.com	info@wildpridesafaris.com (role)	+255685340345 (mobile)	P.O Box 16641 Arusha, Tanzania		1	0	search	
+master	Ob74a5ef280ed	A & N Uniques Safaris (2000) Ltd	Safari / tour operator	True	True	https://uniquesafaris.com	uniquesafaris@uniquesafaris.co.tz (general) | meg@uniquesafaris.biz (named)	+16122014461 (international)	P.O.Box 2189, Arusha, Tanzania		2	0	search	
+master	O6ff2001b487d	Absolute Wilderness Travel and Tours	Safari / tour operator	True	True	https://absolutewilderness.com	info@absolutewilderness.com (role) | henryobedi.mejooli@absolutewilderness.com (named)	+255754693839 (mobile)	P.O. Box 1058 Arusha, Tanzania		1	0	search	
+master	O6a6698b3c6d5	African Big Cats Safaris	Safari / tour operator	True	True	https://africanbigcatssafaris.com	info@africanbigcatssafaris.com (role)	+255786508052 (mobile) | +255689981444 (mobile)			4	0	search	
 master	O5ccd890792b9	African Environments Ltd	Safari / tour operator	True	True						8	0		
-master	Ob9b86a8d8045	Ajabu Adventures Ltd.	Safari / tour operator	True	True						2	0		
+master	Ob9b86a8d8045	Ajabu Adventures Ltd.	Safari / tour operator	True	True	https://ajabu-adventures.com	info@ajabu-adventures.com (role)	+255753433211 (mobile) | +15056108538 (international)	P.O. Box 1944 Arusha, Tanzania		2	0	search	
 master	O3d912cf40e4b	Alex Walker Ltd (Serian)	Safari / tour operator	True	True						1	0		
 master	O99edb02a90e9	Alika Africa	Safari / tour operator	True	True						3	0		
-master	O72c942f65589	Allengeti Adventures	Safari / tour operator	True	True						3	0		
-master	O387cf2af29cf	Babji Tours & Safari Ltd	Safari / tour operator	True	True						2	0		
-master	O59a1de3f78bf	Blue Lotus Travel & Tours Ltd	Safari / tour operator	True	True						2	0		
-master	O7c88a7c89087	Bright African Safaris	Safari / tour operator	True	True						1	0		
+master	O72c942f65589	Allengeti Adventures	Safari / tour operator	True	True	https://allengetiadventures.co.tz	info@allengetiadventures.co.tz (role)	+255788620962 (mobile) | +255754551104 (mobile)	P.O.Box 600, Arusha, Tanzania		3	0	search	
+master	O387cf2af29cf	Babji Tours & Safari Ltd	Safari / tour operator	True	True	https://babjisafaris.com	info@babjisafaris.com (role) | operations@babjisafaris.com (role)	+255784321185 (mobile) | +255272547306 (office) | +255784321186 (mobile)	P.O. Box 395 Arusha, Tanzania		2	0	search	
+master	O59a1de3f78bf	Blue Lotus Travel & Tours Ltd	Safari / tour operator	True	True						2	0	search	
+master	O7c88a7c89087	Bright African Safaris	Safari / tour operator	True	True	https://brightafricansafaris.com	sales@brightafricansafaris.com (role)	+255756761701 (mobile) | +255688761701 (mobile)			1	0	search	
 master	O4d3bf5bae13d	Bushbuck Safari Limited	Safari / tour operator	True	True						1	0		
 master	O7d38a52691e3	Cheli Peacock Safaris T Ltd	Safari / tour operator	True	True						8	0		
-master	O438b54aab8b7	Conservation Caravan Safaris Ltd	Safari / tour operator	True	True						1	0		
-master	O022c4c05ffff	DEBRE Safari Adventure	Safari / tour operator	True	True						2	0		
-master	O46d07ec685eb	Destiny Explorers Limited	Safari / tour operator	True	True						1	0		
+master	O438b54aab8b7	Conservation Caravan Safaris Ltd	Safari / tour operator	True	True	https://conservationcaravansafaris.com	info@conservationcaravansafaris.com (role)	+255785467173 (mobile) | +255784379383 (mobile)	P.O.Box 23110, Arusha, Tanzania		1	0	search	
+master	O022c4c05ffff	DEBRE Safari Adventure	Safari / tour operator	True	True	https://debresafari.com	info@debresafari.com (role)	+255785857829 (mobile)			2	0	search	
+master	O46d07ec685eb	Destiny Explorers Limited	Safari / tour operator	True	True	https://destinyexplorers.com	info@destinyexplorers.com (role)	+255710062816 (mobile)	P.O. Box 8280, Arusha, Tanzania		1	0	search	
 master	O89f99ae48244	ET Investments Ltd (Tanzania Experience)	Safari / tour operator	True	True						3	0		
-master	O74438edb13c0	Full Package Adventures Ltd	Safari / tour operator	True	True						3	0		
-master	Ofdba6fbeabf2	Go Expeditions Africa Limited	Safari / tour operator	True	True						1	0		
-master	O220baf9b6782	Golos of Africa	Safari / tour operator	True	True						1	0		
-master	O6b5052009b1e	Great Image Expedition Ltd	Safari / tour operator	True	True						4	0		
-master	Oeea3c7c121ec	Hazzes Adventure Limited	Safari / tour operator	True	True						2	0		
+master	O74438edb13c0	Full Package Adventures Ltd	Safari / tour operator	True	True	https://fullpackageadventures.com	info@fullpackageadventures.com (role)	+255741036745 (mobile)	P.O. Box 14748, Arusha, Tanzania		3	0	search	
+master	Ofdba6fbeabf2	Go Expeditions Africa Limited	Safari / tour operator	True	True	https://goexpeditionsafrica.com	info@goexpeditionsafrica.com (role)	+255781654040 (mobile) | +255754483431 (mobile)	P.O.Box 965 Arusha, Tanzania		1	0	search	
+master	O220baf9b6782	Golos of Africa	Safari / tour operator	True	True	https://golos.africa	info@golosafrica.com (role) | info@golos.africa (role)	+255718551725 (mobile) | +79514619992 (international)	P.O Box 10261 Arusha, Tanzania		1	0	search	
+master	O6b5052009b1e	Great Image Expedition Ltd	Safari / tour operator	True	True	https://gie.co.tz	info@gie.co.tz (role)	+255754663507 (mobile)	TFA Building, P.O. Box 10069, Arusha, Tanzania		4	0	search	
+master	Oeea3c7c121ec	Hazzes Adventure Limited	Safari / tour operator	True	True	https://hazzesadventure.com	info@hazzesadventure.com (role) | hazzesadventure@gmail.com (named)	+255754024755 (mobile) | +255786065834 (mobile)	P.O. Box 13452, Arusha, Tanzania		2	0	search	
 master	Od8d3fcf6317f	Hoopoe Safaris T Ltd	Safari / tour operator	True	True						2	0		
-master	Of97bcc50b8b4	HP Safaris (T) Limited	Safari / tour operator	True	True						2	0		
-master	Oa307c5bb7ba0	Itaka Safaris	Safari / tour operator	True	True						2	0		
-master	O2922dd44f45d	Jambo Masai Tours	Safari / tour operator	True	True						1	0		
-master	O2f52664b9d61	Joagro Safaris Tanzania	Safari / tour operator	True	True						1	0		
-master	O97e95eaae0be	K&K Safaris	Safari / tour operator	True	True						2	0		
-master	Oc0530432f635	Kiliclimb Africa Safaris	Safari / tour operator	True	True						3	0		
-master	O08fda96cf5d9	Kilimanjaro Unforgettable Limited	Safari / tour operator	True	True						7	0		
-master	O10bb721da276	Kilipeak Adventure	Safari / tour operator	True	True						3	0		
-master	Odce6122a61f4	Kingse Safaris	Safari / tour operator	True	True						3	0		
-master	Oa7f24239f23e	Kiwoito Africa Safaris	Safari / tour operator	True	True						3	0		
-master	Ob20dfab2e570	Kukua Tours And Safaris Limited	Safari / tour operator	True	True						2	0		
-master	O07189f6a33d3	Lappet Faced Safaris	Safari / tour operator	True	True						1	0		
-master	Oa902f361b321	Lazy Lion Safaris	Safari / tour operator	True	True						1	0		
-master	O2cb714416e6b	Lion King Adventures (King Kidaisho)	Safari / tour operator	True	True						5	0		
-master	Of5bbe1d9b42c	Livingstone's Africa Ltd	Safari / tour operator	True	True						4	0		
-master	Oc0e8837d2496	Makini Tanzania	Safari / tour operator	True	True						1	0		
-master	O8894420e18c9	Mind & Soul (TZ) Travel Ltd	Safari / tour operator	True	True						3	0		
-master	Oafd33cfc4488	Nature Inspirit Travel	Safari / tour operator	True	True						1	0		
-master	Occbd149c9ebd	Nndeeafrika	Safari / tour operator	True	True						2	0		
-master	O79adb1fd4177	ONA Safari	Safari / tour operator	True	True						1	0		
-master	O38b49c37f30e	Paradise and Wilderness Limited	Safari / tour operator	True	True						2	0		
-master	O7ad5c517e4a6	Pure Afro Travels Tanzania	Safari / tour operator	True	True						2	0		
-master	O3cb0a373600d	Rupia Adventure	Safari / tour operator	True	True						4	0		
-master	O6ca0b7c8b95f	Safari Crew Tanzania	Safari / tour operator	True	True						2	0		
-master	O3340b71aeb41	Safari Tanzania	Safari / tour operator	True	True						1	0		
-master	Oe6f197b846aa	Safari-tz	Safari / tour operator	True	True						1	0		
-master	O1f23ef9d42af	Serengeti Clarity	Safari / tour operator	True	True						1	0		
+master	Of97bcc50b8b4	HP Safaris (T) Limited	Safari / tour operator	True	True	https://hors-pistes-en-tanzanie.fr | https://www.hors-pistes-en-tanzanie.fr	paul@hpsafaris.co.tz (general) | gary@horspistes.ch (named)	+255684715850 (mobile) | +33614039117 (international)	P. O. Box 11581, Arusha. Tanzania		2	0	search	
+master	Oa307c5bb7ba0	Itaka Safaris	Safari / tour operator	True	True		itaka@itakasafaris.com (general)	+255759334274 (mobile)			2	0	search	
+master	O2922dd44f45d	Jambo Masai Tours	Safari / tour operator	True	True	https://jambomasaitours.com	info@jambomasaitours.com (role) | jambomasaitours255@gmail.com (personal_domain)	+255659667271 (mobile)	P.O. Box 9201, Arusha, Tanzania		1	0	search	
+master	O2f52664b9d61	Joagro Safaris Tanzania	Safari / tour operator	True	True	https://joagrosafaris.com	info@joagrosafaris.com (role)	+255765348719 (mobile) | +255689157119 (mobile)	P.O.Box 10668 Arusha, Tanzania		1	0	search	
+master	O97e95eaae0be	K&K Safaris	Safari / tour operator	True	True	https://kandksafaris.com	infos@kandksafaris.com (general)	+33698706673 (international)			2	0	search	
+master	Oc0530432f635	Kiliclimb Africa Safaris	Safari / tour operator	True	True	https://kiliclimbafricasafaris.com	info@kiliclimbafricasafaris.com (role) | sale.kiliclimbafricasafaris@gmail.com (personal_domain)	+255768735700 (mobile) | +255767442295 (mobile)	P.O.Box 13635, Arusha, Tanzania		3	0	search	
+master	O08fda96cf5d9	Kilimanjaro Unforgettable Limited	Safari / tour operator	True	True	https://kilimanjarounforgettable.com	info@kilimanjarounforgettable.com (role)				7	0	search	
+master	O10bb721da276	Kilipeak Adventure	Safari / tour operator	True	True	https://kilipeakadventure.com	info@kilipeakadventure.com (role)	+255786683333 (mobile) | +255784424268 (mobile)			3	0	search	
+master	Odce6122a61f4	Kingse Safaris	Safari / tour operator	True	True	https://kingsesafaris.com	peter@kingsesafaris.com (named) | bookings@kingsesafaris.com (role)	+255745905902 (mobile) | +255783525634 (mobile)	P.O.Box 15464, Arusha, Tanzania		3	0	search	
+master	Oa7f24239f23e	Kiwoito Africa Safaris	Safari / tour operator	True	True	https://kiwoitoafricasafaris.com	info@kiwoitoafricasafaris.com (role)	+255787910028 (mobile)			3	0	search	
+master	Ob20dfab2e570	Kukua Tours And Safaris Limited	Safari / tour operator	True	True	https://kukuasafaris.com	reservations@kukuasafaris.com (role)	+255747309113 (mobile)	P.O. Box 871, Arusha, Tanzania		2	0	search	
+master	O07189f6a33d3	Lappet Faced Safaris	Safari / tour operator	True	True	https://lappetfacedsafaris.com	sales@lappetfacedsafaris.com (role) | info@lappetfacedsafaris.com (role)	+255686944066 (mobile)			1	0	search	
+master	Oa902f361b321	Lazy Lion Safaris	Safari / tour operator	True	True	https://lazylionsafaris.com	info@lazylionsafaris.com (role)	+255754012468 (mobile)	P.O.Box 342, Arusha, Tanzania		1	0	search	
+master	O2cb714416e6b	Lion King Adventures (King Kidaisho)	Safari / tour operator	True	True	https://lionkingadventures.com	info@lionkingadventures.com (role)		P.O.Box 10299 Arusha, Tanzania		5	0	search	
+master	Of5bbe1d9b42c	Livingstone's Africa Ltd	Safari / tour operator	True	True	https://livingstonesafrica.net	enquiries@livingstonesafrica.com (role)	+255787116577 (mobile)	P.O. BOX 2370 Arusha, Tanzania		4	0	search	
+master	Oc0e8837d2496	Makini Tanzania	Safari / tour operator	True	True	https://makinitanzaniasafaris.com	info@makinitanzaniasafaris.com (role)	+255752168213 (mobile) | +255696468213 (mobile)	P.O. Box 303, Arusha, Tanzania		1	0	search	
+master	O8894420e18c9	Mind & Soul (TZ) Travel Ltd	Safari / tour operator	True	True	https://mindsoultravel.co.tz	info@mindsoultravel.co.tz (role)	+255786234070255767320818 (mobile)	P.O. BOX 6246 Arusha, Tanzania		3	0	search	
+master	Oafd33cfc4488	Nature Inspirit Travel	Safari / tour operator	True	True	https://natureinspirit.com	info@natureinspirit.com (role)	+255756265216 (mobile)	P.O Box 7093, Arusha – Tanzania		1	0	search	
+master	Occbd149c9ebd	Nndeeafrika	Safari / tour operator	True	True	https://nndeeafrika.com	safari@nndeeafrika.co.tz (role)	+255782918187 (mobile)	P.O. Box 2505 Arusha – Tanzania		2	0	search	
+master	O79adb1fd4177	ONA Safari	Safari / tour operator	True	True	https://ona-safari.com	julius@ona-safari.com (general) | erica@ona-safari.com (general) | bookings@ona-safari.com (role) | jambo@ona-safari.com (general)	+255784451080 (mobile) | +255784869975 (mobile) | +255784410258 (mobile) | +491791333596 (international) | +255766093294 (mobile)	P.O.Box 11059 Arusha – Tanzania		1	0	search	
+master	O38b49c37f30e	Paradise and Wilderness Limited	Safari / tour operator	True	True	https://paradise-wilderness.com	info@paradise-wilderness.com (role) | sales@paradise-wilderness.com (role) | booking@paradise-wilderness.com (role)	+255242238021 (office)			2	0	search	
+master	O7ad5c517e4a6	Pure Afro Travels Tanzania	Safari / tour operator	True	True	https://pure-afro.com	info@pure-afro.com (role)	+255784499119 (mobile)	P.O.BOX 11171 Arusha, Tanzania		2	0	search	
+master	O3cb0a373600d	Rupia Adventure	Safari / tour operator	True	True	https://rupiaadventure.com	info@rupiaadventure.com (role)	+255686699009 (mobile)	P.O. Box 1286, Arusha, Tanzania		4	0	search	
+master	O6ca0b7c8b95f	Safari Crew Tanzania	Safari / tour operator	True	True	https://safaricrewtanzania.com	safari@safaricrewtanzania.com (role)	+2550686905560 (unknown)	P.O.Box 14288 Arusha, Tanzania		2	0	search	
+master	O3340b71aeb41	Safari Tanzania	Safari / tour operator	True	True	https://safaritanzania.com	info@safaritanzania.com (role)	+255753198198 (mobile)	P.O.Box 106 Arusha, Tanzania		1	0	search	
+master	Oe6f197b846aa	Safari-tz	Safari / tour operator	True	True	https://safari-tz.com	info@safari-tz.com (role)	+255740666662 (mobile)	P.O.Box 27980, Arusha, Tanzania		1	0	search	
+master	O1f23ef9d42af	Serengeti Clarity	Safari / tour operator	True	True	https://serengeticlarity.com | https://serengeticlarity.com/	info@serengeticlarity.com (role) | frank@serengeticlarity.com (named)	+255686555755 (mobile)			1	0	search	
 master	O87a8b6fda78a	Serengeti Pride Safaris Tour Co	Safari / tour operator	True	True						1	0		
-master	Oe865230d70d0	Tanzania Choice Safaris	Safari / tour operator	True	True						2	0		
-master	O10ca65abddd0	Tanzania Emotion Safari	Safari / tour operator	True	True						3	0		
-master	O7b205e374ee6	Tanzania Safari Bug Ltd.	Safari / tour operator	True	True						2	0		
-master	Oe31606f1b00a	Tanzania Unique Adventures	Safari / tour operator	True	True						4	0		
+master	Oe865230d70d0	Tanzania Choice Safaris	Safari / tour operator	True	True	https://tanzaniachoicesafaris.com	safaris@tanzaniachoicesafaris.com (role)	+255763973757 (mobile)	PO Box 1504 Arusha, Tanzania		2	0	search	
+master	O10ca65abddd0	Tanzania Emotion Safari	Safari / tour operator	True	True	https://tanzaniaemotionsafaris.com	info@tanzaniaemotionasafaris.com (role)		P.O.BOX 10193 Arusha,Tanzania		3	0	search	
+master	O7b205e374ee6	Tanzania Safari Bug Ltd.	Safari / tour operator	True	True	https://tanzania-safari-bug.com	info@tanzania-safari-bug.com (role)	+255787298159 (mobile)	Mateves, Plot 400 Postal Adress: PO Box 16001 Arusha, Tanzania		2	0	search	
+master	Oe31606f1b00a	Tanzania Unique Adventures	Safari / tour operator	True	True	https://tanzania-unique-adventures.com	info@tanzania-unique-adventures.com (role)	+41762024291 (international) | +255788443009 (mobile)			4	0	search	
 master	Oec7092dcf2c9	Tanzanie Authentique	Safari / tour operator	True	True						3	0		
-master	O19bcb76e19dd	Transcendent Journeys Tanzania Trading name: TJT	Safari / tour operator	True	True						2	0		
-master	O0dc73adc45e1	Translen Investments and Trading Ltd	Safari / tour operator	True	True						1	0		
-master	Oa70de5cc67df	Udaay Safari and Tours Ltd	Safari / tour operator	True	True						2	0		
-master	Od03dcea128a9	Wakali Safaris	Safari / tour operator	True	True						1	0		
-master	O29a25c4b1a73	Westway Safaris Ltd	Safari / tour operator	True	True						1	0		
-master	O05b1c06eaeaa	Wise Safari Tanzania Limited	Safari / tour operator	True	True						1	0		
-master	O9f6f42d6af2c	Zanzi Trekking and Safaris Limited	Safari / tour operator	True	True						2	0		
-master	O3cb251b24512	Jackpot Safaris (TZ) Ltd	Safari / tour operator	True	True						1	0		
+master	O19bcb76e19dd	Transcendent Journeys Tanzania Trading name: TJT	Safari / tour operator	True	True	https://transcendentjourneystz.com	victor@transcendentjourneystz.com (named) | vbubelwa@gmail.com (named)	+255754046196 (mobile)			2	0	search	
+master	O0dc73adc45e1	Translen Investments and Trading Ltd	Safari / tour operator	True	True	https://transleninvestments.com	info@transleninvestments.com (role)	+255786357560 (mobile)	P.O.Box 7168 Arusha, Tanzania,		1	0	search	
+master	Oa70de5cc67df	Udaay Safari and Tours Ltd	Safari / tour operator	True	True	https://udaaysafaris.com	info@udaaysafaris.com (role)	+255713416509 (mobile) | +255785001002 (mobile)			2	0	search	
+master	Od03dcea128a9	Wakali Safaris	Safari / tour operator	True	True	https://wakalisafaris.co.tz	info@wakalisafaris.co.tz (role)	+255738586109 (mobile)	P.O Box 16114 Arusha, Tanzania		1	0	search	
+master	O29a25c4b1a73	Westway Safaris Ltd	Safari / tour operator	True	True	https://westwaysafaris.com	info@westwaysafaris.com (role) | reservation@westwaysafaris.com (role)	+255787090482 (mobile)			1	0	search	
+master	O05b1c06eaeaa	Wise Safari Tanzania Limited	Safari / tour operator	True	True	https://travelwisesafari.com	info@travelwisesafari.com (role)	+255629142552 (mobile)			1	0	search	
+master	O9f6f42d6af2c	Zanzi Trekking and Safaris Limited	Safari / tour operator	True	True	https://zanzisafaris.com	info@zanzisafaris.com (role) | honest.ngowi@zanzisafaris.com (named)	+255784378153 (mobile) | +255784680068 (mobile)	P.O. Box 1229 Arusha		2	0	search	
+master	O3cb251b24512	Jackpot Safaris (TZ) Ltd	Safari / tour operator	True	True		info@jackpotsafaris.co.tz (role) | andrew.malalika@gmail.com (named)	+255754315106 (mobile) | +255784315106 (mobile) | +255713315106 (mobile)	P.O.BOX 12490 Arusha,Tanzania		1	0	search	
 master	Ob239c19c3f17	Meru Slopes Tours And Safaris Ltd	Safari / tour operator	True	True						5	0		
-master	O6349e6e743df	Ozon Light Tours	Safari / tour operator	True	True						3	0		
-master	O02cba8b32333	Dakik Expeditions LTD	Safari / tour operator	True	True						2	0		
-master	O54cf698f4d15	Epic Luxury Safaris (Toya Limited)	Safari / tour operator	True	True						2	0		
-master	O65c4c034a8f2	Topguides Africa Limited	Safari / tour operator	True	True						1	0		
-master	Oe21bb26dd055	Afrika Roots Safari Company Limited	Safari / tour operator	True	True						3	0		
-master	O15e107c816b3	Beyond Experience Limited	Safari / tour operator	True	True						3	0		
-master	O629298a1a192	Blessed Africa Tours and Safaris Ltd	Safari / tour operator	True	True						1	0		
-master	Ob473fabaf097	Good Earth Safaris & Tours Ltd	Safari / tour operator	True	True						12	0		
-master	O0006f4c8d8c6	Wild Ways Tanzania Adventure	Safari / tour operator	True	True						3	0		
+master	O6349e6e743df	Ozon Light Tours	Safari / tour operator	True	True	https://ozonlighttours.com	info@ozonlighttours.com (role)	+255746678965 (mobile)	P.O.Box 130, Arusha, Tanzania		3	0	search	
+master	O02cba8b32333	Dakik Expeditions LTD	Safari / tour operator	True	True	https://dakikexpeditions.com	dakikexpeditions@gmail.com (named) | contact@dakikexpeditions.com (role) | info@dakikexpeditions.com (role)	+255759666660 (mobile)			2	0	search	
+master	O54cf698f4d15	Epic Luxury Safaris (Toya Limited)	Safari / tour operator	True	True	https://epicluxurysafaris.com	operations@epicluxurysafaris.com (role)	+255696783006 (mobile)	P.O. Box 2305 Arusha, Tanzania LOCATI: Tanzanite Rd, Plot 2 Block E Off Factory Rd, Unga Limited, Arusha Mjini United Re		2	0	search	
+master	O65c4c034a8f2	Topguides Africa Limited	Safari / tour operator	True	True	https://topguidessafaris.com	info@topguidessafaris.com (role)	+255682111121 (mobile)	P.O.Box 14547, Arusha, Tanzania		1	0	search	
+master	Oe21bb26dd055	Afrika Roots Safari Company Limited	Safari / tour operator	True	True	https://afrikaroots.com	info@afrikaroots.com (role)	+255743018355 (mobile) | +12062078848 (international)	P.O.Box 14885 Arusha, Tanzania		3	0	search	
+master	O15e107c816b3	Beyond Experience Limited	Safari / tour operator	True	True	https://beyondexperience-tz.com	info@beyondexperience-tz.com (role)	+255788547016 (mobile)	P.O.BOX 617 Arusha,Tanzania		3	0	search	
+master	O629298a1a192	Blessed Africa Tours and Safaris Ltd	Safari / tour operator	True	True	https://blessedafricatours.com	info@blessedafricatours.com (role)	+255763420949 (mobile)	P.O.Box 11248 Arusha, Tanzania		1	0	search	
+master	Ob473fabaf097	Good Earth Safaris & Tours Ltd	Safari / tour operator	True	True	https://goodearthtours.com	info@goodearthtours.co.tz (role)		P.O.BOX 1115 Arusha.City/Town		12	0	search	
+master	O0006f4c8d8c6	Wild Ways Tanzania Adventure	Safari / tour operator	True	True	https://wildwaystanzania.com	info@wildwaystanzania.com (role) | joan@wildwaystanzania.com (named) | mariki@wildwaystanzania.com (named)	+255784926969 (mobile) | +255767015994 (mobile)	P.O. BOX 10437, Arusha, Tanzania		3	0	search	
 master	O025dc55f487e	The Smiling Zebra Limited	Safari / tour operator	True	True						1	0		
-master	Oe38d002ff39f	The Wanderer Tanzania Ltd	Safari / tour operator	True	True						2	0		
-master	Of685bdd4ce6b	Breathe Tanzania Safaris	Safari / tour operator	True	True						1	0		
+master	Oe38d002ff39f	The Wanderer Tanzania Ltd	Safari / tour operator	True	True	https://wanderertanzania.com	info@wanderertanzania.com (role) | manager@wanderertanzania.com (role)	+255789548857 (mobile) | +31639670326 (international)	P.O. Box 13201, Arusha, Tanzania		2	0	search	
+master	Of685bdd4ce6b	Breathe Tanzania Safaris	Safari / tour operator	True	True	https://breathetanzaniasafaris.com	info@breathetanzaniasafaris.com (role)		P.O.BOX: 16600 ARUSHA, TANZANIA		1	0	search	
 master	Obac7c18e9b22	Top Of Africa Treks and Safaris LTD	Safari / tour operator	True	True						2	0		
-master	Of6f51aa5900d	Tanger Safaris	Safari / tour operator	True	True						2	0		
-master	O3e7639b222fd	Mshele Tanzania Adventures	Safari / tour operator	True	True						2	0		
-master	Od92f95fd68a5	Gifted African Adventures Ltd	Safari / tour operator	True	True	https://giftedadventures.com	info@giftedadventures.com (role) | giftmollel422@gmail.com (personal_domain)	+255753900422 (mobile) | +255626752952 (mobile)	P.O. Box 10391, Arusha, Tanzania		0	0	search	
-master	O2d157fdcbd6b	Lamai Africa Safaris	Safari / tour operator	True	True						1	0		
-master	O6ee59b8c94fb	LeKobe Adventures & Safaris	Safari / tour operator	True	True						0	1	search	
+master	Of6f51aa5900d	Tanger Safaris	Safari / tour operator	True	True	https://tangersafaris.com	info@tangersafaris.com (role)	+255693521920 (mobile)	P.O.Box 11789 Arusha ,Tanzania		2	0	search	
+master	O3e7639b222fd	Mshele Tanzania Adventures	Safari / tour operator	True	True	https://msheleadventures.com	info@msheleadventures.com (role)	+255767396356 (mobile)	P.O.Box 187, Arusha, Tanzania		2	0	search	
+master	Od92f95fd68a5	Gifted African Adventures Ltd	Safari / tour operator	True	True	https://giftedadventures.com | https://giftedadventures.com/	info@giftedadventures.com (role) | giftmollel422@gmail.com (personal_domain)	+255753900422 (mobile) | +255626752952 (mobile)	P.O. Box 10391, Arusha, Tanzania	facebook: https://www.facebook.com/giftedadventures/ | instagram: https://www.instagram.com/giftedafrican_adventures/	0	0	browser, search	
+master	O2d157fdcbd6b	Lamai Africa Safaris	Safari / tour operator	True	True	https://lamaisafaris.com	info@lamaisafaris.com (role)	+255768506258 (mobile)	P.O.Box 3191 Arusha, Tanzania		1	0	search	
+master	O6ee59b8c94fb	LeKobe Adventures & Safaris	Safari / tour operator	True	True	https://lekobeadventures.com | https://lekobeadventures.com/	info@lekobeadventures.com (role)	+255676681293 (mobile)		facebook: https://www.facebook.com/kobeadventures/ | instagram: https://www.instagram.com/lekobe.adventures/ | tiktok: https://www.tiktok.com/@lekobeadventures | x: https://x.com/lekobeadventure	0	1	browser, search	
 master	Oc8c910bad429	Mountain Warriors Tour and Safaris	Safari / tour operator	True	True	https://mountain-warriors.com	info@mountain-warriors.com (role)	+255785318800 (mobile) | +255759253296 (mobile)	P.O. Box 8387, Arusha, Tanzania		0	0	search	
-master	Ob925ba53148e	Safaris Africa United	Safari / tour operator	True	True	https://www.safarisafricaunited.com	info@safarisafricaunited.com (role)	+255787791940 (mobile)	P.O. Box 14274, Arusha, Tanzania		0	0	search	
-master	O195ea18582fe	Siri Maasai Safaris Limited	Safari / tour operator	True	True	https://sirimaasaisafari.com	info@sirimaasaisafari.com (role) | laurent@sirimaasaisafari.com (named) | jackson@sirimaasaisafari.com (named) | carol@sirimaasaisafari.com (named)	+255789882023 (mobile) | +255679882022 (mobile) | +255784199762 (mobile)	P.O.BOX 187 Arusha, Tanzania		0	3	search	
+master	Ob925ba53148e	Safaris Africa United	Safari / tour operator	True	True	https://safarisafricaunited.com | https://www.safarisafricaunited.com	info@safarisafricaunited.com (role)	+255787791940 (mobile)	P.O. Box 14274, Arusha, Tanzania		0	0	search	
+master	O195ea18582fe	Siri Maasai Safaris Limited	Safari / tour operator	True	True	https://sirimaasaisafari.com	info@sirimaasaisafari.com (role) | laurent@sirimaasaisafari.com (named) | jackson@sirimaasaisafari.com (named) | carol@sirimaasaisafari.com (named)	+255789882023 (mobile) | +255679882022 (mobile) | +255784199762 (mobile)	P.O.BOX 187 Arusha, Tanzania | P.O.BOX 187 Arusha,Tanzania		3	0	search	
 master	O540972f13c2a	TMA Travels Tanzania Limited	Safari / tour operator	True	True						0	0	search	
 master	Od19d8a210967	Africa VIP Travel	Safari / tour operator	True	True						1	0		
-master	Oca1d99c7226c	Aim 2 Goal Safaris Ltd	Safari / tour operator	True	True	https://www.aim2goalsafaris.co.tz	info@aim2goalsafaris.co.tz (role) | sales@aim2goalsafaris.co.tz (role)	+255787465755 (mobile)	P.O. Box 147, Arusha, Tanzania		0	1	search	
-master	Oa881d17035bb	Akshar Tours and Safaris	Safari / tour operator	True	True	https://akshartoursandsafaris.co.tz	travel@akshartoursandsafaris.co.tz (role) | parimalpatel@akshartoursandsafaris.co.tz (general)	+255782442044 (mobile)	P O BOX 1508, Mwanza, Tanzania		0	0	search	
-master	Oe79db1191915	GreenHippo Travels	Safari / tour operator	True	True						0	0		
-master	O0506bda0252b	Nnko & Smith Safaris Ltd	Safari / tour operator	True	True						1	0		
+master	Oca1d99c7226c	Aim 2 Goal Safaris Ltd	Safari / tour operator	True	True	https://aim2goalsafaris.co.tz | https://www.aim2goalsafaris.co.tz	info@aim2goalsafaris.co.tz (role) | sales@aim2goalsafaris.co.tz (role)	+255787465755 (mobile)	P.O. Box 147, Arusha, Tanzania		1	0	search	
+master	Oa881d17035bb	Akshar Tours and Safaris	Safari / tour operator	True	True	https://akshartoursandsafaris.co.tz	travel@akshartoursandsafaris.co.tz (role) | parimalpatel@akshartoursandsafaris.co.tz (general)	+255782442044 (mobile)	P O BOX 1508, Mwanza, Tanzania | P O BOX 1508, Mwanza-Tanzania.		0	0	search	
+master	Oe79db1191915	GreenHippo Travels	Safari / tour operator	True	True	https://greenhippotravels.com	office@greenhippotravels.com (role)	+255684681857 (mobile)			0	0	search	
+master	O0506bda0252b	Nnko & Smith Safaris Ltd	Safari / tour operator	True	True	https://nnkosmith.com	nnko@nnkosmith.com (named) | smith@nnkosmith.com (general)	+255787500633 (mobile) | +13038750673 (international)	P.O.BOX: 574 Arusha,Tanzania		1	0	search	
 master	O8f339275dd81	Tropical Trails	Safari / tour operator	True	True						0	0		
-master	O4c72a51e9370	The Map's Edge Limited	Safari / tour operator	True	True	https://maps-edge.co.tz	admin@maps-edge.com (role)	+255712733900 (mobile) | +255789894597 (mobile)	P.O.BOX 381, Usa River, Arumeru	facebook: https://www.facebook.com/The.Maps.Edge/	0	0	search	
-master	O883af20d967d	Safari Asap	Safari / tour operator	True	True						1	0		
+master	O4c72a51e9370	The Map's Edge Limited	Safari / tour operator	True	True	https://maps-edge.co.tz | https://maps-edge.com	admin@maps-edge.com (role)	+255712733900 (mobile) | +255789894597 (mobile) | +2550712733900 (unknown) | +2550789894597 (unknown)	P.O.BOX 381, Usa River, Arumeru	facebook: https://www.facebook.com/The.Maps.Edge/	0	0	search	
+master	O883af20d967d	Safari Asap	Safari / tour operator	True	True	https://safariasap.com	contact@safariasap.com (role) | thomas@safariasap.com (named)	+255788519851 (mobile)	TFA Building, P.O. Box 15933, Arusha, Tanzania		1	0	search	
 master	O2f6810861cd1	Nale Moru experiential travel	Safari / tour operator	True	True						1	0		
 master	O2df646586642	Sundown African Adventures LTD	Safari / tour operator	True	True	https://sundownadventuressafaris.com	info@sundownadventuressafaris.com (role) | booking@sundownadventuressafaris.com (role) | sundownafricaadventures@gmail.com (personal_domain)	+255685912095 (mobile) | +255625807860 (mobile)	P.O.Box 11578, Arusha, Tanzania		0	0	search	
-master	Oa103b6a80c0d	Fairtrek Jicho Tanzania	Safari / tour operator	True	True	https://www.fairtrek-jicho-tanzania.com	info@fairtrek-jicho-tanzania.com (role)	+255789980000 (mobile) | +255766222722 (mobile) | +255788222622 (mobile)	P.O.Box 8233, Arusha, Tanzania		0	1	search	
+master	Oa103b6a80c0d	Fairtrek Jicho Tanzania	Safari / tour operator	True	True	https://fairtrek-jicho-tanzania.com | https://www.fairtrek-jicho-tanzania.com	info@fairtrek-jicho-tanzania.com (role)	+255789980000 (mobile) | +255766222722 (mobile) | +255788222622 (mobile)	P.O.Box 8233 Arusha, Tanzania | P.O.Box 8233, Arusha, Tanzania		1	0	search	
 master	O4722dd9c1cd3	Kiriwe Travel And Trekking Safaris Ltd	Safari / tour operator	True	True						0	0		
-master	O713c9056e058	andBeyond Travel Limited	Safari / tour operator	True	True	https://www.andbeyond.com	reservations@andbeyond.com (role) | niall.anderson@andbeyond.com (general) | trade.enquiry@andbeyond.com (general) | media@andbeyond.com (general)	+27118094300 (international) | +255787551108 (mobile)	P.O.BOX 751, Arusha, Tanzania	facebook: https://www.facebook.com/andBeyondTravel | instagram: https://www.instagram.com/andbeyondtravel/ | twitter: https://twitter.com/andBeyondTravel	0	0	search	
+master	O713c9056e058	andBeyond Travel Limited	Safari / tour operator	True	True	https://andbeyond.com | https://www.andbeyond.com	reservations@andbeyond.com (role) | niall.anderson@andbeyond.com (general) | trade.enquiry@andbeyond.com (general) | media@andbeyond.com (general)	+27118094300 (international) | +255787551108 (mobile)	P.O.BOX 751, Arusha, Tanzania | P.O.BOX: 751, Arusha, Tanzania	facebook: https://www.facebook.com/andBeyondTravel | instagram: https://www.instagram.com/andbeyondtravel/ | twitter: https://twitter.com/andBeyondTravel	0	0	search	
 master	O95fdbda4ae8b	Grumeti Expeditions Ltd	Safari / tour operator	True	True						0	0	search	
-master	O4a976140c66d	Leken Adventurte Ltd	Safari / tour operator	True	True	https://www.lekenadventure.com	info@lekenadventure.com (role)	+255753775849 (mobile)	P.O. Box 1596, Arusha, Tanzania		0	0	search	
-master	O60cd5e6c0e9b	Mama Africa Safaris	Safari / tour operator	True	True						0	0		
-master	O51bdf80138ba	Nkollo Tours & Safaris	Safari / tour operator	True	True	https://nkollotours.com	info@nkollotours.com (role)	+255718111173 (mobile)	P.O.Box 12617, Arusha, Tanzania		0	0	search	
-master	O133d963b1d2f	Safarini Africa Ltd	Safari / tour operator	True	True	https://safarini.com	karibu@safarini.com (general) | lwogamarie@hotmail.com (personal_domain)	+255754420258 (mobile) | +255787963773 (mobile) | +255782171886 (mobile)	P.O.Box 6114		0	0	search	
-master	O6ef8ec4bce53	Travel Booking Guide Ltd	Safari / tour operator	True	True	https://travelbookingtz.com	info@travelbookingtz.com (role) | sales@travelbookingtz.com (role)	+255783550522 (mobile) | +255713068560 (mobile)	P.O.Box 14839, Arusha, Tanzania		0	0	search	
-master	O5e1c1629bb70	African Savannah Trekkers	Safari / tour operator	True	True						0	1	search	
+master	O4a976140c66d	Leken Adventurte Ltd	Safari / tour operator	True	True	https://lekenadventure.com | https://www.lekenadventure.com	info@lekenadventure.com (role)	+255753775849 (mobile)	P.O. Box 1596, Arusha, Tanzania		0	0	search	
+master	O60cd5e6c0e9b	Mama Africa Safaris	Safari / tour operator	True	True		info@mamaafricasafaris.co.tz (role) | lucy@mamaafricasafaris.co.tz (general)	+255688012372 (mobile)	P.O.BOX 16471 Arusha, Tanzania		0	0	search	
+master	O51bdf80138ba	Nkollo Tours & Safaris	Safari / tour operator	True	True	https://nkollotours.com	info@nkollotours.com (role)	+255718111173 (mobile)	P.O.Box 12617 Arusha, Tanzania | P.O.Box 12617, Arusha, Tanzania		0	0	search	
+master	O133d963b1d2f	Safarini Africa Ltd	Safari / tour operator	True	True	https://safarini.com | https://safarini.com/	karibu@safarini.com (general) | lwogamarie@hotmail.com (personal_domain) | info@safarini.com (role) | heriel@safarini.com (general) | aruna@safarini.com (general) | iqbalnasser30@gmail.com (personal_domain)	+255754420258 (mobile) | +255787963773 (mobile) | +255782171886 (mobile) | +16479194236 (international)	P.O. Box 6114 Arusha, Tanzania | P.O.Box 6114		0	0	browser, search	
+master	O6ef8ec4bce53	Travel Booking Guide Ltd	Safari / tour operator	True	True	https://travelbookingtz.com	info@travelbookingtz.com (role) | sales@travelbookingtz.com (role)	+255783550522 (mobile) | +255713068560 (mobile)	P.O.Box 14839 Arusha, Tanzania | P.O.Box 14839, Arusha, Tanzania		0	0	search	
+master	O5e1c1629bb70	African Savannah Trekkers	Safari / tour operator	True	True	https://africantrekkers.com | https://www.africantrekkers.com/	info@africantrekkers.com (role)	+255710160161 (mobile)	P.O.Box 16620, Arusha, Tanzania		0	1	search	
 master	Of6951631ee8a	Kipepeo	Safari / tour operator	True	True						0	0		
 master	O0bcf10d5e11c	Meru Mountain Treks & Safari Ltd.	Safari / tour operator	True	True						0	0		
-master	O03baa7ebbcf5	Stone Town Tours and Safari	Safari / tour operator	True	True	https://www.stonetowntoursandsafari.com	info@stonetowntoursandsafari.com (role) | marketing@stonetowntoursandsafari.com (role)	+255746566682 (mobile) | +255699009699 (mobile)	P.O.Box 105114, Arusha, Tanzania		0	0	search	
+master	O03baa7ebbcf5	Stone Town Tours and Safari	Safari / tour operator	True	True	https://stonetowntoursandsafari.com | https://stonetowntoursandsafari.com/ | https://www.stonetowntoursandsafari.com	info@stonetowntoursandsafari.com (role) | marketing@stonetowntoursandsafari.com (role)	+255746566682 (mobile) | +255699009699 (mobile) | +255669009699 (mobile)	P.O.Box 105114, Arusha, Tanzania		0	0	browser, search	
 master	O3b09c3097bd9	Vianneys Untamed Expeditions Company Limited	Safari / tour operator	True	True						4	0		
-master	O87bdc38f42c2	4x4 Adventures Ltd	Safari / tour operator	True	True	https://4x4safaris.com	info@4x4safaris.com (role)	+255784673433 (mobile) | +255686245786 (mobile)	P. O. Box 14356, Arusha, Tanzania		0	0	search	
+master	O87bdc38f42c2	4x4 Adventures Ltd	Safari / tour operator	True	True	https://4x4safaris.com	info@4x4safaris.com (role)	+255784673433 (mobile) | +255686245786 (mobile)	P. O. Box 14356, Arusha, Tanzania | P.O.BOX: 14536 ARUSHA, TANZANIA		0	0	search	
 master	O0843c2f745ba	Abercrombie and Kent (T) Ltd	Safari / tour operator	True	True						0	0		
 master	Of266669dd470	Access 2 Tanzania	Safari / tour operator	True	True						5	0		
-master	O30f99e210e4a	Africanzoom Safaris	Safari / tour operator	True	True	https://africanzoom.com	info@africanzoom.com (role)	+255739972218 (mobile) | +255754612288 (mobile)			0	0	search	
-master	Of109347625ee	Bushtops Safari Camps (Orion Hotels Tanzania Ltd)	Safari / tour operator	True	True	https://bushtopscamps.com	sales@bushtops.com (role) | claudia.stuart@bushtops.com (general)	+254722412612 (international)	P.O.BOX: 14708 Arusha, Tanzania	instagram: https://www.instagram.com/bushtops | facebook: https://www.facebook.com/bushtops	0	0	search	
+master	O30f99e210e4a	Africanzoom Safaris	Safari / tour operator	True	True	https://africanzoom.com | https://www.africanzoom.com	info@africanzoom.com (role)	+255739972218 (mobile) | +255754612288 (mobile)			0	0	search	
+master	Of109347625ee	Bushtops Safari Camps (Orion Hotels Tanzania Ltd)	Safari / tour operator	True	True	https://bushtopscamps.com | https://www.bushtopscamps.com	sales@bushtops.com (role) | claudia.stuart@bushtops.com (general) | admin@bushtopscamps.com (role)	+254722412612 (international) | +254727695452 (international)	Orion Hotels Limited, Head Office, PO Box 10283-80101, Bamburi, Mombasa, Kenya | P.O.BOX: 14708 Arusha, Tanzania	instagram: https://www.instagram.com/bushtops | facebook: https://www.facebook.com/bushtops	0	1	search	
 master	O1d3846d4867b	Colours Africa Tours and Safaris	Safari / tour operator	True	True	https://coloursafrica.com	info@coloursafrica.com (role)	+255620556753 (mobile)			0	0	search	
 master	O6a6921675f19	E&H Tanzanian Adventures Limited	Safari / tour operator	True	True	https://ehtanzanianadventures.com	info@ehtanzanianadventures.com (role)	+255754674673 (mobile) | +255784674673 (mobile)	P .O BOX 12804 Arusha.		0	0	search	
-master	Oa5dfc6b38efe	Ebony Tours & Safaris Ltd	Safari / tour operator	True	True	https://www.ebony-safaris.com	arkoff@ebony-safaris.com (general) | massimo@ebony-safaris.com (general)	+255783011153 (mobile) | +255715559754 (mobile)	P.O. Box 11850, Arusha Tanzania		0	0	search	
+master	Oa5dfc6b38efe	Ebony Tours & Safaris Ltd	Safari / tour operator	True	True	https://ebony-safaris.com | https://www.ebony-safaris.com	arkoff@ebony-safaris.com (general) | massimo@ebony-safaris.com (general)	+255783011153 (mobile) | +255715559754 (mobile)	P.O. Box 11850, Arusha Tanzania | PP.O. Box 11850, Arusha Tanzania.		0	0	search	
 master	O61fedae16a5e	Explora V Tanzania	Safari / tour operator	True	True	https://exploravtanzania.com	info@exploravtanzania.com (role)	+255746289442 (mobile)			0	0	search	
-master	Oe8e2d05d3e4d	Goldfinch Adventures	Safari / tour operator	True	True	https://goldfinch-adventures.com	info@goldfinch-adventures.com (role)	+255673337026 (mobile)	P.O.Box 14770, Arusha, Tanzania		0	1	search	
-master	O3cdb7c9978e4	Meijo Safaris Limited	Safari / tour operator	True	True	https://www.meijosafaris.com	info@meijosafaris.com (role) | reservations@meijosafaris.com (role)	+255785552680 (mobile) | +255688201068 (mobile) | +255757971502 (mobile)	P.O.Box 16730, Arusha, Tanzania		0	0	search	
-master	O819780b15f5b	Mobila Tours & Safaris	Safari / tour operator	True	True						1	0		
+master	Oe8e2d05d3e4d	Goldfinch Adventures	Safari / tour operator	True	True	https://goldfinch-adventures.com	info@goldfinch-adventures.com (role)	+255673337026 (mobile)	P.O.Box 14770, Arusha, Tanzania		1	0	search	
+master	O3cdb7c9978e4	Meijo Safaris Limited	Safari / tour operator	True	True	https://meijosafaris.com | https://www.meijosafaris.com	info@meijosafaris.com (role) | reservations@meijosafaris.com (role)	+255785552680 (mobile) | +255688201068 (mobile) | +255757971502 (mobile)	P.O.Box 16730, Arusha, Tanzania		0	0	search	
+master	O819780b15f5b	Mobila Tours & Safaris	Safari / tour operator	True	True	https://mobilasafaris.com	info@mobilasafaris.com (role)	+255786822848 (mobile)	P.O. Box 67, Arusha, Tanzania		1	0	search	
 master	Oaed106fce42b	Myriad Safari Limited	Safari / tour operator	True	True	https://myriadsafaris.com	info@myriadsafaris.com (role) | flavia@myriadsafaris.com (general) | reservations@myriadsafaris.com (role) | travel@myriadsafaris.com (role)	+255754282704 (mobile)	P.O Box 12495, Arusha Tanzania		0	0	search	
-master	O16c4e7a99dcb	Ronjoo Safaris	Safari / tour operator	True	True						1	0		
+master	O16c4e7a99dcb	Ronjoo Safaris	Safari / tour operator	True	True	https://ronjoosafaris.co.tz | https://www.ronjoosafaris.co.tz/	deepak@ronjoosafaris.co.tz (general)	+255747394631 (mobile)	P.O.Box 11800, Arusha, Tanzania	instagram: https://www.instagram.com/ronjoosafaris | facebook: https://www.facebook.com/ronjoosafaris | youtube: https://www.youtube.com/@ronjoosafaris	1	0	browser, search	
 master	Occ16e6404a0d	RushTrek Tours	Safari / tour operator	True	True						0	0		
-master	Od97f37f7ae21	See Endless Adventures Tanzania	Safari / tour operator	True	True	https://www.see-adventures.com	info@see-adventures.com (role)	+255677450003 (mobile)			0	0	search	
-master	Oab06f9459a2a	Sher East Africa	Safari / tour operator	True	True	https://sher.co.tz	tanveer@sher.co.tz (general) | fleet@sher.co.tz (general)	+255683555666 (mobile) | +255783339124 (mobile) | +255781800727 (mobile)	P.O. Box 613 Arusha, Tanzania		0	0	search	
+master	Od97f37f7ae21	See Endless Adventures Tanzania	Safari / tour operator	True	True	https://see-adventures.com | https://www.see-adventures.com	info@see-adventures.com (role)	+255677450003 (mobile)			0	0	search	
+master	Oab06f9459a2a	Sher East Africa	Safari / tour operator	True	True	https://sher.co.tz | https://sher.co.tz/	tanveer@sher.co.tz (general) | fleet@sher.co.tz (general)	+255683555666 (mobile) | +255783339124 (mobile) | +255781800727 (mobile)	P.O. Box 149/163, Arusha, Tanzania | P.O. Box 613 Arusha, Tanzania		0	0	browser, search	
 master	O01ff897723b0	Stavo Adventures	Safari / tour operator	True	True	https://stavoadventures.com	info@stavoadventures.com (role)	+255771653232 (mobile) | +255771536445 (mobile)	P.O.Box 13266 Arusha, Tanzania		0	0	search	
-master	O44defa98d560	Travelling Monkey Safari	Safari / tour operator	True	True	https://www.travelling-monkey.com	contact@travelling-monkey.com (role)	+255684415288 (mobile)			0	0	search	
+master	O44defa98d560	Travelling Monkey Safari	Safari / tour operator	True	True	https://travelling-monkey.com | https://www.travelling-monkey.com	contact@travelling-monkey.com (role)	+255684415288 (mobile)			0	0	search	
 master	O093920d51418	Kilimanjaro Bliss Safaris	Safari / tour operator	True	True						3	0		
 master	O652a75d7ee2c	Enclose Africa Safaris	Safari / tour operator	True	True	https://encloseafricasafaris.com	info@encloseafricasafaris.com (role)	+255765772906 (mobile)			0	0	search	
-master	Obf522b0efe57	Kojuu Safaris Limited	Safari / tour operator	True	True						2	0		
-master	Od673d402521b	Aardvark Expeditions (T) Limited	Safari / tour operator	True	True						0	0		
-master	Ob088cdd4f9dd	African Polecat Safaris (Polecat Safaris)	Safari / tour operator	True	True	https://africanpolecatsafaris.com	info@africanpolecatsafaris.com (role)	+255654592688 (mobile)			0	0	search	
+master	Obf522b0efe57	Kojuu Safaris Limited	Safari / tour operator	True	True	https://kojuusafaris.com	info@kojuusafaris.com (role) | julian@kojuusafaris.com (general)	+255689645801 (mobile) | +255654178796 (mobile)	P.O. Box 63120, Arusha, Tanzania		2	0	search	
+master	Od673d402521b	Aardvark Expeditions (T) Limited	Safari / tour operator	True	True	https://aardvark-expeditions.com	info@aardvark-expeditions.com (role)	+255784424905 (mobile) | +255624047113 (mobile)	P.O. Box 15306, Arusha,Tanzania		0	0	search	
+master	Ob088cdd4f9dd	African Polecat Safaris (Polecat Safaris)	Safari / tour operator	True	True	https://africanpolecatsafaris.com	info@africanpolecatsafaris.com (role)	+255654592688 (mobile) | +255763946450 (mobile)			0	0	search	
 master	O5a92c5d15ec2	African Tours and Safaris	Safari / tour operator	True	True						0	0	search	
-master	O502591e1e2dd	African Trails Ltd (Tours & Car Hire)	Safari / tour operator	True	True	https://www.africantrails.co.tz	africantrails@habari.co.tz (general)	+255784428355 (mobile)			0	0	search	
-master	O83a5e8634d3b	AGLOW SAFARIS Venture into the Wild	Safari / tour operator	True	True						0	0		
-master	O0454e1481515	All day in Africa	Safari / tour operator	True	True	https://www.alldayinafrica.com		+255763993399 (mobile)			0	0	search	
-master	O0543f6fca307	Ang'ata Camps	Safari / tour operator	True	True	https://www.angatacamps.com		+255786025352 (mobile) | +255689888111 (mobile)	P.O. BOX 15584 Arusha - Tanzania	facebook: https://www.facebook.com/people/Angata-CAMPS-Safaris/100064211466864/ | instagram: https://www.instagram.com/angatacamps/	0	0	search	
-master	O5df6bc6b95bb	Bald Eagle Safaris Limited	Safari / tour operator	True	True	https://www.baldeaglesafaris.com	info@baldeaglesafaris.com (role)	+255763462350 (mobile)			0	0	search	
+master	O502591e1e2dd	African Trails Ltd (Tours & Car Hire)	Safari / tour operator	True	True	https://africantrails.co.tz | https://www.africantrails.co.tz	africantrails@habari.co.tz (general)	+255784428355 (mobile) | +255713654370 (mobile)	P.O. Box 2130 Arusha, Tanzania		0	0	search	
+master	O83a5e8634d3b	AGLOW SAFARIS Venture into the Wild	Safari / tour operator	True	True	https://aglowsafaris.com	info@aglowsafaris.com (role)	+255783560450 (mobile) | +255679494537 (mobile) | +255698125126 (mobile)	P.O Box 6262 – Arusha, Tanzania		0	0	search	
+master	O0454e1481515	All day in Africa	Safari / tour operator	True	True	https://alldayinafrica.com | https://www.alldayinafrica.com	info@alldayinafrica.com (role)	+255763993399 (mobile) | +255272544277 (office)	P.O.Box 1401 Arusha, Tanzania		0	0	search	
+master	O0543f6fca307	Ang'ata Camps	Safari / tour operator	True	True	https://angatacamps.com | https://www.angatacamps.com		+255786025352 (mobile) | +255689888111 (mobile) | +2550786025352 (unknown) | +255655025352 (mobile)	P.O. BOX 15584 Arusha - Tanzania | P.O. BOX 15584 Arusha, Tanzania | P.O. Box 15584, Arusha, Tanzania	facebook: https://www.facebook.com/people/Angata-CAMPS-Safaris/100064211466864/ | instagram: https://www.instagram.com/angatacamps/	0	0	search	
+master	O5df6bc6b95bb	Bald Eagle Safaris Limited	Safari / tour operator	True	True	https://baldeaglesafaris.com | https://www.baldeaglesafaris.com	info@baldeaglesafaris.com (role)	+255763462350 (mobile) | +255711718873 (mobile) | +255689522205 (mobile)	P.O.Box 1292, Arusha, Tanzania		0	0	search	
 master	Oe8876e3c95f6	Betheli Expeditions	Safari / tour operator	True	True						3	0		
-master	Oeb9346613a2a	Big Time Adventures Ltd	Safari / tour operator	True	True	https://bigtimeadventures.co.tz	info@bigtimeadventures.co.tz (role)	+255760600746 (mobile)			0	0	search	
-master	O3a9b5aafe967	Branded Africa Safaris & Trekking	Safari / tour operator	True	True	https://www.brandedafricasafaris.com		+255692202697 (mobile)			0	0	search	
-master	O1e7b50864498	DaMona Tanzania Safaris	Safari / tour operator	True	True	https://www.damonasafaris.com		+255769011229 (mobile)			0	0	search	
-master	O403c212baa0d	Destination Specialists Limited	Safari / tour operator	True	True	https://www.destinationspecialists.co.tz		+255754743685 (mobile)			0	0	search	
-master	Oe6cb6125617f	Experiential Travel Africa	Safari / tour operator	True	True	https://www.experientialtravelafrica.com		+255713565195 (mobile)			0	1	search	
-master	O192c12ca1491	Extramile International Ltd	Safari / tour operator	True	True	https://www.extramileinternational.com		+255679366095 (mobile) | +255682819855 (mobile) | +255754371650 (mobile)			0	0	search	
-master	Ob0df43d2a273	Extraordinary Experience Ltd	Safari / tour operator	True	True						0	0	search:not_found	
-master	O2a65c8c9c56a	Game Drive Travel Africa Safari Agency	Safari / tour operator	True	True	https://travelafricasafariagency.com					0	0	search	
-master	Oce7f9d4ab49e	Habitat Adventures Travel	Safari / tour operator	True	True	https://www.thehabitatadventures.com		+255787344441 (mobile)			0	0	search	
+master	Oeb9346613a2a	Big Time Adventures Ltd	Safari / tour operator	True	True	https://bigtimeadventures.co.tz	info@bigtimeadventures.co.tz (role)	+255760600746 (mobile) | +14044096645 (international)	P.O. Box 10173, Arusha, Tanzania		0	0	search	
+master	O3a9b5aafe967	Branded Africa Safaris & Trekking	Safari / tour operator	True	True	https://brandedafricasafaris.com | https://www.brandedafricasafaris.com	info@brandedafricasafaris.com (role)	+255692202697 (mobile)	P.O.BOX 4005 Arusha ,Tanzania		0	0	search	
+master	O1e7b50864498	DaMona Tanzania Safaris	Safari / tour operator	True	True	https://damonasafaris.com | https://www.damonasafaris.com	info@damonasafaris.com (role)	+255769011229 (mobile) | +255762569759 (mobile)	P.O.Box 1920 Arusha, Tanzania		0	0	search	
+master	O403c212baa0d	Destination Specialists Limited	Safari / tour operator	True	True	https://destinationspecialists.co.tz | https://www.destinationspecialists.co.tz	destination.specialists@yahoo.com (personal_domain) | info@destinationspecialists.co.tz (role)	+255754743685 (mobile) | +255712643685 (mobile)	P.O Box 1808 – Arusha, Tanzania		0	0	search	
+master	Oe6cb6125617f	Experiential Travel Africa	Safari / tour operator	True	True	https://experientialtravelafrica.com | https://www.experientialtravelafrica.com	info@experientialtravelafrica.com (role)	+255713565195 (mobile) | +255679565195 (mobile)	P.O.BOX 6195, Olmoti Suites, Arusha Tanzania		1	0	search	
+master	O192c12ca1491	Extramile International Ltd	Safari / tour operator	True	True	https://extramileinternational.com | https://www.extramileinternational.com	info@extramileinternational.com (role)	+255679366095 (mobile) | +255682819855 (mobile) | +255754371650 (mobile)	P.O.Box 16827 Arusha, Tanzania		0	0	search	
+master	Ob0df43d2a273	Extraordinary Experience Ltd	Safari / tour operator	True	True		extraordinarexperience@gmail.com (personal_domain)	+255765404470 (mobile)	P.O. Box 10840, Arusha, Tanzania		0	0	search, search:not_found	
+master	O2a65c8c9c56a	Game Drive Travel Africa Safari Agency	Safari / tour operator	True	True	https://travelafricasafariagency.com	info@travelafricasafariagency.com (role)	+255766851943 (mobile) | +255652636484 (mobile)	P.O.Box 10747, Arusha, Tanzania		0	0	search	
+master	Oce7f9d4ab49e	Habitat Adventures Travel	Safari / tour operator	True	True	https://thehabitatadventures.com | https://www.thehabitatadventures.com	info@thehabitatadventures.com (role)	+255787344441 (mobile)			0	0	search	
 master	O65ea97daea0a	Hadzabe Safari Adventure	Safari / tour operator	True	True						1	0		
-master	Oa7bf9a758bff	Karibu Camps	Safari / tour operator	True	True	https://www.karibucamps.com		+255789193333 (mobile)			0	0	search	
-master	O4d7277580fc9	Kibuyu African Safaris	Safari / tour operator	True	True	https://www.kibuyuafricansafaris.com		+255762511545 (mobile)			0	0	search	
-master	O6c3ed26b698b	Kifaru Expeditions	Safari / tour operator	True	True	https://www.kifaruexpeditions.tz		+255614111111 (mobile)			0	0	search	
-master	O25d8afee64db	Lapwings	Safari / tour operator	True	True	https://www.lapwings.co.tz		+255786621111 (mobile)			0	0	search	
-master	Ocb8c0d83adbf	Lemuta & Khaki Safaris	Safari / tour operator	True	True						0	0		
-master	Ob59e380a5d09	Let’S Discover Africa Limited	Safari / tour operator	True	True	https://www.letsdiscoverafrica.com		+255684375391 (mobile)			0	0	search	
-master	O7dda68b75a3e	Lomo Tanzania Safari	Safari / tour operator	True	True						1	0		
-master	O2a58e0cbc61e	Magilani Safaris	Safari / tour operator	True	True	https://www.magilani-safaris.com					0	0	search	
-master	O3ace27608738	Makisala Safaris	Safari / tour operator	True	True	https://www.makisala.com		+255788323254 (mobile)			0	0	search	
+master	Oa7bf9a758bff	Karibu Camps	Safari / tour operator	True	True	https://karibucamps.com | https://www.karibucamps.com | karibucamps.com	info@karibucamps.com (role) | jambo@karibucamps.com (general) | hr@karibucamps.com (role) | md@karibucamps.com (role)	+255789193333 (mobile) | +255758860002 (mobile) | +255787555555 (mobile)	P.O. Box 174, Njiro, Arusha, Tanzania | P.O.Box 174, Arusha Tanzania.		0	0	search	
+master	O4d7277580fc9	Kibuyu African Safaris	Safari / tour operator	True	True	https://kibuyuafricansafaris.com | https://www.kibuyuafricansafaris.com	info@kibuyuafricansafaris.com (role)	+255762511545 (mobile)			0	0	search	
+master	O6c3ed26b698b	Kifaru Expeditions	Safari / tour operator	True	True	https://kifaruexpeditions.tz | https://www.kifaruexpeditions.tz	safaris@kifaruexpeditions.tz (role)	+255614111111 (mobile)	P.O.Box 2661, Arusha, Tanzania		0	0	search	
+master	O25d8afee64db	Lapwings	Safari / tour operator	True	True	https://lapwings.co.tz | https://www.lapwings.co.tz	info@lapwings.co.tz (role)	+255786621111 (mobile)			0	0	search	
+master	Ocb8c0d83adbf	Lemuta & Khaki Safaris	Safari / tour operator	True	True	https://lemutakhakisafaris.co.tz					0	0	search	
+master	Ob59e380a5d09	Let’S Discover Africa Limited	Safari / tour operator	True	True	https://letsdiscoverafrica.com | https://www.letsdiscoverafrica.com	contactus@letsdiscoverafrica.com (general)	+255684375391 (mobile) | +971585538200 (international)	P.o.Box 15613, Arusha-Tanzania.		0	0	search	
+master	O7dda68b75a3e	Lomo Tanzania Safari	Safari / tour operator	True	True		info@lomotanzaniasafari.com (role) | marian@lomotanzaniasafari.com (general)	+2550736123700 (unknown) | +2550682808000 (unknown)	P.O.BOX 16346 Arusha,Tanzania		1	0	search	
+master	O2a58e0cbc61e	Magilani Safaris	Safari / tour operator	True	True	https://magilani-safaris.com | https://www.magilani-safaris.com	info@magilani-safaris.com (role)	+255742964855 (mobile) | +255784123201 (mobile)	P.o.box 13216 Arusha, Tanzania		0	0	search	
+master	O3ace27608738	Makisala Safaris	Safari / tour operator	True	True	https://makisala.com | https://www.makisala.com	info@makisala.com (role)	+255788323254 (mobile)	P.O.Box 14136, Arusha, Tanzania		0	0	search	
 master	Ob52167dff74e	Maradawa Tours Company Limited	Safari / tour operator	True	True	https://maradawa.com	info@maradawa.com (role)	+34615406737 (international)			0	0	search	
-master	O1ba8cadca1de	Multichoice Safaris Ltd	Safari / tour operator	True	True	https://www.multichoicesafaris.com					0	0	search	
-master	O3f8abe57d3e5	Natural Smile Expeditions	Safari / tour operator	True	True						0	0	search:not_found	
+master	O1ba8cadca1de	Multichoice Safaris Ltd	Safari / tour operator	True	True	https://multichoicesafaris.com | https://www.multichoicesafaris.com	multichoice@habari.co.tz (general)	+255784779977 (mobile)	P.O.Box 14288, Arusha Tanzania		0	0	search	
+master	O3f8abe57d3e5	Natural Smile Expeditions	Safari / tour operator	True	True	https://naturalsmileexpeditions.com	info@naturalsmileexpeditions.com (role) | pololetpatrick@gmail.com (personal_domain) | greta2408@gmail.com (personal_domain)	+255678474749 (mobile) | +32476227727 (international)	P.O.Box 2290, Arusha, Tanzania		0	0	search, search:not_found	
 master	Oab4ecd9ac6dd	Nomad Tanzania	Safari / tour operator	True	True						0	0		
-master	Ob9c6fc22d464	Off The Beaten Path Safari Ltd	Safari / tour operator	True	True	https://www.offthebeatenpathsafaris.com		+255682375975 (mobile)			0	2	search	
-master	Ofa04f247ae63	PAG Tours & Safaris Limited	Safari / tour operator	True	True	https://pagsafaris.com	info@pagsafaris.com (role) | peter.post@pagsafaris.com (general)	+255714733621 (mobile) | +255782906985 (mobile)			0	0	search	
+master	Ob9c6fc22d464	Off The Beaten Path Safari Ltd	Safari / tour operator	True	True	https://offthebeatenpathsafaris.com | https://www.offthebeatenpathsafaris.com	contact@offthebeatenpathsafaris.com (role)	+255682375975 (mobile)	P.O. BOX 15255, Arusha, Tanzania		2	0	search	
+master	Ofa04f247ae63	PAG Tours & Safaris Limited	Safari / tour operator	True	True	https://pagsafaris.com	info@pagsafaris.com (role) | peter.post@pagsafaris.com (general) | benedict.eliabu@pagsafaris.com (general)	+255714733621 (mobile) | +255782906985 (mobile) | +255755385878 (mobile)	P.O. Box 10414 Arusha, Tanzania		0	0	search	
 master	Oe3bb2b1fc620	Ranger Safaris	Safari / tour operator	True	True						0	0		
-master	Oe32aa3371ed3	Regal African Safaris Limited	Safari / tour operator	True	True	https://www.regalafricansafaris.com		+255699496968 (mobile) | +255757767071 (mobile)			0	0	search	
-master	Oc83b9b2258ff	Ro scavenger safaris ltd	Safari / tour operator	True	True	https://roscavengersafaris.co.tz	info@roscavengersafaris.co.tz (role)	+255713563563 (mobile) | +255754639340 (mobile) | +255754639356 (mobile)			0	0	search	
-master	O28e5922f07dc	Safari Soles	Safari / tour operator	True	True						1	0		
-master	Oc4dd18c280fd	Safari – HQ	Safari / tour operator	True	True						1	0		
+master	Oe32aa3371ed3	Regal African Safaris Limited	Safari / tour operator	True	True	https://regalafricansafaris.com | https://www.regalafricansafaris.com	info@regal-africa.com (role)	+255699496968 (mobile) | +255757767071 (mobile)	P.O.BOX 16051 Arusha, Tanzania		0	0	search	
+master	Oc83b9b2258ff	Ro scavenger safaris ltd	Safari / tour operator	True	True	https://roscavengersafaris.co.tz	info@roscavengersafaris.co.tz (role)	+255713563563 (mobile) | +255754639340 (mobile) | +255754639356 (mobile)	P.O.BOX 16651 Arusha, Tanzania		0	0	search	
+master	O28e5922f07dc	Safari Soles	Safari / tour operator	True	True	https://safarisolestours.com	info@safarisolestours.com (role)	+255766322264 (mobile) | +255716322264 (mobile)			1	0	search	
+master	Oc4dd18c280fd	Safari – HQ	Safari / tour operator	True	True	https://safarihq.com	info@safarihq.com (role)	+255767829590 (mobile) | +61420442509 (international)	P.O.Box 16062 Arusha, Tanzania		1	0	search	
 master	Ocf1f889ff17e	Serengeti Wakanda Tours Safaris	Safari / tour operator	True	True						0	0		
-master	O83b22a7b397c	Shilashi self-drive car hire and safaris	Safari / tour operator	True	True	https://www.shilashicarhire.com		+255679003630 (mobile) | +255746690692 (mobile) | +255755373111 (mobile)			0	0	search	
-master	O12fd05b7f088	Six and Seven Tours	Safari / tour operator	True	True						0	0	search:not_found	
-master	O72797d275ecf	Spazio Safari Limited	Safari / tour operator	True	True	https://spaziosafari.com	info@spaziosafari.com (role)				0	0	search	
-master	Of27f79d49dee	Tales of Tanzania Safaris Ltd	Safari / tour operator	True	True	https://www.talesoftanzaniasafaris.com/	info@talesoftanzaniasafaris.com (role)	+255767441235 (mobile)			0	0	search	
-master	Ofe4ce69838f9	Tanganyika Outdoor Safari Guide	Safari / tour operator	True	True	https://www.tanganyikaoutdoorsafari.com					0	0	search	
-master	O44450f1c73e9	Tanzania Serengeti Adventure Limited	Safari / tour operator	True	True	https://www.abouttanzania.com	enquiries@abouttanzania.com (role)				0	2	search	
-master	O33d25cd2c1bf	Telly Africa Tours and Safaris	Safari / tour operator	True	True	https://www.tellysafaris.co.tz		+255768839140 (mobile)			0	0	search	
+master	O83b22a7b397c	Shilashi self-drive car hire and safaris	Safari / tour operator	True	True	https://shilashicarhire.com | https://www.shilashicarhire.com	info@shilashicarhire.com (role)	+255679003630 (mobile) | +255746690692 (mobile) | +255755373111 (mobile)	P.O.BOX 7174 ARUSHA, TANZANIA		0	0	search	
+master	O12fd05b7f088	Six and Seven Tours	Safari / tour operator	True	True	https://sixandseventours.com	info@sixandseventours.com (role)	+255715720917 (mobile) | +255689105605 (mobile)	P.O.Box 2019, Arusha, Tanzania		0	0	search, search:not_found	
+master	O72797d275ecf	Spazio Safari Limited	Safari / tour operator	True	True	https://spaziosafari.com	info@spaziosafari.com (role)	+255693517419 (mobile) | +255681840504 (mobile)	P.O.BOX 15186 Arusha, Tanzania		0	0	search	
+master	Of27f79d49dee	Tales of Tanzania Safaris Ltd	Safari / tour operator	True	True	https://talesoftanzaniasafaris.com | https://www.talesoftanzaniasafaris.com/	info@talesoftanzaniasafaris.com (role)	+255767441235 (mobile) | +255767698483 (mobile)			0	0	search	
+master	Ofe4ce69838f9	Tanganyika Outdoor Safari Guide	Safari / tour operator	True	True	https://tanganyikaoutdoorsafari.com | https://www.tanganyikaoutdoorsafari.com	ndemfoo@tanganyikaoutdoorsafari.com (general)	+255622688706 (mobile) | +255784688706 (mobile)	P.O.BOX 12148 ARUSHA, TANZANIA		0	0	search	
+master	O44450f1c73e9	Tanzania Serengeti Adventure Limited	Safari / tour operator	True	True	https://abouttanzania.com | https://www.abouttanzania.com	enquiries@abouttanzania.com (role) | jordan@abouttanzania.com (named) | iristsa@abouttanzania.com (named)	+255272544609 (office) | +255787651124 (mobile) | +255784790024 (mobile)	P.O. Box 1742 Arusha, Tanzania		2	0	search	
+master	O33d25cd2c1bf	Telly Africa Tours and Safaris	Safari / tour operator	True	True	https://tellysafaris.co.tz | https://www.tellysafaris.co.tz	info@tellysafaris.co.tz (role)	+255768839140 (mobile)	P.O.Box 10747, Arusha, Tanzania		0	0	search	
 master	Ob1ab0a43aebf	The Exclusive Portfolio	Safari / tour operator	True	True						0	0		
-master	Oebe90cd85d49	Top Nature Tanzania Safari	Safari / tour operator	True	True						2	0		
-master	Oc25f579eea3b	Van Mo Safaris	Safari / tour operator	True	True						1	0		
-master	O690a004a7239	Viola Tours & Travel	Safari / tour operator	True	True	https://www.violatours.com		+255713295928 (mobile) | +255786271420 (mobile)			0	0	search	
-master	O30580c3c4397	Vision Safari & Tours	Safari / tour operator	True	True	https://visionsafaritours.com	info@visionsafaritours.com (role)				0	0	search	
+master	Oebe90cd85d49	Top Nature Tanzania Safari	Safari / tour operator	True	True		deneen@topnaturesafaris.com (named)	+2550786805530 (unknown)			2	0	search	
+master	Oc25f579eea3b	Van Mo Safaris	Safari / tour operator	True	True	https://vanmosafaris.com	info@vanmosafaris.com (role)	+255741222888 (mobile) | +255753630095 (mobile)	P.O. Box 3130, Arusha, Tanzania		1	0	search	
+master	O690a004a7239	Viola Tours & Travel	Safari / tour operator	True	True	https://violatours.com | https://www.violatours.com	info@violatours.com (role)	+255713295928 (mobile) | +255786271420 (mobile)	P.O. BOX 16782,Arusha, Tanzania		0	0	search	
+master	O30580c3c4397	Vision Safari & Tours	Safari / tour operator	True	True	https://visionsafaritours.com	info@visionsafaritours.com (role)	+255742658833 (mobile) | +255716390974 (mobile)	P.O.Box 303, Arusha, Tanzania		0	0	search	
 master	Oc4ddf5005af7	Whistling Travel	Safari / tour operator	True	True	https://whistlingtravel.co.tz	info@whistlingtravel.co.tz (role)	+255655777771 (mobile)			0	0	search	
 master	Od863130e424f	African Spoonbill Tours and Safaris Ltd	Safari / tour operator	True	True	https://africanspoonbilltours.com	info@africanspoonbilltours.com (role)	+255713408291 (mobile) | +255782408291 (mobile) | +255681684646 (mobile)	P.O. Box 1474 ARUSHA, TANZANIA	facebook: https://www.facebook.com/spoonbillsafaris/ | instagram: https://www.instagram.com/africanspoonbill_tours/ | youtube: https://www.youtube.com/@AfricanSpoonbillToursandSafari	0	0	search	
-master	Oafd0d6f73dd9	Benson and Company Ltd	Safari / tour operator	True	True						2	0		
+master	Oafd0d6f73dd9	Benson and Company Ltd	Safari / tour operator	True	True	https://bensonandcompany.co.tz	info@bensonandcompany.co.tz (role) | corporate@bensonandcompany.co.tz (general)	+255626000999 (mobile) | +255760444777 (mobile)			2	0	search	
 master	Ofa5ba9fcaa2e	Jaribu Africa Adventures Co Ltd	Safari / tour operator	True	True	https://jaribuafrica.com	info@jaribuafrica.com (role)	+255753909004 (mobile) | +255714277047 (mobile)	PO Box 0586, Njiro Rd, Arusha	facebook: https://facebook.com/Jaribu-Africa-Adventures-103103424429105/ | twitter: https://twitter.com/jaribuafrica	0	0	search	
-master	O9a0ec445da71	Kilimanjaro Tropical Adventures	Safari / tour operator	True	True						0	0		
-master	Ob947c8e273fc	Lifetime Safaris	Safari / tour operator	True	True						1	0		
-master	O05b1aa5654c7	Peacock Tours & Safaris	Safari / tour operator	True	True						0	0		
-master	O83e87810f63e	Karibu Africa Safaris	Safari / tour operator	True	True	https://www.karibuafricasafaris.com	info@karibuafricasafaris.com (role)	+255754572279 (mobile)	P.O.BOX 1840, Arusha		0	0	search	
-master	Od8eeaae30f56	Afrisafaris Tanzania Ltd	Safari / tour operator	True	True	https://www.afrisafaristanzania.com	info@afrisafaristanzania.com (role) | kibwana.issa@afrisafaristanzania.com (general)	+255786341998 (mobile)	P.O. Box 14570, Arusha, Tanzania	facebook: https://www.facebook.com/afrisafaristanzanialtd/	0	0	search	
+master	O9a0ec445da71	Kilimanjaro Tropical Adventures	Safari / tour operator	True	True	https://kiliwilderness.co.tz	info@kiliwilderness.co.tz (role) | kiliwilderness2011@hotmail.com (personal_domain) | kiliwilderness@gmail.com (personal_domain)	+255658204754686240327 (mobile)	P.O. Box 6673, Moshi-Tanzania		0	0	search	
+master	Ob947c8e273fc	Lifetime Safaris	Safari / tour operator	True	True	https://lifetimesafaristz.com	barakajohn.mollel@gmail.com (named) | barakamollel@lifetimesafaristz.com (named)	+255272546420 (office) | +255755419246 (mobile)	P.O BOX 2576 Arusha – Tanzania		1	0	search	
+master	O05b1aa5654c7	Peacock Tours & Safaris	Safari / tour operator	True	True	https://peacocksafaris.com	info@peacocksafaris.com (role)				0	0	search	
+master	O83e87810f63e	Karibu Africa Safaris	Safari / tour operator	True	True	https://karibuafricasafaris.com | https://www.karibuafricasafaris.com	info@karibuafricasafaris.com (role)	+255754572279 (mobile)	P.O.BOX 1840, Arusha		0	0	search	
+master	Od8eeaae30f56	Afrisafaris Tanzania Ltd	Safari / tour operator	True	True	https://afrisafaristanzania.com | https://www.afrisafaristanzania.com	info@afrisafaristanzania.com (role) | kibwana.issa@afrisafaristanzania.com (general)	+255786341998 (mobile)	P.O. Box 14570, Arusha, Tanzania	facebook: https://www.facebook.com/afrisafaristanzanialtd/	0	0	search	
 master	O5cfe7f0b8dbc	Kilipath African Safaris	Safari / tour operator	True	True						0	0		
-master	O2e30afe12c3e	Ndoto Kubwa Tours and Safaris Company LTD	Safari / tour operator	True	True	https://ndotokubwatours.com	info@ndotokubwatours.com (role) | sales@ndotokubwatours.com (role)	+255767100129 (mobile) | +255738803030 (mobile)	P.O. Box 1433, Arusha, Tanzania		0	1	search	
-master	O9bbec562fec7	Termite Tour Travel	Safari / tour operator	True	True						3	0		
-master	O69fe7b90912a	Warriors of Africa Safari	Safari / tour operator	True	True						0	0		
-master	O302ba4c9926e	Firstpace African Travel Co Ltd	Safari / tour operator	True	True	https://firstpaceafrica.com	info@firstpaceafrica.com (role) | firstpace.africantravel@gmail.com (personal_domain)	+255764267806 (mobile) | +255682223882 (mobile)	P.O.Box 355, Arusha		0	0	search	
+master	O2e30afe12c3e	Ndoto Kubwa Tours and Safaris Company LTD	Safari / tour operator	True	True	https://ndotokubwatours.com	info@ndotokubwatours.com (role) | sales@ndotokubwatours.com (role)	+255767100129 (mobile) | +255738803030 (mobile)	P.O. Box 1433, Arusha, Tanzania		1	0	search	
+master	O9bbec562fec7	Termite Tour Travel	Safari / tour operator	True	True	https://termitetourtravel.com	info@termitetourtravel.com (role)	+255793827779 (mobile) | +255764253142 (mobile)	P.O. Box 2198 Moshono, Arusha Tanzania		3	0	search	
+master	O69fe7b90912a	Warriors of Africa Safari	Safari / tour operator	True	True	https://warriorsofafricasafari.com	warriorsofafricasafari@gmail.com (personal_domain)	+255766121379 (mobile)	P.O. Box 1477, Arusha, Tanzania		0	0	search	
+master	O302ba4c9926e	Firstpace African Travel Co Ltd	Safari / tour operator	True	True	https://firstpaceafrica.com	info@firstpaceafrica.com (role) | firstpace.africantravel@gmail.com (personal_domain)	+255764267806 (mobile) | +255682223882 (mobile)	P.O. Box 355, Njiro, Arusha, Tanzania | P.O.Box 355, Arusha		0	0	search	
 master	Oa48398f02a6a	ATA Safaris - Travel & Tour Operators in Arusha	Safari / tour operator	True	True						0	0		
 master	O7d5532e11f9c	Papagei Tours and Safaris	Safari / tour operator	True	True	https://papageitours.com	info@papageitours.com (role) | papageisafari@gmail.com (personal_domain)	+255782712082 (mobile)	P.O. Box 1442, Arusha, Tanzania	facebook: https://www.facebook.com/papageisafaris/ | instagram: https://www.instagram.com/papagei_safaris_tanzania/ | twitter: https://twitter.com/papagei_tours	0	0	search	
-master	O7be3615fce64	Dorobo Tours & Safaris	Safari / tour operator	True	True	https://dorobosafaris.com	dorobo@dorobosafaris.com (general) | dorobo@dorobo.co.tz (general)	+255786154648 (mobile) | +255684343342 (mobile) | +255272509683 (office)	P.O. Box 2534, Arusha, Tanzania	instagram: https://www.instagram.com/dorobosafaris | facebook: https://www.facebook.com/dorobosafaris/	0	1	search	
+master	O7be3615fce64	Dorobo Tours & Safaris	Safari / tour operator	True	True	https://dorobosafaris.com	dorobo@dorobosafaris.com (general) | dorobo@dorobo.co.tz (general)	+255786154648 (mobile) | +255684343342 (mobile) | +255272509683 (office)	P.O. Box 2534, Arusha, Tanzania	instagram: https://www.instagram.com/dorobosafaris | facebook: https://www.facebook.com/dorobosafaris/	1	0	search	
 master	O8d12f5792f73	Duma Explorers	Safari / tour operator	True	True						3	0		
-master	Oe9a6ec42dd7d	Kananga (Rumangabo International Ltd)	Safari / tour operator	True	True	https://www.kanangainternational.com	info@kananga.co.tz (role) | reservations@kananga.com (role) | operations@kananga.com (role)	+255753979478 (mobile) | +255684723426 (mobile) | +34932687795 (international) | +254700450531 (international)	P.O.BOX 7104 Arusha, Tanzania		0	0	search	
+master	Oe9a6ec42dd7d	Kananga (Rumangabo International Ltd)	Safari / tour operator	True	True	https://kanangainternational.com | https://www.kanangainternational.com	info@kananga.co.tz (role) | reservations@kananga.com (role) | operations@kananga.com (role)	+255753979478 (mobile) | +255684723426 (mobile) | +34932687795 (international) | +254700450531 (international)	P.O.BOX 7104 Arusha, Tanzania		0	0	search	
 master	Ode3082ab5bb3	Tanzania Classic Tours	Safari / tour operator	True	True	https://tanzaniaclassictours.com	info@tanzaniaclassictours.com (role)	+255757899709 (mobile)	P.O.Box 3180, Arusha, Tanzania	facebook: https://www.facebook.com/TANZANIACLASSICTOURS/ | instagram: https://www.instagram.com/tanzaniaclassictours/	0	0	search	
-master	Oa7e8e18aa797	Tanzania à la Carte Safaris Company	Safari / tour operator	True	True						0	0		
-master	O0226b760bf73	Mrembo Safaris	Safari / tour operator	True	True	https://mrembosafaris.com	info@mrembosafaris.com (role) | destination_tanzania@mrembosafaris.com (general)	+255768266706 (mobile) | +255746477070 (mobile) | +255784142427 (mobile)	P.O.BOX 57 Duluti, Arusha	instagram: https://www.instagram.com/mrembosafaris?igsh=Y3hxb24xbHoyeTFt	0	1	search	
-master	O6bda8e0e9983	Nature Responsible Safaris Ltd	Safari / tour operator	True	True						1	0		
+master	Oa7e8e18aa797	Tanzania à la Carte Safaris Company	Safari / tour operator	True	True	https://tanzaniaalacarte.com	sales@tanzaniaalacarte.com (role)	+2550623434342 (unknown) | +310658730396 (international)			0	0	search	
+master	O0226b760bf73	Mrembo Safaris	Safari / tour operator	True	True	https://mrembosafaris.com	info@mrembosafaris.com (role) | destination_tanzania@mrembosafaris.com (general)	+255768266706 (mobile) | +255746477070 (mobile) | +255784142427 (mobile)	P.O.BOX 57 Duluti, Arusha | P.O.Box 57 Duluti Arusha	instagram: https://www.instagram.com/mrembosafaris?igsh=Y3hxb24xbHoyeTFt	1	0	search	
+master	O6bda8e0e9983	Nature Responsible Safaris Ltd	Safari / tour operator	True	True	https://natureresponsiblesafari.com	info@natureresponsiblesafari.com (role)	+255784870444 (mobile)	P.O.BOX 13845 Kisongo, Arusha		1	0	search	
 master	O5956bcda9c1d	Triumph Travel & Film Safaris Ltd	Safari / tour operator	True	True	https://triumphsafaris.com	info@triumphsafaris.com (role)	+255740111118 (mobile) | +255767422737 (mobile)	P.O. Box 326, Arusha, Tanzania		0	0	search	
-master	O248e9c1e5c38	Hike Talkstay Adventures	Safari / tour operator	True	True						2	0		
-master	Of51ff16aaada	Ahsante Tours & Safaris Ltd	Safari / tour operator	True	True						4	0		
+master	O248e9c1e5c38	Hike Talkstay Adventures	Safari / tour operator	True	True	https://hiketalkstay.com	info@hiketalkstay.com (role)	+255755214223 (mobile)	P.O. Box 8626, Moshi-Tanzania		2	0	search	
+master	Of51ff16aaada	Ahsante Tours & Safaris Ltd	Safari / tour operator	True	True			+255784252636 (mobile) | +255765557575 (mobile)			4	0	search	
 master	Od0c9401c959b	Monkey Adventures	Safari / tour operator	True	True						0	0		
 master	O7136ae38625d	Boker Adventures	Safari / tour operator	True	True						1	0		
 master	O8d8d88e2da80	Explore Active	Safari / tour operator	True	True						0	0		
-master	O6107a7c96efd	Basecamp Afromaxx Ltd	Safari / tour operator	True	True						1	0		
+master	O6107a7c96efd	Basecamp Afromaxx Ltd	Safari / tour operator	True	True	https://afromaxx.com | https://www.afromaxx.com	mail@afromaxx.com (role)	+4936296773399 (international) | +255684450458 (mobile)	Basecamp Afromaxx Ltd., Nkomo Avenue, P.O. Box 1962, Moshi, Tanzania | P.O.Box 1962 Moshi-Tanzania		1	0	search	
 master	O629d1111168f	Gladys Adventure & Safaris	Safari / tour operator	True	True						2	0		
 master	O66a49150a30a	Tintintours	Safari / tour operator	True	True						1	0		
 master	O281ef16a9906	trekkingandsafariadventures	Safari / tour operator	True	True						0	0		
@@ -322,32 +322,32 @@ master	Oba62dc5f713c	Gazelle Adventures	Safari / tour operator	True	True						1	
 master	O92e0d6840692	Nyange Adventures Ltd.	Safari / tour operator	True	True						1	0		
 master	O923da4a684cd	Summit 2 Sand Safaris	Safari / tour operator	True	True						1	0		
 master	O5328bffd0133	African Scenic Safaris Ltd	Safari / tour operator	True	True						9	0		
-master	O4059c82d75be	Afrikabisa – Ethical Tours	Safari / tour operator	True	True						2	0		
-master	Of4048a3d68b7	Altezza Travel	Safari / tour operator	True	True						0	0		
-master	Oa5672e5a0743	Bright Tanzania – Private Climbing & Safari Tours	Safari / tour operator	True	True						3	0		
-master	O4113ed6245f9	Destiny Winners Safari and Tour	Safari / tour operator	True	True						0	0		
+master	O4059c82d75be	Afrikabisa – Ethical Tours	Safari / tour operator	True	True	https://afrikabisatours.com	info@afrikabisatours.com (role)	+255784299160 (mobile)			2	0	search	
+master	Of4048a3d68b7	Altezza Travel	Safari / tour operator	True	True	https://altezza.travel.com	office@altezza.travel (role)	+255717120809 (mobile) | +255785061478 (mobile) | +255786221788 (mobile)	P.O. Box 938, Moshi, Kilimanjaro, Tanzania		0	0	search	
+master	Oa5672e5a0743	Bright Tanzania – Private Climbing & Safari Tours	Safari / tour operator	True	True	https://bright-tanzania.com	info@bright-tanzania.com (role)	+255716490564 (mobile)			3	0	search	
+master	O4113ed6245f9	Destiny Winners Safari and Tour	Safari / tour operator	True	True	https://destinywinnerssafariandtour.com	info@destinywinnerssafariandtour.com (role)	+255656803660 (mobile)	P.O. Box 8910, Moshi-Tanzania		0	0	search	
 master	O9c15188c8f16	Eco-Africa Climbing	Safari / tour operator	True	True	https://eco-africaclimbing.com	ecoafricaclimbingsafari@gmail.com (personal_domain) | info@eco-africaclimbing.com (role)	+255712528219 (mobile) | +255658466149 (mobile)	P.O. Box 8218, Moshi-Tanzania	instagram: https://www.instagram.com/eco_africaclimbing/	0	0	search	
-master	O35aefe7c0415	Exuberant Kilimanjaro Travel	Safari / tour operator	True	True						0	0		
-master	O1a6d9ee7e6a9	Gypsy Tours and Safaris Limited	Safari / tour operator	True	True						0	0		
-master	O66a1b820be42	Kilimandscharo Active Tours (KAT)	Safari / tour operator	True	True						0	0		
-master	O7af93c912e20	Lady Tusk Safaris	Safari / tour operator	True	True						1	0		
-master	O1b54035e94a4	Land Savannah and Trekking	Safari / tour operator	True	True						0	0		
-master	O4a753aaa1f00	Local Moshi adventures Limited	Safari / tour operator	True	True						2	0		
-master	Oe254463e095e	Luitours and Safaris	Safari / tour operator	True	True						0	0		
+master	O35aefe7c0415	Exuberant Kilimanjaro Travel	Safari / tour operator	True	True	https://exuberantkilimanjarosafaris.com	info@exuberantkilimanjarosafaris.com (role)	+255744419409 (mobile)	P.O. Box 2300, Moshi-Tanzania		0	0	search	
+master	O1a6d9ee7e6a9	Gypsy Tours and Safaris Limited	Safari / tour operator	True	True	https://gypsytanzaniatours.fun	trip@gypsytanzaniatours.fun (general)	+255673454941 (mobile) | +255762329489 (mobile)	P.O. Box 361 Moshi, Tanzania		0	0	search	
+master	O66a1b820be42	Kilimandscharo Active Tours (KAT)	Safari / tour operator	True	True	https://kilimandscharo-safari.de	info@kat-moshi.com (role)	+2550767895333 (unknown) | +2550754095333 (unknown)	P.O. Box 7686, Moshi-Tanzania		0	0	search	
+master	O7af93c912e20	Lady Tusk Safaris	Safari / tour operator	True	True	https://ladytusksafaris.com	info@ladytusksafaris.com (role)	+255716777461 (mobile)	P.O. Box 191, Moshi, Kilimanjaro – Tanzania		2	0	search	
+master	O1b54035e94a4	Land Savannah and Trekking	Safari / tour operator	True	True	https://landsavannahandtrekking.com	info@landsavannahandtrekking.com (role)	+2550685827115 (unknown)	P.O. Box 1027		0	0	search	
+master	O4a753aaa1f00	Local Moshi adventures Limited	Safari / tour operator	True	True	https://localmoshi.com	info@localmoshi.com (role)	+255782985005 (mobile) | +255756985005 (mobile)	P.O. Box 2117 Moshi, Tanzania		2	0	search	
+master	Oe254463e095e	Luitours and Safaris	Safari / tour operator	True	True	https://luitours.com	info@luitours.com (role) | luitours@gmail.com (personal_domain)	+255655749131 (mobile) | +255754672768 (mobile)	P.O. Box 7770 Moshi, Tanzania		0	0	search	
 master	Oa4e786a347f4	Makasa Tanzania Safaris Ltd	Safari / tour operator	True	True						0	0		
 master	Oa70069647745	Mauly Tours Safaris	Safari / tour operator	True	True						0	0		
-master	Ob0802414d398	Mega Adventures travel	Safari / tour operator	True	True						0	0		
-master	Oc2da1647a7e3	Miles To Smile Company Ltd	Safari / tour operator	True	True						2	0		
-master	Oaf6f2b1c12a5	Msafiri Tanzania	Safari / tour operator	True	True						0	0		
-master	O2dc0a16e551c	Pamoja Kilimanjaro & Safaris	Safari / tour operator	True	True						1	0		
+master	Ob0802414d398	Mega Adventures travel	Safari / tour operator	True	True	https://megaadventurestravel.com	info@megaadventurestravel.com (role)	+255715820280 (mobile) | +255764264244 (mobile)	P.O.Box 8005 Moshi, Tanzania		0	0	search	
+master	Oc2da1647a7e3	Miles To Smile Company Ltd	Safari / tour operator	True	True	https://miles-to-smile.com	contact@miles-to-smile.com (role)	+255766056532 (mobile)	P.O. Box 7538 Moshi		2	0	search	
+master	Oaf6f2b1c12a5	Msafiri Tanzania	Safari / tour operator	True	True	https://msafiritanzania.com	info@msafiritanzania.com (role)	+255762634600 (mobile)	P.O. Box 1144, Moshi, Tanzania		0	0	search	
+master	O2dc0a16e551c	Pamoja Kilimanjaro & Safaris	Safari / tour operator	True	True	https://pamojakilisafaris.com	info@pamojakilisafaris.com (role)	+255756741238 (mobile)	P.O.BOX 800, Moshi		1	0	search	
 master	Odef784f19a91	Popote Africa Adventures	Safari / tour operator	True	True	https://popoteafrica.com	info@popoteafrica.com (role) | booking@popoteafrica.com (role) | sabi@popoteafrica.com (general)	+255785190784 (mobile) | +255757190784 (mobile) | +255626103539 (mobile)	P.O. Box 1199, Moshi, Tanzania		0	0	search	
 master	O65efab68742b	Shah Tours Travels Ltd	Safari / tour operator	True	True						1	0		
-master	Oa2e1169bfe5f	Shiri Adventures and Safaris	Safari / tour operator	True	True						4	0		
+master	Oa2e1169bfe5f	Shiri Adventures and Safaris	Safari / tour operator	True	True	https://shiriadventures.com	info@shiriadventures.com (role)	+255743689184 (mobile)			4	0	search	
 master	O85ab7c9f2593	Summit Expeditions Nomadic Experience	Safari / tour operator	True	True						1	0		
-master	Of48b626f2238	Tamega Adventure & Safaris Ltd	Safari / tour operator	True	True						0	0		
-master	O6bb418d35f59	Taste of Kilimanjaro Adventures (T) Limited	Safari / tour operator	True	True						0	0		
-master	O1d655fdb4c15	West Wild Limited	Safari / tour operator	True	True						0	0		
-master	Ofee780089f90	ZAFS Tours	Safari / tour operator	True	True						1	0		
+master	Of48b626f2238	Tamega Adventure & Safaris Ltd	Safari / tour operator	True	True		aggrey.makia@tamegasafaris.co.tz (general) | aggreymakia2@gmail.com (personal_domain)	+255755538877 (mobile) | +255713272127 (mobile)	P.O. Box 8993 MOSHI		0	0	search	
+master	O6bb418d35f59	Taste of Kilimanjaro Adventures (T) Limited	Safari / tour operator	True	True	https://tasteofkilimanjaro.com	frank@tasteofkilimanjaro.com (general) | info@tasteofkilimanjaro.com (role)	+255622521909 (mobile) | +255769468524 (mobile)	P.O. Box 8642, Moshi, Tanzania		0	0	search	
+master	O1d655fdb4c15	West Wild Limited	Safari / tour operator	True	True	https://westwildadventure.com	booking@westwildadventure.com (role)	+255746379453 (mobile)	P.O.Box 8036 Moshi, Tanzania		0	0	search	
+master	Ofee780089f90	ZAFS Tours	Safari / tour operator	True	True	https://zafstours.com	info@zafstours.com (role)	+255624023455 (mobile) | +255620285462 (mobile)	P.O.Box 662, Moshi, Tanzania		1	0	search	
 master	O398709675eda	Zara Tanzania Adventures	Safari / tour operator	True	True						1	0		
 master	O17bd2f803731	Kessy Brothers	Safari / tour operator	True	True						0	0		
 master	Odb7e9aa1b559	Enosa Expedition	Safari / tour operator	True	True						0	0		
@@ -356,81 +356,81 @@ master	O9d33b176c017	Tanzania Hugos Safaris	Safari / tour operator	True	True				
 master	O93751be22b05	Roving Africa Safaris	Safari / tour operator	True	True						0	0		
 master	O0fe6190afc0f	A Tent With A View Safaris	Safari / tour operator	True	True						0	0		
 master	Od7226547af1b	Aaa Express Adventure Ltd	Safari / tour operator	True	True						0	0		
-master	O6a0e76e08107	Acatree Tours and Safaris	Safari / tour operator	True	True						0	0		
-master	Oe82a56d590a2	Afric'Aventure	Safari / tour operator	True	True						1	0		
+master	O6a0e76e08107	Acatree Tours and Safaris	Safari / tour operator	True	True	https://acatreetours.co.tz	info@acatreetours.co.tz (role)	+255740045567 (mobile) | +255740006765 (mobile) | +255794722664 (mobile)	P. O. Box 35786, Dar es Salaam, TZ		0	0	search	
+master	Oe82a56d590a2	Afric'Aventure	Safari / tour operator	True	True		info@africaventure.net (role)	+255754378363 (mobile)			1	0	search	
 master	O4aabd38757d1	African Horizons Ltd	Safari / tour operator	True	True						1	0		
-master	Od5309fffd3e6	Amazing Tanzania Ltd	Safari / tour operator	True	True	https://www.amazingtanzania.com	info@amazingtanzania.com (role) | reservations@amazingtanzania.com (role)	+255784326868 (mobile) | +255784758627 (mobile)	P.O. Box 2 Karatu, Tanzania	facebook: https://web.facebook.com/amazingtanzanialtd/ | instagram: https://www.instagram.com/amazingtanzania/ | twitter: https://twitter.com/amazingtanzania	0	2	search	
+master	Od5309fffd3e6	Amazing Tanzania Ltd	Safari / tour operator	True	True	https://www.amazingtanzania.com	info@amazingtanzania.com (role) | reservations@amazingtanzania.com (role)	+255784326868 (mobile) | +255784758627 (mobile)	P.O. Box 2 Karatu, Tanzania	facebook: https://web.facebook.com/amazingtanzanialtd/ | instagram: https://www.instagram.com/amazingtanzania/ | twitter: https://twitter.com/amazingtanzania	2	0	search	
 master	O2e37e92b63c3	Bongoplan	Safari / tour operator	True	True						0	0		
-master	O39807e8fb1e2	Car Light Tours And Safari Limited.	Safari / tour operator	True	True						2	0		
-master	O97435d652dd5	Carnivores Safaris	Safari / tour operator	True	True						3	0		
-master	Oeb97240d334e	Delaware Luxury Safari Limited	Safari / tour operator	True	True						0	0		
+master	O39807e8fb1e2	Car Light Tours And Safari Limited.	Safari / tour operator	True	True	https://carlighttours.travel	info@carlighttours.travel (role)	+255748944444 (mobile)			2	0	search	
+master	O97435d652dd5	Carnivores Safaris	Safari / tour operator	True	True	https://carnivoressafaris.co.tz	info@carnivoressafaris.co.tz (role)	+255784360721 (mobile)			3	0	search	
+master	Oeb97240d334e	Delaware Luxury Safari Limited	Safari / tour operator	True	True	https://safasafaris.com	info@safasafaris.com (role)	+255679907036 (mobile)	P O BOX 5746, Dar es Salaam-Tanzania.		0	0	search	
 master	O7005bdcebdc4	Discover Tanzania Safaris Ltd	Safari / tour operator	True	True						0	0		
 master	O209edee4a058	Dismass Kilimanjaro Experience Ltd	Safari / tour operator	True	True						1	0		
-master	Ob8b3515ff9b3	Dolphin Tours & Safaris Ltd	Safari / tour operator	True	True						0	0		
+master	Ob8b3515ff9b3	Dolphin Tours & Safaris Ltd	Safari / tour operator	True	True	https://carhiretz.com	info@carhiretz.com (role) | safari@carhiretz.com (role)	+255784322111 (mobile)	P.O.BOX: 336, Mwanza, Tanzania		0	0	search	
 master	Oeb477c665083	East African Voyage	Safari / tour operator	True	True						1	0		
-master	Of2d804db7393	Endelea	Safari / tour operator	True	True						1	0		
+master	Of2d804db7393	Endelea	Safari / tour operator	True	True	https://endelea-africa.com	safari@endelea-africa.com (role) | r.dawood@endelea-africa.com (named)	+255764786432 (mobile) | +255659545400 (mobile)	P.O. Box 40920, Tanzania		1	0	search	
 master	O0320a82cdbde	Fantacy Adventures Limited	Safari / tour operator	True	True						0	0		
-master	Occdc7da4028c	Fortes Africa Ltd	Safari / tour operator	True	True	https://fortes-africa.com	fortes@fortes-africa.com (general) | carhire@fortes-africa.com (general)	+255784520550 (mobile)	P.O Box 106, Mwanza, Tanzania		0	0	search	
+master	Occdc7da4028c	Fortes Africa Ltd	Safari / tour operator	True	True	https://fortes-africa.com	fortes@fortes-africa.com (general) | carhire@fortes-africa.com (general)	+255784520550 (mobile)	P.O Box 106, Mwanza, Tanzania | P.O Box 106,Mwanza, Tanzania		0	0	search	
 master	O37fd651292b2	Gilmag Safaris	Safari / tour operator	True	True						0	0		
-master	Ob19bd11caf1f	Gosheni Safaris Limited	Safari / tour operator	True	True						1	0		
-master	Ocae3a59f0167	H & A Holidays ltd	Safari / tour operator	True	True						3	0		
-master	O9e587abaac1f	Hola Africa Ltd	Safari / tour operator	True	True						1	0		
-master	Oed72b2d44597	Horn & Horizon Safaris	Safari / tour operator	True	True	https://hornandhorizonsafaris.com	info@hornandhorizonsafaris.com (role)	+255766261648 (mobile) | +255714524007 (mobile)	Arusha, Tanzania		0	0	search	
-master	Ob68c00aacb6d	Ibhanilfa Safaris & Tours Limited	Safari / tour operator	True	True						0	0		
-master	O8bf9ec458318	Imara Kilele Safaris	Safari / tour operator	True	True						0	0		
+master	Ob19bd11caf1f	Gosheni Safaris Limited	Safari / tour operator	True	True	https://goshenisafaris.com	info@goshenisafaris.com (role)	+255272050268 (office) | +255743828384 (mobile) | +255767828384 (mobile) | +255783636967 (mobile) | +00852321755441672164 (international)			1	0	search	
+master	Ocae3a59f0167	H & A Holidays ltd	Safari / tour operator	True	True	https://haholidays.com	hello@haholidays.com (role)	+255754860806 (mobile)	P.O Box 8876		3	0	search	
+master	O9e587abaac1f	Hola Africa Ltd	Safari / tour operator	True	True	https://hola-africa.com	info@hola-africa.com (role)	+255783880160 (mobile) | +255753505750 (mobile)	P.O. Box 7227, Mgeni Nani Kijichi, Dar es Salaam, Tanzania		1	0	search	
+master	Oed72b2d44597	Horn & Horizon Safaris	Safari / tour operator	True	True	https://hornandhorizonsafaris.com | https://hornandhorizonsafaris.com/	info@hornandhorizonsafaris.com (role)	+255766261648 (mobile) | +255714524007 (mobile) | +255764294329 (mobile)	Arusha, Tanzania		0	0	search	
+master	Ob68c00aacb6d	Ibhanilfa Safaris & Tours Limited	Safari / tour operator	True	True	https://ibhanilfasafaris.com	info@ibhanilfasafaris.com (role)	+255736590059 (mobile)	P.O.Box 1177, Dar es Salaam, Tanzania		0	0	search	
+master	O8bf9ec458318	Imara Kilele Safaris	Safari / tour operator	True	True	https://imarakilelenisafaris.com	info@imarakilelenisafaris.com (role)	+255748002696 (mobile)			0	0	search	
 master	Of7fe6b9dcaa4	Karis Expeditions Ltd	Safari / tour operator	True	True						0	0		
 master	O8fb1a16f8b3b	Kearsleys Travel Tours	Safari / tour operator	True	True						0	0		
-master	Of0ea38777fff	Kiboko Safaris	Safari / tour operator	True	True						1	0		
-master	O39f65578b746	Kibowhy Safaris Ltd	Safari / tour operator	True	True	https://kibowhysafaris.co.tz	info@kibowhysafaris.co.tz (role)	+255763201265 (mobile)			0	2	search	
+master	Of0ea38777fff	Kiboko Safaris	Safari / tour operator	True	True	https://kibokosafaris.com	kibokosafari1@gmail.com (personal_domain)	+255766202734 (mobile) | +13174384412 (international)	P.O.BOX 4, Arusha		1	0	search	
+master	O39f65578b746	Kibowhy Safaris Ltd	Safari / tour operator	True	True	https://kibowhysafaris.co.tz	info@kibowhysafaris.co.tz (role)	+255763201265 (mobile)			2	0	search	
 master	O97b32cbdcabe	Legacy Destinations & DMC	Safari / tour operator	True	True						1	0		
 master	O9790b08e6804	Legendary Expeditions	Safari / tour operator	True	True						0	0		
-master	O1d4bb8d0f2ef	Lusungulwamtwa Safaris	Safari / tour operator	True	True						1	0		
-master	Of1777021666c	Macho Halisi Limited	Safari / tour operator	True	True	https://machohalisi.com	info@machohalisi.com (role)	+255789718505 (mobile) | +255754474792 (mobile)	P.O.BOX 60 Karatu	facebook: https://www.facebook.com/MACHOHALISITOUR/	0	1	search	
-master	O7e37a997213a	MAGS Travel and Tours Agency Limited	Safari / tour operator	True	True						0	0		
+master	O1d4bb8d0f2ef	Lusungulwamtwa Safaris	Safari / tour operator	True	True	https://lusungulwamtwasafaris.com	info@lusungulwatwasafaris.com (role)	+255768200757 (mobile)	P.O.Box 314, Arusha, Tanzania		1	0	search	
+master	Of1777021666c	Macho Halisi Limited	Safari / tour operator	True	True	https://machohalisi.com	info@machohalisi.com (role)	+255789718505 (mobile) | +255754474792 (mobile)	P.O.BOX 60 Karatu	facebook: https://www.facebook.com/MACHOHALISITOUR/	1	0	search	
+master	O7e37a997213a	MAGS Travel and Tours Agency Limited	Safari / tour operator	True	True	https://magstravel.co.tz	info@magstravel.co.tz (role) | magstraveltourltd@gmail.com (personal_domain)	+255744470998 (mobile) | +255772117007 (mobile)	P.O.Box 7747 Dar es Salaam, Tanzania		4	0	search	
 master	Oeaa101729a06	Masumin Tours and Safaris	Safari / tour operator	True	True						0	0		
-master	O522d7bded4ab	Mbali Mbali Lodges and Camps Limited	Safari / tour operator	True	True						0	0		
+master	O522d7bded4ab	Mbali Mbali Lodges and Camps Limited	Safari / tour operator	True	True	https://mbalimbali.com | https://www.mbalimbali.com	finance@mbalimbali.com (role) | bookings@mbalimbali.com (role)	+255688331256 (mobile) | +255784786682 (mobile) | +255787165407 (mobile)	Mbali Mbali Lodges and Camps, PO Box 20965, Dar es Salaam, Tanzania | P.O.BOX: 20965 DAR ES SALAAM,TANZANIA		0	0	search	
 master	Oc62ca6c7a1c3	Memorable Sunrise To Sunset Safaris Limited	Safari / tour operator	True	True	https://memorablesafari.com	info@memorablesafari.com (role)	+255689767768 (mobile)			0	0	search	
 master	Oe944d524f45f	Mount Kilimanjaro Safari Club	Safari / tour operator	True	True						0	0		
-master	O7571581eaaf1	Mount Royal Safaris	Safari / tour operator	True	True						0	0		
-master	Ob17df3363f76	Namiri Tours And Safaris Limited	Safari / tour operator	True	True						2	0		
-master	O5d0e339d06fe	Napenda Adventures Ltd	Safari / tour operator	True	True						0	0		
-master	Obbf678227d16	Nature’s Land Safaris & Rentals Limited	Safari / tour operator	True	True						5	0		
-master	O0bdd5652cc98	Nuru Tours And Safaris	Safari / tour operator	True	True						0	0		
-master	O63d5bc9994f6	Old Explorer Limited	Safari / tour operator	True	True						5	0		
-master	O63a1533c0a94	Pooja Travel Tour	Safari / tour operator	True	True						0	0		
+master	O7571581eaaf1	Mount Royal Safaris	Safari / tour operator	True	True	https://mountroyalsafaris.com	info@mountroyalsafaris.com (role)	+255670210555 (mobile)	P.O. Box 672, Iringa, Tanzania		0	0	search	
+master	Ob17df3363f76	Namiri Tours And Safaris Limited	Safari / tour operator	True	True	https://namiritours.co.tz	info@namiritours.co.tz (role)	+255684661546 (mobile)	P.O. Box 1024, Mwanza, Tanzania		2	0	search	
+master	O5d0e339d06fe	Napenda Adventures Ltd	Safari / tour operator	True	True	https://napendaadventures.co.tz	khuzeima@na.co.tz (general) | fatema@na.co.tz (general)	+255757150490 (mobile) | +255688209490 (mobile)			0	0	search	
+master	Obbf678227d16	Nature’s Land Safaris & Rentals Limited	Safari / tour operator	True	True	https://natureslandsafaris.com | https://www.natureslandsafaris.com	travel@naturesland.co.tz (role) | info@naturesland.co.tz (role)	+255627999333 (mobile) | +255786998811 (mobile) | +255689998833 (mobile)	P.O.BOX 837, Mwanza, Tanzania		5	0	search	
+master	O0bdd5652cc98	Nuru Tours And Safaris	Safari / tour operator	True	True	https://nurutoursandsafaris.com	sheickynuru@nurutursandsafaris.com (general)	+255686077783 (mobile) | +255712102071 (mobile)	P.O BOX 10062		0	0	search	
+master	O63d5bc9994f6	Old Explorer Limited	Safari / tour operator	True	True	https://tanzaniaexplorer.com	post@tanzaniaexplorer.com (general) | accounting@tanzaniaexplorer.com (general)	+255786667073 (mobile) | +27767894550 (international)			5	0	search	
+master	O63a1533c0a94	Pooja Travel Tour	Safari / tour operator	True	True	https://poojatravelstour.com	info@poojatravelstour.com (role)	+255688434343 (mobile)			0	0	search	
 master	Ob5939181e661	Portfolio Kibo Slopes T Ltd	Safari / tour operator	True	True						3	0		
-master	O6a9dd52553bd	Precious Moments Safaris	Safari / tour operator	True	True						0	0		
+master	O6a9dd52553bd	Precious Moments Safaris	Safari / tour operator	True	True	https://preciousmomentssafaris.com	bookings@preciousmomentssafaris.com (role)	+255740518784 (mobile) | +255718503636 (mobile)	P.O. Box 6550, Dar Es Salaam, Tanzania		0	0	search	
 master	O94eabec4856b	Pristine Trails Adventures Safaris Co Ltd	Safari / tour operator	True	True						2	0		
 master	O37dd1764d8d7	Ra Expeditions	Safari / tour operator	True	True						1	0		
-master	Of9640694b325	Rafiki Tembo Tours & Safaris	Safari / tour operator	True	True						0	0		
+master	Of9640694b325	Rafiki Tembo Tours & Safaris	Safari / tour operator	True	True	https://rafikitembotours.com	info@rafikitembotours.com (role) | rafikitembotours@gmail.com (personal_domain)	+255746330998 (mobile) | +255761026806 (mobile)	P.O.Box 02 , Mto Wa Mbu, Arusha, Tanzania		0	0	search	
 master	O39e834aea316	Rioba Safaris	Safari / tour operator	True	True						1	0		
-master	Od6d33efe4e92	Robin Hurt Safaris	Safari / tour operator	True	True						3	0		
+master	Od6d33efe4e92	Robin Hurt Safaris	Safari / tour operator	True	True	https://robinhurt.com	info@robinhurt.com (role)	+2540720783202 (international)	P.O.BOX 755 Nanyuki, Kenya		3	0	search	
 master	Of4377426e011	Sabrahm Safaris	Safari / tour operator	True	True						1	0		
 master	O65668590aa33	Safari Avventura T Ltd	Safari / tour operator	True	True						3	0		
-master	O08374fabbae9	Safari Bike Africa	Safari / tour operator	True	True						0	0		
-master	O19f15b52b37e	Safari Jens/Kitulano Investment Ltd	Safari / tour operator	True	True						0	0		
+master	O08374fabbae9	Safari Bike Africa	Safari / tour operator	True	True	https://safaribikeafrica.com	info@safaribikeafrica.com (role)	+255710730693 (mobile) | +255682260700 (mobile)	P.O.BOX 2191 Iringa, Tanzania		0	0	search	
+master	O19f15b52b37e	Safari Jens/Kitulano Investment Ltd	Safari / tour operator	True	True	https://safari-jens.dk	info@safari-jens.dk (role)	+255766525295 (mobile)	P.O.Box 31084, Dar es Salaam, Tanzania		0	0	search	
 master	Oadcfda7b6b25	Sali Safaris	Safari / tour operator	True	True						0	0		
-master	O4ecaa464f85b	Shades of Africa Ltd	Safari / tour operator	True	True						0	0		
-master	O1edc1f6f3c5c	Shayona Safaris & Tours	Safari / tour operator	True	True						0	0		
-master	O2fb828fa174e	Shemeji Safari	Safari / tour operator	True	True						0	0		
+master	O4ecaa464f85b	Shades of Africa Ltd	Safari / tour operator	True	True						0	0	search	
+master	O1edc1f6f3c5c	Shayona Safaris & Tours	Safari / tour operator	True	True	https://shayonasafaris.com	info@shayonasafaris.com (role) | ajay@shayonasafaris.com (general)	+255789522000 (mobile) | +255764151397 (mobile)	P.O.BOX 950 Mwanza, Tanzania		0	0	search	
+master	O2fb828fa174e	Shemeji Safari	Safari / tour operator	True	True	https://shemejisafari.com	contact@shemejisafari.com (role)	+2550695431593 (unknown)			0	0	search	
 master	O1eaa9e8e00e1	Skylink Travel Ltd	Safari / tour operator	True	True						1	0		
-master	O7bd668f3b262	Stan Tours & Safaris	Safari / tour operator	True	True						0	0		
+master	O7bd668f3b262	Stan Tours & Safaris	Safari / tour operator	True	True	https://stansafaris.com	info@stansafaris.com (role)	+255787632406 (mobile)	P.O. Box 71485, Dar Es Salaam, Tanzania		0	0	search	
 master	O454a7ad94b78	Still Waters Safaris	Safari / tour operator	True	True						2	0		
 master	O4f8d65845335	Summits Africa	Safari / tour operator	True	True						1	0		
 master	O3c593c42066e	Takims Holidays Tours Safaris Ltd	Safari / tour operator	True	True						0	0		
 master	Od106a5f4be93	Tanzania Roadside Expeditions	Safari / tour operator	True	True						3	0		
-master	O25bf942dad6e	Tazama Africa Safari	Safari / tour operator	True	True						0	0		
+master	O25bf942dad6e	Tazama Africa Safari	Safari / tour operator	True	True	https://tazamaafricasafari.com	info@tazamaafricasafari.com (role) | james@tazamaafricasafari.com (general)	+255744400043 (mobile)			0	0	search	
 master	O73505d5bea54	The African Footprint Co Ltd Bush 2 Beach	Safari / tour operator	True	True	https://www.bush2beach.com	sales@bush2beach.com (role) | info@bush2beach.com (role)	+255754096006 (mobile) | +255272503700 (office)	P.O. Box 11914, Arusha	instagram: https://www.instagram.com/bush2beachsafaris/ | facebook: https://www.facebook.com/bush2beach | twitter: https://twitter.com/bush2beach | linkedin: https://www.linkedin.com/company/bush2beach-safaris/about/	0	0	search	
-master	O9b487f8905cf	The First Lady Tour Safari	Safari / tour operator	True	True						0	0		
+master	O9b487f8905cf	The First Lady Tour Safari	Safari / tour operator	True	True		thefirstladytoursafari@gmail.com (personal_domain)	+255624655115 (mobile) | +255762635115 (mobile)			0	0	search	
 master	O94fad37206d0	The Rickshaw Travels Ltd	Safari / tour operator	True	True						0	0		
 master	O2c9888fde299	Thomson Safaris Ltd	Safari / tour operator	True	True						13	0		
 master	Oc6a2b0f1379a	Tracks Of Africa Safari Adventure	Safari / tour operator	True	True	https://www.tracksofafrica.net	office@tracksofafrica.net (role)	+255766347731 (mobile) | +393356043024 (international)			0	0	search	
-master	O2c5d3d22a0a1	Udare Safari	Safari / tour operator	True	True						0	0		
-master	Oef977c0e06d7	Urth Expedition Limited	Safari / tour operator	True	True						1	0		
-master	Oaaa0ac79cc65	Utopia Safaris Ltd	Safari / tour operator	True	True						1	0		
+master	O2c5d3d22a0a1	Udare Safari	Safari / tour operator	True	True	https://udaresafari.com	info@udaresafari.com (role)	+255784665115 (mobile)			0	0	search	
+master	Oef977c0e06d7	Urth Expedition Limited	Safari / tour operator	True	True	https://urthsafari.com	info@urthsafari.com (role)				1	0	search	
+master	Oaaa0ac79cc65	Utopia Safaris Ltd	Safari / tour operator	True	True	https://utopia-safaris.com	info@utopia-safaris.com (role)	+255787664033 (mobile) | +255783714288 (mobile)	P.O.BOX 12261 Arusha, Tanzania		1	0	search	
 master	O82e49c5c029f	Vimat Safaris Ltd	Safari / tour operator	True	True						1	0		
-master	Oefd499bca136	Wilderness Collection	Safari / tour operator	True	True						0	0		
-master	O232680fd9f97	Wilderness Experience Tanzania Limited	Safari / tour operator	True	True						0	0		
+master	Oefd499bca136	Wilderness Collection	Safari / tour operator	True	True		reservations@thewildernesscollection.com (role)	+255758885150 (mobile)			0	0	search	
+master	O232680fd9f97	Wilderness Experience Tanzania Limited	Safari / tour operator	True	True	https://wildernessexperience.co.tz	info@wildernessexperience.co.tz (role) | kennedy@wildernessexperience.co.tz (general)	+255785077661 (mobile) | +255762619438 (mobile)	P. O. box 1399, Morogoro, Tanzania		0	0	search	
 master	O35477190112b	Williamson Adventures Limited	Safari / tour operator	True	True						4	0		
 master	Oafde97df57fe	Wonders Of Creation Tours And Safaris Co Ltd	Safari / tour operator	True	True						1	0		
 master	O58a6835ae86b	Hai Rural Teachers SACCOS Ltd	Savings group	False	False						0	0		
@@ -550,7 +550,7 @@ master	Oe1298b92f31d	Mamba SACCOS Ltd	Savings group	False	False						0	0
 master	O8ebe60b38901	Marangu East SACCOS Ltd	Savings group	False	False						0	0		
 master	O586e03151c89	Marangu Secondary SACCOS Ltd	Savings group	False	False						0	0		
 master	O666d0fcd2fce	Tumaini SACCOS Ltd	Savings group	False	False						0	0		
-master	O7f9e52ba429c	Exim bank	amenity:bank	True	True						0	0		
+master	O7f9e52ba429c	Exim bank	amenity:bank	True	True	https://eximbank.co.tz | https://www.eximbank.co.tz	customercare@eximbank.co.tz (role)	+255222293000 (office)	P.O Box 1431 Dar es salaam		1	1	search	
 master	O242dacfc976a	Ilboru Safari Lodge	tourism:hotel	True	True						0	0		
 master	O3510813ecac5	Usa RC Health Centre	amenity:hospital	False	False						0	0		
 master	O88dea9320e0a	Wild Mind Travel Company	office:company	True	True						0	0		
@@ -558,64 +558,64 @@ master	Obe32eb6b6c96	Citylink Hotel	tourism:hotel	True	True						0	0
 master	O82ec48381ac1	Saruni River Lodge	tourism:hotel	False	False						0	0		
 master	O51b8fd360c52	Makeseni Lodge	tourism:hotel	False	False						0	0		
 master	Od163c1663ff5	Tanzanite City Park Lodge	tourism:hotel	False	False						0	0		
-master	Obf2f0abb3e36	Gran Melia Arusha	tourism:hotel	True	True						1	0		
+master	Obf2f0abb3e36	Gran Melia Arusha	tourism:hotel	True	True	https://www.melia.com | https://www.melia.com/en/hotels/tanzania/arusha/gran-melia-arusha | melia.com	prince.mwamboma@melia.com (general) | recruitment.granmeliaarusha@melia.com (general) | stephen.galinoma@melia.com (general)	+255746981901 (mobile) | +255746981895 (mobile)			1	1	search	
 master	O75c453c1d1cb	AAR Clinic	amenity:hospital	True	True						0	0		
-master	O5a7b0d20608f	Mt. Meru Game Lodge	tourism:hotel	True	True						0	0		
+master	O5a7b0d20608f	Mt. Meru Game Lodge	tourism:hotel	True	True	https://mountmerugamelodge.co.tz	info@mtmerugamelodge.co.tz (role) | reservations@mtmerugamelodge.co.tz (role)	+255689706760 (mobile) | +255752131842 (mobile)			0	2	search	
 master	O9eb2850bec8a	Mango Bed & Breakfast	tourism:hotel	False	False						0	0		
-master	O4724e35fbc8d	Maji Water & Irrigation Authority	office:government	True	True						0	0		
+master	O4724e35fbc8d	Maji Water & Irrigation Authority	office:government	True	True						0	0	search	
 master	O9a7ec2dc8754	CRDB Bank	amenity:bank	True	True						0	0		
 master	O9f2799d7c0f3	Njake Oil	office:government	False	False						0	0		
-master	Oac4e9b66f049	NMB Bank	amenity:bank	True	True						1	0		
-master	O0226a6289ee8	Rivertrees Country Inn	tourism:hotel	True	True						0	0		
+master	Oac4e9b66f049	NMB Bank	amenity:bank	True	True	https://www.nmbbank.co.tz					2	0	search	
+master	O0226a6289ee8	Rivertrees Country Inn	tourism:hotel	True	True	https://rivertrees.com/					0	0	search	
 master	Oc9e31c053866	Club Afriko	tourism:hotel	True	True						0	0		
 master	Ob22b699ef52d	SNV (Netherlands Development Organisation)	office:ngo	True	True						2	0		
 master	Of87990c8a442	Mzunguu's hotel, bar & restaurant	tourism:hotel	False	False						0	0		
 master	O60c316201baf	Moon Shine Hotel	tourism:hotel	False	False						0	0		
 master	O2a2360cafea1	La Bella Luna Hotel	tourism:hotel	True	True						0	0		
 master	O3ee951cbb2a4	L'Oasis	tourism:hotel	False	False						0	0		
-master	O2e370dea98b6	Karama Lodge & Spa	tourism:hotel	True	True						0	0		
+master	O2e370dea98b6	Karama Lodge & Spa	tourism:hotel	True	True	https://karama-lodge.com	reservations@karama-lodge.com (role)	+255754475188 (mobile) | +255784290447 (mobile)	Karama Lodge and Spa, P.O. Box 1573, Arusha, Tanzania		0	1	search	
 master	O41df7a502182	Bay Leaf	tourism:hotel	False	False						0	0		
 master	O9defcabdda53	Tulia Retreat Hotel	tourism:hotel	True	True						0	0		
 master	O1363a9961834	Le Jacaranda	tourism:hotel	True	True						0	0		
 master	Oab21dd48bcbc	The Charity Hotel	tourism:hotel	True	True						0	0		
 master	O3b30310b0a95	Leopard Tours Ltd.	office:company	True	True						0	0		
-master	O0edd2bb4305a	Impala Hotel Arusha	tourism:hotel	False	False						0	0		
-master	Of49c12231d0a	Oikos East Africa	office:ngo	True	True						0	0		
+master	O0edd2bb4305a	Impala Hotel Arusha	tourism:hotel	False	False						0	0	search	
+master	Of49c12231d0a	Oikos East Africa	office:ngo	True	True	https://oikosea.co.tz	contact@oikosea.org (role)	+255787450035 (mobile)	P.O. Box 1908 Arusha, Tanzania		0	0	search	
 master	O20d835876c84	Lush Garden Business Hotel	tourism:hotel	True	True						0	0		
 master	Of5e66dc38d68	Kijenge RC Dispensary	amenity:hospital	False	False						0	0		
-master	O4e451c44259b	Avinta Care Specialized Polyclinic	amenity:hospital	True	True						0	0		
+master	O4e451c44259b	Avinta Care Specialized Polyclinic	amenity:hospital	True	True			+255789357077 (mobile)			0	0	search	
 master	Oe37196954c30	Greenside Hotel Arusha	tourism:hotel	True	True						0	0		
 master	O3cc5df2905a6	Serengeti Villa	tourism:hotel	False	False						0	0		
-master	Oc1e369aa62d6	Tanzanian Postal Bank	amenity:bank	True	True						24	0		
+master	Oc1e369aa62d6	Tanzanian Postal Bank	amenity:bank	True	True	https://www.tcbbank.co.tz	info@tcbbank.co.tz (role) | callcenter@tcbbank.co.tz (general)				24	0	search	
 master	O0849ec1f9550	FBME Arusha	amenity:bank	False	False						0	0		
 master	Oa8eb1c2d9130	New Way Hotel	tourism:hotel	True	True						0	0		
-master	O91004b2af4d9	AICC Hospital	amenity:hospital	True	True						12	0		
+master	O91004b2af4d9	AICC Hospital	amenity:hospital	True	True						12	2	search	
 master	Oecb07ede1efe	The East African Hotel All Suites	tourism:hotel	True	True						0	0		
 master	Ob603bd16d45d	Green Mountain Hotel	tourism:hotel	True	True						0	0		
-master	Od107252e8243	Gemsa Specialized Polyclinic	amenity:hospital	False	False						0	0		
+master	Od107252e8243	Gemsa Specialized Polyclinic	amenity:hospital	False	True			+255694557481 (mobile)			0	0	search	
 master	O16adfc69e97a	Health 4 All	amenity:hospital	True	True						0	0		
 master	Oa57249268450	African Tulip	tourism:hotel	True	True						0	0		
-master	O61e22704f8bf	Gold Crest Hotel	tourism:hotel	True	True						0	0		
-master	O592537caad8f	Barclays	amenity:bank	True	True						0	0		
+master	O61e22704f8bf	Gold Crest Hotel	tourism:hotel	True	True	https://www.goldcresthotel.com	info@goldcresthotel.com (role) | marketing@goldcresthotel.com (role)	+255677353500 (mobile) | +255717857012 (mobile) | +255717857013 (mobile)	PPF Tower, Kenyatta Rd, Mwanza, Tanzania (group office)		0	0	search	
+master	O592537caad8f	Barclays	amenity:bank	True	True	https://www.absa.co.tz		+255800750078 (unknown)			1	0	search	
 master	O7e93a4bd03d6	Lush Garden Hotel	tourism:hotel	True	True						1	0		
 master	O698b9f0120ae	Freedom Lodge	tourism:hotel	False	False						0	0		
-master	Of4c1e3b5241c	Ahadi Lodge	tourism:hotel	False	False						0	0		
+master	Of4c1e3b5241c	Ahadi Lodge	tourism:hotel	True	True	https://www.ahadilodge.com/					0	0	search	
 master	O615ce17408df	Mazda	office:company	False	False						0	0		
 master	Oe83cbb156453	Osim Bnb	tourism:hotel	True	True						0	0		
-master	Oe0295a286346	Kibo Palace Hotel	tourism:hotel	True	True						2	0		
-master	Oe196c1ab5f30	Mazingira Technologies Ltd.	office:company	True	True						0	0		
+master	Oe0295a286346	Kibo Palace Hotel	tourism:hotel	True	True	https://kibopalacehotel.com | https://kibopalacehotel.com/ | kibopalacehotel.com	recruitment@kibopalacehotel.com (general) | reservations@kibopalacehotel.com (role)				2	0	search	
+master	Oe196c1ab5f30	Mazingira Technologies Ltd.	office:company	True	True	https://www.mazingira.co.tz	info@mazingira.co.tz (role)	+255758289446 (mobile) | +255784963941 (mobile)			0	0	search	
 master	Oebc39fbc00a7	Saleka Guest House	tourism:hotel	False	False						0	0		
 master	O00168bd8da71	Usa-River Rehabilitation Centre	office:educational_institution	True	True						1	0		
 master	Of524b9360eb7	Oloirien Community Dispensary	amenity:hospital	False	False						0	0		
-master	O16ea10d1a790	East African Community	office:government	False	False						0	0		
-master	O74359c8a5fb1	Naura Springs Hotel	tourism:hotel	False	False						0	0		
+master	O16ea10d1a790	East African Community	office:government	True	True	https://www.eac.int	eac@eachq.org (general)	+255272162100 (office) | +255272162190 (office)	P.O. Box 1096, Arusha, United Republic of Tanzania		1	0	search	
+master	O74359c8a5fb1	Naura Springs Hotel	tourism:hotel	False	False						0	0	search	
 master	Of08ba5065bfd	Green leaf lodge	tourism:hotel	False	False						0	0		
-master	Ofc9b426cb0b9	Ecobank	amenity:bank	True	True						1	0		
+master	Ofc9b426cb0b9	Ecobank	amenity:bank	True	True						1	0	search	
 master	O0a67f86e5346	Old Arusha Health Center	amenity:hospital	True	True						0	0		
-master	O146927d00511	SainCraft Technologies	office:it	True	True						3	0		
-master	O6be0bd0c9352	Arusha Technical College	amenity:college	True	True						11	0		
+master	O146927d00511	SainCraft Technologies	office:it	True	True	https://www.saincraft.co.tz	info@saincraft.co.tz (role)	+255749596244 (mobile)			3	0	search	
+master	O6be0bd0c9352	Arusha Technical College	amenity:college	True	True	https://www.atc.ac.tz/	rector@atc.ac.tz (general) | dhrma@atc.ac.tz (general)	+255272970056 (office)	P.O.Box 296, Arusha - Tanzania		11	2	search	
 master	O859b201bf366	Tanzania Conservation Resource Centre	office:ngo	True	True						0	0		
-master	Od4203866e06b	NSSF	office:government	False	False						0	0		
+master	Od4203866e06b	NSSF	office:government	True	True	https://www.nssf.go.tz	customercare@nssf.go.tz (role)	+255222200037 (office)	P.O.Box 1322, 11104 Azikiwe St, Dar es Salaam		2	0	search	
 master	Od9b9fad15a9c	Kituo cha Polisi Baraa	office:government	False	False						0	0		
 master	Oc8e6cd303e73	Esri Eastern Africa	office:it	False	False						0	0		
 master	Oc1fde769168e	Tropical Trails	office:company	True	True						0	0		
@@ -628,31 +628,31 @@ master	Oa10863ef348c	New Safari Hotel	tourism:hotel	True	True						1	0
 master	Odf163a97345d	Palace Hotel	tourism:hotel	True	True						1	0		
 master	Ob56be4d44933	Silver Palm	tourism:hotel	True	True						1	0		
 master	O797e1cf1832d	Immigration office	office:government	False	False						0	0		
-master	O32e0778689cf	VisionFund Tz MF Bank (HQ)	amenity:bank	True	True						21	0		
+master	O32e0778689cf	VisionFund Tz MF Bank (HQ)	amenity:bank	True	True	https://www.vftz.co.tz | vftz.co.tz	info@vftz.co.tz (role) | application@vftz.co.tz (general)		P.O. Box 1546, Arusha, Tanzania | The Chief Executive Officer, VisionFund Tanzania Microfinance Bank Limited, P.O. Box 1546, Arusha		21	0	search	
 master	O848e641a1a5b	Ngorongoro Information Center	office:government	False	False						0	0		
-master	O1da766e4b878	Commercial Bank of Africa	amenity:bank	False	False						0	0		
+master	O1da766e4b878	Commercial Bank of Africa	amenity:bank	False	False						0	1	search	
 master	O29fb108f708a	Ngorongoro Conservation Area Authority (NCAA)	office:government	False	False						0	0		
-master	O365f39095d9b	Azania Bank	amenity:bank	True	True						11	0		
+master	O365f39095d9b	Azania Bank	amenity:bank	True	True	https://azaniabank.co.tz	customercare@azaniabank.co.tz (role)	+255784701818 (mobile)			11	0	search	
 master	Ob4b69891baaf	Senator Hotel	tourism:hotel	True	True						1	0		
-master	O216c53fa91a0	Mount Meru Regional Hospital	amenity:hospital	True	True						1	0		
+master	O216c53fa91a0	Mount Meru Regional Hospital	amenity:hospital	True	True	https://mtmerurrh.go.tz | https://www.mtmerurrh.go.tz/	admin@mtmerurrh.go.tz (role) | customercaremtmeru@gmail.com (personal_domain)	+255748535480 (mobile)	P.O. Box 3092, Arusha, Tanzania		3	0	search	
 master	Oe7bb73cd7c38	Arusha District Commissioner's Office	office:government	False	False						0	0		
-master	Oa38944eaef1d	ARUSHA HOTEL	tourism:hotel	True	True						1	0		
+master	Oa38944eaef1d	ARUSHA HOTEL	tourism:hotel	True	True	https://fourpointsbysheraton.com-arusha.com		+255272507777 (office)			1	1	search	
 master	O832ea79cba4b	St. Elizabeth Hospital	amenity:hospital	True	True						0	0		
 master	Od9c68464beee	Graceland Hotel	tourism:hotel	True	True						1	0		
 master	Of4a11059eba2	Naaz Hotel & Restaurant	tourism:hotel	True	True						0	0		
 master	Of7cdc2fbf4d6	Snow Crest Hotel	tourism:hotel	False	False						0	0		
 master	O93c8c9fb672c	Tigo Store	office:telecommunication	True	True						1	0		
-master	O8b531d7b107c	Isamilo Express booking office	office:company	True	True						0	0		
-master	Odaf2beeadcd4	Adventist Development Agency	office:ngo	True	True						1	0		
+master	O8b531d7b107c	Isamilo Express booking office	office:company	True	True	https://www.isamilo.co.tz	info@isamilo.co.tz (role)	+255748772290 (mobile) | +255754371019 (mobile) | +255781287053 (mobile)			0	0	search	
+master	Odaf2beeadcd4	Adventist Development Agency	office:ngo	True	True	https://adratanzania.org	info@adratanzania.org (role)	+255272541174 (office) | +255798786910 (mobile)	P.O. Box 360		1	0	search	
 master	O8ccbed8c56eb	Stereo Hotel	tourism:hotel	True	True						1	0		
 master	Oe724c258de33	KCB Bank	amenity:bank	True	True						0	0		
 master	Od109d0513fc6	Arusha Lutheran Medical Centre	amenity:hospital	True	True						1	0		
 master	O9ed129efb433	AM Hotel	tourism:hotel	False	False						0	0		
 master	Ofbbd04b8c562	Briston Hotel	tourism:hotel	True	True						0	0		
 master	O89e493fce1f5	Sttlers executive Inn	tourism:hotel	False	False						0	0		
-master	O7a1d0ab89a11	St. Augustine University of Tanzania - Arusha Campus	amenity:university	True	True						1	0		
+master	O7a1d0ab89a11	St. Augustine University of Tanzania - Arusha Campus	amenity:university	True	True	https://sautarusha.ac.tz	sautarusha@saut.ac.tz (general)	+255768669696 (mobile) | +255763710924 (mobile)	P.O.Box 12385, Arusha, Tanzania		1	0	search	
 master	O69933140f1a8	Dik Dik Hotel	tourism:hotel	True	True						0	0		
-master	O808641c7f4dd	MS Training Centre for Development Cooperation	office:educational_institution	True	True						10	0		
+master	O808641c7f4dd	MS Training Centre for Development Cooperation	office:educational_institution	True	True	https://mstcdc.or.tz | mstcdc.or.tz	mstcdc@mstcdc.or.tz (general) | jobs@mstcdc.or.tz (role)	+255754651715 (mobile)	P.O. Box 254 - Arusha - Tanzania		10	0	search	
 master	Of5b0515ce078	Tanesco Regional Office	office:government	False	False						0	0		
 master	O0cb8e38050a0	New Annex Hotel	tourism:hotel	False	False						0	0		
 master	O94f7a48ede44	Cradle of Love Children's Home	office:ngo	False	False						0	0		
@@ -660,104 +660,104 @@ master	O4c8db1a3c7f6	Henkel	office:company	True	True						0	0
 master	O4d705fcd06c8	Boma Masai Garden	tourism:hotel	False	False						0	0		
 master	O2d14bb8409eb	VODACOM SERVICE CENTER	office:telecommunication	True	True						0	0		
 master	O42de0980eaca	GMV Lodge	tourism:hotel	False	False						0	0		
-master	Oe38973bfd0d7	TRA (Tanzania Revenue Authority)	office:government	False	False						0	0		
+master	Oe38973bfd0d7	TRA (Tanzania Revenue Authority)	office:government	True	True	https://www.tra.go.tz	services@tra.go.tz (general)	+255222116453 (office) | +255689122516 (mobile) | +255744233333 (mobile)	P.O.Box 11491, Dar es Salaam		1	0	search	
 master	O9276558ef013	Premier Palace Hotel	tourism:hotel	True	True						1	0		
-master	O6838c213af49	Tanzania National Parks Authority (TANAPA)	office:government	False	False						0	0		
+master	O6838c213af49	Tanzania National Parks Authority (TANAPA)	office:government	True	True	https://www.tanzaniaparks.go.tz	info@tanzaniaparks.go.tz (role)	+255272970404 (office)	PO Box 3134, Arusha		1	0	search	
 master	O6d705d505610	National Bank of Commerce (NBC)	amenity:bank	True	True						0	0		
 master	Odd45eb7e6e63	Jevas Hotel	tourism:hotel	False	False						0	0		
 master	Od183b2244b42	Davos Hotel	tourism:hotel	False	False						0	0		
 master	Oa5d3469df7c8	Arumeru River Lodge	tourism:hotel	True	True						0	0		
 master	Od6dcfef75b5d	Venice Hotel	tourism:hotel	True	True						0	0		
-master	Ob99ddf7b0906	Tengeru Institute of Community Development	amenity:college	True	True						0	0		
+master	Ob99ddf7b0906	Tengeru Institute of Community Development	amenity:college	True	True	https://www.ticd.ac.tz | https://www.ticd.ac.tz/	info@ticd.ac.tz (role)	+255736210917 (mobile)	P.O BOX 1006 ARUSHA-TZ		0	1	search	
 master	O85460ecd5afe	Kaloleni Hospital	amenity:hospital	True	True						0	0		
 master	O4952287a11ab	Arusha Crown Hotel	tourism:hotel	True	True						0	0		
 master	Oddaba6dd4ee1	7 11 Hotel	tourism:hotel	False	False						0	0		
-master	O7ba98a74f04e	Levolosi Health Centre	amenity:hospital	True	True						0	0		
+master	O7ba98a74f04e	Levolosi Health Centre	amenity:hospital	True	True			+255733271279 (mobile)			0	0	search	
 master	Oc03f6e0d7dc1	Arusha Centre Tourist Inn	tourism:hotel	True	True						0	0		
 master	O51f72d538488	Exim Bank (T) Ltd	amenity:bank	True	True						0	0		
-master	O0474fed72779	Tanganyika Farmers Association	office:ngo	True	True						9	0		
+master	O0474fed72779	Tanganyika Farmers Association	office:ngo	True	True	https://tfa.co.tz/historical-background/ | https://www.tfa.co.tz	md@tfa.co.tz (role) | market@tfa.co.tz (general) | property@tfa.co.tz (general)	+02725042975781 (international) | +255712203634 (mobile) | +255272544872 (office) | +255272545441 (office) | +255677051165 (mobile) | +255677201449 (mobile)	P.O. Box 3010, Arusha		9	0	search	
 master	O6873cdd7071d	National Housing Association	office:government	False	False						0	0		
-master	O911659e30dbc	KCB	amenity:bank	True	True						5	0		
+master	O911659e30dbc	KCB	amenity:bank	True	True	https://kcbbank.co.tz					5	0	search	
 master	Oc4ac41312efa	Natron Palace Hotel	tourism:hotel	True	True						0	0		
 master	O4f3c31b53349	The Aga Khan University Hospital	amenity:hospital	False	False						0	0		
 master	O4370f34259c8	Rich Hotel	tourism:hotel	False	False						0	0		
 master	O2a5c21699ae2	White House	tourism:hotel	False	False						0	0		
-master	Oa5791dd7a4e4	Amana Bank	amenity:bank	True	True						1	0		
-master	Offe906bf8fc8	Akiba Commercial Bank	amenity:bank	True	True						0	0		
-master	O48ae5516d641	Temesa	office:government	False	False						0	0		
-master	O365fe3e30598	AUWASA	office:government	False	False						0	0		
-master	O78fc30589672	Tanzania Wildlife Management Authority	office:government	False	False						0	0		
+master	Oa5791dd7a4e4	Amana Bank	amenity:bank	True	True	https://www.amanabank.co.tz		+255659075000 (mobile) | +255657980000 (mobile)	P.O. Box 9771, Dar es Salaam, Tanzania		1	0	search	
+master	Offe906bf8fc8	Akiba Commercial Bank	amenity:bank	True	True	https://www.acbbank.co.tz	info@acbbank.co.tz (role)	+255222118340 (office)			0	2	search	
+master	O48ae5516d641	Temesa	office:government	True	True	https://www.temesa.go.tz	info@temesa.go.tz (role) | barua@temesa.go.tz (role)	+255737962496 (mobile)	S.L.P 1075, Dodoma		3	0	search	
+master	O365fe3e30598	AUWASA	office:government	True	True	https://www.auwsa.go.tz/	md@auwsa.go.tz (role)	+255272508981 (office)	Box 13600, Arusha		0	0	search	
+master	O78fc30589672	Tanzania Wildlife Management Authority	office:government	True	True	https://www.tawa.go.tz	cc@tawa.go.tz (general)	+255232934204 (office)	P.O.Box 2658, Morogoro		2	0	search	
 master	Od25008691ad8	Aquiline Hotel	tourism:hotel	False	False						0	0		
-master	Odadd47c95eee	Diamond Trust Bank	amenity:bank	True	True						21	0		
+master	Odadd47c95eee	Diamond Trust Bank	amenity:bank	True	True	https://diamondtrust.co.tz	customercare@diamondtrust.co.tz (role)	+255222114891 (office) | +255222114892 (office)			21	0	search	
 master	Oc364d0f1857a	Ithna-asheri Hospital	amenity:hospital	True	True						0	0		
-master	O82b9889f302c	Ngare Sero Mountain Retreat	tourism:hotel	True	True						1	0		
+master	O82b9889f302c	Ngare Sero Mountain Retreat	tourism:hotel	True	True	https://ngare-sero-lodge.co.tz		+255782749010 (mobile)			1	2	search	
 master	O470bdc4ed31f	Meru House Inn	tourism:hotel	True	True						0	0		
 master	Odbecbb3f6ea6	Arusha Tourist Inn	tourism:hotel	True	True						0	0		
-master	Ob855e05e5898	Davis & Shirtliff	office:company	True	True						18	0		
+master	Ob855e05e5898	Davis & Shirtliff	office:company	True	True	davisandshirtliff.com	tzcontactcenter@dayliff.com (general)	+255222112515 (office)			18	0	search	
 master	O623ed17e3652	B-More Comfort Stay	tourism:hotel	True	True						0	0		
 master	Obd04b9954e18	NMB Arusha Market	office:financial	True	True						0	0		
-master	O350fcc0f98af	Shree Hindu Hospital	amenity:hospital	True	True						0	0		
+master	O350fcc0f98af	Shree Hindu Hospital	amenity:hospital	True	True		job.application@shuch.co.tz (general)		The Medical Director, Shree Hindu Union Charitable Hospital, P.O. Box 3051, Arusha		0	0	search	
 master	Oc7ac3c76683e	Tanta Dental Clinic	amenity:hospital	False	False						0	0		
 master	O02bc489ccb0c	TANZANIA POSTAL BANK	amenity:bank	True	True						0	0		
 master	O686c4ff4cfaf	Hotel Pallsons	tourism:hotel	False	False						0	0		
 master	O2b985f4f7285	Arusha Backpackers	tourism:hotel	True	True						0	0		
 master	O581f9609b2cc	Tanzania Commercial Bank	amenity:bank	True	True						0	0		
-master	Odfa7a32c7174	Arusha Meru International School	office:educational_institution	True	True						2	0		
-master	Occecf08e5aca	Equity Bank	amenity:bank	True	True						6	0		
+master	Odfa7a32c7174	Arusha Meru International School	office:educational_institution	True	True	arushameru.sc.tz | https://www.arushameru.sc.tz	recruitment@arushameru.sc.tz (general) | academics@arushameru.sc.tz (general)	+255272547117 (office)			2	1	search	
+master	Occecf08e5aca	Equity Bank	amenity:bank	True	True	equitygroupholdings.com | https://equitygroupholdings.com	tzrecruitment@equitybank.co.tz (general)				7	0	search	
 master	Of817d2d81534	Arusha Coffee Lodge (Elewana)	tourism:hotel	True	True						2	0		
 master	O6fa070dd7a9c	Ndoro Lodge	tourism:hotel	True	True						0	0		
-master	Odf8ea5364d02	Sunflag Tanzania Limited	office:company	True	True						1	0		
+master	Odf8ea5364d02	Sunflag Tanzania Limited	office:company	True	True	https://www.sunflag-tz.com	info@sunflag-tz.com (role)	+255272549268 (office) | +255272549270 (office) | +255272549497 (office) | +255272549267 (office)	PO Box 3123, Arusha, Tanzania		1	0	search	
 master	O4241e461a3cd	NSK Hospital Arusha	amenity:hospital	True	True						0	0		
-master	O49c7e5a0f43c	Ngurdoto Mountain Lodge	tourism:hotel	True	True						0	0		
+master	O49c7e5a0f43c	Ngurdoto Mountain Lodge	tourism:hotel	True	True						0	0	search	
 master	O2310c00d7b59	Chemical Industry Ltd	office:company	False	False						0	0		
-master	Oa007fd38a288	Tumaini University Makumira Offices	office:government	False	False						0	0		
+master	Oa007fd38a288	Tumaini University Makumira Offices	office:government	True	True	https://makumira.ac.tz | makumira.ac.tz	vc@makumira.ac.tz (role) | registrar@makumira.ac.tz (role) | dvca@makumira.ac.tz (general) | bursar@makumira.ac.tz (general) | hr@makumira.ac.tz (role)	+255753325823 (mobile) | +255272541030 (office)	P.O. Box 55, Usa River, Arusha, Tanzania | The Vice Chancellor, Tumaini University Makumira, P.O. Box 55, USA-RIVER		3	1	search	
 master	O1b5b75388663	Emayani vulnerable people's center	office:ngo	False	False						0	0		
 master	O6103b8241514	Onsea House	tourism:hotel	True	True						1	0		
-master	O9a0a3606387c	Hanspaul Group	office:company	True	True						4	0		
+master	O9a0a3606387c	Hanspaul Group	office:company	True	True	https://hanspaul.co.tz	satbir@hanspaul.co.tz (named)		P.O. Box 613 & 149, Arusha, Tanzania.		4	0	search	
 master	O822d982b3f46	Israel community office	office:company	False	False						0	0		
 master	O3b11fff2476d	Ofisi ya CCM Tawi la Engutoto	office:government	False	False						0	0		
 master	Oc57cb8efd81d	SUNOLA refined sunflower oil industry	office:company	False	False						0	0		
 master	Od6618856d808	Tanzania Crop Care Limited	office:company	True	True						0	0		
 master	O5c198a8be832	East Africa Travel Company	office:company	True	True						1	0		
-master	O8206c6879430	Selian Lutheran Hospital Ngaramtoni	amenity:hospital	True	True						0	0		
+master	O8206c6879430	Selian Lutheran Hospital Ngaramtoni	amenity:hospital	True	True	http://selianlh.or.tz	info@selianlh.or.tz (role) | selianlh@habari.co.tz (general)				0	1	search	
 master	O3674947531d9	Dhariwal Trading Co	office:company	False	False						0	0		
 master	O4c4f1ab9c060	Economists (T) Investment Group	office:financial	False	False						0	0		
 master	O8b477ba37c7a	Olasiti Lodge	tourism:hotel	False	False						0	0		
-master	O0d7ada6ea970	Arusha Villa	tourism:hotel	True	True						3	0		
+master	O0d7ada6ea970	Arusha Villa	tourism:hotel	True	True	https://arushavilla.co.tz/?lang=en					3	0	search	
 master	Oa8a5a32fa9fe	PAG Church Njiro	office:ngo	False	False						0	0		
 master	O580760afc85a	A1 Hotel and Resort	tourism:hotel	True	True						0	0		
-master	O62247d9f65ab	Tanzania Wildlife Research Institute (TAWIRI)	office:research	True	True						8	0		
-master	O9a4c9b2e7af9	Kahawa House	tourism:hotel	True	True						1	0		
+master	O62247d9f65ab	Tanzania Wildlife Research Institute (TAWIRI)	office:research	True	True	https://www.tawiri.or.tz	barua@tawiri.or.tz (role) | dg@tawiri.or.tz (general) | harold.basinda@tawiri.or.tz (named)	+255787606721 (mobile)	206 Njiro Road, P.O. Box 661, 23113 Lemara, Arusha, Tanzania		8	0	search	
+master	O9a4c9b2e7af9	Kahawa House	tourism:hotel	True	True	https://twctanzania.com		+255785069944 (mobile) | +255272970153 (office) | +255272970154 (office)			1	0	search	
 master	Oe3f63f14d2a6	United African American Community Center (UAACC)	office:ngo	True	True						1	0		
 master	Ob7e888d5495e	Institute of Accountancy Arusha (IAA)	amenity:college	True	True						0	0		
-master	O9c8b8f0aea8e	Moivaro Coffee Lodge	tourism:hotel	True	True						5	0		
+master	O9c8b8f0aea8e	Moivaro Coffee Lodge	tourism:hotel	True	True	https://www.moivaro.com | https://www.moivaro.com/	renee@moivaro.com (named)	+255754324193 (mobile) | +255784712727 (mobile)	Moivaro Road, P.O. Box 11297, Arusha, Tanzania		6	0	search	
 master	O43b4afde91dc	Samaki Feeds and Fingerlings	office:company	True	True						0	0		
 master	O2b1d23beff67	CRDB Bank branch	amenity:bank	True	True						0	0		
 master	O62dfcce40238	African View Lodge	tourism:hotel	True	True						1	0		
-master	O48521b8d9903	National Identification Authority (NIDA)	office:government	False	False						0	0		
+master	O48521b8d9903	National Identification Authority (NIDA)	office:government	True	True	https://www.nida.go.tz	info@nida.go.tz (role)	+255222664070 (office) | +255734220962 (mobile)	S.L.P 12324, 11995 Dar Es Salaam		0	0	search	
 master	O19c5e86741e2	Haradali Home	tourism:hotel	True	True						0	0		
-master	O16cd74812530	Spiritan Missionary Seminary Institute of Philosophy	amenity:college	True	True						0	0		
-master	O2f7c986453fc	University of Arusha	amenity:university	True	True						3	0		
+master	O16cd74812530	Spiritan Missionary Seminary Institute of Philosophy	amenity:college	True	True	https://smsnjiro.org	info@smsnjiro.org (role)	+255620483486 (mobile)	P. O BOX 2682 Arusha Tanzania		0	0	search	
+master	O2f7c986453fc	University of Arusha	amenity:university	True	True	https://uoa.ac.tz	info@uoa.ac.tz (role) | admission@uoa.ac.tz (general)	+255272540003 (office) | +255744592702 (mobile) | +255789542818 (mobile)	PO Box 7 Usa-River, Arusha, Tanzania		3	0	search	
 master	O955ceed32618	Office ya Kijiji Maji ya Chai	office:government	False	False						0	0		
 master	O6615e9c19ae8	African Grand Hotel	tourism:hotel	False	False						0	0		
-master	O645eb563e483	Fun Retreat Resort Hotel	tourism:hotel	True	True						0	0		
+master	O645eb563e483	Fun Retreat Resort Hotel	tourism:hotel	True	True	https://funretreat.com | www.funretreat.com	info@funretreat.com (role) | reservations@funretreat.com (role)	+255622999555 (mobile) | +255677200999 (mobile) | +255658999999 (mobile)	P.O.Box 10367 Arusha, Tanzania		1	0	search	
 master	O64e6222d64aa	Meru View Lodge	tourism:hotel	False	False						0	0		
-master	Of8e94f2f1669	Tanzania Wildlife Authority (TAWA) Northern Zone HQ	office:government	True	True						0	0		
+master	Of8e94f2f1669	Tanzania Wildlife Authority (TAWA) Northern Zone HQ	office:government	True	True	https://www.tawa.go.tz	cc@tawa.go.tz (general)	+255232934204 (office)	P.O.Box 2658, Morogoro		3	0	search	
 master	Ofc3f359feed7	Hotel Mr. Bodo	tourism:hotel	True	True						0	0		
 master	O123063accbf7	Regional Air Head Office	office:company	True	True						0	0		
-master	Of767c63d6198	Seedco Tanzania Head Office	office:company	True	True						7	0		
+master	Of767c63d6198	Seedco Tanzania Head Office	office:company	True	True	https://seedcogroup.com					8	0	search	
 master	O066db5cbe4bc	Woodtech 2008 (T) Ltd Arusha	office:ngo	False	False						0	0		
 master	O695dc1da52a7	Amani Villa	tourism:hotel	True	True						0	0		
-master	Of98c6c86c3c8	Maternity Africa Arusha	amenity:hospital	True	True						3	0		
+master	Of98c6c86c3c8	Maternity Africa Arusha	amenity:hospital	True	True	https://maternityafrica.org	info@maternityafrica.org (role) | doreenmoshi@maternityafrica.org (named)		PO Box 16464, Arusha, Tanzania		3	0	search	
 master	O43fa910d4300	Njiro Ebenezer Retreat Lodge	tourism:hotel	False	False						0	0		
-master	O5e4ce449f69d	Olerai Lodge	tourism:hotel	True	True						0	0		
+master	O5e4ce449f69d	Olerai Lodge	tourism:hotel	True	True	https://owc-africa.com		+255747021135 (mobile)			0	2	search	
 master	O534078e46725	Golden Rose	tourism:hotel	False	False						0	0		
-master	O3e8dd43eff5e	CCoHAS College	amenity:college	True	True						0	0		
+master	O3e8dd43eff5e	CCoHAS College	amenity:college	True	True	https://accohas.ac.tz	info@accohas.ac.tz (role) | admission@accohas.ac.tz (general)	+255763400200 (mobile) | +255719400660 (mobile)	P.O.BOX 14587 ARUSHA		0	0	search	
 master	O7c467087f790	Methodist Theological College	amenity:college	False	False						0	0		
 master	O0d25e8c189f4	Twiga Lodge	tourism:hotel	False	False						0	0		
-master	Obee977e95ace	Meru Mbega Lodge	tourism:hotel	True	True						0	0		
+master	Obee977e95ace	Meru Mbega Lodge	tourism:hotel	True	True	https://www.mt-meru.com | https://www.mt-meru.com/	info@baobabvillage.com (role)	+255784613335 (mobile)	Ras Kilomoni 15, 23443 Dar es Salaam, Tanzania (HQ)		0	4	search	
 master	O043d75618e79	St. Mbaaga Spiritual Formation Centre	amenity:college	False	False						0	0		
-master	O5a6f1631f9dd	Nkoaranga Hospital	amenity:hospital	True	True						0	0		
+master	O5a6f1631f9dd	Nkoaranga Hospital	amenity:hospital	True	True	https://nkoarangahospital.org	nkoaranga-hospital@elct.org (general) | samkiwesa@yahoo.com (personal_domain) | nkoaranga-hospital@habari.co.tz (general)	+255766079976 (mobile)	P.O.Box 91, USA-River, Tanzania		1	0	search	
 master	Oee5114ac7a91	Mong'are Teachers' College	amenity:college	True	True						0	0		
 master	O7fc518549456	Top Of Africa Treks and Safaris LTD	office:company	True	True						0	0		
 master	O09217a36f4ff	Njiro Legacy	tourism:hotel	False	False						0	0		
@@ -766,9 +766,9 @@ master	O727c9d231fc9	Rijk Zwaan Q-sem	office:company	True	True						0	0
 master	O1aca56dd801f	Arusha Farm House	tourism:hotel	True	True						0	0		
 master	Od344268ca296	Mountain Village Hotel	tourism:hotel	False	False						0	0		
 master	O63141c751979	Nelson Mandela African Institution of Science and Technology (NM-AIST)	amenity:university	True	True						1	0		
-master	O8a3470027cc2	Lake Duluti Lodge	tourism:hotel	True	True						0	0		
+master	O8a3470027cc2	Lake Duluti Lodge	tourism:hotel	True	True	https://www.lakedulutilodge.com/					0	0	search	
 master	O2ff7b069da4d	Meru Hospital	amenity:hospital	False	False						0	0		
-master	Of318b17d919b	Forest Hill Hotel	tourism:hotel	False	False						0	0		
+master	Of318b17d919b	Forest Hill Hotel	tourism:hotel	False	False						0	1	search	
 master	O5ac410b5f31f	Njiro Climax Resort Hotel	tourism:hotel	True	True						0	0		
 master	O1537c0a7c818	Mrimba Palm Hotel	tourism:hotel	True	True						0	0		
 master	O9fae7b7ec98e	Oltrument Hospital	amenity:hospital	False	False						0	0		
@@ -780,9 +780,9 @@ master	Of88cb4fe6d2d	Pazuri Inn Lodge	tourism:hotel	True	True						0	0
 master	O10a258946ee3	Canossa Spirituality Centre	office:ngo	False	False						0	0		
 master	O1445f45d9699	Canossa Dispensary	amenity:hospital	True	True						0	0		
 master	Oc1caf9256eba	VETA Hotel and Tourism Training Institute	office:educational_institution	True	True						0	0		
-master	Oc46a61fabed2	Tanzania Atomic Energy Commission (TAEC)	office:government	False	False						0	0		
+master	Oc46a61fabed2	Tanzania Atomic Energy Commission (TAEC)	office:government	True	True	https://www.taec.go.tz	dg@taec.go.tz (general) | barua@taec.go.tz (role)	+255233333333 (office)	S.L.P 1585, Kitalu AF, Kiwanja Na. 634, Dodoma		3	0	search	
 master	O14794c5b1781	KIA Lodge	tourism:hotel	True	True						0	0		
-master	O045dd8c38d30	Airport Planet Lodge	tourism:hotel	True	True						0	0		
+master	O045dd8c38d30	Airport Planet Lodge	tourism:hotel	True	True	www.planet-lodges.com	resmanager@planet-lodges.com (general)	+255686141670 (mobile)			1	1	search	
 master	Of9cc10f92ac6	Royal Hotel	tourism:hotel	False	False						0	0		
 master	Ob765608b4731	Aishi Machame Hotel	tourism:hotel	True	True						0	0		
 master	O3669aa57f493	Narumu Ward Office	office:government	False	False						0	0		
@@ -795,118 +795,118 @@ master	O6d2e81961c0b	AARDVARK EXPEDITIONS LIMITED	Safari / tour operator	True	Tr
 master	O1305f3e2211c	Base Camp Site Ltd	Safari / tour operator	True	True	https://basecamptanzania.com	management@basecamptanzania.com (general)	+255748000026 (mobile) | +255784186422 (mobile)			0	2	search	
 master	O75ac30829a25	Faune Flore Ltd	Safari / tour operator	True	True	https://faune-flore.com	info@faune-flore.com (role) | joseph@faune-flore.com (named)	+255784378153 (mobile) | +255784680068 (mobile)			0	2	search	
 master	O8c6896846d17	KIBO SLOPES T LIMITED	Safari / tour operator	True	True						3	0		
-master	Oc47bbedbdb18	RushTrek Tours Company LTD	Safari / tour operator	True	True	https://rushtrektours.com	sales@rushtrektours.com (role) | info@rushtrektours.com (role) | bookings@rushtrektours.com (role)	+255797290772 (mobile) | +255797446907 (mobile) | +255761010281 (mobile)	P.O.Box 2053, Arusha, Tanzania		0	1	search	
+master	Oc47bbedbdb18	RushTrek Tours Company LTD	Safari / tour operator	True	True	https://rushtrektours.com	sales@rushtrektours.com (role) | info@rushtrektours.com (role) | bookings@rushtrektours.com (role)	+255797290772 (mobile) | +255797446907 (mobile) | +255761010281 (mobile)	P.O.Box 2053, Arusha, Tanzania		1	0	search	
 master	O4c18d932b6ed	Wakali Company Limited (Wakali Safaris)	Safari / tour operator	True	True	https://www.wakalisafaris.co.tz	info@wakalisafaris.co.tz (role)	+255738586109 (mobile)	P.O Box 16114 Arusha, Tanzania		0	0	search	
 master	O9e952fbeb04a	Pure Afro Travels	Safari / tour operator	True	True	https://www.pure-afro.com	info@pure-afro.com (role)	+255784499119 (mobile)	P.O.BOX 11171 Arusha, Tanzania		0	2	search	
 master	Oa59919615a61	ALEX WALKER SAFARIS LTD	Safari / tour operator	True	True	https://serian.com	safaris@serian.com (role) | marketing@serian.com (role)	+254717468049 (international) | +25575292222 (mobile)	P.O. Box 1232, Arusha, Tanzania		0	1	search	
 master	O2a7e336ec68d	Babji Tours & Safaris Ltd	Safari / tour operator	True	True	https://babjisafaris.com	info@babjisafaris.com (role) | operations@babjisafaris.com (role) | reservations@babjisafaris.com (role)	+255784321185 (mobile) | +255784321186 (mobile)	P.O. Box 395		0	2	search	
 master	O9cf644c89a34	GREENHIPPO TRAVELS (Askace safaris Ltd)	Safari / tour operator	True	True	https://www.greenhippotravels.com	office@greenhippotravels.com (role)	+255684681857 (mobile)			0	0	search	
-master	O83eefb391915	Gupta Auto Spares and Hardware Limited	Safari / tour operator	True	True						0	0	search	
+master	O83eefb391915	Gupta Auto Spares and Hardware Limited	Safari / tour operator	True	True	https://gash.co.tz	sales@gash.co.tz (role) | info@gash.co.tz (role) | bm@gash.co.tz (general)		P.O. Box 421, Arusha, Tanzania.		0	0	search	
 master	Oa7c6400ff33c	HANSPAUL AUTOMECHS LTD	Safari / tour operator	True	True	https://hanspaul.co.tz	satbir@hanspaul.co.tz (general)	+255756888864 (mobile)	P.O. Box 613 & 149, Arusha, Tanzania.		0	0	search	
 master	Of03bb535b2e3	Sameer Parts Limited	Safari / tour operator	True	True	https://sameerpartsltd.com	info@sameer.co.tz (role)	+255717726337 (mobile) | +255775726327 (mobile)			0	0	search	
 master	Oca5815df6c4f	Serengeti Balloon Safaris (Tourism and PR Services Ltd)	Safari / tour operator	True	True	https://www.balloonsafaris.com	bookings@balloonsafaris.co.tz (role) | pascal@balloonsafaris.co.tz (general)	+2550755721521 (unknown) | +2550786688806 (unknown) | +2550756055330 (unknown) | +447810571710 (international)	P.O. Box 12116		0	4	search	
 master	O42038bed1d0f	SIBROS (T) LIMITED	Safari / tour operator	True	True	https://sibros.co.tz	info@sibros.co.tz (role)	+255784777337 (mobile)	P.O.BOX 16355, Arusha, Tanzania	instagram: https://www.instagram.com/sibros_t_limited	0	0	search	
-master	Of37adb683762	Suniva Insurance Brokers Ltd	Safari / tour operator	True	True						1	0		
+master	Of37adb683762	Suniva Insurance Brokers Ltd	Safari / tour operator	True	True	https://suniva.co.tz	md@suniva.co.tz (role) | suniva@suniva.co.tz (general)	+255754369361 (mobile) | +255769369329 (mobile)	P.O Box , Arusha, Tanzania		1	0	search	
 master	O26cb46d17b5b	Tanzania a la Carte Safaris Company	Safari / tour operator	True	True	https://tanzaniaalacarte.com	info@tanzaniaalacarte.com (role)	+255746327844 (mobile)		facebook: https://www.facebook.com/tanzaniaalacarte | linkedin: https://www.linkedin.com/company/tanzania-a-la-carte | twitter: https://twitter.com/EastCarte | instagram: https://www.instagram.com/tanzaniaalacarte/	0	0	search	
 master	O91d927bdd2c3	United Aviation Services Company Ltd	Safari / tour operator	True	True	https://uastanzania.com	uas@uas.co.tz (general) | uas@habari.co.tz (general)	+255677009035 (mobile) | +255272547569 (office)	P.O. Box 2075, Arusha, Tanzania		0	0	search	
 master	O781947e92e8a	ARUSHA LOCAL TRIPS TANZANIA LIMITED	Safari / tour operator	True	True	https://arushatrips.com	info@arushatrips.com (role) | office.arushatrips@gmail.com (personal_domain)	+31636163544 (international) | +255752243063 (mobile)			0	1	search	
-master	O137e0f50cfca	Kiriwe Travel and Trekking Safari Ltd	Safari / tour operator	True	True	https://kiriwetravel.co.tz	info@kiriwetravel.co.tz (role) | kiriwetravel@gmail.com (personal_domain) | frank@kiriwetravel.co.tz (named)	+255788748494 (mobile) | +255712216488 (mobile) | +255712202229 (mobile)	P.O.Box 2126, Arusha, Tanzania		0	2	search	
+master	O137e0f50cfca	Kiriwe Travel and Trekking Safari Ltd	Safari / tour operator	True	True	https://kiriwetravel.co.tz	info@kiriwetravel.co.tz (role) | kiriwetravel@gmail.com (personal_domain) | frank@kiriwetravel.co.tz (named)	+255788748494 (mobile) | +255712216488 (mobile) | +255712202229 (mobile)	P.O.Box 2126 ARUSHA, TANZANIA | P.O.Box 2126, Arusha, Tanzania		2	0	search	
 master	O3af036625f00	Delight Polyclinic	Safari / tour operator	True	True	https://delightpolyclinic.com	appointments@delightpolyclinic.com (general) | info@delightpolyclinic.com (role)	+255798400603 (mobile) | +255765100630 (mobile)	P.O. Box 2640, Arusha, Tanzania		0	0	search	
 master	O15fc17172ca6	The Safari Doctors	Safari / tour operator	True	True	https://thesafaridoctors.co.tz	info@thesafaridoctors.co.tz (role)	+255675677234 (mobile) | +255654722024 (mobile)	P.O. Box 1875, Arusha, Tanzania		0	0	search	
 master	Oee6d28c26fed	African Safari Travel	Safari / tour operator	True	True						0	0	search	
 master	O09dd623fff82	AGLOW SAFARIS	Safari / tour operator	True	True	https://aglowsafaris.com	info@aglowsafaris.com (role)	+255698125126 (mobile) | +255783560450 (mobile) | +255679494537 (mobile)	P.O Box 6262 – Arusha, Tanzania		0	0	search	
-master	O4a2c06e6cf4a	LUBE JUNCTION	Safari / tour operator	True	True						0	0	search	
+master	O4a2c06e6cf4a	LUBE JUNCTION	Safari / tour operator	True	True	https://lubejunction.com	tellusmore@lubejunction.com (general)	+255692654006 (mobile) | +255684242028 (mobile)	P.O.Box: 2873, Dar-Es-Salaam, Tanzania.		0	0	search	
 master	O13fac71333a1	Miles to Smile	Safari / tour operator	True	True	https://miles-to-smile.com	contact@miles-to-smile.com (role)	+255766056532 (mobile)	P.O. Box 7538 Moshi		0	0	search	
 master	O9075dcc975f1	Serengeti Wakanda Tours & Safaris	Safari / tour operator	True	True	https://serengetiwakandatours.com	info@serengetiwakandatours.com (role)	+255715886678 (mobile) | +255689528201 (mobile)	P .O BOX 520 ARUSHA		0	0	search	
-master	O7350992422d9	Shubhomis Adventure (Ronjoo Safaris)	Safari / tour operator	True	True	https://www.ronjoosafaris.co.tz	deepak@ronjoosafaris.co.tz (general)	+255747394631 (mobile)	P.O.Box 11800, Arusha, Tanzania		0	0	search	
+master	O7350992422d9	Shubhomis Adventure (Ronjoo Safaris)	Safari / tour operator	True	True	https://www.ronjoosafaris.co.tz	deepak@ronjoosafaris.co.tz (general)	+255747394631 (mobile)	P.O.Box 11800, Arusha, Tanzania		0	0	browser, search	
 master	O54920d3b3bb9	Transcendent Journeys Tanzania	Safari / tour operator	True	True	https://transcendentjourneystz.com	victor@transcendentjourneystz.com (named) | mtj.mlb@gmail.com (personal_domain) | vbubelwa@gmail.com (named)	+255754046196 (mobile) | +255782804101 (mobile) | +15416192988 (international)	P.0 Box 12179, Arusha, Tanzania		0	1	search	
 master	O05cab09ad953	Aafrin Medihealth Solutions Ltd	Safari / tour operator	True	True						3	0		
-master	O59219a33cb30	AFRICAN GALLERIA Ltd	Safari / tour operator	True	True	https://www.africangalleria.co.tz	info@africangalleria.co.tz (role)	+255786026461 (mobile)	P.O.BOX: 364, Karatu, arusha Tanzani		0	0	search	
-master	O728546ca6bee	Air Excel Ltd.	Safari / tour operator	True	True						1	0		
+master	O59219a33cb30	AFRICAN GALLERIA Ltd	Safari / tour operator	True	True	https://africangalleria.co.tz | https://www.africangalleria.co.tz	info@africangalleria.co.tz (role)	+255786026461 (mobile)	P.O.BOX: 364, Karatu, arusha Tanzani		0	0	search	
+master	O728546ca6bee	Air Excel Ltd.	Safari / tour operator	True	True	https://airexcelonline.co.tz	reservations@airexcelonline.co.tz (role) | administration@airexcelonline.co.tz (role)	+255272970249 (office) | +255272970250 (office) | +255754211227 (mobile) | +255739102546 (mobile)	P.O. Box 12731, Arusha, Tanzania		1	0	search	
 master	O928c9844fedd	Gemuka Adventures Limited	Safari / tour operator	True	True	https://gemukaadventures.com	info@gemukaadventures.com (role) | sales@gemukaadventures.com (role)	+255681263044 (mobile) | +255785463870 (mobile) | +255763850133 (mobile)			0	0	search	
 master	Obef3a637d51d	Hanspaul Assurance Brokers Limited	Safari / tour operator	True	True	https://hanspaulassurance.co.tz	info@hanspaulassurance.co.tz (role)	+255767103803 (mobile) | +255652225372 (mobile)	P.O Box 149, Arusha Office, Tanzania		0	0	search	
-master	Oe3518649bfe6	Ignite Energy Access UK Ltd	Safari / tour operator	True	True						0	2	search	
-master	O790a03b81388	MEGA TENTS (AL-ANVER OUTFITTERS LTD)	Safari / tour operator	True	True						0	0	search:not_found	
+master	Oe3518649bfe6	Ignite Energy Access UK Ltd	Safari / tour operator	True	True	https://igniteaccess.com	peter.ngota@igniteaccess.com (general) | erick.nkonya@igniteaccess.com (general)	+2550800755000 (unknown) | +255717206965 (mobile) | +255743275505 (mobile) | +255769777003 (mobile) | +255752977899 (mobile)	P.O.BOX 13954, Arusha – Tanzania		0	2	search	
+master	O790a03b81388	MEGA TENTS (AL-ANVER OUTFITTERS LTD)	Safari / tour operator	True	True	https://alanvertents.com	murtaza@alanvertents.com (general) | office@alanvertents.com (role)	+255754285045 (mobile) | +255699534388 (mobile)	P.O.Box 1484 Arusha, Tanzania		0	0	search, search:not_found	
 master	Oe06dbd6fbcb4	Okota Waste Management Ltd	Safari / tour operator	True	True						3	0		
-master	O69b33ef5c8f2	Safari plus ltd	Safari / tour operator	True	True	https://safariplus.co.tz	reservations@safariplus.co.tz (role) | kieran@safariplus.co.tz (general)	+255696555000 (mobile) | +255687450075 (mobile) | +255687450072 (mobile) | +255783887838 (mobile)			0	0	search	
+master	O69b33ef5c8f2	Safari plus ltd	Safari / tour operator	True	True	https://safariplus.co.tz | https://safariplus.tz	reservations@safariplus.co.tz (role) | kieran@safariplus.co.tz (general)	+255696555000 (mobile) | +255687450075 (mobile) | +255687450072 (mobile) | +255783887838 (mobile)	P.O. Box 76569 Dar es Salaam, Tanzania		0	0	search	
 master	O2c2fe6e65ec7	Superdoll Trailer Manufacturer Co (T) Ltd	Safari / tour operator	True	True	https://superdoll.co.tz	sales@superdoll.co.tz (role) | arusha@superdoll-tz.com (general)	+255787555551 (mobile) | +255785555555 (mobile) | +255787797100 (mobile) | +255689547219 (mobile) | +255686646161 (mobile)	P.O. Box 3040 in Arusha, Tanzania		0	0	search	
-master	O3d018184e9aa	Tanmanagement Insurance Brokers Ltd (JW SEAGON)	Safari / tour operator	True	True						6	0		
-master	Oaa6f9199b73e	Twalan Company Ltd	Safari / tour operator	True	True						1	0		
-master	O006a10d492af	Zohar African Safaris Ltd	Safari / tour operator	True	True						2	0		
+master	O3d018184e9aa	Tanmanagement Insurance Brokers Ltd (JW SEAGON)	Safari / tour operator	True	True	https://jwseagon.com	harkiran@jwseagon.com (general)	+255688750720 (mobile)			6	0	search	
+master	Oaa6f9199b73e	Twalan Company Ltd	Safari / tour operator	True	True	https://twalan.co.tz	info@twalan.co.tz (role)	+255768489185 (mobile) | +255755644545 (mobile)			1	0	search	
+master	O006a10d492af	Zohar African Safaris Ltd	Safari / tour operator	True	True	https://zoharafricansafaris.com	bookings@zoharafricansafaris.com (role)	+255754630963 (mobile) | +255624004400 (mobile) | +255764511776 (mobile)	P.O. Box 151, Usa River, Arusha – Tanzania		2	0	search	
 master	O35c962655ba3	Abercrombie & Kent	Safari / tour operator	True	True	https://www.abercrombiekent.com	hrichard@abercrombiekent.co.tz (general) | gwood@abercrombiekent.co.tz (general)	+25573950834678 (mobile) | +255736610010 (mobile) | +255272508346 (office)	P.O. Box 427 Arusha Tanzania		0	0	search	
-master	O694a46db51f5	Kilpath African Safaris	Safari / tour operator	True	True	https://kilpathafricansafaris.com	info@kilpathafricansafaris.com (role)	+255712754125 (mobile)			0	0	search	
+master	O694a46db51f5	Kilpath African Safaris	Safari / tour operator	True	True	https://kilpathafricansafaris.com	info@kilpathafricansafaris.com (role)	+255712754125 (mobile)	P.O.BOX 303, Arusha		0	0	search	
 master	O560785f0759a	Lashku Forex Bureau Limited	Safari / tour operator	True	True		forex@praxisaccounts.com (general)	+255767959016 (mobile)	P.O BOX 8357 Arusha, Tanzania		0	0	search	
 master	O4693f9dbaae1	PwC Tanzania	Safari / tour operator	True	True						2	0		
-master	Of4240dab377e	SIDAI DESIGNS (Safari Atelier)	Safari / tour operator	True	True	https://www.safariatelier.com	safaris@safariatelier.com (role)	+14152356802 (international) | +255766100564 (mobile)	P.O. Box 110382, Arusha, Tanzania		0	3	search	
+master	Of4240dab377e	SIDAI DESIGNS (Safari Atelier)	Safari / tour operator	True	True	https://safariatelier.com | https://www.safariatelier.com	safaris@safariatelier.com (role)	+14152356802 (international) | +255766100564 (mobile)	P.O. Box 110382, Arusha, Tanzania		3	0	search	
 master	O628305bfb723	Kitamu Africa LTD	Safari / tour operator	True	True						1	0		
-master	O508f496d01ae	Mbasha Holdings Ltd	Safari / tour operator	True	True						0	0	search:not_found	
+master	O508f496d01ae	Mbasha Holdings Ltd	Safari / tour operator	True	True	https://mbashaholdings.com	rlmbasha@yahoo.com (personal_domain) | info@mbashaholdings.com (role)	+255627223408 (mobile)	P.O Box 903 Arusha, Tanzania		0	0	search, search:not_found	
 master	O196cb100cad1	Sabrahm Consulting Ltd	Safari / tour operator	True	True	https://sabrahmconsulting.com	sabrahm@sabrahmconsulting.com (general) | sabrahmconsulting@gmail.com (personal_domain)	+255745763923 (mobile) | +255783351170 (mobile) | +255688763923 (mobile) | +255681268640 (mobile)	P. O. Box 16200, Arusha Tanzania		0	0	search	
-master	O557fde8b56a5	Safari Wholesalers and Retailers Limited	Safari / tour operator	True	True	https://safariwholesalers.com	safariwholesalers@gmail.com (personal_domain)	+255783999508 (mobile) | +255794746276 (mobile)	P.O BOX 8276 Arusha, Tanzania		0	0	search	
-master	O94251d7ec2fb	Afrishare Trekking and Safaris	Safari / tour operator	True	True						2	0		
-master	Oaa6856110be8	AMREF Flying Doctors	Safari / tour operator	True	True						8	0		
-master	O72e67a37acc8	Ascend Tanzania	Safari / tour operator	True	True						1	0		
+master	O557fde8b56a5	Safari Wholesalers and Retailers Limited	Safari / tour operator	True	True	https://safariwholesalers.com | https://wa.me	safariwholesalers@gmail.com (personal_domain)	+255783999508 (mobile) | +255794746276 (mobile)	P.O BOX 8276 Arusha, Tanzania		0	0	search	
+master	O94251d7ec2fb	Afrishare Trekking and Safaris	Safari / tour operator	True	True	https://afrisharetrekkingandsafaris.com	info@afrisharetrekkingandsafaris.com (role) | afrisharetrekkingandsafaris@gmail.com (personal_domain)	+255754025233 (mobile)			2	0	search	
+master	Oaa6856110be8	AMREF Flying Doctors	Safari / tour operator	True	True	https://flydoc.org	info@flydoc.org (role)	+255745716581 (mobile)			8	0	search	
+master	O72e67a37acc8	Ascend Tanzania	Safari / tour operator	True	True	https://ascendtanzania.com	fred@ascendtanzania.com (named)	+2550763586729 (unknown) | +2550764269916 (unknown) | +2550754007126 (unknown)			1	0	search	
 master	O43fbd884d754	Beautiful African Gemstones Ltd (House of Gems Tanzania)	Safari / tour operator	True	True	https://houseofgems.tz	info@houseofgemstz.co.tz (role) | sales@houseofgems.tz (role) | gemstz@yahoo.com (personal_domain)	+255758857000 (mobile) | +255752857000 (mobile) | +255747364744 (mobile)	P.O.BOX 14017, Arusha Tanzania	facebook: https://www.facebook.com/gemstz | instagram: https://www.instagram.com/houseofgemstanzania	0	0	search	
-master	Ob2ac321d4799	GADGETRONIX	Safari / tour operator	True	True						1	0		
-master	O13e4cbc1ed0a	Greenlink	Safari / tour operator	True	True						5	0		
-master	O45c6e91a66ba	Kilele Climb Tours	Safari / tour operator	True	True						2	0		
-master	O38ddc734730a	MajorityMart Suppliers	Safari / tour operator	True	True	http://majoritysuppliers.com	info@majoritysuppliers.com (role)	+255767368911 (mobile) | +255786051750 (mobile) | +255767319494 (mobile)	P.O. Box 2453, Arusha - Tanzania	facebook: https://www.facebook.com/majorityamartsuppliers/	0	0	search	
-master	O7948a9942116	NSK HOSPITALS LTD	Safari / tour operator	True	True	https://nskhospitals.co.tz	ijaz.lalji@nsktz.com (general)	+255626221331 (mobile)	P.O.Box 3114 Arusha Tanzania	facebook: https://www.facebook.com/nskhospitals/ | instagram: https://www.instagram.com/nsk_hospitals/	0	0	search	
+master	Ob2ac321d4799	GADGETRONIX	Safari / tour operator	True	True	https://gadgetronix.net	judith@gadgetronix.net (general)	+255677083622 (mobile)	P.O.BOX 1116, Arusha – Tanzania		1	0	search	
+master	O13e4cbc1ed0a	Greenlink	Safari / tour operator	True	True	https://greenlink-regen.com	info@greenlink-regen.com (role)	+255672328283 (mobile)			5	0	search	
+master	O45c6e91a66ba	Kilele Climb Tours	Safari / tour operator	True	True	https://kileleclimb.com	info@kileleclimb.com (role)	+255787914991 (mobile) | +255718365777 (mobile)	P.O.Box 7248 Moshi, Tanzania		2	0	search	
+master	O38ddc734730a	MajorityMart Suppliers	Safari / tour operator	True	True	http://majoritysuppliers.com | https://majoritysuppliers.com	info@majoritysuppliers.com (role)	+255767368911 (mobile) | +255786051750 (mobile) | +255767319494 (mobile)	P.O. Box 2453, Arusha - Tanzania | P.O.Box 2453 Arusha, Tanzania	facebook: https://www.facebook.com/majorityamartsuppliers/	0	0	search	
+master	O7948a9942116	NSK HOSPITALS LTD	Safari / tour operator	True	True	https://nskhospitals.co.tz | nskhospitals.co.tz	ijaz.lalji@nsktz.com (general)	+255626221331 (mobile) | +255776410045 (mobile) | +255621221331 (mobile)	P.O.Box 3114 Arusha Tanzania | P.O.Box 3114, Arusha, Tanzania	facebook: https://www.facebook.com/nskhospitals/ | instagram: https://www.instagram.com/nsk_hospitals/	0	0	search	
 master	O6c2976e997c2	Sadio Events	Safari / tour operator	True	True	https://sadioevents.co.tz	info@sadioevents.co.tz (role)	+255767604705 (mobile) | +255759843428 (mobile)	P.O. Box 31938, Arusha, Tanzania		0	0	search	
 master	Ofc2567ddcd95	Sibusiso Foundation	Safari / tour operator	True	True						4	0		
-master	Od82a9ff8b85d	TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS	Safari / tour operator	True	True	https://www.tanzaniaporters.org	tfsp.tanzania@gmail.com (personal_domain) | tanzaniaporters@yahoo.com (personal_domain)	+255763040649 (mobile) | +255656171086 (mobile)	P.O.BOX 11755 ARUSHA, TANZANIA		0	0	search	
-master	O7bfec9bb050a	Teamwise Tanzania Travel Limited	Safari / tour operator	True	True						2	0		
-master	O64dc36d1927f	Karine & Kitanga Safaris Limited (K&K Safaris)	Safari / tour operator	True	True	https://kandksafaris.com	infos@kandksafaris.com (general)	+33698706673 (international)	Arusha, Tanzania		0	1	search	
-master	Ofea64d365ec6	Marangu forex bureau	Safari / tour operator	True	True	https://mfb.co.tz	info@mfb.co.tz (role)	+255746627607 (mobile) | +255766750778 (mobile) | +255745911731 (mobile)	P.O BOX 1037 Arusha		0	0	search	
+master	Od82a9ff8b85d	TANZANIA FEDERATION OF TOURISM SERVICE PROVIDERS	Safari / tour operator	True	True	https://tanzaniaporters.org | https://www.tanzaniaporters.org	tfsp.tanzania@gmail.com (personal_domain) | tanzaniaporters@yahoo.com (personal_domain)	+255763040649 (mobile) | +255656171086 (mobile)	P.O.BOX 11755 ARUSHA, TANZANIA		0	0	search	
+master	O7bfec9bb050a	Teamwise Tanzania Travel Limited	Safari / tour operator	True	True		info@teamwise.travel (role)	+255784393538 (mobile) | +255686190800 (mobile)	P.O.Box 11624 Arusha, Tanzania		2	0	search	
+master	O64dc36d1927f	Karine & Kitanga Safaris Limited (K&K Safaris)	Safari / tour operator	True	True	https://kandksafaris.com	infos@kandksafaris.com (general)	+33698706673 (international)	Arusha, Tanzania		1	0	search	
+master	Ofea64d365ec6	Marangu forex bureau	Safari / tour operator	True	True	https://mfb.co.tz	info@mfb.co.tz (role)	+255746627607 (mobile) | +255766750778 (mobile) | +255745911731 (mobile) | +255754628124 (mobile)	P.O BOX 1037 Arusha | P.O BOX 1037 Arusha, Tanzania		0	0	search	
 master	O3974c6961fd9	Vehicle Pharmacy	Safari / tour operator	True	True		info@vehiclepharmacy.com (role) | vehiclepharmacy23@gmail.com (personal_domain)	+255715827125 (mobile) | +255783827125 (mobile) | +255736827125 (mobile)	P.O.Box 10542 Arusha, Tanzania		0	0	search	
-master	O0c8245123a74	Dashir Lodge & Safaris	Safari / tour operator	True	True						0	0		
-master	Of5f69168bba3	RSA LIMITED	Safari / tour operator	True	True						0	0		
+master	O0c8245123a74	Dashir Lodge & Safaris	Safari / tour operator	True	True	https://dashirlodgeandsafaris.com	info@dashirlodgeandsafaris.com (role)	+255690129762 (mobile)			0	0	search	
+master	Of5f69168bba3	RSA LIMITED	Safari / tour operator	True	True	https://rsaafrica.com	rsa@rsaafrica.com (general)		P.O. Box 1725 Moshi, Tanzania		0	0	search	
 master	O4a4028b8ef73	Wildfrontiers (Chelete Adventures LTD)	Safari / tour operator	True	True						0	0		
 master	Oe993b62c844c	MKIZUGHUNO COMPANY LIMITED	Safari / tour operator	True	True		williammvungi12@gmail.com (personal_domain) | josemsangi@gmail.com (personal_domain)	+255752000131 (mobile) | +255756922320 (mobile)	P.O.BOX 15452 Arusha, Tanzania		0	0	search	
-master	Oe609962d6815	Twiga Craft Brewery (1001 Organic Limited)	Safari / tour operator	True	True						0	0		
+master	Oe609962d6815	Twiga Craft Brewery (1001 Organic Limited)	Safari / tour operator	True	True	https://twigabrewery.com	raphael@twigabrewery.com (general) | sales@twigabrewery.com (role)	+255752289945 (mobile)	P.O.Box 1835 Arusha, Tanzania		0	0	search	
 master	O4a1cc6cdc040	Artisan Coffee and Patissier Restaurant	Safari / tour operator	True	True	https://artisan.co.tz	jambo@artisan.co.tz (general)	+255765489908 (mobile) | +255786238772 (mobile)	P.O.Box 702 Arusha, Tanzania		0	0	search	
 master	Oa70770718818	King Mart	Safari / tour operator	True	True						2	0		
-master	O46a026eb35cb	Arusha Art Ltd	Safari / tour operator	True	True						0	0		
-master	Ofef3ba777108	Dropping Zone	Safari / tour operator	True	True						0	0		
-master	Oc6483e087235	Kilimanjaro Responsible Trekking Organization	Safari / tour operator	True	True						0	0		
+master	O46a026eb35cb	Arusha Art Ltd	Safari / tour operator	True	True	https://arushaart.co.tz	info@arushaart.co.tz (role)	+255272545719 (office)	P.O.BOX: 423, Arusha		0	0	search	
+master	Ofef3ba777108	Dropping Zone	Safari / tour operator	True	True	https://droppingzone.co.tz	support@droppingzone.co.tz (role)	+255755304053 (mobile) | +255759880969 (mobile)	P. O. Box 833 Arusha, Tanzania		0	0	search	
+master	Oc6483e087235	Kilimanjaro Responsible Trekking Organization	Safari / tour operator	True	True	https://kiliporters.org	info@kiliporters.org (role)	+255754817615 (mobile)			0	0	search	
 master	O430c3a3dac39	MAULY TOURS & SAFARIS	Safari / tour operator	True	True						0	0		
 master	O98862e6d1351	Summit Expeditions & Nomadic Experience	Safari / tour operator	True	True						0	0		
 master	Ofb9c237e71b5	TGN COMPANY LTD	Safari / tour operator	True	True						2	0		
-master	O05869f93c115	OKKA House	Safari / tour operator	True	True						0	0		
-master	O55618c520bc5	CRDB Bank Plc	Safari / tour operator	True	True						5	0		
-master	Ob2ec027a1fb7	NBC Bank Tanzania	Safari / tour operator	True	True						1	0		
+master	O05869f93c115	OKKA House	Safari / tour operator	True	True		houseokka@gmail.com (personal_domain)	+255759885986 (mobile) | +255755421969 (mobile)			0	0	search	
+master	O55618c520bc5	CRDB Bank Plc	Safari / tour operator	True	True	https://crdbbank.co.tz					5	0	search	
+master	Ob2ec027a1fb7	NBC Bank Tanzania	Safari / tour operator	True	True	https://www.nbc.co.tz	contact.centre@nbc.co.tz (role)	+255768980022 (mobile) | +255784106022 (mobile) | +255222193000 (office)	NBC Ltd. Head Office, P.O. Box 1863, Dar es Salaam, Tanzania		1	0	search	
 master	O0bbdb67730d3	NMB Bank Tanzania	Safari / tour operator	True	True						0	0		
 master	O07e605285631	Wasim Trans Garage	Safari / tour operator	True	True						0	0		
 master	Oacdd2049005a	Shah Tours & Travels Ltd	Safari / tour operator	True	True						0	0		
-master	O33fe002bffd5	Easyota	Safari / tour operator	True	True						6	0		
-master	O201e20990155	RiverStone Africa Safaris	Safari / tour operator	True	True						1	0		
-master	Ob3805b0994c3	Rudra distributors	Safari / tour operator	True	True						0	0		
-master	O39cb92a2d596	United Tansania e.V	Safari / tour operator	True	True						2	0		
+master	O33fe002bffd5	Easyota	Safari / tour operator	True	True	https://easyota.com	sales@easyota.com (role) | support@easyota.com (role)	+255766796685 (mobile) | +442081333424 (international)			6	0	search	
+master	O201e20990155	RiverStone Africa Safaris	Safari / tour operator	True	True	https://riverstonesafaris.co.tz	rngusaru@riverstonesafaris.co.tz (named) | smmbaga@riverstonesafaris.co.tz (general)	+255754272171 (mobile) | +255784364558 (mobile)			1	0	search	
+master	Ob3805b0994c3	Rudra distributors	Safari / tour operator	True	True	https://rudradistributors.co.tz	info@rudradistributors.co.tz (role)	+255688434343 (mobile)			0	0	search	
+master	O39cb92a2d596	United Tansania e.V	Safari / tour operator	True	True	https://unitedtansania.org	unitedtansania@gmail.com (personal_domain)	+255762942565 (mobile)			2	0	search	
 master	O8b59ea27ef7f	Victory Attorneys & Consultants	Safari / tour operator	True	True						3	0		
 master	Ob3b8b318c102	Pristine Trails Adventures & Safaris Co Ltd	Safari / tour operator	True	True						4	0		
 master	Ob961626c2241	Nyamazela Trading Co (T) LTD	Safari / tour operator	True	True						1	0		
-master	Odfc406c032a2	LAITOLYA TOURS & SAFARIS LTD	Safari / tour operator	True	True						2	0		
+master	Odfc406c032a2	LAITOLYA TOURS & SAFARIS LTD	Safari / tour operator	True	True	https://laitolya.com	info@laitolya.com (role)	+07567164960756865280 (international)			2	0	search	
 master	O38a5a92ef2ea	YAS Tanzania	Safari / tour operator	True	True						1	0		
-master	O51865064dcca	African Queen Adventure	Safari / tour operator	True	True						0	0		
+master	O51865064dcca	African Queen Adventure	Safari / tour operator	True	True		info@africanqueenadventures.com (role)	+255766254433 (mobile) | +255754813378 (mobile)			0	0	search	
 master	O156beede60a7	Tanzania Outfitter & Safaris	Safari / tour operator	True	True						0	0		
-master	Oa7a1ffecec53	KARIBU KILIFAIR	Safari / tour operator	True	True						0	0		
+master	Oa7a1ffecec53	KARIBU KILIFAIR	Safari / tour operator	True	True	https://kilifair-tanzania.com	info@kilifair.com (role) | vito@kilifair.com (general)	+255754200580 (mobile)	P.O. Box 8545 Moshi, Tanzania LOCATI: Plot No.4, Block Rombo Street, Shanty Town Moshi – Tanzania | P.O. Box 8545, Rombo Street, Shanty Town, Moshi - Kilimanjaro		2	0	search	
 master	O0e4a1216704e	All season bureau de change	Safari / tour operator	True	True						0	0		
-master	O931c908e828b	SERENGETI SAFARI MARATHON	Safari / tour operator	True	True						0	0		
-master	O95bf3aeebd03	Bongoplan events and tours	Safari / tour operator	True	True						0	0		
+master	O931c908e828b	SERENGETI SAFARI MARATHON	Safari / tour operator	True	True	https://serengetisafarimarathon.or.tz		+255754740682 (mobile)			0	0	search	
+master	O95bf3aeebd03	Bongoplan events and tours	Safari / tour operator	True	True	https://bongoplan.com	info@bongoplan.com (role)	+255718143650 (mobile)			0	0	search	
 master	O792f3fc35ee5	Stan Safaris	Safari / tour operator	True	True						0	0		
-master	O7e875f27a3fd	Feimac Travels Company Limited	Safari / tour operator	True	True						0	0		
+master	O7e875f27a3fd	Feimac Travels Company Limited	Safari / tour operator	True	True	https://feimactravel.com	info@feimactravel.com (role)	+255747171927 (mobile)	P.O.BOX 14128, Dar Es Salaam – Tanzania		0	0	search	
 master	Oba84841236c3	Print Plus Media Limited	Safari / tour operator	True	True						0	0		
-master	O6c1cbaaaf955	Senjaro Pay Technologies Limited	Safari / tour operator	True	True						0	0		
+master	O6c1cbaaaf955	Senjaro Pay Technologies Limited	Safari / tour operator	True	True	https://senjaropay.com	info@senjaropay.com (role) | allyk@senjarogroup.com (general)	+255744798828 (mobile) | +255799918002 (mobile)	P.O Box 1o15 Dar es salaam, Tanzania		0	0	search	
 master	O476cd7c13f6d	Takims Holidays Tours & Safaris Ltd	Safari / tour operator	True	True						0	0		
 master	O2b8b894af444	Claritas International	Safari / tour operator	True	True						6	0		
 master	Odf635929dbb6	Kearsleys Travel & Tours	Safari / tour operator	True	True						0	0		
-master	Off70fe5042e9	EvMak Tanzania	Safari / tour operator	True	True						0	0		
-master	O3591338859af	Flightlink	Safari / tour operator	True	True						1	0		
-master	Of2e291a3166c	GO TANZANIA	Safari / tour operator	True	True						0	0		
-master	Of6d6ff3ad93d	Imaging Smart	Safari / tour operator	True	True						1	0		
-master	O5eef4635f0c7	Wilmaar Insurance Brokers Ltd	Safari / tour operator	True	True						2	0		
+master	Off70fe5042e9	EvMak Tanzania	Safari / tour operator	True	True	https://evmak.com	info@evmak.com (role)	+255716400001 (mobile)	P.O Box 71485 Dar Es Salaam, Tanzania		0	0	search	
+master	O3591338859af	Flightlink	Safari / tour operator	True	True	https://flightlink.co.tz	centralreservations@flightlink.co.tz (general)	+255748505610111213141516171819 (mobile)	P.O. Box 2858 Dar ES Salaam, Tanzania.		1	0	search	
+master	Of2e291a3166c	GO TANZANIA	Safari / tour operator	True	True	https://gotanzania.co.tz	info@gotanzania.co.tz (role)	+255746986110 (mobile)			0	0	search	
+master	Of6d6ff3ad93d	Imaging Smart	Safari / tour operator	True	True	https://imagingsmart.com	info@imagingsmart.com (role)	+255784603083 (mobile)			1	0	search	
+master	O5eef4635f0c7	Wilmaar Insurance Brokers Ltd	Safari / tour operator	True	True		zaakir.siddik@wib.co.tz (general) | george.mwamafupa@wib.co.tz (general)	+255713266051 (mobile)	P.O Box 14526, Dar Es Salaam, Tanzania		2	0	search	
 master	O67f1c7ee79a7	Paradise And Wilderness Tours Ltd	Safari / tour operator	True	True						0	0		
-master	O8259ebf7ab64	Wildreality Safari	Safari / tour operator	True	True						5	0		
-master	Of12fd3f86fd8	FANTASY ADVENTURES LIMITED	Safari / tour operator	True	True						0	0		
+master	O8259ebf7ab64	Wildreality Safari	Safari / tour operator	True	True		travel@wildrealitysafari.com (role)	+255755425859 (mobile)			5	0	search	
+master	Of12fd3f86fd8	FANTASY ADVENTURES LIMITED	Safari / tour operator	True	True		info@manyaluxurycamps.com (role) | marketing@manyaluxurycamps.com (role)	+255758802006 (mobile)	P.O.Box 36126 Dar Es Salaam, Tanzania		0	0	search	
 master	O6c0b9907c085	Pamoja Expedition Lodge	guest_house	False	False						0	0		
 master	O6677eba8a8ed	Precision Air	travel_agency	True	True						1	0		
 master	O8e55c124984b	Fastjet ticket office Shuttlebus	travel_agency	False	False						0	0		
@@ -918,7 +918,7 @@ master	O4816d5a5693d	Lim Safaris Booking Office	travel_agency	True	True						0	0
 master	O09923d262264	JM Tours	travel_agency	True	True						0	0		
 master	Oe4dd5e417342	Leopard Tours Ltd.	company	True	True						0	0		
 master	O3064de71e36f	Monjes Tours & Lodges Office	guest_house	False	False						0	0		
-master	O3d29fe6caef1	Zara Tours	travel_agency	True	True						1	0		
+master	O3d29fe6caef1	Zara Tours	travel_agency	True	True						1	0	search	
 master	O519360259232	Basecamp Tanzania	travel_agency	True	True						2	0		
 master	O31b73e1bb936	Access 2 Tanzania	travel_agency	True	True						0	0		
 master	O3ef35929664c	Roy Safaris	travel_agency	True	True						0	0		
@@ -931,7 +931,7 @@ master	Obd0df41bdc7d	Kipepeo	travel_agency	True	True						0	0
 master	O03ba1bdd7ddd	Meru Mountain Treks & Safari Ltd.	travel_agency	True	True						0	0		
 master	Odbafad48a43f	Tropical Trails	company	True	True						0	0		
 master	O0d4e9bc6e4b3	Shadows of Africa Ltd	travel_agency	True	True						0	0		
-master	Od47d11343986	Monkey Adventures	travel_agency	True	True						2	0		
+master	Od47d11343986	Monkey Adventures	travel_agency	True	True	https://monkey.travel	support@monkey.travel (role)	+255683314816 (mobile) | +255763586729 (mobile) | +255764269916 (mobile)	P.O. Box 10672, Arusha,Tanzania		2	0	search	
 master	Odade2f68937f	Boker Adventures	guide	True	True						0	0		
 master	Of38ed0efb017	Usa River Booking Office	travel_agency	False	False						0	0		
 master	Of31aaf82637c	Nale Moru experiential travel	travel_agency	True	True						0	0		
@@ -954,6 +954,22 @@ master	O2ea7d99baa8a	Enosa Expedition	guide	True	True						0	0
 master	O56e536184648	Nihapa Tours	travel_agency	True	True						0	0		
 master	O567804e1042f	Gladys Adventure & Safaris		True	True						0	0		
 master	O5ab26d0cf6ac	Auric Air	travel_agency	True	True						0	0		
+master	Oc2e8cd0ea8a0	Association of Tanzania Employers (ATE)	Introducer: employers' association	True	True						6	0		
+master	Of3ba43d6b3c6	ATE Northern Zone Office (Arusha)	Introducer: employers' association	True	True						2	0		
+master	Od4edd499159a	Tanzania National Chamber of Commerce (TNCC, formerly TCCIA)	Introducer: chamber	True	True						6	0		
+master	Odf790a1b6cf6	TNCC Arusha Regional Chamber (formerly TCCIA)	Introducer: chamber	True	True						1	0		
+master	Ob05f2105e313	TNCC Kilimanjaro Regional Chamber (formerly TCCIA)	Introducer: chamber	True	True						0	0		
+master	Oa7bd74bc3e90	Confederation of Tanzania Industries (CTI)	Introducer: employers' association	True	True						5	0		
+master	O1ce2e2d0c4f4	CTI Arusha and Moshi Office (Confederation of Tanzania Industries)	Introducer: employers' association	True	True						1	0		
+master	O95da8ba0ec93	Tanzania Private Sector Foundation (TPSF)	Introducer: employers' association	True	True						5	0		
+master	O35226b8b744c	Tanzania Association of Tour Operators (TATO)	Introducer: sector association	True	True						3	0		
+master	Od2ebcdb3176f	Hotels Association of Tanzania (HAT)	Introducer: sector association	True	True						2	0		
+master	O8bac482b60f6	Tanzania Bankers Association (TBA)	Introducer: sector association	True	True						2	0		
+master	Oc89de84a49ee	Association of Private Health Facilities in Tanzania (APHFTA)	Introducer: sector association	True	True						0	0		
+master	Ob21384549145	Christian Social Services Commission (CSSC)	Introducer: sector association	True	True						3	0		
+master	Oc9833f8bf164	Tanzania Horticultural Association (TAHA)	Introducer: sector association	True	True						2	0		
+master	O9c9d72076018	East African Business Council (EABC)	Introducer: other	True	True						2	0		
+master	O726d10e43fa3	Women HR Association of Tanzania (WHAT)	Introducer: HR professional body	True	True						3	0		
 welfare	ORG_fe82dcee83ae30d5	House of Happiness	Welfare residential care	True	True						2	0		
 welfare	ORG_3b93a2a133f07ccf	Light in Africa Children's Homes	Welfare residential care	True	True						1	0		
 welfare	ORG_2347b71049d38c08	Ujamaa Children's Home	Welfare residential care	True	True						2	0		

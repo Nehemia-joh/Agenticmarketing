@@ -53,6 +53,8 @@ def main() -> int:
     def decide(oid: str, segment: str) -> tuple[str, str]:
         if segment == "SACCOS members":
             return "n/a", NOT_APPLICABLE
+        if segment == "Introducers":
+            return "introducer", "Introducer: a partnership so that the body shares the staff education benefit with its members."
         source = oid if oid in reasons else primary_of.get(oid)
         reason = reasons.get(source) if source else None
         if not reason or reason["fit"] == "hold":

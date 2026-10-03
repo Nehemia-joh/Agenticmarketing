@@ -1,0 +1,290 @@
+{
+ "about": "Reviewed corrections to the company master's outreach plans, applied by scripts/master/apply_employer_corrections.py. 'segment' files the plans under the right kind of employer (the organisation record is unchanged); 'hold' keeps the drafts out of sending because the business is outside the Arusha-Kilimanjaro catchment or is not an employer. Decided 2026-10-02 from the research notes cited.",
+ "organisations": {
+  "Oe82a56d590a2": {
+   "name": "Afric'Aventure",
+   "action": "hold",
+   "reason": "Dar es Salaam operator focused on southern Tanzania",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Oa881d17035bb": {
+   "name": "Akshar Tours and Safaris",
+   "action": "hold",
+   "reason": "based in Mwanza",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O39807e8fb1e2": {
+   "name": "Car Light Tours And Safari Limited.",
+   "action": "hold",
+   "reason": "only address is in Kinondoni, Dar es Salaam",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O33fe002bffd5": {
+   "name": "Easyota",
+   "action": "hold",
+   "reason": "safari booking-software company with its office in Dar es Salaam",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Occdc7da4028c": {
+   "name": "Fortes Africa Ltd",
+   "action": "hold",
+   "reason": "a garage and vehicle business in Mwanza",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O6ee59b8c94fb": {
+   "name": "LeKobe Adventures & Safaris",
+   "action": "hold",
+   "reason": "Zanzibar-based",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O63d5bc9994f6": {
+   "name": "Old Explorer Limited",
+   "action": "hold",
+   "reason": "head office at Kawe Beach, Dar es Salaam, with outposts on Zanzibar",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O6c2976e997c2": {
+   "name": "Sadio Events",
+   "action": "hold",
+   "reason": "events company whose own contact page is in Dar es Salaam",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O39cb92a2d596": {
+   "name": "United Tansania e.V",
+   "action": "hold",
+   "reason": "Germany-based NGO with a research camp at Lake Eyasi",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O8b59ea27ef7f": {
+   "name": "Victory Attorneys & Consultants",
+   "action": "hold",
+   "reason": "law firm whose only published office is in Dar es Salaam",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O5eef4635f0c7": {
+   "name": "Wilmaar Insurance Brokers Ltd",
+   "action": "hold",
+   "reason": "insurance broker in Dar es Salaam",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Od5309fffd3e6": {
+   "name": "Amazing Tanzania Ltd",
+   "action": "hold",
+   "reason": "Karatu-based, about 120 km from Arusha",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O59219a33cb30": {
+   "name": "AFRICAN GALLERIA Ltd",
+   "action": "hold",
+   "reason": "gallery and souvenir complex on the Karatu-Ngorongoro road, about 130 km from Arusha",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Of12fd3f86fd8": {
+   "name": "FANTASY ADVENTURES LIMITED",
+   "action": "hold",
+   "reason": "runs camps in the Serengeti, postal address in Dar es Salaam",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O931c908e828b": {
+   "name": "SERENGETI SAFARI MARATHON",
+   "action": "hold",
+   "reason": "an annual event run by an organising committee, not an employer",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O4a2c06e6cf4a": {
+   "name": "LUBE JUNCTION",
+   "action": "hold",
+   "reason": "lubricants distributor with a Dar es Salaam address, confirm an Arusha office first",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O05cab09ad953": {
+   "name": "Aafrin Medihealth Solutions Ltd",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "medical-tourism facilitator",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O4a1cc6cdc040": {
+   "name": "Artisan Coffee and Patissier Restaurant",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "cafe and restaurant at Sable Square",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O43fbd884d754": {
+   "name": "Beautiful African Gemstones Ltd (House of Gems Tanzania)",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "gemstone cutting and jewellery business",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O2b8b894af444": {
+   "name": "Claritas International",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "audit, tax and consulting firm with an Arusha office",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O3af036625f00": {
+   "name": "Delight Polyclinic",
+   "action": "segment",
+   "segment": "Healthcare employers",
+   "reason": "medical and dental clinic in Njiro, Arusha",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O83eefb391915": {
+   "name": "Gupta Auto Spares and Hardware Limited",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "vehicle-parts dealer",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Oa7c6400ff33c": {
+   "name": "HANSPAUL AUTOMECHS LTD",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "vehicle and engineering company",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Oa70770718818": {
+   "name": "King Mart",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "procurement and supply company",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O628305bfb723": {
+   "name": "Kitamu Africa LTD",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "restaurant and lifestyle complex",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O560785f0759a": {
+   "name": "Lashku Forex Bureau Limited",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "foreign-exchange bureau",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O790a03b81388": {
+   "name": "MEGA TENTS (AL-ANVER OUTFITTERS LTD)",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "tent manufacturer",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Oe993b62c844c": {
+   "name": "MKIZUGHUNO COMPANY LIMITED",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "pest-control company",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Ofea64d365ec6": {
+   "name": "Marangu forex bureau",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "foreign-exchange bureau",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O508f496d01ae": {
+   "name": "Mbasha Holdings Ltd",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "furniture manufacturer",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Ob2ec027a1fb7": {
+   "name": "NBC Bank Tanzania",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "national bank",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O7948a9942116": {
+   "name": "NSK HOSPITALS LTD",
+   "action": "segment",
+   "segment": "Healthcare employers",
+   "reason": "private regional-level hospital",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O05869f93c115": {
+   "name": "OKKA House",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "cafe and bakery",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O4693f9dbaae1": {
+   "name": "PwC Tanzania",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "audit, tax and advisory firm with an Arusha office",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "Ob3805b0994c3": {
+   "name": "Rudra distributors",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "food and drinks distributor",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O557fde8b56a5": {
+   "name": "Safari Wholesalers and Retailers Limited",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "wholesale and retail supplier",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O6c1cbaaaf955": {
+   "name": "Senjaro Pay Technologies Limited",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "fintech company",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O3d018184e9aa": {
+   "name": "Tanmanagement Insurance Brokers Ltd (JW SEAGON)",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "insurance broker with Arusha offices",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O91d927bdd2c3": {
+   "name": "United Aviation Services Company Ltd",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "aviation ground-handling company",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O3974c6961fd9": {
+   "name": "Vehicle Pharmacy",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "vehicle service business",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O38a5a92ef2ea": {
+   "name": "YAS Tanzania",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "mobile network and mobile-money company with local shops and agents",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O6677eba8a8ed": {
+   "name": "Precision Air",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "airline, this record is probably its Arusha sales office",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O69b33ef5c8f2": {
+   "name": "Safari plus ltd",
+   "action": "segment",
+   "segment": "Corporate employers",
+   "reason": "charter airline with an office at Arusha Airport",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  }
+ }
+}

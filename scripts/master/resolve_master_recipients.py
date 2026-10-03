@@ -119,7 +119,10 @@ def cluster(orgs, contacts, plans):
     kind_of = {}
     for p in plans:
         kind_of.setdefault(p["organisation_id"], "saccos" if p["segment"] == "SACCOS members" else "employer")
-    ids = [o for o in orgs if o in kind_of]
+    # Introducers are curated one by one, and a regional office (ATE Northern Zone, the TNCC Arusha chamber) is a different route from its
+    # national body, so they are never clustered.
+    introducers = {p["organisation_id"] for p in plans if p["segment"] == "Introducers"}
+    ids = [o for o in orgs if o in kind_of and o not in introducers]
     parent = {o: o for o in ids}
 
     def find(x):

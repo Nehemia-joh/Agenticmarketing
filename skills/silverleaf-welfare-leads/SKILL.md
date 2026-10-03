@@ -7,6 +7,10 @@ description: Research and build an evidence-backed list of welfare institutions 
 
 Build a welfare-lead run with the scripts in `scripts/welfare/`, the repository's home for reusable scripts (see `scripts/README.md`). This skill bundles an identical copy in its own `scripts/` folder, so it works when installed on its own. Edit `scripts/welfare/` first and copy it across; verification fails if the two differ. A welfare lead is an institution that pays school fees for the children in its care or programme, so it is treated as an account, not as a message recipient. The method and the business case are in `plans/b2b-welfare-leads-plan.md`. The first run, `arusha-welfare-2026-09`, is the worked example to reuse and extend.
 
+## Introducer networks and depth (decided 2 October 2026)
+
+A body that could introduce Silverleaf to many homes at once (a network of homes, a faith body's social services, a child-welfare coalition) is recorded with segment `Welfare network (introducer)` and care_model `network`; it needs a route but no catchment location, and its draft asks it to share the partnership with member homes (the partner rate follows). Government social-welfare offices are never introducers here; they belong to the government track. Research goes deep on high- and medium-priority homes and on funders whose sponsorship draft is held for want of a verified, sourced link to a home near the campuses. `scripts/contacts/build_call_sheet.py --run-id <run>` lists the priority homes still without a named leader.
+
 ## Outputs
 
 Everything stays separate from `outputs/master/`.

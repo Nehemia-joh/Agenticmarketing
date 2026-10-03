@@ -17,6 +17,13 @@ from collections import defaultdict
 import welfare_lib as W
 
 SUPPLEMENTARY_SLICES = {"W"}
+# Slices whose job is to classify records already in the run (2 October 2026: U classified register-only NGOs, I recorded introducer networks).
+# Their record joins the same-named record whatever its kind, and their segment, subtype and care model win.
+RECLASSIFYING_SLICES = {"U", "I"}
+CLASS_FIELDS = ("segment", "subtype", "care_model")
+# Check slices (V, 3 October 2026: flags, locations and inboxes of records already in the run) join the same-named record whatever its kind, but
+# never decide its kind: their segment guess is ignored.
+CHECK_SLICES = {"V"}
 SCALAR_FIELDS = ["organisation_name", "segment", "subtype", "care_model", "description", "operator_or_umbrella",
                  "religious_affiliation_published", "founded", "registration_published", "licence_claim", "address",
                  "locality", "ward", "district", "region", "latitude", "longitude", "geocode_basis", "website",
@@ -53,6 +60,8 @@ def merge_organisations(orgs: list[dict]) -> tuple[list[dict], list[dict]]:
                 union(i, by_key[(k, funder)])
             else:
                 by_key[(k, funder)] = i
+            if org.get("slice") in RECLASSIFYING_SLICES | CHECK_SLICES and (k, not funder) in by_key:
+                union(i, by_key[(k, not funder)])
         dom = W.own_domain(org.get("website"))
         if dom:
             if (dom, funder) in by_domain:
@@ -73,8 +82,13 @@ def merge_organisations(orgs: list[dict]) -> tuple[list[dict], list[dict]]:
                                     -len(W.as_list(o.get("sources")))))
         base = {"members": [f"{m['_file']}:{m['_line']}" for m in members], "slices": sorted({str(m.get("slice", "")) for m in members})}
         conflicts = {}
+        reclassified = [m for m in members if m.get("slice") in RECLASSIFYING_SLICES]
+        checks = [m for m in members if m.get("slice") in CHECK_SLICES]
         for field in SCALAR_FIELDS:
-            values = [m.get(field) for m in members if m.get(field) not in (None, "", "unknown", [])]
+            pool = (reclassified + [m for m in members if m not in reclassified]) if field in CLASS_FIELDS and reclassified else members
+            if field in CLASS_FIELDS and checks and len(checks) < len(members):
+                pool = [m for m in pool if m not in checks]
+            values = [m.get(field) for m in pool if m.get(field) not in (None, "", "unknown", [])]
             base[field] = values[0] if values else ("unknown" if field in ("runs_own_school", "volunteer_programme") else "")
             if field in W.MATERIAL_FIELDS and len({W.material_value(field, v) for v in values} - {""}) > 1:
                 conflicts[field] = sorted({W.norm_text(v) for v in values})
@@ -195,6 +209,11 @@ def main() -> int:
     contacts = [r for r in records if r.get("record_type") == "contact"]
     relations = [r for r in records if r.get("record_type") == "relationship"]
     enquiries = [r for r in records if r.get("record_type") == "enquiry"]
+    # Reviewed classifications (links.json class_overrides): every record of that name takes the decided kind, so its records merge.
+    for org in orgs:
+        decided = links.get("class_overrides", {}).get(org.get("organisation_name"))
+        if decided:
+            org.update({k: decided[k] for k in CLASS_FIELDS if decided.get(k)})
     merged, reviews = merge_organisations(orgs)
     print(f"organisations: {len(orgs)} raw -> {len(merged)} merged; contacts {len(contacts)}; relationships {len(relations)}; enquiries {len(enquiries)}")
     for coll in (merged, contacts, enquiries):  # child-data guard: anything that looks like a child's identity goes to review
@@ -204,6 +223,14 @@ def main() -> int:
             if hit:
                 reviews.append({"kind": "possible_child_identifier", "entity": r.get("organisation_name") or r.get("enquiry_author_display"),
                                 "detail": hit.group(0), "action": "Remove any child identifier before release."})
+    # Reviewed flag clearances (links.json flags_cleared): a later check showed a recorded red flag no longer holds (for example the home is
+    # active and reachable). Each entry names the organisation, the words of the flags it clears (or "all") and the basis.
+    for o in merged:
+        cleared = links.get("flags_cleared", {}).get(o["organisation_name"])
+        if cleared and o.get("red_flags"):
+            words = cleared.get("flags", "all")
+            o["red_flags"] = [] if words == "all" else [f for f in o["red_flags"] if not any(w.lower() in f.lower() for w in W.as_list(words))]
+            o["notes"] = " | ".join(x for x in (o.get("notes"), f"Red flags reviewed: {cleared.get('basis', '')}") if x)
     geocode(merged, gaz, campuses, links.get("geo_overrides", {}))
     out = {"organisations": merged, "contacts": contacts, "relationships": relations, "enquiries": enquiries, "reviews": reviews}
     (work / "consolidated.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=str), encoding="utf-8")

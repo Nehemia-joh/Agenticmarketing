@@ -91,18 +91,22 @@ greeting_name = L.greeting_name
 
 
 def funder_reasons(con) -> dict:
-    """For each funder, the home or programme it supports, from a verified 'funds' relationship with a fetched source: the
-    sourced reason for its sponsorship request. The source URL and date go with the plan as its hook."""
+    """For each funder, the home or programme it supports or runs, from a verified 'funds' or 'operates' relationship with a fetched source: the
+    sourced reason for its sponsorship request. A source that is the page itself is preferred to a search-results page. The source URL and date go
+    with the plan as its hook."""
     names = dict(con.execute("SELECT organisation_id, name FROM organisations").fetchall())
-    reasons = {}
-    for funder, supported, supported_id, sources in con.execute(
-            "SELECT from_organisation_id, to_organisation, to_organisation_id, sources_json FROM organisation_relationships "
-            "WHERE relationship_type='funds' AND verification_status='verified' ORDER BY to_organisation"):
+    candidates = {}
+    for funder, kind, supported, supported_id, sources in con.execute(
+            "SELECT from_organisation_id, relationship_type, to_organisation, to_organisation_id, sources_json FROM organisation_relationships "
+            "WHERE relationship_type IN ('funds','operates') AND verification_status='verified' ORDER BY to_organisation"):
         fetched = [s for s in json.loads(sources or "[]") if s.get("fetched") and s.get("url")]
-        if funder and fetched and funder not in reasons:
-            reasons[funder] = {"supported": L.display_name(names.get(supported_id) or supported), "url": fetched[0]["url"],
-                               "verified_on": fetched[0].get("accessed_on", "")}
-    return reasons
+        fetched.sort(key=lambda s: "full_text_search" in s["url"])
+        if funder and fetched:
+            candidates.setdefault(funder, []).append((
+                "full_text_search" in fetched[0]["url"], kind != "funds",
+                {"supported": L.display_name(names.get(supported_id) or supported), "verb": "supports" if kind == "funds" else "runs",
+                 "url": fetched[0]["url"], "verified_on": fetched[0].get("accessed_on", "")}))
+    return {f: min(c, key=lambda t: (t[0], t[1]))[2] for f, c in candidates.items()}
 
 
 LEADER_TOP = re.compile(r"founder|owner|\bceo\b|chief executive|executive director|president|chair|director|bishop|head of", re.I)
@@ -130,7 +134,7 @@ def role_phrase(role: str) -> str:
     return f"a {role.lower()}" if role.lower().startswith("co-") else f"the {role}"
 
 
-def best_leader(contacts) -> dict | None:
+def best_leader(contacts, prefer=None) -> dict | None:
     """The organisation's most senior named, confirmed, medium-risk contact with a full name, or None."""
     best = None
     for c in contacts:
@@ -138,7 +142,8 @@ def best_leader(contacts) -> dict | None:
         rank = leader_rank(c.get("role") or "")
         if (c.get("pdpa_risk") != "medium" or c.get("role_certainty") != "confirmed" or len(name.split()) < 2 or re.search(r"\d|\?", name) or rank is None):
             continue
-        key = (rank, 0 if (c.get("named_email") or c.get("published_role_email")) else 1, name)
+        preferred = 0 if prefer and prefer.search(c.get("role") or "") else 1  # for a network: the social-services or children's lead before the bishop
+        key = (preferred, rank, 0 if (c.get("named_email") or c.get("published_role_email")) else 1, name)
         if best is None or key < best[0]:
             best = (key, c, name)
     return {**best[1], "greet_name": best[2]} if best else None
@@ -146,6 +151,9 @@ def best_leader(contacts) -> dict | None:
 
 def welfare(con, now, run_cfg) -> dict:
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
+    # Reviewed decisions (links.json official_personal_inboxes): the organisation itself publishes this personal-domain address as its contact.
+    links_path = ROOT / "data" / "runs" / run_cfg.get("run_id", "") / "links.json"
+    official_inboxes = json.loads(links_path.read_text(encoding="utf-8")).get("official_personal_inboxes", {}) if links_path.exists() else {}
     org_payload, con_payload = payloads(con, "organisation"), payloads(con, "contact")
     contacts_by_org = {}
     for r in con.execute("SELECT * FROM contacts ORDER BY contact_id"):
@@ -167,7 +175,8 @@ def welfare(con, now, run_cfg) -> dict:
             route, value = "shared_email", p["email"]
         elif p.get("phone") and p.get("pdpa_risk") != "risky":
             route, value = "organisation_phone", p["phone"]
-        leader = best_leader(contacts_by_org.get(oid, []))
+        network = model == "network" or str(p.get("segment") or "").startswith("Welfare network")
+        leader = best_leader(contacts_by_org.get(oid, []), re.compile(r"diacon|social|children|programme|program|coordinator|welfare", re.I) if network else None)
         greet = f"Dear {leader['greet_name']}," if leader else f"Dear {name} team,"
         recipient = f"{leader['greet_name']} ({leader.get('role') or 'role not published'})" if leader else ""
         for c in contacts_by_org.get(oid, []):
@@ -191,7 +200,17 @@ def welfare(con, now, run_cfg) -> dict:
         elif value and (model != "funder" and p.get("segment") != "Welfare funder") and FOREIGN_ROUTE.search(str(value).split("@")[-1]):
             route_problem = True
             missing.append("The email address is on a domain outside Tanzania; confirm it reaches this organisation.")
+        risky_contact_route = any(c.get("pdpa_risk") == "risky" and str(value or "").lower() in
+                                  {str(v).lower() for v in (c.get("named_email"), c.get("published_role_email"), c.get("shared_email"), c.get("role_phone")) if v}
+                                  for c in contacts_by_org.get(oid, []))
+        confirmed_official = str(official_inboxes.get(o["name"], {}).get("address", "")).lower() == str(value or "").lower() and bool(value)
+        if risky_contact_route and not confirmed_official:
+            route_problem = True
+            missing.append("The only route is a named individual's address on a personal domain (risky); find the organisation's own email or phone.")
         personal_inbox = bool(PERSONAL_DOMAIN.search(str(value or "")))
+        if personal_inbox and str(official_inboxes.get(o["name"], {}).get("address", "")).lower() == str(value).lower():
+            personal_inbox = False  # reviewed: the organisation publishes it as its official contact
+            missing.append(f"Personal-domain inbox confirmed as the organisation's official contact: {official_inboxes[o['name']].get('basis', '')}")
         if personal_inbox:
             missing.append("The organisation's published inbox is on a personal email domain; confirm it is the official address and not a "
                            "person's before use (data-protection check).")
@@ -203,12 +222,12 @@ def welfare(con, now, run_cfg) -> dict:
         # The first message is a request with no offer terms; the follow-up states the offer. Sponsorship is asked of funders only.
         if model == "funder" or p.get("segment") == "Welfare funder":
             reason = reasons.get(oid)
-            hook = f"I understand that {name} supports {reason['supported']}." if reason else ""
+            hook = f"I understand that {name} {reason['verb']} {reason['supported']}." if reason else ""
             subject = "Sponsorship request: students at Silverleaf Academy"
             asks = ("We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, "
                     "including a contribution towards textbooks, transport or meals.")
             if reason and leader and role_phrase(leader.get("role")):
-                opening = (f"I understand that you are {role_phrase(leader.get('role'))} of {name}, which supports {reason['supported']}. "
+                opening = (f"I understand that you are {role_phrase(leader.get('role'))} of {name}, which {reason['verb']} {reason['supported']}. "
                            f"It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.")
             elif reason:
                 opening = (f"{hook} It is this commitment to supporting communities in Tanzania that led me to write."
@@ -227,6 +246,22 @@ def welfare(con, now, run_cfg) -> dict:
             cta, modules = "Sponsor conversation", "VM08; VM09; VM13"
             relevance = (f"{p.get('segment')}: sponsorship request{'; supports ' + reason['supported'] if reason else ''}; partner rates in the "
                          f"follow-up.")
+        elif model == "network" or str(p.get("segment") or "").startswith("Welfare network"):
+            # An introducer (decided 2 October 2026): a network, umbrella or faith social-services body that could share the partnership with its
+            # member homes. The first message asks for a partnership and a meeting and states no offer terms; the partner rate follows.
+            reason, hook = None, ""
+            the = "" if name.split()[0].isupper() else "the "
+            subject = "A partnership on education for children in your member homes"
+            body = (f"{greet}\n\n{L.INTRO}\n\nWe are looking to set up a partnership with {the}{name} so that the homes and programmes it works with can "
+                    f"partner with Silverleaf Academy on the education of the children in their care. I would welcome the chance to explain how it could "
+                    f"work, and to discuss whether {the}{name} might share it with members, for example at a members' meeting or in a newsletter."
+                    f"\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
+            follow = (f"{greet}\n\nFollowing up on my earlier note, here is what we can offer member homes. Silverleaf Academy offers "
+                      f"{L.EN['OF03']}. Paying the year's tuition before the school year opens also brings a free uniform set (worth TZS 110,000) for "
+                      f"each child, and tuition can be paid in four instalments. Our admissions team checks each child's level before a place is "
+                      f"confirmed.\n\n{L.network_line_en()}\n\nShall I send a one-page note you could share with members?\n\n{L.SIGNATURE}")
+            cta, modules = "Introducer conversation", "VM08; VM09; VM13"
+            relevance = f"{p.get('segment')}: introducer request to share the partnership with member homes; partner rates in the follow-up."
         else:
             reason, hook = None, ""
             who = "an organisation" if model == "family_based" else "a home"

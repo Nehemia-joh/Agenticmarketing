@@ -7,6 +7,8 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `browser_robots_2026-09-23.jsonl` | `626d96b1a521e39a…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_sites_a_2026-09-23.jsonl` | `f55dd70f46e6cb71…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_sites_b_2026-09-23.jsonl` | `e5926e95cf183d8a…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
+| `browser_wave10_robots_2026-10-02.jsonl` | `ed6ed8f919784fc4…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
+| `browser_wave10_script_2026-10-02.jsonl` | `00ccd0c3c1c748eb…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `coverage/A_welfare_care_coverage.md` | `d25d2249d7910c7d…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/B_welfare_specialised_funders_coverage.md` | `b2ac59894fdfab1e…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_robots_2026-09-26_coverage.md` | `bb1565ded8bcee62…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
@@ -17,12 +19,22 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `coverage/browser_sites_b_2026-09-25_coverage.md` | `da4dd8505a7cb726…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_sites_b_2026-09-26_coverage.md` | `03a49cf93394885a…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_sites_b_coverage.md` | `c0ef0a56a05fbc40…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/browser_wave10_robots_coverage.md` | `19da2d2851ea809e…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/browser_wave10_script_coverage.md` | `fcdd8407ce2c0a1f…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/C_master_employers_coverage.md` | `f6f5cd6306e80656…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/D_hotels_government_coverage.md` | `fc9dc46c62816a26…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave10_master_employers_a_coverage.md` | `51a22b753f5b9952…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave10_master_employers_b_coverage.md` | `32d7c1c06efe1c8f…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave10_master_employers_c_coverage.md` | `536c76c367e7c98d…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave10_master_employers_d_coverage.md` | `4d40300a91a9d46f…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave11_public_a_coverage.md` | `2d6423e7598315d9…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave11_public_b_coverage.md` | `2e9e6bcc09157162…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave11_public_c_coverage.md` | `d041cbd3a3b83df1…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave11_public_d_coverage.md` | `53a2e9362000e109…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave12_groups_coverage.md` | `edf4fd99069e376c…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave12_introducers_coverage.md` | `5768704bca6abb98…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave12_p1_jobs_coverage.md` | `5fedbfc1be0f2c84…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/wave12_p1_pages_coverage.md` | `b4bc395248527144…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave2_master_employers_coverage.md` | `bc9a2ae331ff65de…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave2_welfare_care_coverage.md` | `94c63c75762c7fd1…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave2_welfare_funders_specialised_coverage.md` | `c2d05f99f7f5d681…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
@@ -42,6 +54,7 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `coverage/wave8_funder_pages_coverage.md` | `502972455e097745…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave8_welfare_care_coverage.md` | `faa0d4ff84d20db2…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave8_welfare_funders_specialised_coverage.md` | `3d3b7b6067c008a3…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `introducers_wave12_2026-10-02.jsonl` | `cb7e556045679fe3…` | Contact-research evidence |
 | `osm_contacts_2026-09-23.json` | `b46ccf133bda5b5b…` | OpenStreetMap contact tags (phone, email, website) in the catchment |
 | `search-targets.json` | `8abbda5f5a80db20…` | Contact-research evidence |
 | `search_A_welfare_care_2026-09-23.jsonl` | `2b6257d8f4570ffe…` | Budgeted search-agent records, one per organisation, with per-fact sources |
@@ -52,6 +65,13 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `search_wave10_master_employers_b_2026-10-02.jsonl` | `52afdb6223ce252c…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave10_master_employers_c_2026-10-02.jsonl` | `013a52b6f37b71e1…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave10_master_employers_d_2026-10-02.jsonl` | `5004279ae8b34c94…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave11_public_a_2026-10-02.jsonl` | `6de31ce09ca56fc0…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave11_public_b_2026-10-02.jsonl` | `375a460bb297a4ff…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave11_public_c_2026-10-02.jsonl` | `b4af13a65dead2b2…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave11_public_d_2026-10-02.jsonl` | `530cfccfc13630f7…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave12_groups_2026-10-02.jsonl` | `4cc0c37b8a6147fe…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave12_p1_jobs_2026-10-02.jsonl` | `8be0df84adb5d563…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_wave12_p1_pages_2026-10-02.jsonl` | `a3452fa501154deb…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave2_master_employers_2026-09-23.jsonl` | `fa5df02a31086812…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave2_welfare_care_2026-09-23.jsonl` | `65d507ac21362c04…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave2_welfare_funders_specialised_2026-09-23.jsonl` | `57d646425833b09c…` | Budgeted search-agent records, one per organisation, with per-fact sources |

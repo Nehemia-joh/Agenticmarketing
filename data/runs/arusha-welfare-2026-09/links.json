@@ -72,7 +72,13 @@
  "master_ids_evidence": {
   "ADVENTIST DEVELOPMENT AND RELIEF AGENCY": "ADRA Tanzania: the company master's 'Adventist Development Agency' gives the same website (adratanzania.org), email (info@adratanzania.org) and office phone (+255 27 254 1174) as contact research wave 7 found for this register entry (search_wave7_welfare_care_b_2026-09-23.jsonl, 26 September 2026)."
  },
- "org_aliases": {},
+ "org_aliases": {
+  "Child First Baby Home": "Child First Initiative (CFI)",
+  "Light In Africa": "Light in Africa Children's Homes",
+  "Light in Africa (Moshi)": "Light in Africa Children's Homes",
+  "Children of Kilimanjaro Orphanage (COKO), Moshi": "Children of Kilimanjaro Orphanage",
+  "Nkoaranga Village Organization (Happy Families Children's Village)": "Happy Family Children's Village"
+ },
  "nis_to_org": {
   "4321": "Enjivai Orphanage",
   "5190": "Enyorata Children's Home",
@@ -119,5 +125,338 @@
   "4321": "Registration number match: researched '00009850' = register '00NG0/9850'.",
   "5190": "Researched record lists the alternative name 'Enyorata Children Organization'; register district Arumeru matches Meru DC.",
   "7623": "Researched record names 'Kao La Amani' as the Tanzanian counterpart in Boma Ng'ombe (Hai); register district is Hai."
+ },
+ "class_overrides": {
+  "The Foundation For Tomorrow": {
+   "segment": "Welfare family-based programme",
+   "subtype": "OVC scholarship programme",
+   "care_model": "family_based",
+   "basis": "An Arusha programme that pays school fees for vulnerable children it selects (research_E, 2026-09-22); kept as one record when slice P (2026-10-02) described it as a funder."
+  }
+ },
+ "org_aliases_evidence": {
+  "Child First Baby Home": "Child First Initiative runs the Child First Baby Home (research_P and research_R, 2026-10-02).",
+  "Light In Africa": "Light in Africa's homes are the same organisation (research_R, 2026-10-02).",
+  "Light in Africa (Moshi)": "As above.",
+  "Children of Kilimanjaro Orphanage (COKO), Moshi": "The same orphanage, named with its acronym and town (research_R, 2026-10-02).",
+  "Nkoaranga Village Organization (Happy Families Children's Village)": "The Small Things runs Happy Family Children's Village at Nkoaranga through this organisation (research_G and research_R)."
+ },
+ "flags_cleared": {
+  "Child First Initiative (CFI)": {
+   "flags": [
+    "registration number not published",
+    "registration/licence not published"
+   ],
+   "basis": "The NGO register publishes its registration number (00NGO/R/4448) and a 2025 project; the own site still gives no street address.",
+   "source_url": "https://nis.jamii.go.tz/ngo_profile/16805",
+   "decided_on": "2026-10-03"
+  },
+  "Kili Kids at Rainbow Ridge": {
+   "flags": [
+    "No activity since 2017"
+   ],
+   "basis": "The operator's site shows newsletters dated October 2025 and June 2026 and places Rainbow Ridge in the Maili Sita community, but still lists named children with ages.",
+   "source_url": "https://www.communitiesassist.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Tuleeni Children's Home": {
+   "flags": [
+    "location known only to town level"
+   ],
+   "basis": "Own contact page places it in Uru Kusini (Moshi Rural, about 12 km from Moshi) and the register shows projects through September 2026; Uru is about 25 km or more from Boma Ng'ombe so distance still needs a coordinate check.",
+   "source_url": "https://tuleenihome.org/about-tuleeni-home/contact-us/",
+   "decided_on": "2026-10-03"
+  },
+  "Green Path for Community Success (GP-COSU)": {
+   "flags": [
+    "Known only from a funder page; nature of the organisation unclear"
+   ],
+   "basis": "Own site describes the NGO, its registration, Ilboru Ward work and publishes gpcosu@gmail.com as its contact, but nothing on it is dated.",
+   "source_url": "https://greenpathforcommunity.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Sun of Hope Village/Orphanage": {
+   "flags": [
+    "website TLS error on fetch (http and https)"
+   ],
+   "basis": "The congregation's site now loads over http but shows nothing dated after about 2018 and publishes no email or phone, so no email route was found.",
+   "source_url": "http://www.theholyspiritsisters.org/contact-us/",
+   "decided_on": "2026-10-03"
+  },
+  "Bethlehem Center for Children": {
+   "flags": [
+    "No website"
+   ],
+   "basis": "The organisation's own Wix site publishes becechi@yahoo.com as its contact, but it is undated and offers no registration or street address.",
+   "source_url": "https://becechi.wixsite.com/2013",
+   "decided_on": "2026-10-03"
+  },
+  "Tupendane Orphanage (Arusha)": {
+   "flags": [
+    "location known only to Mount Meru area (now Sakina ward, Arusha)"
+   ],
+   "basis": "Its own site gives Silent Inn Road, Sakina and tupendaneafricafoundation@gmail.com as the organisation's email, with a September 2026 event and 2025 register projects.",
+   "source_url": "https://www.tupendaneafricafoundation.or.tz/",
+   "decided_on": "2026-10-03"
+  },
+  "Mosses Confort Home Foundation (CHF)": {
+   "flags": [
+    "location unresolved (Kisambre village, Usa River)"
+   ],
+   "basis": "Own site gives mosesconforthome@gmail.com as its head-office contact in Kisambre village, and the register shows 2025 projects.",
+   "source_url": "https://www.mossesconforthome.com/contact-2",
+   "decided_on": "2026-10-03"
+  },
+  "Kafika House": {
+   "flags": [
+    "No Tanzanian registration information seen on fetched pages"
+   ],
+   "basis": "The NGO register gives registration I-NGO/R1/00373 and 2025 programmes, and own site is current to 2026.",
+   "source_url": "https://nis.jamii.go.tz/ngo_profile/14098",
+   "decided_on": "2026-10-03"
+  },
+  "Hope Orphanage Center": {
+   "flags": [
+    "no registration information published (the NGO register shows 00NGO/1496)"
+   ],
+   "basis": "Own site publishes hopecentertz@gmail.com but is undated, and the register shows only a 2008 registration with no projects.",
+   "source_url": "http://hopecentertanzania.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Child Hope Development Organization": {
+   "flags": [
+    "location town level only (now TPC, Moshi Rural)",
+    "registration unknown (register: 00NGO/R/1539)"
+   ],
+   "basis": "Own site gives TPC Moshi and the register lists 2024 education projects; nothing later was found.",
+   "source_url": "https://childhopetz.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Gabriella Children's Rehabilitation Centre": {
+   "flags": [
+    "No own website (own site gabriellacentre.or.tz loads and is current to 2026)"
+   ],
+   "basis": "Own site is live with a 2026 footer and 2025 event, and the register gives its registration, but no village appears.",
+   "source_url": "https://gabriellacentre.or.tz/",
+   "decided_on": "2026-10-03"
+  },
+  "KIWAKKUKI (Kikundi cha Wanawake Kilimanjaro Kupambana na UKIMWI)": {
+   "flags": [
+    "location known only to town level (now Korongoni Ward, Moshi Municipal)"
+   ],
+   "basis": "Own site publishes kiwakkuki@gmail.com and a physical address in Korongoni Ward, with a 2026 footer.",
+   "source_url": "https://kiwakkuki.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Kilimanjaro Childlight Foundation": {
+   "flags": [
+    "location known only to town level (now Ushirika Street, Uru Ave, Moshi)"
+   ],
+   "basis": "Own site gives a street address in Moshi town and a 2024 footer.",
+   "source_url": "https://www.kilimanjarochildlight.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Kilimanjaro Foundation": {
+   "flags": [
+    "location unresolved (now Uru-Shimbwe village, Moshi Rural)"
+   ],
+   "basis": "Own site gives Uru-Shimbwe village and is current to 2026.",
+   "source_url": "https://kilimanjarofoundation.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Tanzania Women Research Foundation (Moshi)": {
+   "flags": [
+    "location known only to town level (now Majengo Ward, Moshi)"
+   ],
+   "basis": "Own site gives Shaurimoyo Road, Majengo Ward and the register lists a 2025 OVC shelter project.",
+   "source_url": "https://tawref.org/",
+   "decided_on": "2026-10-03"
+  },
+  "AUTISM BEYOND BORDERS  TZ": {
+   "flags": [
+    "location unresolved (register: Moshi district)"
+   ],
+   "basis": "Register gives Moshi district and a 2026 project; the site gives only US contacts and no Tanzanian address.",
+   "source_url": "https://nis.jamii.go.tz/ngo_profile/12436",
+   "decided_on": "2026-10-03"
+  },
+  "HANDICAPPED CHILDREN REHABILITATION TANZANIA (HACRET)": {
+   "flags": [
+    "location unresolved (now Kitutu Road, Plot 60, Arusha)"
+   ],
+   "basis": "Own site gives a street address in Arusha and posts in March 2026.",
+   "source_url": "https://hacret.org/",
+   "decided_on": "2026-10-03"
+  },
+  "KIKATITI HAPPY WATOTO HOME": {
+   "flags": [
+    "location unresolved (register name gives Kikatiti, Arumeru)"
+   ],
+   "basis": "Register names the home at Kikatiti in Arumeru district and the Dutch site posts a July/August 2026 newsletter.",
+   "source_url": "https://nis.jamii.go.tz/ngo_profile/14334",
+   "decided_on": "2026-10-03"
+  },
+  "SONGAMBELE INITIATIVE ORGANIZATION": {
+   "flags": [
+    "location unresolved (now Majengo, Moshi)"
+   ],
+   "basis": "Own site gives Sangana Street, Majengo in Moshi and the register lists 2026 programmes.",
+   "source_url": "https://songambele.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Tanzania Youth Support and Self Reliance Organization": {
+   "flags": [
+    "location unresolved (now Maji ya Chai, Arusha)"
+   ],
+   "basis": "Own site gives Maji ya Chai in Arusha with a 2026 footer; the held address info@tanzaniayouth.com is listed beside the site-domain address.",
+   "source_url": "https://tanzaniayouthsupport.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Tanzanian Children's Fund": {
+   "flags": [
+    "location unresolved (Oldeani Ward, Karatu)"
+   ],
+   "basis": "Own contact page places the village in Oldeani Ward, Karatu District, well beyond the catchment.",
+   "source_url": "https://tanzanianchildrensfund.org/contact-us",
+   "decided_on": "2026-10-03"
+  },
+  "UPENDO FOUNDATION AUSTRALIA CHILDREN'S HOME (UFACH)": {
+   "flags": [
+    "location unresolved (Siha district per own site)"
+   ],
+   "basis": "Own site says the home now sits on its own land in Siha, a district reaching the catchment edge, with no village.",
+   "source_url": "https://www.upendo.org.au/about-us",
+   "decided_on": "2026-10-03"
+  },
+  "Catholic Archdiocese of Arusha": {
+   "flags": [
+    "Archdiocese website refused connection / not readable"
+   ],
+   "basis": "The site loads and is current to September 2026, publishing carchd@arusha-archdiocese.or.tz as the diocese contact.",
+   "source_url": "https://www.arusha-archdiocese.or.tz/",
+   "decided_on": "2026-10-03"
+  }
+ },
+ "official_personal_inboxes": {
+  "Save Africa Orphanage": {
+   "address": "saveafricausariver19@gmail.com",
+   "basis": "The organisation's own contact page publishes saveafricausariver19@gmail.com as its email, but nothing dated after 2019 was found, so it may be inactive.",
+   "source_url": "https://saveafricatanzania.weebly.com/contact.html",
+   "decided_on": "2026-10-03"
+  },
+  "Emusoi Centre": {
+   "address": "emusoicenter@gmail.com",
+   "basis": "The organisation's own site footer publishes emusoicenter@gmail.com as its email on every page, and it posted in July 2026.",
+   "source_url": "https://emusoicentre.co.tz/",
+   "decided_on": "2026-10-03"
+  },
+  "LOHADA": {
+   "address": "lovinghand2000@yahoo.com",
+   "basis": "LOHADA's own site publishes lovinghand2000@yahoo.com as its contact email, but its latest dated activity is February 2024 and centre locations are still unstated.",
+   "source_url": "https://lohada.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Fruitful Orphanage and Day Care Centre": {
+   "address": "fruitfulorphanage@gmail.com",
+   "basis": "The organisation's own contact page publishes fruitfulorphanage@gmail.com, but no dated activity was found so the stale-site flags hold.",
+   "source_url": "https://fruitful-orphanage.jimdoweb.com/contact-information/",
+   "decided_on": "2026-10-03"
+  },
+  "Green Path for Community Success (GP-COSU)": {
+   "address": "gpcosu@gmail.com",
+   "basis": "Own site describes the NGO, its registration, Ilboru Ward work and publishes gpcosu@gmail.com as its contact, but nothing on it is dated.",
+   "source_url": "https://greenpathforcommunity.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Havilah Children's Village": {
+   "address": "havilahvillage@gmail.com",
+   "basis": "Its own contact page publishes havilahvillage@gmail.com as the Tanzania contact, but the site is undated so current activity is unproven.",
+   "source_url": "https://havilahvillage.weebly.com/contact.html",
+   "decided_on": "2026-10-03"
+  },
+  "Tabasamu Childcare and Orphanage Centre": {
+   "address": "tabasamuchildcare2015@gmail.com",
+   "basis": "The organisation's own site publishes tabasamuchildcare2015@gmail.com on its pages, but nothing is dated after 2023 and the address block is empty.",
+   "source_url": "https://tabasamuorphanage.or.tz/",
+   "decided_on": "2026-10-03"
+  },
+  "Bethlehem Center for Children": {
+   "address": "becechi@yahoo.com",
+   "basis": "The organisation's own Wix site publishes becechi@yahoo.com as its contact, but it is undated and offers no registration or street address.",
+   "source_url": "https://becechi.wixsite.com/2013",
+   "decided_on": "2026-10-03"
+  },
+  "Tupendane Orphanage (Arusha)": {
+   "address": "tupendaneafricafoundation@gmail.com",
+   "basis": "Its own site gives Silent Inn Road, Sakina and tupendaneafricafoundation@gmail.com as the organisation's email, with a September 2026 event and 2025 register projects.",
+   "source_url": "https://www.tupendaneafricafoundation.or.tz/",
+   "decided_on": "2026-10-03"
+  },
+  "Moshi Kids Centre": {
+   "address": "moshikidscentre@gmail.com",
+   "basis": "Its own site posts in September 2026 and publishes moshikidscentre@gmail.com as its contact with a Pasua address.",
+   "source_url": "https://moshikidscentre.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Born to Learn (BTL)": {
+   "address": "btlmoshi@gmail.com",
+   "basis": "Own site publishes both project gmail addresses on its home page; the Moshi project (btlmoshi@gmail.com) is the relevant one, and the last dated post is May 2024.",
+   "source_url": "https://www.borntolearnglobal.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Mosses Confort Home Foundation (CHF)": {
+   "address": "mosesconforthome@gmail.com",
+   "basis": "Own site gives mosesconforthome@gmail.com as its head-office contact in Kisambre village, and the register shows 2025 projects.",
+   "source_url": "https://www.mossesconforthome.com/contact-2",
+   "decided_on": "2026-10-03"
+  },
+  "PEACEMAKERS FOR ALBINISM AND COMMUNITY (PAC)": {
+   "address": "albinopeacemakers@gmail.com",
+   "basis": "The organisation's own site pages publish albinopeacemakers@gmail.com as their contact, with a PO Box in Arusha but no ward or dated activity.",
+   "source_url": "https://www.peacemakersforalbinism-tz.org/programs/safe-education",
+   "decided_on": "2026-10-03"
+  },
+  "Hope Orphanage Center": {
+   "address": "hopecentertz@gmail.com",
+   "basis": "Own site publishes hopecentertz@gmail.com but is undated, and the register shows only a 2008 registration with no projects.",
+   "source_url": "http://hopecentertanzania.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Habashabi Orphanage Centre": {
+   "address": "habashabiorphanage@gmail.com",
+   "basis": "Its own site publishes habashabiorphanage@gmail.com as 'Contact us' and Kisongo as its location, but nothing is dated.",
+   "source_url": "https://habashabiorphanage.wixsite.com/arusha",
+   "decided_on": "2026-10-03"
+  },
+  "Living Water Children Centre": {
+   "address": "watoto04@gmail.com",
+   "basis": "Its own site publishes watoto04@gmail.com under Contacts with an address in Kisongo, but nothing is dated.",
+   "source_url": "https://www.livingwaterchildrencentre.org/",
+   "decided_on": "2026-10-03"
+  },
+  "HALEVAFRICA": {
+   "address": "halevafrica@gmail.com",
+   "basis": "Own site publishes halevafrica@gmail.com, and the register shows a 2024 education project in Moshi, with no ward or later activity.",
+   "source_url": "https://halevafrica.com/",
+   "decided_on": "2026-10-03"
+  },
+  "KAHE HOME FOR MENTAL RETARTED CHILDREN": {
+   "address": "kahehome2016@gmail.com",
+   "basis": "Own site publishes kahehome2016@gmail.com as its contact and the register lists a 2025 project; the home's ward is not stated.",
+   "source_url": "https://kahe-home.my.canva.site/",
+   "decided_on": "2026-10-03"
+  },
+  "KIWAKKUKI (Kikundi cha Wanawake Kilimanjaro Kupambana na UKIMWI)": {
+   "address": "kiwakkuki@gmail.com",
+   "basis": "Own site publishes kiwakkuki@gmail.com and a physical address in Korongoni Ward, with a 2026 footer.",
+   "source_url": "https://kiwakkuki.org/",
+   "decided_on": "2026-10-03"
+  },
+  "Children Concern Foundation - Tanzania": {
+   "address": "childrenconcern@outlook.com",
+   "basis": "Own site publishes childrenconcern6@gmail.com (and an outlook address) with a Mto wa Mbu address, which is outside the catchment.",
+   "source_url": "https://www.childrenconcern.or.tz/",
+   "decided_on": "2026-10-03"
+  }
  }
 }

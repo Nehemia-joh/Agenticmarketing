@@ -3,19 +3,19 @@
  "method": "scripts/master/resolve_master_recipients.py",
  "note": "No record was merged or deleted. The baseline is the selection before the first run; the lists compare the database with it.",
  "summary": {
-  "clusters": 92,
-  "organisations_in_clusters": 195,
+  "clusters": 93,
+  "organisations_in_clusters": 197,
   "cluster_kinds": {
    "same organisation": 88,
-   "shared inbox": 4
+   "shared inbox": 5
   },
-  "duplicate_organisations_held": 103,
-  "candidates_after": 835,
+  "duplicate_organisations_held": 104,
+  "candidates_after": 850,
   "candidates_before": 938,
-  "plans_changed": 463,
-  "plans_now_candidate": 175,
-  "plans_now_alternative": 288,
-  "named_contacts_now_candidate": 153
+  "plans_changed": 471,
+  "plans_now_candidate": 170,
+  "plans_now_alternative": 301,
+  "named_contacts_now_candidate": 148
  },
  "clusters": [
   {
@@ -553,9 +553,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "FANTASY ADVENTURES LIMITED (Of12fd3f86fd8)",
+   "primary": "Fantacy Adventures Limited (O0320a82cdbde)",
    "duplicates": [
-    "Fantacy Adventures Limited (O0320a82cdbde)"
+    "FANTASY ADVENTURES LIMITED (Of12fd3f86fd8)"
    ]
   },
   {
@@ -650,6 +650,13 @@
    "primary": "NBC Bank Tanzania (Ob2ec027a1fb7)",
    "duplicates": [
     "National Bank of Commerce (NBC) (O6d705d505610)"
+   ]
+  },
+  {
+   "kind": "shared inbox",
+   "primary": "Tanzania Wildlife Authority (TAWA) Northern Zone HQ (Of8e94f2f1669)",
+   "duplicates": [
+    "Tanzania Wildlife Management Authority (O78fc30589672)"
    ]
   },
   {
@@ -1522,12 +1529,6 @@
    "role": "Founder & CEO"
   },
   {
-   "message_id": "M75fe9613dc95",
-   "organisation": "Car Light Tours And Safari Limited.",
-   "recipient": "Catherine Elinewinga",
-   "role": "Co-founder"
-  },
-  {
    "message_id": "Mfcfacf175f60",
    "organisation": "Aafrin Medihealth Solutions Ltd",
    "recipient": "Sonia Hanspaul",
@@ -1570,12 +1571,6 @@
    "role": "Operations Manager"
   },
   {
-   "message_id": "M1005aa08a9d6",
-   "organisation": "Easyota",
-   "recipient": "Matthew Bell",
-   "role": "CEO / CTO"
-  },
-  {
    "message_id": "M0c9f230db404",
    "organisation": "Equity Bank",
    "recipient": "Martha Kimweri",
@@ -1604,12 +1599,6 @@
    "organisation": "LAITOLYA TOURS & SAFARIS LTD",
    "recipient": "Laura Joackim Minde",
    "role": "Non-executive Director"
-  },
-  {
-   "message_id": "M9d09df07ecce",
-   "organisation": "United Tansania e.V",
-   "recipient": "Judith Lazak",
-   "role": "Founder & CEO"
   },
   {
    "message_id": "M3c83899f1b35",
@@ -1690,22 +1679,10 @@
    "role": "Vice Chancellor"
   },
   {
-   "message_id": "Mb27e35808f7d",
-   "organisation": "Seedco Tanzania Head Office",
-   "recipient": "Rose Mwaimu",
-   "role": "HR & Safety"
-  },
-  {
    "message_id": "M942fa8074878",
    "organisation": "Victory Attorneys & Consultants",
    "recipient": "Benedict A. Ishabakaki",
    "role": "Executive Partner"
-  },
-  {
-   "message_id": "Ma757db598f42",
-   "organisation": "Wilmaar Insurance Brokers Ltd",
-   "recipient": "Jessica Brown",
-   "role": "Founder & CEO"
   },
   {
    "message_id": "M8b1b4fa5b91d",
@@ -1944,6 +1921,12 @@
    "role": "Co-Founder & Guide"
   },
   {
+   "message_id": "M8797a73dcdf1",
+   "organisation": "Snow Africa Adventures",
+   "recipient": "Caroline",
+   "role": "Co-Founder & Operations"
+  },
+  {
    "message_id": "M0998c92d6a92",
    "organisation": "Tanzania Safari Bug Ltd.",
    "recipient": "Michael Msuya",
@@ -2025,6 +2008,12 @@
    "message_id": "M23724cee620f",
    "organisation": "University of Arusha",
    "recipient": "Prof. Patrick Manu",
+   "role": "Vice Chancellor"
+  },
+  {
+   "message_id": "M28348316d23a",
+   "organisation": "Nelson Mandela African Institution of Science and Technology",
+   "recipient": "Prof. Maulilio John Kipanyula",
    "role": "Vice Chancellor"
   },
   {
@@ -2478,21 +2467,9 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "M6e946e1c79a1",
-   "organisation": "Amazing Tanzania Ltd",
-   "recipient": "Amazing Tanzania Ltd",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "M33afa00d7ae9",
    "organisation": "Bongoplan",
    "recipient": "Bongoplan",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M9f26cd055191",
-   "organisation": "Car Light Tours And Safari Limited.",
-   "recipient": "Car Light Tours And Safari Limited.",
    "role": "Organisation routing"
   },
   {
@@ -2517,12 +2494,6 @@
    "message_id": "M514a244a43b1",
    "organisation": "Endelea",
    "recipient": "Endelea",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M5fbb327c7db9",
-   "organisation": "Fantacy Adventures Limited",
-   "recipient": "Fantacy Adventures Limited",
    "role": "Organisation routing"
   },
   {
@@ -2577,6 +2548,12 @@
    "message_id": "M234a052527f4",
    "organisation": "Macho Halisi Limited",
    "recipient": "Macho Halisi Limited",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M5e58f182cbe2",
+   "organisation": "MAGS Travel and Tours Agency Limited",
+   "recipient": "MAGS Travel and Tours Agency Limited",
    "role": "Organisation routing"
   },
   {
@@ -2778,6 +2755,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Mc86fd752f532",
+   "organisation": "Akiba Commercial Bank",
+   "recipient": "Akiba Commercial Bank",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M120bbc1eedf8",
    "organisation": "Amana Bank",
    "recipient": "Amana Bank",
@@ -2811,6 +2794,12 @@
    "message_id": "Ma020b6f2bbbd",
    "organisation": "Babji Tours & Safaris Ltd",
    "recipient": "Babji Tours & Safaris Ltd",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M35b28686bb96",
+   "organisation": "Barclays",
+   "recipient": "Barclays",
    "role": "Organisation routing"
   },
   {
@@ -2886,12 +2875,6 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "M4a867919e18a",
-   "organisation": "Easyota",
-   "recipient": "Easyota",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "Mbf31063f5ef7",
    "organisation": "Enosa Expedition",
    "recipient": "Enosa Expedition",
@@ -2910,9 +2893,21 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M67a0cd120613",
+   "organisation": "Exim bank",
+   "recipient": "Exim bank",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Mf212dfb90cf4",
    "organisation": "Explore Active",
    "recipient": "Explore Active",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Ma9abb4dcdd28",
+   "organisation": "FANTASY ADVENTURES LIMITED",
+   "recipient": "FANTASY ADVENTURES LIMITED",
    "role": "Organisation routing"
   },
   {
@@ -2952,6 +2947,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M4e7927435a6b",
+   "organisation": "Gran Melia Arusha",
+   "recipient": "Gran Melia Arusha",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M19c77cc61f31",
    "organisation": "Greenlink",
    "recipient": "Greenlink",
@@ -2979,6 +2980,12 @@
    "message_id": "M7265807f89d0",
    "organisation": "JM Tours",
    "recipient": "JM Tours",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Me5653b138854",
+   "organisation": "KARIBU KILIFAIR",
+   "recipient": "KARIBU KILIFAIR",
    "role": "Organisation routing"
   },
   {
@@ -3084,6 +3091,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M838e090dae6d",
+   "organisation": "Meru Mbega Lodge",
+   "recipient": "Meru Mbega Lodge",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Md4e7faebe9a9",
    "organisation": "Meru Mountain Treks & Safari Ltd.",
    "recipient": "Meru Mountain Treks & Safari Ltd.",
@@ -3105,6 +3118,18 @@
    "message_id": "M36de979cb331",
    "organisation": "Monkey Adventures",
    "recipient": "Monkey Adventures",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Maf12ce18aab5",
+   "organisation": "Mount Meru Regional Hospital",
+   "recipient": "Mount Meru Regional Hospital",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Maf1e8613c3a2",
+   "organisation": "Mt. Meru Game Lodge",
+   "recipient": "Mt. Meru Game Lodge",
    "role": "Organisation routing"
   },
   {
@@ -3138,6 +3163,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M322fd30e7897",
+   "organisation": "NSSF",
+   "recipient": "NSSF",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Mcee0435cb22e",
    "organisation": "Nale Moru experiential travel",
    "recipient": "Nale Moru experiential travel",
@@ -3153,6 +3184,12 @@
    "message_id": "Mfb776498a94d",
    "organisation": "Nelson Mandela African Institution of Science and Technology (NM-AIST)",
    "recipient": "Nelson Mandela African Institution of Science and Technology (NM-AIST)",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M3f936bcf178d",
+   "organisation": "Ngare Sero Mountain Retreat",
+   "recipient": "Ngare Sero Mountain Retreat",
    "role": "Organisation routing"
   },
   {
@@ -3231,6 +3268,12 @@
    "message_id": "M1a32181c9309",
    "organisation": "Seedco Tanzania Head Office",
    "recipient": "Seedco Tanzania Head Office",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Mab1e3edb6343",
+   "organisation": "Selian Lutheran Hospital Ngaramtoni",
+   "recipient": "Selian Lutheran Hospital Ngaramtoni",
    "role": "Organisation routing"
   },
   {
@@ -3330,6 +3373,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Mc6900b859ba8",
+   "organisation": "Tanzania Atomic Energy Commission (TAEC)",
+   "recipient": "Tanzania Atomic Energy Commission (TAEC)",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M5f5acbc9923c",
    "organisation": "Tanzania Commercial Bank",
    "recipient": "Tanzania Commercial Bank",
@@ -3339,6 +3388,18 @@
    "message_id": "M13b5d44a5cd5",
    "organisation": "Tanzania Hugos Safaris",
    "recipient": "Tanzania Hugos Safaris",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M6f30c481e55b",
+   "organisation": "Tanzania National Parks Authority (TANAPA)",
+   "recipient": "Tanzania National Parks Authority (TANAPA)",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Md355d883324f",
+   "organisation": "Tanzania Wildlife Management Authority",
+   "recipient": "Tanzania Wildlife Management Authority",
    "role": "Organisation routing"
   },
   {
@@ -3357,6 +3418,12 @@
    "message_id": "Mb0b7e922fcb6",
    "organisation": "Tanzanian Postal Bank",
    "recipient": "Tanzanian Postal Bank",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M490178f80760",
+   "organisation": "Temesa",
+   "recipient": "Temesa",
    "role": "Organisation routing"
   },
   {
@@ -3396,12 +3463,6 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "M343f325a5063",
-   "organisation": "United Tansania e.V",
-   "recipient": "United Tansania e.V",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "Mbf18c7ecf89a",
    "organisation": "University of Arusha",
    "recipient": "University of Arusha",
@@ -3429,12 +3490,6 @@
    "message_id": "Mdd8b8ccb56c3",
    "organisation": "Wildreality Safari",
    "recipient": "Wildreality Safari",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M40197369d9e9",
-   "organisation": "Wilmaar Insurance Brokers Ltd",
-   "recipient": "Wilmaar Insurance Brokers Ltd",
    "role": "Organisation routing"
   },
   {

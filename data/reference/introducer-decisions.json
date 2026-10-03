@@ -1,0 +1,16 @@
+{
+ "about": "Reviewed decisions on introducer bodies found by research, read by scripts/master/add_introducers.py. 'skip' bodies are not added; 'name' gives the name to record. Decided 2026-10-02.",
+ "skip": {
+  "Tanzania Association of Travel Agents (TASOTA)": "Based in Dar es Salaam; research found no Arusha members.",
+  "Tanzania Association for Public Administration and Human Resource": "Public-service HR body; public employers are held for a compliance check.",
+  "Tanzania Human Resource and Administration Professionals": "No usable route: the site did not resolve.",
+  "Tourism Confederation of Tanzania (TCT)": "No usable route: the site is an empty listing.",
+  "Responsible Tourism Tanzania (RTTZ)": "No usable route: the site returned errors."
+ },
+ "names": {
+  "Association of Tanzania Employers (ATE) – Northern Zone office, Arusha": "ATE Northern Zone Office (Arusha)",
+  "TNCC (TCCIA) Arusha regional chamber": "TNCC Arusha Regional Chamber (formerly TCCIA)",
+  "TNCC (TCCIA) Kilimanjaro regional chamber": "TNCC Kilimanjaro Regional Chamber (formerly TCCIA)",
+  "Confederation of Tanzania Industries (CTI) – Arusha/Moshi office": "CTI Arusha and Moshi Office (Confederation of Tanzania Industries)"
+ }
+}

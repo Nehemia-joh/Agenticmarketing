@@ -136,7 +136,10 @@ ABROAD = re.compile(r"\bglobal\b|international|north america|\busa?\b|u\.s\.|uni
 COUNTRY_HEAD = re.compile(r"country (?:manager|director|representative|coordinator|lead|head)|national (?:director|coordinator|manager)|"
                           r"in-country (?:director|manager|lead)|head of (?:the )?(?:tanzania|country)|tanzania (?:programme |program |country )?"
                           r"(?:director|manager|lead|head)|(?:tanzania|arusha) programme lead|programme lead", re.I)
-HOME_HEAD = re.compile(r"head of (?:the )?(?:[\w'-]+ ){0,3}(?:home|orphanage|children's village)\b|on-site (?:director|manager|head)", re.I)
+# A named house counts as a home (ProManity's Pippi House in Arusha, whose head is its on-site supervisor; 10 October 2026); a bare
+# 'Head of House' (a hostel or household role) does not.
+HOME_HEAD = re.compile(r"head of (?:the )?(?:(?:[\w'-]+ ){0,3}(?:home|orphanage|children's village)|(?:[\w'-]+ ){1,3}house)\b|"
+                       r"on-site (?:director|manager|head)", re.I)
 LOCAL_MANAGER = re.compile(r"(?:programme|program|project|home|centre|center|site|orphanage|village) (?:manager|director|lead|head)", re.I)
 
 

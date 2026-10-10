@@ -11,6 +11,8 @@ Build a welfare-lead run with the scripts in `scripts/welfare/`, the repository'
 
 A body that could introduce Silverleaf to many homes at once (a network of homes, a faith body's social services, a child-welfare coalition) is recorded with segment `Welfare network (introducer)` and care_model `network`; it needs a route but no catchment location, and its draft asks it to share the partnership with member homes (the partner rate follows). Government social-welfare offices are never introducers here; they belong to the government track. Research goes deep on high- and medium-priority homes and on funders whose sponsorship draft is held for want of a verified, sourced link to a home near the campuses. `scripts/contacts/build_call_sheet.py --run-id <run>` lists the priority homes still without a named leader.
 
+To measure an enrichment round, `scripts/welfare/measure_welfare_coverage.py --run-id <run-id>` counts each data point (leader, direct and any email, phone, address, geocode, website, social pages, register number, size, founding year, escalation contact, education angle, no route) per segment and priority; `--final` and `--db` measure an earlier snapshot for the before-and-after table.
+
 ## Outputs
 
 Everything stays separate from `outputs/master/`.

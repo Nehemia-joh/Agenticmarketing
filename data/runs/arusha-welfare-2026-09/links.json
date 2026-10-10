@@ -82,7 +82,11 @@
  "nis_to_org": {
   "4321": "Enjivai Orphanage",
   "5190": "Enyorata Children's Home",
-  "7623": "Kao La Amani Children's Village"
+  "7623": "Kao La Amani Children's Village",
+  "13594": "LOHADA",
+  "5067": "Widows Encouragement & HIV/AIDS Foundation (WEHAF)",
+  "486": "Africa Amini Alama",
+  "13990": "Eripoto Safe House"
  },
  "nis_exclude": [],
  "corporate_funders_in_master": [
@@ -119,12 +123,22 @@
    "lon": 36.78601,
    "precision": "town",
    "basis": "Its own contact page gives Patandi Village, Akheri Ward, Tengeru (contact research wave 8, 26 September 2026); the NGO register's map pin is about 24 km from Usa River. Tengeru point from the repository gazetteer."
+  },
+  "THE BANDARI YA MAENDELEO ORGANIZATION": {
+   "lat": -3.37,
+   "lon": 35.85,
+   "precision": "town",
+   "basis": "The Bandari Project's own About page (read 10 October 2026): 'You can find us in Mto wa Mbu, Tanzania'; the NGO register pin near Kijenge is the registered office, not the school (gazetteer: mto wa mbu)."
   }
  },
  "nis_to_org_evidence": {
   "4321": "Registration number match: researched '00009850' = register '00NG0/9850'.",
   "5190": "Researched record lists the alternative name 'Enyorata Children Organization'; register district Arumeru matches Meru DC.",
-  "7623": "Researched record names 'Kao La Amani' as the Tanzanian counterpart in Boma Ng'ombe (Hai); register district is Hai."
+  "7623": "Researched record names 'Kao La Amani' as the Tanzanian counterpart in Boma Ng'ombe (Hai); register district is Hai.",
+  "13594": "Register name 'Loving Hands For Deprived and Aged (LOHADA)' carries the researched acronym; LOHADA's own site publishes its inbox lovinghand2000@yahoo.com ('loving hand'); register district Arusha matches (checked 2026-10-10).",
+  "5067": "Register name 'WIDOWS ENCOURAGEMENT AND HIV/IDS FOUNDATION (WeHAF)' is the researched name and acronym (one letter dropped in 'HIV/IDS'); register district Arusha (checked 2026-10-10).",
+  "486": "Register name 'AFRICAN AMINI ALAMA TANZANIA' (international NGO, district Arumeru) is the Tanzanian registration of Africa Amini Alama, whose projects are in Momella, Meru (checked 2026-10-10).",
+  "13990": "Register name 'ERIPOTO FOR GIRLS AND WOMEN' (registered 2022-01-21, district Arusha) is the name on the organisation's own Facebook page and site header ('Eripoto for girls & women'); its site says it was founded in 2022 (checked 2026-10-10)."
  },
  "class_overrides": {
   "The Foundation For Tomorrow": {
@@ -335,6 +349,30 @@
    "basis": "The site loads and is current to September 2026, publishing carchd@arusha-archdiocese.or.tz as the diocese contact.",
    "source_url": "https://www.arusha-archdiocese.or.tz/",
    "decided_on": "2026-10-03"
+  },
+  "The Small Things": {
+   "flags": [
+    "no dated activity found after 2017 (search budget exhausted before checking)"
+   ],
+   "basis": "The organisation's own volunteer listing on Idealist is dated 4 May 2026 and runs to 31 December 2026, so it is active in 2026.",
+   "source_url": "https://www.idealist.org/en/volunteer-opportunity/204ff7b0c11d4db2942569945e7f8534-childhood-education-community-development-volunteer-the-small-things-arusha",
+   "decided_on": "2026-10-10"
+  },
+  "THE BANDARI YA MAENDELEO ORGANIZATION": {
+   "flags": [
+    "no website or published contact route found"
+   ],
+   "basis": "The project's own website thebandariproject.com was read on 10 October 2026; its contact page publishes thebandariproject@gmail.com.",
+   "source_url": "https://thebandariproject.com/contact/",
+   "decided_on": "2026-10-10"
+  },
+  "Seeway Tanzania": {
+   "flags": [
+    "no website found"
+   ],
+   "basis": "The organisation's own website swtz.org was read on 10 October 2026 (home and contact pages).",
+   "source_url": "https://www.swtz.org/contact-us/",
+   "decided_on": "2026-10-10"
   }
  },
  "official_personal_inboxes": {

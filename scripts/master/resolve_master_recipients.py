@@ -40,11 +40,17 @@ DUPLICATE_NOTE = re.compile(r"(Duplicate organisation:|Shared inbox with) [^;]*?
 ROLE_NOT_CONFIRMED = re.compile(r"Role not confirmed|Possible closure", re.I)
 
 HR = re.compile(r"human resource|\bhr\b|people (and|&) culture|talent|personnel", re.I)
-TOP = re.compile(r"owner|founder|managing director|managing partner|executive partner|\bceo\b|chief executive|principal|vice chancellor|executive director|chairman|chairperson", re.I)
+# The head of an institution under its own title counts as its chief executive: a university's vice-chancellor (often written
+# 'Vice-Chancellor'), an institute's rector or provost, a school's head, and an association's or chamber's executive secretary.
+TOP = re.compile(r"owner|founder|proprietor|managing director|managing partner|executive partner|country senior partner|\bceo\b|chief executive|"
+                 r"principal|vice[- ]?chancellor|\brector\b|\bprovost\b|head of school|head ?teacher|headmaster|headmistress|"
+                 r"executive director|executive secretary|secretary general|chairman|chairperson", re.I)
 GM = re.compile(r"general manager|country manager|director general|country director", re.I)
 OTHER_DIRECTOR = re.compile(r"\bdirector\b|head of (finance|operations)|chief (finance|operating) officer|\bcfo\b|\bcoo\b", re.I)
 NOT_SENIOR = re.compile(r"board|non-executive|trustee|advis|assistant|\bass\.|deputy|guide|reservation|sales|marketing|logistics|trip|camp|field|audit|"
                         r"credit|risk|compliance|patient|research|technical|\bict?\b|engineer|kenya|kisumu|nairobi|uganda", re.I)
+# A role the source itself dates as past ('Head of School (older school site, 2016)', 'Former Director') is not a current recipient.
+STALE = re.compile(r"\bolder\b|\bformer(ly)?\b|\bretired\b|\bpast\b|\bex-|\bemeritus\b", re.I)
 FALLBACK_OK = re.compile(r"director|operations manager|communications|public relations|pr|marketing", re.I)
 VERIFIED = re.compile(r"^(Published by the organisation|Verified \d{4}-\d\d-\d\d)|role confirmed \d{4}-\d\d-\d\d", re.I)
 UNUSABLE = re.compile(r"name incomplete|pdpa_risk risky|decision-maker no", re.I)
@@ -91,6 +97,8 @@ def squash(name: str) -> str:
 def role_rank(role: str):
     """0 human resources, 1 owner or chief executive, 2 general manager or director, 3 other senior director; None if not senior."""
     role = role or ""
+    if STALE.search(role):
+        return None
     if HR.search(role):
         return 0
     if TOP.search(role) and not re.search(r"assistant|deputy|\bass\.|kenya|kisumu|nairobi|uganda", role, re.I):

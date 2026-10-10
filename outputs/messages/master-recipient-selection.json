@@ -3,19 +3,19 @@
  "method": "scripts/master/resolve_master_recipients.py",
  "note": "No record was merged or deleted. The baseline is the selection before the first run; the lists compare the database with it.",
  "summary": {
-  "clusters": 93,
-  "organisations_in_clusters": 197,
+  "clusters": 94,
+  "organisations_in_clusters": 199,
   "cluster_kinds": {
-   "same organisation": 88,
-   "shared inbox": 5
+   "same organisation": 90,
+   "shared inbox": 4
   },
-  "duplicate_organisations_held": 104,
-  "candidates_after": 850,
+  "duplicate_organisations_held": 105,
+  "candidates_after": 849,
   "candidates_before": 938,
-  "plans_changed": 471,
-  "plans_now_candidate": 170,
-  "plans_now_alternative": 301,
-  "named_contacts_now_candidate": 148
+  "plans_changed": 476,
+  "plans_now_candidate": 171,
+  "plans_now_alternative": 305,
+  "named_contacts_now_candidate": 149
  },
  "clusters": [
   {
@@ -580,6 +580,13 @@
    ]
   },
   {
+   "kind": "shared inbox",
+   "primary": "Sabrahm Safaris (Of4377426e011)",
+   "duplicates": [
+    "Sabrahm Consulting Ltd (O196cb100cad1)"
+   ]
+  },
+  {
    "kind": "same organisation",
    "primary": "Stan Tours & Safaris (O7bd668f3b262)",
    "duplicates": [
@@ -632,7 +639,7 @@
    ]
   },
   {
-   "kind": "shared inbox",
+   "kind": "same organisation",
    "primary": "YAS Tanzania (O38a5a92ef2ea)",
    "duplicates": [
     "Tigo Store (O93c8c9fb672c)"
@@ -646,7 +653,7 @@
    ]
   },
   {
-   "kind": "shared inbox",
+   "kind": "same organisation",
    "primary": "NBC Bank Tanzania (Ob2ec027a1fb7)",
    "duplicates": [
     "National Bank of Commerce (NBC) (O6d705d505610)"
@@ -1683,6 +1690,12 @@
    "organisation": "Victory Attorneys & Consultants",
    "recipient": "Benedict A. Ishabakaki",
    "role": "Executive Partner"
+  },
+  {
+   "message_id": "M185ec0f648f7",
+   "organisation": "Ecobank",
+   "recipient": "Charles Asiedu",
+   "role": "Contact person, Ecobank Tanzania Limited (as listed by the Bank of Tanzania)"
   },
   {
    "message_id": "M8b1b4fa5b91d",
@@ -2875,6 +2888,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Mf38dd9f5878b",
+   "organisation": "Ecobank",
+   "recipient": "Ecobank",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Mbf31063f5ef7",
    "organisation": "Enosa Expedition",
    "recipient": "Enosa Expedition",
@@ -3259,6 +3278,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Me1ea28fcea78",
+   "organisation": "Sabrahm Consulting Ltd",
+   "recipient": "Sabrahm Consulting Ltd",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Ma53922a81eb6",
    "organisation": "SainCraft Technologies",
    "recipient": "SainCraft Technologies",
@@ -3427,6 +3452,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M726a2b2f0a10",
+   "organisation": "Tengeru Institute of Community Development",
+   "recipient": "Tengeru Institute of Community Development",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "Mbc7573d6b546",
    "organisation": "Tigo Store",
    "recipient": "Tigo Store",
@@ -3454,6 +3485,12 @@
    "message_id": "M04b8299073b1",
    "organisation": "Tropical Trails",
    "recipient": "Tropical Trails",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M73b4462f6e92",
+   "organisation": "Tumaini University Makumira Offices",
+   "recipient": "Tumaini University Makumira Offices",
    "role": "Organisation routing"
   },
   {

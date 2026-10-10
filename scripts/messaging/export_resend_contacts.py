@@ -415,6 +415,8 @@ def government_rows(con, today: str):
             if q and q.get("holder_name"):
                 note = " (B2G check first)" if q.get("b2g_check_required") == "yes" else (
                     " (engage only through the forum they chair)" if key == "ward_councillor" else "")
+                if payload.get(q["contact_id"], {}).get("verification_status") == "needs_review":
+                    note += " (to confirm)"
                 quick.append(f"{q['office_title']}: {q['holder_name']}{note}")
         postal = o["address"] or ""
         official_route = opay.get("route_official") == "yes"

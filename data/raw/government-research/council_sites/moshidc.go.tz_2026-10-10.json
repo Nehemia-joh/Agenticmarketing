@@ -1272,7 +1272,17 @@
    "convening_tags": [
     "public_meeting"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdin Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu ameipongeza Halmashauri ya wilaya ya Moshi"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1644,7 +1654,17 @@
    "convening_tags": [
     "public_meeting"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdin Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu amefungua rasmi mafunzo ya siku mbili"
+    }
+   ],
    "attachments": []
   },
   {

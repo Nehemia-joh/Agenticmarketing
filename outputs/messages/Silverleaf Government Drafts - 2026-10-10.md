@@ -96,7 +96,7 @@ S.L.P. 14146, Usa River · +255 769 486 660 · info@silverleaf.co.tz
 ### 1.2 Halmashauri ya Wilaya ya Arusha (Arusha District Council)
 
 - To: Mkurugenzi wa Halmashauri (Council Director) | Delivery: Official office address (hand delivery) | Plan: M475b5f6450b2 | Status: draft_ready
-- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Council Director: Ndg. Seleman Msumi (source dated 2026-10-03); Head of Pre-Primary and Primary Education Division: Judith Mrimi (source dated 2026-03-27)
+- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Head of Community Development Division: Stedvant Kileo (source dated 2026-03-26); Council Director: Ndg. Seleman Msumi (source dated 2026-10-03); Head of Pre-Primary and Primary Education Division: Judith Mrimi (source dated 2026-03-27); Council Social Welfare Officer: Beatrice Tengi (source dated 2026-05-19)
 
 **Kiswahili.** YAH: OMBI LA UTAMBULISHO ILI KUTOA ELIMU KWA WAZAZI KUHUSU MAANDALIZI YA WATOTO KUANZA SHULE
 
@@ -543,7 +543,7 @@ S.L.P. 14146, Usa River · +255 769 486 660 · info@silverleaf.co.tz
 ### 1.8 Halmashauri ya Wilaya ya Siha (Siha District Council)
 
 - To: Mkurugenzi wa Halmashauri (Council Director) | Delivery: Official office address (hand delivery) | Plan: Mbffb7b87d988 | Status: needs_review
-- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Head of Community Development Division: Marco Masue (source dated 2026-10-01); Council Director: Bi. Hellen E. Mwambeta (source dated 2026-09-04)
+- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Head of Community Development Division: Marco Masue (source dated 2026-10-01); Council Director: Binuru Mussa (source dated 2026-10-01)
 - **Held:** Outside the v1 pilot councils (plan §5.10): hold.
 
 **Kiswahili.** YAH: OMBI LA UTAMBULISHO ILI KUTOA ELIMU KWA WAZAZI KUHUSU MAANDALIZI YA WATOTO KUANZA SHULE
@@ -967,7 +967,7 @@ Marketing and Partnership Coordinator, Silverleaf Academy
 ### 2.7 Ofisi ya Mkuu wa Wilaya ya Simanjiro (Simanjiro District Commissioner's Office)
 
 - To: Katibu Tawala wa Wilaya (District Administrative Secretary) | Delivery: Official office address (hand delivery) | Plan: Md3a0e49486bf | Status: needs_review
-- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): District Commissioner: Fakii Lulandala (source dated 2026-04-16)
+- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): District Administrative Secretary: Warda A. Maulid (source dated 2026-03-16); District Commissioner: Fakii Lulandala (source dated 2026-04-16)
 - **Held:** District and regional offices are not a v1 target (plan §1): hold; coordinate with the B2G owner first.
 
 **Kiswahili.** YAH: TAARIFA KUHUSU ELIMU KWA WAZAZI JUU YA MAANDALIZI YA WATOTO KUANZA SHULE
@@ -1012,7 +1012,7 @@ Marketing and Partnership Coordinator, Silverleaf Academy
 ### 2.8 Sekretarieti ya Mkoa wa Arusha (Arusha Regional Secretariat)
 
 - To: Katibu Tawala wa Mkoa (Regional Administrative Secretary) | Delivery: Official office address (hand delivery) | Plan: M4f6727e851eb | Status: needs_review
-- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Regional Administrative Secretary: Dkt Toba Alnason Nguvila (source dated 2026-10-01); Regional Commissioner: Mhe. CPA AMOS GABRIEL MAKALLA (source dated 2026-10-03); Education and Vocational Training Section, Regional Secretariat: Vicent Kayombo (source dated 2026-08-07)
+- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Regional Administrative Secretary: Dkt Toba Alnason Nguvila (source dated 2026-10-01); Regional Commissioner: Mhe. CPA AMOS GABRIEL MAKALLA (source dated 2026-10-03); Community Development Unit, Regional Secretariat: Erena Materu (source dated 2026-09-01); Education and Vocational Training Section, Regional Secretariat: Vicent Kayombo (source dated 2026-08-07)
 - **Held:** District and regional offices are not a v1 target (plan §1): hold; coordinate with the B2G owner first.
 
 **Kiswahili.** YAH: TAARIFA KUHUSU ELIMU KWA WAZAZI JUU YA MAANDALIZI YA WATOTO KUANZA SHULE
@@ -3691,6 +3691,7 @@ Marketing and Partnership Coordinator, Silverleaf Academy
 ### 3.22 Ofisi ya Kata ya Bwawani (Arusha District Council)
 
 - To: Afisa Mtendaji wa Kata (Ward Executive Officer (WEO)) | Delivery: Official office address (hand delivery) | Plan: M0cd5b1e99d2a | Status: needs_review
+- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): Ward Executive Officer (WEO): Simon Kaaya (source dated 2026-07-16)
 - Nearest campus: Usa River, 22.9 km (later (over 20 km)) | Ward priority: tier P3, score 22.5
 - **Held:** Held until the council introduction (GA01) is recorded and this post is verified within 90 days (GA02 gate). Ward priority: tier P3, score 22.5, rank 13 in Usa River.
 

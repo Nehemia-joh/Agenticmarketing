@@ -685,6 +685,21 @@ def apply_holder_evidence(offices, posts, sites, cfg, links, reviews, raw, scope
                 continue
             evidence = source(r["source_url"], r.get("source_title", ""), r.get("evidence_basis", "published"), r.get("accessed_on", ""),
                               ["holder name as published"], r.get("excerpt", ""), fetched=bool(r.get("fetched", True)))
+            # A reviewed record can replace a holder the office's own leadership profile still shows, when a newer official item
+            # reports the handover ("supersedes": the profile's name). The profile name is kept in the notes and a review item.
+            if (post["holder_name"] and r.get("supersedes") and name_tokens(post["holder_name"]) & name_tokens(r["supersedes"])
+                    and (r.get("source_date") or "") > (post.get("holder_source_date") or "")):
+                reviews.add("profile_holder_superseded", f"{post['office_title']} — {post['organisation_name']}",
+                            {"profile": post["holder_name"], "profile_date": post.get("holder_source_date"), "newer": r["name"],
+                             "source": r["source_url"], "source_date": r.get("source_date")},
+                            "A newer official item reports a handover the leadership profile does not show yet. Confirm with the office.")
+                superseded = f"The official leadership profile still names {post['holder_name']} (dated {post.get('holder_source_date') or 'unknown'})."
+                for s in post["all_sources"]:  # kept for traceability, but no longer evidence of the current holder
+                    if "holder name as published" in s.get("facts_supported", []):
+                        s["facts_supported"] = ["previous holder as published (superseded)"]
+                post["holder_name"] = ""
+                r = {**r, "note": "; ".join(x for x in (r.get("note"), superseded) if x)}
+                stats["profile holders superseded by a newer official record"] += 1
             if post["holder_name"]:
                 if name_tokens(post["holder_name"]) & name_tokens(r["name"]):
                     post["all_sources"].append(evidence)
@@ -698,7 +713,8 @@ def apply_holder_evidence(offices, posts, sites, cfg, links, reviews, raw, scope
                                 "A researched source names someone else. Confirm the current holder with the office.")
                 continue
             recent = days_between(r.get("source_date") or "1900-01-01", r.get("accessed_on") or "") <= CURRENT_DAYS
-            official = r.get("evidence_basis") == "official"
+            # "needs_review": true keeps a reviewed record named but unverified (one item, or the post inferred from context)
+            official = r.get("evidence_basis") == "official" and not r.get("needs_review")
             post.update({"holder_name": r["name"], "holder_verified_on": r.get("accessed_on", ""), "holder_source_date": r.get("source_date", ""),
                          "holder_basis": f"researched ({r.get('evidence_basis', 'published')} source)", "tenure_source_url": r["source_url"],
                          "role_certainty": "confirmed" if (official and recent) else "inferred_role", "pdpa_risk": "medium",
@@ -715,6 +731,8 @@ def apply_holder_evidence(offices, posts, sites, cfg, links, reviews, raw, scope
         if not isinstance(rule, dict) or not rule.get("post_key"):
             continue
         for p in posts:
+            if rule.get("record_key") and p["record_key"] != rule["record_key"]:
+                continue  # a rule may name one post (a single transfer) rather than every post of its kind
             if p["post_key"] == rule["post_key"] and p["holder_name"] and (p.get("holder_source_date") or "") < rule["before"]:
                 p["verification_status"], p["role_certainty"] = "needs_review", "inferred_role"
                 p["notes"] = "; ".join(x for x in (p.get("notes"), rule["reason"]) if x)

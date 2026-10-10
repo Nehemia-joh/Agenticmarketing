@@ -36,7 +36,8 @@ MANIFEST_NOTES = {"nbs_2022_wards": "2022 census ward populations for the run's 
                   "council_sites/": "Council or regional website captured through its public API; CMS editor data, photos and biographies removed",
                   "transcriptions/": "Transcription of a scanned official document, with page and row locators",
                   "office_contacts_": "Published office routes (email, phone, postal and physical address) with their sources",
-                  "post_holders_": "Post holders found by budgeted research of official or published pages, with source date, URL and excerpt"}
+                  "post_holders_": "Post holders found by budgeted research of official or published pages, with source date, URL and excerpt",
+                  "coverage_": "Coverage log of an enrichment round: data points per stratum before and after, searches and blocked sources"}
 MODULES = {"council": "VM14|VM15|VM16|VM17", "ward": "VM14|VM15|VM16|VM17", "village": "VM14|VM15|VM16|VM17", "district": "", "region": ""}
 PRIORITY = {"P1": "High", "P2": "Medium", "P3": "Low", "P4": "Low"}
 

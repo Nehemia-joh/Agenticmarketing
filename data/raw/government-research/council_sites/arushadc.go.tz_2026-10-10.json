@@ -689,7 +689,17 @@
    "listing_url": "https://arushadc.go.tz/api/news?page=1&limit=50",
    "text_chars": 1507,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "community_development_head",
+     "level": "council",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Stedvant Kileo",
+     "acting": false,
+     "excerpt": "Mkuu wa idara ya Maendeleo ya Jamii Halmashauri ya Arusha ndugu Stedvant Kileo , kufuatia maagizo ya Waziri wa"
+    }
+   ],
    "attachments": []
   },
   {
@@ -725,7 +735,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "council_director",
+     "level": "council",
+     "unit": "Arusha",
+     "council_kind": "district",
+     "name": "Seleman Msumi",
+     "acting": false,
+     "excerpt": "Mkurugenzi Mtendaji wa Halmashauri ya Wilaya ya Arusha ndugu Seleman Msumi , amekabidhi vifaa mbalimbali vya Michezo"
+    }
+   ],
    "attachments": []
   },
   {
@@ -738,7 +758,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "council_director",
+     "level": "council",
+     "unit": "Arusha",
+     "council_kind": "district",
+     "name": "Seleman Msumi",
+     "acting": false,
+     "excerpt": "Mkurugenzi Mtendaji wa Halmashauri ya Wilaya ya Arusha ndugu Seleman Msumi kwaniaba ya Wizara ya Elimu amemkabidhi"
+    }
+   ],
    "attachments": []
   },
   {
@@ -789,7 +819,17 @@
     "exhibition_or_public_event",
     "officials_training"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alson Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alson Nguvila , wakati wa Kikao kazi na"
+    }
+   ],
    "attachments": []
   },
   {
@@ -920,17 +960,7 @@
    "listing_url": "https://arushadc.go.tz/api/announcements?page=1&limit=50",
    "text_chars": 351,
    "convening_tags": [],
-   "holder_mentions": [
-    {
-     "post_key": "council_director",
-     "level": "council",
-     "unit": "ARUSHA",
-     "council_kind": "district",
-     "name": "ANAWATANGAZIA WATUMISHI WOTE KUWA",
-     "acting": false,
-     "excerpt": "MKURUGENZI MTENDAJI WA HALMASHAURI YA WILAYA YA ARUSHA ANAWATANGAZIA WATUMISHI WOTE KUWA KUTAKUA NA KIKAO KAZI NA WATUMISHI"
-    }
-   ],
+   "holder_mentions": [],
    "attachments": [
     "KERO.docx"
    ]

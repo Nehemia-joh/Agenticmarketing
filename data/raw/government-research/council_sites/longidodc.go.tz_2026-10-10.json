@@ -2284,7 +2284,17 @@
     "parents_or_education",
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Longido",
+     "council_kind": "",
+     "name": "Salumu Kali",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Longido Mhe.Salumu Kali amesisitiza wakulima na wafugaji kuhakikisha wanaliteka"
+    }
+   ],
    "attachments": []
   },
   {

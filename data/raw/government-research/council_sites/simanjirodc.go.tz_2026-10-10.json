@@ -498,7 +498,17 @@
    "convening_tags": [
     "officials_training"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_administrative_secretary",
+     "level": "district",
+     "unit": "Simanjiro",
+     "council_kind": "",
+     "name": "Warda Abeid Maulid",
+     "acting": false,
+     "excerpt": "DAS Simanjiro Warda Abeid Maulid na watumishi wa ofisi yao wametembelea"
+    }
+   ],
    "attachments": []
   },
   {
@@ -583,7 +593,17 @@
     "public_meeting",
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_administrative_secretary",
+     "level": "district",
+     "unit": "Simanjiro",
+     "council_kind": "",
+     "name": "Warda A. Maulid",
+     "acting": false,
+     "excerpt": "Katibu Tawala Wilaya ya Simanjiro Bi.Warda A. Maulid aliyemwakilisha Mkuu wa Wilaya ya Simanjiro"
+    }
+   ],
    "attachments": []
   }
  ],

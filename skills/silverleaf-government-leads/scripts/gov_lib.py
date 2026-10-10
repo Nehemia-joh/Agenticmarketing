@@ -150,11 +150,14 @@ def sanitise(value):
 # official publication of who holds it. collect_council_sites.py keeps only the matched post, the name exactly as written,
 # the item's date and an excerpt of at most 25 words; the story text itself is never stored. The build applies a mention
 # only to a post that no leadership profile names, and records the item's date as the source date.
-_HONORIFIC = (r"(?:(?:Mhe|Mh|Mheshimiwa|Hon|Ndg|Ndugu|Bw|Bwana|Bi|Bibi|Mwl|Mwalimu|Dkt|Dk|Dr|Eng|Mhandisi|CPA|Prof|Kanali|Col|Mr|Mrs|Ms|"
-              r"Sheikh|Mchungaji)\.?\s+)")
+# Any case, and a dot may run straight into the name ("Bi.Warda A. Maulid", "Mwl.Marcel Itambu", "ndugu Stedvant Kileo").
+_HONORIFIC = (r"(?:(?i:Mheshimiwa|Mhe|Mh|Hon|Ndg|Ndugu|Bwana|Bw|Bibi|Bi|Mwalimu|Mwl|Dkt|Dk|Dr|Eng|Mhandisi|CPA|Prof|Kanali|Col|Mrs|Mr|Ms|"
+              r"Sheikh|Mchungaji)(?:\.\s*|\s+))")
 _NAME_WORD = r"(?:[A-Z][a-zA-Z'’\-]+|[A-Z]\.)"
 _NAME = rf"(?P<name>{_NAME_WORD}(?:\s+{_NAME_WORD}){{1,3}})"
 _UNIT = r"(?P<unit>[A-Z][a-zA-Z'’]+(?:\s(?:Kusini|Kaskazini|Mashariki|Magharibi|Kati|Juu|Chini|River|[IV]{1,3}))?)"
+# "... wa Halmashauri ya Wilaya ya Meru", "... Jiji la Arusha", or only "... Halmashauri ya Arusha" (the host council decides which)
+_COUNCIL_OF = r"(?:(?i:halmashauri\s+ya\s+)(?i:(?:wilaya|jiji|manispaa)\s+(?:ya|la)\s+)?|(?i:(?:wilaya|jiji|manispaa)\s+(?:ya|la)\s+))"
 _TAIL = rf"(?:\s*\([A-Za-z.]+\))?,?\s+(?P<acting>(?i:kaimu\s+))?{_HONORIFIC}*{_NAME}"
 # (post_key, office level, title pattern): the title words match in any case; the unit and the name must be capitalised.
 MENTION_RULES = [
@@ -164,13 +167,18 @@ MENTION_RULES = [
     ("district_commissioner", "district", rf"(?<![Gg]anga )(?<!GANGA )(?i:mkuu\s+wa\s+wilaya\s+(?:ya\s+)?){_UNIT}"),
     ("district_commissioner", "district", rf"{_UNIT}(?i:\s+district\s+commissioner)"),
     ("district_administrative_secretary", "district", rf"(?i:katibu\s+tawala\s+(?:wa\s+)?wilaya\s+(?:ya\s+)?){_UNIT}"),
+    ("district_administrative_secretary", "district", rf"\bDAS\s+(?:(?i:wa\s+)?(?i:wilaya\s+ya\s+))?{_UNIT}"),
     ("council_director", "council", rf"(?i:mkurugenzi\s+mtendaji\s+(?:wa\s+)?(?:halmashauri\s+ya\s+)?wilaya\s+(?:ya\s+)?){_UNIT}(?P<kind_district>)"),
     ("council_director", "council", rf"(?i:mkurugenzi\s+(?:mtendaji\s+)?(?:wa\s+)?(?:halmashauri\s+ya\s+)?jiji\s+(?:la\s+)?)(?P<unit>Arusha)(?P<kind_city>)"),
     ("council_director", "council", rf"(?i:mkurugenzi\s+(?:mtendaji\s+)?(?:wa\s+)?(?:halmashauri\s+ya\s+)?manispaa\s+(?:ya\s+)?)(?P<unit>Moshi)(?P<kind_municipal>)"),
     ("primary_education_head", "council", r"(?i:(?:afisa|mkuu\s+wa\s+divisheni\s+ya|mkuu\s+wa\s+idara\s+ya)\s+elimu\s+(?:ya\s+)?(?:awali\s+na\s+)?msingi)"
-                                          r"(?:\s+(?i:wa\s+)?(?i:halmashauri\s+ya\s+)?(?i:(?:wilaya|jiji|manispaa)\s+(?:ya|la)\s+)(?P<unit>[A-Z][a-z]+))?"),
+                                          rf"(?:\s+(?i:wa\s+)?{_COUNCIL_OF}(?P<unit>[A-Z][a-z]+))?"),
     ("community_development_head", "council", r"(?i:(?:mkuu\s+wa\s+divisheni\s+ya|mkuu\s+wa\s+idara\s+ya)\s+maendeleo\s+ya\s+jamii)"
-                                              r"(?:\s+(?i:wa\s+)?(?i:halmashauri\s+ya\s+)?(?i:(?:wilaya|jiji|manispaa)\s+(?:ya|la)\s+)(?P<unit>[A-Z][a-z]+))?"),
+                                              rf"(?:\s+(?i:wa\s+)?{_COUNCIL_OF}(?P<unit>[A-Z][a-z]+))?"),
+    # the head of the regional secretariat's community development unit ("Mkuu wa Divisheni ya Maendeleo ya Jamii Mkoa wa Arusha");
+    # an "Afisa Maendeleo ya Jamii Mkoa" is one of its officers, not the head, so it is not matched
+    ("regional_community_development", "region", r"(?i:mkuu\s+wa\s+(?:divisheni|idara|kitengo|sehemu)\s+ya\s+maendeleo\s+ya\s+jamii\s+(?:wa\s+)?(?:sekretarieti\s+ya\s+)?mkoa\s+(?:wa\s+)?)"
+                                                 r"(?P<unit>Arusha|Kilimanjaro|Manyara)"),
     ("social_welfare_officer", "council", r"(?i:afisa\s+ustawi\s+wa\s+jamii\s+(?:wa\s+)?(?:halmashauri|wilaya|jiji|manispaa))"
                                           r"(?:\s+(?i:ya|la)\s+(?:(?i:wilaya\s+ya\s+))?(?P<unit>[A-Z][a-z]+))?"),
     ("ward_executive_officer", "ward", rf"(?i:(?:afisa\s+)?mtendaji\s+wa\s+kata\s+(?:ya\s+)?){_UNIT}"),
@@ -206,6 +214,9 @@ def holder_mentions(text: str, limit_words: int = 25) -> list[dict]:
             while words and _NOT_NAME.match(words[-1].strip(".,")):
                 words.pop()
             if len(words) < 2 or any(_NOT_NAME.match(w.strip(".,")) for w in words):
+                continue
+            # An all-capitals headline ("DAS ARUSHA AAHIDI UTAYARI", "... MHE. MODEST MKUDE AKABIDHI VIFAA") shows no end to the name.
+            if all(w.strip(".,").isupper() for w in words if len(w.strip(".,")) > 1):
                 continue
             name = " ".join(words)
             groups = m.groupdict()

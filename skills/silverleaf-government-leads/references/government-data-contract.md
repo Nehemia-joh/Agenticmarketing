@@ -90,7 +90,14 @@ Tracks: `GA01 Protocol introduction` for core councils with an office published 
 | `ward_locations` | `"<council>|<ward>"` mapped to `{"source": "wikipedia" \| "osm_place" \| "osm_facility" \| "none", "ref": "<title, node/ID or way/ID>", "note": "..."}` |
 | `osm_office_links` | OpenStreetMap office ID mapped to `{"council", "ward", "note"}`, or to `{"category", "detail", "note"}` to record a reviewed triage decision |
 | `holder_rejects` | `{"post": "<GPOST record key>", "name": "...", "note"}`: a name the news extractor read that is not the post's holder |
-| `holder_recheck` | `{"post_key", "before": "<date>", "reason", "source"}`: holders of that post last named before the date are marked `needs_review` (a known reshuffle) |
+| `holder_recheck` | `{"post_key", "before": "<date>", "reason", "source"}`: holders of that post last named before the date are marked `needs_review` (a known reshuffle). With `"record_key"` the rule applies to that one post only (a single transfer) |
+
+## `post_holders_*.json` (reviewed researched holders)
+
+Each record in `holders`: `record_key` (the GPOST key), `name` exactly as the source writes it, `source_url`, `source_location`, `source_title`, `source_date`, `accessed_on`, `evidence_basis`, `fetched`, an `excerpt` of 25 words or fewer and a `note`. Optional:
+
+- `supersedes`: the name a leadership profile still shows. When the record's source is newer than the profile, the record replaces that holder; the profile name stays in the notes and a `profile_holder_superseded` review item (a handover the profile has not caught up with).
+- `needs_review`: `true` keeps the name unverified even from a recent official source (one item, or a post inferred from context).
 
 ## Side tables (run database)
 

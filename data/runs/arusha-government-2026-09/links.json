@@ -61,6 +61,12 @@
  "holder_rejects": [
   {
    "_about": "Names the mention extractor read from official news that are not the post's holder (a misreading, another office's officer, or a representative). Checked by the agent on 10 October 2026 against the cached item text, for review."
+  },
+  {
+   "post": "GPOST_district-arumeru_district_commissioner",
+   "name": "Zianabu J.",
+   "reason": "merudc.go.tz news 10513 (2026-10-03) is a photo caption that lists people one after another; the name after 'Mkuu wa Wilaya ya Arumeru,' is the Meru council director (Mwl. Zainabu J. Makwinya), not the District Commissioner.",
+   "decided_on": "2026-10-10"
   }
  ],
  "holder_recheck": [
@@ -69,6 +75,22 @@
    "before": "2026-09-27",
    "reason": "District Commissioners were reshuffled at the end of September 2026: Arusha, Arumeru (sworn in 3 October) and Hai (handover 1 October) have new holders. A District Commissioner last named before 27 September 2026 may have moved: confirm with the office.",
    "source": "merudc.go.tz news 10513 (2026-10-03); haidc.go.tz news 10407 (2026-10-02)",
+   "decided_on": "2026-10-10"
+  },
+  {
+   "post_key": "regional_commissioner",
+   "record_key": "GPOST_region-manyara_regional_commissioner",
+   "before": "2026-08-27",
+   "reason": "A reshuffle of regional commissioners announced on 27 August 2026 moved the Manyara Regional Commissioner to Morogoro and named a successor (The Citizen, 27 August 2026; the Manyara site's leadership profile was last updated on 31 July 2026). Confirm the current Regional Commissioner with the regional office; no official source names the successor yet.",
+   "source": "https://thecitizen.co.tz/tanzania/news/national/samia-reshuffles-regional-leadership-gives-former-mps-new-roles-5573524 (read 2026-10-10)",
+   "decided_on": "2026-10-10"
+  },
+  {
+   "post_key": "council_director",
+   "record_key": "GPOST_council-simanjiro-district-council_council_director",
+   "before": "2026-10-01",
+   "reason": "A national newspaper report of the late-September 2026 reshuffle lists a council executive director transferred to Simanjiro (Daily News, dailynews.co.tz/?p=163358, read 2026-10-10); the council's leadership profile was last updated on 9 April 2026. Confirm the current director with the council.",
+   "source": "https://dailynews.co.tz/?p=163358 (read 2026-10-10)",
    "decided_on": "2026-10-10"
   }
  ]

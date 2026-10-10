@@ -1937,7 +1937,17 @@
     "parents_or_education",
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdin Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu akisalimiana na viongozi mbalimbali wakati akiwasili"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1959,7 +1969,7 @@
      "council_kind": "",
      "name": "Nurdin Babu",
      "acting": false,
-     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Nurdin Babu ametoa wito kwa jamii kutumia kauli"
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu ahimiza usawa. Mkuu wa Mkoa wa"
     },
     {
      "post_key": "district_commissioner",

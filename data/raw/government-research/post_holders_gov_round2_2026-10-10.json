@@ -1,0 +1,61 @@
+{
+ "retrieved": "2026-10-10",
+ "note": "Second enrichment round of 10 October 2026 (stratified). Post holders confirmed by reading the full text of official council and regional news items in the GWF CORE public API (captured 2026-10-10, cached under runtime/government/arusha-government-2026-09/http-cache-2026-10-10/), where the mention extractor cannot attribute the post on its own (the ward is named only in the headline, an officer of the division rather than its head, or a handover the leadership profile does not show yet). Name exactly as the item writes it; excerpt of 25 words or fewer; the story itself is not kept. Coverage log: data/raw/government-research/coverage_gov_round2_2026-10-10.md.",
+ "holders": [
+  {
+   "record_key": "GPOST_council-siha-district-council_council_director",
+   "name": "Binuru Mussa",
+   "supersedes": "Hellen E. Mwambeta",
+   "source_url": "https://sihadc.go.tz/api/news?page=1&limit=50",
+   "source_location": "news[id=10676] dated 2026-10-01: KAMATI YA FUM, TIMU YA MENEJIMENTI WAMSHUKURU BI. MWAMBETA ...",
+   "source_title": "Siha District Council news item 10676 (2026-10-01): the finance committee and management thank the outgoing director on her transfer",
+   "source_date": "2026-10-01",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Bi. Hellen Mwambeta amehamishwa katika Halmashauri ya Wilaya ya Siha Kwenda kuwa mkurugenzi mtendaji wa Halmashauri ya Manispaa ya shinyanga huku Bw. Binuru Mussa akichukua nafasi yake.",
+   "note": "Handover reported on 1 October 2026; the council's leadership profile (updated 2026-09-04) still shows Hellen E. Mwambeta. A national newspaper report of the same reshuffle (Daily News, dailynews.co.tz/?p=163358, read 2026-10-10) spells the incoming director 'Binuru Shekidele'; confirm the full name with the council."
+  },
+  {
+   "record_key": "GPOST_ward-arusha-district-council-bwawani_ward_executive_officer",
+   "name": "Simon Kaaya",
+   "needs_review": true,
+   "source_url": "https://arusha.go.tz/api/news?page=3&limit=50",
+   "source_location": "news[id=6543] dated 2026-07-16: WANANCHI WA KATA YA BWAWANI WAPONGEZWA UJENZI WA OFISI YA KATA",
+   "source_title": "Arusha Regional Secretariat news item 6543 (2026-07-16): Bwawani ward residents praised for building their ward office",
+   "source_date": "2026-07-16",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Akisoma taarifa ya mradi huo Afisa Mtendaji wa Kata, Simon Kaaya, amesema kuwa mradi huo unatekelezwa kwa gaharama ya shilingi milioni 84.4",
+   "note": "The item is about Kata ya Bwawani, Halmashauri ya Arusha (headline and first sentence); the officer is named without the ward in the same sentence. One item only: confirm with Arusha District Council."
+  },
+  {
+   "record_key": "GPOST_council-arusha-district-council_social_welfare_officer",
+   "name": "Beatrice Tengi",
+   "needs_review": true,
+   "source_url": "https://arusha.go.tz/api/news?page=5&limit=50",
+   "source_location": "news[id=4057] dated 2026-05-19: MAAFISA MAENDELEO YA JAMII NA USTAWI WAKUTANA, UIMARISHAJI WA VIKUNDI VYA MALEZI",
+   "source_title": "Arusha Regional Secretariat news item 4057 (2026-05-19): community development and social welfare officers meet on parenting groups",
+   "source_date": "2026-05-19",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Bi. Beatrice Tengi, Afisa ustawi wa Jamii kutoka Arusha Dc amehimiza pia kuanzishwa kwa vituo vya kulea watoto mchana (Community Day Care)",
+   "note": "A social welfare officer of Arusha District Council, not stated to be the head of the social welfare section. Confirm who leads social welfare before relying on this name."
+  },
+  {
+   "record_key": "GPOST_region-arusha_regional_community_development",
+   "name": "Erena Materu",
+   "source_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
+   "source_location": "news[id=2193] dated 2026-03-27: SOS Children's Villages launches its Monduli project",
+   "source_title": "Monduli District Council news item 2193 (2026-03-27): SOS Children's Villages launches its project in Monduli",
+   "source_date": "2026-03-27",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Naye Bi.Erena Materu Afisa Maendeleo ya Jamii Mkoa wa Arusha kwa niaba ya Ndg. Toba Nguvila Katibu Tawala wa Mkoa wa Arusha",
+   "note": "Corroborates Meru District Council news item 10431 (2026-09-01), which names her 'Mkuu wa Divisheni ya Maendeleo ya Jamii Mkoa wa Arusha'. Regional news item 4057 (2026-05-19) spells her 'Helena Materu'."
+  }
+ ]
+}

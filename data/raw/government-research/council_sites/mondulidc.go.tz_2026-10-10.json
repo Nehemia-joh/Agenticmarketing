@@ -1080,7 +1080,17 @@
    "listing_url": "https://mondulidc.go.tz/api/news?page=1&limit=50",
    "text_chars": 2095,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvil",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvil ameridhishwa na kupongeza hali ya utoaji"
+    }
+   ],
    "attachments": []
   },
   {

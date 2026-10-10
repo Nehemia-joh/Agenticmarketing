@@ -962,15 +962,6 @@
     {
      "post_key": "district_commissioner",
      "level": "district",
-     "unit": "YA",
-     "council_kind": "",
-     "name": "ARUSHA MHE",
-     "acting": false,
-     "excerpt": "MKUU WA WILAYA YA ARUSHA MHE . MODEST MKUDE AKABIDHI VIFAA SAIDIZI"
-    },
-    {
-     "post_key": "district_commissioner",
-     "level": "district",
      "unit": "Arusha",
      "council_kind": "",
      "name": "Modest Mkude",
@@ -1135,7 +1126,17 @@
     "parents_or_education",
     "election_period"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "council_director",
+     "level": "council",
+     "unit": "Arusha",
+     "council_kind": "city",
+     "name": "John L. Kayombo",
+     "acting": false,
+     "excerpt": "Mkurugenzi wa Jiji la Arusha Ndg.John L. Kayombo anawatangazia wananchi na wazazi wote kua"
+    }
+   ],
    "attachments": [
     "KAMPENI YA CHANJO YA POLIO.jpeg"
    ]

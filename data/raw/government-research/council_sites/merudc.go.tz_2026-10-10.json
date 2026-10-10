@@ -763,6 +763,15 @@
     {
      "post_key": "district_commissioner",
      "level": "district",
+     "unit": "Arumeru",
+     "council_kind": "",
+     "name": "Zianabu J.",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Arumeru, Mwl.Zianabu J. Makwinya Mkurugenzi Mtendaji wa Halmashauri ya"
+    },
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
      "unit": "Arusha",
      "council_kind": "",
      "name": "Nicodemus Tambo Mwikozi",
@@ -938,7 +947,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Gabriel Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Arusha Mhe.CPA Amos Gabriel Makalla amewaagiza wakuu wa wilaya za Mkoa"
+    }
+   ],
    "attachments": []
   },
   {
@@ -998,7 +1017,17 @@
    "convening_tags": [
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_community_development",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Erena Materu",
+     "acting": false,
+     "excerpt": "Mkuu wa Divisheni ya Maendeleo ya Jamii Mkoa wa Arusha Bi. Erena Materu huku akiwataka maafisa maendeleo kuchagua maeneo"
+    }
+   ],
    "attachments": []
   },
   {
@@ -2056,6 +2085,15 @@
    ],
    "holder_mentions": [
     {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Arusha Mhe.CPA Amos Makalla amefanya kikao na wakuu wilaya ,"
+    },
+    {
      "post_key": "council_director",
      "level": "council",
      "unit": "Meru",
@@ -2145,7 +2183,17 @@
    "listing_url": "https://merudc.go.tz/api/announcements?page=1&limit=50",
    "text_chars": 416,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "council_director",
+     "level": "council",
+     "unit": "Meru",
+     "council_kind": "district",
+     "name": "Zainabu J. Makwinya",
+     "acting": false,
+     "excerpt": "Mkurugenzi Mtendaji wa Halmashauri ya Wilaya ya Meru Mwl.Zainabu J. Makwinya kwa niaba ya uongozi,watumishi na wananchi"
+    }
+   ],
    "attachments": [
     "834867711_18128264470743398_4037444616753649937_n.webp"
    ]
@@ -2187,7 +2235,17 @@
    "convening_tags": [
     "election_period"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "council_director",
+     "level": "council",
+     "unit": "Meru",
+     "council_kind": "district",
+     "name": "Zainabu J.",
+     "acting": false,
+     "excerpt": "Mkurugenzi Mtendaji wa Halmashauri ya wilaya ya Meru Mwl.Zainabu J. Makwinya anawatangazia wananchi wote kuwa zoezi"
+    }
+   ],
    "attachments": [
     "Lengo-ni-kuwafikia-watoto-wote-99-852-waliopo-ndani-ya-Halmashauri-ya-wilaya-ya-Meru-Sisi-tupo.webp"
    ]

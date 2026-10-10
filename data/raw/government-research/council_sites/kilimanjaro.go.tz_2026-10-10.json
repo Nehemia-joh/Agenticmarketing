@@ -660,7 +660,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdin Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu ameendelea kuishukuru serikali ya awamu ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1136,7 +1146,17 @@
    "listing_url": "https://kilimanjaro.go.tz/api/news?page=1&limit=50",
    "text_chars": 1021,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdin Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu amekabidhi rasmi pikipiki ya magurudumu matatu"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1149,7 +1169,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Kiseo Yusuf Nzowa",
+     "acting": false,
+     "excerpt": "Katibu Tawala wa Mkoa wa Kilimanjaro Bw.Kiseo Yusuf Nzowa amezindua rasmi mafunzo ya Programu ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1246,7 +1276,17 @@
     "parents_or_education",
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdin Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdin Babu ambae tayari ameshawasili uwanjani apo."
+    }
+   ],
    "attachments": []
   },
   {

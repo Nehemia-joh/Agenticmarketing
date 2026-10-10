@@ -1191,7 +1191,26 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila @tobaalnason leo Agosti 27,2026. Mhe.Mkude amebainisha"
+    },
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Joseph Modest Mkude",
+     "acting": false,
+     "excerpt": "Mkuu wa wilaya ya Arusha Mhe.Joseph Modest Mkude @josephmkude2009 amempakata mtoto akiwa nanapatiwa chanjo"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1227,7 +1246,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Gabriel Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Arusha Mhe.CPA Amos Gabriel Makalla amewaagiza wakuu wa wilaya za Mkoa"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1644,7 +1673,17 @@
     "parents_or_education",
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Gabriel Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa mkoa wa Arusha Mhe.CPA Amos Gabriel Makalla , amefunga rasmi Maonesho ya 32"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1705,7 +1744,17 @@
     "parents_or_education",
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Longido",
+     "council_kind": "",
+     "name": "Salumu Kali",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Longido Mhe.Salumu Kali amesisitiza wakulima na wafugaji kuhakikisha wanaliteka"
+    }
+   ],
    "attachments": []
   },
   {
@@ -1821,7 +1870,17 @@
    "convening_tags": [
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Kilimanjaro",
+     "council_kind": "",
+     "name": "Nurdini Babu",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Kilimanjaro Mhe.Nurdini Babu amebainisha kuw aMonesho ya 32 ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -2038,7 +2097,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
    "text_chars": 1486,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Gabriel Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Arusha Mhe.CPA Amos Gabriel Makalla ameuelekza uongozi wa Jiji la Arusha"
+    }
+   ],
    "attachments": []
   },
   {
@@ -2392,7 +2461,17 @@
     "public_meeting",
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Monduli",
+     "council_kind": "",
+     "name": "Gloriana Kimath",
+     "acting": false,
+     "excerpt": "Mkuu wa wilaya ya Monduli Mhe.Gloriana Kimath ametumia fursa hiyo kumkaribisha Waziri Chongolo"
+    }
+   ],
    "attachments": []
   },
   {
@@ -2405,7 +2484,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila , ameahidi kusimamia utekelezaji wa mpango"
+    }
+   ],
    "attachments": []
   },
   {
@@ -2711,7 +2800,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=2&limit=50",
    "text_chars": 1679,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Gabriel Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Arusha Mhe.CPA Amos Gabriel Makalla ameukabidhi Mwenge wa Uhuru 2026 kwa"
+    }
+   ],
    "attachments": []
   },
   {
@@ -2880,6 +2979,15 @@
      "name": "Mwinyi Ahmed Mwinyi",
      "acting": false,
      "excerpt": "Mkuu wa wilaya ya Arumeru Mhe. Mwinyi Ahmed Mwinyi , amepokea Mwenge wa Uhuru 2026"
+    },
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Joseph Modest Mkude",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Arusha Mhe.Joseph Modest Mkude hafla iliyofanyika kwenye eneo la Mlangarini"
     }
    ],
    "attachments": []
@@ -3010,6 +3118,15 @@
     {
      "post_key": "district_commissioner",
      "level": "district",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Joseph Modest Mkude",
+     "acting": false,
+     "excerpt": "Mkuu wa wilaya ya Arusha Mhe.Joseph Modest Mkude amepokea Mwenge wa Uhuru 2026 kutoka"
+    },
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
      "unit": "Monduli",
      "council_kind": "",
      "name": "Gloriana Julias Kimath",
@@ -3095,6 +3212,15 @@
     "parents_or_education"
    ],
    "holder_mentions": [
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Monduli",
+     "council_kind": "",
+     "name": "Gloriana Kimath",
+     "acting": false,
+     "excerpt": "Mkuu wa wilaya ya Monduli Mhe.Gloriana Kimath amepokea Mwenge wa Uhuru 2026 kutoka"
+    },
     {
      "post_key": "district_commissioner",
      "level": "district",
@@ -3208,7 +3334,26 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Karatu",
+     "council_kind": "",
+     "name": "Lameck Ng'ang'a",
+     "acting": false,
+     "excerpt": "Mkuu wa wilaya ya Karatu Mhe. Dkt.Lameck Ng'ang'a amepokea Mwenge wa Uhuru 2026 kutoka"
+    },
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Ngorongoro",
+     "council_kind": "",
+     "name": "Brg Jenerali Wilson Sakuro",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Ngorongoro Mhe.Brg Jenerali Wilson Sakuro , kwenye eneo la Njia panda"
+    }
+   ],
    "attachments": []
   },
   {
@@ -3550,7 +3695,17 @@
    "convening_tags": [
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila , amsema kuwa, kkatik MaMoneho hayo"
+    }
+   ],
    "attachments": []
   },
   {
@@ -4051,7 +4206,17 @@
    "convening_tags": [
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila amezungumza na watumishi wa halmashauri ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -4960,7 +5125,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
    "text_chars": 1974,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila , amezungulza na watumishi wa Halmasahuri"
+    }
+   ],
    "attachments": []
   },
   {
@@ -4973,7 +5148,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha, Dkt.Toba Alnason Nguvila ameuagiza uongozi wa wilaya ya Longido,"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5039,7 +5224,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=5&limit=50",
    "text_chars": 1422,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Tioba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala mkoa wa Arusha Dkt.Tioba Alnason Nguvila amezungumza na watumishi wa halmasahuri ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5561,7 +5756,17 @@
    "convening_tags": [
     "public_meeting"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Nguvila anawatakia wanafunzi wote wanaotarajia kufanya Mtihani"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5644,7 +5849,17 @@
    "convening_tags": [
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila anaungana na Mhe. Rais Dkt.Samia Suluhu"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5657,7 +5872,17 @@
    "convening_tags": [
     "exhibition_or_public_event"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_commissioner",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Amos Gabriel Makalla",
+     "acting": false,
+     "excerpt": "Mkuu wa Mkoa wa Arusha Mhe.CPA Amos Gabriel Makalla anatarajia kuwa mgeni rasmi kwenye Maadhimisho"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5691,7 +5916,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
    "text_chars": 2119,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Mhe.Dkt.Toba Alnason Nguvila , alipotembelea wodini walipolazwa kina mama"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5768,7 +6003,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila ametembelea wodi ya watoto hospitali ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5790,7 +6035,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=6&limit=50",
    "text_chars": 2112,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila ameridhishwa na kupongeza hali ya utoaji"
+    }
+   ],
    "attachments": []
   },
   {
@@ -5802,6 +6057,15 @@
    "text_chars": 848,
    "convening_tags": [],
    "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha, Dkt.Toba Alnason Nguvila amewasili kwenye Hospitali ya wilaya ya"
+    },
     {
      "post_key": "district_commissioner",
      "level": "district",
@@ -5886,7 +6150,17 @@
    "convening_tags": [
     "election_period"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Joseph Mkude",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Arusha Mhe.Joseph Mkude , kwa niaba ya Mkuu wa"
+    }
+   ],
    "attachments": []
   },
   {
@@ -6406,7 +6680,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila amemtaka Mkurugenzi wa Halmashauri ya Karatu"
+    }
+   ],
    "attachments": []
   },
   {
@@ -6443,7 +6727,26 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila na watumishi wa Halmashauri ya wilaya"
+    },
+    {
+     "post_key": "district_commissioner",
+     "level": "district",
+     "unit": "Karatu",
+     "council_kind": "",
+     "name": "Lameck Ng'ang'a",
+     "acting": false,
+     "excerpt": "Mkuu wa Wilaya ya Karatu Mhe.Dkt. Lameck Ng'ang'a amewapongeza watumishi wa halmashauri wilaya ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -6456,7 +6759,17 @@
    "convening_tags": [
     "parents_or_education"
    ],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila , amewakumbusha watumishi wa halmashauri ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -6720,7 +7033,17 @@
    "listing_url": "https://arusha.go.tz/api/news?page=7&limit=50",
    "text_chars": 1246,
    "convening_tags": [],
-   "holder_mentions": [],
+   "holder_mentions": [
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvila , amewakaribusha Wabunge wa Kamati ya"
+    }
+   ],
    "attachments": []
   },
   {
@@ -6921,6 +7244,15 @@
    ],
    "holder_mentions": [
     {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvilaa",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha Dkt.Toba Alnason Nguvilaa , amepiga marufuku na kuwakumbusha baadhi"
+    },
+    {
      "post_key": "council_director",
      "level": "council",
      "unit": "Arusha",
@@ -6949,6 +7281,15 @@
      "name": "Yassin Makange",
      "acting": false,
      "excerpt": "Mkuu wa Mkoa wa Arusha Mhandisi Yassin Makange , amekiri kuzingatia ushauri huo kwa"
+    },
+    {
+     "post_key": "regional_administrative_secretary",
+     "level": "region",
+     "unit": "Arusha",
+     "council_kind": "",
+     "name": "Toba Alnason Nguvila",
+     "acting": false,
+     "excerpt": "Katibu Tawala Mkoa wa Arusha, Dkt.Toba Alnason Nguvila ametembelea na kukagua maendeleo ya mradi"
     }
    ],
    "attachments": []

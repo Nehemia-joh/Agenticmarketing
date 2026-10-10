@@ -216,13 +216,21 @@ def role_phrase(role: str) -> str:
     return f"a {role.lower()}" if role.lower().startswith("co-") else f"the {role}"
 
 
-UNIT_TITLE = re.compile(r"\b(?:director|head) of\b|marketing|development|finance|communications|human resources", re.I)
+# An executive title held on its own: the organisation's director, managing or executive director, owner or (co-)founder. A director of a
+# function ('Director of Marketing', 'Creative Director', 'Medical Director') is not the organisation's executive.
+EXEC_PART = re.compile(r"\s*(?:the\s+)?(?:managing\s+|executive\s+|general\s+|founding\s+|co-?\s*)?(?:director|owners?|founder)\s*", re.I)
+
+
+def executive_title(role: str) -> bool:
+    """The role holds a chief executive's, executive director's, founder's or president's title (seniority 0 or 1) or one in EXEC_PART."""
+    parts = [p for p in ROLE_PARTS.split(role or "") if p.strip() and leader_rank(p) is not None]
+    return seniority(role) <= 1 or any(EXEC_PART.fullmatch(p) for p in parts)
 
 
 def named_leaders(contacts, funder: bool = False) -> list[dict]:
     """The named, confirmed, medium-risk contacts with a full name and a leader's role (never a board role or a person who works for
     another country's operation), each with greet_name and: _rank, _seniority, _where (role_location), _head (runs the Tanzania operation),
-    _exec (the organisation's executive: chief executive, executive director, founder, president or its director, not a unit director) and
+    _exec (the organisation's executive: chief executive, executive director, founder, president or its director, not a function's director) and
     _overseas (based abroad, or, when a country head is named, an executive whose role does not name Tanzania: head office)."""
     out = []
     for c in contacts:
@@ -236,7 +244,7 @@ def named_leaders(contacts, funder: bool = False) -> list[dict]:
             continue
         head, level = country_head(role), seniority(role)
         out.append({**c, "greet_name": name, "_rank": 0 if head else rank, "_where": where, "_head": head, "_seniority": level,
-                    "_exec": not head and (level <= 1 or (rank == 0 and not UNIT_TITLE.search(role))),
+                    "_exec": not head and executive_title(role),
                     "_has_email": bool(c.get("named_email") or c.get("published_role_email"))})
     has_head = any(c["_head"] for c in out)
     for c in out:
@@ -244,21 +252,52 @@ def named_leaders(contacts, funder: bool = False) -> list[dict]:
     return out
 
 
+# A chair or president of the body (Vorsitzender, voorzitter, chairperson, board president) may be the addressee only when the organisation
+# names no executive and no one in the country (decided 10 October 2026); a vice chair, treasurer, secretary or emeritus never is.
+CHAIR = re.compile(r"\bchair|vorsitz|voorzitter|1\.\s*vorstand|president", re.I)
+NOT_CHAIR = re.compile(r"vice|deputy|assistant|emeritus|former", re.I)
+
+
+def named_chairs(contacts, funder: bool = False) -> list[dict]:
+    """The named, confirmed, medium-risk chairs or presidents of the body whose role is a board role only (see CHAIR)."""
+    out = []
+    for c in contacts:
+        name, role = greeting_name(c.get("contact_name") or ""), " ".join(str(c.get("role") or "").split())
+        if (c.get("pdpa_risk") != "medium" or c.get("role_certainty") != "confirmed" or len(name.split()) < 2 or re.search(r"\d|\?", name)
+                or re.search(r"enquir|inbox|\boffice\b|\bteam\b", name, re.I) or leader_rank(role) is not None or DIRECTOR_SEAT.fullmatch(role)
+                or not CHAIR.search(role) or NOT_CHAIR.search(role)):
+            continue
+        where = role_location(role, funder)
+        if where == "other":
+            continue
+        out.append({**c, "greet_name": name, "_rank": 0, "_where": where, "_head": False, "_seniority": 1, "_exec": False, "_chair": True,
+                    "_overseas": False, "_has_email": bool(c.get("named_email") or c.get("published_role_email"))})
+    return out
+
+
+def best_chair(contacts, funder: bool = False) -> dict | None:
+    """The body's chair: the chair of the organisation before the chair of a committee, one with a published address first."""
+    people = named_chairs(contacts, funder)
+    key = lambda c: (bool(re.search(r"committee", c.get("role") or "", re.I)), not c["_has_email"], c["greet_name"])  # noqa: E731
+    return min(people, key=key) if people else None
+
+
 def best_leader(contacts, prefer=None, funder: bool = False) -> dict | None:
     """The addressee (decided 10 October 2026: someone on the ground). First the most senior person running the Tanzania or Arusha
     operation (country manager or director, national director, Tanzania head, the head of a home, an Arusha programme manager); otherwise
     the organisation's most senior named leader, a local founder or director first. A global or overseas chief executive, executive director,
-    founder or president is the fallback when no one in the country is named. A board role, a person working for another country's
+    founder or president is the fallback when no one in the country is named, and the body's chair or president only when no executive and
+    no one in the country is named. A vice chair, treasurer, secretary, emeritus or other board seat, a person working for another country's
     operation and a non-executive based abroad are never chosen."""
     best = None
     for c in named_leaders(contacts, funder):
         if c["_where"] == "abroad" and not c["_exec"]:
             continue  # based abroad and not the organisation's executive (a marketing manager in the USA)
         preferred = 0 if prefer and prefer.search(c.get("role") or "") else 1  # for a network: the social-services or children's lead before the bishop
-        key = (preferred, c["_overseas"], not c["_head"], c["_rank"], not c["_has_email"], c["_seniority"], c["greet_name"])
+        key = (preferred, c["_overseas"], not c["_head"], c["_rank"], not c["_exec"], not c["_has_email"], c["_seniority"], c["greet_name"])
         if best is None or key < best[0]:
             best = (key, c)
-    return best[1] if best else None
+    return best[1] if best else best_chair(contacts, funder)
 
 
 ESCALATION_TRIGGER = "No reply after the follow-up, or the country office declines or defers to head office."
@@ -269,19 +308,30 @@ ESCALATION_COLUMNS = ("escalation_contact_id", "escalation_recipient", "escalati
 
 
 def escalation_contact(contacts, leader, funder: bool = False) -> dict | None:
-    """When the addressee is on the ground (runs the Tanzania operation, or a role that names Tanzania) and the organisation also names an
-    executive abroad or at head office (a global chief executive, executive director, founder or president; never a board role): that
-    executive, for a person to escalate to by hand. No message is drafted to them and they are not copied on the first message."""
-    if not leader or leader.get("_overseas") or not (leader.get("_head") or leader.get("_where") == "tz"):
+    """A more senior person to escalate to by hand. No message is drafted to them and they are not copied on the first message.
+    - The addressee runs the Tanzania operation, or is an executive whose role names Tanzania: the organisation's executive abroad or at
+      head office (a global chief executive, executive director, founder or president), never less senior than the addressee.
+    - The addressee is a local person who is not an executive (a coordinator, volunteer, programme officer or unit director): the
+      organisation's most senior executive, or its chair or president when no executive is named.
+    - The addressee is the chair: none (there is no executive)."""
+    if not leader or leader.get("_chair") or leader.get("_overseas"):
+        return None
+    remit = lambda c: not re.search(r"orphan|child|home|welfare|programme|program", c.get("role") or "", re.I)  # noqa: E731
+    people = [c for c in named_leaders(contacts, funder) if c.get("contact_id") != leader.get("contact_id")]
+    if not leader["_head"] and not leader["_exec"]:
+        execs = [c for c in people if c["_exec"]]
+        if execs:  # on a tie, the executive whose remit names the children's work
+            return min(execs, key=lambda c: (c["_seniority"], c["_rank"], not c["_has_email"], remit(c), c["greet_name"]))
+        return best_chair(contacts, funder)
+    if not (leader["_head"] or leader["_where"] == "tz"):
         return None
     best = None
-    for c in named_leaders(contacts, funder):
-        if (c.get("contact_id") == leader.get("contact_id") or not (c["_overseas"] and c["_exec"]) or c["_seniority"] > 1
+    for c in people:
+        if (not (c["_overseas"] and c["_exec"]) or c["_seniority"] > 1
                 or (not leader["_head"] and c["_seniority"] > leader["_seniority"])):
             continue  # only a chief executive, executive director, founder or president, and never less senior than the addressee
         # on a tie, the executive whose remit names the children's work (a co-president for 'medicine and orphanages')
-        key = (c["_seniority"], not c["_has_email"], not re.search(r"orphan|child|home|welfare|programme|program", c.get("role") or "", re.I),
-               c["greet_name"])
+        key = (c["_seniority"], not c["_has_email"], remit(c), c["greet_name"])
         if best is None or key < best[0]:
             best = (key, c)
     return best[1] if best else None

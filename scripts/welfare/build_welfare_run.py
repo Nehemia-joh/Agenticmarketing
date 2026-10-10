@@ -354,7 +354,9 @@ def main() -> int:
             for j in range(i + 1, len(people)):
                 a, b = W.name_key(people[i]["contact_name"]), W.name_key(people[j]["contact_name"])
                 ta, tb = set(a.split()), set(b.split())
-                if ta and tb and (ta <= tb or tb <= ta or difflib.SequenceMatcher(None, a, b).ratio() >= 0.85):
+                # the same compound surname ('Bekka Ross Russell', 'Rebecca Ross-Russell') is likely one person under a short first name
+                same_surname = len(a.split()) >= 3 and len(b.split()) >= 3 and a.split()[-2:] == b.split()[-2:]
+                if ta and tb and (ta <= tb or tb <= ta or same_surname or difflib.SequenceMatcher(None, a, b).ratio() >= 0.85):
                     reviews.append({"kind": "possible_duplicate_contact", "entity": people[i]["contact_name"], "related": people[j]["contact_name"],
                                     "detail": {"organisation": people[i].get("linked_organisation")},
                                     "action": "Likely the same person; keep one contact and merge the routes after checking the source."})

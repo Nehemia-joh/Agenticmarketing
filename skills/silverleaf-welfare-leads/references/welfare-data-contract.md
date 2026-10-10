@@ -149,11 +149,15 @@ The run folder `data/runs/<run-id>/links.json` holds reviewed decisions. Each ke
 `scripts/messaging/draft_run_messages.py --track welfare` chooses one addressee per organisation (decided 10 October 2026: someone on the ground):
 
 - **First choice:** the most senior person running the Tanzania or Arusha operation: a country manager or country director, a national director, a Tanzania head, the head of a home, an on-site director, or an Arusha programme or home manager. Otherwise the organisation's most senior named leader, with a local founder or director of a home or programme first.
-- **Fallback:** a global or overseas chief executive, executive director, founder or president, only when no one in the country is named. When a country head is named, an executive whose role does not name Tanzania counts as head office.
-- **Never chosen:** a board role (chair, vice chair, treasurer, secretary, trustee, board member, emeritus, a "Director, <country>" board seat, or a president or chair qualified by a board), a person working for another country's operation (a role naming Kenya, Uganda and so on), and a non-executive based abroad.
+- **Fallback:** a global or overseas chief executive, executive director, founder or president, only when no one in the country is named. When a country head is named, an executive whose role does not name Tanzania counts as head office. Last, the body's chair or president (Vorsitzender, voorzitter, chairperson, board president), only when the organisation names no executive and no one in the country.
+- **Never chosen:** a vice chair, treasurer, secretary, trustee, board member, emeritus or a "Director, <country>" board seat; a chair or president except as the last fallback above; a person working for another country's operation (a role naming Kenya, Uganda and so on); and a non-executive based abroad. Between leaders of the same rank, an executive (chief executive, executive or managing director, the organisation's director, founder, owner or president) comes before a function's director ('Medical Director', 'Director of Marketing').
 - **Route:** the addressee's own published address on the organisation's domain, else the organisation's route.
 
-When the addressee is on the ground and the organisation also names an executive abroad or at head office (never a board role, and never less senior than the addressee), the plan names that executive as an **escalation contact**, for a person to approach by hand. They are not copied on the first message and no message is drafted to them. The welfare workbook's Outreach Plans sheet and the review file from `scripts/messaging/consolidate_welfare_drafts.py` show them.
+The plan names an **escalation contact**, a more senior person for someone to approach by hand. They are not copied on the first message and no message is drafted to them. The welfare workbook's Outreach Plans sheet and the review file from `scripts/messaging/consolidate_welfare_drafts.py` show them.
+
+- **Addressee runs the Tanzania operation** (or is an executive whose role names Tanzania): the organisation's executive abroad or at head office (a global chief executive, executive director, founder or president), never less senior than the addressee.
+- **Addressee is a local person who is not an executive** (a coordinator, volunteer, programme officer, a function's director): the organisation's most senior executive, or its chair or president when it names no executive.
+- **Addressee is the chair**: none.
 
 | Column | Meaning |
 |---|---|

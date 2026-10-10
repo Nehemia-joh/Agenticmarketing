@@ -12,10 +12,10 @@
   "duplicate_organisations_held": 105,
   "candidates_after": 849,
   "candidates_before": 938,
-  "plans_changed": 476,
-  "plans_now_candidate": 171,
-  "plans_now_alternative": 305,
-  "named_contacts_now_candidate": 149
+  "plans_changed": 462,
+  "plans_now_candidate": 164,
+  "plans_now_alternative": 298,
+  "named_contacts_now_candidate": 148
  },
  "clusters": [
   {
@@ -690,16 +690,16 @@
  ],
  "now_candidate": [
   {
-   "message_id": "Mf8702397df92",
-   "organisation": "Active Tanzania Adventures Limited",
-   "recipient": "Thomas Mwanyika Disii",
-   "role": "General Manager"
-  },
-  {
    "message_id": "M7bc6104a3011",
    "organisation": "Cheli Peacock Safaris T Ltd",
    "recipient": "Kieran Day",
    "role": "CEO"
+  },
+  {
+   "message_id": "Mebf5188e1ce6",
+   "organisation": "Josh Dreamland Safaris",
+   "recipient": "Angel Lema",
+   "role": "Managing Director"
   },
   {
    "message_id": "M64884eff6fa7",
@@ -744,16 +744,10 @@
    "role": "Director"
   },
   {
-   "message_id": "M75f54f8ef3b0",
-   "organisation": "Hazzes Adventure Limited",
-   "recipient": "Vincent Swai",
-   "role": "Managing Director / Co-founder"
-  },
-  {
-   "message_id": "Mc458a27ea268",
-   "organisation": "K&K Safaris",
-   "recipient": "Kitanga Zuberi",
-   "role": "Co-founder / Guide naturaliste"
+   "message_id": "Me7a805e49948",
+   "organisation": "I Dream of Africa Ltd",
+   "recipient": "Christopher Samwel",
+   "role": "Founder / Owner & Safari Guide"
   },
   {
    "message_id": "M91af3bdb63b3",
@@ -810,12 +804,6 @@
    "role": "Tour Consultant and Chairperson"
   },
   {
-   "message_id": "Mffe72b907591",
-   "organisation": "Safaris-R-Us Ltd",
-   "recipient": "Safaris-R-Us Ltd",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "M0e68f3283de9",
    "organisation": "Shadows of Africa Ltd",
    "recipient": "Shadows of Africa Ltd",
@@ -840,27 +828,9 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "M317a2527ee90",
-   "organisation": "Josh Dreamland Safaris",
-   "recipient": "Josh Dreamland Safaris",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "M88db12a87a5f",
    "organisation": "JM Tours Ltd",
    "recipient": "JM Tours Ltd",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M7db898096b3d",
-   "organisation": "I Dream of Africa Ltd",
-   "recipient": "I Dream of Africa Ltd",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "M254565ac5c2b",
-   "organisation": "NORTHLAND SAFARIS LTD",
-   "recipient": "NORTHLAND SAFARIS LTD",
    "role": "Organisation routing"
   },
   {
@@ -903,18 +873,6 @@
    "message_id": "M4a507f20bc44",
    "organisation": "Safari Crew Tanzania",
    "recipient": "Safari Crew Tanzania",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "Mff333fa2aec5",
-   "organisation": "Serengeti Clarity",
-   "recipient": "Serengeti Clarity",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "Mdab93df2ac7f",
-   "organisation": "Tanzania Safari Bug Ltd.",
-   "recipient": "Tanzania Safari Bug Ltd.",
    "role": "Organisation routing"
   },
   {
@@ -1074,12 +1032,6 @@
    "role": "Company CEO"
   },
   {
-   "message_id": "M53b55cec4241",
-   "organisation": "Tanzania Wildlife Research Institute (TAWIRI)",
-   "recipient": "CPA Harold M. Basinda",
-   "role": "DIRECTOR OF CORPORATE SERVICE"
-  },
-  {
    "message_id": "M7e8db8b35bd7",
    "organisation": "Kiboko Safaris",
    "recipient": "John Haygaru",
@@ -1152,12 +1104,6 @@
    "role": "Founder / Director / Guide"
   },
   {
-   "message_id": "M3383d20ba417",
-   "organisation": "Hanspaul Group",
-   "recipient": "Kamaljit Singh Hanspaul",
-   "role": "Group Chairman"
-  },
-  {
    "message_id": "Mf382e60a0f0b",
    "organisation": "VisionFund Tz MF Bank (HQ)",
    "recipient": "Diana Malick",
@@ -1224,6 +1170,12 @@
    "role": "Co-Founder & Partner"
   },
   {
+   "message_id": "M3a3f4899bc39",
+   "organisation": "Hanspaul Group",
+   "recipient": "Tanveer Kaur Hanspaul",
+   "role": "Group Human Resource"
+  },
+  {
    "message_id": "M27d0442c77ea",
    "organisation": "Thomson Safaris Ltd",
    "recipient": "Rick Thomson",
@@ -1252,6 +1204,12 @@
    "organisation": "Wonders Of Creation Tours And Safaris Co Ltd",
    "recipient": "Edgar Masunga",
    "role": "Founder and Executive Director"
+  },
+  {
+   "message_id": "Mb823cc0bf825",
+   "organisation": "Tanzania Wildlife Research Institute (TAWIRI)",
+   "recipient": "Dr. Eblate Ernest Mjingo",
+   "role": "Director General"
   },
   {
    "message_id": "M36a3f3291932",
@@ -1695,7 +1653,7 @@
    "message_id": "M185ec0f648f7",
    "organisation": "Ecobank",
    "recipient": "Charles Asiedu",
-   "role": "Contact person, Ecobank Tanzania Limited (as listed by the Bank of Tanzania)"
+   "role": "Managing Director"
   },
   {
    "message_id": "M8b1b4fa5b91d",
@@ -1718,34 +1676,16 @@
  ],
  "now_alternative": [
   {
-   "message_id": "M977554b6a1ed",
-   "organisation": "Active Tanzania Adventures Limited",
-   "recipient": "Mary Kourkoumeli",
-   "role": "Managing Director"
-  },
-  {
    "message_id": "M21ce974bb297",
    "organisation": "Cheli Peacock Safaris T Ltd",
    "recipient": "Patrick Bourgeix",
    "role": "General Manager Tanzania"
   },
   {
-   "message_id": "M5329074df346",
-   "organisation": "Hazzes Adventure Limited",
-   "recipient": "Hazze Sandström",
-   "role": "Managing Director / Co-founder"
-  },
-  {
    "message_id": "Mc2b006cb188b",
    "organisation": "Josh Dreamland Safaris",
    "recipient": "Gerald Ephata",
    "role": "Operations Manager"
-  },
-  {
-   "message_id": "M34056a3c8c57",
-   "organisation": "K&K Safaris",
-   "recipient": "Karine Laurioux",
-   "role": "Co-founder / Créatrice de safaris (safari designer; primary client contact)"
   },
   {
    "message_id": "M2c44d8f0421f",
@@ -1776,12 +1716,6 @@
    "organisation": "Safari Crew Tanzania",
    "recipient": "Rocco Lastella",
    "role": "Founder & Director (Direttore)"
-  },
-  {
-   "message_id": "M26efa5f17654",
-   "organisation": "Serengeti Clarity",
-   "recipient": "Frank R. Muta",
-   "role": "Founder (footer lists a 'Managing Director' line)"
   },
   {
    "message_id": "M0e7f3feeec1c",
@@ -1940,12 +1874,6 @@
    "role": "Co-Founder & Operations"
   },
   {
-   "message_id": "M0998c92d6a92",
-   "organisation": "Tanzania Safari Bug Ltd.",
-   "recipient": "Michael Msuya",
-   "role": "Co-Founder / Owner (senior safari guide)"
-  },
-  {
    "message_id": "M31f127385f66",
    "organisation": "Top Of Africa Treks and Safaris LTD",
    "recipient": "Sifuel Moshy",
@@ -2030,12 +1958,6 @@
    "role": "Vice Chancellor"
   },
   {
-   "message_id": "M34589ac94056",
-   "organisation": "Safaris-R-Us Ltd",
-   "recipient": "Richard Sisia",
-   "role": "Director (co-founder with Gemma Sisia)"
-  },
-  {
    "message_id": "M031f7127a996",
    "organisation": "Elewana Arusha Coffee Lodge",
    "recipient": "Elewana Arusha Coffee Lodge",
@@ -2106,12 +2028,6 @@
    "organisation": "Wilkinson Tours Ltd",
    "recipient": "Horst Bachmann",
    "role": "Director (with Debbie Bachmann)"
-  },
-  {
-   "message_id": "M42aea8b79ece",
-   "organisation": "NORTHLAND SAFARIS LTD",
-   "recipient": "George Munge",
-   "role": "Founder & Safari Expert"
   },
   {
    "message_id": "Mef1176b4c237",

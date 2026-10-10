@@ -89,7 +89,7 @@ def split_name(name: str) -> tuple[str, str]:
 
 ROLE_INBOX = re.compile(r"^(md|ceo|gm|hr|cs|hq|res|pr|customer|support|marketing|management|travel|adventure|balloon|barua|tuambie|talktous|"
                         r"karibu|giving|donate|foundation|national|office|friends|code|post|team|general|director|finance|gmfinance|arusha|"
-                        r"kilimanjaro|tanzania|moshi)", re.I)
+                        r"kilimanjaro|tanzania|moshi|business|chair|registrar|admin|president|secretary)", re.I)
 
 
 def someone_else(address: str, name: str, organisation: str = "") -> bool:
@@ -101,15 +101,85 @@ def someone_else(address: str, name: str, organisation: str = "") -> bool:
     if (not letters or GENERIC.match(local) or ROLE_INBOX.match(local) or (len(label) >= 3 and (label[:5] in letters or letters[:5] in label))
             or (len(letters) >= 6 and letters[:6] in org)):
         return False
+    # An inbox named with one of the organisation's own words (mosesconforthome@ for Mosses Confort Home, hopecentertz@ for Hope
+    # Orphanage Center) is the organisation's, wherever it is hosted.
+    if any(w in letters for w in re.findall(r"[a-z]{4,}", organisation.lower()) if w not in ORG_NOISE | {"home", "centre", "center", "foundation"}):
+        return False
     if "firstname" in letters:  # a pattern placeholder, not an address
         return True
     names = [n.lower() for n in re.findall(r"[A-Za-z]{3,}", L.greeting_name(name or "")) if not TITLE.match(n)]
-    return bool(names) and not any(n in letters or letters.startswith(n[0] + names[-1][:3]) for n in names)
+    # A nickname inbox (sam@ for Samantha) is a match: one of the addressee's names starts with the inbox's local part.
+    return bool(names) and not any(n in letters or letters.startswith(n[0] + names[-1][:3]) or (len(letters) >= 3 and n.startswith(letters))
+                                   for n in names)
 
 
-def own_domain(address: str, website: str) -> bool:
+ANY_EMAIL = re.compile(r"[^\s;,/<>]+@[^\s;,/<>]+\.[a-z]{2,}")
+ORG_NOISE = {"limited", "company", "tanzania", "africa", "african", "safaris", "safari", "tours", "travel", "adventures", "adventure"}
+
+
+def any_emails(*values) -> list:
+    """Every address in the values, free-mail included (R.emails drops free mail), sorted."""
+    return sorted({m for v in values for m in ANY_EMAIL.findall(str(v or "").lower())})
+
+
+def org_named_inbox(address: str, organisation: str) -> bool:
+    """A free-mail inbox named after the organisation (kiriwetravel@gmail.com for Kiriwe Travel): the company's own published inbox,
+    as merge_master_contacts.py accepts one."""
+    local = re.sub(r"[^a-z]", "", address.split("@")[0].lower())
+    tokens = [w for w in re.findall(r"[a-z]{5,}", organisation.lower()) if w not in ORG_NOISE]
+    return bool(tokens) and any(w in local for w in tokens)
+
+
+def same_site(url_host: str, site: str) -> bool:
+    return bool(url_host and site) and (url_host == site or url_host.endswith("." + site) or site.endswith("." + url_host))
+
+
+def edits(a: str, b: str) -> int:
+    """Levenshtein distance (small strings only)."""
+    row = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        prev, row[0] = row[0], i
+        for j, cb in enumerate(b, 1):
+            prev, row[j] = row[j], min(row[j] + 1, row[j - 1] + 1, prev + (ca != cb))
+    return row[-1]
+
+
+def published_inbox_domains(con, orgs: dict) -> dict:
+    """{organisation_id: email domains the company publishes on its own website}, from the contact profiles merged into the
+    master (source_records 'contact profile <id> (<date>)'): an address counts when the page it was read on (fetched) is on
+    the company's website. Free-mail domains never count."""
+    out = defaultdict(set)
+    for location, payload in con.execute("SELECT location, payload_json FROM source_records WHERE location LIKE 'contact profile %'"):
+        oid = location.split()[2]
+        org = orgs.get(oid)
+        site = R.domain(org["website"]) if org else ""
+        if not site:
+            continue
+        for e in (json.loads(payload).get("emails") or []):
+            address, page = str(e.get("email") or "").lower(), R.domain(e.get("source_url"))
+            if "@" in address and e.get("fetched") and same_site(page, site) and not R.FREE_MAIL.search(address):
+                out[oid].add(address.split("@")[-1])
+    return out
+
+
+def own_domain(address: str, website: str, published=frozenset()) -> bool:
+    """The address is on the company's own domain:
+    - the website's domain or a sub-domain of it;
+    - the parent domain of the website's host (tz.kcbgroup.com publishes kcbgroup.com addresses);
+    - a domain the company publishes on its own website (bushbuck@bushbucksafaris.co.tz on bushbuckltd.com). A same-name
+      domain under another suffix (simbasafaris.co.tz for simbasafaris.com) counts only this way, so a look-alike or
+      squatted domain the company does not publish never does. A published domain whose name is one or two letters away
+      from the website's (lusungulwatwasafaris.com for lusungulwamtwasafaris.com) is a misspelling and does not count."""
     site = R.domain(website)
-    return bool(site) and address.split("@")[-1].endswith(site)
+    host = address.split("@")[-1].lower()
+    if not site:
+        return False
+    if host.endswith(site) or site.endswith("." + host):
+        return True
+    if host in published:
+        label, site_label = host.split(".")[0], site.split(".")[0]
+        return not (label != site_label and edits(label, site_label) <= 2)
+    return False
 
 
 def company_route(plan, org, contact) -> str:
@@ -125,6 +195,8 @@ def company_route(plan, org, contact) -> str:
         if mine:
             return mine[0]
     generic = [e for e in pool if GENERIC.match(e)]
+    if not pool:  # only a free-mail inbox: the row's confidence then depends on whether it is the company's own
+        pool = any_emails(plan["contact_channel"]) or any_emails(org["email"])
     return (generic or pool or [""])[0]
 
 
@@ -133,6 +205,7 @@ def company_rows(con):
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
     contacts = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
     reach = {r["organisation_id"]: r["tier"] for r in con.execute("SELECT organisation_id, tier FROM employer_reach")}
+    published = published_inbox_domains(con, orgs)
     rows, skipped = [], Counter()
     for p in con.execute("SELECT * FROM outreach_plans WHERE selection='Candidate for review' ORDER BY organisation_name"):
         p = dict(p)
@@ -153,11 +226,13 @@ def company_rows(con):
         named = bool(contact and R.VERIFIED.search(contact["verification"] or "") and not R.UNUSABLE.search(contact["verification"] or "")
                      and split_name(contact["name"])[0] and (R.role_rank(contact["role"]) is not None or R.FALLBACK_OK.search(contact["role"] or "")))
         direct = contact and address in R.emails(contact["named_email"], contact["published_role_email"])
+        if R.FREE_MAIL.search(address) and not direct and not org_named_inbox(address, org["name"]):
+            reasons.append(f"personal-domain inbox {address} not shown to be the company's own: confirm it before use")
         if named and someone_else(address, contact["name"], org["name"]) and not direct:
             reasons.append(f"the address {address} looks like another person's: confirm who reads it")
         if reasons:
             confidence, why = "low", "; ".join(dict.fromkeys(reasons))
-        elif named and (direct or own_domain(address, org["website"])):
+        elif named and (direct or own_domain(address, org["website"], published.get(org["organisation_id"], frozenset()))):
             confidence = "high"
             why = f"named, verified {contact['role'] or 'decision-maker'}" + (" at their own published address" if direct else " via the company's own inbox")
         elif named:
@@ -182,7 +257,7 @@ def welfare_rows(con):
            "JOIN organisations o USING(organisation_id) JOIN messages m ON m.message_id = p.message_id WHERE p.target_type='organisation'")
     for p in con.execute(sql):
         p = dict(p)
-        address = (sorted(R.emails(p["route_value"])) or [""])[0]
+        address = (any_emails(p["route_value"]) or [""])[0]
         if "@" not in address:
             skipped["welfare: no email route (phone only or none)"] += 1
             continue
@@ -191,13 +266,19 @@ def welfare_rows(con):
                 if s.strip() and not re.match(r"(The first message is a request|Finance must confirm|Personal-domain inbox confirmed)", s.strip())]
         recipient = p["recipient"] or ""
         named = not re.search(r"team|organisation route|\(.*route\)", recipient, re.I) and bool(split_name(recipient.split("(")[0])[0])
-        if named and someone_else(address, recipient.split("(")[0], p["org_name"]):
+        free_mail = bool(R.FREE_MAIL.search(address))
+        confirmed = "Personal-domain inbox confirmed" in missing
+        if free_mail and not confirmed:
+            confidence, why = "low", f"personal-domain inbox {address} not confirmed as the organisation's official address: a reviewer confirms it first"
+        elif named and someone_else(address, recipient.split("(")[0], p["org_name"]):
             confidence, why = "low", f"addressed to {recipient.split('(')[0].strip()} but {address} looks like another person's address: confirm who reads it"
         elif p["review_status"] != "draft_ready":
             confidence, why = "low", ("; ".join(h[:160] for h in held) or "held: needs review")
+        elif named and free_mail:
+            confidence, why = "medium", "ready; named leader, but the inbox is a personal-domain inbox confirmed as official: promote with an own-domain address"
         elif named:
             confidence, why = "high", "ready; addressed to the named leader the organisation publishes"
-        elif "Personal-domain inbox confirmed" in missing:
+        elif confirmed:
             confidence, why = "medium", "ready; personal-domain inbox confirmed as official; promote with a named leader"
         else:
             confidence, why = "medium", "ready; organisation inbox addressed to the team; promote with a named leader"

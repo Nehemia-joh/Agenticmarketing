@@ -36,7 +36,12 @@ from collections import Counter
 from datetime import date
 from pathlib import Path
 
+import sys
+
 import offer_lib as L
+
+sys.path.insert(0, str(L.ROOT / "scripts" / "master"))
+import resolve_master_recipients as R  # noqa: E402  (contact verification and role ranking)
 
 ROOT = L.ROOT
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
@@ -238,6 +243,33 @@ def parent_reply(draft: dict, enquiry: dict) -> str:
 
 
 # ------------------------------------------------------------------ main
+def decision_maker(contact: dict) -> bool:
+    """A verified named decision-maker, as resolve_master_recipients.py counts one (published or confirmed, full name, senior role)."""
+    verification = contact.get("verification") or ""
+    name = contact.get("name") or ""
+    return bool(R.VERIFIED.search(verification) and not R.UNUSABLE.search(verification) and len(name.split()) >= 2
+                and not re.search(r"\d|\?", name) and (R.role_rank(contact.get("role")) is not None or R.FALLBACK_OK.search(contact.get("role") or "")))
+
+
+def email_route(contact: dict, org: dict) -> str:
+    """The best email for a person: their own published address, else their role desk, else the company's own inbox (no free mail)."""
+    for value in (contact.get("named_email"), contact.get("published_role_email"), contact.get("shared_email"), org.get("email")):
+        found = sorted(R.emails(value))
+        if found:
+            return found[0]
+    return ""
+
+
+def emailed_channel(contact: dict, org: dict, channel: str) -> str:
+    """A verified decision-maker whose draft would go to a phone is emailed instead (decided 10 October 2026): the email route
+    comes first and the phone is kept after it, so a call or WhatsApp stays possible. Other channels are unchanged."""
+    channel = channel or ""
+    if "@" in channel or not decision_maker(contact):
+        return channel
+    email = email_route(contact, org)
+    return "; ".join(x for x in (email, channel) if x) if email else channel
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", default=str(MASTER))
@@ -292,6 +324,16 @@ def main() -> int:
                                                                   ensure_ascii=False, default=str)))
         outcomes["rewritten"] += 1
 
+    contacts_by_id = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
+    channel_updates = []
+    for plan in plans:
+        contact = contacts_by_id.get(plan["target_id"]) if plan["target_type"] == "contact" else None
+        if contact:
+            channel = emailed_channel(contact, orgs.get(plan["organisation_id"], {}), plan["contact_channel"])
+            if channel != (plan["contact_channel"] or ""):
+                channel_updates.append((channel, plan["message_id"]))
+    outcomes["decision-maker drafts moved from a phone to an email route"] = len(channel_updates)
+
     planned_orgs = {p["organisation_id"] for p in plans}
     for oid, org in sorted(orgs.items(), key=lambda kv: kv[1]["name"]):
         if oid in planned_orgs:
@@ -343,6 +385,7 @@ def main() -> int:
         org = orgs.get(c["organisation_id"], {})
         direct = c.get("named_email") or c.get("role_phone") or c.get("published_role_email")
         route = direct or c.get("shared_email") or c.get("organisation_phone") or org.get("email") or org.get("phone")
+        route = emailed_channel(c, org, route)
         track = "AQ02" if direct else ("AQ01" if route else "AQ00")
         plan = {"message_id": sid("M", "offer-v4-contact", c["contact_id"]), "target_id": c["contact_id"], "target_type": "contact",
                 "organisation_id": c["organisation_id"], "target_name": c["name"], "organisation_name": org.get("name", ""),
@@ -415,6 +458,7 @@ def main() -> int:
                          copy["sw"], COPY_VERSION, hook_status, plan["message_id"]))
             con.execute("UPDATE messages SET subject=?, body=?, strategy_id=?, status=?, conditions=? WHERE message_id=?",
                         (copy["subject"], copy["body"], STRATEGY_ID, MESSAGE_STATUS, conditions_for(copy), plan["message_id"]))
+        con.executemany("UPDATE outreach_plans SET contact_channel=?, channel_attribution='Company inbox first for a verified decision-maker; the published phone follows' WHERE message_id=?", channel_updates)
         # Contact research may have found signs that an organisation has closed; its new drafts start held, as the merge
         # holds its existing ones.
         closing = {oid for (oid,) in con.execute("SELECT entity_id FROM review WHERE kind='Possible closure'")}

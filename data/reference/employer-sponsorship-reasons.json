@@ -36,7 +36,8 @@
    "fit": "moderate",
    "fact": "The About page says every safari booked contributes to the local community",
    "clause": "contributes to the local community with every safari booked, through projects such as safe drinking water and access to education in the founder's village",
-   "commitment": "supporting local communities and access to education"
+   "commitment": "supporting local communities and access to education",
+   "role": "the founder and owner of"
   },
   "Ob239c19c3f17": {
    "fit": "strong",
@@ -121,13 +122,15 @@
    "fit": "strong",
    "fact": "Safaris-R-Us says it supports Tanzania's future through The School of St Jude.",
    "clause": "supports Tanzania's future through The School of St Jude",
-   "commitment": "supporting education in Tanzania"
+   "commitment": "supporting education in Tanzania",
+   "role": "a director of"
   },
   "O7b205e374ee6": {
    "fit": "strong",
    "fact": "The company says it funds scholarships and trains students",
    "clause": "funds scholarships and trains students to become team members",
-   "commitment": "supporting students through education"
+   "commitment": "supporting students through education",
+   "role": "a co-founder and owner of"
   },
   "O46d07ec685eb": {
    "fit": "moderate",

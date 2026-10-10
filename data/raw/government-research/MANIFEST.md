@@ -37,7 +37,7 @@ Evidence behind the government runs, most recently `arusha-government-2026-09`. 
 | `osm_government_offices_2026-09-23.json` | `b093b0da23f437b6…` | OpenStreetMap government offices (tags and names), with both queries |
 | `osm_named_facilities_2026-09-23.json` | `4486e65e5b514e8a…` | OpenStreetMap schools and health facilities named after catchment wards, with the query; used only through reviewed ward_locations overrides |
 | `osm_places_2026-09-23.json` | `4f7dfd5d66496852…` | OpenStreetMap place nodes in the bounding box, with the query |
-| `post_holders_gov_2026-10-10.json` | `40e92039ef225df8…` | Post holders found by budgeted research of official or published pages, with source date, URL and excerpt |
+| `post_holders_gov_2026-10-10.json` | `0b2f0b1f63427071…` | Post holders found by budgeted research of official or published pages, with source date, URL and excerpt |
 | `transcriptions/arushacc_madiwani_2025-2030_2026-09-26.csv` | `6118fc5db51ddb04…` | Transcription of a scanned official document, with page and row locators |
 | `transcriptions/arushadc_madiwani_2025-2030_2026-09-23.csv` | `27df913d7bba45d1…` | Transcription of a scanned official document, with page and row locators |
 | `transcriptions/merudc_madiwani_2025-2030_2026-09-26.csv` | `29d55106b66cb184…` | Transcription of a scanned official document, with page and row locators |

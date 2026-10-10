@@ -12,12 +12,12 @@
   "duplicate_organisations_held": 105,
   "candidates_after": 849,
   "escalation_contacts": 8,
-  "override_routes": 0,
+  "override_routes": 1,
   "candidates_before": 938,
-  "plans_changed": 463,
-  "plans_now_candidate": 165,
+  "plans_changed": 461,
+  "plans_now_candidate": 163,
   "plans_now_alternative": 298,
-  "named_contacts_now_candidate": 149
+  "named_contacts_now_candidate": 148
  },
  "clusters": [
   {
@@ -812,12 +812,6 @@
    "role": "Organisation routing"
   },
   {
-   "message_id": "Mf1ec5c5b08d5",
-   "organisation": "Easy Travel and Tours Ltd",
-   "recipient": "Easy Travel and Tours Ltd",
-   "role": "Organisation routing"
-  },
-  {
    "message_id": "M0a4cac6e00a5",
    "organisation": "Augustine's Adventure Africa ltd (AA Africa)",
    "recipient": "Augustine Minja",
@@ -1578,12 +1572,6 @@
    "organisation": "RiverStone Africa Safaris",
    "recipient": "Reuben Ngusaru",
    "role": "Founder & Executive Director"
-  },
-  {
-   "message_id": "M10818d4c67bf",
-   "organisation": "LAITOLYA TOURS & SAFARIS LTD",
-   "recipient": "Lucy Joackim Minde",
-   "role": "Experience Director"
   },
   {
    "message_id": "M201acd514c24",

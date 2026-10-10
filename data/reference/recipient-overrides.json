@@ -31,6 +31,15 @@
     "value": "satbir@hanspaul.co.tz",
     "reason": "Recorded on Kamaljit Singh Hanspaul (Group Chairman) by the 2026-09-23 crawl; the website ties the address to Satbir Singh Hanspaul."
    }
+  },
+  "Odadd47c95eee": {
+   "name": "Diamond Trust Bank",
+   "contact_id": "C3d03a8aa84be",
+   "recipient": "Pamela Kieti (Head - Human Resources)",
+   "route": "hr@diamondtrust.co.tz",
+   "source": "https://www.ajiriwa.net/view-job/marketing-officer-63fa11317dd71",
+   "reason": "Role inbox for the recipient's role (companies research, 10 October 2026): DTB Tanzania's own vacancy notice (Ajiriwa, closing 20 January 2020) gives HR@diamondtrust.co.tz as the bank's HR inbox, and the bank's executive-committee page names Pamela Kieti as Head - Human Resources. The draft goes to the HR inbox on the bank's domain instead of customercare@ (a direct route under the high-split rule of 10 October 2026: the inbox for the HR head's role). The notice is from 2020: a bounce means the inbox has changed.",
+   "decided": "2026-10-10"
   }
  }
 }

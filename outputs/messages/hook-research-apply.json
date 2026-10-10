@@ -217,6 +217,17 @@
    "left_out": [
     "Nelson Mandela African Institution of Science and Technology: hook not used (the coordinator's review: The staff count comes from Wikipedia, not the institution's own site (the hook-research agent: 'not stated on official site'); the institution's home page does not name its Vice-Chancellor either.): Wikipedia lists your institution with 71 academic staff and 48 administrative staff, so such a benefit could reach a broad team."
    ]
+  },
+  {
+   "run_date": "2026-10-10",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "source_files": 1,
+   "brief_facts": 74,
+   "plans_with_hook": 39,
+   "organisations_with_hook": 6,
+   "lead_briefs_after": 645,
+   "left_out": []
   }
  ]
 }

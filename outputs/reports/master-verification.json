@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-10T18:05:08.502098+00:00",
+  "checked_at": "2026-10-10T21:02:25.616591+00:00",
   "result": "passed",
-  "database": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-ab1725f6c0be43839\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "6998951eda4aa24030f9dc4423f3ec87b62fe6ec3cc768ce1699ed70a090c5bc",
-  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-ab1725f6c0be43839\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "b209ab3b3316413bc79b8de7b6fddd841b53672558803de51625219c18c13753",
+  "database": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-ab07f85c08e41c473\\outputs\\master\\Silverleaf Master Database.sqlite",
+  "database_sha256": "caebb7fc15bb8af82db21b74988a2f49f4d7cebf14699f27d77aeb589313b60c",
+  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-ab07f85c08e41c473\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
+  "workbook_sha256": "a2a786c98ffe4e5f7611e7f64b201df36a064639771976cfeead93429d31cd6b",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -17,32 +17,32 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 126,
-    "source_records": 10903,
+    "source_files": 131,
+    "source_records": 11051,
     "organisations": 971,
-    "contacts": 1004,
+    "contacts": 1073,
     "enquiries": 32,
-    "messages": 1983,
-    "outreach_plans": 1983,
+    "messages": 2052,
+    "outreach_plans": 2052,
     "strategies": 141,
     "automation_recipes": 54,
-    "campaign_lead_assignments": 2015,
+    "campaign_lead_assignments": 2084,
     "acquisition_tracks": 3,
     "value_proposition_modules": 8,
     "lead_intake_rules": 9
   },
   "hooks": {
-    "verified": 424,
+    "verified": 458,
     "active_unverified": 0,
     "verified_without_source": 0
   },
   "lead_briefs": {
-    "facts": 573,
+    "facts": 645,
     "untraceable": 0
   },
   "assignments": {
-    "plans": 1983,
-    "with_track": 1983
+    "plans": 2052,
+    "with_track": 2052
   },
   "enabled_automations": 0,
   "unwanted_paths": []

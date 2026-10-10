@@ -13,10 +13,10 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-10/ 
 | introducers-high-direct | 2 |
 | introducers-high-indirect | 10 |
 | introducers-medium | 3 |
-| welfare-high | 59 |
+| welfare-high | 66 |
 | welfare-high-direct | 11 |
-| welfare-high-indirect | 48 |
-| welfare-medium | 16 |
+| welfare-high-indirect | 55 |
+| welfare-medium | 9 |
 | welfare-low | 117 |
 
 Left out (no email address; use the call sheets):
@@ -30,9 +30,9 @@ Addresses shared by two rows, exported once (18):
 - info@almc.or.tz: Arusha Lutheran Medical Center (welfare, high) kept as Arusha Lutheran Medical Centre (companies)
 - contact@cssc.or.tz: Christian Social Services Commission (welfare, high) kept as Christian Social Services Commission (introducers)
 - info@tz.ci.org: Compassion International Tanzania (welfare, high) kept as Compassion International Tanzania (welfare)
+- connie@karamaconnection.org: Karama Kids (Karama Care orphanage), Arusha (welfare, high) kept as Karama Connection (welfare)
 - office@africaaminialama.com: KinderVilla Momella (welfare, high) kept as Africa Amini Alama (welfare)
 - national.office@sos-tanzania.org: SOS Children's Villages International / SOS Children's Villages Tanzania (welfare, high) kept as SOS Children's Village Arusha (welfare)
-- connie@karamaconnection.org: Karama Connection (welfare, medium) kept as Karama Kids (Karama Care orphanage), Arusha (welfare)
 - dhrma@atc.ac.tz: Arusha Technical College Staff SACCOS Ltd (companies, low) kept as Arusha Technical College (companies)
 - info@adratanzania.org: Adventist Development and Relief Agency (welfare, low) kept as Adventist Development Agency (companies)
 - info@farajaschool.org: Faraja Forward Tanzania. (welfare, low) kept as Faraja Fund Foundation (welfare)

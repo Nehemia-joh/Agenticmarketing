@@ -30,7 +30,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Maeve Turner,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Founder & CEO of Inuka of Inuka, which supports Cheti NGO. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Founder & CEO of Inuka, which supports Cheti NGO. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Inuka's current giving.
 
@@ -150,7 +150,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Joel Vann,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that African Moons Tanzania supports Safe Home for Children with Disabilities. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the President & Founder of African Moons Tanzania, which supports Safe Home for Children with Disabilities. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within African Moons Tanzania's current giving.
 
@@ -246,7 +246,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Anthony Long,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Group Chairman, Capital International Group of Capital International, which supports Huruma Vision Children's Home. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Group Chairman of Capital International, which supports Huruma Vision Children's Home. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Capital International's current giving.
 
@@ -511,7 +511,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Jerry Kramer,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are a co-leader of love for the least of Love for the Least, which supports Samaritan Village Orphanage. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are a co-leader of Love for the Least, which supports Samaritan Village Orphanage. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Love for the Least's current giving.
 
@@ -583,7 +583,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Jason Bergmann,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the EXECUTIVE DIRECTOR of Opportunity Builds Africa, which supports Eripoto Safe House. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Executive Director of Opportunity Builds Africa, which supports Eripoto Safe House. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Opportunity Builds Africa's current giving.
 
@@ -655,7 +655,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Thomas Kipingili,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that SOS Children's Villages International / SOS Children's Villages Tanzania runs SOS Children's Village Arusha. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the National Director of SOS Children's Villages International / SOS Children's Villages Tanzania, which runs SOS Children's Village Arusha. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within SOS Children's Villages International / SOS Children's Villages Tanzania's current giving.
 
@@ -1608,7 +1608,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Sara Preston,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Executive Director, Board Chair of Habari Foundation International, which supports Habari Foundation. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Executive Director of Habari Foundation International, which supports Habari Foundation. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Habari Foundation International's current giving.
 
@@ -1683,7 +1683,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Alan Jackson,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the CEO, Executive Committee Board Member of Hearts And Hands For Humanity, which supports Childrens Center Orphanage. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the CEO of Hearts And Hands For Humanity, which supports Childrens Center Orphanage. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Hearts And Hands For Humanity's current giving.
 
@@ -1881,7 +1881,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Bob Moore,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the President, Director of Kilimanjaro Mission of Hope and Outreach, which supports Rainbow Centre, Catholic Diocese of Moshi. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the President and Director of Kilimanjaro Mission of Hope and Outreach, which supports Rainbow Centre, Catholic Diocese of Moshi. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Kilimanjaro Mission of Hope and Outreach's current giving.
 
@@ -1955,7 +1955,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Bruce Thew,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chairman, Liaison Group of Liaison Group, which supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chairman of Liaison Group, which supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Liaison Group's current giving.
 
@@ -2054,7 +2054,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Rick Morro,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the MGRC Founder, Board Member, On-site Director of Maasai Girls Rescue Center Inc, which supports Maasai Girls Rescue Center - Children's Home and Rescue Center. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the MGRC Founder and On-site Director of Maasai Girls Rescue Center Inc, which supports Maasai Girls Rescue Center - Children's Home and Rescue Center. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Maasai Girls Rescue Center Inc's current giving.
 
@@ -2418,7 +2418,7 @@ Subject: Sponsorship request: students at Silverleaf Academy
 ```
 Dear Maria Blanchard,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the DIRECTOR OF OPERATIONS of UPENDO: One Kid at a Time, which supports Upendo Children's Home. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Director Of Operations of UPENDO: One Kid at a Time, which supports Upendo Children's Home. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within UPENDO: One Kid at a Time's current giving.
 

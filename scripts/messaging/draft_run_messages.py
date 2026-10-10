@@ -208,9 +208,18 @@ def site_domain(url) -> str:
     return re.sub(r"^www\.", "", host)
 
 
-def role_phrase(role: str) -> str:
+def role_phrase(role: str, organisation: str = "") -> str:
     """How a published role reads in 'I understand that you are ... of <organisation>'; '' when it is too long or messy to quote."""
     role = " ".join(str(role or "").split())
+    if role.isupper():
+        role = role.title()
+    # 'Founder & CEO of Inuka' before 'of Inuka': drop the role's own trailing 'of/at <organisation>'.
+    head = next((w for w in re.findall(r"[A-Za-z]{3,}", organisation or "") if w.lower() not in {"the", "and", "for"}), "")
+    if head:
+        role = re.sub(r"\s+(?:of|at)\s+(?:the\s+)?" + re.escape(head) + r"\b.*$", "", role, flags=re.I)
+    # 'Group Chairman, Capital International Group' -> 'Group Chairman'; 'Founder, Executive Director' -> 'Founder and Executive Director'.
+    first, *rest = [p.strip() for p in role.split(",")]
+    role = " and ".join([first] + [p for p in rest if p and leader_rank(p) is not None])
     if not role or len(role) > 45 or re.search(r"[();/]", role):
         return ""
     return f"a {role.lower()}" if role.lower().startswith("co-") else f"the {role}"
@@ -446,8 +455,8 @@ def welfare(con, now, run_cfg) -> dict:
             subject = "Sponsorship request: students at Silverleaf Academy"
             asks = ("We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, "
                     "including a contribution towards textbooks, transport or meals.")
-            if reason and leader and role_phrase(leader.get("role")):
-                opening = (f"I understand that you are {role_phrase(leader.get('role'))} of {name}, which {reason['verb']} {reason['supported']}. "
+            if reason and leader and role_phrase(leader.get("role"), name):
+                opening = (f"I understand that you are {role_phrase(leader.get('role'), name)} of {name}, which {reason['verb']} {reason['supported']}. "
                            f"It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.")
             elif reason:
                 opening = (f"{hook} It is this commitment to supporting communities in Tanzania that led me to write."

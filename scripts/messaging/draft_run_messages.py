@@ -366,9 +366,16 @@ def government(con, now, run_cfg) -> dict:
     posts = {}
     for r in con.execute("SELECT * FROM official_posts"):
         posts.setdefault(r["organisation_id"], {})[r["post_key"]] = dict(r)
+    # The council letter names wards "near our campuses": the highest-scored wards within 10 km of a campus (the first wave),
+    # then the nearest others, so the claim holds (review of 10 October 2026: Hai's letter named a ward 18 km away).
     top_wards = {}
-    for u in sorted((u for u in units.values() if u["level"] == "ward" and u["in_catchment"] == "yes"), key=lambda u: -(u["ward_score"] or 0)):
-        top_wards.setdefault(u["council"], []).append(u["name"])
+    near_wards = [u for u in units.values() if u["level"] == "ward" and u["in_catchment"] == "yes" and u["distance_km"] is not None]
+    for u in sorted(near_wards, key=lambda u: (u["distance_km"] > 10, -(u["ward_score"] or 0) if u["distance_km"] <= 10 else u["distance_km"])):
+        first_wave = [w for w in top_wards.get(u["council"], []) if w[1] <= 10]
+        if u["distance_km"] > 10 and first_wave:
+            continue  # name only first-wave wards when the council has any
+        top_wards.setdefault(u["council"], []).append((u["name"], u["distance_km"]))
+    top_wards = {council: [name for name, _ in wards] for council, wards in top_wards.items()}
     outcomes, issues = Counter(), []
     for o in offices:
         level, track = o["office_level"], o["proposed_government_track"] or "GA00 Hold"
@@ -431,6 +438,9 @@ def government(con, now, run_cfg) -> dict:
             follow = ""
             modules, cta = "VM14; VM15; VM16; VM17", "Convening request"
             missing.append("Held until the council introduction (GA01) is recorded and this post is verified within 90 days (GA02 gate).")
+            if level == "village" and council.get("urban"):
+                missing.append("A city or municipal council has mitaa, not villages: confirm this office and its title (a mtaa office?) "
+                               "with the council before any letter.")
             if unit.get("ward_score") is not None:
                 missing.append(f"Ward priority: tier {unit.get('ward_tier')}, score {unit.get('ward_score')}, rank {unit.get('rank_in_cluster')} in "
                                f"{unit.get('campus_cluster')}.")
@@ -440,10 +450,13 @@ def government(con, now, run_cfg) -> dict:
             recipient_post = "district_administrative_secretary" if level == "district" else "regional_administrative_secretary"
             head_sw = (f"Katibu Tawala wa Wilaya ya {o['admin_unit_name']}" if level == "district" else f"Katibu Tawala wa Mkoa wa {o['admin_unit_name']}")
             subject = "YAH: TAARIFA KUHUSU ELIMU KWA WAZAZI JUU YA MAANDALIZI YA WATOTO KUANZA SHULE"
-            body = (f"{head_sw}.\n\n{subject}\n\n{ABOUT_SW}\n\nKwa utambulisho wa Halmashauri husika, tunapanga kutoa {SESSION_SW} katika mikutano ya "
+            # The official postal address, when one is published, completes the address block (as in the council letters).
+            postal_sw, postal = postal_lines(o.get("address"))
+            body = (f"{head_sw}{(',' + chr(10) + postal_sw) if postal_sw else '.'}\n\n{subject}\n\n{ABOUT_SW}\n\nKwa utambulisho wa Halmashauri husika, tunapanga kutoa {SESSION_SW} katika mikutano ya "
                     f"wananchi, kwa muda mfupi utakaotolewa na Watendaji wa Kata. Tunapenda ofisi yako ifahamu mpango huu, na tutashukuru kwa ushauri "
                     f"wowote.\n\n{SAFEGUARDS_SW}\n\n{CLOSE_SW}")
-            english = (f"To the {'District' if level == 'district' else 'Regional'} Administrative Secretary, {o['admin_unit_name']}.\n\nRE: NOTICE OF "
+            english = (f"To the {'District' if level == 'district' else 'Regional'} Administrative Secretary, {o['admin_unit_name']}"
+                       f"{', ' + postal if postal else ''}.\n\nRE: NOTICE OF "
                        f"PARENT INFORMATION SESSIONS ON PREPARING CHILDREN TO START SCHOOL\n\n{ABOUT_EN}\n\nWith the relevant councils' introduction, we "
                        f"plan to give {SESSION_EN} at community meetings, in short slots the ward executive officers allow. We would like your office to "
                        f"know of this plan and would welcome any advice.\n\n{SAFEGUARDS_EN}\n\n{CLOSE_EN}")

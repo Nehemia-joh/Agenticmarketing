@@ -34,10 +34,11 @@ ORG_HEADERS = ["organisation_id", "record_key", "name", "office_level", "propose
                "rank_in_cluster", "campus_cluster", "factors_known", "council_name", "region", "admin_unit_name", "parent_admin_unit",
                "census_2022_population", "census_source_location", "catchment_wards", "catchment_population_2022", "campus", "distance_km",
                "transport_band", "nearest_primary_campus", "distance_to_primary_km", "primary_band", "geocode_precision", "location_source",
-               "latitude", "longitude", "location_note", "website", "public_email", "public_phone", "po_box", "convening_forum", "size_evidence",
+               "latitude", "longitude", "location_note", "website", "public_email", "public_phone", "po_box", "physical_address", "route_official", "convening_forum", "size_evidence",
                "verification_status", "pdpa_risk", "pdpa_risk_reason", "osm_id", "master_organisation_id", "missing_information", "source_url",
                "evidence_basis", "evidence_excerpt", "all_source_urls"]
-CONTACT_HEADERS = ["contact_id", "organisation", "office_level", "role", "appointment_type", "name", "holder_verified_on", "tenure_source_url",
+CONTACT_HEADERS = ["contact_id", "organisation", "office_level", "role", "appointment_type", "name", "holder_verified_on", "holder_source_date",
+                   "holder_basis", "tenure_source_url",
                    "role_certainty", "contact_route", "role_phone", "published_role_email", "organisation_phone", "channel_attribution",
                    "b2g_check_required", "convening_role", "pdpa_risk", "pdpa_risk_reason", "proposed_government_track", "verification_status",
                    "source_url", "evidence_excerpt", "notes"]
@@ -158,7 +159,7 @@ def main() -> int:
 
     contact_rows = []
     for c in con.execute("SELECT c.*, o.name AS organisation, op.office_title, op.appointment_type, op.b2g_check_required, op.convening_role, "
-                         "op.holder_verified_on, op.tenure_source_url, op.pdpa_risk, op.pdpa_risk_reason, g.office_level, g.proposed_government_track "
+                         "op.holder_verified_on, op.holder_source_date, op.holder_basis, op.tenure_source_url, op.pdpa_risk, op.pdpa_risk_reason, g.office_level, g.proposed_government_track "
                          "FROM contacts c JOIN organisations o USING(organisation_id) JOIN official_posts op ON op.contact_id = c.contact_id "
                          "JOIN government_office_profiles g ON g.organisation_id = c.organisation_id ORDER BY o.name, op.post_key"):
         c = dict(c)

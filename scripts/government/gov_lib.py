@@ -145,6 +145,82 @@ def sanitise(value):
     return value
 
 
+# ------------------------------------------------------------------ post holders named in official news and notices
+# A council's or region's own news item that names the current holder of a post ("Mkuu wa Wilaya ya Hai, Mhe. ...") is an
+# official publication of who holds it. collect_council_sites.py keeps only the matched post, the name exactly as written,
+# the item's date and an excerpt of at most 25 words; the story text itself is never stored. The build applies a mention
+# only to a post that no leadership profile names, and records the item's date as the source date.
+_HONORIFIC = (r"(?:(?:Mhe|Mh|Mheshimiwa|Hon|Ndg|Ndugu|Bw|Bwana|Bi|Bibi|Mwl|Mwalimu|Dkt|Dk|Dr|Eng|Mhandisi|CPA|Prof|Kanali|Col|Mr|Mrs|Ms|"
+              r"Sheikh|Mchungaji)\.?\s+)")
+_NAME_WORD = r"(?:[A-Z][a-zA-Z'’\-]+|[A-Z]\.)"
+_NAME = rf"(?P<name>{_NAME_WORD}(?:\s+{_NAME_WORD}){{1,3}})"
+_UNIT = r"(?P<unit>[A-Z][a-zA-Z'’]+(?:\s(?:Kusini|Kaskazini|Mashariki|Magharibi|Kati|Juu|Chini|River|[IV]{1,3}))?)"
+_TAIL = rf"(?:\s*\([A-Za-z.]+\))?,?\s+(?P<acting>(?i:kaimu\s+))?{_HONORIFIC}*{_NAME}"
+# (post_key, office level, title pattern): the title words match in any case; the unit and the name must be capitalised.
+MENTION_RULES = [
+    ("regional_commissioner", "region", rf"(?<![Gg]anga )(?<!GANGA )(?i:mkuu\s+wa\s+mkoa\s+wa\s+)(?P<unit>Arusha|Kilimanjaro|Manyara)"),
+    ("regional_administrative_secretary", "region", rf"(?i:katibu\s+tawala\s+(?:wa\s+)?mkoa\s+(?:wa\s+)?)(?P<unit>Arusha|Kilimanjaro|Manyara)"),
+    ("regional_education", "region", rf"(?i:afisa\s+elimu\s+(?:wa\s+)?mkoa\s+(?:wa\s+)?)(?P<unit>Arusha|Kilimanjaro|Manyara)"),
+    ("district_commissioner", "district", rf"(?<![Gg]anga )(?<!GANGA )(?i:mkuu\s+wa\s+wilaya\s+(?:ya\s+)?){_UNIT}"),
+    ("district_commissioner", "district", rf"{_UNIT}(?i:\s+district\s+commissioner)"),
+    ("district_administrative_secretary", "district", rf"(?i:katibu\s+tawala\s+(?:wa\s+)?wilaya\s+(?:ya\s+)?){_UNIT}"),
+    ("council_director", "council", rf"(?i:mkurugenzi\s+mtendaji\s+(?:wa\s+)?(?:halmashauri\s+ya\s+)?wilaya\s+(?:ya\s+)?){_UNIT}(?P<kind_district>)"),
+    ("council_director", "council", rf"(?i:mkurugenzi\s+(?:mtendaji\s+)?(?:wa\s+)?(?:halmashauri\s+ya\s+)?jiji\s+(?:la\s+)?)(?P<unit>Arusha)(?P<kind_city>)"),
+    ("council_director", "council", rf"(?i:mkurugenzi\s+(?:mtendaji\s+)?(?:wa\s+)?(?:halmashauri\s+ya\s+)?manispaa\s+(?:ya\s+)?)(?P<unit>Moshi)(?P<kind_municipal>)"),
+    ("primary_education_head", "council", r"(?i:(?:afisa|mkuu\s+wa\s+divisheni\s+ya|mkuu\s+wa\s+idara\s+ya)\s+elimu\s+(?:ya\s+)?(?:awali\s+na\s+)?msingi)"
+                                          r"(?:\s+(?i:wa\s+)?(?i:halmashauri\s+ya\s+)?(?i:(?:wilaya|jiji|manispaa)\s+(?:ya|la)\s+)(?P<unit>[A-Z][a-z]+))?"),
+    ("community_development_head", "council", r"(?i:(?:mkuu\s+wa\s+divisheni\s+ya|mkuu\s+wa\s+idara\s+ya)\s+maendeleo\s+ya\s+jamii)"
+                                              r"(?:\s+(?i:wa\s+)?(?i:halmashauri\s+ya\s+)?(?i:(?:wilaya|jiji|manispaa)\s+(?:ya|la)\s+)(?P<unit>[A-Z][a-z]+))?"),
+    ("social_welfare_officer", "council", r"(?i:afisa\s+ustawi\s+wa\s+jamii\s+(?:wa\s+)?(?:halmashauri|wilaya|jiji|manispaa))"
+                                          r"(?:\s+(?i:ya|la)\s+(?:(?i:wilaya\s+ya\s+))?(?P<unit>[A-Z][a-z]+))?"),
+    ("ward_executive_officer", "ward", rf"(?i:(?:afisa\s+)?mtendaji\s+wa\s+kata\s+(?:ya\s+)?){_UNIT}"),
+    ("ward_community_development_officer", "ward", rf"(?i:afisa\s+maendeleo\s+ya\s+jamii\s+(?:wa\s+)?kata\s+(?:ya\s+)?){_UNIT}"),
+    ("village_executive_officer", "village", rf"(?i:(?:afisa\s+)?mtendaji\s+wa\s+kijiji\s+(?:cha\s+)?){_UNIT}"),
+]
+_MENTION_RES = [(post, level, re.compile(title + _TAIL)) for post, level, title in MENTION_RULES]
+# Words that end a name or show the match is not one: places, offices and Kiswahili words written with a capital.
+_NOT_NAME = re.compile(r"^(Halmashauri|Wilaya|Mkoa|Kata|Kijiji|Jiji|Manispaa|Mkuu|Afisa|Katibu|Tawala|Serikali|Tanzania|Rais|Ofisi|Mkurugenzi|"
+                       r"Mtendaji|Idara|Divisheni|Elimu|Maendeleo|Jamii|Ustawi|Kamati|Baraza|Mwenyekiti|Diwani|Mbunge|Waziri|Naibu|"
+                       r"Kaimu|Katika|Wakati|Pamoja|Leo|Jana|Baada|Kabla|Akiwa|Wakiwa|Ambaye|Ambapo|Kwa|Na|Wa|Ya|Pia|Hata|Hii|Huyo|Akizungumza|Amesema|Alisema|Ameeleza|Aidha|Hivyo|Mradi|Shule|"
+                       r"District|Council|Commissioner|Regional|Director|The|And|Of|In|At|On|Arusha|Kilimanjaro|Manyara|Moshi|Hai|Meru|"
+                       r"Siha|Monduli|Simanjiro|Longido|Arumeru|Mjini|Vijijini)$")
+_FORMER = re.compile(r"(?i:aliyekuwa|mstaafu|wa zamani|former|retired|marehemu|hayati)\s*$")
+_ACTING_BEFORE = re.compile(r"(?i:kaimu)\s*$")  # "Kaimu Mkurugenzi ...": an acting holder, never named as the post's holder
+# "on behalf of the DC, <someone else>": the name that follows is the representative, not the holder.
+_PROXY = re.compile(r"(?i:niaba\s+ya|akimwakilisha|aliyemwakilisha|kumwakilisha|mwakilishi\s+wa|amemwakilisha|representing|on\s+behalf\s+of)\s*$")
+
+
+def holder_mentions(text: str, limit_words: int = 25) -> list[dict]:
+    """Posts named with their holder in an official text: [{post_key, level, unit, council_kind, name, acting, excerpt}].
+
+    Former holders ("aliyekuwa ...") and representatives ("kwa niaba ya Mkuu wa Wilaya, ...") are skipped. council_kind is
+    'city', 'municipal' or 'district' when a director's title says which council, so Arusha City and Arusha District differ."""
+    plain = " ".join(str(text or "").replace("\u200e", " ").replace("\xa0", " ").split())
+    out, seen = [], set()
+    for post_key, level, rx in _MENTION_RES:
+        for m in rx.finditer(plain):
+            before = plain[max(0, m.start() - 40):m.start()]
+            if _FORMER.search(before) or _PROXY.search(before):
+                continue
+            words = m.group("name").split()
+            while words and _NOT_NAME.match(words[-1].strip(".,")):
+                words.pop()
+            if len(words) < 2 or any(_NOT_NAME.match(w.strip(".,")) for w in words):
+                continue
+            name = " ".join(words)
+            groups = m.groupdict()
+            unit = (groups.get("unit") or "").strip()
+            kind = next((k[5:] for k in ("kind_city", "kind_municipal", "kind_district") if groups.get(k) is not None), "")
+            key = (post_key, unit, name)
+            if key in seen:
+                continue
+            seen.add(key)
+            excerpt = (plain[m.start():m.end()].split() + plain[m.end():].split()[:6])
+            out.append({"post_key": post_key, "level": level, "unit": unit, "council_kind": kind, "name": name, "acting": bool(m.group("acting")) or bool(_ACTING_BEFORE.search(before)),
+                        "excerpt": " ".join(excerpt[:limit_words])})
+    return out
+
+
 # ------------------------------------------------------------------ office levels and exclusions
 LEVEL_RULES = [  # first match wins; applied to lower-cased names
     ("region", r"\bmkoa\b|regional commissioner|regional secretariat|regional administrative|\brc'?s? office\b"),

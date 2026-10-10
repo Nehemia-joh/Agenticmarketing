@@ -39,6 +39,8 @@ def entry(n: str, r: dict, messages: dict) -> list[str]:
     mid = r["message_id"]
     lines = [f"### {n} {r['name']}", "",
              f"- To: {r['recipient']} | Delivery: {r['route_value']} | Plan: {mid} | Status: {r['review_status']}"]
+    if r.get("holders"):
+        lines.append(f"- Office holders (for the cover note, the call and the visit; the letter stays addressed by title): {r['holders']}")
     if r["office_level"] in ("ward", "village"):
         lines.append(f"- Nearest campus: {r['campus'] or 'unknown'}"
                      + (f", {r['distance_km']} km ({band(r['distance_km'])})" if r["distance_km"] not in (None, "") else "")
@@ -66,6 +68,14 @@ def main() -> int:
         "SELECT p.*, o.name, o.campus, o.distance_km, g.office_level, g.council_name, g.admin_unit_name, u.ward_score, u.ward_tier "
         "FROM outreach_plans p JOIN organisations o USING(organisation_id) JOIN government_office_profiles g USING(organisation_id) "
         "LEFT JOIN admin_units u ON u.unit_key = g.admin_unit_key")]
+    # Who holds the posts that decide, as an official source names them (holder, source date); councillors are not listed.
+    columns = {c[1] for c in con.execute("PRAGMA table_info(official_posts)")}
+    dated = "holder_source_date" in columns
+    for r in rows:
+        held = con.execute("SELECT office_title, holder_name" + (", holder_source_date" if dated else ", ''") + " FROM official_posts "
+                           "WHERE organisation_id = ? AND holder_name != '' AND post_key NOT IN ('ward_councillor', 'council_chair', 'village_chair') "
+                           "ORDER BY post_key", (r["organisation_id"],)).fetchall()
+        r["holders"] = "; ".join(f"{t}: {n}" + (f" (source dated {d})" if d else "") for t, n, d in held)
     councils = sorted((r for r in rows if r["office_level"] == "council"), key=lambda r: (r["review_status"] != "draft_ready", r["name"]))
     higher = sorted((r for r in rows if r["office_level"] in ("district", "region")), key=lambda r: (r["office_level"], r["name"]))
     local = [r for r in rows if r["office_level"] in ("ward", "village")]

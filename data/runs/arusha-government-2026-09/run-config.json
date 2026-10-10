@@ -1,7 +1,8 @@
 {
  "run_id": "arusha-government-2026-09",
  "research_date": "2026-09-23",
- "research_period": "22–23 September 2026",
+ "research_period": "22–23 September 2026; council and regional sites refreshed and holders enriched on 10 October 2026",
+ "council_sites_date": "2026-10-10",
  "lead_track": "government_convener",
  "catchment_km": 25,
  "bbox": [
@@ -213,6 +214,7 @@
   "Deliberately not copied: special-seat councillors and the constituency MP on Arusha District Council's list, because they do not convene ward meetings; party affiliation anywhere; CMS editor names and emails, officials' photos and biographies, and the text of council news stories.",
   "Longido District Council publishes councillors with phone numbers but has no ward within 25 km of a campus, so it is outside this run.",
   "Rate limits met: Wikipedia answered HTTP 429 at one request per second (now 2 s apart); Overpass answered 429 and 504 on back-to-back queries and the kumi.systems mirror completed the boundary query; the council sites answered every request at 1.5 s spacing.",
+  "Enrichment of 10 October 2026: the 13 council and regional sites were captured again (council_sites_date). Holders are now also named from the offices' own news (holder mentions) and a reviewed researched file (post_holders_gov_2026-10-10.json), each with its source date. Found: the Arusha, Arumeru and Hai District Commissioners were replaced on 1 to 3 October 2026, and Moshi Municipal Council has a new director; every District Commissioner and four of the seven District Administrative Secretaries are now named; Monduli, Moshi and Simanjiro District Commissioners are marked to recheck. Web search found nothing usable (6 searches); District Commissioners' office addresses and most WEO names are still not published online.",
   "Corrections for the company master (apply only through silverleaf-update-lead-list): the two CCM offices, the police station and the primary court are not conveners; Njake Oil, Lutheran Center and Tumaini University Makumira Offices are not government offices; six local administration offices can move to government_convener after verification."
  ],
  "joint_zones": {

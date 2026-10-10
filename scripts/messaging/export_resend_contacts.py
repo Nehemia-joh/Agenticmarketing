@@ -17,18 +17,38 @@ Confidence (in the data and in the recipient):
 Rows without an email address (phone only, or no route) are left out and counted; they belong on the call sheets.
 An address that two rows share is exported once (the higher-confidence row) and reported.
 
+Government track (--tracks government; the government run database, read-only). Every office is segmented, whatever the
+channel, because its letters go by hand or post (Tanzanian protocol: addressed by title, on letterhead). Two kinds of file:
+  government-<confidence>.csv           Resend import rows, only for offices that publish an official inbox (an advance copy);
+  government-delivery-<confidence>.csv  every office: letter addressee, who decides, who can decide quickly, the delivery route
+                                        (postal and physical address, office phone, official email), wave and reason.
+Confidence for government:
+- high: the letter is ready (a pilot council's GA01 introduction, review_status draft_ready), the addressee's post has a holder
+  named by an official source (leadership profile, the office's or its parent's own news, or a researched official page),
+  verified and dated within 180 days, and the postal address comes from an official source;
+- medium: the letter is ready, but the holder is not named, not verified or older than 180 days, or the postal address is
+  missing or not official;
+- low: the letter is held: councils outside the v1 pilot (promote: the user adds the council to the pilot), district and
+  regional courtesy notices (promote: the B2G owner approves them after the pilot introductions), and every ward and village
+  letter, held until its council introduces us (GA01 recorded) and the executive officer is verified within 90 days (GA02 gate).
+  Wards carry a wave: first (up to 10 km from a campus), second (10 to 20 km), later (over 20 km), or 'locate the ward first'.
+  A village office mapped inside a city council is flagged (cities have mitaa).
+Writes outputs/messages/Silverleaf Government Segments - <date>.md (rules, counts, the high and medium offices, held offices).
+
 Every row's confidence_reason says what would promote it. Nothing is sent: sending stays with a person.
-Also writes outputs/messages/Silverleaf Resend Segments - <date>.md (counts and the import steps).
+Also writes outputs/messages/Silverleaf Resend Segments - <date>.md (counts and the import steps) for the companies, introducers
+and welfare tracks (--tracks companies,welfare, the default together with government).
 """
 from __future__ import annotations
 
 import argparse
 import csv
 import html
+import json
 import re
 import sqlite3
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -189,6 +209,197 @@ def welfare_rows(con):
     return rows, skipped
 
 
+# ------------------------------------------------------------------ government (separate run database; letters, not email)
+GOV_RECIPIENT = {"council": "council_director", "district": "district_administrative_secretary", "region": "regional_administrative_secretary",
+                 "ward": "ward_executive_officer", "village": "village_executive_officer"}
+GOV_DECIDES = {"council": "council_director", "district": "district_commissioner", "region": "regional_commissioner",
+               "ward": "ward_executive_officer", "village": "village_executive_officer"}
+GOV_QUICK = {"council": ["primary_education_head", "community_development_head", "social_welfare_officer"],
+             "district": ["district_administrative_secretary"], "region": ["regional_administrative_secretary", "regional_education"],
+             "ward": ["ward_community_development_officer", "ward_councillor"], "village": ["village_chair"]}
+GOV_CURRENT_DAYS = 180   # a named holder counts as current when an official source named them within this many days
+DELIVERY_FIELDS = ["confidence", "release_order", "confidence_reason", "wave", "office", "office_level", "council", "letter_to", "decision_maker",
+                   "decision_maker_source", "quick_decision", "delivery", "postal_address", "physical_address", "office_phone", "official_email",
+                   "campus", "distance_km", "ward_tier", "draft_status", "subject", "plan_id"]
+
+
+def gov_wave(level: str, distance) -> str:
+    if level not in ("ward", "village"):
+        return {"council": "council introduction (GA01)", "district": "courtesy notice", "region": "courtesy notice"}.get(level, "")
+    if distance in (None, ""):
+        return "locate the ward first"
+    d = float(distance)
+    return "first wave (up to 10 km)" if d <= 10 else "second wave (10 to 20 km)" if d <= 20 else "later wave (over 20 km)"
+
+
+def gov_person(post: dict | None, payload: dict, today: str) -> tuple[str, str, bool]:
+    """('Title: Name', 'basis, source date, URL', current-and-verified) for a post; the name only as an official source gives it."""
+    if not post:
+        return "", "", False
+    title = f"{post['office_title_sw']} ({post['office_title']})"
+    name = post.get("holder_name") or ""
+    if not name:
+        return f"{title}: not named in any official source", "", False
+    source_date = post.get("holder_source_date") or payload.get("holder_source_date") or ""
+    age = (date.fromisoformat(today) - date.fromisoformat(source_date)).days if re.match(r"\d{4}-\d{2}-\d{2}$", source_date) else None
+    current = (payload.get("verification_status") == "verified" and age is not None and age <= GOV_CURRENT_DAYS)
+    basis = post.get("holder_basis") or payload.get("holder_basis") or "official source"
+    return (f"{title}: {name}", f"{basis}; source dated {source_date or 'unknown'}; checked {post.get('holder_verified_on') or ''}; "
+            f"{post.get('tenure_source_url') or ''}", current)
+
+
+def government_rows(con, today: str):
+    """Every government office, in a confidence segment: email rows (offices with an official inbox) and delivery rows (all)."""
+    con.row_factory = sqlite3.Row
+    payload = {}
+    for eid, raw in con.execute("SELECT es.entity_id, sr.payload_json FROM entity_sources es JOIN source_records sr USING(source_record_id)"):
+        payload.setdefault(eid, json.loads(raw))
+    posts = defaultdict(dict)
+    for r in con.execute("SELECT * FROM official_posts"):
+        posts[r["organisation_id"]][r["post_key"]] = dict(r)
+    units = {r["unit_key"]: dict(r) for r in con.execute("SELECT * FROM admin_units")}
+    sql = ("SELECT o.*, g.office_level, g.council_name, g.admin_unit_key, g.proposed_government_track, p.message_id, p.review_status, "
+           "p.subject AS plan_subject, m.body FROM organisations o JOIN government_office_profiles g USING(organisation_id) "
+           "JOIN outreach_plans p ON p.target_id = o.organisation_id JOIN messages m ON m.message_id = p.message_id")
+    email_rows, delivery = [], []
+    pilots = {r[0] for r in con.execute("SELECT g.council_name FROM government_office_profiles g JOIN outreach_plans p ON p.target_id = "
+                                        "g.organisation_id WHERE g.office_level = 'council' AND p.review_status = 'draft_ready'")}
+    for o in con.execute(sql):
+        o = dict(o)
+        level, oid = o["office_level"], o["organisation_id"]
+        opay = payload.get(oid, {})
+        office_posts = posts.get(oid, {})
+        recipient = office_posts.get(GOV_RECIPIENT[level])
+        rpay = payload.get(recipient["contact_id"], {}) if recipient else {}
+        to_line, to_source, to_current = gov_person(recipient, rpay, today)
+        decides = office_posts.get(GOV_DECIDES[level])
+        dm_line, dm_source, dm_current = gov_person(decides, payload.get(decides["contact_id"], {}) if decides else {}, today)
+        quick = []
+        for key in GOV_QUICK[level]:
+            q = office_posts.get(key)
+            if q and q.get("holder_name"):
+                note = " (B2G check first)" if q.get("b2g_check_required") == "yes" else (
+                    " (engage only through the forum they chair)" if key == "ward_councillor" else "")
+                quick.append(f"{q['office_title']}: {q['holder_name']}{note}")
+        postal = o["address"] or ""
+        official_route = opay.get("route_official") == "yes"
+        email = (recipient or {}).get("published_role_email") or ""
+        if not email and level in ("council", "region", "district"):
+            email = o["email"] or ""
+        unit = units.get(o.get("admin_unit_key") or "", {})
+        wave = gov_wave(level, o["distance_km"])
+        ready = o["review_status"] == "draft_ready"
+        name_line = to_line.split(": ", 1)[-1]
+        if not ready:
+            confidence = "low"
+            if level == "council":
+                why = (f"held: outside the v1 pilot councils; promote: the user adds {o['council_name']} to the pilot"
+                       + ("" if to_current else "; then confirm the director's name from an official source"))
+            elif level in ("district", "region"):
+                why = ("held: courtesy notice, not a v1 target; promote: the B2G owner approves the notice once the pilot councils have "
+                       "introduced us" + ("" if postal else "; find the office's postal address"))
+            else:
+                why = (f"held until {o['council_name']} introduces us (GA01 recorded) and the "
+                       f"{'WEO' if level == 'ward' else 'VEO'} is verified within 90 days; {wave}"
+                       + ("" if (recipient or {}).get("holder_name") else f"; ask the council for the {'WEO' if level == 'ward' else 'VEO'}'s name and office phone at the GA01 meeting"))
+                if level == "village" and "City" in (o["council_name"] or ""):
+                    why += "; a city council has mitaa, not villages: confirm the office (mtaa?) before any letter"
+        elif to_current and postal and official_route:
+            confidence = "high"
+            why = (f"ready; addressed to the {recipient['office_title']} by title, held by {name_line} ({to_source.split(';')[0]}, "
+                   f"{to_source.split(';')[1].strip()}); official postal address {postal}")
+        else:
+            confidence = "medium"
+            gaps = []
+            if not (recipient or {}).get("holder_name"):
+                gaps.append(f"the {GOV_RECIPIENT[level].replace('_', ' ')} is not named in an official source: confirm the holder")
+            elif not to_current:
+                gaps.append(f"{name_line} needs confirming (source older than {GOV_CURRENT_DAYS} days or not verified)")
+            if not postal:
+                gaps.append("no published postal address: confirm the delivery address")
+            elif not official_route:
+                gaps.append("postal address not from an official source: confirm it")
+            why = "ready; " + "; ".join(gaps) + "; promote when confirmed"
+        pilot = o["council_name"] in pilots
+        order = ("1 now: pilot council introduction" if ready else
+                 "2 after the introduction: pilot ward, first wave" if pilot and level in ("ward", "village") and wave.startswith("first") else
+                 "3 after the introduction: pilot ward, second wave" if pilot and level in ("ward", "village") and wave.startswith("second") else
+                 "4 courtesy notice after the pilot introductions" if level in ("district", "region") else
+                 "5 if the pilot widens: non-pilot council" if level == "council" else
+                 "6 later: non-pilot ward" if level in ("ward", "village") and wave.startswith(("first", "second")) else
+                 "7 later wave or locate first")
+        base = {"office": o["name"], "council": o["council_name"] or "", "confidence": confidence, "release_order": order,
+                "confidence_reason": why, "wave": wave, "plan_id": o["message_id"]}
+        delivery.append({**base, "office_level": level, "letter_to": to_line, "decision_maker": dm_line + (" (current)" if dm_current else ""),
+                         "decision_maker_source": dm_source, "quick_decision": "; ".join(quick),
+                         "delivery": "by hand to the office (letter on letterhead), or post to the postal address",
+                         "postal_address": postal, "physical_address": opay.get("physical_address", ""), "office_phone": o["phone"] or "",
+                         "official_email": email, "campus": o["campus"] or "", "distance_km": o["distance_km"] if o["distance_km"] is not None else "",
+                         "ward_tier": unit.get("ward_tier") or "", "draft_status": o["review_status"], "subject": o["plan_subject"] or ""})
+        if "@" in email:
+            plain = re.sub(r"^(?:(?:Ndg|Ndugu|Bw|Bwana|Bi|Bibi|Mwl|Mhe|Mh|Mheshimiwa|Dkt|Dk|Hon|CPA)\.?\s*)+", "", name_line, flags=re.I)
+            first, last = split_name(plain) if (recipient or {}).get("holder_name") else ("", "")
+            email_rows.append({"email": email, "first_name": first, "last_name": last, "organisation": o["name"], "track": "government",
+                               "audience": f"Local government office: {level}", "confidence": confidence,
+                               "confidence_reason": why + "; email is an advance copy only: the signed letter goes by hand",
+                               "priority": wave, "variant": "", "recipient": to_line, "message_subject": o["plan_subject"] or "",
+                               "message_body": o["body"] or "", "message_html": to_html(o["body"] or ""), "plan_id": o["message_id"]})
+    return email_rows, delivery
+
+
+def write_government_summary(out: Path, today: str, email_rows, delivery) -> Path:
+    counts = Counter(r["confidence"] for r in delivery)
+    by_level = Counter((r["confidence"], r["office_level"]) for r in delivery)
+    waves = Counter((r["council"], r["wave"]) for r in delivery if r["office_level"] in ("ward", "village"))
+    lines = [f"# Government segments, {today}", "",
+             "Every office in the government run, in one confidence segment, whatever the channel: the letters go by hand or post, and "
+             "email (where an office publishes an official inbox) is an advance copy at most. Nothing is sent from this repository; a person "
+             "delivers. Files in runtime/resend/" + today + "/ (not committed): `government-<confidence>.csv` (Resend import, email rows only) and "
+             "`government-delivery-<confidence>.csv` (every office: who decides, who can decide quickly, how to deliver).", "",
+             "## Rules", "",
+             "- **High**: the letter is ready (a pilot council's GA01 introduction), it goes to a post whose current holder an official source "
+             f"named within {GOV_CURRENT_DAYS} days (leadership profile, or the office's own news), and the postal address comes from an official source.",
+             "- **Medium**: the letter is ready, but the addressee's holder is not named or not current in an official source, or the postal "
+             "address needs confirming. The reason says what to confirm.",
+             "- **Low**: the letter is held. Non-pilot councils (promote: add the council to the pilot), district and regional courtesy notices "
+             "(promote: the B2G owner's approval after the pilot introductions), and every ward and village letter, held until its council "
+             "introduces us (GA01) and the executive officer is verified within 90 days. Wards carry a wave: first (up to 10 km from a campus), "
+             "second (10 to 20 km) and later (over 20 km).",
+             "- Letters are addressed by title, as Tanzanian protocol expects. The holder's name is for the cover note, the follow-up call and "
+             "the visit, never a reason to write to a person privately. Named councillors are engaged only through the forum they chair.", "",
+             "## Counts", "", "| Segment | Offices | Of which with an official email (Resend file) |", "|---|---:|---:|"]
+    emails = Counter(r["confidence"] for r in email_rows)
+    for c in ("high", "medium", "low"):
+        lines.append(f"| government-{c} | {counts[c]} | {emails[c]} |")
+    lines += ["", "| Segment | Council | District | Region | Ward | Village |", "|---|---:|---:|---:|---:|---:|"]
+    for c in ("high", "medium", "low"):
+        lines.append(f"| {c} | " + " | ".join(str(by_level[(c, lvl)]) for lvl in ("council", "district", "region", "ward", "village")) + " |")
+    lines += ["", "Within the segments, `release_order` gives the order of delivery once each gate opens:", "",
+              "| Release order | Offices | Segment |", "|---|---:|---|"]
+    orders = Counter((r["release_order"], r["confidence"]) for r in delivery)
+    lines += [f"| {o} | {n} | {c} |" for (o, c), n in sorted(orders.items())]
+    lines += ["", "## High and medium: deliver first", "", "| Segment | Office | Letter to | Decides | Quick decision | Postal address | Office phone | Reason |",
+              "|---|---|---|---|---|---|---|---|"]
+    for r in sorted((r for r in delivery if r["confidence"] != "low"), key=lambda r: (RANK[r["confidence"]], r["office"])):
+        lines.append(f"| {r['confidence']} | {r['office']} | {r['letter_to']} | {r['decision_maker']} | {r['quick_decision'] or '-'} | "
+                     f"{r['postal_address'] or '-'} | {r['office_phone'] or '-'} | {r['confidence_reason']} |")
+    lines += ["", "## Low: held offices", "", "| Office | Letter to | Decides | Postal address | Promote by |", "|---|---|---|---|---|"]
+    for r in sorted((r for r in delivery if r["confidence"] == "low" and r["office_level"] not in ("ward", "village")), key=lambda r: (r["office_level"], r["office"])):
+        lines.append(f"| {r['office']} | {r['letter_to']} | {r['decision_maker']} | {r['postal_address'] or '-'} | {r['confidence_reason']} |")
+    lines += ["", "Wards and villages (all low until their council introduces us), by council and wave:", "",
+              "| Council | First wave (up to 10 km) | Second wave (10 to 20 km) | Later wave (over 20 km) | Locate first |", "|---|---:|---:|---:|---:|"]
+    for council in sorted({k[0] for k in waves}):
+        lines.append(f"| {council} | " + " | ".join(str(waves[(council, w)]) for w in ("first wave (up to 10 km)", "second wave (10 to 20 km)",
+                                                                                      "later wave (over 20 km)", "locate the ward first")) + " |")
+    named_weo = sum(1 for r in delivery if r["office_level"] in ("ward", "village") and "not named" not in r["letter_to"])
+    lines += ["", f"Ward and village executive officers named by an official source: {named_weo} of "
+              f"{sum(1 for r in delivery if r['office_level'] in ('ward', 'village'))}. Ask each pilot council for the WEO list at the GA01 meeting.",
+              "", "Rules in full: the docstring of scripts/messaging/export_resend_contacts.py. Each row's confidence_reason says what would promote it."]
+    path = ROOT / "outputs" / "messages" / f"Silverleaf Government Segments - {today}.md"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path
+
+
 def dedupe(rows):
     """One row per address: the higher-confidence row, then companies before welfare."""
     best, dropped = {}, []
@@ -201,11 +412,56 @@ def dedupe(rows):
     return list(best.values()), dropped
 
 
+def government_main(args, today: str) -> int:
+    gov_db = ROOT / "outputs" / "runs" / args.government_run / "lead-database.sqlite"
+    con = sqlite3.connect(f"file:{gov_db.as_posix()}?mode=ro", uri=True)
+    email_rows, delivery = government_rows(con, today)
+    con.close()
+    seen, unique, dropped = set(), [], []
+    for r in sorted(email_rows, key=lambda r: RANK[r["confidence"]]):
+        if r["email"].lower() in seen:
+            dropped.append(f"{r['email']}: {r['organisation']} ({r['confidence']})")
+            continue
+        seen.add(r["email"].lower())
+        unique.append(r)
+    out = ROOT / "runtime" / "resend" / today
+    out.mkdir(parents=True, exist_ok=True)
+    for old in list(out.glob("government-*.csv")):  # only the government files; other tracks' files are left alone
+        old.unlink()
+    for confidence in ("high", "medium", "low"):
+        subset = [r for r in unique if r["confidence"] == confidence]
+        if subset:
+            with (out / f"government-{confidence}.csv").open("w", encoding="utf-8", newline="") as fh:
+                writer = csv.DictWriter(fh, fieldnames=FIELDS)
+                writer.writeheader()
+                writer.writerows(sorted(subset, key=lambda r: r["organisation"]))
+        rows = sorted((r for r in delivery if r["confidence"] == confidence),
+                      key=lambda r: (r["release_order"], r["council"], str(r["distance_km"]).zfill(8), r["office"]))
+        with (out / f"government-delivery-{confidence}.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=DELIVERY_FIELDS)
+            writer.writeheader()
+            writer.writerows(rows)
+    report = write_government_summary(out, today, unique, delivery)
+    counts = Counter(r["confidence"] for r in delivery)
+    print(f"government offices: high {counts['high']}, medium {counts['medium']}, low {counts['low']}; email rows {len(unique)}"
+          f"{'; shared inboxes dropped: ' + str(len(dropped)) if dropped else ''}")
+    print(f"{out}\n{report}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--welfare-run", default="arusha-welfare-2026-09")
+    parser.add_argument("--government-run", default="arusha-government-2026-09")
+    parser.add_argument("--tracks", default="companies,welfare,government",
+                        help="'companies,welfare' (companies and introducers from the master, welfare from its run) and/or 'government'")
     args = parser.parse_args()
     today = date.today().isoformat()
+    tracks = {t.strip() for t in args.tracks.split(",") if t.strip()}
+    if "government" in tracks:
+        government_main(args, today)
+    if not tracks & {"companies", "welfare"}:
+        return 0
     master = sqlite3.connect(f"file:{MASTER.as_posix()}?mode=ro", uri=True)
     welfare_db = ROOT / "outputs" / "runs" / args.welfare_run / "lead-database.sqlite"
     welfare = sqlite3.connect(f"file:{welfare_db.as_posix()}?mode=ro", uri=True)
@@ -214,8 +470,9 @@ def main() -> int:
     rows, dropped = dedupe(c_rows + w_rows)
     out = ROOT / "runtime" / "resend" / today
     out.mkdir(parents=True, exist_ok=True)
-    for old in out.glob("*.csv"):  # this script's own earlier files for the day
-        old.unlink()
+    for old in out.glob("*.csv"):  # this script's own earlier files for the day (the government files have their own step)
+        if not old.name.startswith("government-"):
+            old.unlink()
     counts = Counter((r["track"], r["confidence"]) for r in rows)
     for (track, confidence) in sorted(counts):
         subset = sorted((r for r in rows if r["track"] == track and r["confidence"] == confidence), key=lambda r: (str(r["priority"]), r["organisation"]))

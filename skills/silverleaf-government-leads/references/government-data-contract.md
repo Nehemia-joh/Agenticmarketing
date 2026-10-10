@@ -25,7 +25,9 @@ Ward offices are created for every ward within `catchment_km` of a campus, and f
 | `catchment_wards`, `catchment_population_2022` | Councils only: wards within the catchment and their population |
 | `office_title`, `office_title_sw` | Post title in English and Kiswahili |
 | `appointment_type` | `civil_service`, `elected` or `political_appointee` |
-| `holder_name`, `holder_verified_on`, `tenure_source_url` | Only from an official roster or profile, exactly as published |
+| `holder_name`, `holder_verified_on`, `tenure_source_url` | Only from an official source, exactly as published: a roster or profile, the office's or a related office's own news (`holder_mentions` in the captures), or a reviewed `post_holders_*.json` record |
+| `holder_source_date`, `holder_basis` | The source's own date (profile update, news item date) and its kind ("official leadership profile", "official news (n items in 365 days)", "researched (official source)"); also the contact row's `source_date` |
+| `physical_address`, `route_official` | Office location as published, and `yes` when the office route comes from an official (.go.tz) source |
 | `b2g_check_required` | `yes` for education posts |
 | `convening_role`, `convening_forum` | What the post or office can convene, from the plan |
 | `protocol_status`, `protocol_ref` | `none` in a research run |
@@ -87,6 +89,8 @@ Tracks: `GA01 Protocol introduction` for core councils with an office published 
 | `ward_aliases` | Per council: a spelling used by a roster, Wikipedia or OpenStreetMap, mapped to the census ward name |
 | `ward_locations` | `"<council>|<ward>"` mapped to `{"source": "wikipedia" \| "osm_place" \| "osm_facility" \| "none", "ref": "<title, node/ID or way/ID>", "note": "..."}` |
 | `osm_office_links` | OpenStreetMap office ID mapped to `{"council", "ward", "note"}`, or to `{"category", "detail", "note"}` to record a reviewed triage decision |
+| `holder_rejects` | `{"post": "<GPOST record key>", "name": "...", "note"}`: a name the news extractor read that is not the post's holder |
+| `holder_recheck` | `{"post_key", "before": "<date>", "reason", "source"}`: holders of that post last named before the date are marked `needs_review` (a known reshuffle) |
 
 ## Side tables (run database)
 

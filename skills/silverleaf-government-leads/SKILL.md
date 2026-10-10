@@ -23,13 +23,18 @@ Everything stays separate from `outputs/master/` and from the welfare runs.
 
 ## Rules
 
-- **Offices first.** Record offices and role desks. Record a holder's name only where an official roster or profile publishes it, with `holder_verified_on` and `tenure_source_url`. A new holder is a review item, not a new contact.
+- **Offices first.** Record offices and role desks. Record a holder's name only where an official source publishes it, with `holder_verified_on`, `holder_source_date` (the source's own date), `holder_basis` and `tenure_source_url`. A new holder is a review item, not a new contact. The sources, in order:
+  1. an official roster or leadership profile;
+  2. the office's own news, or its parent's or a neighbouring council's, naming the post with its holder. The collector keeps these as `holder_mentions`: the post, the name as written, the date and at most 25 words. The build counts mentions within 365 days, most recent first; acting holders (Kaimu), representatives ("kwa niaba ya") and former holders are skipped;
+  3. a reviewed record in `data/raw/government-research/post_holders_*.json`, for example a swearing-in or handover the counts cannot see yet.
+
+  A holder is `verified` only with two or more items and one within 120 days, and no newer item naming someone else. Otherwise the name is kept, marked `needs_review`, with its date. `links.json` `holder_rejects` drops a misread name; `holder_recheck` marks the holders of a post named before a known reshuffle.
 - **Political neutrality.** Never record party offices, party events or party affiliation, even where a list shows it. Approach administrative offices first; engage elected leaders only through the forum they chair.
 - **Exclusions.** Party offices, courts, police, prisons, military sites, health facilities, schools and religious sites are logged with their reason and never become offices. Only a documented review decision can override one.
 - **No lists of people.** Never take resident, voter, beneficiary or pupil lists, and never collect parents' data. `community_events` holds counts only.
 - **Official phone numbers** are kept only when the office published them for contacting that post, with the publication named in `channel_attribution`, and they are `medium` risk.
 - **Education officers** carry `b2g_check_required = yes`: check with the B2G owner before any contact.
-- **Sanitise captures.** Never keep CMS editor names or emails, officials' photos or biographies, or the text of news stories.
+- **Sanitise captures.** Never keep CMS editor names or emails, officials' photos or biographies, or the text of news stories. A news item keeps only its title, date, tags and the holder mentions described above.
 - **The company master is read-only** here, used only for campus coordinates and its `office:government` records. Verification fails if the master database or workbook changes during a run.
 - **Drafts only.** `run_pipeline.py` writes one Kiswahili letter per office with an English meaning (`scripts/messaging/draft_run_messages.py`): a free talk and a parent booklet; no offer, fee or service is stated, and never a benefit for officials. The closing ask is a short meeting, in person or by phone. Nothing is sent or scheduled; keep automations disabled.
 
@@ -80,6 +85,13 @@ Run these commands from the repository root.
 
 - **Rebuilding.** `run_pipeline.py --rebuild-db` regenerates the database and workbook from the committed files. Nothing needs refetching.
 - **Refreshing.** Create a new run ID with a new date and re-run the collectors. Council leadership and rosters change after elections and transfers, so re-capture council sites at least every 90 days before any convening request. The census stays valid until the next census.
+  - To refresh only the office holders of an existing run, run `collect_council_sites.py --run-id <run-id> --date <today>`. It uses its own cache folder, because the cache never expires. Then set `council_sites_date` in the run config and run the pipeline with `--rebuild-db`.
+  - The build reads each host's newest capture up to that date. A leadership profile that changed since the previous capture becomes a review item.
+  - In the 10 October 2026 refresh, three District Commissioners and one council director had changed within three weeks.
+- **Segments.** `scripts/messaging/export_resend_contacts.py --tracks government` puts every office in a high, medium or low segment (rules in its docstring). It writes:
+  - a delivery list per segment (who decides, who can decide quickly, the route);
+  - Resend rows for offices with an official inbox;
+  - `outputs/messages/Silverleaf Government Segments - <date>.md`.
 - **New councils.** Add the council, its host, OpenStreetMap district and Wikipedia district names to the config; `collect_census_wards.py` needs its exact table name from the report.
 - **Merging into the master** waits for Phase 0 and migration 0003 in the plan (`lead_track`, GA tracks, VM14–VM18, the four government tables).
 

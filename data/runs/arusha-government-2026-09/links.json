@@ -57,5 +57,19 @@
    "ward": "Machame Narumu",
    "note": "Mapped as 'Narumu Ward Office' inside Hai District; Hai's census and official councillor list have one Narumu ward, 'Machame Narumu'."
   }
- }
+ },
+ "holder_rejects": [
+  {
+   "_about": "Names the mention extractor read from official news that are not the post's holder (a misreading, another office's officer, or a representative). Checked by the agent on 10 October 2026 against the cached item text, for review."
+  }
+ ],
+ "holder_recheck": [
+  {
+   "post_key": "district_commissioner",
+   "before": "2026-09-27",
+   "reason": "District Commissioners were reshuffled at the end of September 2026: Arusha, Arumeru (sworn in 3 October) and Hai (handover 1 October) have new holders. A District Commissioner last named before 27 September 2026 may have moved: confirm with the office.",
+   "source": "merudc.go.tz news 10513 (2026-10-03); haidc.go.tz news 10407 (2026-10-02)",
+   "decided_on": "2026-10-10"
+  }
+ ]
 }

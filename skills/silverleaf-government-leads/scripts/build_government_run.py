@@ -136,11 +136,26 @@ def load_inputs(cfg):
     wiki = json.loads((raw / f"wikipedia_wards_{date}.json").read_text(encoding="utf-8"))["pages"]
     places = json.loads((raw / f"osm_places_{date}.json").read_text(encoding="utf-8"))["elements"]
     offices = json.loads((raw / f"osm_government_offices_{date}.json").read_text(encoding="utf-8"))["elements"]
+    # Each host's newest successful capture up to council_sites_date (a refresh, e.g. 2026-10-10) is used; the earlier
+    # capture is kept as data["_previous"], so a changed leadership profile becomes a review item.
+    sites_date = cfg.get("council_sites_date", date)
+    captures = defaultdict(list)
+    for path in sorted((raw / "council_sites").glob("*_????-??-??.json")):
+        host, _, capture_date = path.stem.rpartition("_")
+        if capture_date <= sites_date:
+            captures[host].append((capture_date, path))
     sites = {}
-    for path in sorted((raw / "council_sites").glob(f"*_{date}.json")):
-        data = json.loads(path.read_text(encoding="utf-8"))
-        data["_file"] = path.relative_to(G.ROOT).as_posix()
-        sites[data["host"]] = data
+    for host, found in captures.items():
+        loaded = []
+        for capture_date, path in sorted(found):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            data["_file"] = path.relative_to(G.ROOT).as_posix()
+            data["_date"] = capture_date
+            if data.get("status") == "captured":
+                loaded.append(data)
+        if loaded:
+            sites[host] = loaded[-1]
+            sites[host]["_previous"] = loaded[-2] if len(loaded) > 1 else None
     transcriptions = []
     for path in sorted((raw / "transcriptions").glob("*.csv")):
         with open(path, encoding="utf-8") as handle:
@@ -474,6 +489,257 @@ def parse_rosters(sites, transcriptions, census, cfg, links, reviews):
 
 
 # ------------------------------------------------------------------ main build
+# ------------------------------------------------------------------ post holders from official news and researched sources
+MENTION_WINDOW_DAYS = 365   # mentions older than this are not used; between CURRENT_DAYS and this, the holder is named but marked to confirm
+CURRENT_DAYS = 120          # a holder is 'current' when an official item named them within this many days of the capture
+ROUTE_POSTS = {"rc": "regional_commissioner", "ras": "regional_administrative_secretary", "dc": "district_commissioner",
+               "das": "district_administrative_secretary", "ded": "council_director", "cd": "council_director", "md": "council_director"}
+
+
+def days_between(a: str, b: str) -> int:
+    from datetime import date as _date
+    try:
+        return abs((_date.fromisoformat(a[:10]) - _date.fromisoformat(b[:10])).days)
+    except ValueError:
+        return 10 ** 6
+
+
+def name_tokens(name: str) -> set:
+    words = re.sub(r"[^a-z' ]", " ", G.ward_key(name)).split()
+    return {w for w in words if len(w) >= 4}
+
+
+def cluster_names(mentions: list[dict]) -> list[list[dict]]:
+    """Group spellings of one person ('Toba Nguvila', 'Toba Alnason Nguvila') by a shared name word of four or more letters."""
+    clusters: list[list[dict]] = []
+    for m in mentions:
+        tokens = name_tokens(m["name"])
+        joined = [c for c in clusters if any(tokens & name_tokens(x["name"]) for x in c)]
+        merged = [m] + [x for c in joined for x in c]
+        clusters = [c for c in clusters if c not in joined] + [merged]
+    return clusters
+
+
+def display_name(cluster: list[dict]) -> str:
+    """The spelling an office uses most; on a tie, the fuller one."""
+    counts = Counter(m["name"] for m in cluster)
+    return sorted(counts, key=lambda n: (-counts[n], -len(n.split()), n))[0]
+
+
+def collect_mentions(sites: dict, cfg: dict, scope_hosts: set) -> list[dict]:
+    """Every post-holder mention in the in-scope sites' news, notices and pages, with its locator."""
+    out = []
+    host_council = {c["host"]: c["name"] for c in cfg["councils"]}
+    for host, site in sites.items():
+        if host not in scope_hosts:
+            continue
+        for key in ("news", "announcements"):
+            for n in site.get(key) or []:
+                for m in n.get("holder_mentions") or []:
+                    out.append({**m, "host": host, "host_council": host_council.get(host, ""), "date": n.get("date") or "",
+                                "item_id": n.get("id"), "item_title": n.get("title", ""), "kind": key, "listing_url": n.get("listing_url", ""),
+                                "source_path": site["_file"], "captured": site.get("_date") or site.get("retrieved"),
+                                "organisation": site.get("organisation", host)})
+        for p in site.get("pages") or []:
+            for m in p.get("holder_mentions") or []:
+                out.append({**m, "host": host, "host_council": host_council.get(host, ""), "date": str(p.get("updatedAt") or "")[:10],
+                            "item_id": p.get("slug"), "item_title": p.get("title", ""), "kind": "page", "listing_url": p.get("api_url", ""),
+                            "source_path": site["_file"], "captured": site.get("_date") or site.get("retrieved"),
+                            "organisation": site.get("organisation", host)})
+    return out
+
+
+def mention_target(m: dict, offices_by: dict, council_names: list[str], ward_lookup: dict):
+    """The office a mention speaks about, or None when it is not one of the run's offices."""
+    level, unit = m["level"], m.get("unit") or ""
+    if level == "region":
+        return offices_by.get(("region", unit))
+    if level == "district":
+        return offices_by.get(("district", unit))
+    if level == "council":
+        if m["post_key"] == "council_director":
+            name = {"city": f"{unit} City Council", "municipal": f"{unit} Municipal Council", "district": f"{unit} District Council"}.get(m.get("council_kind"))
+            return offices_by.get(("council", name))
+        named = [c for c in council_names if unit and c.startswith(unit + " ")]
+        if len(named) == 1 and (not m["host_council"] or m["host_council"] == named[0] or m["host"].endswith(".go.tz")):
+            return offices_by.get(("council", named[0]))
+        if m["host_council"] and (not unit or m["host_council"].startswith(unit + " ")):
+            return offices_by.get(("council", m["host_council"]))
+        return None
+    if level in ("ward", "village") and m["host_council"]:
+        return ward_lookup.get((m["host_council"], level, G.squash(unit)))
+    return None
+
+
+def apply_holder_evidence(offices, posts, sites, cfg, links, reviews, raw, scope_hosts) -> dict:
+    """Name posts from official news mentions and researched holder files; corroborate or question profile holders.
+
+    Order: an official leadership profile or roster (already on the post) > official news and notices of the office or its
+    parent (gov_lib.holder_mentions in the captures) > a researched source (data/raw/government-research/post_holders_*.json).
+    A post is never given a second holder: a different name becomes a review item."""
+    offices_by = {}
+    for o in offices:
+        if o["office_level"] == "council":
+            offices_by[("council", o["council_name"])] = o
+        elif o["office_level"] in ("region", "district"):
+            offices_by[(o["office_level"], o["admin_unit_name"])] = o
+    aliases = alias_keys(links)
+    ward_lookup = {}
+    for o in offices:
+        if o["office_level"] in ("ward", "village"):
+            ward_lookup[(o["council_name"], o["office_level"], G.squash(o["admin_unit_name"]))] = o
+            for alias in aliases.get((o["council_name"], o["admin_unit_name"]), ()):
+                ward_lookup[(o["council_name"], o["office_level"], alias)] = o
+    posts_by = {(p["office_key"], p["post_key"]): p for p in posts}
+    rejects = {(r["post"], G.ward_key(r["name"])) for r in links.get("holder_rejects", []) if isinstance(r, dict) and r.get("post")}
+    council_names = [c["name"] for c in cfg["councils"]]
+    grouped = defaultdict(list)
+    for m in collect_mentions(sites, cfg, set(sites)):  # every captured official site: a neighbour council may name a regional officer
+        if m.get("acting"):
+            continue  # an acting holder (Kaimu) is not the post holder
+        office = mention_target(m, offices_by, council_names, ward_lookup)
+        post = posts_by.get((office["record_key"], m["post_key"])) if office else None
+        if not post or (post["record_key"], G.ward_key(m["name"])) in rejects:
+            continue
+        if days_between(m["date"], m["captured"]) > MENTION_WINDOW_DAYS:
+            continue
+        grouped[post["record_key"]].append(m)
+    stats = Counter()
+    by_key = {p["record_key"]: p for p in posts}
+    # A reviewed, researched record (post_holders_*.json) dated on or after the news a count would pick wins: it records a
+    # handover the news count cannot see yet (a new District Commissioner sworn in a week before the capture).
+    researched = {}
+    for path in sorted(raw.glob("post_holders_*.json")):
+        for r in json.loads(path.read_text(encoding="utf-8")).get("holders", []):
+            researched[r.get("record_key", "")] = r
+    for key, mentions in grouped.items():
+        post = by_key[key]
+        # most mentions within CURRENT_DAYS of the capture first, then most mentions overall, then the latest
+        clusters = sorted(cluster_names(mentions), key=lambda c: (-sum(1 for x in c if days_between(x["date"], x["captured"]) <= CURRENT_DAYS),
+                                                                  -len(c), -max(days_between("1900-01-01", x["date"]) for x in c)))
+        best = clusters[0]
+        latest = max(best, key=lambda x: x["date"])
+        name = display_name(best)
+        r = researched.get(key)
+        if r and not post["holder_name"] and (r.get("source_date") or "") >= latest["date"] and not (name_tokens(r["name"]) & name_tokens(name)):
+            post["notes"] = f"Earlier official news ({len(best)} items, latest {latest['date']}) named {name}; superseded by the researched record."
+            stats["news holders superseded by a newer researched record"] += 1
+            continue
+        newer = [c for c in clusters[1:] if max(x["date"] for x in c) > latest["date"]]
+        captured = latest["captured"]
+        current = days_between(latest["date"], captured) <= CURRENT_DAYS
+        evidence = source(f"{latest['listing_url']}", f"{latest['organisation']}: {latest['kind']} item {latest['item_id']} ({latest['date']}): "
+                          f"{short(latest['item_title'], 14)}", "official", captured, ["holder name as published", "holder in post on the item's date"],
+                          latest["excerpt"])
+        if post["holder_name"]:
+            if name_tokens(post["holder_name"]) & name_tokens(name):
+                post["all_sources"].append(evidence)
+                post["holder_source_date"] = max(post.get("holder_source_date") or "", latest["date"])
+                post["notes"] = "; ".join(x for x in (post.get("notes"), f"Corroborated by {len(best)} official news item(s) within {MENTION_WINDOW_DAYS} days, "
+                                                                         f"latest {latest['date']}.") if x)
+                stats["profile holders corroborated by news"] += 1
+            elif latest["date"] > (post.get("holder_source_date") or ""):
+                reviews.add("holder_may_have_changed", f"{post['office_title']} — {post['organisation_name']}",
+                            {"profile": post["holder_name"], "profile_date": post.get("holder_source_date"), "news": name, "news_items": len(best),
+                             "latest": latest["date"], "listing_url": latest["listing_url"], "item_id": latest["item_id"]},
+                            "Official news names someone else after the profile's last update. Confirm the current holder with the office.")
+                post["verification_status"] = "needs_review"
+                post["notes"] = "; ".join(x for x in (post.get("notes"), f"Official news of {latest['date']} names {name}; confirm who holds the post.") if x)
+                stats["profile holders questioned by news"] += 1
+            continue
+        if len(best) < 2 and len(clusters) > 1:
+            reviews.add("holder_news_conflict", f"{post['office_title']} — {post['organisation_name']}",
+                        {"names": [display_name(c) for c in clusters], "counts": [len(c) for c in clusters]},
+                        "Official news names different people for this post; none is clearly current. Confirm with the office.")
+            stats["posts left unnamed: conflicting news"] += 1
+            continue
+        confirmed = len(best) >= 2 and current and not newer
+        acting = all(x.get("acting") for x in best)
+        post.update({"holder_name": name, "holder_verified_on": captured, "holder_source_date": latest["date"],
+                     "holder_basis": f"official news ({len(best)} item{'s' if len(best) > 1 else ''} in {MENTION_WINDOW_DAYS} days)",
+                     "tenure_source_url": latest["listing_url"], "role_certainty": "confirmed" if confirmed else "inferred_role",
+                     "pdpa_risk": "medium", "pdpa_risk_reason": "Named official as published by the office for its public role.",
+                     "verification_status": "verified" if confirmed else "needs_review",
+                     "source_url": latest["listing_url"], "evidence_basis": "official", "evidence_excerpt": short(latest["excerpt"]),
+                     "source_path": latest["source_path"], "source_location": f"{latest['kind']}[id={latest['item_id']}] dated {latest['date']}",
+                     "notes": "; ".join(x for x in (
+                         f"Named in {len(best)} official news item(s) of {latest['organisation']} and related offices, latest {latest['date']}.",
+                         "Acting (Kaimu) in every mention." if acting else "",
+                         f"Last named {days_between(latest['date'], captured)} days before capture: confirm still in post." if not current else "",
+                         f"Other names in newer items: {', '.join(display_name(c) for c in newer)}." if newer else "") if x)})
+        post["all_sources"].insert(0, evidence)
+        if newer:
+            reviews.add("holder_news_conflict", f"{post['office_title']} — {post['organisation_name']}",
+                        {"used": name, "newer_names": [display_name(c) for c in newer]},
+                        "A newer official item names someone else for this post (a transfer, an acting holder or a misreading). Confirm.")
+        stats["posts named from official news"] += 1
+    # researched holders (budgeted search and fetch of official or published pages), applied last
+    for path in sorted(raw.glob("post_holders_*.json")):
+        for r in json.loads(path.read_text(encoding="utf-8")).get("holders", []):
+            post = by_key.get(r.get("record_key", ""))
+            if not post:
+                reviews.add("researched_holder_unmatched", r.get("record_key", ""), {"file": path.name, "name": r.get("name")},
+                            "The researched holder's post key does not exist in this run; fix the record key.")
+                continue
+            if (post["record_key"], G.ward_key(r["name"])) in rejects:
+                continue
+            evidence = source(r["source_url"], r.get("source_title", ""), r.get("evidence_basis", "published"), r.get("accessed_on", ""),
+                              ["holder name as published"], r.get("excerpt", ""), fetched=bool(r.get("fetched", True)))
+            if post["holder_name"]:
+                if name_tokens(post["holder_name"]) & name_tokens(r["name"]):
+                    post["all_sources"].append(evidence)
+                    if (r.get("source_date") or "") > (post.get("holder_source_date") or ""):
+                        post["holder_source_date"] = r["source_date"]
+                        post["notes"] = "; ".join(x for x in (post.get("notes"), f"Still in post on {r['source_date']} ({r.get('source_title', '')}).") if x)
+                    stats["holders corroborated by research"] += 1
+                else:
+                    reviews.add("holder_may_have_changed", f"{post['office_title']} — {post['organisation_name']}",
+                                {"on_file": post["holder_name"], "researched": r["name"], "source": r["source_url"], "source_date": r.get("source_date")},
+                                "A researched source names someone else. Confirm the current holder with the office.")
+                continue
+            recent = days_between(r.get("source_date") or "1900-01-01", r.get("accessed_on") or "") <= CURRENT_DAYS
+            official = r.get("evidence_basis") == "official"
+            post.update({"holder_name": r["name"], "holder_verified_on": r.get("accessed_on", ""), "holder_source_date": r.get("source_date", ""),
+                         "holder_basis": f"researched ({r.get('evidence_basis', 'published')} source)", "tenure_source_url": r["source_url"],
+                         "role_certainty": "confirmed" if (official and recent) else "inferred_role", "pdpa_risk": "medium",
+                         "pdpa_risk_reason": "Named official as published for the public role.",
+                         "verification_status": "verified" if (official and recent) else "needs_review",
+                         "source_url": r["source_url"], "evidence_basis": r.get("evidence_basis", "published"), "evidence_excerpt": short(r.get("excerpt", "")),
+                         "source_path": f"data/raw/government-research/{path.name}", "source_location": r.get("source_location", r["source_url"]),
+                         "notes": "; ".join(x for x in (r.get("note"), post.get("notes") if "superseded" in (post.get("notes") or "") else "",
+                                                         "" if recent else f"Source dated {r.get('source_date') or 'unknown'}: confirm still in post.") if x)})
+            post["all_sources"].insert(0, evidence)
+            stats["posts named from research"] += 1
+    # reviewed rechecks (links.json holder_recheck): a known reshuffle makes older holder evidence uncertain
+    for rule in links.get("holder_recheck", []):
+        if not isinstance(rule, dict) or not rule.get("post_key"):
+            continue
+        for p in posts:
+            if p["post_key"] == rule["post_key"] and p["holder_name"] and (p.get("holder_source_date") or "") < rule["before"]:
+                p["verification_status"], p["role_certainty"] = "needs_review", "inferred_role"
+                p["notes"] = "; ".join(x for x in (p.get("notes"), rule["reason"]) if x)
+                stats["holders to recheck after a reshuffle"] += 1
+    # role inboxes named after a post (rc@, ras@, dc@, das@, ded@, cd@, md@) go to that post
+    for o in offices:
+        email = o.get("role_email") or o.get("public_email") or ""
+        local = email.split("@")[0].lower() if "@" in email else ""
+        for p in posts:
+            if p["office_key"] != o["record_key"]:
+                continue
+            if ROUTE_POSTS.get(local) == p["post_key"] and not p.get("published_role_email"):
+                p["published_role_email"] = email
+                p["contact_route"] = "published_role_email" if p["contact_route"] == "source_url" else p["contact_route"]
+                p["channel_attribution"] = p.get("channel_attribution") or o.get("route_attribution", "")
+        for extra in o.get("extra_role_emails", []):
+            post_key = ROUTE_POSTS.get(extra.split("@")[0].lower())
+            target = posts_by.get((o["record_key"], post_key)) if post_key else None
+            if target and not target.get("published_role_email"):
+                target["published_role_email"] = extra
+                target["contact_route"] = "published_role_email" if target["contact_route"] == "source_url" else target["contact_route"]
+                target["channel_attribution"] = target.get("channel_attribution") or o.get("route_attribution", "")
+    return dict(stats)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--run-id", required=True)
@@ -589,7 +855,8 @@ def main() -> int:
                 sources.insert(0, source(page["api_url"], f"{site['organisation']}: {page['title']}", "official", date,
                                          ["post exists", "division functions"], page["text_en"] or page["text_sw"]))
             if holder:
-                sources.insert(0, source(holder["source_url"], holder["source_title"], holder.get("evidence_basis", "official"), date,
+                sources.insert(0, source(holder["source_url"], holder["source_title"], holder.get("evidence_basis", "official"),
+                                         holder.get("verified_on", date),
                                          ["holder name as published"] + (["phone as published"] if holder.get("phone") else []), holder.get("excerpt", "")))
             if not sources:
                 act = ACT_URBAN if level in ("ward",) and office.get("urban") else ACT_DISTRICT
@@ -605,7 +872,9 @@ def main() -> int:
                 "organisation_domain": office.get("domain", ""), "locality": office.get("locality", ""), "office_level": level,
                 "post_key": post_key, "office_title": title, "office_title_sw": title_sw, "role": f"{title_sw} ({title})",
                 "appointment_type": appointment, "b2g_check_required": "yes" if b2g else "no", "convening_role": role_note,
-                "holder_name": holder["name"] if holder else "", "holder_verified_on": date if holder else "",
+                "holder_name": holder["name"] if holder else "", "holder_verified_on": holder.get("verified_on", date) if holder else "",
+                "holder_source_date": holder.get("source_date", "") if holder else "",
+                "holder_basis": holder.get("basis", "official roster") if holder else "",
                 "tenure_source_url": holder["source_url"] if holder else "", "role_certainty": "confirmed" if holder else "role_desk",
                 "role_phone": phone, "contact_route": "role_phone" if phone else ("published_role_email" if office.get("role_email") and post_key == "council_director" else "source_url"),
                 "published_role_email": office.get("role_email", "") if post_key == "council_director" else "",
@@ -630,7 +899,9 @@ def main() -> int:
                                        "source_title": f"{site['organisation']}: leadership profiles", "source_path": site["_file"],
                                        "source_location": f"profiles[id={p.get('id')}] (updated {str(p.get('updatedAt') or '')[:10]})",
                                        "excerpt": f"{p.get('name')}: {p.get('title')} / {p.get('titleSwahili') or ''}",
-                                       "attribution": "Official website leadership profile"}
+                                       "attribution": "Official website leadership profile",
+                                       "verified_on": site.get("_date") or site.get("retrieved") or date,
+                                       "source_date": str(p.get("updatedAt") or "")[:10], "basis": "official leadership profile"}
                     break
         return found
 
@@ -817,6 +1088,12 @@ def main() -> int:
                 rec["public_phone"] = phone
             if info["postal"] and not rec.get("po_box"):
                 rec["po_box"] = info["postal"][0]
+            if info.get("physical") and not rec.get("physical_address"):
+                rec["physical_address"] = info["physical"][0]
+            rec["extra_role_emails"] = list(dict.fromkeys(rec.get("extra_role_emails", []) + [e["email"] for e in info["emails"]
+                                                                                            if e["type"] in ("role", "general")]))
+            if any(".go.tz" in s["url"] for s in info["sources"]):
+                rec["route_official"] = True
             if email or phone or info["postal"]:
                 rec["route_attribution"] = rec.get("route_attribution") or f"Official route found by contact research ({path.name})"
                 rec["missing_information"] = ("; ".join(x for x, known in (("published phone", rec.get("public_phone")), ("published email", rec.get("public_email")),
@@ -927,6 +1204,23 @@ def main() -> int:
             reviews.add("village_office_in_urban_council", o["name"], {"council": o["council_name"], "osm_id": o.get("osm_id")},
                         "Urban councils have mitaa, not villages. Check whether this is a mtaa office, a former village office, or mapped in the wrong place.")
 
+    # ---- post holders: official news mentions and researched sources; profile changes since the previous capture
+    scope_hosts = {c["host"] for c in council_scope} | {regions[r]["host"] for r in region_scope}
+    holder_stats = apply_holder_evidence(offices, posts, sites, cfg, links, reviews, raw, scope_hosts)
+    for host in sorted(scope_hosts):
+        site = sites.get(host) or {}
+        previous = site.get("_previous")
+        if not previous:
+            continue
+        before, after = profile_holders(previous), profile_holders(site)
+        for post_key, holder in after.items():
+            old = before.get(post_key)
+            if old and G.ward_key(old["name"]) != G.ward_key(holder["name"]):
+                reviews.add("profile_holder_changed", f"{post_key} — {site.get('organisation', host)}",
+                            {"before": old["name"], "before_capture": previous.get("_date"), "after": holder["name"], "after_capture": site.get("_date")},
+                            "The official leadership profile changed between captures. The newer holder is used; confirm the handover.")
+                holder_stats["leadership profiles changed since the previous capture"] = holder_stats.get("leadership profiles changed since the previous capture", 0) + 1
+
     # ---- company master office:government records (read-only triage)
     master_rows = master_government_records()
     osm_by_name = {G.squash(t["name"]): t for t in triage if t["name"]}
@@ -980,7 +1274,8 @@ def main() -> int:
              "master_triage": master_triage, "signals": signals, "roster": roster,
              "summary": {"wards": len(ward_units), "catchment_wards": len(catch), "ward_locations": dict(Counter(u["location_source"] for u in ward_units)),
                          "offices": dict(Counter(o["office_level"] for o in offices)), "posts": len(posts),
-                         "named_holders": sum(1 for p in posts if p["holder_name"]), "tracks": dict(track_counts),
+                         "named_holders": sum(1 for p in posts if p["holder_name"]), "holder_evidence": holder_stats,
+                         "named_by_level": dict(Counter(p["office_level"] for p in posts if p["holder_name"])), "tracks": dict(track_counts),
                          "councils_in_scope": [c["name"] for c in council_scope], "reviews": len(reviews.items),
                          "triage": dict(Counter(t["category"] for t in triage)), "signals": len(signals)}}
     (work / "final.json").write_text(json.dumps(final, indent=1, ensure_ascii=False, default=str), encoding="utf-8")

@@ -8,11 +8,16 @@ retries and an on-disk cache under runtime/government/<run-id>/http-cache/ (neve
 
 Captures are sanitised before they are written: CMS editor names and emails (createdBy), photos, biographies and the
 body text of news items are dropped (news keeps its title, date, category and convening tags), and the SHA-256 of
-every original response is kept for traceability. Attachments on the
+every original response is kept for traceability. A news item or notice keeps the posts it names with their holders
+(gov_lib.holder_mentions: the post, the name as written, the item's date and an excerpt of at most 25 words), so the build
+can name a post that no leadership profile names. Attachments on the
 councillor, ward and contact pages are fetched into the cache and their text extracted: XLSX rows, PDF text, or a
 note that a scanned PDF needs transcription.
 
-Output: data/raw/government-research/council_sites/<host>_<date>.json, one file per host.
+Output: data/raw/government-research/council_sites/<host>_<date>.json, one file per host. The date is the run's research
+date unless --date gives a refresh date (for example 2026-10-10); a refresh uses its own cache folder
+(runtime/government/<run-id>/http-cache-<date>/), because the cache never expires, and the build reads each host's newest
+capture up to the run config's council_sites_date.
 """
 from __future__ import annotations
 
@@ -103,11 +108,11 @@ def tag_convening(text: str) -> list[str]:
     return [tag for tag, pattern in CONVENING_TERMS.items() if re.search(pattern, low)]
 
 
-def collect_host(site: dict, cfg: dict) -> dict:
-    host, cache, errors = site["host"], cfg["paths"]["cache"], []
+def collect_host(site: dict, cfg: dict, date: str, cache) -> dict:
+    host, errors = site["host"], []
     base = f"https://{host}"
     hashes = {}
-    out = {"host": host, "organisation": site["name"], "retrieved": cfg["research_date"], "base_url": base}
+    out = {"host": host, "organisation": site["name"], "retrieved": date, "base_url": base}
     for key, path in (("profiles", "/api/profiles"), ("statistics", "/api/statistics"), ("footer", "/api/footer"), ("menus", "/api/menus")):
         data, digest = fetch_json(base + path, cache, errors)
         hashes[base + path] = digest
@@ -140,6 +145,7 @@ def collect_host(site: dict, cfg: dict) -> dict:
                 "text_en": G.html_to_text((content.get("en") or {}).get("html", "")) if isinstance(content, dict) else "",
                 "text_sw": G.html_to_text((content.get("sw") or {}).get("html", "")) if isinstance(content, dict) else "",
                 "attachments": []}
+        page["holder_mentions"] = G.holder_mentions(f"{page['text_en']}\n{page['text_sw']}")
         for att in data.get("attachments") or []:
             entry = {"file_name": att.get("fileName"), "url": att.get("url"), "file_type": att.get("fileType"), "file_size": att.get("fileSize")}
             if att.get("url") and ATTACH_PAGE.search(item["path"] + " " + slug):
@@ -170,10 +176,13 @@ def collect_host(site: dict, cfg: dict) -> dict:
                 break
             for n in data.get("data", []):
                 text = G.html_to_text(n.get("content") or n.get("excerpt") or "")
-                # The body text is only used to tag the item; it is not kept, so people named in news stories are not stored.
-                items.append({"id": n.get("id"), "title": " ".join(str(n.get("title") or "").split()), "date": str(n.get("date") or "")[:10],
+                # The body text is only used to tag the item and to find the posts it names with their holders (the post, the
+                # name and at most 25 words); the story itself is not kept.
+                title = " ".join(str(n.get("title") or "").split())
+                items.append({"id": n.get("id"), "title": title, "date": str(n.get("date") or "")[:10],
                               "category": n.get("category"), "listing_url": url, "text_chars": len(text),
                               "convening_tags": tag_convening(f"{n.get('title', '')} {text}"),
+                              "holder_mentions": G.holder_mentions(f"{title}. {text}"),
                               "attachments": [a.get("fileName") for a in n.get("attachments") or []]})
             if page_no >= int(data.get("totalPages") or 1) or page_no >= 20:
                 break
@@ -189,19 +198,22 @@ def main() -> int:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--host", action="append", help="limit to these hosts (repeatable)")
     parser.add_argument("--refresh", action="store_true", help="re-capture hosts that already have a file for this date")
+    parser.add_argument("--date", help="capture date for a refresh (default: the run's research date); uses its own cache folder")
     args = parser.parse_args()
     cfg = G.load_config(args.run_id)
+    date = args.date or cfg["research_date"]
+    cache = cfg["paths"]["cache"] if date == cfg["research_date"] else cfg["paths"]["work"] / f"http-cache-{date}"
     out_dir = cfg["paths"]["raw"] / "council_sites"
     out_dir.mkdir(parents=True, exist_ok=True)
     sites = [s for s in cfg["councils"] + cfg["regions"] if s.get("collect_site", True)]
     if args.host:
         sites = [s for s in sites if s["host"] in args.host]
     for site in sites:
-        path = out_dir / f"{site['host']}_{cfg['research_date']}.json"
+        path = out_dir / f"{site['host']}_{date}.json"
         if path.exists() and not args.refresh:
             print(f"reuse {path.relative_to(G.ROOT)}")
             continue
-        result = collect_host(site, cfg)
+        result = collect_host(site, cfg, date, cache)
         path.write_text(json.dumps(result, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"{site['host']}: {result['status']}; profiles {len(result.get('profiles') or [])}, pages {len(result.get('pages') or [])}, "
               f"files {len(result.get('files') or [])}, news {len(result.get('news') or [])}, errors {len(result.get('errors') or [])}", flush=True)

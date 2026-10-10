@@ -38,6 +38,7 @@ CREATE TABLE IF NOT EXISTS official_posts (
   post_id TEXT PRIMARY KEY, contact_id TEXT NOT NULL, organisation_id TEXT NOT NULL, record_key TEXT NOT NULL, post_key TEXT NOT NULL,
   office_title TEXT NOT NULL, office_title_sw TEXT, appointment_type TEXT NOT NULL, holder_name TEXT, holder_verified_on TEXT,
   tenure_source_url TEXT, b2g_check_required TEXT, convening_role TEXT, pdpa_risk TEXT NOT NULL, pdpa_risk_reason TEXT,
+  holder_source_date TEXT, holder_basis TEXT,
   FOREIGN KEY (contact_id) REFERENCES contacts(contact_id),
   FOREIGN KEY (organisation_id) REFERENCES organisations(organisation_id)
 );
@@ -103,10 +104,11 @@ def main() -> int:
                          o["proposed_government_track"], o["track_reason"], date if o["verification_status"] == "verified" else "",
                          o.get("master_organisation_id", ""), o.get("osm_id", "")))
         for p in final["posts"]:
-            con.execute("INSERT INTO official_posts VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            con.execute("INSERT INTO official_posts VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                         (sid("POST", p["record_key"]), ids[p["record_key"]], ids[p["office_key"]], p["record_key"], p["post_key"], p["office_title"],
                          p["office_title_sw"], p["appointment_type"], p.get("holder_name", ""), p.get("holder_verified_on", ""),
-                         p.get("tenure_source_url", ""), p["b2g_check_required"], p["convening_role"], p["pdpa_risk"], p["pdpa_risk_reason"]))
+                         p.get("tenure_source_url", ""), p["b2g_check_required"], p["convening_role"], p["pdpa_risk"], p["pdpa_risk_reason"],
+                         p.get("holder_source_date", ""), p.get("holder_basis", "")))
         for t in final["office_triage"]:
             con.execute("INSERT INTO office_triage VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                         (sid("TRI", t["source"], t["source_id"]), t["source"], t["source_id"], t["name"], t["category"], t["detail"], t["tags"],

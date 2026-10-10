@@ -1,0 +1,58 @@
+{
+ "retrieved": "2026-10-10",
+ "note": "Post holders confirmed by reading official council news items (GWF CORE public API, captured 2026-10-10 in council_sites/*_2026-10-10.json) that report a handover or swearing-in newer than the items a mention count would pick. Name exactly as the item writes it; excerpt of 25 words or fewer; the story itself is not kept. Web searches for these posts (coverage log contact-research/coverage/gov_enrichment_2026-10-10.md) found nothing usable.",
+ "holders": [
+  {
+   "record_key": "GPOST_district-arusha_district_commissioner",
+   "name": "Nicodemus Tambo Mwikozi",
+   "source_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "source_location": "news[id=10513] dated 2026-10-03: RC MAKALLA AWAAPISHA WAKUU WA WILAYA YA ARUMERU, ARUSHA NA NGORONGORO",
+   "source_title": "Meru District Council news item 10513 (2026-10-03): RC Makalla swears in the District Commissioners of Arumeru, Arusha and Ngorongoro",
+   "source_date": "2026-10-03",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Viongozi walioapishwa leo ni pamoja na Mkuu wa Wilaya ya Arusha Mhe. Nicodemus Tambo Mwikozi, Mkuu wa Wilaya ya Arumeru Mhe. Neema Kichiki Lugangira",
+   "note": "Sworn in on 3 October 2026; replaces Joseph Modest Mkude, whom council news named until 31 August 2026."
+  },
+  {
+   "record_key": "GPOST_district-arumeru_district_commissioner",
+   "name": "Neema Kichiki Lugangira",
+   "source_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "source_location": "news[id=10822] dated 2026-10-09: DC LUGANGIRA AJA NA KAULI MBIU 3 (also news[id=10513], 2026-10-03, swearing-in)",
+   "source_title": "Meru District Council news item 10822 (2026-10-09): the Arumeru District Commissioner takes over the office",
+   "source_date": "2026-10-09",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Leo tarehe 9 Oktoba 2026, Mhe. Neema Lugangira amekabidhiwa Ofisi ya Mkuu wa wilaya ya Arumeru tayari kwa kuwahudumia wananchi.",
+   "note": "Sworn in on 3 October 2026 and handed the office on 9 October 2026; replaces Mwinyi Ahmed Mwinyi, whom council news named until August 2026."
+  },
+  {
+   "record_key": "GPOST_council-arusha-district-council_council_director",
+   "name": "Suleiman Msumi",
+   "source_url": "https://merudc.go.tz/api/news?page=1&limit=50",
+   "source_location": "news[id=10513] dated 2026-10-03, photo caption",
+   "source_title": "Meru District Council news item 10513 (2026-10-03): swearing-in of District Commissioners, caption naming the councils' directors",
+   "source_date": "2026-10-03",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Mwl.Zianabu J.Makwinya Mkurugenzi Mtendaji wa Halmashauri ya WIlaya ya Meru na Suleiman Msumi Mkurugenz Mtendaji wa Halmashauri ya Wilaya ya Arusha",
+   "note": "Corroborates the leadership profile (Ndg. Seleman Msumi, updated 2026-03-12): still the District Executive Director on 3 October 2026. The caption spells the name 'Suleiman'."
+  },
+  {
+   "record_key": "GPOST_district-hai_district_commissioner",
+   "name": "Rukia Zuber",
+   "source_url": "https://haidc.go.tz/api/news?page=1&limit=50",
+   "source_location": "news[id=10407] dated 2026-10-02: Bomboko akabidhi ofisi kwa Rukia",
+   "source_title": "Hai District Council news item 10407 (2026-10-02): Bomboko hands over the office to Rukia",
+   "source_date": "2026-10-02",
+   "accessed_on": "2026-10-10",
+   "evidence_basis": "official",
+   "fetched": true,
+   "excerpt": "Hassan Omary Bomboko, amemkabidhi rasmi ofisi mkuu wa wilaya ya Hai Rukia Zuber, kufuatia uhamisho wake kwenda Wilaya ya Mwanga.",
+   "note": "Handover on 1 October 2026; Hassan Omary Bomboko moved to Mwanga District. Spelled 'Rukia Zuberi' in earlier Mwanga news."
+  }
+ ]
+}

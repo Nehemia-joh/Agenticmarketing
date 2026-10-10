@@ -109,21 +109,50 @@ def funder_reasons(con) -> dict:
     return {f: min(c, key=lambda t: (t[0], t[1]))[2] for f, c in candidates.items()}
 
 
-LEADER_TOP = re.compile(r"founder|owner|\bceo\b|chief executive|executive director|president|chair|director|bishop|head of", re.I)
-LEADER_MID = re.compile(r"manager|coordinator|pastor|leader|principal|administrator", re.I)
+LEADER_TOP = re.compile(r"founder|owner|\bceo\b|chief executive|executive director|president|chair|director(?!s)|bishop|head of|"
+                        r"general secretary|secretary[- ]general|executive secretary", re.I)
+LEADER_MID = re.compile(r"manager|coordinator|pastor|leader|principal|administrator|matron|in[- ]charge|mother superior|management committee", re.I)
 NOT_LEADER = re.compile(r"treasurer|secretary|volunteer|intern|assistant|adviser|advisor|trustee|board member|accountant|nurse|teacher|social worker|"
                         r"programme officer|vice|deputy", re.I)
+SECRETARY_LEADER = re.compile(r"general secretary|secretary[- ]general|executive secretary", re.I)
+ROLE_PARTS = re.compile(r"\s*(?:[;,/&()]|\band\b|\s-\s)\s*", re.I)
 FOREIGN_ROUTE = re.compile(r"kenya|uganda|rwanda|burundi|zambia|malawi|congo|southafrica|\.(ke|ug|rw|bi|cd|zm|mw|za)$", re.I)
 
 
 def leader_rank(role: str):
-    """0 founder, owner, chief executive, director or president; 1 manager or coordinator; None for anyone else (treasurer, volunteer, board member)."""
-    role = role or ""
-    if NOT_LEADER.search(role):
-        return None
-    if LEADER_TOP.search(role):
-        return 0
-    return 1 if LEADER_MID.search(role) else None
+    """0 founder, owner, chief executive, director, president or general secretary; 1 manager, coordinator or matron; None for anyone else
+    (treasurer, volunteer, board member, vice or deputy). A role that joins several titles ('Founder and trustee', 'Director/Social Worker',
+    'Founder; board member of the German association') ranks by its most senior title: a second title never hides a founder or director."""
+    ranks = []
+    for part in [p for p in ROLE_PARTS.split(role or "") if p.strip()]:
+        if ((SECRETARY_LEADER.search(part) or re.search(r"\bchair|president", part, re.I) and re.search(r"trustee|board", part, re.I))
+                and not re.search(r"vice|deputy|assistant|former", part, re.I)):
+            ranks.append(0)  # a general secretary, or the chair of a board of trustees
+        elif NOT_LEADER.search(part):
+            continue
+        elif LEADER_TOP.search(part):
+            ranks.append(0)
+        elif LEADER_MID.search(part):
+            ranks.append(1)
+    return min(ranks) if ranks else None
+
+
+SENIORITY = [re.compile(r"\bceo\b|chief executive|executive director|national director|country director|managing director|general secretary|"
+                        r"secretary[- ]general", re.I),
+             re.compile(r"(?<!co-)(?<!co )founder|president|chair", re.I)]
+
+
+def seniority(role: str) -> int:
+    """Among leaders of the same rank: 0 chief executive or national director, 1 founder, president or chair, 2 any other leader
+    (co-founder, director of a unit, head of a programme). Only titles the person holds count, not vice or deputy ones."""
+    parts = [p for p in ROLE_PARTS.split(role or "") if p.strip() and leader_rank(p) is not None]
+    return min((i for i, pattern in enumerate(SENIORITY) for p in parts if pattern.search(p)), default=len(SENIORITY))
+
+
+def site_domain(url) -> str:
+    """The bare host of a website ('https://www.x.org/en/' -> 'x.org'), or ''."""
+    host = re.sub(r"^https?://", "", str(url or "").strip().lower()).split("/")[0]
+    return re.sub(r"^www\.", "", host)
 
 
 def role_phrase(role: str) -> str:
@@ -143,7 +172,7 @@ def best_leader(contacts, prefer=None) -> dict | None:
         if (c.get("pdpa_risk") != "medium" or c.get("role_certainty") != "confirmed" or len(name.split()) < 2 or re.search(r"\d|\?", name) or rank is None):
             continue
         preferred = 0 if prefer and prefer.search(c.get("role") or "") else 1  # for a network: the social-services or children's lead before the bishop
-        key = (preferred, rank, 0 if (c.get("named_email") or c.get("published_role_email")) else 1, name)
+        key = (preferred, rank, 0 if (c.get("named_email") or c.get("published_role_email")) else 1, seniority(c.get("role") or ""), name)
         if best is None or key < best[0]:
             best = (key, c, name)
     return {**best[1], "greet_name": best[2]} if best else None
@@ -190,6 +219,13 @@ def welfare(con, now, run_cfg) -> dict:
                     route = "named_email" if c.get("named_email") and email else ("published_role_email" if email else "role_phone")
                     value = email or c.get("role_phone") or c.get("organisation_phone")
                 break
+        # The named leader's own published address on the organisation's domain reaches the person who decides: it is used ahead of
+        # the shared inbox or another person's address (decided 10 October 2026: direct routes to decision-makers first).
+        own = {d for d in (site_domain(p.get("website")), str(p.get("email") or "").split("@")[-1].lower()) if d}
+        direct = str((leader or {}).get("named_email") or "").strip().lower()
+        if (direct and "@" in direct and not PERSONAL_DOMAIN.search(direct) and direct.split("@")[-1] in own
+                and str(value or "").lower() != direct):
+            route, value = "named_email", direct
         if not route:
             missing.append("No usable published route (risky routes are never used); find the organisation's own email or phone.")
         route_problem = False

@@ -141,3 +141,4 @@ The run folder `data/runs/<run-id>/links.json` holds reviewed decisions. Each ke
 | `master_ids` | Name mapped to a company-master ID, when names differ |
 | `corporate_funders_in_master` | Company-master leads whose funding gives a warm path |
 | `org_aliases` | Alias mapped to a researched name |
+| `rejected_routes` | A list of reviewed values that are not the organisation's route (another organisation's inbox or phone): `organisation_name`, `kind` (`email` or `phone`), `value`, `reason`, `source`, `source_url`, `decided_on`. `consolidate_research.py` removes them from the organisation and its contacts, together with the welfare entries of `data/reference/rejected-routes.json` (10 October 2026) |

@@ -119,6 +119,11 @@ def proposed_track(org: dict) -> tuple[str, str]:
     return "WA01 Routing", "Route usable; decision-maker and licence status still to confirm (WA02 needs authority licence confirmation)"
 
 
+def email_order(address: str) -> tuple:
+    """A contact's addresses in use order: work addresses before personal-domain ones (the first fills the contact's email column)."""
+    return (bool(W.PERSONAL_EMAIL.search(address)), address)
+
+
 def reg_tokens(text: str) -> set[str]:
     return {re.sub(r"\s+", "", t).upper().replace("NG0", "NGO") for t in re.findall(r"(?:\d{2}|I-|N-)\s*NG[O0]\s*/[\w/]+", str(text or ""), re.I)}
 
@@ -264,7 +269,7 @@ def main() -> int:
         c["linked_organisation"] = target["organisation_name"] if target else c.get("organisation_name")
         if target and c.get("contact_name") and c.get("role_certainty") in ("confirmed", "role_desk", None, ""):
             target["_named_contacts"] = True
-        c["emails"] = sorted({e for e in map(W.norm_email, W.as_list(c.get("emails"))) if e})
+        c["emails"] = sorted({e for e in map(W.norm_email, W.as_list(c.get("emails"))) if e}, key=email_order)
         c["phones"] = sorted({W.norm_phone(p) for p in W.as_list(c.get("phones")) if W.norm_phone(p)})
         contact_rows.append(c)
     merged_contacts, index = [], {}
@@ -277,12 +282,19 @@ def main() -> int:
             for k in keys:
                 index[k] = c
             continue
-        hit["emails"] = sorted(set(hit["emails"]) | set(c["emails"]))
+        hit["emails"] = sorted(set(hit["emails"]) | set(c["emails"]), key=email_order)
         hit["phones"] = sorted(set(hit["phones"]) | set(c["phones"]))
         hit["sources"] = W.as_list(hit.get("sources")) + [s for s in W.as_list(c.get("sources")) if s not in W.as_list(hit.get("sources"))]
         hit["verification_status"] = W.best_verification([hit.get("verification_status"), c.get("verification_status")])
         hit["pdpa_risk"] = max((hit.get("pdpa_risk") or "medium", c.get("pdpa_risk") or "medium"), key=lambda r: W.RISK_RANK.get(r, 1))
         hit["notes"] = " | ".join(x for x in (hit.get("notes"), c.get("notes")) if x)
+        # A later record that confirms the person's role from a fetched source (a re-check of a name or title an earlier record left
+        # unconfirmed, or a reviewed correction marked "role_review": a page naming the founder that an earlier record filed under
+        # "General enquiries") supplies the role and its certainty; the earlier record's sources and notes stay with the contact.
+        if ((c.get("role_certainty") == "confirmed" and c.get("role") and any(s.get("fetched") for s in W.as_list(c.get("sources")) if isinstance(s, dict)))
+                and (hit.get("role_certainty") != "confirmed" or c.get("role_review"))):
+            hit["role"], hit["role_certainty"] = c["role"], "confirmed"
+            hit["contact_name"] = c.get("contact_name") or hit.get("contact_name")
         for field in ("contact_name", "role", "profile_url", "channel_attribution", "email_type", "phone_type"):
             hit[field] = hit.get(field) or c.get(field)
         for k in keys:

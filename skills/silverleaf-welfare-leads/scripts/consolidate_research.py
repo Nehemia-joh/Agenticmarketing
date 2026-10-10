@@ -2,7 +2,7 @@
 """Merge research-agent records into one record per institution and geocode them (offline, deterministic).
 
 Reads the research files listed in data/runs/<run-id>/run-config.json (research_files globs) and the run's links.json
-(geo_overrides). Writes runtime/welfare/<run-id>/consolidated.json.
+(geo_overrides, class_overrides, flags_cleared, rejected_routes). Writes runtime/welfare/<run-id>/consolidated.json.
 Rules: exact name, alias or own-domain matches merge, but only between records of the same kind (funder with funder,
 institution with institution); similar names, conflicting material facts and shared domains go to review.
 """
@@ -22,7 +22,9 @@ SUPPLEMENTARY_SLICES = {"W"}
 RECLASSIFYING_SLICES = {"U", "I"}
 CLASS_FIELDS = ("segment", "subtype", "care_model")
 # Check slices (V, 3 October 2026: flags, locations and inboxes of records already in the run) join the same-named record whatever its kind, but
-# never decide its kind: their segment guess is ignored.
+# never decide its kind: their segment guess is ignored. Slice X (10 October 2026: leaders, routes and reviewed inboxes) is not a check slice: its
+# organisation records carry the record's own segment and join only that kind, so a funder's review never pulls in a home that lists the
+# funder's name among its alternative names.
 CHECK_SLICES = {"V"}
 SCALAR_FIELDS = ["organisation_name", "segment", "subtype", "care_model", "description", "operator_or_umbrella",
                  "religious_affiliation_published", "founded", "registration_published", "licence_claim", "address",
@@ -31,6 +33,40 @@ SCALAR_FIELDS = ["organisation_name", "segment", "subtype", "care_model", "descr
                  "gender_served", "schooling_arrangement_published", "runs_own_school", "funding_model_published",
                  "volunteer_programme", "volunteer_fee_published", "safeguarding_policy_url", "staff_count_published",
                  "latest_activity_date", "latest_activity_evidence", "catchment_note", "pdpa_risk", "pdpa_risk_reason"]
+
+
+def rejected_routes(links: dict) -> dict:
+    """Reviewed values that are not an organisation's route: the welfare entries of data/reference/rejected-routes.json (another
+    organisation's inbox, a fax, a domain that does not exist) and the run's own links.json rejected_routes. name key -> {value: reason}."""
+    ref = W.ROOT / "data" / "reference" / "rejected-routes.json"
+    entries = [e for e in (json.loads(ref.read_text(encoding="utf-8")).get("routes", []) if ref.exists() else []) if e.get("db") == "welfare"]
+    out = defaultdict(dict)
+    for e in entries + W.as_list(links.get("rejected_routes")):
+        value = W.norm_email(e.get("value")) if e.get("kind") == "email" else W.norm_phone(e.get("value"))
+        if value and e.get("organisation_name"):
+            out[W.name_key(e["organisation_name"])][value] = e.get("reason", "reviewed: not this organisation's route")
+    return out
+
+
+def drop_rejected(merged: list[dict], contacts: list[dict], rejected: dict) -> int:
+    """Remove rejected values from organisation and contact routes (the record and its sources stay; a note says what was removed)."""
+    removed = 0
+    for rec, emails_key, phones_key in [(o, "public_emails", "public_phones") for o in merged] + [(c, "emails", "phones") for c in contacts]:
+        names = [rec.get("organisation_name")] + (W.as_list(rec.get("alternative_names")) if emails_key == "public_emails" else [])
+        bad = {}
+        for n in names:
+            bad.update(rejected.get(W.name_key(n), {}))
+        if not bad:
+            continue
+        kept_e = [e for e in W.as_list(rec.get(emails_key)) if W.norm_email(e) not in bad]
+        kept_p = [p for p in W.as_list(rec.get(phones_key)) if W.norm_phone(p) not in bad]
+        gone = [v for v in W.as_list(rec.get(emails_key)) + W.as_list(rec.get(phones_key)) if v not in kept_e + kept_p]
+        if gone:
+            removed += len(gone)
+            rec[emails_key], rec[phones_key] = kept_e, kept_p
+            reasons = "; ".join(f"{v}: {bad.get(W.norm_email(v)) or bad.get(W.norm_phone(v))}" for v in gone)
+            rec["notes"] = " | ".join(x for x in (rec.get("notes"), f"Rejected route removed ({reasons})") if x)
+    return removed
 
 
 def is_funder(org: dict) -> bool:
@@ -98,7 +134,10 @@ def merge_organisations(orgs: list[dict]) -> tuple[list[dict], list[dict]]:
             base["latest_activity_date"] = sorted({str(m.get("latest_activity_date")) for m in members if m.get("latest_activity_date")})[-1]
         base["alternative_names"] = sorted({W.norm_text(n) for m in members for n in [m.get("organisation_name")] + W.as_list(m.get("alternative_names")) if n}
                                            - {W.norm_text(base["organisation_name"])})
-        base["public_emails"] = sorted({e for m in members for e in map(W.norm_email, W.as_list(m.get("public_emails"))) if e})
+        # The organisation's own-domain inbox comes first (the run's email field takes the first), then other domains, then free-mail.
+        site = W.own_domain(base.get("website") or next((m.get("website") for m in members if m.get("website")), ""))
+        base["public_emails"] = sorted({e for m in members for e in map(W.norm_email, W.as_list(m.get("public_emails"))) if e},
+                                       key=lambda e: (bool(W.PERSONAL_EMAIL.search(e)), not (site and e.split("@")[-1].endswith(site)), e))
         phones = {}
         for m in members:
             for p in W.as_list(m.get("public_phones")):
@@ -231,6 +270,7 @@ def main() -> int:
             words = cleared.get("flags", "all")
             o["red_flags"] = [] if words == "all" else [f for f in o["red_flags"] if not any(w.lower() in f.lower() for w in W.as_list(words))]
             o["notes"] = " | ".join(x for x in (o.get("notes"), f"Red flags reviewed: {cleared.get('basis', '')}") if x)
+    print(f"rejected routes removed: {drop_rejected(merged, contacts, rejected_routes(links))}")
     geocode(merged, gaz, campuses, links.get("geo_overrides", {}))
     out = {"organisations": merged, "contacts": contacts, "relationships": relations, "enquiries": enquiries, "reviews": reviews}
     (work / "consolidated.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=str), encoding="utf-8")

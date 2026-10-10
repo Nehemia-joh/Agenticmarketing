@@ -457,6 +457,47 @@
    "basis": "Own site publishes childrenconcern6@gmail.com (and an outlook address) with a Mto wa Mbu address, which is outside the catchment.",
    "source_url": "https://www.childrenconcern.or.tz/",
    "decided_on": "2026-10-03"
+  },
+  "From Hearts 2 Hands": {
+   "address": "fromhearts2handsinc@gmail.com",
+   "basis": "The organisation's own contact and about pages publish fromhearts2handsinc@gmail.com, named after the organisation, as its only email (the contact page body misprints it as @gmail.org); it is not a person's address.",
+   "source_url": "https://fromhearts2hands.com/contact/",
+   "decided_on": "2026-10-10"
+  },
+  "Mesha's Village": {
+   "address": "meshasvillage@gmail.com",
+   "basis": "The charity's own team and newsletter pages publish meshasvillage@gmail.com, named after the charity, as its contact (read 3 October 2026 by slice Q).",
+   "source_url": "https://www.meshasvillage.com/meet-the-team",
+   "decided_on": "2026-10-10"
   }
- }
+ },
+ "rejected_routes": [
+  {
+   "organisation_name": "Inuka",
+   "kind": "email",
+   "value": "chetingo@gmail.com",
+   "reason": "CHETI NGO's inbox (Inuka's partner in Arusha), published on Inuka's contact page under CHETI's contact details, not Inuka's; Inuka's own inbox is hello@inukacommunity.org.",
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl",
+   "source_url": "https://www.inukacommunity.org/contact",
+   "decided_on": "2026-10-10"
+  },
+  {
+   "organisation_name": "Inuka",
+   "kind": "phone",
+   "value": "+255764263603",
+   "reason": "CHETI NGO's phone, published beside CHETI's inbox on the same page; not Inuka's.",
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl",
+   "source_url": "https://www.inukacommunity.org/contact",
+   "decided_on": "2026-10-10"
+  },
+  {
+   "organisation_name": "CHETI NGO",
+   "kind": "email",
+   "value": "hello@inukacommunity.org",
+   "reason": "Inuka's own inbox (its Sydney office), published on Inuka's contact page under 'Contact Details for Inuka'; CHETI NGO's contact on the same page is chetingo@gmail.com.",
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl",
+   "source_url": "https://www.inukacommunity.org/contact",
+   "decided_on": "2026-10-10"
+  }
+ ]
 }

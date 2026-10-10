@@ -109,7 +109,7 @@ def funder_reasons(con) -> dict:
     return {f: min(c, key=lambda t: (t[0], t[1]))[2] for f, c in candidates.items()}
 
 
-LEADER_TOP = re.compile(r"founder|owner|\bceo\b|chief executive|executive director|president|chair|director(?!s)|bishop|head of|"
+LEADER_TOP = re.compile(r"founder|owner|\bceo\b|chief executive|executive director|president|chair|director(?!s)|bishop|head of\b|"
                         r"general secretary|secretary[- ]general|executive secretary", re.I)
 LEADER_MID = re.compile(r"manager|coordinator|pastor|leader|principal|administrator|matron|in[- ]charge|mother superior|management committee", re.I)
 NOT_LEADER = re.compile(r"treasurer|secretary|volunteer|intern|assistant|adviser|advisor|trustee|board member|accountant|nurse|teacher|social worker|"
@@ -119,16 +119,69 @@ ROLE_PARTS = re.compile(r"\s*(?:[;,/&()]|\band\b|\s-\s)\s*", re.I)
 FOREIGN_ROUTE = re.compile(r"kenya|uganda|rwanda|burundi|zambia|malawi|congo|southafrica|\.(ke|ug|rw|bi|cd|zm|mw|za)$", re.I)
 
 
+# Board roles are never an addressee or an escalation contact (decided 10 October 2026): a chair, vice chair, treasurer, secretary, trustee,
+# board member or emeritus, a "Director, <country>" board seat, and a president or chair qualified by a board ("President (US board)").
+BOARD = re.compile(r"\bchair|vorsitz|voorzitter|vorstand|treasurer|(?<!general )(?<!executive )\bsecretary(?![- ]general)|board|trustee|emeritus", re.I)
+BOARD_TITLE = re.compile(r"\b(president|chair\w*|director)\s*\(([^)]*\b(?:board|trustees|vorstand)\b[^)]*)\)", re.I)
+PLACE = (r"tanzania|kenya|uganda|rwanda|burundi|zambia|malawi|congo|ethiopia|south africa|east africa|north america|usa|us|uk|europe|"
+         r"germany|netherlands|switzerland|australia|canada|norway|finland|sweden|denmark|austria|italy|spain")
+DIRECTOR_SEAT = re.compile(rf"(?:board )?director\s*[,(\-]\s*(?:{PLACE})\s*\)?", re.I)
+# Where a role says the person works: Tanzania (the operation Silverleaf would deal with), another African country's operation, or abroad.
+IN_TANZANIA = re.compile(r"tanzania|arusha|moshi|kilimanjaro|usa river|karatu|mto wa mbu|monduli|meru|zanzibar|in-country|on-site|\btz\b", re.I)
+OTHER_AFRICA = re.compile(r"kenya|uganda|rwanda|burundi|zambia|malawi|congo|south africa|ethiopia|nigeria|ghana", re.I)
+ABROAD = re.compile(r"\bglobal\b|international|north america|\busa?\b|u\.s\.|united states|\buk\b|united kingdom|german|netherlands|nederland|dutch|"
+                    r"swiss|switzerland|australia|canada|europe|norway|finland|sweden|denmark|austria|ital|spain|parent|head office|headquarters", re.I)
+# The most senior person running the Tanzania or Arusha operation: a country manager or director, a national director, a Tanzania head, or an
+# Arusha programme or home manager.
+COUNTRY_HEAD = re.compile(r"country (?:manager|director|representative|coordinator|lead|head)|national (?:director|coordinator|manager)|"
+                          r"in-country (?:director|manager|lead)|head of (?:the )?(?:tanzania|country)|tanzania (?:programme |program |country )?"
+                          r"(?:director|manager|lead|head)|(?:tanzania|arusha) programme lead|programme lead", re.I)
+HOME_HEAD = re.compile(r"head of (?:the )?(?:[\w'-]+ ){0,3}(?:home|orphanage|children's village)\b|on-site (?:director|manager|head)", re.I)
+LOCAL_MANAGER = re.compile(r"(?:programme|program|project|home|centre|center|site|orphanage|village) (?:manager|director|lead|head)", re.I)
+
+
+def board_role(role: str) -> bool:
+    """A board seat with no executive title beside it (see BOARD)."""
+    role = " ".join(str(role or "").split())
+    return bool(DIRECTOR_SEAT.fullmatch(role)) or (bool(role) and leader_rank(role) is None and bool(BOARD.search(role)))
+
+
+def role_location(role: str, funder: bool = False) -> str:
+    """'tz' when the role names Tanzania or a place in it, 'other' for another African country's operation, 'abroad' for a global,
+    head-office or overseas title, '' when the role does not say. A funder is based abroad itself, so its overseas titles count as ''."""
+    role = str(role or "")
+    if IN_TANZANIA.search(role):
+        return "tz"
+    if OTHER_AFRICA.search(role):
+        return "other"
+    return "" if funder or not ABROAD.search(role) else "abroad"
+
+
+def country_head(role: str) -> bool:
+    """The person runs the Tanzania or Arusha operation (see COUNTRY_HEAD; a programme or home manager counts when the role names Tanzania)."""
+    role = str(role or "")
+    if OTHER_AFRICA.search(role) and not IN_TANZANIA.search(role) or board_role(role):
+        return False
+    return bool(COUNTRY_HEAD.search(role) or HOME_HEAD.search(role) or (LOCAL_MANAGER.search(role) and IN_TANZANIA.search(role)))
+
+
 def leader_rank(role: str):
     """0 founder, owner, chief executive, director, president or general secretary; 1 manager, coordinator or matron; None for anyone else
-    (treasurer, volunteer, board member, vice or deputy). A role that joins several titles ('Founder and trustee', 'Director/Social Worker',
-    'Founder; board member of the German association') ranks by its most senior title: a second title never hides a founder or director."""
+    (a board role, treasurer, volunteer, vice or deputy). A role that joins several titles ('Founder and trustee', 'Director/Social Worker',
+    'Founder; board member of the German association') ranks by its most senior title: a second title never hides a founder or director,
+    and a board title never makes a leader."""
+    role = BOARD_TITLE.sub(lambda m: f"board {m.group(1)} ({m.group(2)})", str(role or ""))
+    if DIRECTOR_SEAT.fullmatch(" ".join(role.split())):
+        return None
     ranks = []
-    for part in [p for p in ROLE_PARTS.split(role or "") if p.strip()]:
-        if ((SECRETARY_LEADER.search(part) or re.search(r"\bchair|president", part, re.I) and re.search(r"trustee|board", part, re.I))
-                and not re.search(r"vice|deputy|assistant|former", part, re.I)):
-            ranks.append(0)  # a general secretary, or the chair of a board of trustees
-        elif NOT_LEADER.search(part):
+    parts = [p for p in ROLE_PARTS.split(role) if p.strip()]
+    on_board = any(BOARD.search(p) for p in parts)
+    for part in parts:
+        if on_board and re.fullmatch(r"\s*(?:co-)?president\s*", part, re.I):
+            continue  # 'Board Member, President': the president of the board
+        if SECRETARY_LEADER.search(part) and not re.search(r"vice|deputy|assistant|former", part, re.I):
+            ranks.append(0)  # a general or executive secretary runs the body
+        elif BOARD.search(part) or NOT_LEADER.search(part):
             continue
         elif LEADER_TOP.search(part):
             ranks.append(0)
@@ -163,23 +216,83 @@ def role_phrase(role: str) -> str:
     return f"a {role.lower()}" if role.lower().startswith("co-") else f"the {role}"
 
 
-def best_leader(contacts, prefer=None) -> dict | None:
-    """The organisation's most senior named, confirmed, medium-risk contact with a full name, or None."""
-    best = None
+UNIT_TITLE = re.compile(r"\b(?:director|head) of\b|marketing|development|finance|communications|human resources", re.I)
+
+
+def named_leaders(contacts, funder: bool = False) -> list[dict]:
+    """The named, confirmed, medium-risk contacts with a full name and a leader's role (never a board role or a person who works for
+    another country's operation), each with greet_name and: _rank, _seniority, _where (role_location), _head (runs the Tanzania operation),
+    _exec (the organisation's executive: chief executive, executive director, founder, president or its director, not a unit director) and
+    _overseas (based abroad, or, when a country head is named, an executive whose role does not name Tanzania: head office)."""
+    out = []
     for c in contacts:
-        name = greeting_name(c.get("contact_name") or "")
-        rank = leader_rank(c.get("role") or "")
-        if (c.get("pdpa_risk") != "medium" or c.get("role_certainty") != "confirmed" or len(name.split()) < 2 or re.search(r"\d|\?", name) or rank is None):
+        name, role = greeting_name(c.get("contact_name") or ""), c.get("role") or ""
+        rank = leader_rank(role)
+        if (c.get("pdpa_risk") != "medium" or c.get("role_certainty") != "confirmed" or len(name.split()) < 2 or re.search(r"\d|\?", name)
+                or re.search(r"enquir|inbox|\boffice\b|\bteam\b", name, re.I) or rank is None or board_role(role)):
             continue
+        where = role_location(role, funder)
+        if where == "other":
+            continue
+        head, level = country_head(role), seniority(role)
+        out.append({**c, "greet_name": name, "_rank": 0 if head else rank, "_where": where, "_head": head, "_seniority": level,
+                    "_exec": not head and (level <= 1 or (rank == 0 and not UNIT_TITLE.search(role))),
+                    "_has_email": bool(c.get("named_email") or c.get("published_role_email"))})
+    has_head = any(c["_head"] for c in out)
+    for c in out:
+        c["_overseas"] = c["_where"] == "abroad" or (has_head and c["_exec"] and c["_where"] != "tz" and c["_seniority"] <= 1)
+    return out
+
+
+def best_leader(contacts, prefer=None, funder: bool = False) -> dict | None:
+    """The addressee (decided 10 October 2026: someone on the ground). First the most senior person running the Tanzania or Arusha
+    operation (country manager or director, national director, Tanzania head, the head of a home, an Arusha programme manager); otherwise
+    the organisation's most senior named leader, a local founder or director first. A global or overseas chief executive, executive director,
+    founder or president is the fallback when no one in the country is named. A board role, a person working for another country's
+    operation and a non-executive based abroad are never chosen."""
+    best = None
+    for c in named_leaders(contacts, funder):
+        if c["_where"] == "abroad" and not c["_exec"]:
+            continue  # based abroad and not the organisation's executive (a marketing manager in the USA)
         preferred = 0 if prefer and prefer.search(c.get("role") or "") else 1  # for a network: the social-services or children's lead before the bishop
-        key = (preferred, rank, 0 if (c.get("named_email") or c.get("published_role_email")) else 1, seniority(c.get("role") or ""), name)
+        key = (preferred, c["_overseas"], not c["_head"], c["_rank"], not c["_has_email"], c["_seniority"], c["greet_name"])
         if best is None or key < best[0]:
-            best = (key, c, name)
-    return {**best[1], "greet_name": best[2]} if best else None
+            best = (key, c)
+    return best[1] if best else None
+
+
+ESCALATION_TRIGGER = "No reply after the follow-up, or the country office declines or defers to head office."
+# escalation_route holds the address or phone (the companies master and the Resend exporter read these four by name); the other two are
+# the welfare run's own detail: what kind of route it is and where the executive is published.
+ESCALATION_COLUMNS = ("escalation_contact_id", "escalation_recipient", "escalation_route", "escalation_trigger", "escalation_route_type",
+                      "escalation_source_url")
+
+
+def escalation_contact(contacts, leader, funder: bool = False) -> dict | None:
+    """When the addressee is on the ground (runs the Tanzania operation, or a role that names Tanzania) and the organisation also names an
+    executive abroad or at head office (a global chief executive, executive director, founder or president; never a board role): that
+    executive, for a person to escalate to by hand. No message is drafted to them and they are not copied on the first message."""
+    if not leader or leader.get("_overseas") or not (leader.get("_head") or leader.get("_where") == "tz"):
+        return None
+    best = None
+    for c in named_leaders(contacts, funder):
+        if (c.get("contact_id") == leader.get("contact_id") or not (c["_overseas"] and c["_exec"]) or c["_seniority"] > 1
+                or (not leader["_head"] and c["_seniority"] > leader["_seniority"])):
+            continue  # only a chief executive, executive director, founder or president, and never less senior than the addressee
+        # on a tie, the executive whose remit names the children's work (a co-president for 'medicine and orphanages')
+        key = (c["_seniority"], not c["_has_email"], not re.search(r"orphan|child|home|welfare|programme|program", c.get("role") or "", re.I),
+               c["greet_name"])
+        if best is None or key < best[0]:
+            best = (key, c)
+    return best[1] if best else None
 
 
 def welfare(con, now, run_cfg) -> dict:
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
+    columns = {r[1] for r in con.execute("PRAGMA table_info(outreach_plans)")}
+    for column in ESCALATION_COLUMNS:  # welfare only: who to escalate to by hand when the country office stalls
+        if column not in columns:
+            con.execute(f'ALTER TABLE outreach_plans ADD COLUMN "{column}" TEXT')
     # Reviewed decisions (links.json official_personal_inboxes): the organisation itself publishes this personal-domain address as its contact.
     links_path = ROOT / "data" / "runs" / run_cfg.get("run_id", "") / "links.json"
     official_inboxes = json.loads(links_path.read_text(encoding="utf-8")).get("official_personal_inboxes", {}) if links_path.exists() else {}
@@ -187,6 +300,13 @@ def welfare(con, now, run_cfg) -> dict:
     contacts_by_org = {}
     for r in con.execute("SELECT * FROM contacts ORDER BY contact_id"):
         contacts_by_org.setdefault(r["organisation_id"], []).append({**dict(r), **con_payload.get(r["contact_id"], {})})
+    # Same-named twins (one body's funder record and its programme record) keep their own contacts in the run; its people lead both, so
+    # each twin's draft chooses from the contacts of all of them (its own first on a tie).
+    twins = {}
+    for oid, o in orgs.items():
+        twins.setdefault(" ".join(re.findall(r"[a-z0-9]+", str(o["name"]).lower())), []).append(oid)
+    people_of = {oid: contacts_by_org.get(oid, []) + [c for t in group if t != oid for c in contacts_by_org.get(t, [])]
+                 for group in twins.values() for oid in group}
     outcomes, issues = Counter(), []
     reasons = funder_reasons(con)
     for oid, o in sorted(orgs.items(), key=lambda kv: kv[1]["name"]):
@@ -205,9 +325,12 @@ def welfare(con, now, run_cfg) -> dict:
         elif p.get("phone") and p.get("pdpa_risk") != "risky":
             route, value = "organisation_phone", p["phone"]
         network = model == "network" or str(p.get("segment") or "").startswith("Welfare network")
-        leader = best_leader(contacts_by_org.get(oid, []), re.compile(r"diacon|social|children|programme|program|coordinator|welfare", re.I) if network else None)
+        is_funder = model == "funder" or p.get("segment") == "Welfare funder"
+        leader = best_leader(people_of.get(oid, []), re.compile(r"diacon|social|children|programme|program|coordinator|welfare", re.I) if network else None,
+                             is_funder)
         greet = f"Dear {leader['greet_name']}," if leader else f"Dear {name} team,"
         recipient = f"{leader['greet_name']} ({leader.get('role') or 'role not published'})" if leader else ""
+        escalate = escalation_contact(people_of.get(oid, []), leader, is_funder)
         for c in contacts_by_org.get(oid, []):
             if c.get("pdpa_risk") == "risky":
                 continue
@@ -226,6 +349,17 @@ def welfare(con, now, run_cfg) -> dict:
         if (direct and "@" in direct and not PERSONAL_DOMAIN.search(direct) and direct.split("@")[-1] in own
                 and str(value or "").lower() != direct):
             route, value = "named_email", direct
+        escalation = {}
+        if escalate:
+            # The executive's own published work address when there is one; otherwise the organisation's inbox, addressed to them by name.
+            own_address = next((str(e).strip().lower() for e in (escalate.get("named_email"), escalate.get("published_role_email"))
+                                if e and not PERSONAL_DOMAIN.search(str(e))), "")
+            e_route, e_value = (("named_email" if escalate.get("named_email") else "published_role_email"), own_address) if own_address else (
+                ("organisation_email", p["email"]) if p.get("email") and p.get("pdpa_risk") != "risky" else ("", ""))
+            escalation = {"escalation_contact_id": escalate.get("contact_id", ""),
+                          "escalation_recipient": f"{escalate['greet_name']} ({escalate.get('role') or 'role not published'})",
+                          "escalation_route": e_value, "escalation_trigger": ESCALATION_TRIGGER, "escalation_route_type": e_route,
+                          "escalation_source_url": escalate.get("source_url") or escalate.get("profile_url") or ""}
         if not route:
             missing.append("No usable published route (risky routes are never used); find the organisation's own email or phone.")
         route_problem = False
@@ -331,6 +465,10 @@ def welfare(con, now, run_cfg) -> dict:
             issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, WELFARE_OFFERS, ignore=names)]
         issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_first_message(body, ignore=names)]
         add(con, now, plan, subject, body, follow)
+        if escalation:
+            con.execute(f"UPDATE outreach_plans SET {', '.join(f'{k} = ?' for k in escalation)} WHERE message_id = ?",
+                         (*escalation.values(), plan["message_id"]))
+            outcomes["with an escalation contact"] += 1
         outcomes[plan["outcome"]] += 1
     for e in [dict(r) for r in con.execute("SELECT * FROM enquiries")]:
         request = str(e.get("request") or "").lower()

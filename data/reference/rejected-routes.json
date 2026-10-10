@@ -24,6 +24,15 @@
    "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
   {"db": "welfare", "organisation_id": "ORG_024737bc97309aad", "organisation_name": "Tanzania Youth Support and Self Reliance Organization", "kind": "email", "value": "info@tanzaniayouth.com",
    "reason": "tanzaniayouth.com does not exist (no mail or address records at 8.8.8.8, 26 September 2026): mail to it cannot be delivered.",
-   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"}
+   "source": "data/raw/contact-research/search_wave8_welfare_care_2026-09-23.jsonl", "decided_on": "2026-09-26"},
+  {"db": "welfare", "organisation_id": "ORG_6e38e1a5bfb9dd93", "organisation_name": "Inuka", "kind": "email", "value": "chetingo@gmail.com",
+   "reason": "CHETI NGO's inbox (Inuka's partner in Arusha), published on Inuka's contact page under CHETI's contact details, not Inuka's; Inuka's own inbox is hello@inukacommunity.org.",
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"},
+  {"db": "welfare", "organisation_id": "ORG_6e38e1a5bfb9dd93", "organisation_name": "Inuka", "kind": "phone", "value": "+255764263603",
+   "reason": "CHETI NGO's phone, published beside CHETI's inbox on the same page; not Inuka's.",
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"},
+  {"db": "welfare", "organisation_id": "ORG_678178d329f3761c", "organisation_name": "CHETI NGO", "kind": "email", "value": "hello@inukacommunity.org",
+   "reason": "Inuka's own inbox (its Sydney office), published on Inuka's contact page under 'Contact Details for Inuka'; CHETI NGO's contact on the same page is chetingo@gmail.com.",
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"}
  ]
 }

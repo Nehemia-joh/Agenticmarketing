@@ -2,13 +2,14 @@
 
 Review copy only: nothing is sent. One first message per organisation.
 
-- **Funders (104).** A request to sponsor students: any size, including textbooks, transport or meals. The reason is a relationship the run verified from the funder's own pages (it funds a named home or programme). A funder with no verified relationship is held, because there is no honest reason to ask it yet. 32 are ready.
+- **Funders (104).** A request to sponsor students: any size, including textbooks, transport or meals. The reason is a relationship the run verified from the funder's own pages (it funds a named home or programme). A funder with no verified relationship is held, because there is no honest reason to ask it yet. 33 are ready.
 - **Children's homes and orphanages (99),** where children live in the home's care. 16 are ready.
 - **Family-based and sponsorship programmes (159),** which support children who live with families, often paying school fees. 25 are ready.
 - **Specialised centres (70):** disability and rehabilitation centres, street-children centres and safe houses. 5 are ready.
 - Homes, programmes and centres all get the same first message: a partnership on the education of the children in their care, and a short meeting. No offer terms; the partner rate follows in the second message.
 - **Introducer networks (7)**: bodies that could share the partnership with many homes. 5 are ready.
 - A draft is held when the organisation has no published route, its only route is outside Tanzania, its email domain is outside Tanzania, the record carries red flags, the inbox is on a personal domain, the centre is specialised (confirm Silverleaf can meet the children's needs first) or the location is unresolved.
+- Where the addressee runs the Tanzania office and the organisation names a more senior executive abroad, the entry names that executive as an escalation contact, to approach by hand if there is no reply after the follow-up or the country office declines or defers to head office. They are not copied on the first message and no message is drafted to them.
 - Parent-enquiry replies are separate and held for the data-protection owner; they are not in this file.
 
 Follow-up messages and the offer terms are in the run workbook. Companies are in the Employer Drafts file.
@@ -17,7 +18,7 @@ Follow-up messages and the offer terms are in the run workbook. Companies are in
 
 # 1. Funders: sponsorship request
 
-## 1.1 Ready for review (32)
+## 1.1 Ready for review (33)
 
 ### 1.1.1 Inuka: Australian charity funding student sponsorship through CHETI NGO (high priority)
 
@@ -67,7 +68,31 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.3 From Hearts 2 Hands: foreign charity sponsoring children's schooling (medium priority)
+### 1.1.3 Compassion International Tanzania: child sponsorship INGO (church partnerships) (medium priority)
+
+- To: Mary Lema (Country Director) | Route: info@tz.ci.org (shared_email) | Plan: Md91a6c244e75 | Status: draft_ready
+- Reason for the ask: TAG Bethel Church Child and Youth Ministry (source https://cit.or.tz/story/churches-leading-the-way-in-local-resource-mobilization-in-tanzania/, read 2026-10-03).
+
+Subject: Sponsorship request: students at Silverleaf Academy
+
+```
+Dear Mary Lema,
+
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Country Director of Compassion International Tanzania, which supports TAG Bethel Church Child and Youth Ministry. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+
+We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Compassion International Tanzania's current giving.
+
+Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
+
+Thank you very much for your time and consideration.
+
+Warm regards,
+Mariam Haji
+Marketing and Partnership Coordinator
+Silverleaf Academy
+```
+
+### 1.1.4 From Hearts 2 Hands: foreign charity sponsoring children's schooling (medium priority)
 
 - To: Briana Greene (Founder) | Route: fromhearts2handsinc@gmail.com (shared_email) | Plan: Mfcfc055bb659 | Status: draft_ready
 - Reason for the ask: Kwamkono Disabled Center (source https://fromhearts2hands.com/, read 2026-10-03).
@@ -91,17 +116,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.4 Giving Smiles e.V.: foreign charity (German registered association) (medium priority)
+### 1.1.5 Giving Smiles e.V.: foreign charity (German registered association) (medium priority)
 
-- To: Katherina Campe (Chair of the association (1. Vorstand)) | Route: info@givingsmiles.org (shared_email) | Plan: M0bf9037427eb | Status: draft_ready
+- To: Giving Smiles e.V. (organisation route) | Route: info@givingsmiles.org (shared_email) | Plan: M0bf9037427eb | Status: draft_ready
 - Reason for the ask: Child First Baby Home (source https://givingsmiles.org/en/child-first-baby-home-2/, read 2026-09-22).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Katherina Campe,
+Dear Giving Smiles e.V. team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Giving Smiles e.V. supports Child First Baby Home. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Giving Smiles e.V. supports Child First Baby Home. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Giving Smiles e.V.'s giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Giving Smiles e.V.'s current giving.
 
@@ -115,7 +140,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.5 African Moons Tanzania: foreign charity supporting a named orphanage and a disability safe home (low priority)
+### 1.1.6 African Moons Tanzania: foreign charity supporting a named orphanage and a disability safe home (low priority)
 
 - To: Joel Vann (President & Founder, African Moons (US parent body)) | Route: jvann@africanmoons.org (named_email) | Plan: Ma29a996431da | Status: draft_ready
 - Reason for the ask: Safe Home for Children with Disabilities (source https://africanmoons.org/special-needs/, read 2026-10-02).
@@ -139,7 +164,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.6 Arthur B Schultz Foundation: US private foundation (990-PF) (low priority)
+### 1.1.7 Arthur B Schultz Foundation: US private foundation (990-PF) (low priority)
 
 - To: Rachael K Richards (Executive Director) | Route: rachael@absfoundation.org (named_email) | Plan: Mbdc91dfb77a5 | Status: draft_ready
 - Reason for the ask: Jifindishe (source https://projects.propublica.org/nonprofits/full_text/202533219349104043/IRS990PF, read 2026-10-02).
@@ -163,7 +188,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.7 Arusha Lutheran Medical Center: church hospital (operator) (low priority)
+### 1.1.8 Arusha Lutheran Medical Center: church hospital (operator) (low priority)
 
 - To: Dr. Goodwill Kivuyo (Executive Director) | Route: info@almc.or.tz (shared_email) | Plan: M26fab2668e6c | Status: draft_ready
 - Reason for the ask: The Plaster House (source https://www.theplasterhouse.org/about-us-our-partners, read 2026-10-02).
@@ -187,17 +212,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.8 Asali: foreign charity (US 501(c)(3)) (low priority)
+### 1.1.9 Asali: foreign charity (US 501(c)(3)) (low priority)
 
-- To: Margot Hinchey (Chairman of the Board) | Route: info@asaliproject.org (shared_email) | Plan: Me2cb8056ba7a | Status: draft_ready
+- To: Asali (organisation route) | Route: info@asaliproject.org (shared_email) | Plan: Me2cb8056ba7a | Status: draft_ready
 - Reason for the ask: Simba's Footprints (source https://projects.propublica.org/nonprofits/full_text/202523109349201572/IRS990EZ, read 2026-10-02).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Margot Hinchey,
+Dear Asali team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chairman of the Board of Asali, which supports Simba's Footprints. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Asali supports Simba's Footprints. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Asali's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Asali's current giving.
 
@@ -211,17 +236,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.9 Capital International: corporate CSR programme (low priority)
+### 1.1.10 Capital International: corporate CSR programme (low priority)
 
-- To: Anthony Long (Group Chairman, Capital International Group) | Route: businessdevelopment@capital-iom.com (shared_email) | Plan: M09f88cc67447 | Status: draft_ready
+- To: Capital International (Isle of Man) (organisation route) | Route: businessdevelopment@capital-iom.com (shared_email) | Plan: M09f88cc67447 | Status: draft_ready
 - Reason for the ask: Huruma Vision Children's Home (source https://www.capital-iom.com/company/huruma-project, read 2026-10-02).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Anthony Long,
+Dear Capital International team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Group Chairman, Capital International Group of Capital International, which supports Huruma Vision Children's Home. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Capital International supports Huruma Vision Children's Home. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Capital International's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Capital International's current giving.
 
@@ -235,7 +260,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.10 EdPowerment Inc: foreign charity (US) - education sponsorship and skills (low priority)
+### 1.1.11 EdPowerment Inc: foreign charity (US) - education sponsorship and skills (low priority)
 
 - To: Godlisten Malle (Executive Director & Board Member) | Route: info@edpowerment.org (shared_email) | Plan: M5e332c9da455 | Status: draft_ready
 - Reason for the ask: EdPowerment Sponsorship Program (source https://projects.propublica.org/nonprofits/full_text/202631259349301993/IRS990, read 2026-10-02).
@@ -259,10 +284,11 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.11 Faraja Fund Foundation: US private foundation / public charity (990-PF to 2023, 990 in 2024) (low priority)
+### 1.1.12 Faraja Fund Foundation: US private foundation / public charity (990-PF to 2023, 990 in 2024) (low priority)
 
 - To: Jane John Lyayuka (Executive Director - Faraja Forward Tanzania (Tanzania programme lead)) | Route: info@farajaschool.org (shared_email) | Plan: M3a77574e4280 | Status: draft_ready
 - Reason for the ask: Faraja Primary School for Children with Physical Disabilities (source https://projects.propublica.org/nonprofits/full_text/202523519349301607/IRS990, read 2026-10-02).
+- Escalation (by hand, not copied on this message): Jeryl Levin (Executive Director, Faraja Fund Foundation) | Route: info@farajaschool.org (organisation_email) | Source: https://www.farajaschool.org/foundation-staff/ | When: No reply after the follow-up, or the country office declines or defers to head office.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
@@ -283,17 +309,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.12 Foerderverein URRC e.V.: foreign support association (Germany) (low priority)
+### 1.1.13 Foerderverein URRC e.V.: foreign support association (Germany) (low priority)
 
-- To: Wolfgang Hertrich (Chairman (1. Vorsitzender) of the support association) | Route: post@urrc.de (shared_email) | Plan: M50a54401e36d | Status: draft_ready
+- To: Foerderverein URRC e.V. (organisation route) | Route: post@urrc.de (shared_email) | Plan: M50a54401e36d | Status: draft_ready
 - Reason for the ask: Usa River Rehabilitation and Training Centre (source https://www.urrc.de/, read 2026-09-22).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Wolfgang Hertrich,
+Dear Foerderverein URRC e.V. team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Foerderverein URRC e.V. supports Usa River Rehabilitation and Training Centre. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Foerderverein URRC e.V. supports Usa River Rehabilitation and Training Centre. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Foerderverein URRC e.V.'s giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Foerderverein URRC e.V.'s current giving.
 
@@ -307,17 +333,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.13 Friends Of Tanzania - Marafiki Wa Tanzania: foreign charity (US 501(c)(3)), volunteer-led grant maker (low priority)
+### 1.1.14 Friends Of Tanzania - Marafiki Wa Tanzania: foreign charity (US 501(c)(3)), volunteer-led grant maker (low priority)
 
-- To: Clay Batko (Chair, Projects Committee) | Route: info@fotanzania.org (shared_email) | Plan: M5e33cd8d868e | Status: draft_ready
+- To: Jennifer Kron (President) | Route: info@fotanzania.org (shared_email) | Plan: M5e33cd8d868e | Status: draft_ready
 - Reason for the ask: HopeCare (source https://projects.propublica.org/nonprofits/full_text/202533039349201363/IRS990ScheduleO, read 2026-10-02).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Clay Batko,
+Dear Jennifer Kron,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chair, Projects Committee of Friends Of Tanzania - Marafiki Wa Tanzania, which supports HopeCare. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the President of Friends Of Tanzania - Marafiki Wa Tanzania, which supports HopeCare. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Friends Of Tanzania - Marafiki Wa Tanzania's current giving.
 
@@ -331,7 +357,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.14 Friends of Amani US Inc: foreign charity (US 501(c)(3)) - single-organisation support (low priority)
+### 1.1.15 Friends of Amani US Inc: foreign charity (US 501(c)(3)) - single-organisation support (low priority)
 
 - To: Meghan Wood (Director of Development USA) | Route: meghan@amanikids.org (shared_email) | Plan: M22737a0c2fcf | Status: draft_ready
 - Reason for the ask: Amani Centre for Street Children (source https://amanikids.org/, read 2026-09-22).
@@ -355,7 +381,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.15 Global Development Group USA Inc: foreign charity (US 501(c)(3)) - project intermediary (low priority)
+### 1.1.16 Global Development Group USA Inc: foreign charity (US 501(c)(3)) - project intermediary (low priority)
 
 - To: David Pearson (Chief Executive Officer) | Route: code@cid.org.nz (shared_email) | Plan: M59925539c6ca | Status: draft_ready
 - Reason for the ask: Sandra Jones Centre (source https://projects.propublica.org/nonprofits/full_text_search?utf8=%E2%9C%93&q=%22sandra+jones+centre%22, read 2026-09-23). **The source is a ProPublica search page: open the filing and confirm the grant before sending.**
@@ -379,7 +405,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.16 Godparents For Tanzania: foreign charity (US 501(c)(3)) - scholarships (low priority)
+### 1.1.17 Godparents For Tanzania: foreign charity (US 501(c)(3)) - scholarships (low priority)
 
 - To: Kristin Westermann (Executive Director) | Route: info@godparentsfortz.org (shared_email) | Plan: Mc55d34dfc4e9 | Status: draft_ready
 - Reason for the ask: Godparents for Tanzania scholarships (source https://projects.propublica.org/nonprofits/full_text/202631259349201878/IRS990EZ, read 2026-10-02).
@@ -403,7 +429,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.17 Imaniworld: foreign association supporting a named home (low priority)
+### 1.1.18 Imaniworld: foreign association supporting a named home (low priority)
 
 - To: Lourdes Porredón Fontán (President and legal representative (Presidente / Representante legal)) | Route: info@imaniworld.org (shared_email) | Plan: M6a7867b540ae | Status: draft_ready
 - Reason for the ask: Huruma Vision Children's Home (source https://imaniworld.org/en/, read 2026-10-02).
@@ -427,7 +453,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.18 Innovo Benefits Group: corporate donor (USA) (low priority)
+### 1.1.19 Innovo Benefits Group: corporate donor (USA) (low priority)
 
 - To: Eric P. Gulko (President) | Route: charris@innovobenefits.com (shared_email) | Plan: Mb3fd1b2fb295 | Status: draft_ready
 - Reason for the ask: Amani Centre for Street Children (source https://www.amanikids.org/partners, read 2026-10-02).
@@ -451,17 +477,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.19 Karama Connection: foreign charity (US 501(c)(3)), all-volunteer (low priority)
+### 1.1.20 Karama Connection: foreign charity (US 501(c)(3)), all-volunteer (low priority)
 
-- To: Connie Naber (Board President) | Route: connie@karamaconnection.org (named_email) | Plan: M1db8668cb195 | Status: draft_ready
+- To: Karama Connection (organisation route) | Route: connie@karamaconnection.org (named_email) | Plan: M1db8668cb195 | Status: draft_ready
 - Reason for the ask: Karama Kids (Karama Care orphanage), Arusha (source https://projects.propublica.org/nonprofits/full_text/202611359349200821/IRS990ScheduleO, read 2026-10-02).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Connie Naber,
+Dear Karama Connection team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Board President of Karama Connection, which supports Karama Kids (Karama Care orphanage), Arusha. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Karama Connection supports Karama Kids (Karama Care orphanage), Arusha. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Karama Connection's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Karama Connection's current giving.
 
@@ -475,7 +501,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.20 Love for the Least: foreign charity supporting named homes (low priority)
+### 1.1.21 Love for the Least: foreign charity supporting named homes (low priority)
 
 - To: Jerry Kramer (Co-leader of Love for the Least) | Route: jerry@lovefortheleast.org (shared_email) | Plan: M4114edf72cdd | Status: draft_ready
 - Reason for the ask: Samaritan Village Orphanage (source https://lovefortheleast.org/projects/tanzania/, read 2026-09-22).
@@ -499,7 +525,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.21 My Daily Armor Ministries Inc: foreign charity (US 501(c)(3), religious media) (low priority)
+### 1.1.22 My Daily Armor Ministries Inc: foreign charity (US 501(c)(3), religious media) (low priority)
 
 - To: Scott Goldbach (Founder and Executive Director) | Route: customerservice@mydailyarmor.org (shared_email) | Plan: M62ed1e8d01f0 | Status: draft_ready
 - Reason for the ask: Amazing Children's Home (source https://projects.propublica.org/nonprofits/full_text_search?utf8=%E2%9C%93&q=%22children%27s+home%22+arusha, read 2026-09-22). **The source is a ProPublica search page: open the filing and confirm the grant before sending.**
@@ -523,7 +549,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.22 One Kind Act: UK grant-making charity (low priority)
+### 1.1.23 One Kind Act: UK grant-making charity (low priority)
 
 - To: Shamit Malhotra (Founder and trustee) | Route: info@onekindact.org (shared_email) | Plan: M0ce28c510d0a | Status: draft_ready
 - Reason for the ask: Light in Africa Children's Homes (source https://onekindact.org/charity/54, read 2026-09-22).
@@ -547,7 +573,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.23 Opportunity Builds Africa: foreign charity (US 501(c)(3)) (low priority)
+### 1.1.24 Opportunity Builds Africa: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Jason Bergmann (EXECUTIVE DIRECTOR) | Route: info@opportunitybuildsafrica.org (shared_email) | Plan: Md76fd5bd68dc | Status: draft_ready
 - Reason for the ask: Eripoto Safe House (source https://opportunitybuildsafrica.org/what-we-do/, read 2026-09-22).
@@ -571,7 +597,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.24 Passion Projects International Inc.: US nonprofit running sponsorship for Afroplan students (low priority)
+### 1.1.25 Passion Projects International Inc.: US nonprofit running sponsorship for Afroplan students (low priority)
 
 - To: Frank Tarimo (Project Director) | Route: contact@passionprojectsintl.com (shared_email) | Plan: M22237c158937 | Status: draft_ready
 - Reason for the ask: Afroplan Foundation (source https://www.passionprojectsintl.com/afroplan-foundation, read 2026-10-02).
@@ -595,7 +621,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.25 Private Explorers: tour operator CSR (low priority)
+### 1.1.26 Private Explorers: tour operator CSR (low priority)
 
 - To: Balbina Kiwia (Founder & Director) | Route: info@privateexplorers.com (shared_email) | Plan: M69ec11863e92 | Status: draft_ready
 - Reason for the ask: Tuleeni Children's Home (source https://tuleenihome.org/friends-of-tuleeni/, read 2026-10-02).
@@ -619,7 +645,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.26 SOS Children's Villages International / SOS Children's Villages Tanzania: international federation / national operator (low priority)
+### 1.1.27 SOS Children's Villages International / SOS Children's Villages Tanzania: international federation / national operator (low priority)
 
 - To: Thomas Kipingili (National Director, SOS Children's Villages Tanzania and Zanzibar) | Route: national.office@sos-tanzania.org (shared_email) | Plan: M7e4ed8b33dc5 | Status: draft_ready
 - Reason for the ask: SOS Children's Village Arusha (source https://www.sos-tanzania.org/what-we-do/where-we-work/tanzania-mainland/arusha, read 2026-10-02).
@@ -643,7 +669,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.27 The Faraji Foundation: US foundation supporting one home (low priority)
+### 1.1.28 The Faraji Foundation: US foundation supporting one home (low priority)
 
 - To: Jackie Weiss (Co-founder) | Route: jackie@thefarajifoundation.org (named_email) | Plan: M1327afdf120b | Status: draft_ready
 - Reason for the ask: Tuleeni Children's Home (source https://tuleenihome.org/friends-of-tuleeni/, read 2026-09-22).
@@ -667,7 +693,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.28 Utopia Foundation Inc: foreign charity / fiscal sponsor (US 501(c)(3)) (low priority)
+### 1.1.29 Utopia Foundation Inc: foreign charity / fiscal sponsor (US 501(c)(3)) (low priority)
 
 - To: Zaharah Namanda (Executive Director) | Route: zaharahnamanda@utopiafound.org (named_email) | Plan: Md6079f08804b | Status: draft_ready
 - Reason for the ask: St. Mark's Children's Home and Orphanage (source https://www.utopiafound.org/programs/st-marks-childrens-home, read 2026-10-03).
@@ -691,17 +717,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.29 Vibrant Village Foundation: US private foundation (990-PF) (low priority)
+### 1.1.30 Vibrant Village Foundation: US private foundation (990-PF) (low priority)
 
-- To: Geoffrey Nyambane (Country Director, Kenya) | Route: info@vibrantvillage.org (shared_email) | Plan: M76cf3dcca816 | Status: draft_ready
+- To: Laura Koch (Executive Director) | Route: info@vibrantvillage.org (shared_email) | Plan: M76cf3dcca816 | Status: draft_ready
 - Reason for the ask: HopeCare (source https://projects.propublica.org/nonprofits/full_text/202513089349100321/IRS990PF, read 2026-10-02).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Geoffrey Nyambane,
+Dear Laura Koch,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Country Director, Kenya of Vibrant Village Foundation, which supports HopeCare. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Executive Director of Vibrant Village Foundation, which supports HopeCare. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Vibrant Village Foundation's current giving.
 
@@ -715,17 +741,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.30 Vrienden van Amani Nederland: foreign charity (Dutch ANBI) (low priority)
+### 1.1.31 Vrienden van Amani Nederland: foreign charity (Dutch ANBI) (low priority)
 
-- To: Wilma Goppel (Chair (voorzitter)) | Route: info@vriendenvanamani.nl (shared_email) | Plan: M537b1174fb46 | Status: draft_ready
+- To: Vrienden van Amani Nederland (organisation route) | Route: info@vriendenvanamani.nl (shared_email) | Plan: M537b1174fb46 | Status: draft_ready
 - Reason for the ask: Amani Centre for Street Children (source https://amanikids.org/, read 2026-09-22).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Wilma Goppel,
+Dear Vrienden van Amani Nederland team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Vrienden van Amani Nederland supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Vrienden van Amani Nederland supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Vrienden van Amani Nederland's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Vrienden van Amani Nederland's current giving.
 
@@ -739,17 +765,17 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.31 WATOYO Tanzania e.V.: foreign association supporting named homes (low priority)
+### 1.1.32 WATOYO Tanzania e.V.: foreign association supporting named homes (low priority)
 
-- To: Carla Waldvogel (Chair (Vorsitzende), Board (Vorstand)) | Route: info@watoyo-tanzania.de (shared_email) | Plan: Ma6d47edfb263 | Status: draft_ready
+- To: WATOYO Tanzania e.V. (organisation route) | Route: info@watoyo-tanzania.de (shared_email) | Plan: Ma6d47edfb263 | Status: draft_ready
 - Reason for the ask: Samaritan Village Orphanage (source https://watoyo-tanzania.de/en/samaritan-village-tanzania-en/, read 2026-09-22).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Carla Waldvogel,
+Dear WATOYO Tanzania e.V. team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that WATOYO Tanzania e.V. supports Samaritan Village Orphanage. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that WATOYO Tanzania e.V. supports Samaritan Village Orphanage. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads WATOYO Tanzania e.V.'s giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within WATOYO Tanzania e.V.'s current giving.
 
@@ -763,7 +789,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.1.32 ZARA Tanzania Charity: tour-operator charity (corporate CSR) (low priority)
+### 1.1.33 ZARA Tanzania Charity: tour-operator charity (corporate CSR) (low priority)
 
 - To: Zainab Ansell (Founder) | Route: info@zaratanzaniacharity.org (shared_email) | Plan: M91a8a5433d4d | Status: draft_ready
 - Reason for the ask: Moshi Kids Centre (source https://www.zaratanzaniacharity.org/, read 2026-10-02).
@@ -787,7 +813,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-## 1.2 Held (72)
+## 1.2 Held (71)
 
 ### 1.2.1 Mesha's Village: US education sponsorship charity (high priority)
 
@@ -1012,13 +1038,13 @@ Silverleaf Academy
 
 ### 1.2.10 Al-barro Foundation: foreign charity (US 501(c)(3)) (low priority)
 
-- To: Najoi Jabali (Chairperson) | Route: chair@albarrofoundation.org (named_email) | Plan: Ma4bdb7a10456 | Status: needs_review
+- To: Al-barro Foundation (organisation route) | Route: artit@albarrofoundation.org (shared_email) | Plan: Ma4bdb7a10456 | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Najoi Jabali,
+Dear Al-barro Foundation team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I am writing to ask whether Al-barro Foundation would consider sponsoring students at Silverleaf Academy.
 
@@ -1204,32 +1230,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.18 Compassion International Tanzania: child sponsorship INGO (church partnerships) (low priority)
-
-- To: Mary Lema (Country Director) | Route: info@tz.ci.org (shared_email) | Plan: Md91a6c244e75 | Status: needs_review
-- Reason for the ask: TAG Bethel Church Child and Youth Ministry (source https://cit.or.tz/story/churches-leading-the-way-in-local-resource-mobilization-in-tanzania/, read 2026-10-03).
-- **Held:** Held: no verified link to an institution or children in the catchment.
-
-Subject: Sponsorship request: students at Silverleaf Academy
-
-```
-Dear Mary Lema,
-
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Country Director of Compassion International Tanzania, which supports TAG Bethel Church Child and Youth Ministry. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
-
-We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Compassion International Tanzania's current giving.
-
-Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?
-
-Thank you very much for your time and consideration.
-
-Warm regards,
-Mariam Haji
-Marketing and Partnership Coordinator
-Silverleaf Academy
-```
-
-### 1.2.19 Concordia Lutheran Ministries Foundation: US foundation (Lutheran health ministry) (low priority)
+### 1.2.18 Concordia Lutheran Ministries Foundation: US foundation (Lutheran health ministry) (low priority)
 
 - To: Concordia Lutheran Ministries Foundation (organisation route) | Route: cabweb@concordialm.org (shared_email) | Plan: Me00da0c7d4c6 | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1253,7 +1254,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.20 Congregation of the Sisters of Our Lady of Kilimanjaro: faith body (Catholic congregation) (low priority)
+### 1.2.19 Congregation of the Sisters of Our Lady of Kilimanjaro: faith body (Catholic congregation) (low priority)
 
 - To: Congregation of the Sisters of Our Lady of Kilimanjaro (organisation route) | Route: none recorded (no route) | Plan: M9be6ea72d73c | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: no published contact route. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1277,7 +1278,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.21 Cscna Charity Corps Inc: foreign charity (US 501(c)(3)) - scholarships (low priority)
+### 1.2.20 Cscna Charity Corps Inc: foreign charity (US 501(c)(3)) - scholarships (low priority)
 
 - To: Maria Ruohmin Liao (CEO (2023 Executive Board)) | Route: +14153082647 (organisation_phone) | Plan: Mad7f2452e448 | Status: needs_review
 - Reason for the ask: Emusoi Centre (source https://projects.propublica.org/nonprofits/full_text/202641039349300804/IRS990, read 2026-10-02).
@@ -1302,7 +1303,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.22 Educating Tanzania Foundation: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.21 Educating Tanzania Foundation: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Nancy Bushek (Founder) | Route: edtanzania@gmail.com (shared_email) | Plan: M6eff8a7be28c | Status: needs_review
 - Reason for the ask: Tupendane Orphanage (source https://projects.propublica.org/nonprofits/full_text/202630639349301483/IRS990, read 2026-10-02).
@@ -1327,7 +1328,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.23 Education Equals Power Inc: US private foundation (990-PF) - individual school-fee grants (low priority)
+### 1.2.22 Education Equals Power Inc: US private foundation (990-PF) - individual school-fee grants (low priority)
 
 - To: Jacqui Fisch (President) | Route: +14043550320 (organisation_phone) | Plan: Ma24219fab503 | Status: needs_review
 - **Held:** The only route is a phone number outside Tanzania; find an email address. Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1351,7 +1352,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.24 Evangelical Lutheran Church in Tanzania: faith body (church social services) (low priority)
+### 1.2.23 Evangelical Lutheran Church in Tanzania: faith body (church social services) (low priority)
 
 - To: Dr Alex G. Malasusa (Presiding Bishop, ELCT) | Route: presidingbishop@elct.or.tz (named_email) | Plan: Ma7eddd1ed1c8 | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1375,15 +1376,15 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.25 FINNISH SPECIAL EDUCATION IN AFRICA ry: foreign charity supporting special-needs education (low priority)
+### 1.2.24 FINNISH SPECIAL EDUCATION IN AFRICA ry: foreign charity supporting special-needs education (low priority)
 
-- To: Kirsi Ihalainen (Association Chairperson | Member of the board) | Route: firstname.lastname@fsea.fi (shared_email) | Plan: Ma705648ada42 | Status: needs_review
+- To: Lydia Kimaro (Training Coordinator) | Route: firstname.lastname@fsea.fi (shared_email) | Plan: Ma705648ada42 | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Kirsi Ihalainen,
+Dear Lydia Kimaro,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I am writing to ask whether FINNISH SPECIAL EDUCATION IN AFRICA ry would consider sponsoring students at Silverleaf Academy.
 
@@ -1399,7 +1400,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.26 Falcos Children Africa Inc: foreign charity (US 501(c)(3), Christian) (low priority)
+### 1.2.25 Falcos Children Africa Inc: foreign charity (US 501(c)(3), Christian) (low priority)
 
 - To: Jerry Backus (Founder) | Route: +19182899883 (organisation_phone) | Plan: M2b6df9633588 | Status: needs_review
 - Reason for the ask: His Healing Hands Africa Ministry (source https://projects.propublica.org/nonprofits/full_text/202533219349316473/IRS990ScheduleR, read 2026-10-03).
@@ -1424,7 +1425,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.27 Focus On Aids: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.26 Focus On Aids: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Hossein Farmani (President) | Route: none recorded (no route) | Plan: M18aac09f5bbd | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: evidence historical; no published contact route. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1448,18 +1449,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.28 Foundation For Hope In Africa Inc: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.27 Foundation For Hope In Africa Inc: foreign charity (US 501(c)(3)) (low priority)
 
-- To: Arnold Allison (President (Board of Directors & Corporate Officers)) | Route: +17152417335 (organisation_phone) | Plan: M5733364fdf59 | Status: needs_review
+- To: Foundation For Hope In Africa Inc (organisation route) | Route: +17152417335 (organisation_phone) | Plan: M5733364fdf59 | Status: needs_review
 - Reason for the ask: Kim Jones House (orphanage), Moshi (source https://projects.propublica.org/nonprofits/full_text/202601409349201015/IRS990EZ, read 2026-10-02).
 - **Held:** The only route is a phone number outside Tanzania; find an email address.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Arnold Allison,
+Dear Foundation For Hope In Africa Inc team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Foundation For Hope In Africa Inc supports Kim Jones House (orphanage), Moshi. It is this commitment to supporting communities in Tanzania that led me to write.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Foundation For Hope In Africa Inc supports Kim Jones House (orphanage), Moshi. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Foundation For Hope In Africa Inc's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Foundation For Hope In Africa Inc's current giving.
 
@@ -1473,18 +1474,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.29 Friends of Amani UK: foreign charity (UK registered) (low priority)
+### 1.2.28 Friends of Amani UK: foreign charity (UK registered) (low priority)
 
-- To: Cathy Baines (Chair) | Route: friendsofamani.uk@gmail.com (shared_email) | Plan: M93012f2acf89 | Status: needs_review
+- To: Friends of Amani UK (organisation route) | Route: friendsofamani.uk@gmail.com (shared_email) | Plan: M93012f2acf89 | Status: needs_review
 - Reason for the ask: Amani Centre for Street Children (source https://www.amanikids.org/global-network, read 2026-10-02).
 - **Held:** The organisation's published inbox is on a personal email domain; confirm it is the official address and not a person's before use (data-protection check).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Cathy Baines,
+Dear Friends of Amani UK team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chair of Friends of Amani UK, which supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Friends of Amani UK supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Friends of Amani UK's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Friends of Amani UK's current giving.
 
@@ -1498,7 +1499,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.30 Glory Reach and Help Foundation: community aid NGO that supported an orphanage (2020) (low priority)
+### 1.2.29 Glory Reach and Help Foundation: community aid NGO that supported an orphanage (2020) (low priority)
 
 - To: GLORY REACH AND HELP FOUNDATION (organisation route) | Route: none recorded (no route) | Plan: Medd7bd4c91e5 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: evidence historical; no published contact route; no verified link to an institution or children in the catchment; red flags to review. Review the recorded red flags before any contact: ["no activity since 2020 on register", "no website or published contact route found"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1522,7 +1523,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.31 Global Vessels: foreign faith-based charity (US) supporting a named home (low priority)
+### 1.2.30 Global Vessels: foreign faith-based charity (US) supporting a named home (low priority)
 
 - To: Frazier Mathis (Founder and Director) | Route: globalvessels@aol.com (shared_email) | Plan: Maf51399a8ec6 | Status: needs_review
 - Reason for the ask: Havilah Children's Village (source https://globalvessels.org/orphanage/, read 2026-10-02).
@@ -1547,7 +1548,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.32 Go Campaign: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.31 Go Campaign: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Scott Fifer (Founder & CEO) | Route: info@gocampaign.org (shared_email) | Plan: M35eb28118e89 | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1571,7 +1572,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.33 Grand Circle Foundation Inc: corporate foundation (travel company, US) (low priority)
+### 1.2.32 Grand Circle Foundation Inc: corporate foundation (travel company, US) (low priority)
 
 - To: Edward Lewis (President) | Route: foundation@grandcirclefoundation.org (shared_email) | Plan: M1a51ad7f448e | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1595,7 +1596,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.34 Habari Foundation International: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.33 Habari Foundation International: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Sara Preston (Executive Director, Board Chair) | Route: +14193502936 (organisation_phone) | Plan: Mbc073fcddf83 | Status: needs_review
 - Reason for the ask: Habari Foundation (source https://projects.propublica.org/nonprofits/full_text_search?utf8=%E2%9C%93&q=%22school+fees%22+moshi, read 2026-09-22). **The source is a ProPublica search page: open the filing and confirm the grant before sending.**
@@ -1620,7 +1621,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.35 Happy Childhood Foundation: foreign charity supporting a children's home and building a children's village (low priority)
+### 1.2.34 Happy Childhood Foundation: foreign charity supporting a children's home and building a children's village (low priority)
 
 - To: Happy Childhood Foundation (organisation route) | Route: none recorded (no route) | Plan: M6a80366405f3 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: no published contact route; red flags to review. Review the recorded red flags before any contact: ["no website or published contact route found"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1644,18 +1645,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.36 Heart for Africa: foreign charity supporting named homes (low priority)
+### 1.2.35 Heart for Africa: foreign charity supporting named homes (low priority)
 
-- To: Lawrie Davies (Chair of Trustees) | Route: admin@heartforafrica.co.uk (shared_email) | Plan: M2ec6cbf5f4b8 | Status: needs_review
+- To: Steve Owino (East Africa Operations Director) | Route: admin@heartforafrica.co.uk (shared_email) | Plan: M2ec6cbf5f4b8 | Status: needs_review
 - Reason for the ask: Bethlehem Center for Children (source https://www.heartforafrica.co.uk/orphanages, read 2026-10-02).
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["two different UK addresses published (Gelli Industrial Estate Old Ystrad Labour Club, Tyntyla Road)"].
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Lawrie Davies,
+Dear Steve Owino,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chair of Trustees of Heart for Africa, which supports Bethlehem Center for Children. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the East Africa Operations Director of Heart for Africa, which supports Bethlehem Center for Children. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Heart for Africa's current giving.
 
@@ -1669,7 +1670,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.37 Hearts And Hands For Humanity: US private foundation (990-PF) (low priority)
+### 1.2.36 Hearts And Hands For Humanity: US private foundation (990-PF) (low priority)
 
 - To: Alan Jackson (CEO, Executive Committee Board Member) | Route: +18015144437 (organisation_phone) | Plan: Me6fdfbc41b15 | Status: needs_review
 - Reason for the ask: Childrens Center Orphanage (source https://projects.propublica.org/nonprofits/full_text/202543229349100904/IRS990PF, read 2026-10-02).
@@ -1694,7 +1695,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.38 Hidden Hearts Foundation: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.37 Hidden Hearts Foundation: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Floyd Wilson (Co-founder) | Route: micmedoth@gmail.com (shared_email) | Plan: M27c3f5802cd2 | Status: needs_review
 - Reason for the ask: Osiligi Orphanage Center (source https://projects.propublica.org/nonprofits/full_text_search?utf8=%E2%9C%93&q=arusha+orphanage&page=2, read 2026-09-22). **The source is a ProPublica search page: open the filing and confirm the grant before sending.**
@@ -1719,18 +1720,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.39 Hope Home Trust: UK charity supporting one home (low priority)
+### 1.2.38 Hope Home Trust: UK charity supporting one home (low priority)
 
-- To: Andrew Michael Bousfield (Chair) | Route: hopehometrust@yahoo.co.uk (shared_email) | Plan: Mb3b53c6e168c | Status: needs_review
+- To: Hope Home Trust (organisation route) | Route: hopehometrust@yahoo.co.uk (shared_email) | Plan: Mb3b53c6e168c | Status: needs_review
 - Reason for the ask: Kitaa Hope Home (source https://ngoexplorer.org/charity/1126415, read 2026-10-02).
 - **Held:** The only route is a named individual's address on a personal domain (risky); find the organisation's own email or phone. The organisation's published inbox is on a personal email domain; confirm it is the official address and not a person's before use (data-protection check).
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Andrew Michael Bousfield,
+Dear Hope Home Trust team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chair of Hope Home Trust, which supports Kitaa Hope Home. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Hope Home Trust supports Kitaa Hope Home. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Hope Home Trust's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Hope Home Trust's current giving.
 
@@ -1744,7 +1745,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.40 Hope Without Borders-USA Inc: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.39 Hope Without Borders-USA Inc: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Julie Parve (Board Chair / Medical Director) | Route: julie.parve@hwb-intl.org (named_email) | Plan: M38344a8d9228 | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1768,7 +1769,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.41 Kesho: foreign charity (US umbrella) (low priority)
+### 1.2.40 Kesho: foreign charity (US umbrella) (low priority)
 
 - To: Kesho (organisation route) | Route: lovinghand2000@yahoo.com (shared_email) | Plan: M68a85452009e | Status: needs_review
 - Reason for the ask: LOHADA (source https://lohada.org/about-lohada/, read 2026-10-02).
@@ -1793,7 +1794,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.42 Kid Care International: foreign charity supporting an orphanage and child sponsorship (low priority)
+### 1.2.41 Kid Care International: foreign charity supporting an orphanage and child sponsorship (low priority)
 
 - To: Christopher H. Alanis (CEO) | Route: info@kidcare.org (shared_email) | Plan: Ma3aaef0873bf | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1817,7 +1818,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.43 Kili Vikings Limited: tour operator CSR (low priority)
+### 1.2.42 Kili Vikings Limited: tour operator CSR (low priority)
 
 - To: Kili Vikings Limited (organisation route) | Route: info@kilivikings.com (shared_email) | Plan: M1416cb73dd06 | Status: needs_review
 - Reason for the ask: Light In Africa (source https://kilivikings.com/company-profile/, read 2026-10-02).
@@ -1842,7 +1843,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.44 Kilimanjaro Childrens Fund: foreign charity (US 501(c)(3)) - child support fund (low priority)
+### 1.2.43 Kilimanjaro Childrens Fund: foreign charity (US 501(c)(3)) - child support fund (low priority)
 
 - To: Kilimanjaro Childrens Fund (organisation route) | Route: ghomar003@yahoo.com (shared_email) | Plan: M38f66d9647d8 | Status: needs_review
 - Reason for the ask: Kilimanjaro Children's Fund school sponsorship (source https://projects.propublica.org/nonprofits/full_text/202640489349201714/IRS990EZ, read 2026-10-02).
@@ -1867,7 +1868,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.45 Kilimanjaro Mission of Hope and Outreach: US charity (child sponsorship, Moshi Diocese) (low priority)
+### 1.2.44 Kilimanjaro Mission of Hope and Outreach: US charity (child sponsorship, Moshi Diocese) (low priority)
 
 - To: Bob Moore (President, Director) | Route: kmho.tz@gmail.com (shared_email) | Plan: Mce75ef067554 | Status: needs_review
 - Reason for the ask: Rainbow Centre, Catholic Diocese of Moshi (source https://www.kmho.org/sponsorships/child/, read 2026-10-02).
@@ -1892,7 +1893,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.46 Klehn Family Foundation: US private foundation (990-PF) (low priority)
+### 1.2.45 Klehn Family Foundation: US private foundation (990-PF) (low priority)
 
 - To: Kayla Kilpatrick (President & CEO) | Route: +16612599470 (organisation_phone) | Plan: M99f15adb294d | Status: needs_review
 - **Held:** The only route is a phone number outside Tanzania; find an email address. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1916,7 +1917,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.47 Koch Foundation Inc: US private foundation (Catholic grant maker) (low priority)
+### 1.2.46 Koch Foundation Inc: US private foundation (Catholic grant maker) (low priority)
 
 - To: William A Bomberger (President) | Route: +13523737491 (organisation_phone) | Plan: M84551ba1088f | Status: needs_review
 - Reason for the ask: Congregation of the Sisters of Our Lady of Kilimanjaro (source https://projects.propublica.org/nonprofits/full_text/202610479349100866/IRS990PF, read 2026-10-02).
@@ -1941,18 +1942,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.48 Liaison Group: corporate donor (UK) (low priority)
+### 1.2.47 Liaison Group: corporate donor (UK) (low priority)
 
-- To: Bruce Thew (Chairman, Liaison Group) | Route: none recorded (no route) | Plan: Mdaa86f81497f | Status: needs_review
+- To: Liaison Group (organisation route) | Route: none recorded (no route) | Plan: Mdaa86f81497f | Status: needs_review
 - Reason for the ask: Amani Centre for Street Children (source https://www.amanikids.org/partners, read 2026-10-02).
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Bruce Thew,
+Dear Liaison Group team,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Chairman, Liaison Group of Liaison Group, which supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that Liaison Group supports Amani Centre for Street Children. It is this commitment to supporting communities in Tanzania that led me to write. I would be grateful if this could reach whoever leads Liaison Group's giving.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Liaison Group's current giving.
 
@@ -1966,7 +1967,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.49 Lift-the-lid: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.48 Lift-the-lid: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Lift-the-lid (organisation route) | Route: none recorded (no route) | Plan: M7642fa24aa81 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -1990,7 +1991,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.50 Little Souls of Tanzania: foreign charity (US 501(c)(3)) supporting a named home (low priority)
+### 1.2.49 Little Souls of Tanzania: foreign charity (US 501(c)(3)) supporting a named home (low priority)
 
 - To: Vincent Kinga (Founder) | Route: littlesoulsoftanzania@gmail.com (shared_email) | Plan: M8bf1800cabdf | Status: needs_review
 - Reason for the ask: Enyorata Children's Home (source https://www.littlesoulsoftz.org/, read 2026-10-03).
@@ -2015,7 +2016,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.51 Love Our Tanzania Family Inc: foreign charity (US 501(c)(3)), volunteer-led (low priority)
+### 1.2.50 Love Our Tanzania Family Inc: foreign charity (US 501(c)(3)), volunteer-led (low priority)
 
 - To: Peggy Crull (President) | Route: loveourtanzaniafamily@gmail.com (shared_email) | Plan: Maefbea4856a9 | Status: needs_review
 - Reason for the ask: Tumaini For Africa Orphanage (source https://www.loveourtanzaniafamily.org/, read 2026-10-03).
@@ -2040,18 +2041,18 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.52 Maasai Girls Rescue Center Inc: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.51 Maasai Girls Rescue Center Inc: foreign charity (US 501(c)(3)) (low priority)
 
-- To: Bruce Hammond (Board Member, President) | Route: info@maasairescue.org (shared_email) | Plan: M760e2e6d0212 | Status: needs_review
+- To: Rick Morro (MGRC Founder, Board Member, On-site Director) | Route: info@maasairescue.org (shared_email) | Plan: M760e2e6d0212 | Status: needs_review
 - Reason for the ask: Maasai Girls Rescue Center - Children's Home and Rescue Center (source https://projects.propublica.org/nonprofits/full_text/202522539349301417/IRS990, read 2026-10-02).
 - **Held:** Held: no verified link to an institution or children in the catchment.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Bruce Hammond,
+Dear Rick Morro,
 
-My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the Board Member, President of Maasai Girls Rescue Center Inc, which supports Maasai Girls Rescue Center - Children's Home and Rescue Center. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
+My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I understand that you are the MGRC Founder, Board Member, On-site Director of Maasai Girls Rescue Center Inc, which supports Maasai Girls Rescue Center - Children's Home and Rescue Center. It is this commitment to supporting communities in Tanzania that led me to reach out to you directly.
 
 We are seeking sponsorships for students to help cover school fees and other education-related costs. Support of any size helps, including a contribution towards textbooks, transport or meals. I would welcome the chance to share more about our school and students, and to discuss whether this might fit within Maasai Girls Rescue Center Inc's current giving.
 
@@ -2065,7 +2066,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.53 New Day Foundation Inc: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.52 New Day Foundation Inc: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Tanner Jarrell (Executive Director and International Director of Conecta2) | Route: tanner@newdayfoundation.org (named_email) | Plan: Mbc0c5db67664 | Status: needs_review
 - **Held:** No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2089,7 +2090,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.54 Orphans International America: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.53 Orphans International America: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Orphans International America (organisation route) | Route: none recorded (no route) | Plan: M9f79ad297616 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: evidence historical; no published contact route. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2113,7 +2114,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.55 Passionist Community Arusha: faith body (Catholic religious order) (low priority)
+### 1.2.54 Passionist Community Arusha: faith body (Catholic religious order) (low priority)
 
 - To: Passionist Community Arusha (organisation route) | Route: none recorded (no route) | Plan: M8683476e8bbe | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2137,7 +2138,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.56 Peace House Africa: US charity (historical) (low priority)
+### 1.2.55 Peace House Africa: US charity (historical) (low priority)
 
 - To: Peace House Africa (organisation route) | Route: none recorded (no route) | Plan: M84b8b75b77c0 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: evidence historical; red flags to review. Review the recorded red flags before any contact: ["US tax-exempt status revoked for failing to file for three consecutive years", "dead website"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2161,7 +2162,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.57 ROAM Humanitarian: foreign charity (US) operating/supporting an orphanage, school and community centre (low priority)
+### 1.2.56 ROAM Humanitarian: foreign charity (US) operating/supporting an orphanage, school and community centre (low priority)
 
 - To: Amber Loosle (DIRECTOR OF MARKETING) | Route: hello@roamhumanitarian.org (shared_email) | Plan: M19e2ebfcafc0 | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment; red flags to review. Review the recorded red flags before any contact: ["orphanage name not published", "paid volunteer expeditions include construction at an orphanage", "volunteer expeditions to orphanages"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2185,7 +2186,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.58 Read With Me Arusha: literacy charity funding school sponsorships (low priority)
+### 1.2.57 Read With Me Arusha: literacy charity funding school sponsorships (low priority)
 
 - To: Read With Me Arusha (organisation route) | Route: readerast@gmail.com (shared_email) | Plan: M4348e9f7b6a9 | Status: needs_review
 - Reason for the ask: Karim Children's Care Centre (source https://www.readwithmearusha.com/where-we-work/karim-orphanage/, read 2026-10-02).
@@ -2210,7 +2211,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.59 Seeds of Kindness Organization: volunteer organisation supporting a children's home (Msamaria) (low priority)
+### 1.2.58 Seeds of Kindness Organization: volunteer organisation supporting a children's home (Msamaria) (low priority)
 
 - To: SEEDS OF KINDNESS ORGANIZATION (SOK) (organisation route) | Route: miawaters13@gmail.com (shared_email) | Plan: M140231de80be | Status: needs_review
 - **Held:** The organisation's published inbox is on a personal email domain; confirm it is the official address and not a person's before use (data-protection check). Held: no verified link to an institution or children in the catchment; red flags to review. Review the recorded red flags before any contact: ["own website did not resolve (DNS failure) on 2026-10-03", "volunteer and intern placement model (volunteers stay at a hostel)"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2234,7 +2235,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.60 Sal-vay-shen Green: foreign charity (US 501(c)(3)) (low priority)
+### 1.2.59 Sal-vay-shen Green: foreign charity (US 501(c)(3)) (low priority)
 
 - To: Ryan Shankles (Executive Director) | Route: +17602705985 (organisation_phone) | Plan: M59b511b8204a | Status: needs_review
 - Reason for the ask: Treasures of Africa KIDZ Project (source https://projects.propublica.org/nonprofits/full_text/202523219349211352/IRS990EZ, read 2026-10-02).
@@ -2259,7 +2260,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.61 Scott Willis Legacy Foundation: US private foundation (990-PF) (low priority)
+### 1.2.60 Scott Willis Legacy Foundation: US private foundation (990-PF) (low priority)
 
 - To: Diane Hock (Co-founder) | Route: scottslegacy0924@gmail.com (shared_email) | Plan: Mce483e073b63 | Status: needs_review
 - Reason for the ask: Shades of Hope International (source https://projects.propublica.org/nonprofits/full_text/202630479349100518/IRS990PF, read 2026-10-02).
@@ -2284,15 +2285,15 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.62 Son and Oscar Foundation: NGO: digital inclusion, school materials and aid to orphanages (identity with the register entry not confirmed) (low priority)
+### 1.2.61 Son and Oscar Foundation: NGO: digital inclusion, school materials and aid to orphanages (identity with the register entry not confirmed) (low priority)
 
-- To: Son and Oscar Foundation (organisation route) | Route: none recorded (no route) | Plan: M75d4898c8663 | Status: needs_review
+- To: Mr. Son (Co-Founder) | Route: none recorded (no route) | Plan: M75d4898c8663 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
 
 Subject: Sponsorship request: students at Silverleaf Academy
 
 ```
-Dear Son and Oscar Foundation team,
+Dear Mr. Son,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha. I am writing to ask whether Son and Oscar Foundation would consider sponsoring students at Silverleaf Academy.
 
@@ -2308,7 +2309,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.63 Standing Voice: albinism NGO with education sponsorship at mainstream schools (low priority)
+### 1.2.62 Standing Voice: albinism NGO with education sponsorship at mainstream schools (low priority)
 
 - To: Harry Freeland (Executive Director / Founder) | Route: info@standingvoice.org (shared_email) | Plan: M88c0970d12c3 | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2332,7 +2333,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.64 TerraWatu: NGO partner (nutrition, permaculture, child sponsorship) (low priority)
+### 1.2.63 TerraWatu: NGO partner (nutrition, permaculture, child sponsorship) (low priority)
 
 - To: TerraWatu (organisation route) | Route: info@terrawatu.org (shared_email) | Plan: M52997cd64016 | Status: needs_review
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["organisation announces a transition after 25 years (2001-2026); programme continuity unclear"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2356,7 +2357,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.65 The Bahati Trust for Orphans in Tanzania: foreign charity (UK) (low priority)
+### 1.2.64 The Bahati Trust for Orphans in Tanzania: foreign charity (UK) (low priority)
 
 - To: Trude Johansen Gardner (Founder and Executive Director) | Route: contact@bahatitrust.com (shared_email) | Plan: M69e90643ee4f | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2380,7 +2381,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.66 TrueToTanzania: US private foundation (990-PF) - individual grants (low priority)
+### 1.2.65 TrueToTanzania: US private foundation (990-PF) - individual grants (low priority)
 
 - To: Georg C Kamm (President) | Route: christian@truetotanzania.org (shared_email) | Plan: Mcf89136812f4 | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2404,7 +2405,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.67 UPENDO: One Kid at a Time: US charity supporting and operating homes (low priority)
+### 1.2.66 UPENDO: One Kid at a Time: US charity supporting and operating homes (low priority)
 
 - To: Maria Blanchard (DIRECTOR OF OPERATIONS) | Route: sluokat@gmail.com (shared_email) | Plan: M06c6bed77231 | Status: needs_review
 - Reason for the ask: Upendo Children's Home (source https://upendookat.com/about-us, read 2026-09-22).
@@ -2429,7 +2430,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.68 Uboratz Inc: foreign charity (US) running child sponsorship and own schools (low priority)
+### 1.2.67 Uboratz Inc: foreign charity (US) running child sponsorship and own schools (low priority)
 
 - To: David Burgess (President) | Route: info@uboratz.org (shared_email) | Plan: Me60b9957c729 | Status: needs_review
 - Reason for the ask: Siha Leadership Pre and Primary School (source https://projects.propublica.org/nonprofits/full_text/202533169349307428/IRS990, read 2026-10-02).
@@ -2454,7 +2455,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.69 World Vision Tanzania: international child-sponsorship agency (low priority)
+### 1.2.68 World Vision Tanzania: international child-sponsorship agency (low priority)
 
 - To: WORLD VISION TANZANIA (organisation route) | Route: +255272970136 (organisation_phone) | Plan: Mfd8894ea65c8 | Status: needs_review
 - **Held:** Held: no verified link to an institution or children in the catchment; red flags to review. Review the recorded red flags before any contact: ["website blocked (HTTP 403)"]. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2478,7 +2479,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.70 Weily Tribe Foundation: foreign foundation supporting named homes (low priority)
+### 1.2.69 Weily Tribe Foundation: foreign foundation supporting named homes (low priority)
 
 - To: Weily Tribe Foundation (organisation route) | Route: none recorded (no route) | Plan: M822ed85da329 | Status: needs_review
 - **Held:** No usable published route (risky routes are never used); find the organisation's own email or phone. No verified, sourced relationship with a home or programme: there is no honest reason to ask this funder yet; confirm the fit first.
@@ -2502,7 +2503,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.71 Wevol Inc: foreign charity (US 501(c)(3)), very small (low priority)
+### 1.2.70 Wevol Inc: foreign charity (US 501(c)(3)), very small (low priority)
 
 - To: Jennifer Zuetell (President) | Route: +13035170588 (organisation_phone) | Plan: Mb23b24f6ee9a | Status: needs_review
 - Reason for the ask: Good Hope Kiwawa Orphanage (source https://www.wevol.org/projects, read 2026-10-03).
@@ -2527,7 +2528,7 @@ Marketing and Partnership Coordinator
 Silverleaf Academy
 ```
 
-### 1.2.72 Yelloh Foundation: US private foundation (990-PF) (low priority)
+### 1.2.71 Yelloh Foundation: US private foundation (990-PF) (low priority)
 
 - To: Holley Masch (President) | Route: +15302057550 (organisation_phone) | Plan: M2bf70f7c040c | Status: needs_review
 - Reason for the ask: Holley Children Orphanage (source https://projects.propublica.org/nonprofits/full_text/202502169349100220/IRS990PF, read 2026-10-02).
@@ -2560,12 +2561,13 @@ Silverleaf Academy
 
 ### 2.1.1 House of Happiness: orphanage / children's home (high priority)
 
-- To: Nicole Di Venere (Initiator and President (Swiss association)) | Route: info@houseofhappiness.ch (shared_email) | Plan: Me445c2fd7250 | Status: draft_ready
+- To: Mohamed Kassim Seramka (Local coordinator in Arusha (volunteer)) | Route: info@houseofhappiness.ch (shared_email) | Plan: Me445c2fd7250 | Status: draft_ready
+- Escalation (by hand, not copied on this message): Nicole Di Venere (Initiator and President (Swiss association)) | Route: info@houseofhappiness.ch (published_role_email) | Source: https://www.houseofhappiness.ch/en/organisation | When: No reply after the follow-up, or the country office declines or defers to head office.
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Nicole Di Venere,
+Dear Mohamed Kassim Seramka,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -2581,12 +2583,12 @@ Silverleaf Academy
 
 ### 2.1.2 Malaika Children's Friends: small group home (family home) (high priority)
 
-- To: Francesco Tiso (Chairman of the Board of Directors (Malaika Children's Friends association, Mila) | Route: info@malaika-childrenfriends.org (shared_email) | Plan: M72fb6fb87feb | Status: draft_ready
+- To: Jutta Kassam (Director (founder of the home in Arusha)) | Route: info@malaika-childrenfriends.org (shared_email) | Plan: M72fb6fb87feb | Status: draft_ready
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Francesco Tiso,
+Dear Jutta Kassam,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -2728,12 +2730,12 @@ Silverleaf Academy
 
 ### 2.1.9 Happy Family Children's Village: children's village (family-style homes) (low priority)
 
-- To: Bekka Ross Russell (Founder of The Small Things; Executive Director of the US organization) | Route: info@thesmallthings.org (shared_email) | Plan: M47484547f776 | Status: draft_ready
+- To: Rebecca Ross Russell (Executive Director (The Small Things Inc)) | Route: info@thesmallthings.org (shared_email) | Plan: M47484547f776 | Status: draft_ready
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Bekka Ross Russell,
+Dear Rebecca Ross Russell,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -2987,6 +2989,7 @@ Silverleaf Academy
 ### 2.2.5 Kao La Amani Children's Village: children's village (cottage homes) (high priority)
 
 - To: Dr Cletus Tukai (Country Director (Tanzania)) | Route: tirnanogie@gmail.com (shared_email) | Plan: M7f691167c798 | Status: needs_review
+- Escalation (by hand, not copied on this message): Louise Quill (Founder and Voluntary CEO) | Route: tirnanogie@gmail.com (organisation_email) | Source: https://tirnanogchildrensfoundation.com/about | When: No reply after the follow-up, or the country office declines or defers to head office.
 - **Held:** The only route is a named individual's address on a personal domain (risky); find the organisation's own email or phone. The organisation's published inbox is on a personal email domain; confirm it is the official address and not a person's before use (data-protection check). Held: red flags to review. Review the recorded red flags before any contact: ["operator site (tirnanogchildrensfoundation.com) blocked with HTTP 403 on 2026-10-03; not read"].
 
 Subject: A partnership on education for the children in your care
@@ -4174,13 +4177,13 @@ Silverleaf Academy
 
 ### 2.2.59 Kikatiti Happy Watoto Home: Welfare residential care (low priority)
 
-- To: Lorna Shuma (Chair of the local NGO board (Tanzania)) | Route: info@happywatoto.nl (shared_email) | Plan: M43f1337d244b | Status: needs_review
+- To: Peter Claver Mushi (Head of Ngorika Home) | Route: info@happywatoto.nl (shared_email) | Plan: M43f1337d244b | Status: needs_review
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["Dutch-language site; address not found in the pages read"].
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Lorna Shuma,
+Dear Peter Claver Mushi,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4439,6 +4442,7 @@ Silverleaf Academy
 ### 2.2.71 Siouxland Tanzania Education Medical Ministries: Welfare residential care (low priority)
 
 - To: Dr. Yananayi Chipangura (In-Country Director (Tanzania)) | Route: office@stemm.org (shared_email) | Plan: M419bff768497 | Status: needs_review
+- Escalation (by hand, not copied on this message): Dwight Freiberg (Executive Director) | Route: office@stemm.org (organisation_email) | Source: https://stemm.org/stemm-team | When: No reply after the follow-up, or the country office declines or defers to head office.
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["mission trips promoted", "village not named on the pages read"].
 
 Subject: A partnership on education for the children in your care
@@ -4658,13 +4662,13 @@ Silverleaf Academy
 
 ### 2.2.81 Upendo Foundation Australia Children'S Home: Welfare residential care (low priority)
 
-- To: Anthony Sim (Chairman, Upendo Foundation Australia) | Route: hello@upendo.org.au (shared_email) | Plan: Md15872d4ce67 | Status: needs_review
+- To: UPENDO FOUNDATION AUSTRALIA CHILDREN'S HOME (UFACH) (organisation route) | Route: hello@upendo.org.au (shared_email) | Plan: Md15872d4ce67 | Status: needs_review
 - **Held:** Held: location unresolved; red flags to review. Review the recorded red flags before any contact: ["safari offers on the site", "village or ward not published"].
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Anthony Sim,
+Dear Upendo Foundation Australia Children'S Home team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4730,12 +4734,12 @@ Silverleaf Academy
 
 ### 3.1.1 Compassion International Tanzania: child sponsorship programme delivered through church-based child development centres (high priority)
 
-- To: Compassion International Tanzania (organisation route) | Route: info@tz.ci.org (shared_email) | Plan: M5c9c7f06a8c3 | Status: draft_ready
+- To: Mary Lema (Country Director) | Route: info@tz.ci.org (shared_email) | Plan: M5c9c7f06a8c3 | Status: draft_ready
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Compassion International Tanzania team,
+Dear Mary Lema,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4793,12 +4797,13 @@ Silverleaf Academy
 
 ### 3.1.4 Selfless Solutions: education sponsorship programme (private primary school) (high priority)
 
-- To: Patrick Irwin (Founder and Executive Director) | Route: karibu@selflesssolutions.org (shared_email) | Plan: M193051516496 | Status: draft_ready
+- To: Raymond Mshomba (Program Manager, Tanzania) | Route: karibu@selflesssolutions.org (shared_email) | Plan: M193051516496 | Status: draft_ready
+- Escalation (by hand, not copied on this message): Patrick Irwin (Founder and Executive Director) | Route: karibu@selflesssolutions.org (organisation_email) | Source: https://solve.mit.edu/solutions/90962 | When: No reply after the follow-up, or the country office declines or defers to head office.
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Patrick Irwin,
+Dear Raymond Mshomba,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -4877,12 +4882,13 @@ Silverleaf Academy
 
 ### 3.1.8 Asante Africa Tanzania: education scholarship and youth programme (low priority)
 
-- To: Geoffrey Kasangaki (Global CEO) | Route: info@asanteafrica.org (shared_email) | Plan: M4b98e4aae063 | Status: draft_ready
+- To: Florence Thomas (Country Manager, Tanzania) | Route: fthomas@asanteafrica.org (named_email) | Plan: M4b98e4aae063 | Status: draft_ready
+- Escalation (by hand, not copied on this message): Geoffrey Kasangaki (Global CEO) | Route: info@asanteafrica.org (organisation_email) | Source: https://asanteafrica.org/global-team/ | When: No reply after the follow-up, or the country office declines or defers to head office.
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Geoffrey Kasangaki,
+Dear Florence Thomas,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -5066,12 +5072,12 @@ Silverleaf Academy
 
 ### 3.1.17 O'Brien School for the Maasai: sponsored primary school for Maasai children (low priority)
 
-- To: Stephen Kimani (Chairman) | Route: hello@obrienschool.org (shared_email) | Plan: M9b3581c1a78b | Status: draft_ready
+- To: O'BRIEN SCHOOL FOR THE MAASAI (organisation route) | Route: hello@obrienschool.org (shared_email) | Plan: M9b3581c1a78b | Status: draft_ready
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Stephen Kimani,
+Dear O'Brien School for the Maasai team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -5087,12 +5093,13 @@ Silverleaf Academy
 
 ### 3.1.18 Project Zawadi Incorporated: student sponsorship and model schools programme (low priority)
 
-- To: Brian Singer (Executive Director) | Route: info@projectzawadi.org (shared_email) | Plan: M447b2b3c8a7f | Status: draft_ready
+- To: Raymond Gilbert (Country Manager) | Route: info@projectzawadi.org (shared_email) | Plan: M447b2b3c8a7f | Status: draft_ready
+- Escalation (by hand, not copied on this message): Brian Singer (Executive Director) | Route: info@projectzawadi.org (organisation_email) | Source: https://projectzawadi.org/about/team/ | When: No reply after the follow-up, or the country office declines or defers to head office.
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Brian Singer,
+Dear Raymond Gilbert,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -5108,12 +5115,12 @@ Silverleaf Academy
 
 ### 3.1.19 Sinoni Ngarashi Education and Orphans Organization: Welfare family-based programme (low priority)
 
-- To: Ancila Njige (NGO Chairperson) | Route: info@sinonngarashied.or.tz (shared_email) | Plan: M75912cb178c2 | Status: draft_ready
+- To: Peter Hotter (Founder & Sponsor) | Route: info@sinonngarashied.or.tz (shared_email) | Plan: M75912cb178c2 | Status: draft_ready
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Ancila Njige,
+Dear Peter Hotter,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -7127,13 +7134,13 @@ Silverleaf Academy
 
 ### 3.2.86 Maasai Women and Children Initiative: education support for Maasai children and women's empowerment (low priority)
 
-- To: Jenipher Mollel (MWACI Chairperson) | Route: donate@mwaci.org (shared_email) | Plan: M58f3a467e8d8 | Status: needs_review
+- To: Maasai Women and Children Initiative ( MWACI-Ogranization) (organisation route) | Route: donate@mwaci.org (shared_email) | Plan: M58f3a467e8d8 | Status: needs_review
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["register lists no projects", "volunteer programme promoted"].
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Jenipher Mollel,
+Dear Maasai Women and Children Initiative team,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -7281,13 +7288,14 @@ Silverleaf Academy
 
 ### 3.2.93 Osotuwa Foundation: girls' education sponsorship to prevent child marriage (low priority)
 
-- To: Isaya Oleporuo (President) | Route: osotuwa@gmail.com (shared_email) | Plan: Mbd9a0b9adfb8 | Status: needs_review
+- To: Nguvu Lukumay (Program Director, Arusha, Tanzania) | Route: osotuwa@gmail.com (shared_email) | Plan: Mbd9a0b9adfb8 | Status: needs_review
+- Escalation (by hand, not copied on this message): Isaya Oleporuo (President) | Route: osotuwa@gmail.com (organisation_email) | Source: https://projects.propublica.org/nonprofits/organizations/921856680 | When: No reply after the follow-up, or the country office declines or defers to head office.
 - **Held:** The organisation's published inbox is on a personal email domain; confirm it is the official address and not a person's before use (data-protection check). Held: red flags to review. Review the recorded red flags before any contact: ["contact and about pages returned HTTP 429 (blocked); held gmail inbox not confirmed", "tourism (cultural tours) offered alongside the charity", "tourism (cult.
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Isaya Oleporuo,
+Dear Nguvu Lukumay,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -7413,13 +7421,13 @@ Silverleaf Academy
 
 ### 3.2.99 Safaris With a Heart: tour-operator charity with child support and health insurance projects (low priority)
 
-- To: Lynn Foulke (International Office (manager contact, USA)) | Route: lynn@safariswithaheart.com (named_email) | Plan: M5cef206b6267 | Status: needs_review
+- To: Roger Kaimukilwa (Tanzania Office (manager contact, Arusha)) | Route: roger@safariswithaheart.com (named_email) | Plan: M5cef206b6267 | Status: needs_review
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["charity projects promoted within a commercial safari website", "no email or phone readable in text on the home page"].
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Lynn Foulke,
+Dear Roger Kaimukilwa,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -7743,13 +7751,14 @@ Silverleaf Academy
 
 ### 3.2.114 Tansania Laechelt Organization: Welfare family-based programme (low priority)
 
-- To: Baraka Laizer (President of the local committee in Arusha) | Route: info@tansania-laechelt.ch (shared_email) | Plan: M5042a3b36285 | Status: needs_review
+- To: Fortunet Sukuma (Head of the Children's Home and Girls Rescue) | Route: info@tansania-laechelt.ch (shared_email) | Plan: M5042a3b36285 | Status: needs_review
+- Escalation (by hand, not copied on this message): Walter Kälin (Co-President (medicine and orphanages)) | Route: info@tansania-laechelt.ch (organisation_email) | Source: https://www.tansania-laechelt.ch/verein | When: No reply after the follow-up, or the country office declines or defers to head office.
 - **Held:** Held: red flags to review. Review the recorded red flags before any contact: ["German-language site", "Tanzanian location not stated on the pages read"].
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Baraka Laizer,
+Dear Fortunet Sukuma,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -8406,13 +8415,13 @@ Silverleaf Academy
 
 ### 4.2.5 Maasai Girls Rescue Center - Children's Home and Rescue Center: rescue centre for girls (ecoVillage) (medium priority)
 
-- To: Bruce Hammond (President (US board)) | Route: info@maasairescue.org (shared_email) | Plan: Mdc6fe089bc9c | Status: needs_review
+- To: Rick Morro (Founder; Board Member and On-site Director (US board); Board Chairman (Tanzania) | Route: info@maasairescue.org (shared_email) | Plan: Mdc6fe089bc9c | Status: needs_review
 - **Held:** Held: outside 25 km catchment.
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Bruce Hammond,
+Dear Rick Morro,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 
@@ -9704,13 +9713,13 @@ Silverleaf Academy
 
 ### 4.2.64 Watoto Foundation Tanzania: Welfare specialised centre (low priority)
 
-- To: Kira Haggenburg (Chair, Board of the Watoto Foundation (Netherlands)) | Route: watotofoundation@hotmail.com (shared_email) | Plan: Mcad99d12ed4b | Status: needs_review
+- To: Noud van Hout (Founder and Director, Watoto Foundation) | Route: watotofoundation@hotmail.com (shared_email) | Plan: Mcad99d12ed4b | Status: needs_review
 - **Held:** The organisation's published inbox is on a personal email domain; confirm it is the official address and not a person's before use (data-protection check). Held: red flags to review. Review the recorded red flags before any contact: ["no email address readable on the pages read"].
 
 Subject: A partnership on education for the children in your care
 
 ```
-Dear Kira Haggenburg,
+Dear Noud van Hout,
 
 My name is Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy in Arusha.
 

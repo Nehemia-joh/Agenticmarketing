@@ -5,7 +5,8 @@ Reads the run database (outputs/runs/<run-id>/lead-database.sqlite, read-only) a
 outputs/messages/Silverleaf Welfare Drafts - <date>.md:
 - funders (sponsorship request): ready, then held, each with the sourced relationship that is the reason for the ask;
 - homes, programmes, specialised centres and other child-focused NGOs (partnership on the children's education): ready, then held.
-Each entry shows the recipient, the route, the status and, for a held draft, why. Follow-up messages (the partner rate) are in the run
+Each entry shows the recipient, the route, the status, any escalation contact (a more senior executive to approach by hand if the
+country office stalls; never copied on the first message) and, for a held draft, why. Follow-up messages (the partner rate) are in the run
 workbook. Nothing is sent. Run draft_run_messages.py --track welfare first.
 """
 from __future__ import annotations
@@ -36,6 +37,10 @@ def entry(n: str, r: dict) -> list[str]:
     if r["hook_source_url"]:
         weak = " **The source is a ProPublica search page: open the filing and confirm the grant before sending.**" if "full_text_search" in r["hook_source_url"] else ""
         lines.append(f"- Reason for the ask: {r['relevance_reason'].split('; supports ')[-1].split(';')[0]} (source {r['hook_source_url']}, read {r['hook_verified_on']}).{weak}")
+    if r.get("escalation_recipient"):
+        route = f"{r['escalation_route']} ({r.get('escalation_route_type') or 'route'})" if r.get("escalation_route") else "no published route"
+        lines.append(f"- Escalation (by hand, not copied on this message): {r['escalation_recipient']} | Route: {route} | Source: "
+                     f"{r.get('escalation_source_url') or 'not recorded'} | When: {r.get('escalation_trigger')}")
     held = reasons_held(r["missing_information"]) if r["review_status"] != "draft_ready" else []
     if held:
         lines.append("- **Held:** " + " ".join(held))
@@ -85,6 +90,9 @@ def main() -> int:
              f"- **Introducer networks ({len(networks)})**: bodies that could share the partnership with many homes. {len(ready(networks))} are ready." if networks else "",
              "- A draft is held when the organisation has no published route, its only route is outside Tanzania, its email domain is outside Tanzania, the record carries "
              "red flags, the inbox is on a personal domain, the centre is specialised (confirm Silverleaf can meet the children's needs first) or the location is unresolved.",
+             "- Where the addressee runs the Tanzania office and the organisation names a more senior executive abroad, the entry names that executive as "
+             "an escalation contact, to approach by hand if there is no reply after the follow-up or the country office declines or defers to head office. "
+             "They are not copied on the first message and no message is drafted to them.",
              "- Parent-enquiry replies are separate and held for the data-protection owner; they are not in this file.", "",
              "Follow-up messages and the offer terms are in the run workbook. Companies are in the Employer Drafts file.", "", "---", ""]
     for gi, (title, group) in enumerate(groups, 1):

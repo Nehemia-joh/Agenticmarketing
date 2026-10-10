@@ -37,7 +37,7 @@ Files are named `data/raw/welfare-research/research_<slice>_<name>_<date>.jsonl`
 | Column | Meaning |
 |---|---|
 | `lead_track` | Always `welfare_customer` |
-| `record_key` | Stable key: `WORG_`, `WCON_` or `WENQ_` plus the normalised name |
+| `record_key` | Stable key: `WORG_`, `WCON_` or `WENQ_` plus the normalised name. Same-named twins (one body's funder record and its programme record, which never merge) add their kind: `__funder`, `__programme`, `__home`, `__centre`, `__network` |
 | `welfare_fit`, `care_model` | As defined above |
 | `pdpa_risk`, `pdpa_risk_reason` | `low`, `medium` or `risky`; see the risk rubric below |
 | `proposed_welfare_track`, `track_reason` | `WA00 Hold`, `WA01 Routing`, `WA02 Consultative` or `Excluded`, and why |
@@ -89,6 +89,7 @@ Three rules decide identity:
   - a funder and an institution sharing a domain
   - conflicting material facts
   - near-identical contact names
+- **Same-named twins.** A funder record and an institution record with the same name stay two records, each with its own `record_key` (10 October 2026). A contact goes to the twin whose research record, in the contact's own research file, comes last before the contact's line; a person listed under both is one contact, kept with the first. A `funds` relationship starts from the funder twin; any other side is the institution twin. When drafting, each twin chooses its addressee from the contacts of both, since the same people lead the body.
 - **Name normalisation.** It removes parentheses, punctuation and legal suffixes. It also treats "children's", "childrens" and "chidren" as the same word, and "center" and "centre".
 
 ## Priority rubric (plan §5.4)
@@ -142,3 +143,25 @@ The run folder `data/runs/<run-id>/links.json` holds reviewed decisions. Each ke
 | `corporate_funders_in_master` | Company-master leads whose funding gives a warm path |
 | `org_aliases` | Alias mapped to a researched name |
 | `rejected_routes` | A list of reviewed values that are not the organisation's route (another organisation's inbox or phone): `organisation_name`, `kind` (`email` or `phone`), `value`, `reason`, `source`, `source_url`, `decided_on`. `consolidate_research.py` removes them from the organisation and its contacts, together with the welfare entries of `data/reference/rejected-routes.json` (10 October 2026) |
+
+## Addressee and escalation contact (`outreach_plans`)
+
+`scripts/messaging/draft_run_messages.py --track welfare` chooses one addressee per organisation (decided 10 October 2026: someone on the ground):
+
+- **First choice:** the most senior person running the Tanzania or Arusha operation: a country manager or country director, a national director, a Tanzania head, the head of a home, an on-site director, or an Arusha programme or home manager. Otherwise the organisation's most senior named leader, with a local founder or director of a home or programme first.
+- **Fallback:** a global or overseas chief executive, executive director, founder or president, only when no one in the country is named. When a country head is named, an executive whose role does not name Tanzania counts as head office.
+- **Never chosen:** a board role (chair, vice chair, treasurer, secretary, trustee, board member, emeritus, a "Director, <country>" board seat, or a president or chair qualified by a board), a person working for another country's operation (a role naming Kenya, Uganda and so on), and a non-executive based abroad.
+- **Route:** the addressee's own published address on the organisation's domain, else the organisation's route.
+
+When the addressee is on the ground and the organisation also names an executive abroad or at head office (never a board role, and never less senior than the addressee), the plan names that executive as an **escalation contact**, for a person to approach by hand. They are not copied on the first message and no message is drafted to them. The welfare workbook's Outreach Plans sheet and the review file from `scripts/messaging/consolidate_welfare_drafts.py` show them.
+
+| Column | Meaning |
+|---|---|
+| `escalation_contact_id` | The executive's `contact_id` in the run database |
+| `escalation_recipient` | Name and published role, for example `Geoffrey Kasangaki (Global CEO)` |
+| `escalation_route` | The address or phone to use: the executive's own published work address, else the organisation's inbox addressed to them by name |
+| `escalation_trigger` | When to escalate: no reply after the follow-up, or the country office declines or defers to head office |
+| `escalation_route_type` | `named_email`, `published_role_email` or `organisation_email` |
+| `escalation_source_url` | Where the executive and their role are published |
+
+The first four columns have the same names in the company master; the Resend exporter reads them by name.

@@ -124,6 +124,32 @@ def email_order(address: str) -> tuple:
     return (bool(W.PERSONAL_EMAIL.search(address)), address)
 
 
+def twin_kind(org: dict) -> str:
+    """The suffix that tells same-named twins apart: 'funder', 'network', 'programme', 'home', 'centre' or the care model."""
+    seg = str(org.get("segment") or "")
+    for word, kind in (("funder", "funder"), ("network", "network"), ("family-based", "programme"), ("residential", "home"), ("specialised", "centre")):
+        if word in seg.lower():
+            return kind
+    return re.sub(r"[^a-z0-9]+", "_", (org.get("care_model") or seg or "other").lower()).strip("_") or "other"
+
+
+def twin_for_contact(contact: dict, twins: list[dict], default: dict) -> dict:
+    """Which of several same-named records a contact belongs to: the one whose research record in the contact's own file comes
+    last before the contact's line (an agent writes a record's people after it), else the one with any record in that file."""
+    file, line = contact.get("_file"), contact.get("_line")
+    best = None
+    for o in twins:
+        for member in W.as_list(o.get("members")):
+            m_file, _, m_line = str(member).rpartition(":")
+            if not file or m_file != file or not m_line.isdigit():
+                continue
+            before = line is not None and int(m_line) <= int(line)
+            key = (before, int(m_line) if before else -int(m_line))
+            if best is None or key > best[0]:
+                best = (key, o)
+    return best[1] if best else default
+
+
 def reg_tokens(text: str) -> set[str]:
     return {re.sub(r"\s+", "", t).upper().replace("NG0", "NGO") for t in re.findall(r"(?:\d{2}|I-|N-)\s*NG[O0]\s*/[\w/]+", str(text or ""), re.I)}
 
@@ -227,6 +253,12 @@ def main() -> int:
             orgs.append(new)
             by_key[W.name_key(key_name)] = new
 
+    # Same-named twins: research keeps one body's funder record and its programme record apart (only same-kind records merge), so
+    # each keeps its own record key (suffixed by kind) and its own contacts.
+    twins = defaultdict(list)
+    for o in orgs:
+        twins[W.name_key(o["organisation_name"])].append(o)
+
     # geography, identifiers and master cross-reference
     for o in orgs:
         lat, lon = o.get("latitude"), o.get("longitude")
@@ -249,6 +281,8 @@ def main() -> int:
             o.update({"nearest_campus": "", "distance_km": None, "nearest_campus_levels": "", "nearest_primary_campus": "", "distance_to_primary_km": None,
                       "transport_band": "unknown", "km_by_campus": {}})
         o["record_key"] = "WORG_" + re.sub(r"[^a-z0-9]+", "_", W.name_key(o["organisation_name"]))[:48].strip("_")
+        if len(twins.get(W.name_key(o["organisation_name"]), [])) > 1:
+            o["record_key"] += "__" + twin_kind(o)
         mk = master.get(W.name_key(o["organisation_name"])) or next((master.get(W.name_key(a)) for a in o.get("alternative_names", []) if master.get(W.name_key(a))), None)
         o["master_organisation_id"] = links.get("master_ids", {}).get(o["organisation_name"]) or (mk[0] if mk else "")
         if o.get("nis"):
@@ -265,6 +299,8 @@ def main() -> int:
             target = by_key.get(cands[0]) if cands else None
             reviews.append({"kind": "contact_organisation_match", "entity": c.get("contact_name") or c.get("role"), "related": c.get("organisation_name"),
                             "detail": {"closest": target["organisation_name"] if target else ""}, "action": "Confirm which organisation this contact belongs to."})
+        if target and len(twins.get(W.name_key(target["organisation_name"]), [])) > 1:
+            target = twin_for_contact(c, twins[W.name_key(target["organisation_name"])], target)
         c["organisation_key"] = target["record_key"] if target else ""
         c["linked_organisation"] = target["organisation_name"] if target else c.get("organisation_name")
         if target and c.get("contact_name") and c.get("role_certainty") in ("confirmed", "role_desk", None, ""):
@@ -274,8 +310,12 @@ def main() -> int:
         contact_rows.append(c)
     merged_contacts, index = [], {}
     for c in contact_rows:
-        keys = [(c["organisation_key"], "who", W.name_key(c.get("contact_name")) or "role:" + W.name_key(c.get("role")))]
-        keys += [(c["organisation_key"], "email", e) for e in c["emails"]]
+        # A person listed under both same-named twins is one contact, kept with the twin whose record listed them first.
+        group = c["organisation_key"]
+        if len(twins.get(W.name_key(c.get("linked_organisation")), [])) > 1:
+            group = "twins:" + W.name_key(c.get("linked_organisation"))
+        keys = [(group, "who", W.name_key(c.get("contact_name")) or "role:" + W.name_key(c.get("role")))]
+        keys += [(group, "email", e) for e in c["emails"]]
         hit = next((index[k] for k in keys if k in index), None)
         if hit is None:
             merged_contacts.append(c)
@@ -306,8 +346,9 @@ def main() -> int:
             c["pdpa_risk_reason"] = "Named individual on a personal email domain (" + ", ".join(e for e in c["emails"] if W.PERSONAL_EMAIL.search(e)) + "); rubric sets risky."
     by_org = defaultdict(list)
     for c in contact_rows:
-        if c.get("contact_name"):
-            by_org[c["organisation_key"]].append(c)
+        if c.get("contact_name"):  # same-named twins are checked together: one body's people
+            twin = len(twins.get(W.name_key(c.get("linked_organisation")), [])) > 1
+            by_org["twins:" + W.name_key(c.get("linked_organisation")) if twin else c["organisation_key"]].append(c)
     for people in by_org.values():
         for i in range(len(people)):
             for j in range(i + 1, len(people)):
@@ -319,17 +360,24 @@ def main() -> int:
                                     "action": "Likely the same person; keep one contact and merge the routes after checking the source."})
 
     # relationships: warm paths from company leads and funders active in the catchment
+    def side(name_key: str, funder: bool) -> dict | None:
+        """The record a relationship names: of same-named twins, the funder for the side that funds, otherwise the other record."""
+        group = twins.get(name_key, [])
+        if len(group) > 1:
+            return next((o for o in group if (o.get("segment") == "Welfare funder") == funder), by_key.get(name_key))
+        return by_key.get(name_key)
+
     for r in relations:
         src, dst = W.name_key(r.get("from_organisation")), W.name_key(r.get("to_organisation"))
-        r["from_key"] = by_key[src]["record_key"] if src in by_key else ""
-        r["to_key"] = by_key[dst]["record_key"] if dst in by_key else ""
+        s, d = side(src, r.get("relationship_type") == "funds"), side(dst, False)
+        r["from_key"] = s["record_key"] if s else ""
+        r["to_key"] = d["record_key"] if d else ""
         r["from_in_master"] = master.get(src, ("",))[0]
-        if dst in by_key and (src in corporate_funders or r["from_in_master"]):
-            by_key[dst]["_warm_path"] = True
-        if src in by_key and dst in by_key:
-            d = by_key[dst]
+        if d and (src in corporate_funders or r["from_in_master"]):
+            d["_warm_path"] = True
+        if s and d:
             if d.get("segment") != "Welfare funder" and d.get("distance_km") is not None and d["distance_km"] <= 25:
-                by_key[src]["_funds_in_catchment"] = True
+                s["_funds_in_catchment"] = True
 
     for o in orgs:
         o.setdefault("welfare_fit", "out of scope" if str(o.get("segment", "")).startswith("Out of scope") else "likely")

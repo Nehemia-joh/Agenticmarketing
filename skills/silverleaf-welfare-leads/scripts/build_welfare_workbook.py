@@ -27,7 +27,8 @@ RISK_FILL = {"low": "E2F0D9", "medium": "FFF2CC", "risky": "F8CBAD"}
 WRAP_COLS = {"description", "notes", "evidence_excerpt", "request", "size_evidence", "education_angle", "track_reason", "known_funders_or_partners",
              "foreign_charity_registrations", "social_media", "services", "red_flags", "pdpa_risk_reason", "vision", "projects", "detail",
              "action", "text", "channel_attribution", "schooling_arrangement_published", "funding_model_published", "all_source_urls", "missing_information",
-             "subject", "body", "follow_up_1", "english_meaning", "conditions", "recipient"}
+             "subject", "body", "follow_up_1", "english_meaning", "conditions", "recipient", "escalation_recipient", "escalation_trigger"}
+ESCALATION_FIELDS = ["escalation_recipient", "escalation_route", "escalation_route_type", "escalation_source_url", "escalation_trigger"]
 ORG_HEADERS = ["organisation_id", "record_key", "name", "welfare_fit", "segment", "subtype", "care_model", "proposed_welfare_track", "track_reason",
                "desk_tier", "priority_score", "factors_known", "verification_status", "pdpa_risk", "pdpa_risk_reason",
                "campus", "distance_km", "transport_band", "nearest_primary_campus", "distance_to_primary_km", "geocode_precision",
@@ -236,10 +237,21 @@ def main() -> int:
     add_sheet(wb, "Search Coverage", "What each research slice searched, what was blocked, and known gaps.", ["slice", "line_no", "text"], coverage_rows, {"text": 140})
     note = "Design only; nothing is scheduled or enabled. See plans/b2b-welfare-leads-plan.md."
     outreach_rows = OL.outreach_sheet_rows(con)
+    # Escalation contact (decided 10 October 2026): when the addressee runs the Tanzania operation and the organisation names a more senior
+    # executive abroad, the plan names that executive for a person to escalate to by hand. Not copied on the first message; no draft to them.
+    plan_columns = {r[1] for r in con.execute("PRAGMA table_info(outreach_plans)")}
+    escalations = ({r[0]: list(r[1:]) for r in con.execute(f"SELECT message_id, {', '.join(ESCALATION_FIELDS)} FROM outreach_plans")}
+                   if set(ESCALATION_FIELDS) <= plan_columns else {})
+    at = OL.OUTREACH_HEADERS.index("route_value") + 1
+    outreach_headers = OL.OUTREACH_HEADERS[:at] + ESCALATION_FIELDS + OL.OUTREACH_HEADERS[at:]
+    outreach_rows = [row[:at] + ["" if v is None else v for v in escalations.get(row[0], [""] * len(ESCALATION_FIELDS))] + row[at:]
+                     for row in outreach_rows]
     add_sheet(wb, "Outreach Plans", "Request-first drafts: body asks for a short meeting and states no offer terms; follow_up_1 states the offer "
               "register v4 terms. One per in-scope organisation, plus replies to in-fit parent enquiries. Finance must confirm the 2027 terms before "
-              "a follow-up is sent; needs_review rows are held for the reason in conditions. Nothing is sent.",
-              OL.OUTREACH_HEADERS, outreach_rows, {"target": 36, "subject": 40, "body": 90, "follow_up_1": 70, "conditions": 70, "recipient": 30})
+              "a follow-up is sent; needs_review rows are held for the reason in conditions. The escalation_* columns name a more senior executive "
+              "to approach by hand if the country office stalls (escalation_trigger); they are not copied on the first message. Nothing is sent.",
+              outreach_headers, outreach_rows, {"target": 36, "subject": 40, "body": 90, "follow_up_1": 70, "conditions": 70, "recipient": 30,
+                                                "escalation_recipient": 30, "escalation_trigger": 40})
     add_sheet(wb, "Campaigns", note, ["campaign_id", "name", "audience", "activation_gate", "status"],
               [["C10", "Welfare institutional placements", "Verified welfare institutions within the catchment",
                 "Approved terms memo (Finance); safeguarding visit protocol; confirmed capacity for the next intake; PDPC registration confirmed", "Design only; not activated"]])

@@ -94,7 +94,8 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
     try:
         chosen = {r[0]: r for r in connection.execute(
             "SELECT organisation_id, target_name, recipient_role, contact_channel, review_status, "
-            "COALESCE(NULLIF(variant_subject,''), subject), COALESCE(NULLIF(variant_body,''), body), target_id FROM outreach_plans WHERE selection='Candidate for review'")}
+            "COALESCE(NULLIF(variant_subject,''), subject), COALESCE(NULLIF(variant_body,''), body), target_id, COALESCE(escalation_recipient,''), COALESCE(escalation_route,'') "
+            "FROM outreach_plans WHERE selection='Candidate for review'")}
     except sqlite3.OperationalError:
         chosen = {}
     duplicate_of = dict(connection.execute(
@@ -126,6 +127,9 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
         o["candidate_email"] = cand[1] if cand else ""
         o["candidate_basis"] = f"{cand[2]} confidence, {cand[3]} pattern, unverified; evidence {cand[4]}" if cand else ""
         o["chosen_recipient"], o["chosen_role"], o["chosen_route"] = (pick[1], pick[2], pick[3]) if pick else ("", "", "")
+        # The escalation contact (resolve_master_recipients.py): a group, regional or global head to write to only when the in-country
+        # recipient does not answer or defers to head office; not a CC and without a draft.
+        o["escalation_recipient"], o["escalation_route"] = (pick[8], pick[9]) if pick else ("", "")
         o["first_message_subject"], o["first_message"] = (pick[5], pick[6]) if pick else ("", "")
         o["send_status"] = (("Ready for review" if pick[4] == "Draft review" else "Held: needs research") if pick
                             else (f"Held: duplicate of {duplicate_of[o['organisation_id']]}" if o["organisation_id"] in duplicate_of else "No company draft"))

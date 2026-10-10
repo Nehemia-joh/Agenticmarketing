@@ -11,11 +11,13 @@
   },
   "duplicate_organisations_held": 105,
   "candidates_after": 849,
+  "escalation_contacts": 8,
+  "override_routes": 0,
   "candidates_before": 938,
-  "plans_changed": 462,
-  "plans_now_candidate": 164,
+  "plans_changed": 463,
+  "plans_now_candidate": 165,
   "plans_now_alternative": 298,
-  "named_contacts_now_candidate": 148
+  "named_contacts_now_candidate": 149
  },
  "clusters": [
   {
@@ -567,9 +569,9 @@
   },
   {
    "kind": "same organisation",
-   "primary": "Portfolio Kibo Slopes T Ltd (Ob5939181e661)",
+   "primary": "KIBO SLOPES T LIMITED (O8c6896846d17)",
    "duplicates": [
-    "KIBO SLOPES T LIMITED (O8c6896846d17)"
+    "Portfolio Kibo Slopes T Ltd (Ob5939181e661)"
    ]
   },
   {
@@ -690,12 +692,6 @@
  ],
  "now_candidate": [
   {
-   "message_id": "M7bc6104a3011",
-   "organisation": "Cheli Peacock Safaris T Ltd",
-   "recipient": "Kieran Day",
-   "role": "CEO"
-  },
-  {
    "message_id": "Mebf5188e1ce6",
    "organisation": "Josh Dreamland Safaris",
    "recipient": "Angel Lema",
@@ -744,10 +740,22 @@
    "role": "Director"
   },
   {
+   "message_id": "M75f54f8ef3b0",
+   "organisation": "Hazzes Adventure Limited",
+   "recipient": "Vincent Swai",
+   "role": "Managing Director / Co-founder"
+  },
+  {
    "message_id": "Me7a805e49948",
    "organisation": "I Dream of Africa Ltd",
    "recipient": "Christopher Samwel",
    "role": "Founder / Owner & Safari Guide"
+  },
+  {
+   "message_id": "Mc458a27ea268",
+   "organisation": "K&K Safaris",
+   "recipient": "Kitanga Zuberi",
+   "role": "Co-founder / Guide naturaliste"
   },
   {
    "message_id": "M91af3bdb63b3",
@@ -796,12 +804,6 @@
    "organisation": "Wilkinson Tours Ltd",
    "recipient": "Debbie Bachmann (née Wilkinson)",
    "role": "Director / Co-founder"
-  },
-  {
-   "message_id": "M1e2087c0ca55",
-   "organisation": "Golden Trips Tanzania",
-   "recipient": "Samson Simon",
-   "role": "Tour Consultant and Chairperson"
   },
   {
    "message_id": "M0e68f3283de9",
@@ -948,12 +950,6 @@
    "role": "Co - Founder"
   },
   {
-   "message_id": "M5e123d4a7ae2",
-   "organisation": "Robin Hurt Safaris",
-   "recipient": "Roger Hurt",
-   "role": "Vice-Chairman"
-  },
-  {
    "message_id": "M1797a4b2e95d",
    "organisation": "Ahsante Tours & Safaris Ltd",
    "recipient": "Stella Swai",
@@ -1068,6 +1064,12 @@
    "role": "Director"
   },
   {
+   "message_id": "M9d3ebf694108",
+   "organisation": "KIBO SLOPES T LIMITED",
+   "recipient": "Gerald Irungu",
+   "role": "Operations Manager"
+  },
+  {
    "message_id": "M9e8a9a28e02e",
    "organisation": "Carnivores Safaris",
    "recipient": "LUCAS J. MHINA",
@@ -1080,12 +1082,6 @@
    "role": "Country Human Resources and Operations Manager"
   },
   {
-   "message_id": "Mac060e528bbc",
-   "organisation": "Portfolio Kibo Slopes T Ltd",
-   "recipient": "Abdi S. Jama",
-   "role": "Group Operations & Finance Director"
-  },
-  {
    "message_id": "Mfef2a9f450a3",
    "organisation": "Zohar African Safaris Ltd",
    "recipient": "Lilian M. Kramer",
@@ -1096,6 +1092,12 @@
    "organisation": "MS Training Centre for Development Cooperation",
    "recipient": "Daniela Sizya",
    "role": "Head of Human Resource"
+  },
+  {
+   "message_id": "Md931326da20b",
+   "organisation": "Hanspaul Group",
+   "recipient": "Satbir Singh Hanspaul",
+   "role": "Group CEO"
   },
   {
    "message_id": "M8118c8871dd0",
@@ -1168,12 +1170,6 @@
    "organisation": "Good Earth Safaris & Tours Ltd",
    "recipient": "Narry Ernest",
    "role": "Co-Founder & Partner"
-  },
-  {
-   "message_id": "M3a3f4899bc39",
-   "organisation": "Hanspaul Group",
-   "recipient": "Tanveer Kaur Hanspaul",
-   "role": "Group Human Resource"
   },
   {
    "message_id": "M27d0442c77ea",
@@ -1290,12 +1286,6 @@
    "role": "Managing Director / Head Guide"
   },
   {
-   "message_id": "Mf80285bdefbe",
-   "organisation": "Davis & Shirtliff",
-   "recipient": "David Gacheru",
-   "role": "General Manager, Talent & Administration"
-  },
-  {
    "message_id": "M4ecf7e23b23c",
    "organisation": "Sunflag Tanzania Limited",
    "recipient": "Key Contacts",
@@ -1320,6 +1310,12 @@
    "role": "Managing Director"
   },
   {
+   "message_id": "Mdefe95d96989",
+   "organisation": "Azania Bank",
+   "recipient": "Dr. Esther Mang’enya",
+   "role": "Managing Director"
+  },
+  {
    "message_id": "M9a9d793c5397",
    "organisation": "Tanganyika Farmers Association",
    "recipient": "Justin Shirima",
@@ -1330,12 +1326,6 @@
    "organisation": "Access 2 Tanzania",
    "recipient": "Karen Stupic",
    "role": "Owner & Director of Sales"
-  },
-  {
-   "message_id": "M2c9e7cbc519a",
-   "organisation": "Azania Bank",
-   "recipient": "Eng. Julius B. Ndyamukama",
-   "role": "Chairman"
   },
   {
    "message_id": "M3d7544191ca1",
@@ -1494,6 +1484,12 @@
    "role": "Founder & CEO"
   },
   {
+   "message_id": "Ma13559fd1a45",
+   "organisation": "Aga Khan Health Services - Arusha",
+   "recipient": "Jamil Kanji",
+   "role": "Head of Human Resource, Legal Affairs, Non-Clinical Operations, Aga Khan Health "
+  },
+  {
    "message_id": "Mfcfacf175f60",
    "organisation": "Aafrin Medihealth Solutions Ltd",
    "recipient": "Sonia Hanspaul",
@@ -1560,12 +1556,6 @@
    "role": "Head of Human Resources"
   },
   {
-   "message_id": "M390c86d440d5",
-   "organisation": "LAITOLYA TOURS & SAFARIS LTD",
-   "recipient": "Laura Joackim Minde",
-   "role": "Non-executive Director"
-  },
-  {
    "message_id": "M3c83899f1b35",
    "organisation": "Sabrahm Safaris",
    "recipient": "Elisante Ayo",
@@ -1588,6 +1578,12 @@
    "organisation": "RiverStone Africa Safaris",
    "recipient": "Reuben Ngusaru",
    "role": "Founder & Executive Director"
+  },
+  {
+   "message_id": "M10818d4c67bf",
+   "organisation": "LAITOLYA TOURS & SAFARIS LTD",
+   "recipient": "Lucy Joackim Minde",
+   "role": "Experience Director"
   },
   {
    "message_id": "M201acd514c24",
@@ -1644,6 +1640,24 @@
    "role": "Vice Chancellor"
   },
   {
+   "message_id": "Mbd6084b1eb34",
+   "organisation": "Robin Hurt Safaris",
+   "recipient": "Robin Hurt",
+   "role": "Founder"
+  },
+  {
+   "message_id": "Mb27e35808f7d",
+   "organisation": "Seedco Tanzania Head Office",
+   "recipient": "Rose Mwaimu",
+   "role": "HR & Safety"
+  },
+  {
+   "message_id": "M7d2bde0988b8",
+   "organisation": "Davis & Shirtliff",
+   "recipient": "Maimuna Kirumbi",
+   "role": "Branch Manager, Arusha"
+  },
+  {
    "message_id": "M942fa8074878",
    "organisation": "Victory Attorneys & Consultants",
    "recipient": "Benedict A. Ishabakaki",
@@ -1666,26 +1680,26 @@
    "organisation": "Safari Avventura T Ltd",
    "recipient": "Gianluca Donati",
    "role": "Manager (co-founder); marketing and customer support"
-  },
-  {
-   "message_id": "M535a0d9fe5fb",
-   "organisation": "Aga Khan Health Services - Arusha",
-   "recipient": "Nadya Salim Hashmani",
-   "role": "Global Head of Human Resources, AKHS"
   }
  ],
  "now_alternative": [
   {
-   "message_id": "M21ce974bb297",
-   "organisation": "Cheli Peacock Safaris T Ltd",
-   "recipient": "Patrick Bourgeix",
-   "role": "General Manager Tanzania"
+   "message_id": "M5329074df346",
+   "organisation": "Hazzes Adventure Limited",
+   "recipient": "Hazze Sandström",
+   "role": "Managing Director / Co-founder"
   },
   {
    "message_id": "Mc2b006cb188b",
    "organisation": "Josh Dreamland Safaris",
    "recipient": "Gerald Ephata",
    "role": "Operations Manager"
+  },
+  {
+   "message_id": "M34056a3c8c57",
+   "organisation": "K&K Safaris",
+   "recipient": "Karine Laurioux",
+   "role": "Co-founder / Créatrice de safaris (safari designer; primary client contact)"
   },
   {
    "message_id": "M2c44d8f0421f",
@@ -1794,12 +1808,6 @@
    "organisation": "Eyes Of Tanzania Limited",
    "recipient": "Deogratias Morris",
    "role": "Operations Manager"
-  },
-  {
-   "message_id": "Mdfab04421d06",
-   "organisation": "Golden Trips Tanzania",
-   "recipient": "Joel Hagai",
-   "role": "General Manager and Chief Supervisor"
   },
   {
    "message_id": "M1e4bb91e7e08",

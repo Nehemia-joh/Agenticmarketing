@@ -15,6 +15,15 @@ Confidence (in the data and in the recipient):
 - low: the draft is held or needs research (red flags, possible closure, unconfirmed role, location, unconfirmed personal
   inbox, a funder with no verified relationship, a savings group's Kiswahili and Finance checks, a public body's compliance check).
 Rows without an email address (phone only, or no route) are left out and counted; they belong on the call sheets.
+High is split by route (decided 10 October 2026), for every track with email rows: <track>-high.csv keeps every high row, and
+each high row is also in exactly one sub-segment file, <track>-high-direct.csv or <track>-high-indirect.csv (property high_route):
+- direct: the named decision-maker's own address (the inbox carries their name), or the inbox for their role on the
+  organisation's domain (hr@ for the HR head, md@, ceo@, gm@, dg@, vc@, director@, principal@ and similar);
+- indirect: a general inbox (info@, reservations@, customercare@, contactcenter@, marketing@, sales@, hello@, office@ ...) addressed
+  to the named person; its confidence_reason says what would make it direct.
+Escalation (companies, introducers, welfare): escalation_recipient and escalation_email name the group, regional or global head to
+write to only when the in-country recipient does not answer after the follow-up or defers to head office (outreach_plans
+escalation_* columns, set by scripts/master/resolve_master_recipients.py; read from the welfare run when it has them). It is not a CC.
 An address that two rows share is exported once (the higher-confidence row) and reported.
 
 Government track (--tracks government; the government run database, read-only). Every office is segmented, whatever the
@@ -59,8 +68,9 @@ sys.path.insert(0, str(ROOT / "scripts" / "master"))
 import resolve_master_recipients as R  # noqa: E402  (address parsing, role ranking, verification)
 
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
-FIELDS = ["email", "first_name", "last_name", "organisation", "track", "audience", "confidence", "confidence_reason", "priority",
-          "variant", "recipient", "message_subject", "message_body", "message_html", "plan_id"]
+FIELDS = ["email", "first_name", "last_name", "organisation", "track", "audience", "confidence", "high_route", "confidence_reason", "priority",
+          "variant", "recipient", "escalation_recipient", "escalation_email", "message_subject", "message_body", "message_html", "plan_id"]
+ROUTES = ("direct", "indirect")
 RANK = {"high": 0, "medium": 1, "low": 2}
 GENERIC = re.compile(r"^(info|contact|hello|office|admin|enquiries|enquiry|reservations|bookings|operations|sales|mail|safari|tours)", re.I)
 LOW_COMPANY = [(r"Possible closure", "possible closure: confirm it still operates"),
@@ -128,6 +138,43 @@ def org_named_inbox(address: str, organisation: str) -> bool:
     local = re.sub(r"[^a-z]", "", address.split("@")[0].lower())
     tokens = [w for w in re.findall(r"[a-z]{5,}", organisation.lower()) if w not in ORG_NOISE]
     return bool(tokens) and any(w in local for w in tokens)
+
+
+# A role inbox that belongs to the recipient's role (hr@ for the HR head, md@ for the managing director): a direct route.
+HR_LOCALS = re.compile(r"^(d?hr[a-z]{0,8}|humanresources?|people|peopleandculture|talent)$", re.I)  # hr@, hrm@, dhrma@ (Director of HR and Admin)
+HEAD_LOCALS = re.compile(r"^(md|ceo|gm|dg|vc|dvc|dvca|director|directorgeneral|principal|rector|headteacher|headmaster|head|ed|cd|countrydirector|"
+                         r"president|chair|chairman|chairperson|secretary|executivesecretary|es|registrar|ded|das|ras|weo|veo|mkurugenzi|katibu)$", re.I)
+
+
+def high_route(address: str, name: str, role: str) -> tuple[str, str]:
+    """('direct' or 'indirect', the reason) for a high row. Direct: the person's own address (the inbox carries their name) or the role
+    inbox for their role on the organisation's domain. Indirect: a general inbox (info@, reservations@, customercare@ ...) addressed to them."""
+    local = address.split("@")[0].lower()
+    letters = re.sub(r"[^a-z]", "", local)
+    names = [n.lower() for n in re.findall(r"[A-Za-z]{3,}", L.greeting_name(name or "")) if not TITLE.match(n)]
+    if names and (any(n in letters for n in names) or (len(letters) >= 3 and any(n.startswith(letters) for n in names))
+                  or (len(names) > 1 and letters.startswith(names[0][0] + names[-1][:3]))):
+        return "direct", "direct: the person's own address"
+    if HR_LOCALS.match(letters) and R.HR.search(role or ""):
+        return "direct", f"direct: {local}@ is the inbox for their HR role"
+    if HEAD_LOCALS.match(letters) and (R.role_rank(role) is not None or re.search(r"secretary|chair|registrar|president|officer|director", role or "", re.I)):
+        return "direct", f"direct: {local}@ is the inbox for their role"
+    return "indirect", (f"indirect: {local}@ is a general inbox addressed to them; direct once their own address or the inbox for their role "
+                        "(hr@, md@, ceo@ ...) on the organisation's domain is published")
+
+
+def with_route(row: dict, name: str, role: str) -> dict:
+    """Sets high_route and says it in confidence_reason (high rows only)."""
+    if row["confidence"] == "high":
+        route, why = high_route(row["email"], name, role)
+        row["high_route"], row["confidence_reason"] = route, f"{row['confidence_reason']}; {why}"
+    else:
+        row["high_route"] = ""
+    return row
+
+
+def escalation_email(route) -> str:
+    return (any_emails(route) or [""])[0]
 
 
 def same_site(url_host: str, site: str) -> bool:
@@ -224,7 +271,8 @@ def company_rows(con):
         if p["segment"] == "SACCOS members":
             reasons.append("savings group: Kiswahili review and Finance's approval of the member rate first")
         named = bool(contact and R.VERIFIED.search(contact["verification"] or "") and not R.UNUSABLE.search(contact["verification"] or "")
-                     and split_name(contact["name"])[0] and (R.role_rank(contact["role"]) is not None or R.FALLBACK_OK.search(contact["role"] or "")))
+                     and split_name(contact["name"])[0] and (R.role_rank_for(contact["role"], p["segment"]) is not None
+                                                                or (R.FALLBACK_OK.search(contact["role"] or "") and not R.BOARD.search(contact["role"] or ""))))
         direct = contact and address in R.emails(contact["named_email"], contact["published_role_email"])
         if R.FREE_MAIL.search(address) and not direct and not org_named_inbox(address, org["name"]):
             reasons.append(f"personal-domain inbox {address} not shown to be the company's own: confirm it before use")
@@ -234,7 +282,7 @@ def company_rows(con):
             confidence, why = "low", "; ".join(dict.fromkeys(reasons))
         elif named and (direct or own_domain(address, org["website"], published.get(org["organisation_id"], frozenset()))):
             confidence = "high"
-            why = f"named, verified {contact['role'] or 'decision-maker'}" + (" at their own published address" if direct else " via the company's own inbox")
+            why = f"named, verified {contact['role'] or 'decision-maker'}" + (" at the address published for them" if direct else " via the company's own inbox")
         elif named:
             confidence, why = "medium", "named, verified contact, but the address is not on the company's domain: confirm it reaches them"
         elif R.FREE_MAIL.search(address):
@@ -242,11 +290,13 @@ def company_rows(con):
         else:
             confidence, why = "medium", "company inbox, needs routing; promote with a verified named decision-maker"
         first, last = split_name(contact["name"]) if contact else ("", "")
-        rows.append({"email": address, "first_name": first, "last_name": last, "organisation": L.display_name(org["name"], org["organisation_id"]),
-                     "track": track, "audience": p["segment"], "confidence": confidence, "confidence_reason": why,
-                     "priority": reach.get(p["organisation_id"], org["priority"] or ""), "variant": p["message_variant"] or "",
-                     "recipient": p["target_name"] if contact else f"{org['name']} team", "message_subject": subject or "",
-                     "message_body": body or "", "message_html": to_html(body or ""), "plan_id": p["message_id"]})
+        rows.append(with_route({"email": address, "first_name": first, "last_name": last, "organisation": L.display_name(org["name"], org["organisation_id"]),
+                                "track": track, "audience": p["segment"], "confidence": confidence, "confidence_reason": why,
+                                "priority": reach.get(p["organisation_id"], org["priority"] or ""), "variant": p["message_variant"] or "",
+                                "recipient": p["target_name"] if contact else f"{org['name']} team",
+                                "escalation_recipient": p.get("escalation_recipient") or "", "escalation_email": escalation_email(p.get("escalation_route")),
+                                "message_subject": subject or "", "message_body": body or "", "message_html": to_html(body or ""),
+                                "plan_id": p["message_id"]}, contact["name"] if contact else "", contact["role"] if contact else ""))
     return rows, skipped
 
 
@@ -283,10 +333,14 @@ def welfare_rows(con):
         else:
             confidence, why = "medium", "ready; organisation inbox addressed to the team; promote with a named leader"
         first, last = split_name(recipient.split("(")[0]) if named else ("", "")
-        rows.append({"email": address, "first_name": first, "last_name": last, "organisation": L.display_name(p["org_name"], p["organisation_id"]),
-                     "track": "welfare", "audience": p["segment"], "confidence": confidence, "confidence_reason": why,
-                     "priority": p["priority"] or "", "variant": "", "recipient": recipient, "message_subject": p["msg_subject"] or "",
-                     "message_body": p["body"] or "", "message_html": to_html(p["body"] or ""), "plan_id": p["message_id"]})
+        role = recipient.split("(", 1)[1].rsplit(")", 1)[0] if "(" in recipient else ""
+        # The welfare run's escalation columns (same names as the master's) are read when present, blank otherwise.
+        rows.append(with_route({"email": address, "first_name": first, "last_name": last, "organisation": L.display_name(p["org_name"], p["organisation_id"]),
+                                "track": "welfare", "audience": p["segment"], "confidence": confidence, "confidence_reason": why,
+                                "priority": p["priority"] or "", "variant": "", "recipient": recipient,
+                                "escalation_recipient": p.get("escalation_recipient") or "", "escalation_email": escalation_email(p.get("escalation_route")),
+                                "message_subject": p["msg_subject"] or "", "message_body": p["body"] or "", "message_html": to_html(p["body"] or ""),
+                                "plan_id": p["message_id"]}, recipient.split("(")[0], role))
     return rows, skipped
 
 
@@ -420,11 +474,13 @@ def government_rows(con, today: str):
         if "@" in email:
             plain = re.sub(r"^(?:(?:Ndg|Ndugu|Bw|Bwana|Bi|Bibi|Mwl|Mhe|Mh|Mheshimiwa|Dkt|Dk|Hon|CPA)\.?\s*)+", "", name_line, flags=re.I)
             first, last = split_name(plain) if (recipient or {}).get("holder_name") else ("", "")
-            email_rows.append({"email": email, "first_name": first, "last_name": last, "organisation": o["name"], "track": "government",
-                               "audience": f"Local government office: {level}", "confidence": confidence,
-                               "confidence_reason": why + "; email is an advance copy only: the signed letter goes by hand",
-                               "priority": wave, "variant": "", "recipient": to_line, "message_subject": o["plan_subject"] or "",
-                               "message_body": o["body"] or "", "message_html": to_html(o["body"] or ""), "plan_id": o["message_id"]})
+            email_rows.append(with_route({"email": email, "first_name": first, "last_name": last, "organisation": o["name"], "track": "government",
+                                          "audience": f"Local government office: {level}", "confidence": confidence,
+                                          "confidence_reason": why + "; email is an advance copy only: the signed letter goes by hand",
+                                          "priority": wave, "variant": "", "recipient": to_line, "escalation_recipient": "", "escalation_email": "",
+                                          "message_subject": o["plan_subject"] or "", "message_body": o["body"] or "",
+                                          "message_html": to_html(o["body"] or ""), "plan_id": o["message_id"]},
+                                         plain if (recipient or {}).get("holder_name") else "", (recipient or {}).get("office_title") or ""))
     return email_rows, delivery
 
 
@@ -493,6 +549,15 @@ def dedupe(rows):
     return list(best.values()), dropped
 
 
+def write_high_routes(out: Path, track: str, high_rows: list) -> None:
+    """<track>-high-direct.csv and <track>-high-indirect.csv: every high row sits in <track>-high.csv and in exactly one of these."""
+    for route in ROUTES:
+        with (out / f"{track}-high-{route}.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=FIELDS)
+            writer.writeheader()
+            writer.writerows(r for r in high_rows if r["high_route"] == route)
+
+
 def government_main(args, today: str) -> int:
     gov_db = ROOT / "outputs" / "runs" / args.government_run / "lead-database.sqlite"
     con = sqlite3.connect(f"file:{gov_db.as_posix()}?mode=ro", uri=True)
@@ -516,6 +581,8 @@ def government_main(args, today: str) -> int:
                 writer = csv.DictWriter(fh, fieldnames=FIELDS)
                 writer.writeheader()
                 writer.writerows(sorted(subset, key=lambda r: r["organisation"]))
+            if confidence == "high":
+                write_high_routes(out, "government", subset)
         rows = sorted((r for r in delivery if r["confidence"] == confidence),
                       key=lambda r: (r["release_order"], r["council"], str(r["distance_km"]).zfill(8), r["office"]))
         with (out / f"government-delivery-{confidence}.csv").open("w", encoding="utf-8", newline="") as fh:
@@ -561,12 +628,17 @@ def main() -> int:
             writer = csv.DictWriter(fh, fieldnames=FIELDS)
             writer.writeheader()
             writer.writerows(subset)
+        if confidence == "high":
+            write_high_routes(out, track, subset)
     skipped = c_skip + w_skip
     lines = [f"# Resend segments, {today}", "",
              "Contact-import files for Resend, one per segment, in runtime/resend/" + today + "/ (not committed: they hold contact addresses). "
              "Nothing is sent from this repository; a person sends.", "",
              "| Segment | Contacts |", "|---|---|"]
-    lines += [f"| {t}-{c} | {n} |" for (t, c), n in sorted(counts.items(), key=lambda kv: (kv[0][0], RANK[kv[0][1]]))]
+    for (t, c), n in sorted(counts.items(), key=lambda kv: (kv[0][0], RANK[kv[0][1]])):
+        lines.append(f"| {t}-{c} | {n} |")
+        if c == "high":  # sub-segments: every high contact is also in exactly one of these
+            lines += [f"| {t}-high-{route} | {sum(1 for r in rows if r['track'] == t and r['high_route'] == route)} |" for route in ROUTES]
     lines += ["", "Left out (no email address; use the call sheets):", ""] + [f"- {k}: {v}" for k, v in sorted(skipped.items())]
     lines += ["", f"Addresses shared by two rows, exported once ({len(dropped)}):", ""] + [f"- {d}" for d in dropped]
     lines += ["", "Confidence rules and promotion: see the docstring of scripts/messaging/export_resend_contacts.py. Each contact's "

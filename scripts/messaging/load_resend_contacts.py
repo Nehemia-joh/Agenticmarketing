@@ -2,7 +2,10 @@
 """Load the Resend contact-import files (export_resend_contacts.py) into Resend through its API.
 
 Each row becomes a contact (email, first_name, last_name, the custom properties) in the segment named for its file:
-  companies-high.csv -> "Companies - High", welfare-high.csv -> "Welfare - High" (override with --segment).
+  companies-high.csv -> "Companies - High", companies-high-direct.csv -> "Companies - High - Direct",
+  companies-high-indirect.csv -> "Companies - High - Indirect", welfare-medium.csv -> "Welfare - Medium", and so on for the
+  companies, introducers, welfare and government tracks (override with --segment). A high contact is loaded into its
+  high segment and into one of the two high sub-segments, so load both files.
 A contact that already exists is updated and added to the segment, so the script can be re-run after a promotion.
 The custom properties must already exist in Resend (all strings).
 
@@ -16,6 +19,7 @@ import argparse
 import csv
 import json
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -26,9 +30,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 API = "https://api.resend.com"
-PROPERTIES = ["organisation", "track", "audience", "confidence", "confidence_reason", "priority", "variant", "recipient",
-              "message_subject", "message_body", "message_html", "plan_id"]
-SEGMENT_FOR = {"companies-high": "Companies - High", "welfare-high": "Welfare - High"}
+PROPERTIES = ["organisation", "track", "audience", "confidence", "high_route", "confidence_reason", "priority", "variant", "recipient",
+              "escalation_recipient", "escalation_email", "message_subject", "message_body", "message_html", "plan_id"]
+SEGMENT_FILE = re.compile(r"^(companies|introducers|welfare|government)-(high|medium|low)(?:-(direct|indirect))?$")
+
+
+def segment_for(stem: str) -> str:
+    """'companies-high-direct' -> 'Companies - High - Direct'; '' for a file that is not a Resend segment (such as government-delivery-*)."""
+    m = SEGMENT_FILE.match(stem)
+    return " - ".join(part.capitalize() for part in m.groups() if part) if m else ""
 
 
 def read_key(path: Path) -> str:
@@ -69,7 +79,7 @@ def main() -> int:
 
     jobs = []
     for path in args.files:
-        name = args.segment or SEGMENT_FOR.get(path.stem)
+        name = args.segment or segment_for(path.stem)
         if not name:
             raise SystemExit(f"{path.name}: no segment for this file; pass --segment.")
         rows = list(csv.DictReader(path.open(encoding="utf-8")))

@@ -1,0 +1,36 @@
+{
+ "about": "Reviewed recipient choices for the company master, read by scripts/master/resolve_master_recipients.py. Each entry names the contact whose draft is the organisation's chosen recipient, whatever the ranking says, with the address the draft goes to ('route'), the source that ties that address to the person, the reason and the decision date. 'misattributed' names another contact that holds the same address by mistake; the resolver raises a review item for it and changes nothing on that contact.",
+ "organisations": {
+  "Of97bcc50b8b4": {
+   "name": "HP Safaris (T) Limited",
+   "contact_id": "Cda0a105caa75",
+   "recipient": "Gary Bourgoin (Co-founder)",
+   "source": "contact record Cda0a105caa75 (his own published address gary@horspistes.ch)",
+   "reason": "On-the-ground rule exception (10 October 2026): the in-country co-founder, Jonathan Bourgoin, is named by first name only on the about page and has no address of his own (his draft's only inbox, paul@hpsafaris.co.tz, carries another person's name), so the co-founder who publishes his own address stays the recipient.",
+   "decided": "2026-10-10"
+  },
+  "Ob855e05e5898": {
+   "name": "Davis & Shirtliff",
+   "contact_id": "C78e70ec6fcf8",
+   "recipient": "Maimuna Kirumbi (Branch Manager, Arusha)",
+   "source": "https://www.davisandshirtliff.com/tanzania-branches",
+   "reason": "On-the-ground rule (10 October 2026): the executive-team page that names David Gacheru (General Manager, Talent & Administration) and the other executives is the Davis & Shirtliff group's, based in Nairobi; the person running the operation in Arusha is the branch manager, Maimuna Kirumbi. The group's talent head is the escalation contact.",
+   "decided": "2026-10-10",
+   "escalation_contact_id": "C36b4a6ef7bb2"
+  },
+  "O9a0a3606387c": {
+   "name": "Hanspaul Group",
+   "contact_id": "Ca50176fb70ed",
+   "recipient": "Satbir Singh Hanspaul (Group CEO)",
+   "route": "satbir@hanspaul.co.tz",
+   "source": "https://hanspaul.co.tz/",
+   "reason": "The user asked (10 October 2026) to address Hanspaul at the decision-maker's own inbox. The company's home page, read on 23 September 2026 (it answers 403 now), publishes satbir@hanspaul.co.tz next to its leaders 'Kamaljit Singh Hanspaul / Group Chairman' and 'Satbir Singh Hanspaul / Group CEO'; the address carries Satbir's first name and the TATO directory gives it for Hanspaul Automechs, so it is Satbir's. The earlier recipient at that address was recorded as Kamaljit Singh Hanspaul, who is the Group Chairman (a board role); Satbir, the Group CEO, is the decision-maker it belongs to.",
+   "decided": "2026-10-10",
+   "misattributed": {
+    "contact_id": "Ca95b30ad9d10",
+    "value": "satbir@hanspaul.co.tz",
+    "reason": "Recorded on Kamaljit Singh Hanspaul (Group Chairman) by the 2026-09-23 crawl; the website ties the address to Satbir Singh Hanspaul."
+   }
+  }
+ }
+}

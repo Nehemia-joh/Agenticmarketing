@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Idempotently classify current outreach plans into Silverleaf acquisition tracks."""
+"""Idempotently classify current outreach plans into Silverleaf acquisition tracks.
+
+AQ00 while a plan is held; AQ02 for a case B plan (a named person reached only through a general inbox, whose first message
+draft_master_messages.py writes in the Attn format), whose three touches are AQ02's (decided 11 October 2026), except variant A
+sponsorship; otherwise AQ01 for a referral call to action and AQ02 for the rest. draft_master_messages.track_for applies the same rule.
+"""
 
 from __future__ import annotations
 
@@ -28,6 +33,7 @@ def main() -> int:
             SET acquisition_version=?,
                 acquisition_track_id=CASE
                   WHEN review_status='Needs research' THEN 'AQ00'
+                  WHEN subject LIKE 'Attn:%' AND COALESCE(message_variant,'') NOT LIKE 'A%' THEN 'AQ02'
                   WHEN cta_type LIKE '%Referral%' THEN 'AQ01'
                   ELSE 'AQ02' END,
                 value_module_ids=CASE

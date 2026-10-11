@@ -11,6 +11,9 @@ the person who decides. So the first message depends on who it can reach:
   routing line adds ', or your HR lead'.
 - Case C, no named person and only a general inbox: a short redirect request instead of the letter (no offer terms), with the
   segment's ask from section 4, and blank follow-ups with the planned next touch from section 5 (fallout) as a note.
+- Case B follow-ups (section 5, named-person fallout; applied 11 October 2026): follow-up 1 gives a few offer details from the offer
+  register, follow-up 2 is a short close ending with the segment's redirect-style ask (close()), and a plan with an escalation contact
+  notes one message to them 5 working days after the close (escalation_note()). Variant A sponsorship follow-ups stay blank.
 Savings groups (Kiswahili wording still to be drafted) and government letters (delivered by hand, addressed by title) are unchanged.
 Used by draft_master_messages.py (employers, variant A sponsors, public bodies, introducers) and draft_run_messages.py (welfare).
 Names are written as the source gives them, with no honorific the source does not state.
@@ -49,6 +52,20 @@ NEXT_TOUCH = {
     "funder": "Next touch: none by phone (funders are mostly abroad, so email only), dormant until the funder's next budget cycle (see the pipeline draft, fallout)",
     "introducer": "Next touch: a call to the secretariat after 2 working days (see the pipeline draft, fallout)",
 }
+# Named-person fallout (section 5, 'Contacted, no reply (named person)'; applied to the case B drafts on 11 October 2026): follow-up 1
+# gives a few offer details from the offer register, follow-up 2 closes with a redirect-style ask, then one message to the escalation
+# contact if one exists (noted on the plan; no draft is written to them). Variant A sponsors are left out: the register approves no
+# sponsorship follow-up before a reply. kind -> (the topic of the close, with {org}; who it might sit with, or '').
+CLOSE = {
+    "employer": ("this", "HR or the welfare officer"),
+    "public": ("this", "the head of human resources"),
+    "introducer": ("member benefits and communications", ""),
+    "welfare_home": ("this", "the head of the home or programme"),
+    "funder": ("this", "the programme officer for your work in Tanzania"),
+}
+NAMED_FALLOUT_KINDS = set(CLOSE)
+ESCALATION_START = "Then: one message to "
+CLOSE_END = "Otherwise I will close this for now."
 ROUTING_START = "For the attention of "
 REDIRECT_START = "Hello,\n\nI am writing from Silverleaf Academy in Arusha about "
 SIGN_OFF = f"Thank you,\n{L.SENDER}\n{L.SENDER_TITLE}, Silverleaf Academy"
@@ -94,6 +111,24 @@ def redirect(kind: str, org_name: str) -> tuple[str, str]:
     """(subject, body) of the redirect request (case C): one line on what it is about, the ask, nothing more."""
     _, subject, topic, ask = SEGMENTS[kind]
     return subject, f"{REDIRECT_START}{topic.format(org=org_name)}.\n\n{ask}\n\n{SIGN_OFF}"
+
+
+def close(kind: str, org_name: str, greet: str, hr_named: bool = False) -> str:
+    """Follow-up 2 of a case B draft: a short close that ends with the redirect-style ask (section 5), with the sender's usual sign-off.
+    An employer's named HR person is not asked whether it sits with HR."""
+    topic, who = CLOSE[kind]
+    if kind == "employer" and hr_named:
+        who = "the welfare officer"
+    sits = "sit" if topic.endswith("s") and topic != "this" else "sits"
+    such = f", such as {who}," if who else ","
+    return f"{greet}\n\nIf {topic} {sits} with someone else at {org_name}{such} who should I write to? {CLOSE_END}\n\n{L.SIGNATURE}"
+
+
+def escalation_note(recipient: str) -> str:
+    """The plan note for the last fallout step (section 5): one message to the escalation contact 5 working days after the close.
+    Written as one note (no '; ' inside), so it is replaced, never repeated, when the escalation contact changes."""
+    who = " ".join(str(recipient or "").replace(";", ",").split())
+    return f"{ESCALATION_START}{who} 5 working days after the close" if who else ""
 
 
 def hr_lead(role: str, hr_on_file: bool, tier: str = "", headcount=None, kind_text: str = "") -> bool:

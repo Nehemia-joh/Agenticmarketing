@@ -28,6 +28,12 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   content stays sponsorship), public bodies, introducers. Savings groups and Rivertrees are unchanged. A stored variant draft
   (variant_subject/variant_body, which the exporter sends) gets the same format; its untouched text is kept in variant_subject_base and
   variant_body_base, so run this after assign_message_variants.py.
+- Named-person fallout (pipeline draft section 5, applied 11 October 2026): a case B plan for an employer, public body or introducer is
+  on AQ02 (Day 0, +4, +4 working days: the Attn request, the offer, the close; track_for, as refresh_acquisition_metadata.py sets it,
+  unless it is held on AQ00). Follow-up 1 is the offer message ('Following up on my earlier note ...'), follow-up 2 a short close ending
+  with the segment's redirect-style ask (first_touch.close), and a plan with an escalation contact notes 'Then: one message to <recipient>
+  5 working days after the close'; nothing is drafted to them. Variant A sponsorship, case A, case C, savings groups and Rivertrees are
+  unchanged. A copy this changes is saved first as '2026-10-11-before-named-fallout'.
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
   value module VM19, positioning evidence PE025-PE028 and the strategy records; everything in one transaction with
@@ -67,6 +73,9 @@ GOVERNMENT_DB = ROOT / "outputs" / "runs" / "arusha-government-2026-09" / "lead-
 BACKUP_VERSION = "2026-09-23-before-offer-v4"
 REQUEST_FIRST_BACKUP = "2026-09-23-before-request-first"
 REDRAFT_BACKUP = "2026-10-01-before-partnership-wording"  # the copy before the employer first message became a partnership request
+# The copy before the case B follow-ups followed the named-person fallout (11 October 2026); later changes are saved under this label too,
+# because message_versions keeps the first copy saved under a label and the 1 October label is already taken for these plans.
+FALLOUT_BACKUP = "2026-10-11-before-named-fallout"
 OFFER_STRATEGY_ID = "S-offer-aligned-v4"
 STRATEGY_ID = "S-request-first-v5"
 COPY_VERSION = "request-first-v5"
@@ -194,7 +203,9 @@ def employer_offer(greet: str, opener: str, org_name: str, staff: str, org: dict
             f"the benefit as its own, or add to it.\n\n{cta}\n\n{L.SIGNATURE}")
 
 
-def employer_copy(plan: dict, org: dict, track: str) -> dict:
+def employer_copy(plan: dict, org: dict, track: str, fallout: str = "", hr_named: bool = False) -> dict:
+    """fallout is the first-touch kind of a case B plan ('employer' or 'public'; '' otherwise): its follow-ups follow the named-person
+    fallout (pipeline draft section 5, applied 11 October 2026): follow-up 1 is the offer, follow-up 2 the close with a redirect-style ask."""
     org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     named = plan.get("target_type") == "contact" and plan.get("target_name")
     greet = f"Dear {L.greeting_name(plan['target_name'])}," if named else f"Dear {org_name} team,"
@@ -208,7 +219,11 @@ def employer_copy(plan: dict, org: dict, track: str) -> dict:
     subject = f"A partnership on education benefits for {org_name} staff"
     body = f"{greet}\n\n{L.INTRO}\n\n{purpose}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}"
     offer_cta = CTA.get(plan.get("cta_type") or "", CTA["Information offer"])
-    if routing_plan(plan, track):
+    if fallout:
+        offer_cta = CTA["Information offer"] if "point me" in offer_cta else offer_cta
+        follow_1 = employer_offer(greet, FOLLOW_UP_OPENER, org_name, staff, org, offer_cta)
+        follow_2 = F.close(fallout, org_name, greet, hr_named)
+    elif routing_plan(plan, track):
         follow_1 = (f"{greet}\n\nFollowing up on my note about a partnership to provide an education benefit for the children of {staff} at {org_name}. "
                     f"Who would be the best person to speak to about staff welfare or benefits? If it is not relevant, just say so and I will close this."
                     f"\n\n{L.SIGNATURE}")
@@ -222,9 +237,11 @@ def employer_copy(plan: dict, org: dict, track: str) -> dict:
             "offer_ids": EMPLOYER_OFFERS, "sw": ""}
 
 
-def introducer_copy(plan: dict, org: dict, track: str) -> dict:
+def introducer_copy(plan: dict, org: dict, track: str, fallout: str = "") -> dict:
     """An association, chamber or HR body that could share the staff benefit with its members (decided 2 October 2026). The first
-    message asks for a partnership and a meeting and states no offer terms; the offer follows in the reply."""
+    message asks for a partnership and a meeting and states no offer terms; the offer follows in the reply. A case B plan (fallout
+    'introducer') follows the named-person fallout instead: follow-up 1 gives the member benefit, follow-up 2 closes asking who
+    handles member benefits and communications (11 October 2026)."""
     org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     the = "" if org_name.split()[0].isupper() else "the "  # 'the Association of Tanzania Employers', but 'TNCC Arusha Regional Chamber'
     named = plan.get("target_type") == "contact" and plan.get("target_name")
@@ -236,11 +253,18 @@ def introducer_copy(plan: dict, org: dict, track: str) -> dict:
     follow_1 = (f"{greet}\n\nFollowing up on my note about a partnership so that members of {the}{org_name} can offer an education benefit for the children of "
                 f"their staff. Who would be the best person to speak to about member benefits or communications? If it is not relevant, just say so and "
                 f"I will close this.\n\n{L.SIGNATURE}")
-    offer = (f"{greet}\n\n{REPLY_OPENER} Silverleaf Academy would like to offer the staff of {the}{org_name} member organisations {L.EN['OF04']}. Every Silverleaf family "
-             f"can also get {L.family_offer_en()}.\n\n{LEVELS_EN} {CAMPUSES_EN}\n\n{(the + org_name)[:1].upper() + (the + org_name)[1:]} would only share the offer with members; interested parents "
-             f"deal with our admissions team directly, and applications for the 2027 school year are open. We can provide a one-page note for your bulletin "
-             f"or forum.\n\n{CTA['Information offer']}\n\n{L.SIGNATURE}")
-    return {"subject": subject, "body": body, "follow_up_1": follow_1, "follow_up_2": "", "offer_message": offer, "offer_ids": EMPLOYER_OFFERS, "sw": ""}
+
+    def offer_text(opener: str) -> str:
+        return (f"{greet}\n\n{opener} Silverleaf Academy would like to offer the staff of {the}{org_name} member organisations {L.EN['OF04']}. Every Silverleaf family "
+                f"can also get {L.family_offer_en()}.\n\n{LEVELS_EN} {CAMPUSES_EN}\n\n{(the + org_name)[:1].upper() + (the + org_name)[1:]} would only share the offer with members; interested parents "
+                f"deal with our admissions team directly, and applications for the 2027 school year are open. We can provide a one-page note for your bulletin "
+                f"or forum.\n\n{CTA['Information offer']}\n\n{L.SIGNATURE}")
+
+    follow_2 = ""
+    if fallout:
+        follow_1, follow_2 = offer_text(FOLLOW_UP_OPENER), F.close(fallout, f"{the}{org_name}", greet)
+    return {"subject": subject, "body": body, "follow_up_1": follow_1, "follow_up_2": follow_2, "offer_message": offer_text(REPLY_OPENER),
+            "offer_ids": EMPLOYER_OFFERS, "sw": ""}
 
 
 def saccos_copy(plan: dict, org: dict, track: str) -> dict:
@@ -336,15 +360,40 @@ def first_touch_kind(plan: dict, org: dict) -> str:
     return "public" if plan.get("segment") == "Public-sector employers" else "employer"
 
 
+def touch_case(plan: dict, org: dict, ctx: dict) -> tuple[str, dict | None, str]:
+    """(segment kind, the plan's contact, first-touch case 'A', 'B', 'C' or '') for a plan; ('', contact, '') for copy the rule leaves alone."""
+    kind = first_touch_kind(plan, org)
+    contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
+    if not kind:
+        return "", contact, ""
+    return kind, contact, X.first_touch_case(plan, org, contact, ctx["people_at"].get(plan["organisation_id"], []))
+
+
+def fallout_kind(plan: dict, org: dict, ctx: dict) -> str:
+    """The kind of a case B plan whose follow-ups follow the named-person fallout (employers, public bodies, introducers), else ''.
+    Variant A sponsors are left out: their follow-ups stay blank until sponsorship follow-up copy is approved."""
+    kind, _, case = touch_case(plan, org, ctx)
+    return kind if case == "B" and kind in F.NAMED_FALLOUT_KINDS else ""
+
+
+def track_for(plan: dict, fallout: str) -> str:
+    """The plan's acquisition track, as scripts/master/refresh_acquisition_metadata.py sets it: AQ00 while held; AQ02 for a case B plan
+    (decided 11 October 2026: its three touches, the Attn request, the offer and the close, are AQ02's Day 0, +4 and +4 working days);
+    otherwise AQ01 for a referral call to action and AQ02 for the rest."""
+    if plan.get("review_status") == "Needs research":
+        return "AQ00"
+    if fallout:
+        return "AQ02"
+    return "AQ01" if "referral" in str(plan.get("cta_type") or "").lower() else "AQ02"
+
+
 def apply_first_touch(plan: dict, org: dict, copy: dict, ctx: dict) -> tuple[dict, list, str]:
     """The plan's copy in its first-touch format (first_touch.py): unchanged for case A or no email route; the Attn format for case B;
     the redirect request with blank follow-ups for case C. Returns (copy, notes to add, case). The stored variant draft (variant A
     sponsorship or a personalised B), which the exporter sends instead of the body, gets the same format from its base text."""
-    kind = first_touch_kind(plan, org)
+    kind, contact, case = touch_case(plan, org, ctx)
     if not kind:
         return copy, [], ""
-    contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
-    case = X.first_touch_case(plan, org, contact, ctx["people_at"].get(plan["organisation_id"], []))
     org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     notes, out = [], dict(copy)
 
@@ -411,24 +460,32 @@ def main() -> int:
         triage = {mid: (grp, detail) for mid, grp, detail in g.execute("SELECT master_organisation_id, triage_group, detail FROM master_triage")}
         g.close()
 
-    updates, backups, outcomes, new_rows = [], [], Counter(), []
+    updates, backups, outcomes, new_rows, track_moves = [], [], Counter(), [], []
     released = Counter()
     for plan in plans:
         org = orgs.get(plan["organisation_id"], {})
+        original = plan  # the plan as stored, for its backup (the changes below go into new dicts)
         plan, change = refresh_creation_holds(plan, org)
         if change:
             outcomes[f"stale creation holds dropped ({change})"] += 1
             if change == "released":
                 released[f"{plan['selection']}: {plan['segment']}"] += 1
-        track = plan["acquisition_track_id"]
+        # Named-person fallout (11 October 2026): a case B plan's follow-ups are the offer and a close with a redirect-style ask, on AQ02.
+        fallout = fallout_kind(plan, org, ctx)
+        track = track_for(plan, fallout)
+        if track != plan["acquisition_track_id"]:
+            outcomes[f"track {plan['acquisition_track_id']} -> {track}"] += 1
+            track_moves.append((track, plan["message_id"]))
+            plan = {**plan, "acquisition_track_id": track}
+        contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
         if plan["segment"] == "SACCOS members":
             copy = saccos_copy(plan, org, track)
         elif plan["segment"] == "Introducers":
-            copy = introducer_copy(plan, org, track)
+            copy = introducer_copy(plan, org, track, fallout)
         elif org.get("name", "").startswith("Rivertrees"):
             copy = rivertrees_copy(org)
         else:
-            copy = employer_copy(plan, org, track)
+            copy = employer_copy(plan, org, track, fallout, bool(contact and R.HR.search(contact.get("role") or "")))
         notes = plan_notes(copy, plan["organisation_id"], welfare_links)
         if str(plan.get("message_variant") or "").startswith("A"):
             # Variant A asks for sponsorship (draft_employer_sponsorship.py). The offer register gives sponsorship rows no offer message
@@ -441,9 +498,14 @@ def main() -> int:
         # The first touch (approved 11 October 2026): the Attn format or the redirect request, by who the route can reach.
         copy, touch_notes, case = apply_first_touch(plan, org, copy, ctx)
         first_touch_cases[(plan["selection"] == "Candidate for review", case or "unchanged")] += 1
+        if fallout:
+            outcomes[f"named-person fallout (case B): {plan['segment']}"] += 1
+            # The last fallout step: one message to the escalation contact, if one exists. Noted on the plan; nothing is drafted to them.
+            touch_notes = touch_notes + [n for n in (F.escalation_note(plan.get("escalation_recipient")),) if n]
         missing_now = str(plan.get("missing_information") or "")
         for note in FIRST_TOUCH_NOTES - set(touch_notes):
             missing_now = drop_note(missing_now, note)
+        missing_now = "; ".join(n for n in missing_now.split("; ") if n.strip() and (not n.startswith(F.ESCALATION_START) or n in touch_notes))
         plan = {**plan, "missing_information": missing_now}
         notes += touch_notes
         updates.append((plan, copy, notes))
@@ -455,9 +517,11 @@ def main() -> int:
         elif plan.get("strategy_version") != COPY_VERSION:
             label = REQUEST_FIRST_BACKUP
         else:
-            label = REDRAFT_BACKUP if stored != tuple(copy[k] or "" for k in COPY_FIELDS) else ""
+            changed = stored != tuple(copy[k] or "" for k in COPY_FIELDS)
+            exists = con.execute("SELECT 1 FROM message_versions WHERE version=? AND message_id=?", (REDRAFT_BACKUP, plan["message_id"])).fetchone()
+            label = (FALLOUT_BACKUP if exists else REDRAFT_BACKUP) if changed else ""
         if label:
-            backups.append((label, plan["message_id"], json.dumps({"outreach_plan": plan, "message": messages.get(plan["message_id"])},
+            backups.append((label, plan["message_id"], json.dumps({"outreach_plan": original, "message": messages.get(plan["message_id"])},
                                                                   ensure_ascii=False, default=str)))
         outcomes["rewritten"] += 1
 
@@ -544,7 +608,14 @@ def main() -> int:
 
     # New plans take the first-touch format too, with the route they are created with as their channel.
     for i, (plan, org, track, route, copy, missing) in enumerate(new_rows):
-        copy, touch_notes, case = apply_first_touch({**plan, "contact_channel": route or "", "message_variant": ""}, org, copy, ctx)
+        shaped_plan = {**plan, "contact_channel": route or "", "message_variant": ""}
+        fallout = fallout_kind(shaped_plan, org, ctx) if not org.get("name", "").startswith("Rivertrees") else ""
+        if fallout:  # a case B plan: the named-person fallout follow-ups, on AQ02 unless it is held
+            track = "AQ00" if track == "AQ00" else "AQ02"
+            contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
+            copy = (introducer_copy(plan, org, track, fallout) if plan["segment"] == "Introducers" else
+                    employer_copy(plan, org, track, fallout, bool(contact and R.HR.search(contact.get("role") or ""))))
+        copy, touch_notes, case = apply_first_touch(shaped_plan, org, copy, ctx)
         first_touch_cases[(False, case or "unchanged")] += 1
         new_rows[i] = (plan, org, track, route, copy, missing + touch_notes)
     outcomes.update({f"first touch: {'chosen' if chosen else 'alternative'} plans, {case}": n for (chosen, case), n in sorted(first_touch_cases.items())})
@@ -610,6 +681,8 @@ def main() -> int:
                 v_subject, v_body, base_subject, base_body = copy["_variant"]
                 con.execute("UPDATE outreach_plans SET variant_subject=?, variant_body=?, variant_subject_base=?, variant_body_base=? WHERE message_id=?",
                             (v_subject, v_body, base_subject, base_body, plan["message_id"]))
+        # A plan whose track moved (case B to AQ02, 11 October 2026): its campaign assignment follows, as refresh_acquisition_metadata.py syncs it.
+        con.executemany("UPDATE campaign_lead_assignments SET acquisition_track_id=? WHERE message_id=?", track_moves)
         con.executemany("UPDATE outreach_plans SET contact_channel=?, channel_attribution='Company inbox first for a verified decision-maker; the published phone follows' WHERE message_id=?", channel_updates)
         # Contact research may have found signs that an organisation has closed; its new drafts start held, as the merge
         # holds its existing ones.
@@ -654,6 +727,7 @@ def main() -> int:
                          "Request-first draft for a named contact without a plan" if is_contact else "Request-first draft for an organisation without a plan",
                          "Resolve route and owner" if track == "AQ00" else ("Confirm the organisation still operates" if closed else
                                                                             "Human review; choose one recipient per organisation" if is_contact
+                                                                             else "Human review, then send the request" if track == "AQ02"
                                                                              else "Human review, then the AQ01 routing request"),
                          track, modules, "New-contact acquisition; track-selected and independent of the internal marketing calendar."))
         # message_versions only accepts message IDs, so parent-reply history gets its own table.
@@ -704,6 +778,12 @@ def main() -> int:
                      "Draft; the Finance condition applies from the offer message"))
         con.execute("UPDATE acquisition_tracks SET initial_touch=? WHERE track_id='AQ02'",
                     ("Initial personalised request after human review; the documented offer follows in follow-up 1.",))
+        # Case B (a named person reached only through a general inbox) joins AQ02 (11 October 2026): the Attn request, the offer, then a
+        # close with a redirect-style ask; the escalation contact, if any, gets one message after that (noted on the plan, not drafted).
+        con.execute("UPDATE acquisition_tracks SET use_when=?, follow_up_policy=? WHERE track_id='AQ02'", (AQ02_USE_WHEN, AQ02_FOLLOW_UP))
+        for table, column, step in (("outreach_flows", "example_copy", "step"), ("automation_recipes", "example_copy", "step"),
+                                    ("campaign_touchpoints", "draft_copy", "flow_step")):
+            con.execute(f'UPDATE {table} SET "{column}"=? WHERE flow_id=? AND "{step}"=3 AND "{column}"=?', (F01_STEP3_COPY, "F01", F01_STEP3_BEFORE))
         for segment, (audience, offer, qualification) in NEW_SEGMENTS.items():
             if not con.execute("SELECT 1 FROM outreach_segments WHERE segment=?", (segment,)).fetchone():
                 con.execute("INSERT INTO outreach_segments VALUES (?,?,?,?,?)", (segment, audience, offer, qualification, "F01"))
@@ -766,6 +846,15 @@ SACCOS_V4_STEP2 = "Offer the one-page version using approved fee information wit
 SACCOS_V5_STEP1 = "Ask for a short meeting with the committee about members' children's education; no offer terms"
 F01_V4_PRINCIPLE = "Offer-led, recipient-centred, one CTA; PE023 and PE024"
 F01_V5_PRINCIPLE = "Request-first, recipient-centred, one CTA; the offer follows in follow_up_1; PE023 and PE024"
+# Case B on AQ02 (11 October 2026; pipeline draft section 5, named-person fallout).
+AQ02_USE_WHEN = ("Recipient role, route and organisational relevance are sufficiently verified; also a named decision-maker reached only "
+                 "through a general inbox (case B, the Attn format), from 11 October 2026.")
+AQ02_FOLLOW_UP = ("Follow up after 4 working days and once more after another 4 working days; then stop. Case B (11 October 2026): follow-up 1 "
+                  "gives the documented offer, follow-up 2 closes with a redirect-style ask (who should I write to?), then one message to the "
+                  "escalation contact, if one exists, 5 working days after the close (noted on the plan; not drafted).")
+F01_STEP3_BEFORE = "Ask whether to send the outline or close the conversation"
+F01_STEP3_COPY = ("Ask whether to send the outline or close the conversation; for case B (Attn, 11 October 2026) ask who to write to if it "
+                  "sits with someone else, such as HR, or close")
 F01_V4_STEP2 = "Add durable value pillars and the campus-fit check; offer the one-page outline"
 F01_V5_STEP2 = "State the documented offer from the offer register, with the campus fit; offer the one-page outline"
 

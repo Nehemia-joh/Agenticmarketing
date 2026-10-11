@@ -23,6 +23,8 @@ The user approved these on 11 October 2026. They are **proposals against the flo
 | F02 step 4 | Referral: restart at Contacted with the new person, and mention who referred us. |
 | F02, all steps | No promotional incentive in any reply. Incentives are allowed only at the proposal stage, with Finance's written approval each time (offer register, "Promotional incentives"). |
 
+**Applied to the drafts (11 October 2026):** F01 steps 2 and 3 and the escalation step above now hold for every case B draft (the Attn format). Case B plans are on AQ02, whose Day 0, +4 and +4 working days match the three touches. Follow-up 1 is the offer message; follow-up 2 is the close: "If this sits with someone else at <Organisation>, such as HR or the welfare officer, who should I write to? Otherwise I will close this for now." Public bodies ask for the head of human resources, introducers for whoever handles member benefits and communications, welfare homes and programmes for the head of the home or programme, and funders for the programme officer. A plan with an escalation contact carries the note "Then: one message to <escalation recipient> 5 working days after the close"; no message to them is drafted. Variant A sponsorship, case A, case C, savings groups and government are unchanged.
+
 # Silverleaf outreach flows
 
 Version 2026-09-09 marketing v3, with the send steps of F01 and F03 updated on 2026-09-23 (configuration `automation-2026-09-23-offer-v4`) to use the offer-aligned drafts. These are implementation recipes. External sending and recurring jobs remain disabled.

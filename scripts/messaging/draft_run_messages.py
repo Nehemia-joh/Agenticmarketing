@@ -16,6 +16,9 @@ First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11
 own or role address keeps the letter; a named leader reached only through a general inbox gets the Attn subject and routing line; an
 organisation with no named leader gets the short redirect request (homes and programmes: who leads the home; funders: the programme
 officer for Tanzania; networks: the executive secretary or CEO), with no follow-up and the planned next touch as a note.
+A case B draft (the Attn format) follows the named-person fallout (section 5, applied 11 October 2026): follow-up 1 (<id>-F1) is the
+segment's offer follow-up, follow-up 2 (<id>-F2) a short close with its redirect-style ask (the head of the home or programme, the
+programme officer, or who handles member communications), and an escalation contact, if any, is noted for one message after the close.
 Reviewed decisions in the run's links.json: recipient_exclusions (never the addressee) and recipient_choices (the in-country lead, with
 the overseas executive as escalation). The leader's role inbox on the organisation's domain counts as their address (D2).
 
@@ -60,33 +63,40 @@ def payloads(con, entity_type) -> dict:
 def prepare(con) -> None:
     columns = {r[1] for r in con.execute("PRAGMA table_info(outreach_plans)")}
     for column in ("contact_route", "route_value", "recipient", "language", "offer_ids", "offer_version", "follow_up_message_id",
-                   "translation_message_id", "subject", "outcome"):
+                   "translation_message_id", "subject", "outcome", "follow_up_2_message_id"):
         if column not in columns:
             con.execute(f'ALTER TABLE outreach_plans ADD COLUMN "{column}" TEXT')
     con.execute("DELETE FROM outreach_plans")
     con.execute("DELETE FROM messages")
 
 
-def add(con, now, plan: dict, subject: str, body: str, follow_up: str = "", translation: str = "", version: str = "offer-v4") -> None:
+def add(con, now, plan: dict, subject: str, body: str, follow_up: str = "", translation: str = "", version: str = "offer-v4",
+        follow_up_2: str = "") -> None:
+    """The plan and its messages: the first message, follow-up 1 (<id>-F1), follow-up 2 (<id>-F2, the close of a case B welfare draft)
+    and the English meaning (<id>-EN). Follow-ups go in the same thread ('Re: <subject>')."""
     mid = plan["message_id"]
     con.execute("INSERT INTO messages VALUES (?,?,?,?,?,?,?,?)", (mid, plan["target_id"], plan["target_type"], subject, body, version,
                                                                  plan["review_status"], now))
     if follow_up:
         con.execute("INSERT INTO messages VALUES (?,?,?,?,?,?,?,?)", (mid + "-F1", plan["target_id"], plan["target_type"], f"Re: {subject}",
                                                                      follow_up, version + " follow-up 1", plan["review_status"], now))
+    if follow_up_2:
+        con.execute("INSERT INTO messages VALUES (?,?,?,?,?,?,?,?)", (mid + "-F2", plan["target_id"], plan["target_type"], f"Re: {subject}",
+                                                                     follow_up_2, version + " follow-up 2", plan["review_status"], now))
     if translation:
         con.execute("INSERT INTO messages VALUES (?,?,?,?,?,?,?,?)", (mid + "-EN", plan["target_id"], plan["target_type"], f"English meaning: {subject}",
                                                                      translation, version + " English meaning for review", plan["review_status"], now))
     con.execute("""INSERT INTO outreach_plans (message_id, target_id, target_type, organisation_id, relevance_reason, proposed_offer, cta_type, hook,
                    hook_source_url, hook_verified_on, acquisition_track_id, value_module_ids, review_status, missing_information, contact_route,
-                   route_value, recipient, language, offer_ids, offer_version, follow_up_message_id, translation_message_id, subject, outcome)
-                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                   route_value, recipient, language, offer_ids, offer_version, follow_up_message_id, translation_message_id, subject, outcome,
+                   follow_up_2_message_id)
+                   VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
                 (mid, plan["target_id"], plan["target_type"], plan.get("organisation_id"), plan["relevance_reason"],
                  "; ".join(f"{i} {L.OFFERS[i]['name']}" for i in plan["offer_ids"]), plan["cta_type"], plan.get("hook", ""),
                  plan.get("hook_source_url", ""), plan.get("hook_verified_on", ""), plan["track"], plan["modules"],
                  plan["review_status"], "; ".join(plan["missing"]), plan.get("contact_route", ""), plan.get("route_value", ""), plan.get("recipient", ""),
                  plan["language"], "; ".join(plan["offer_ids"]), L.OFFER_VERSION, mid + "-F1" if follow_up else "", mid + "-EN" if translation else "",
-                 subject, plan["outcome"]))
+                 subject, plan["outcome"], mid + "-F2" if follow_up_2 else ""))
 
 
 # ------------------------------------------------------------------ welfare
@@ -338,6 +348,8 @@ def role_inbox_for(local: str, role: str) -> bool:
     return E.role_inbox_for(local, role)
 
 
+# A case B welfare draft whose segment has no follow-up content in the offer register gets a blank follow-up 1 and this note, never invented copy.
+NO_APPROVED_FOLLOW_UP = "Follow-up 1 awaiting approved copy: the offer register has no follow-up content for this segment."
 ESCALATION_TRIGGER = "No reply after the follow-up, or the country office declines or defers to head office."
 # escalation_route holds the address or phone (the companies master and the Resend exporter read these four by name); the other two are
 # the welfare run's own detail: what kind of route it is and where the executive is published.
@@ -576,22 +588,32 @@ def welfare(con, now, run_cfg) -> dict:
         # gets the short redirect request, with no follow-up and the planned next touch as a note.
         touch_kind = "funder" if funder else ("introducer" if network else "welfare_home")
         own_routes = {str((leader or {}).get(k) or "").strip().lower() for k in ("named_email", "published_role_email")} - {""}
+        follow_2 = ""
         if "@" in str(value or ""):
             if leader and str(value).strip().lower() in own_routes and route in ("named_email", "published_role_email"):
                 outcomes["first touch: A (own address)"] += 1
             elif leader:
                 subject, body = FT.attn(touch_kind, body, leader["greet_name"], leader.get("role") or "")
                 outcomes["first touch: B (Attn)"] += 1
+                # Named-person fallout (pipeline draft section 5, applied 11 October 2026): follow-up 1 gives the offer details the register
+                # approves for the segment, follow-up 2 closes with the segment's redirect-style ask, then one message to the escalation
+                # contact, if one exists, 5 working days after the close (noted here; nothing is drafted to them).
+                if not follow:
+                    missing.append(NO_APPROVED_FOLLOW_UP)
+                follow_2 = FT.close(touch_kind, f"{'' if name.split()[0].isupper() else 'the '}{name}" if network else name, greet)
+                if escalation:
+                    missing.append(FT.escalation_note(escalation["escalation_recipient"]))
+                outcomes[f"named-person fallout (case B): {touch_kind}"] += 1
             else:
                 subject, body = FT.redirect(touch_kind, name)
                 follow = ""
                 missing.append(FT.NEXT_TOUCH[touch_kind])
                 outcomes["first touch: C (redirect request)"] += 1
         names = (o["name"], name, recipient.split(" (")[0], reason["supported"] if reason else "", leader["greet_name"] if leader else "")
-        for text in (body, follow):
+        for text in (body, follow, follow_2):
             issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, WELFARE_OFFERS, ignore=names)]
         issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_first_message(body, ignore=names)]
-        add(con, now, plan, subject, body, follow)
+        add(con, now, plan, subject, body, follow, follow_up_2=follow_2)
         if escalation:
             con.execute(f"UPDATE outreach_plans SET {', '.join(f'{k} = ?' for k in escalation)} WHERE message_id = ?",
                          (*escalation.values(), plan["message_id"]))

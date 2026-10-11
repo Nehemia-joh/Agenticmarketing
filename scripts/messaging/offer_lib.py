@@ -271,7 +271,7 @@ def words(text: str) -> int:
 
 # ------------------------------------------------------------------ run databases (welfare and government workbooks and verification)
 OUTREACH_HEADERS = ["message_id", "target", "kind", "recipient", "contact_route", "route_value", "track", "review_status", "language", "subject", "body",
-                    "follow_up_1", "english_meaning", "offer_ids", "conditions"]
+                    "follow_up_1", "follow_up_2", "english_meaning", "offer_ids", "conditions"]
 DRAFT_STATUSES = {"draft_ready", "needs_review"}
 
 
@@ -280,6 +280,7 @@ def outreach_sheet_rows(con) -> list[list]:
     query = """SELECT p.message_id, COALESCE(o.name, e.name, p.target_id), COALESCE(o.segment, 'Parent enquiry'), p.recipient, p.contact_route, p.route_value, p.acquisition_track_id,
                       p.review_status, p.language, m.subject, m.body,
                       (SELECT f.body FROM messages f WHERE f.message_id = p.message_id || '-F1'),
+                      (SELECT f.body FROM messages f WHERE f.message_id = p.message_id || '-F2'),
                       (SELECT t.body FROM messages t WHERE t.message_id = p.message_id || '-EN'), p.offer_ids, p.missing_information
                FROM outreach_plans p JOIN messages m ON m.message_id = p.message_id
                LEFT JOIN organisations o ON o.organisation_id = p.target_id LEFT JOIN enquiries e ON e.enquiry_id = p.target_id
@@ -288,12 +289,12 @@ def outreach_sheet_rows(con) -> list[list]:
 
 
 def run_message_checks(con, *, convening: bool = False) -> dict:
-    """Conformance of every message in a run database (initial, follow-up and English meaning) with the offer register.
+    """Conformance of every message in a run database (initial, follow-ups 1 and 2, and English meaning) with the offer register.
     A first message to an organisation must also state no offer terms; convening letters are formal requests that
     describe the parents' booklet, so they are exempt."""
     issues = []
     rows = con.execute("""SELECT m.message_id, m.body, p.offer_ids, COALESCE(o.name, ''), m.message_id = p.message_id, p.target_type FROM messages m
-                          JOIN outreach_plans p ON m.message_id IN (p.message_id, p.message_id || '-F1', p.message_id || '-EN')
+                          JOIN outreach_plans p ON m.message_id IN (p.message_id, p.message_id || '-F1', p.message_id || '-F2', p.message_id || '-EN')
                           LEFT JOIN organisations o ON o.organisation_id = p.target_id""").fetchall()
     for mid, body, offer_ids, target, initial, target_type in rows:
         ids = [x.strip() for x in str(offer_ids or "").split(";") if x.strip()]
@@ -303,5 +304,5 @@ def run_message_checks(con, *, convening: bool = False) -> dict:
             issues += [(mid, problem) for problem in check_first_message(body, ignore=names)]
     statuses = {s for (s,) in con.execute("SELECT DISTINCT review_status FROM outreach_plans")}
     orphans = con.execute("SELECT COUNT(*) FROM messages m WHERE NOT EXISTS (SELECT 1 FROM outreach_plans p WHERE m.message_id IN "
-                          "(p.message_id, p.message_id || '-F1', p.message_id || '-EN'))").fetchone()[0]
+                          "(p.message_id, p.message_id || '-F1', p.message_id || '-F2', p.message_id || '-EN'))").fetchone()[0]
     return {"messages_checked": len(rows), "issues": issues, "statuses": sorted(statuses), "orphan_messages": orphans}

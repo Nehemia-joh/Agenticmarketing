@@ -199,7 +199,18 @@ The full record is in `outputs/reports/campus-distance-recompute.json`.
 2. **440 companies keep a distance computed from the old campus points.** Placing them from their address would give them coordinates of their own.
 3. **About 50 companies have no nearest campus recorded.** Most have an address or town that could be placed at locality level.
 4. **Ward locations are estimates.** OpenStreetMap has no ward boundaries here. Official ward boundaries would replace the single reference points.
-5. **Google Maps listings.** The Kijenge listing is pinned about 70 km away. Two other listings ("Silverleaf Primary School" near Usa River, and "Silverleaf Academy Office" in Moshi) match no campus. Whoever manages the school's Google profile should correct or remove them.
+
+## 7. Take-aways
+
+1. **Start from the school's own pins, not a search engine.** The school placed the pins on its own campus pages itself, so they are the most reliable source. Google Maps confirmed only two campuses, had no listing for two others, and pinned one in the wrong place.
+2. **Fix Silverleaf's Google listings.** This is for whoever manages Silverleaf's Google profile:
+   - The "Kijenge Campus" listing is pinned about 70 km away, so parents get wrong directions.
+   - Two other listings match no campus: "Silverleaf Primary School" near Usa River, and "Silverleaf Academy Office" in Moshi.
+   - Arusha City (Sakina) and Boma Ng'ombe have no listing at all.
+
+   Correct or remove these, and add the missing ones using the website pins.
+3. **A correction should move leads, not drop them.** Re-running distances after a campus point changes can push a lead across the 25 km line. Keep any lead that was inside before, with the reason recorded (section 5), and review it on its merits.
+4. **Keep one source of truth for the campus points.** Every distance in all three lists now comes from the `campuses` table in the master database. The old estimates lived in two places (the table and the original importer), which is how they drifted out of date unnoticed.
 
 ---
 

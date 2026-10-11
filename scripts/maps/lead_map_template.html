@@ -1,0 +1,861 @@
+<title>Silverleaf Lead Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: the map is the page; a field panel on the left (a bottom drawer on phones) holds campus, filters and counts. */
+:root {
+  --bg: #e9ede7;        /* land */
+  --panel: #fbfcfa;
+  --raised: #f2f5f1;
+  --ink: #18221e;
+  --muted: #5b6962;
+  --line: #d3dbd5;
+  --focus: #2d62d8;
+  --water: #b5cfdc;
+  --water-line: #8fb3c6;
+  --park: #d3e2c8;
+  --park-line: #a9c497;
+  --road: #ffffff;
+  --road-case: #c4cbc3;
+  --road-major: #e9b863;   /* murram ochre for the trunk roads */
+  --road-major-case: #c99542;
+  --district: #8a958f;
+  --label: #3f4b45;
+  --label-halo: rgba(233, 237, 231, 0.92);
+  --campus: #15201b;
+  --campus-ring: #c3cbc6;
+  --campus-text: #fbfcfa;
+  --ring: #15201b;
+  --emp: #2d62d8;
+  --int: #9a3cc4;
+  --wel: #d75f28;
+  --gov: #11866c;
+  --grey: #9aa49f;
+  --shadow: 0 1px 2px rgba(20, 30, 25, 0.12), 0 8px 24px rgba(20, 30, 25, 0.12);
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --panel-w: 372px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121816; --panel: #19211e; --raised: #212b27; --ink: #e5ece8; --muted: #95a49c; --line: #2d3934; --focus: #7aa2ff;
+    --water: #1d3340; --water-line: #2a4a5c; --park: #1a2a1f; --park-line: #2b4431; --road: #2c3632; --road-case: #1b2320;
+    --road-major: #7a6236; --road-major-case: #4e3f24; --district: #6d7a73; --label: #b7c4bd; --label-halo: rgba(18, 24, 22, 0.9);
+    --campus: #eef3f0; --campus-ring: #6f7c75; --campus-text: #15201b; --ring: #e5ece8;
+    --emp: #6f9cff; --int: #c78bf0; --wel: #ff8d57; --gov: #3cc9a2; --grey: #6f7a75;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121816; --panel: #19211e; --raised: #212b27; --ink: #e5ece8; --muted: #95a49c; --line: #2d3934; --focus: #7aa2ff;
+  --water: #1d3340; --water-line: #2a4a5c; --park: #1a2a1f; --park-line: #2b4431; --road: #2c3632; --road-case: #1b2320;
+  --road-major: #7a6236; --road-major-case: #4e3f24; --district: #6d7a73; --label: #b7c4bd; --label-halo: rgba(18, 24, 22, 0.9);
+  --campus: #eef3f0; --campus-ring: #6f7c75; --campus-text: #15201b; --ring: #e5ece8;
+  --emp: #6f9cff; --int: #c78bf0; --wel: #ff8d57; --gov: #3cc9a2; --grey: #6f7a75;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 14px; line-height: 1.45; overflow: hidden; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.app { display: grid; grid-template-columns: var(--panel-w) minmax(0, 1fr); height: 100%; }
+.panel { background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; min-height: 0; z-index: 3; }
+.panel-head { padding: 18px 16px 12px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 4px; }
+.panel-head h1 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; line-height: 1.15; text-wrap: balance; }
+.panel-head p { margin: 0; color: var(--muted); font-size: 13px; }
+.panel-head .visible { font-variant-numeric: tabular-nums; color: var(--ink); font-weight: 600; }
+.drawer-toggle { display: none; }
+.panel-body { overflow-y: auto; padding: 4px 16px 24px; display: flex; flex-direction: column; gap: 18px; min-height: 0; }
+.section { display: flex; flex-direction: column; gap: 8px; padding-top: 14px; }
+.section + .section { border-top: 1px solid var(--line); }
+.eyebrow { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0; }
+.hint { font-size: 12px; color: var(--muted); margin: 0; }
+
+.campus-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--raised); border-radius: 999px; padding: 5px 11px; cursor: pointer; font-size: 13px; display: inline-flex; gap: 6px; align-items: baseline; }
+.chip .n { color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--campus); color: var(--campus-text); border-color: var(--campus); }
+.chip[aria-pressed="true"] .n { color: inherit; opacity: 0.75; }
+
+.search { position: relative; }
+.search input { width: 100%; box-sizing: border-box; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--raised); }
+.results { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; }
+.results button { width: 100%; text-align: left; background: none; border: 0; padding: 6px 4px; border-radius: 6px; cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+.results button:hover { background: var(--raised); }
+.results .meta { color: var(--muted); font-size: 12px; margin-left: auto; white-space: nowrap; }
+
+table.matrix { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.matrix th, .matrix td { padding: 4px 2px; text-align: right; border-bottom: 1px solid var(--line); }
+.matrix th:first-child, .matrix td:first-child { text-align: left; width: 38%; }
+.matrix thead th { font-weight: 600; font-size: 11.5px; vertical-align: bottom; }
+.matrix tfoot td { font-weight: 600; border-bottom: 0; }
+.matrix label { display: inline-flex; gap: 5px; align-items: center; cursor: pointer; }
+.matrix thead label { flex-direction: column; align-items: flex-end; gap: 2px; }
+.matrix td.na { color: var(--line); }
+.matrix .off { color: var(--muted); opacity: 0.55; }
+.matrix input { margin: 0; accent-color: var(--ink); }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.mark { width: 16px; height: 16px; flex: none; }
+
+details.seg { border: 1px solid var(--line); border-radius: 10px; background: var(--raised); }
+details.seg > summary { list-style: none; cursor: pointer; padding: 9px 12px; display: flex; gap: 8px; align-items: center; font-weight: 600; }
+details.seg > summary::-webkit-details-marker { display: none; }
+details.seg > summary::after { content: "+"; margin-left: auto; color: var(--muted); font-weight: 400; }
+details.seg[open] > summary::after { content: "\2212"; }
+.seg-body { padding: 0 12px 12px; display: flex; flex-direction: column; gap: 10px; }
+.group { display: flex; flex-direction: column; gap: 3px; }
+.group-head { display: flex; align-items: baseline; gap: 8px; }
+.group-head .eyebrow { flex: 1; }
+.linkbtn { background: none; border: 0; padding: 0; color: var(--muted); font-size: 12px; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.opt { display: flex; gap: 7px; align-items: center; cursor: pointer; font-size: 13px; padding: 1px 0; }
+.opt input { margin: 0; accent-color: var(--ink); }
+.opt .n { margin-left: auto; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+.grid-wrap { overflow-x: auto; }
+table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.cells th, .cells td { padding: 3px 4px; text-align: right; }
+.cells th:first-child, .cells td:first-child { text-align: left; }
+.cells thead th { font-size: 11.5px; color: var(--muted); font-weight: 600; }
+.cells label { display: inline-flex; gap: 4px; align-items: center; cursor: pointer; }
+.cells input { margin: 0; accent-color: var(--ink); }
+
+.toggle { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; font-size: 13px; }
+.toggle input { margin: 3px 0 0; accent-color: var(--ink); }
+.toggle small { display: block; color: var(--muted); font-size: 12px; }
+
+.unmapped summary { cursor: pointer; font-size: 13px; padding: 3px 0; }
+.unmapped ul { margin: 4px 0 8px; padding-left: 18px; font-size: 12.5px; display: flex; flex-direction: column; gap: 3px; }
+.unmapped li span { color: var(--muted); }
+.reasons { list-style: none; margin: 0; padding: 0; font-size: 12.5px; display: flex; flex-direction: column; gap: 2px; }
+.reasons li { display: flex; gap: 8px; }
+.reasons li b { font-variant-numeric: tabular-nums; min-width: 2.2em; text-align: right; font-weight: 600; }
+.foot { font-size: 12px; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.foot p { margin: 0; }
+
+.mapwrap { position: relative; min-width: 0; height: 100%; }
+#map { position: absolute; inset: 0; background: var(--bg); }
+.labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+.lbl { position: absolute; left: 0; top: 0; white-space: nowrap; color: var(--label); font-size: 12px; line-height: 1;
+  text-shadow: 0 0 2px var(--label-halo), 0 0 4px var(--label-halo), 0 0 6px var(--label-halo); will-change: transform; }
+.lbl.city { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--ink); letter-spacing: 0.01em; }
+.lbl.town { font-weight: 600; font-size: 13.5px; color: var(--ink); }
+.lbl.village { font-size: 11.5px; }
+.lbl.neighbourhood { font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.85; }
+.lbl.district { font-size: 11px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--district); font-weight: 600; }
+.lbl.park { font-style: italic; font-size: 12px; color: var(--park-line); font-weight: 600; }
+.lbl.peak { font-size: 11.5px; font-weight: 600; }
+.lbl.peak::before { content: "\25B2"; margin-right: 4px; font-size: 9px; }
+.lbl.ring { font-size: 11px; font-weight: 600; color: var(--ring); font-variant-numeric: tabular-nums; }
+
+.campus-pin { display: flex; align-items: center; gap: 6px; cursor: pointer; background: none; border: 0; padding: 0; }
+.campus-pin .dia { width: 16px; height: 16px; transform: rotate(45deg); background: var(--campus); border: 3px solid var(--campus-ring); border-radius: 3px; box-shadow: var(--shadow); flex: none; }
+.campus-pin .name { background: var(--campus); color: var(--campus-text); font-family: var(--font-display); font-weight: 700; font-size: 13px; padding: 3px 8px; border-radius: 6px; white-space: nowrap; box-shadow: var(--shadow); }
+.campus-pin.side-left { flex-direction: row-reverse; }
+.campus-pin.side-top { flex-direction: column-reverse; gap: 7px; }
+.campus-pin.dim { opacity: 0.55; }
+.campus-pin.sel .dia { border-color: var(--focus); }
+
+.legend { position: absolute; right: 16px; bottom: 28px; z-index: 2; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); max-width: 300px; font-size: 12.5px; }
+.legend > summary { list-style: none; cursor: pointer; padding: 8px 12px; font-weight: 600; display: flex; gap: 8px; align-items: center; }
+.legend > summary::-webkit-details-marker { display: none; }
+.legend > summary::after { content: "+"; margin-left: auto; color: var(--muted); }
+.legend[open] > summary::after { content: "\2212"; }
+.legend-body { padding: 0 12px 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; }
+.legend-body .col { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.legend-body .row { display: flex; gap: 7px; align-items: center; }
+.legend-body .full { grid-column: 1 / -1; }
+.legend-body p { margin: 0; color: var(--muted); font-size: 11.5px; }
+.attrib { position: absolute; left: 0; bottom: 0; z-index: 2; background: var(--label-halo); color: var(--muted); font-size: 11px; padding: 2px 8px; border-top-right-radius: 6px; }
+.zoom { position: absolute; right: 16px; top: 16px; z-index: 2; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+.zoom button { width: 36px; height: 36px; border: 0; background: none; cursor: pointer; font-size: 18px; line-height: 1; }
+.zoom button + button { border-top: 1px solid var(--line); }
+.zoom button:hover { background: var(--raised); }
+
+/* MapLibre essentials (its stylesheet cannot be loaded from a CDN here). */
+.maplibregl-map { position: relative; overflow: hidden; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+.maplibregl-canvas { position: absolute; left: 0; top: 0; }
+.maplibregl-canvas-container.maplibregl-interactive { cursor: grab; }
+.maplibregl-canvas-container.maplibregl-interactive:active { cursor: grabbing; }
+.maplibregl-canvas-container.maplibregl-interactive.hovering { cursor: pointer; }
+.maplibregl-canary { background-color: salmon; }
+.maplibregl-marker { position: absolute; top: 0; left: 0; will-change: transform; }
+.maplibregl-popup { position: absolute; top: 0; left: 0; display: flex; will-change: transform; pointer-events: none; z-index: 4; }
+.maplibregl-popup-anchor-top, .maplibregl-popup-anchor-top-left, .maplibregl-popup-anchor-top-right { flex-direction: column; }
+.maplibregl-popup-anchor-bottom, .maplibregl-popup-anchor-bottom-left, .maplibregl-popup-anchor-bottom-right { flex-direction: column-reverse; }
+.maplibregl-popup-anchor-left { flex-direction: row; }
+.maplibregl-popup-anchor-right { flex-direction: row-reverse; }
+.maplibregl-popup-tip { width: 0; height: 0; border: 8px solid transparent; z-index: 1; }
+.maplibregl-popup-anchor-top .maplibregl-popup-tip { align-self: center; border-top: none; border-bottom-color: var(--panel); }
+.maplibregl-popup-anchor-top-left .maplibregl-popup-tip { align-self: flex-start; border-top: none; border-left: none; border-bottom-color: var(--panel); }
+.maplibregl-popup-anchor-top-right .maplibregl-popup-tip { align-self: flex-end; border-top: none; border-right: none; border-bottom-color: var(--panel); }
+.maplibregl-popup-anchor-bottom .maplibregl-popup-tip { align-self: center; border-bottom: none; border-top-color: var(--panel); }
+.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip { align-self: flex-start; border-bottom: none; border-left: none; border-top-color: var(--panel); }
+.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip { align-self: flex-end; border-bottom: none; border-right: none; border-top-color: var(--panel); }
+.maplibregl-popup-anchor-left .maplibregl-popup-tip { align-self: center; border-left: none; border-right-color: var(--panel); }
+.maplibregl-popup-anchor-right .maplibregl-popup-tip { align-self: center; border-right: none; border-left-color: var(--panel); }
+.maplibregl-popup-content { position: relative; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); padding: 12px 14px; pointer-events: auto; max-height: 60vh; overflow-y: auto; }
+.maplibregl-popup-close-button { position: absolute; right: 4px; top: 2px; border: 0; background: none; cursor: pointer; font-size: 20px; color: var(--muted); padding: 2px 6px; line-height: 1; }
+
+.pop h2 { margin: 0 22px 6px 0; font-family: var(--font-display); font-size: 16px; font-weight: 700; line-height: 1.2; text-wrap: balance; }
+.pop .tag { display: inline-flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.pop dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 12.5px; }
+.pop dt { color: var(--muted); }
+.pop dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.pop .why { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+.badge { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 1px 7px; border-radius: 999px; border: 1px solid currentColor; }
+
+@media (max-width: 760px) {
+  .app { display: block; }
+  .mapwrap { position: fixed; inset: 0; }
+  .panel { position: fixed; left: 0; right: 0; bottom: 0; max-height: 78%; border-right: 0; border-top: 1px solid var(--line);
+    border-radius: 16px 16px 0 0; box-shadow: var(--shadow); transform: translateY(calc(100% - 64px - env(safe-area-inset-bottom, 0px)));
+    transition: transform 0.25s ease; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .panel.open { transform: none; }
+  .panel-head { flex-direction: row; align-items: center; gap: 12px; padding: 12px 16px; min-height: 40px; }
+  .panel-head .titles { flex: 1; min-width: 0; }
+  .panel-head h1 { font-size: 17px; }
+  .panel-head p { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .panel-head .long { display: none; }
+  .drawer-toggle { display: inline-flex; border: 1px solid var(--line); background: var(--raised); border-radius: 999px; padding: 7px 14px; cursor: pointer; font-weight: 600; flex: none; }
+  .legend { left: 16px; right: auto; top: 16px; bottom: auto; max-width: calc(100% - 92px); }
+  .legend-body { grid-template-columns: 1fr; max-height: 50vh; overflow-y: auto; }
+  .zoom { top: 16px; right: 16px; }
+  .attrib { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) { .panel { transition: none; } }
+</style>
+
+<div class="app">
+  <aside class="panel" id="panel" aria-label="Filters and counts">
+    <div class="panel-head">
+      <div class="titles">
+        <h1>Silverleaf Lead Map</h1>
+        <p><span class="visible" id="visibleCount">0</span> leads shown <span class="long">around the five campuses</span> · <span id="builtOn"></span></p>
+      </div>
+      <button class="drawer-toggle" id="drawerToggle" type="button" aria-expanded="false" aria-controls="panel">Filters</button>
+    </div>
+    <div class="panel-body">
+      <section class="section" aria-labelledby="campusHead">
+        <h2 class="eyebrow" id="campusHead">Campus</h2>
+        <div class="campus-chips" id="campusChips" role="group" aria-label="Show the leads nearest one campus"></div>
+        <p class="hint" id="campusHint">Each lead belongs to its nearest campus, by straight-line distance.</p>
+      </section>
+
+      <section class="section search" aria-labelledby="searchHead">
+        <label class="eyebrow" id="searchHead" for="q">Find an organisation</label>
+        <input id="q" type="search" placeholder="Name, e.g. Kibo, SOS, Meru" autocomplete="off">
+        <ul class="results" id="results"></ul>
+      </section>
+
+      <section class="section" aria-labelledby="countHead">
+        <h2 class="eyebrow" id="countHead">Leads by segment and confidence</h2>
+        <table class="matrix" id="matrix"></table>
+        <p class="hint">Untick a column or a row to hide it. Counts follow the campus, search and subsegment filters.</p>
+      </section>
+
+      <section class="section" aria-labelledby="subHead">
+        <h2 class="eyebrow" id="subHead">Subsegments</h2>
+        <div id="subFilters" style="display:flex;flex-direction:column;gap:8px"></div>
+      </section>
+
+      <section class="section" aria-labelledby="layerHead">
+        <h2 class="eyebrow" id="layerHead">Map layers</h2>
+        <label class="toggle"><input type="checkbox" id="showEstimated" checked><span>Leads with an estimated location<small>Placed from a locality, town or ward centre; drawn with a dashed outline.</small></span></label>
+        <label class="toggle"><input type="checkbox" id="showRings" checked><span>Distance rings for the selected campus<small>5, 10 and 25 km, straight line.</small></span></label>
+        <label class="toggle"><input type="checkbox" id="showExcluded"><span>Excluded records (<span id="excludedCount">0</span> on the map)<small>Duplicates collapsed for sending, records with no plan, and welfare entries out of scope. Not written to.</small></span></label>
+      </section>
+
+      <section class="section unmapped" aria-labelledby="unmappedHead">
+        <h2 class="eyebrow" id="unmappedHead">Not on the map</h2>
+        <div id="unmapped"></div>
+      </section>
+
+      <section class="section foot">
+        <p>Leads come from the company master, the welfare run and the government run. Confidence follows the Resend segments: who the first message reaches and how sure we are it reaches the person who can say yes.</p>
+        <p>The map shows organisations, roles and reasons only. No personal names, addresses or numbers.</p>
+        <p id="attribText"></p>
+      </section>
+    </div>
+  </aside>
+
+  <main class="mapwrap">
+    <div id="map" role="region" aria-label="Map of leads around the Silverleaf campuses"></div>
+    <div class="labels" id="labels" aria-hidden="true"></div>
+    <div class="zoom"><button type="button" id="zoomIn" aria-label="Zoom in">+</button><button type="button" id="zoomOut" aria-label="Zoom out">&#8722;</button><button type="button" id="zoomAll" aria-label="Show the whole catchment" title="Whole catchment">&#8962;</button></div>
+    <details class="legend" id="legend" open>
+      <summary>Legend</summary>
+      <div class="legend-body" id="legendBody"></div>
+    </details>
+    <div class="attrib">&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" style="color:inherit">OpenStreetMap</a> contributors</div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const DATA = /*__DATA__*/null;
+const BASE = /*__BASEMAP__*/null;
+</script>
+<script>
+(function () {
+  "use strict";
+  window.__mapErrors = [];
+  window.addEventListener("error", (e) => window.__mapErrors.push(String(e.message || e)));
+
+  const SEGS = [
+    { k: "emp", label: "Employers", one: "Employer" },
+    { k: "int", label: "Introducers", one: "Introducer" },
+    { k: "wel", label: "Welfare", one: "Welfare organisation" },
+    { k: "gov", label: "Government", one: "Government office" },
+  ];
+  const SEG = Object.fromEntries(SEGS.map((s) => [s.k, s]));
+  const CONFS = [
+    { k: "high-direct", label: "High · direct", note: "Their own address, or the inbox for their role", segs: ["emp", "int", "wel"] },
+    { k: "high-indirect", label: "High · indirect", note: "A general inbox, addressed to the named person", segs: ["emp", "int", "wel"] },
+    { k: "high", label: "High · letter ready", note: "Pilot council introductions", segs: ["gov"] },
+    { k: "medium", label: "Medium", note: "Organisation inbox, needs routing", segs: ["emp", "int", "wel", "gov"] },
+    { k: "low", label: "Low", note: "Held or needs research", segs: ["emp", "int", "wel", "gov"] },
+    { k: "no-email", label: "No email", note: "Phone only or no route: call sheet", segs: ["emp", "int", "wel"] },
+    { k: "shared", label: "Shared inbox", note: "Sent once, under another lead", segs: ["emp", "int", "wel"] },
+  ];
+  const CONF = Object.fromEntries(CONFS.map((c) => [c.k, c]));
+  const RANK = { "high-direct": 7, "high": 7, "high-indirect": 6, "medium": 5, "low": 3, "no-email": 2, "shared": 1 };
+  const CAMPUS = Object.fromEntries(DATA.campuses.map((c) => [c.key, c]));
+  const SUBDIMS = {
+    emp: [["kind", "Kind of employer"], ["variant", "Message variant"], ["tier", "Reach tier"]],
+    int: [["kind", "Kind"]],
+    wel: [["cell", "Kind and priority"]],
+    gov: [["level", "Office level"], ["band", "Ward distance band"]],
+  };
+  const ORDER = {
+    variant: ["A", "B", "none"], tier: ["P1", "P2", "P3", "X", "unranked"], priority: ["High", "Medium", "Low"],
+    level: ["council", "region", "district", "ward", "village"],
+    band: ["first wave (up to 10 km)", "second wave (10 to 20 km)", "later wave (over 20 km)", "locate the ward first", "not a ward or village"],
+  };
+  const LABELS = {
+    variant: { A: "A · sponsorship", B: "B · staff-benefit partnership", none: "No variant (savings groups)" },
+    tier: { P1: "P1 · first wave", P2: "P2 · second wave", P3: "P3 · the rest", X: "X · held", unranked: "Not ranked (savings groups)" },
+    level: { council: "Councils", region: "Regional offices", district: "District offices", ward: "Wards", village: "Villages" },
+    band: { "first wave (up to 10 km)": "Up to 10 km", "second wave (10 to 20 km)": "10 to 20 km", "later wave (over 20 km)": "Over 20 km",
+      "locate the ward first": "Not yet located", "not a ward or village": "Not a ward or village" },
+  };
+
+  const leads = DATA.leads.map((l, i) => {
+    const u = l.u;
+    if (l.s === "wel") u.cell = u.kind + "|" + u.priority;
+    return Object.assign(l, { i, key: fold(l.n) });
+  });
+  const excl = DATA.excluded.map((l, i) => Object.assign(l, { i, key: fold(l.n) }));
+
+  // ---------------------------------------------------------------- state
+  const state = {
+    campus: "all", q: "", segs: new Set(SEGS.map((s) => s.k)), confs: new Set(CONFS.map((c) => c.k)),
+    sub: {}, estimated: true, rings: true, excluded: false,
+  };
+  const values = {};
+  for (const s of SEGS) {
+    state.sub[s.k] = {}; values[s.k] = {};
+    for (const [dim] of SUBDIMS[s.k]) {
+      const vals = [...new Set(leads.filter((l) => l.s === s.k).map((l) => l.u[dim]))];
+      vals.sort((a, b) => orderOf(dim, a) - orderOf(dim, b) || String(a).localeCompare(String(b)));
+      values[s.k][dim] = vals;
+      state.sub[s.k][dim] = new Set(vals);
+    }
+  }
+  function orderOf(dim, v) { const o = ORDER[dim]; const i = o ? o.indexOf(v) : -1; return i < 0 ? 99 : i; }
+  function fold(s) { return String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
+  function fmt(n) { return n.toLocaleString("en-GB"); }
+
+  const passCampus = (l) => state.campus === "all" || l.cp === state.campus;
+  const passQuery = (l) => !state.q || l.key.includes(state.q);
+  const passEst = (l) => state.estimated || !l.e;
+  const passSub = (l, skipDim) => SUBDIMS[l.s].every(([dim]) => dim === skipDim || state.sub[l.s][dim].has(l.u[dim]));
+  const passBase = (l) => passCampus(l) && passQuery(l) && passEst(l) && passSub(l);
+  const visible = (l) => passBase(l) && state.segs.has(l.s) && state.confs.has(l.c);
+
+  // ---------------------------------------------------------------- colours and marker icons
+  const css = () => getComputedStyle(document.documentElement);
+  function token(name) { return css().getPropertyValue(name).trim(); }
+  function drawIcon(seg, conf, est) {
+    const ratio = 2, size = 28, c = size / 2;
+    const cv = document.createElement("canvas"); cv.width = cv.height = size * ratio;
+    const g = cv.getContext("2d"); g.scale(ratio, ratio);
+    const col = seg === "exc" ? token("--grey") : token("--" + seg);
+    const panel = token("--panel"), grey = token("--grey");
+    const circle = (r) => { g.beginPath(); g.arc(c, c, r, 0, Math.PI * 2); };
+    let outer = 7;
+    if (seg === "exc") {
+      g.strokeStyle = grey; g.lineWidth = 2.2; g.lineCap = "round";
+      g.beginPath(); g.moveTo(c - 4, c - 4); g.lineTo(c + 4, c + 4); g.moveTo(c + 4, c - 4); g.lineTo(c - 4, c + 4); g.stroke();
+      outer = 5.5;
+    } else if (conf === "high-direct" || conf === "high") {
+      circle(7); g.fillStyle = col; g.fill(); g.lineWidth = 2; g.strokeStyle = panel; g.stroke();
+    } else if (conf === "high-indirect") {
+      circle(6.2); g.fillStyle = panel; g.fill(); g.lineWidth = 3; g.strokeStyle = col; g.stroke();
+    } else if (conf === "medium") {
+      circle(6); g.globalAlpha = 0.5; g.fillStyle = col; g.fill(); g.globalAlpha = 1; g.lineWidth = 1.6; g.strokeStyle = col; g.stroke(); outer = 6.5;
+    } else if (conf === "low") {
+      circle(5.2); g.globalAlpha = 0.28; g.fillStyle = col; g.fill(); g.globalAlpha = 0.6; g.lineWidth = 1.2; g.strokeStyle = col; g.stroke(); g.globalAlpha = 1; outer = 5.6;
+    } else if (conf === "no-email") {
+      circle(3.8); g.fillStyle = grey; g.fill(); g.lineWidth = 1.6; g.strokeStyle = col; g.stroke(); outer = 4.4;
+    } else { // shared inbox
+      circle(4.2); g.lineWidth = 1.4; g.strokeStyle = grey; g.stroke(); circle(1.6); g.fillStyle = col; g.fill(); outer = 4.6;
+    }
+    if (est) {
+      circle(outer + 3.2); g.setLineDash([2.2, 2]); g.lineWidth = 1.3; g.strokeStyle = col; g.globalAlpha = 0.9; g.stroke(); g.setLineDash([]); g.globalAlpha = 1;
+    }
+    return { width: size * ratio, height: size * ratio, data: new Uint8Array(g.getImageData(0, 0, size * ratio, size * ratio).data.buffer) };
+  }
+  function iconName(seg, conf, est) { return `${seg}|${conf}|${est ? 1 : 0}`; }
+  function iconURL(seg, conf, est) {
+    const img = drawIcon(seg, conf, est);
+    const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height;
+    cv.getContext("2d").putImageData(new ImageData(new Uint8ClampedArray(img.data.buffer), img.width, img.height), 0, 0);
+    return cv.toDataURL();
+  }
+
+  // ---------------------------------------------------------------- map
+  if (!window.maplibregl) {
+    document.getElementById("map").innerHTML = '<p style="padding:24px;max-width:40ch">The map library did not load. Check the connection and reload the page; the filters and counts still work.</p>';
+  }
+  // Whole catchment on a wide screen; on a phone (portrait) the city campuses and Usa River, so the view stays inside the basemap.
+  const phone = window.matchMedia("(max-width: 760px)").matches;
+  const bboxAll = phone ? [[36.62, -3.47], [36.92, -3.27]] : [[36.49, -3.47], [37.40, -3.24]];
+  const base = (layer) => ["==", ["get", "layer"], layer];
+  const map = window.maplibregl ? new maplibregl.Map({
+    container: "map", attributionControl: false, bounds: bboxAll, fitBoundsOptions: { padding: 30 },
+    maxBounds: [[DATA.bbox[0] - 0.25, DATA.bbox[1] - 0.2], [DATA.bbox[2] + 0.25, DATA.bbox[3] + 0.2]], minZoom: 8, maxZoom: 17,
+    dragRotate: false, pitchWithRotate: false, touchPitch: false,
+    style: {
+      version: 8,
+      sources: { base: { type: "geojson", data: BASE, tolerance: 0.3 } },
+      layers: [
+        { id: "bg", type: "background", paint: { "background-color": "#e9ede7" } },
+        { id: "park", type: "fill", source: "base", filter: base("park"), paint: { "fill-color": "#d3e2c8", "fill-opacity": ["match", ["get", "kind"], "national_park", 0.95, 0.55] } },
+        { id: "park-line", type: "line", source: "base", filter: base("park"), paint: { "line-color": "#a9c497", "line-width": 1, "line-dasharray": [3, 2] } },
+        { id: "water", type: "fill", source: "base", filter: base("water"), paint: { "fill-color": "#b5cfdc" } },
+        { id: "river", type: "line", source: "base", filter: base("river"), paint: { "line-color": "#8fb3c6", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 13, 1.6] } },
+        { id: "district", type: "line", source: "base", filter: base("district"), paint: { "line-color": "#8a958f", "line-width": ["case", ["has", "region_edge"], 1.6, 0.9], "line-dasharray": [4, 3], "line-opacity": 0.8 } },
+        { id: "street", type: "line", source: "base", filter: base("road_minor"), minzoom: 11.5, paint: { "line-color": "#ffffff", "line-width": ["interpolate", ["linear"], ["zoom"], 11.5, 0.4, 15, 2.5], "line-opacity": ["interpolate", ["linear"], ["zoom"], 11.5, 0, 12.5, 1] } },
+        { id: "road-case", type: "line", source: "base", filter: ["all", base("road"), ["in", ["get", "class"], ["literal", ["secondary", "tertiary"]]]], layout: { "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#c4cbc3", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.8, 14, ["match", ["get", "class"], "secondary", 6, 4.5]] } },
+        { id: "road", type: "line", source: "base", filter: ["all", base("road"), ["in", ["get", "class"], ["literal", ["secondary", "tertiary"]]]], layout: { "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#ffffff", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.4, 14, ["match", ["get", "class"], "secondary", 4.5, 3]] } },
+        { id: "major-case", type: "line", source: "base", filter: ["all", base("road"), ["in", ["get", "class"], ["literal", ["trunk", "primary"]]]], layout: { "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#c99542", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.8, 14, 8] } },
+        { id: "major", type: "line", source: "base", filter: ["all", base("road"), ["in", ["get", "class"], ["literal", ["trunk", "primary"]]]], layout: { "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#e9b863", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1, 14, 6] } },
+      ],
+    },
+  }) : null;
+
+  function applyTheme() {
+    if (!map || !map.getLayer("bg")) return;
+    const t = (n) => token(n);
+    map.setPaintProperty("bg", "background-color", t("--bg"));
+    map.setPaintProperty("park", "fill-color", t("--park"));
+    map.setPaintProperty("park-line", "line-color", t("--park-line"));
+    map.setPaintProperty("water", "fill-color", t("--water"));
+    map.setPaintProperty("river", "line-color", t("--water-line"));
+    map.setPaintProperty("district", "line-color", t("--district"));
+    map.setPaintProperty("street", "line-color", t("--road"));
+    map.setPaintProperty("road-case", "line-color", t("--road-case"));
+    map.setPaintProperty("road", "line-color", t("--road"));
+    map.setPaintProperty("major-case", "line-color", t("--road-major-case"));
+    map.setPaintProperty("major", "line-color", t("--road-major"));
+    if (map.getLayer("rings")) map.setPaintProperty("rings", "line-color", t("--ring"));
+    for (const seg of [...SEGS.map((s) => s.k), "exc"]) {
+      for (const conf of seg === "exc" ? ["x"] : CONFS.map((c) => c.k)) {
+        for (const est of [0, 1]) {
+          const name = iconName(seg, conf, est), img = drawIcon(seg, conf, est);
+          if (map.hasImage(name)) map.updateImage(name, img); else map.addImage(name, img, { pixelRatio: 2 });
+        }
+      }
+    }
+    renderLegend();
+  }
+
+  function leadFeature(l, seg) {
+    return { type: "Feature", id: l.i, geometry: { type: "Point", coordinates: [l.lo, l.la] },
+      properties: { i: l.i, icon: iconName(seg || l.s, seg ? "x" : l.c, l.e), rank: seg ? 0 : RANK[l.c] || 0 } };
+  }
+
+  function ringGeo(c) {
+    const feats = [];
+    for (const km of [5, 10, 25]) {
+      const pts = [];
+      for (let a = 0; a <= 128; a++) {
+        const t = (a / 128) * 2 * Math.PI;
+        const dLat = (km / 111.32) * Math.cos(t), dLon = (km / (111.32 * Math.cos((c.lat * Math.PI) / 180))) * Math.sin(t);
+        pts.push([c.lon + dLon, c.lat + dLat]);
+      }
+      feats.push({ type: "Feature", properties: { km }, geometry: { type: "LineString", coordinates: pts } });
+    }
+    return { type: "FeatureCollection", features: feats };
+  }
+
+  if (map) {
+    map.on("error", (e) => { const m = (e && e.error && e.error.message) || String(e); window.__mapErrors.push(m); console.error("map:", m); });
+    map.on("load", () => {
+      map.addSource("rings", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+      map.addLayer({ id: "rings", type: "line", source: "rings", paint: { "line-color": "#15201b", "line-width": 1.4, "line-dasharray": [2, 2], "line-opacity": 0.7 } });
+      map.addSource("excluded", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+      map.addSource("leads", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+      const iconSize = ["interpolate", ["linear"], ["zoom"], 8, 0.55, 10, 0.7, 12, 0.9, 15, 1.15];
+      map.addLayer({ id: "excluded", type: "symbol", source: "excluded", layout: { "icon-image": ["get", "icon"], "icon-size": iconSize, "icon-allow-overlap": true, "icon-ignore-placement": true } });
+      map.addLayer({ id: "leads", type: "symbol", source: "leads", layout: { "icon-image": ["get", "icon"], "icon-size": iconSize, "icon-allow-overlap": true, "icon-ignore-placement": true, "symbol-sort-key": ["get", "rank"] } });
+      applyTheme();
+      addCampusPins();
+      buildLabels();
+      update();
+      for (const id of ["leads", "excluded"]) {
+        map.on("click", id, (e) => { const f = e.features[0]; openPopup(id === "leads" ? leads[f.properties.i] : excl[f.properties.i], id === "excluded"); });
+        map.on("mouseenter", id, () => map.getCanvasContainer().classList.add("hovering"));
+        map.on("mouseleave", id, () => map.getCanvasContainer().classList.remove("hovering"));
+      }
+    });
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    (mq.addEventListener ? mq.addEventListener("change", applyTheme) : mq.addListener(applyTheme));
+    new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "class", "style"] });
+    document.getElementById("zoomIn").onclick = () => map.zoomIn();
+    document.getElementById("zoomOut").onclick = () => map.zoomOut();
+    document.getElementById("zoomAll").onclick = () => selectCampus("all");
+  }
+
+  // ---------------------------------------------------------------- campus pins, place labels
+  const pins = {};
+  // Label side per campus: the three city campuses sit 2 to 5 km apart, so their labels fan out (left, up, right).
+  const SIDE = { "Arusha City": "left", "Ilboru": "top", "Kijenge": "right", "Usa River": "right", "Boma Ngombe": "right" };
+  const ANCHOR = { left: ["right", [9, 0]], right: ["left", [-9, 0]], top: ["bottom", [0, 9]] };
+  function addCampusPins() {
+    for (const c of DATA.campuses) {
+      const side = SIDE[c.key] || "right";
+      const el = document.createElement("button");
+      el.type = "button"; el.className = "campus-pin side-" + side; el.setAttribute("aria-label", `Campus ${c.label}: show its leads`);
+      el.innerHTML = `<span class="dia"></span><span class="name">${esc(c.label)}</span>`;
+      el.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        selectCampus(c.key);
+        campusPopup(c);
+      });
+      pins[c.key] = el;
+      new maplibregl.Marker({ element: el, anchor: ANCHOR[side][0], offset: ANCHOR[side][1] }).setLngLat([c.lon, c.lat]).addTo(map);
+    }
+  }
+  function campusPopup(c) {
+    if (popup) popup.remove();
+    const near = leads.filter((l) => l.cp === c.key);
+    const within = (km) => leads.filter((l) => hav(l.la, l.lo, c.lat, c.lon) <= km).length;
+    const bySeg = SEGS.map((s) => `${esc(s.label)} ${fmt(near.filter((l) => l.s === s.k).length)}`).join(" · ");
+    const html = `<div class="pop"><h2>${esc(c.label)}</h2><div class="tag"><span class="campus-pin" style="pointer-events:none"><span class="dia" style="width:9px;height:9px;border-width:2px"></span></span>Silverleaf campus</div><dl>`
+      + `<dt>Nearest campus for</dt><dd>${fmt(near.length)} leads on the map<span class="why">${bySeg}</span></dd>`
+      + `<dt>Leads within</dt><dd>5 km: ${fmt(within(5))} · 10 km: ${fmt(within(10))} · 25 km: ${fmt(within(25))}<span class="why">Any segment, whichever campus is nearest</span></dd>`
+      + `<dt>Source</dt><dd>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener" style="color:inherit">${esc(c.source)}</a>` : esc(c.source)}</dd></dl></div>`;
+    popup = new maplibregl.Popup({ closeButton: true, maxWidth: "330px", offset: 16, focusAfterOpen: false }).setLngLat([c.lon, c.lat]).setHTML(html).addTo(map);
+  }
+  function hav(lat1, lon1, lat2, lon2) {
+    const r = Math.PI / 180, a = Math.sin(((lat2 - lat1) * r) / 2) ** 2 + Math.cos(lat1 * r) * Math.cos(lat2 * r) * Math.sin(((lon2 - lon1) * r) / 2) ** 2;
+    return 2 * 6371 * Math.asin(Math.sqrt(a));
+  }
+
+  const PEAKS = { "Kibo": "Kilimanjaro · Kibo 5,895 m", "Mount Meru": "Mount Meru 4,562 m", "Mawenzi": "Mawenzi 5,149 m" };
+  const labelSpecs = [];
+  function buildLabels() {
+    const box = document.getElementById("labels");
+    const minZoom = { city: 0, town: 9, village: 11.6, neighbourhood: 12.6, quarter: 12.6, suburb: 12 };
+    for (const f of BASE.features) {
+      const p = f.properties, [lon, lat] = f.geometry.coordinates;
+      let cls, text = p.name, z = 0, prio = 0;
+      if (p.layer === "place") { cls = p.class === "quarter" || p.class === "suburb" ? "neighbourhood" : p.class; z = minZoom[p.class] ?? 13; prio = { city: 0, town: 1, village: 3, neighbourhood: 4 }[cls] ?? 5; }
+      else if (p.layer === "peak") { if (!PEAKS[p.name]) continue; cls = "peak"; text = PEAKS[p.name]; z = 8; prio = 2; }
+      else if (p.layer === "district_label") { cls = "district"; z = 8; prio = 6; }
+      else if (p.layer === "park_label") { cls = "park"; z = 9; prio = 5; }
+      else continue;
+      const el = document.createElement("div"); el.className = "lbl " + cls; el.textContent = text; el.hidden = true; box.appendChild(el);
+      labelSpecs.push({ el, lon, lat, z, prio, cls, w: 0, h: 0, maxz: cls === "district" ? 11.5 : 99 });
+    }
+    labelSpecs.sort((a, b) => a.prio - b.prio);
+    map.on("move", placeLabels);
+    map.on("moveend", () => placeLabels(true));
+    placeLabels(true);
+  }
+  let shown = [];
+  function placeLabels(recollide) {
+    const z = map.getZoom();
+    if (recollide === true) {
+      const taken = [];
+      const W = map.getContainer().clientWidth, H = map.getContainer().clientHeight;
+      const box0 = map.getContainer().getBoundingClientRect();
+      for (const el of Object.values(pins)) { const b = el.getBoundingClientRect(); taken.push([b.left - box0.left - 4, b.top - box0.top - 4, b.right - box0.left + 4, b.bottom - box0.top + 4]); }
+      shown = [];
+      for (const s of labelSpecs) {
+        if (z < s.z || z > s.maxz) { s.el.hidden = true; continue; }
+        const p = map.project([s.lon, s.lat]);
+        if (p.x < -50 || p.y < -20 || p.x > W + 50 || p.y > H + 20) { s.el.hidden = true; continue; }
+        if (!s.w) { s.el.hidden = false; s.w = s.el.offsetWidth; s.h = s.el.offsetHeight; }
+        const r = [p.x - s.w / 2 - 4, p.y - s.h / 2 - 3, p.x + s.w / 2 + 4, p.y + s.h / 2 + 3];
+        if (taken.some((t) => r[0] < t[2] && r[2] > t[0] && r[1] < t[3] && r[3] > t[1])) { s.el.hidden = true; continue; }
+        taken.push(r); s.el.hidden = false; shown.push(s);
+      }
+    }
+    for (const s of shown) {
+      const p = map.project([s.lon, s.lat]);
+      s.el.style.transform = `translate(${Math.round(p.x - s.w / 2)}px, ${Math.round(p.y - s.h / 2)}px)`;
+    }
+    for (const r of ringLabels) {
+      const p = map.project(r.ll);
+      r.el.style.transform = `translate(${Math.round(p.x - r.el.offsetWidth / 2)}px, ${Math.round(p.y - r.el.offsetHeight - 2)}px)`;
+    }
+  }
+  let ringLabels = [];
+  function drawRings() {
+    for (const r of ringLabels) r.el.remove();
+    ringLabels = [];
+    if (!map || !map.getSource("rings")) return;
+    const c = CAMPUS[state.campus];
+    if (!c || !state.rings) { map.getSource("rings").setData({ type: "FeatureCollection", features: [] }); placeLabels(); return; }
+    map.getSource("rings").setData(ringGeo(c));
+    for (const km of [5, 10, 25]) {
+      const el = document.createElement("div"); el.className = "lbl ring"; el.textContent = km + " km";
+      document.getElementById("labels").appendChild(el);
+      ringLabels.push({ el, ll: [c.lon, c.lat + km / 111.32] });
+    }
+    placeLabels();
+  }
+
+  // ---------------------------------------------------------------- campus selection
+  function selectCampus(key) {
+    state.campus = key;
+    for (const [k, el] of Object.entries(pins)) { el.classList.toggle("dim", key !== "all" && k !== key); el.classList.toggle("sel", k === key); }
+    update();
+    drawRings();
+    if (!map) return;
+    if (key === "all") { map.fitBounds(bboxAll, { padding: 30, duration: 700 }); return; }
+    const c = CAMPUS[key];
+    let w = c.lon, e = c.lon, s = c.lat, n = c.lat;
+    const pad = 10 / 111.32;
+    w -= pad; e += pad; s -= pad; n += pad;
+    for (const l of leads) if (l.cp === key && l.km <= 25 && visible(l)) { w = Math.min(w, l.lo); e = Math.max(e, l.lo); s = Math.min(s, l.la); n = Math.max(n, l.la); }
+    map.fitBounds([[w, s], [e, n]], { padding: 40, duration: 700, maxZoom: 14 });
+    if (window.matchMedia("(max-width: 760px)").matches) setDrawer(false);
+  }
+
+  // ---------------------------------------------------------------- panel
+  const chips = document.getElementById("campusChips");
+  function renderChips() {
+    const counts = { all: 0 };
+    for (const l of leads) if (passQuery(l) && passEst(l) && passSub(l) && state.segs.has(l.s) && state.confs.has(l.c)) { counts.all++; counts[l.cp] = (counts[l.cp] || 0) + 1; }
+    const items = [{ key: "all", label: "All campuses" }].concat(DATA.campuses.map((c) => ({ key: c.key, label: c.label })));
+    chips.innerHTML = items.map((c) => `<button type="button" class="chip" data-campus="${esc(c.key)}" aria-pressed="${state.campus === c.key}">${esc(c.label)} <span class="n">${fmt(counts[c.key] || 0)}</span></button>`).join("");
+  }
+  chips.addEventListener("click", (e) => { const b = e.target.closest("[data-campus]"); if (b) selectCampus(b.dataset.campus); });
+
+  const matrix = document.getElementById("matrix");
+  function swatch(seg) { return `<span class="swatch" style="background:var(--${seg})"></span>`; }
+  function markImg(seg, conf, est) { return `<img class="mark" alt="" src="${iconURL(seg, conf, est)}">`; }
+  function renderMatrix() {
+    const cnt = {}, segTot = {}, confTot = {};
+    for (const l of leads) {
+      if (!passBase(l)) continue;
+      cnt[l.s + l.c] = (cnt[l.s + l.c] || 0) + 1;
+      if (state.confs.has(l.c)) segTot[l.s] = (segTot[l.s] || 0) + 1;
+      if (state.segs.has(l.s)) confTot[l.c] = (confTot[l.c] || 0) + 1;
+    }
+    let total = 0;
+    let html = "<thead><tr><th scope=\"col\">Confidence</th>";
+    for (const s of SEGS) html += `<th scope="col"><label title="${esc(s.label)}"><input type="checkbox" data-seg="${s.k}" ${state.segs.has(s.k) ? "checked" : ""} aria-label="Show ${esc(s.label)}">${swatch(s.k)}<span>${esc(s.label.slice(0, 3))}.</span></label></th>`;
+    html += "<th scope=\"col\">All</th></tr></thead><tbody>";
+    for (const c of CONFS) {
+      const on = state.confs.has(c.k);
+      html += `<tr class="${on ? "" : "off"}"><td><label title="${esc(c.note)}"><input type="checkbox" data-conf="${c.k}" ${on ? "checked" : ""}>${markImg(c.segs[0], c.k, 0)}<span>${esc(c.label)}</span></label></td>`;
+      for (const s of SEGS) {
+        if (!c.segs.includes(s.k)) { html += "<td class=\"na\">&middot;</td>"; continue; }
+        const n = cnt[s.k + c.k] || 0;
+        html += `<td class="${on && state.segs.has(s.k) ? "" : "off"}">${fmt(n)}</td>`;
+      }
+      const row = on ? (confTot[c.k] || 0) : 0;
+      total += row;
+      html += `<td>${on ? fmt(row) : "<span class=off>0</span>"}</td></tr>`;
+    }
+    html += "</tbody><tfoot><tr><td>Shown</td>";
+    for (const s of SEGS) html += `<td>${state.segs.has(s.k) ? fmt(segTot[s.k] || 0) : "<span class=off>0</span>"}</td>`;
+    html += `<td>${fmt(total)}</td></tr></tfoot>`;
+    matrix.innerHTML = html;
+    document.getElementById("visibleCount").textContent = fmt(total);
+  }
+  matrix.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.dataset.seg) toggle(state.segs, t.dataset.seg, t.checked);
+    if (t.dataset.conf) toggle(state.confs, t.dataset.conf, t.checked);
+    update();
+  });
+  function toggle(set, v, on) { if (on) set.add(v); else set.delete(v); }
+
+  const subBox = document.getElementById("subFilters");
+  function buildSubFilters() {
+    let html = "";
+    for (const s of SEGS) {
+      html += `<details class="seg" data-segbox="${s.k}"><summary>${swatch(s.k)}${esc(s.label)}<span class="hint" data-segsum="${s.k}" style="font-weight:400"></span></summary><div class="seg-body">`;
+      for (const [dim, title] of SUBDIMS[s.k]) {
+        html += `<div class="group"><div class="group-head"><h3 class="eyebrow">${esc(title)}</h3><button type="button" class="linkbtn" data-all="${s.k}|${dim}">All</button><button type="button" class="linkbtn" data-none="${s.k}|${dim}">None</button></div>`;
+        if (dim === "cell") {
+          const kinds = [...new Set(values.wel.cell.map((v) => v.split("|")[0]))];
+          html += `<div class="grid-wrap"><table class="cells"><thead><tr><th>Kind</th>${ORDER.priority.map((p) => `<th>${p}</th>`).join("")}</tr></thead><tbody>`;
+          for (const k of kinds) {
+            html += `<tr><td>${esc(k)}</td>`;
+            for (const p of ORDER.priority) {
+              const v = k + "|" + p;
+              html += values.wel.cell.includes(v) ? `<td><label><span data-n="${s.k}|${dim}|${esc(v)}">0</span><input type="checkbox" data-sub="${s.k}|${dim}|${esc(v)}" checked aria-label="${esc(k)}, ${p} priority"></label></td>` : "<td class=\"hint\">&middot;</td>";
+            }
+            html += "</tr>";
+          }
+          html += "</tbody></table></div>";
+        } else {
+          for (const v of values[s.k][dim]) {
+            const lab = (LABELS[dim] && LABELS[dim][v]) || v;
+            html += `<label class="opt"><input type="checkbox" data-sub="${s.k}|${dim}|${esc(v)}" checked><span>${esc(lab)}</span><span class="n" data-n="${s.k}|${dim}|${esc(v)}">0</span></label>`;
+          }
+        }
+        html += "</div>";
+      }
+      html += "</div></details>";
+    }
+    subBox.innerHTML = html;
+  }
+  subBox.addEventListener("change", (e) => {
+    const t = e.target; if (!t.dataset.sub) return;
+    const [seg, dim, ...rest] = t.dataset.sub.split("|"); const v = rest.join("|");
+    toggle(state.sub[seg][dim], v, t.checked); update();
+  });
+  subBox.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-all],[data-none]"); if (!b) return;
+    const [seg, dim] = (b.dataset.all || b.dataset.none).split("|");
+    state.sub[seg][dim] = b.dataset.all ? new Set(values[seg][dim]) : new Set();
+    subBox.querySelectorAll(`[data-sub^="${seg}|${dim}|"]`).forEach((i) => { i.checked = !!b.dataset.all; });
+    update();
+  });
+  function renderSubCounts() {
+    const n = {};
+    for (const l of leads) {
+      if (!(passCampus(l) && passQuery(l) && passEst(l) && state.confs.has(l.c))) continue;
+      for (const [dim] of SUBDIMS[l.s]) if (passSub(l, dim)) { const k = `${l.s}|${dim}|${l.u[dim]}`; n[k] = (n[k] || 0) + 1; }
+    }
+    subBox.querySelectorAll("[data-n]").forEach((el) => { el.textContent = fmt(n[el.dataset.n] || 0); });
+    for (const s of SEGS) {
+      const off = SUBDIMS[s.k].reduce((a, [dim]) => a + (values[s.k][dim].length - state.sub[s.k][dim].size), 0);
+      subBox.querySelector(`[data-segsum="${s.k}"]`).textContent = off ? ` · ${off} hidden` : "";
+    }
+  }
+
+  // ---------------------------------------------------------------- search
+  const q = document.getElementById("q"), results = document.getElementById("results");
+  q.addEventListener("input", () => { state.q = fold(q.value.trim()); update(); });
+  function renderResults() {
+    if (!state.q) { results.innerHTML = ""; return; }
+    const hits = leads.filter((l) => l.key.includes(state.q)).sort((a, b) => (b.cp === state.campus) - (a.cp === state.campus)).slice(0, 8);
+    const ex = state.excluded ? excl.filter((l) => l.key.includes(state.q)).slice(0, 3) : [];
+    results.innerHTML = hits.map((l) => `<li><button type="button" data-hit="${l.i}">${swatch(l.s)}<span>${esc(l.n)}</span><span class="meta">${esc(CONF[l.c].label)} · ${esc(CAMPUS[l.cp].label.split(" (")[0])}</span></button></li>`).join("")
+      + ex.map((l) => `<li><button type="button" data-ex="${l.i}">${swatch("grey")}<span>${esc(l.n)}</span><span class="meta">Excluded</span></button></li>`).join("")
+      + (hits.length ? "" : "<li class=\"hint\">No lead on the map matches. It may be in the list of organisations not on the map.</li>");
+  }
+  results.addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    const l = b.dataset.hit != null ? leads[+b.dataset.hit] : excl[+b.dataset.ex];
+    if (state.campus !== "all" && l.cp !== state.campus) { state.campus = "all"; Object.values(pins).forEach((el) => el.classList.remove("dim", "sel")); drawRings(); update(); }
+    if (b.dataset.hit != null && !visible(l)) { state.segs.add(l.s); state.confs.add(l.c); update(); }
+    if (map) { map.flyTo({ center: [l.lo, l.la], zoom: Math.max(map.getZoom(), 14), duration: 700 }); openPopup(l, b.dataset.ex != null); }
+    if (window.matchMedia("(max-width: 760px)").matches) setDrawer(false);
+  });
+
+  // ---------------------------------------------------------------- popup
+  let popup = null;
+  function subLine(l) {
+    const u = l.u;
+    if (l.s === "emp") return [u.kind, u.variant !== "none" ? "Variant " + LABELS.variant[u.variant] : "", u.tier !== "unranked" ? "Reach tier " + u.tier : ""].filter(Boolean);
+    if (l.s === "int") return [u.kind];
+    if (l.s === "wel") return [u.kind, u.priority + " priority"];
+    return [LABELS.level[u.level].replace(/s$/, ""), u.level === "ward" || u.level === "village" ? "Distance band: " + LABELS.band[u.band] : "", u.pilot === "yes" ? "Pilot council area" : "", l.k || ""].filter(Boolean);
+  }
+  function openPopup(l, isExcl) {
+    if (!map) return;
+    if (popup) popup.remove();
+    const camp = CAMPUS[l.cp];
+    let html = `<div class="pop"><h2>${esc(l.n)}</h2>`;
+    if (isExcl) {
+      html += `<div class="tag">${swatch("grey")}Excluded record (${l.src === "welfare" ? "welfare run" : "company master"})</div><dl>`
+        + `<dt>Why</dt><dd>${esc(l.y)}</dd><dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km</dd><dt>Location</dt><dd>${esc(l.h)}</dd></dl></div>`;
+    } else {
+      const c = CONF[l.c];
+      const est = l.e ? `${esc(l.h)}${l.sp > 1 ? `; spread with ${l.sp - 1} other lead${l.sp > 2 ? "s" : ""} at the same spot` : ""}` : esc(l.h) + (l.sp > 1 ? "; nudged apart from a lead at the same point" : "");
+      html += `<div class="tag">${swatch(l.s)}${esc(SEG[l.s].one)}</div><dl>`
+        + `<dt>Subsegment</dt><dd>${subLine(l).map(esc).join(" · ")}</dd>`
+        + `<dt>Confidence</dt><dd><span class="badge" style="color:var(--${l.s})">${esc(c.label)}</span><span class="why">${esc(l.y.charAt(0).toUpperCase() + l.y.slice(1))}</span></dd>`
+        + `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km (straight line)</dd>`
+        + `<dt>Route</dt><dd>${esc(l.r)}</dd>`
+        + `<dt>Recipient</dt><dd>${esc(l.o || "Not set")}</dd>`
+        + `<dt>Draft</dt><dd>${esc(l.d)}</dd>`
+        + `<dt>Location</dt><dd>${l.e && !/^estimated/i.test(l.h) ? "Estimated: " : ""}${est.charAt(0).toUpperCase() + est.slice(1)}</dd></dl></div>`;
+    }
+    popup = new maplibregl.Popup({ closeButton: true, maxWidth: "330px", offset: 12, focusAfterOpen: false }).setLngLat([l.lo, l.la]).setHTML(html).addTo(map);
+  }
+
+  // ---------------------------------------------------------------- not on the map
+  function renderUnmapped() {
+    const box = document.getElementById("unmapped");
+    const bySeg = {};
+    for (const u of DATA.unmapped) (bySeg[u.s] = bySeg[u.s] || []).push(u);
+    let html = `<p class="hint">${fmt(DATA.unmapped.length)} leads have no location in the map area. They still count in their segments' outreach; they are listed here, not drawn.</p>`;
+    for (const s of SEGS) {
+      const list = (bySeg[s.k] || []).sort((a, b) => a.n.localeCompare(b.n));
+      if (!list.length) continue;
+      const reasons = {};
+      for (const u of list) { const r = u.why.replace(/\s*\(.*\)$/, ""); reasons[r] = (reasons[r] || 0) + 1; }
+      html += `<details><summary>${swatch(s.k)} ${esc(s.label)}: <b>${fmt(list.length)}</b></summary>`
+        + `<ul class="reasons">${Object.entries(reasons).sort((a, b) => b[1] - a[1]).map(([r, n]) => `<li><b>${fmt(n)}</b><span>${esc(r)}</span></li>`).join("")}</ul>`
+        + `<ul>${list.map((u) => `<li>${esc(u.n)} <span>· ${esc(CONF[u.c].label)} · ${esc(u.why)}</span></li>`).join("")}</ul></details>`;
+    }
+    box.innerHTML = html;
+  }
+
+  // ---------------------------------------------------------------- legend
+  function renderLegend() {
+    const segRows = SEGS.map((s) => `<div class="row">${swatch(s.k)}<span>${esc(s.label)}</span></div>`).join("");
+    const confRows = [["emp", "high-direct", "High · direct (or letter ready)"], ["emp", "high-indirect", "High · indirect"], ["emp", "medium", "Medium"],
+      ["emp", "low", "Low"], ["emp", "no-email", "No email"], ["emp", "shared", "Shared inbox"]]
+      .map(([s, c, t]) => `<div class="row">${markImg(s, c, 0)}<span>${t}</span></div>`).join("");
+    document.getElementById("legendBody").innerHTML =
+      `<div class="col"><p class="eyebrow">Segment</p>${segRows}<div class="row"><span class="campus-pin" style="pointer-events:none"><span class="dia" style="width:10px;height:10px;border-width:2px"></span></span><span>Campus</span></div></div>`
+      + `<div class="col"><p class="eyebrow">Confidence</p>${confRows}</div>`
+      + `<div class="full col"><div class="row">${markImg("emp", "medium", 1)}<span>Dashed outline: location estimated from a locality, town or ward centre. Leads at one spot are spread on a small spiral.</span></div>`
+      + `<div class="row">${markImg("exc", "x", 0)}<span>Excluded record (layer off by default)</span></div></div>`;
+  }
+
+  // ---------------------------------------------------------------- drawer (phone)
+  const panel = document.getElementById("panel"), drawerBtn = document.getElementById("drawerToggle");
+  function setDrawer(open) { panel.classList.toggle("open", open); drawerBtn.setAttribute("aria-expanded", String(open)); drawerBtn.textContent = open ? "Map" : "Filters"; }
+  drawerBtn.addEventListener("click", () => setDrawer(!panel.classList.contains("open")));
+  if (window.matchMedia("(max-width: 760px)").matches) document.getElementById("legend").open = false;
+
+  document.getElementById("showEstimated").addEventListener("change", (e) => { state.estimated = e.target.checked; update(); });
+  document.getElementById("showRings").addEventListener("change", (e) => { state.rings = e.target.checked; drawRings(); });
+  document.getElementById("showExcluded").addEventListener("change", (e) => { state.excluded = e.target.checked; update(); });
+
+  // ---------------------------------------------------------------- update
+  function update() {
+    renderChips(); renderMatrix(); renderSubCounts(); renderResults();
+    const ex = excl.filter((l) => passCampus(l) && passQuery(l) && passEst(l));
+    document.getElementById("excludedCount").textContent = fmt(excl.length);
+    if (!map || !map.getSource("leads")) return;
+    map.getSource("leads").setData({ type: "FeatureCollection", features: leads.filter(visible).map((l) => leadFeature(l)) });
+    map.getSource("excluded").setData({ type: "FeatureCollection", features: state.excluded ? ex.map((l) => leadFeature(l, "exc")) : [] });
+  }
+
+  document.getElementById("builtOn").textContent = "data of " + new Date(DATA.built + "T12:00:00").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+  document.getElementById("attribText").textContent = DATA.attribution + ". "
+    + (DATA.campuses.every((c) => c.pin) ? "Campus points are the map pins on the campus pages of silverleaf.co.tz." : "Some campus points are approximate; click a campus for its source.");
+  buildSubFilters();
+  renderUnmapped();
+  renderLegend();
+  update();
+  window.__leadMap = { map, leads, state, update, selectCampus };
+})();
+</script>

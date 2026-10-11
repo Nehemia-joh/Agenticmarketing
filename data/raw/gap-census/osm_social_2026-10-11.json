@@ -1,0 +1,12 @@
+{"category":"social","retrieved":"2026-10-11","endpoints":{"west":"https://overpass-api.de/api/interpreter","mid":"https://overpass-api.de/api/interpreter","east":"https://overpass-api.de/api/interpreter"},"bbox":"-3.62,36.42,-3.10,37.40","boxes":{"west":"-3.62,36.42,-3.10,36.78","mid":"-3.62,36.78,-3.10,37.05","east":"-3.62,37.05,-3.10,37.40"},"query":"[out:json][timeout:180];\n(\n  nwr[\"amenity\"~\"^(social_facility|childcare|kindergarten|orphanage)$\"]({bbox});\n  nwr[\"social_facility\"]({bbox});\n);\nout center tags;","osm_base":"2026-10-11T11:25:59Z","attribution":"(c) OpenStreetMap contributors, ODbL 1.0","elements":[{"osm_id":"node/3009256520","lat":-3.3939449,"lon":36.7178274,"tags":{"amenity":"social_facility","name":"Neema House Orphanage","social_facility":"shelter"}},
+{"osm_id":"node/8544938117","lat":-3.4193355,"lon":36.7075023,"tags":{"amenity":"kindergarten","name":"Tuishime pre & primary school"}},
+{"osm_id":"way/380223796","lat":-3.3710704,"lon":36.6600376,"tags":{"addr:street":"Majengo","amenity":"kindergarten","building":"school"}},
+{"osm_id":"way/1245630339","lat":-3.3982598,"lon":36.6654813,"tags":{"addr:city":"Arusha","addr:postcode":"23116","addr:street":"Sombetini Avenue","amenity":"childcare","building":"yes"}},
+{"osm_id":"node/3249727909","lat":-3.1853227,"lon":37.003588,"tags":{"amenity":"childcare","name":"St Bernard nursery"}},
+{"osm_id":"node/13669040404","lat":-3.3663708,"lon":36.7837629,"tags":{"amenity":"childcare"}},
+{"osm_id":"way/312404153","lat":-3.3689769,"lon":36.8288167,"tags":{"amenity":"kindergarten","building":"yes"}},
+{"osm_id":"way/528955936","lat":-3.2175526,"lon":36.8594506,"tags":{"amenity":"childcare","building":"yes","name":"Momella Orphanage","operator":"Africa Amini Alama"}},
+{"osm_id":"node/2241689109","lat":-3.3884343,"lon":37.1167476,"tags":{"amenity":"kindergarten","name":"Andreas Zeiler"}},
+{"osm_id":"node/6828881458","lat":-3.216571,"lon":37.2183863,"tags":{"amenity":"social_facility","name":"Kalali Orphanage","operator":"Ushirika wa Neema","social_facility":"group_home","social_facility:for":"children"}},
+{"osm_id":"node/10594766875","lat":-3.3836917,"lon":37.1816058,"tags":{"amenity":"childcare","name":"Marianne Apple Daycare & Nursery School","phone":"+255763671522","website":"Marianne.daycare@gmail.com"}},
+{"osm_id":"way/395182563","lat":-3.3412641,"lon":37.3442445,"tags":{"amenity":"kindergarten","building":"civic","name":"YMCA Kindergarten","name:en":"YMCA Kindergarten"}}]}

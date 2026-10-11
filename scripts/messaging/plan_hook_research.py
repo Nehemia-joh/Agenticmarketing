@@ -13,6 +13,9 @@ a real reason for the request.
 Each agent writes data/raw/hook-research/hooks_<slice>_<date>.jsonl and a coverage log. The search budget is split
 evenly after holding back 10% for the coordinator (skills/silverleaf-create-lead-list/references/research-rate-limits.md).
 Merge the results with scripts/messaging/apply_hook_research.py.
+
+Each organisation in leads.json carries `already_tried`: what the research ledger (scripts/research/ledger.py) records for it
+(searches by pattern, pages read), so agents do not repeat a pattern inside the retry window (--min-retry-days, default 90).
 """
 from __future__ import annotations
 
@@ -20,12 +23,15 @@ import argparse
 import json
 import re
 import sqlite3
+import sys
 from datetime import date
 from pathlib import Path
 
 import offer_lib as L
 
 ROOT = L.ROOT
+sys.path.insert(0, str(ROOT / "scripts" / "research"))
+import ledger as LG  # noqa: E402  (the research ledger: what was already tried)
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 WORK = ROOT / "runtime" / "hooks"
 RAW = ROOT / "data" / "raw" / "hook-research"
@@ -52,6 +58,8 @@ Your leads: {leads_path}
   - the organisation's own website: home, about, team, careers, community, CSR or foundation, and news pages;
   - each contact's source_url.
 - **Search only when** the organisation's own pages give no usable fact. Use one organisation per query, for example "<exact name>" Arusha.
+- **Already tried:** each organisation's `already_tried` in the leads file lists what the research ledger records for it (search
+  patterns, pages read, with dates and outcomes). Do not repeat a search pattern listed there; read the pages it found instead.
 
 ## For each organisation
 
@@ -120,6 +128,8 @@ At the end, write {coverage_path}. List:
 - any organisation not finished.
 
 Finish when every organisation has a line. Then report in a few lines: organisations done, hooks written, role checks by result, and searches used.
+
+{ledger_rules}
 """
 
 
@@ -161,6 +171,8 @@ def main() -> int:
     parser.add_argument("--unverified-senior", action="store_true",
                         help="plan the role check instead of a track: companies whose chosen recipient has no verified senior contact but whose record names "
                              "one with a source page (the agents confirm the role on that page)")
+    parser.add_argument("--min-retry-days", type=int, default=LG.DEFAULT_RETRY_DAYS,
+                        help="days before a search pattern the research ledger records may be used again (default 90)")
     args = parser.parse_args()
     agents = max(1, min(args.agents, 4))
     con = sqlite3.connect(f"file:{Path(args.database).resolve().as_posix()}?mode=ro", uri=True)
@@ -198,6 +210,10 @@ def main() -> int:
             o["organisation_route_message_ids"].append(r["message_id"])
     con.close()
     ordered = sorted(orgs.values(), key=lambda o: (o["segment"], o["organisation_name"].lower()))
+    if LG.LEDGER.exists():
+        tried = LG.Tried(as_of=args.date, retry_days=args.min_retry_days)
+        for o in ordered:
+            o["already_tried"] = tried.summary("master", o["organisation_id"], o["organisation_name"], max_items=4, max_chars=200)
     slices = [ordered[i::agents] for i in range(agents)]
     per_agent = (args.budget * 90 // 100) // agents
     WORK.mkdir(parents=True, exist_ok=True)
@@ -216,7 +232,8 @@ def main() -> int:
                    "Every organisation here gets the employer purpose sentence, except a savings group, whose hook follows the committee sentence.")
         prompt = PROMPT.format(count=len(part), leads_path=leads_path.relative_to(ROOT).as_posix(), budget=per_agent, root=ROOT.as_posix(),
                                output_path=output_path.relative_to(ROOT).as_posix(), coverage_path=coverage_path.relative_to(ROOT).as_posix(),
-                               date=args.date, special=special)
+                               date=args.date, special=special,
+                               ledger_rules=LG.AGENT_RULES.format(retry_days=args.min_retry_days, slice=name))
         (folder / "prompt.md").write_text(prompt, encoding="utf-8")
         summary.append({"slice": name, "organisations": len(part), "contacts": sum(len(o["contacts"]) for o in part), "searches": per_agent,
                         "prompt": (folder / "prompt.md").relative_to(ROOT).as_posix(), "output": output_path.relative_to(ROOT).as_posix()})

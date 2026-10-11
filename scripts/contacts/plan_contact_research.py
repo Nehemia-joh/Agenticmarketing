@@ -26,6 +26,11 @@ then desk tier; introducers first), then distance, a named recipient before none
 plan to the organisations in a JSON list ({db, organisation_id}, or analyse_high_direct_pool.py --detail rows).
 --searched-since <date> also counts search files of earlier dates as searched (by default only the date's own files count, so a
 new date would forget earlier waves).
+The research ledger (data/raw/research-ledger/research_ledger.jsonl, scripts/research/ledger.py; added 11 October 2026) is read for
+every candidate: an organisation for which every query-pattern family the target allows was already used inside the retry window
+(--min-retry-days, default 90) is skipped; one with half or more used is ranked after the rest; and each prompt carries a compact
+"already tried" list per organisation (patterns and dates, capped) with the families still open. --ignore-ledger plans as before.
+--dry-run writes the slices and prompts to runtime/contacts/dry-run/ and leaves search-targets.json unchanged.
 Candidates are ranked nearest first within each slice (--rank tier puts the company master's desk tier first: A, B, C, D); --max-per-slice keeps only the nearest so one agent's work stays
 manageable (the rest wait for a later wave), or with --split divides a larger slice into balanced parts (<slice>_a, _b, ...)
 that each get an agent, still at most four in all. The search budget is split across at most four slices in proportion to
@@ -45,6 +50,9 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import contact_lib as C
+
+sys.path.insert(0, str(C.ROOT / "scripts" / "research"))
+import ledger as LG  # noqa: E402  (the research ledger: what was already tried)
 
 W = C.W
 DBS = {"master": C.ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite",
@@ -96,6 +104,10 @@ Also write a coverage log to {coverage_path}: every search with its number and o
 organisations not reached. Keep scratch files in your own folder under runtime/contacts/agents/{slice}/. Do not change
 any other file and do not contact anyone. Finish with a short report: counts by status, searches used, leads found,
 blocks, and organisations not reached.
+
+{ledger_rules}
+
+{tried}
 """
 
 
@@ -116,8 +128,71 @@ DIRECT_RULES = """This is a high-direct wave (docs/plans/high-direct-wave-2026-1
   source_type (own site | register | directory | press or report | vacancy notice); a directory entry also source_date.
 - pdpa_risk medium for a named work email on the organisation's own domain; risky for anything on a personal domain or from a site
   whose robots.txt disallows crawling (those are never routes until a person approves them).
-- Previous coverage logs in data/raw/contact-research/coverage/ list queries already run for these organisations: do not repeat them.
+- Every query already run for these organisations is in the research ledger (the already-tried list below, or
+  scripts/research/ledger.py tried --org <id>): do not repeat a pattern for an organisation inside the retry window.
 """
+
+TRIED_TOTAL_CHARS = 6000  # the prompt's already-tried section stays small; the slice file holds every organisation's list
+
+
+def tried_section(items, as_of: str, retry_days: int) -> str:
+    """The prompt's compact already-tried list: one line per organisation with ledger entries, capped in total."""
+    lines, total, left = [], 0, 0
+    for o in items:
+        if not o.get("already_tried"):
+            continue
+        line = (f"- {o['name']} ({o['organisation_id']}): " + "; ".join(o["already_tried"]) +
+                (f". Open: {', '.join(o['open_patterns'])}" if o.get("open_patterns") else ""))
+        if total + len(line) > TRIED_TOTAL_CHARS:
+            left += 1
+            continue
+        lines.append(line)
+        total += len(line) + 1
+    if not lines:
+        return f"Already tried (research ledger, as of {as_of}): nothing recorded for these organisations."
+    head = (f"Already tried (research ledger, as of {as_of}; retry window {retry_days} days; searches first, then pages, crawls and lookups, newest first; 'Open' lists the query-pattern "
+            "families not yet used for this target). Do not repeat these patterns; fetch the pages they found instead:")
+    tail = f"\n(+{left} more organisations with ledger entries: see already_tried in the slice file.)" if left else ""
+    return head + "\n" + "\n".join(lines) + tail
+
+
+def ledger_target(args_target: str, needs: list) -> str:
+    """The ledger's family set for an organisation's needs."""
+    if args_target == "direct-email":
+        return "direct-email"
+    if "published route" in needs and "named decision-maker" in needs:
+        return "all"
+    return "routes" if "published route" in needs else "decision-makers"
+
+
+def apply_ledger(slices, args) -> dict:
+    """Skip organisations whose allowed pattern families the ledger shows all used inside the retry window; give the rest
+    their already-tried list, open families and used share (for ranking). Returns counts for the report."""
+    if args.ignore_ledger or not LG.LEDGER.exists():
+        return {"ledger": "not used" if args.ignore_ledger else "no ledger file"}
+    tried = LG.Tried(as_of=args.date, retry_days=args.min_retry_days)
+    skipped, ranked_down, with_history = Counter(), 0, 0
+    for name in list(slices):
+        kept = []
+        for o in slices[name]:
+            target = ledger_target(args.target, o["needs"])
+            domains = [s for s in o.get("known_sources") or [] if LG.site_domain(s)]
+            named = o.get("has_named", True) if args.target == "direct-email" else True
+            key = (o["db"], o["organisation_id"], o["name"])
+            if tried.exhausted(*key, target=target, has_domain=bool(domains), named=named):
+                skipped[name] += 1
+                continue
+            o["already_tried"] = tried.summary(*key)
+            o["open_patterns"] = tried.open_families(*key, target=target, has_domain=bool(domains), named=named)
+            o["ledger_used_share"] = round(tried.used_share(*key, target=target, has_domain=bool(domains), named=named), 2)
+            with_history += bool(o["already_tried"])
+            ranked_down += o["ledger_used_share"] >= 0.5
+            kept.append(o)
+        slices[name] = kept
+        if not kept:
+            del slices[name]
+    return {"ledger_as_of": args.date, "retry_days": args.min_retry_days, "skipped_all_patterns_used": dict(skipped),
+            "with_history": with_history, "ranked_down_half_used": ranked_down}
 
 
 def ro(path):
@@ -210,6 +285,11 @@ def main() -> int:
     parser.add_argument("--rank", choices=("distance", "tier", "reach"), default="distance",
                         help="order within a slice: nearest first (default), the company master's desk tier first, then nearest, or (reach) "
                              "value first: introducers, reach tier P1/P2 or welfare priority, desk tier, then nearest, named, crawled")
+    parser.add_argument("--min-retry-days", type=int, default=LG.DEFAULT_RETRY_DAYS,
+                        help="days before a query pattern the research ledger records for an organisation may be used again (default 90)")
+    parser.add_argument("--ignore-ledger", action="store_true", help="plan without the research ledger (no skipping, no already-tried lists)")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="write slices and prompts to runtime/contacts/dry-run/ and leave search-targets.json unchanged")
     args = parser.parse_args()
     profiles = json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))["profiles"]
     # Research records can carry a stale organisation ID (see contact_lib.Resolver).
@@ -288,6 +368,8 @@ def main() -> int:
             "db": p["db"], "organisation_id": p["organisation_id"], "name": p["name"], "segment": p["segment"], "locality": info.get("locality") or "",
             "campus": info.get("campus") or "", "distance_km": info.get("distance_km"), "desk_tier": info.get("desk_tier") or "", "needs": needs,
             "known_sources": [s for s in [info.get("source_url"), *(w for w in p["websites"])] if s][:3]})
+    # The research ledger: skip organisations whose allowed patterns are all used, and attach each one's already-tried list.
+    ledger_report = apply_ledger(slices, args)
     # A slice too small to justify its own agent joins the largest slice of the same database (a direct-email wave keeps its slices).
     for name in sorted(slices, key=lambda n: len(slices[n])):
         same_db = [n for n in slices if n != name and n.split("_")[0] == name.split("_")[0]]
@@ -303,12 +385,14 @@ def main() -> int:
 
     def order(o):
         near = (o["distance_km"] in (None, ""), float(o["distance_km"] or 0))
+        # Organisations the ledger shows half or more of the allowed patterns used for go after the rest.
+        worn = (o.get("ledger_used_share", 0) >= 0.5,)
         if args.rank == "tier":
-            return (TIER_ORDER.get(str(o["desk_tier"])[:1], 4),) + near
+            return worn + (TIER_ORDER.get(str(o["desk_tier"])[:1], 4),) + near
         if args.rank == "reach":
             desk = TIER_ORDER.get(str(o["desk_tier"])[:1], int(str(o["desk_tier"])[1:2]) - 1 if re.fullmatch(r"P\d", str(o["desk_tier"])) else 4)
-            return (o.get("value", 3), desk) + near + (not o.get("has_named", False), (o["db"], o["organisation_id"]) not in crawled)
-        return near
+            return worn + (o.get("value", 3), desk) + near + (not o.get("has_named", False), (o["db"], o["organisation_id"]) not in crawled)
+        return worn + near
     for name, items in top:
         items.sort(key=order)
         if args.max_per_slice and len(items) > args.max_per_slice:
@@ -324,7 +408,8 @@ def main() -> int:
     chosen = parts[:max_slices]  # still at most four agents; any further part waits for a later wave
     waiting.update({name: len(items) for name, items in parts[max_slices:]})
     total = sum(len(v) for _, v in chosen)
-    plan, out_dir, prompt_dir = [], C.WORK / "slices", C.WORK / "prompts"
+    work = C.WORK / "dry-run" if args.dry_run else C.WORK
+    plan, out_dir, prompt_dir = [], work / "slices", work / "prompts"
     out_dir.mkdir(parents=True, exist_ok=True)
     prompt_dir.mkdir(parents=True, exist_ok=True)
     budgets = {name: max(5, round(args.budget * len(items) / total)) if total else 0 for name, items in chosen}
@@ -342,17 +427,19 @@ def main() -> int:
             extra = DIRECT_RULES + extra
         prompt = PROMPT.format(slice_path=slice_path.relative_to(C.ROOT).as_posix(), count=len(items), budget=budgets[name], extra=extra,
                                output_path=output_path.relative_to(C.ROOT).as_posix(), coverage_path=coverage_path.relative_to(C.ROOT).as_posix(),
-                               slice=slug)
+                               slice=slug, ledger_rules=LG.AGENT_RULES.format(retry_days=args.min_retry_days, slice=slug),
+                               tried=tried_section(items, args.date, args.min_retry_days) if not args.ignore_ledger else "")
         (prompt_dir / f"{slug}.md").write_text(prompt, encoding="utf-8")
         plan.append({"slice": slug, "organisations": len(items), "searches": budgets[name], "prompt": (prompt_dir / f"{slug}.md").relative_to(C.ROOT).as_posix(),
                      "needs": {n: sum(1 for o in items if n in o["needs"]) for n in ("published route", "named decision-maker", "own work email")}})
         targets["files"][output_path.name] = sorted({n for o in items for n in o["needs"]}, reverse=True)
-    if chosen:
+    if chosen and not args.dry_run:
         targets["files"] = dict(sorted(targets["files"].items()))
         TARGETS.write_text(json.dumps(targets, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     left_out = {name: len(items) for name, items in sorted(slices.items()) if name not in dict(top)}
     print(json.dumps({"wave": args.wave, "target": args.target, "budget": args.budget, "searches_planned": sum(budgets.values()), "slices": plan,
-                      "not_planned": left_out, "waiting_beyond_slice_limit": waiting, "already_searched": len(searched), "closed": len(closed)},
+                      "not_planned": left_out, "waiting_beyond_slice_limit": waiting, "already_searched": len(searched), "closed": len(closed),
+                      "research_ledger": ledger_report, "dry_run": args.dry_run},
                      indent=1))
     return 0
 

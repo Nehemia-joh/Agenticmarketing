@@ -100,6 +100,8 @@ Rules: one organisation record per distinct institution (merge what you learn ab
 
 Also write a Markdown coverage log to the path given in your task: every query and source you tried, what was blocked (e.g., Facebook login wall), counts of records written by type, and known gaps or leads you could not confirm.
 
+List the searches as a numbered table, `| Q | Query | Organisation | Outcome |`, one row per search with the exact query (leave Organisation empty for a discovery search), so the coordinator can fold the log into the research ledger (`scripts/research/ledger.py ingest`). Before searching, read the "Already tried" part of your task: do not run a search listed there again, and do not repeat a query pattern for an organisation the research ledger already records (`python scripts/research/ledger.py tried --name "<organisation>"`) inside the 90-day retry window.
+
 ## 10. Final reply
 
 Reply in under 200 words: counts by record type, the 5 strongest leads (name + why), and the main gaps. Do not paste the records into your reply.

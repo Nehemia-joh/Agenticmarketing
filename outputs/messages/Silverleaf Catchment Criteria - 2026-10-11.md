@@ -210,7 +210,7 @@ The full record is in `outputs/reports/campus-distance-recompute.json`.
 
    Correct or remove these, and add the missing ones using the website pins.
 3. **A correction should move leads, not drop them.** Re-running distances after a campus point changes can push a lead across the 25 km line. Keep any lead that was inside before, with the reason recorded (section 5), and review it on its merits.
-4. **Keep one source of truth for the campus points.** Every distance in all three lists now comes from the `campuses` table in the master database. The old estimates lived in two places (the table and the original importer), which is how they drifted out of date unnoticed.
+4. **Keep one source of truth for the campus points.** Every distance in all three lists now comes from the `campuses` table in the master database. The points are still written out a second time in the original importer (`build_partner_leads.py`), so a correction must be made in both places. Both now carry the website pins.
 
 ---
 

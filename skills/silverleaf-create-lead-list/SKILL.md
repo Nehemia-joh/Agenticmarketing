@@ -15,7 +15,7 @@ Record the campaign objective, campuses or localities, radius, lead types, chann
 - `contact`: a named person or a public role-based contact associated with an organisation.
 - `enquiry`: a public, attributable expression of need from a parent or prospective customer.
 
-Collect only public business contact details or details deliberately published with the enquiry. Do not infer private email addresses, phone numbers, parenthood, identity, or household circumstances. Record an anonymous enquiry when the author is unavailable instead of guessing.
+Collect only public business contact details or details deliberately published with the enquiry. Do not infer private email addresses (the one exception, a labelled low-confidence format candidate, is governed by `docs/methodology/contact-research.md`, "Email formats"), phone numbers, parenthood, identity, or household circumstances. Record an anonymous enquiry when the author is unavailable instead of guessing.
 
 ## Use the data contract
 

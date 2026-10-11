@@ -634,3 +634,9 @@ The bracket depends on decision D4. Drop it if D4 is (a).
 | D13 | The 31 existing `candidate_emails` rows | **Regenerate under the new rules.** Expect about half to drop: the one-evidence and one-name ones |
 | D14 | The committed workbook already holds 30 inferred addresses | **Remove them going forward** (pattern only); do not rewrite git history |
 | D15 | Approve the wording in 8.5 for CLAUDE.md and the methodology, and separately the AGENTS.md and create-lead-list consistency edits | **Approve**, with the D4 bracket matching the D4 decision |
+
+## Sign-off (11 October 2026)
+
+The user approved every recommended option, D1–D15, including the rule wording in section 8.5 and the consistency edits. These are applied to `.claude/CLAUDE.md`, `docs/methodology/contact-research.md`, `AGENTS.md` and `skills/silverleaf-create-lead-list/SKILL.md`.
+
+The user also asked that each inferred candidate be checked with one web search for the exact address in quotes. A hit counts only when a public page publishes that exact address for that person; the page then becomes a source through the normal research files. This is added to the methodology's "Email formats" rules and runs after T4 generates the candidates, drawn from the plan's top-up searches.

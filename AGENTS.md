@@ -22,7 +22,7 @@ Before writing any script, check `scripts/README.md`: reusable scripts are catal
 
 ## Lead-research rules
 
-- Capture public business routes and publicly attributable enquiries. Do not infer parenthood, household facts, or current employment, and do not publish a guessed contact detail as fact. A candidate work-email address may be proposed from a company's own published pattern (`scripts/contacts/infer_candidate_emails.py`, decided 2 October 2026); it is kept apart, marked unverified and approved by a person before use.
+- Capture public business routes and publicly attributable enquiries. Do not infer parenthood, household facts, or current employment, and do not publish a guessed contact detail as fact. A work-email candidate may be generated from an organisation's documented email format under the rules in `docs/methodology/contact-research.md` ("Email formats", decided 11 October 2026); it is labelled inferred and unverified, always low confidence, kept out of committed files, and confirmed by a person before use.
 - Preserve URL, source locator, publication date when available, acquisition date, verification date, evidence basis, and evidence excerpt.
 - Match exact identifiers first. Send similar-name cases to review instead of merging them automatically.
 - Keep a factual hook only when its exact claim has a source URL and verification date. A plain role- or need-based opening is valid when no accurate hook exists.

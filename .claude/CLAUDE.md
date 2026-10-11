@@ -15,7 +15,7 @@ npm run build:workbook
 python scripts/master/verify_master.py
 ```
 
-Every claim must remain traceable to a source record. Do not infer private contact details or personal status. Leave an unsupported hook blank. Keep all sending and automations disabled.
+Every claim must remain traceable to a source record. Do not infer personal status, and never present an inferred contact detail as found: an address counts as published only when a source publishes it for that person or role. The one exception is a work-email candidate generated from an organisation's documented email format (`../docs/methodology/contact-research.md`, "Email formats"): it is labelled "inferred from format, unverified", kept apart from published routes and out of committed files, always low confidence, never a draft's route or a high segment, and confirmed by a person before any use. Leave an unsupported hook blank. Keep all sending and automations disabled.
 
 Welfare leads (children's homes, care programmes, specialised centres, funders) use `../skills/silverleaf-welfare-leads/SKILL.md`. Each run is separate from the master:
 

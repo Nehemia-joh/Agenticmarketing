@@ -1,13 +1,15 @@
 {
  "stats": {
-  "stored distance kept": 640,
-  "coordinates": 213,
+  "stored distance kept": 639,
+  "coordinates": 214,
   "no location": 73,
   "gazetteer point reproduced": 45,
   "records to update": 1,
-  "nearest campus changed": 0
+  "nearest campus changed": 1
  },
- "nearest_campus_changed": [],
+ "nearest_campus_changed": [
+  "Kibowhy Safaris Ltd: Ilboru -> Arusha City (1.0 km)"
+ ],
  "campuses": {
   "Usa River": [
    -3.361003,

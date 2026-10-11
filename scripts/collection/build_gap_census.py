@@ -668,10 +668,10 @@ def main() -> int:
                                         "Hotels, lodges and camps": "tourism:hotel"}.get(g["proposed_subsegment"], "office:company"),
                         "latitude": g["latitude"], "longitude": g["longitude"], "precision": g["precision"], "coord_source_url": g["source_url"],
                         "locality": "", "address": g.get("address", ""), "website": g.get("website", ""), "phone": g.get("phone", ""), "email": "",
-                        "google_maps_url": g["source_url"], "google_category": g.get("google_category", ""),
+                        "google_maps_url": g["source_url"] if "google." in g["source_url"] else "", "google_category": g.get("google_category", ""),
                         "evidence": [{"url": g["source_url"], "fetched_on": g["fetched"], "fetched": True, "evidence_basis": "directory", "source_date": "",
-                                      "excerpt": f"Google Maps listing '{g['name']}' ({g.get('google_category', '')}), {g.get('address', '')}".strip()}],
-                        "reason": "", "verification_status": "verified", "notes": g.get("source", ""), "search_ref": "",
+                                      "excerpt": (f"Google Maps listing '{g['name']}' ({g.get('google_category', '')}), {g.get('address', '')}" if g.get('google_category') else f"{g.get('source', '')}: '{g['name']}', {g.get('address', '')}").strip()}],
+                        "reason": "", "verification_status": "verified", "notes": " ".join(x for x in (g.get("source", ""), g.get("note", "")) if x), "search_ref": "",
                         "raw_file": f"data/raw/gap-census/google_maps_{'user_' if user_named else ''}named_{date}.jsonl"})
     for t in read_jsonl(RAW / f"research_targeted_{date}.jsonl"):
         if t.get("supplements"):  # official details for a record found elsewhere (a Google Maps pin): merge, never a second record

@@ -21,8 +21,8 @@ A recipient hook is optional. Use it only when the exact statement has a traceab
 | Track | Use when | Touchpoints | Outcome |
 |---|---|---|---|
 | AQ00 — Hold for verification | Identity, route, role, current operation or relevance is unresolved | No message | Research or close with a recorded reason |
-| AQ01 — Routing first | The public business route is usable, but the decision-maker is uncertain | One partnership request; a second touch after 5 working days asking who is best to speak to about staff welfare or benefits; then stop | Obtain a named owner or close |
-| AQ02 — Direct recipient test | The recipient's role, route and relevance are sufficiently verified | Initial message; follow-ups after 4 and 4 working days; then stop | Earn permission for a discussion or outline |
+| AQ01 — Routing first (updated 11 October 2026) | The only route is a general inbox (info@, admin@) and no decision-maker is named | A short redirect request, not the pitch: one line on the subject (a staff education benefit for employees' children) and the ask "Who looks after staff welfare and benefits (HR, the welfare officer or the COO)? We would like to send them a short note."; a front-desk call after 2 working days asking for that person's name and email (an email check-in after 5 working days only where no phone is published); a hand-delivered letter for the nearest P1/P2 leads; then dormant, re-tried once at the next intake window | A named owner, recorded with its source and date; the lead then moves to AQ02 |
+| AQ02 — Direct recipient test | The recipient's role, route and relevance are sufficiently verified | Initial message; follow-ups after 4 and 4 working days; then stop. When the named person is reachable only through a general inbox, the message uses the Attn format (11 October 2026): the subject "Attn: <Full Name>, <Role> – staff education benefit", then a routing line set apart at the top ("For the attention of <Full Name>, <Role>. If this inbox does not reach them, we would be grateful if it could be forwarded."), then the letter as if to their own address | Earn permission for a discussion or outline |
 
 These intervals are acquisition tests. They are independent of the school marketing calendar and should change when measured results justify a better cadence. Stop every track on any reply, referral, refusal, opt-out, hard bounce, out-of-office response or duplicate active account.
 
@@ -30,8 +30,8 @@ These intervals are acquisition tests. They are independent of the school market
 
 Build each first message as a request (decided 23 September 2026), from four parts:
 
-1. **Purpose:** what Silverleaf would like to explore with this organisation, such as an education benefit for the children of its staff. Sponsorship is asked of welfare funders only.
-2. **Reason:** one verified reason this recipient or route is appropriate, when one exists. If none exists, leave it out. Use a routing question when the owner is unknown, or hold the record.
+1. **Purpose:** what Silverleaf would like to explore with this organisation, such as an education benefit for the children of its staff. Sponsorship is asked of welfare funders and, since 1 October 2026, of employers whose published giving funds education (variant A); never of other employers (corrected 11 October 2026).
+2. **Reason:** one verified reason this recipient or route is appropriate, when one exists. If none exists, leave it out. When the owner is unknown, send the AQ01 redirect request instead of the full message, or hold the record (11 October 2026).
 3. **Who is writing:** Mariam Haji, Marketing and Partnership Coordinator at Silverleaf Academy.
 4. **One next action:** a short meeting, in person or by phone, or the name of the right colleague.
 

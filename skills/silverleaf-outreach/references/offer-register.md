@@ -51,6 +51,15 @@ Checked on the admissions page on 23 September 2026:
 
 Request first (decided 23 September 2026, on Kilusu's recommendation). The first message to an organisation makes a relevant request and states no offer terms. It gives its purpose, who is writing and asks for a short meeting, in person or by phone. The offer message states the terms. What Silverleaf offers comes second: it answers a reply or follows up, and never opens the conversation.
 
+**Promotional incentives (rule added 11 October 2026, approved by the user).** The partnership offer and a promotional incentive are different things:
+- **The partnership offer** is the terms above (OF04 staff discount, OF03 partner rate, OF07 member rate once extended, OF01, OF02, OF09). It is stated plainly once the conversation is open.
+- **A promotional incentive** is anything extra used to tip a decision, such as discounted first months. It is not an offer in this register, and the rule adds none.
+- A promotional incentive never appears in any automated or standard flow, nor in a cold or early message, because it makes Silverleaf look desperate.
+- It may be used only at the proposal stage, for a specific employer that has already engaged, with Finance's written approval each time. It is time-limited, and only in terms this register records: it is entered here, with its approval and expiry, before any proposal states it.
+- It is never offered to a public body or a government office.
+
+See [partnership-pipelines-draft.md](../../../docs/strategy/partnership-pipelines-draft.md), section 6.
+
 **Sender:** Mariam Haji, Marketing and Partnership Coordinator, signs every draft in all three databases. The Kiswahili title (Mratibu wa Masoko na Ushirikiano) is a draft translation for native-speaker review.
 
 **Sponsorship** is asked of welfare funders and, since 1 October 2026, of employers whose published giving funds education (strong fit; variant A). Every other employer gets variant B. `scripts/master/assign_message_variants.py` records the variant. The reason is one sourced fact from `data/reference/employer-sponsorship-reasons.json`, and the drafts come from `scripts/messaging/draft_employer_sponsorship.py`. No other employer is asked for sponsorship.
@@ -58,7 +67,7 @@ Request first (decided 23 September 2026, on Kilusu's recommendation). The first
 | Audience | First message (request, no terms) | Offer message | Later |
 |---|---|---|---|
 | Employer (AQ02) | A partnership to provide an education benefit for the children of its staff, and a short meeting | Follow-up 1: the staff school-fee benefit at no cost to the employer (OF04), the family offer (OF01, OF02, OF09), levels and campuses; the employer can present the benefit as its own or add to it | A close after 4 more working days |
-| Employer (AQ01 routing) | The same partnership request | The reply once someone names the right colleague | Second touch after 5 working days: who is best to speak to about staff welfare or benefits |
+| Employer (AQ01 routing; updated 11 October 2026) | No person named: a short redirect request asking who looks after staff welfare and benefits (HR, the welfare officer or the COO); no pitch, no terms. A named person behind a general inbox gets the AQ02 message in the Attn format | The reply once someone names the right colleague | A front-desk call after 2 working days asking for that person's name and email; a hand-delivered letter for the nearest P1/P2 leads; then dormant until the next intake window |
 | Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the member-association rate (OF07) | One check-in, or a close |
 | Welfare home or programme | A partnership on the education of the children in its care, and a short meeting | Follow-up: the partner rate (OF03), the free uniform and instalments; admissions checks each child's level | None |
 | Employer that funds education (variant A) | Sponsorship of students, any size including textbooks, transport or meals, with its own published education giving as the reason (no offer terms) | None until it replies | None |

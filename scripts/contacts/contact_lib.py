@@ -17,11 +17,13 @@ import gzip
 import hashlib
 import http.client
 import json
+import os
 import re
 import socket
 import sys
 import threading
 import time
+import unicodedata
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -42,9 +44,14 @@ import welfare_lib as W  # noqa: E402  (per-host spacing, normalisation)
 RAW = ROOT / "data" / "raw" / "contact-research"
 WORK = ROOT / "runtime" / "contacts"
 CACHE = WORK / "http-cache"
+# A worktree session has no HTTP cache of its own: CONTACTS_CACHE_FALLBACK names another checkout's runtime/contacts/http-cache, read
+# (never written) when a page is not in this checkout's cache. A page found there is copied into this cache, so the session's own
+# cache holds every page its records cite; new fetches are written here only.
+CACHE_FALLBACK = Path(os.environ["CONTACTS_CACHE_FALLBACK"]) if os.environ.get("CONTACTS_CACHE_FALLBACK") else None
 USER_AGENT = "silverleaf-lead-research/1.0 (contact research; rate-limited; honours robots.txt)"
 SITE_INTERVAL = 1.5          # seconds between requests to one site
 MAX_PAGES = 6                # home page plus up to five contact, about or team pages
+DEEP_MAX_PAGES = 15          # crawl_org_websites.py --deep: the pages a pool site may give (high-direct plan D-3, 11 October 2026)
 MAX_BYTES = 2_000_000
 TIMEOUT = 25
 SOCIAL_HOSTS = ("facebook.com", "instagram.com", "linkedin.com", "twitter.com", "x.com", "youtube.com", "tiktok.com", "wa.me",
@@ -55,6 +62,9 @@ PAGE_KINDS = [("contact", r"contact|mawasiliano|get-in-touch|reach-us|find-us|lo
               ("team", r"team|staff|people|leadership|management|board|trustee|director|founder|uongozi|who-we-are|our-story|meet"),
               ("about", r"about|kuhusu|history|story|organisation|organization|profile")]
 LINK_SCORE = {"contact": 5, "team": 4, "about": 3}
+# Deep crawl only (--deep): further pages where an organisation lists its leaders and staff, often with their own addresses.
+DEEP_PAGES = re.compile(r"leadership|management|executive|directorate|administration|staff|our-people|people|team|board|directory|profile|"
+                        r"faculty|department|officers|secretariat|governance|who-we-are|uongozi|wafanyakazi|press|news")
 # Set by crawl_org_websites.py --reextract: answer from the HTTP cache only and never touch the network.
 OFFLINE = False
 
@@ -78,6 +88,14 @@ def _unpacked(body: bytes) -> bytes:
 def fetch(url: str, retries: int = 2) -> dict:
     """GET with per-site spacing, retries on 429/5xx, redirect capture and a disk cache. Never bypasses a block."""
     body_path, meta_path = _cache_paths(url)
+    if not meta_path.exists() and CACHE_FALLBACK is not None and (CACHE_FALLBACK / meta_path.name).exists():
+        CACHE.mkdir(parents=True, exist_ok=True)
+        try:
+            fb_body = CACHE_FALLBACK / body_path.name
+            body_path.write_bytes(fb_body.read_bytes() if fb_body.exists() else b"")
+            meta_path.write_bytes((CACHE_FALLBACK / meta_path.name).read_bytes())
+        except OSError:
+            pass
     if meta_path.exists():
         meta = json.loads(meta_path.read_text(encoding="utf-8"))
         try:
@@ -736,6 +754,97 @@ def spelled_alike(a: str, b: str) -> bool:
     return len(diffs) == 1 and min(map(len, diffs[0])) >= 4 and _one_letter_apart(*diffs[0])
 
 
+# ------------------------------------------------------------------ whose mailbox (high-direct plan D1 and D7, 11 October 2026)
+MAILBOX_TITLES = TITLES | {"professor", "engr", "cpa", "amb", "capt", "col", "gen", "sheikh", "mag", "mzee", "rt", "the", "most", "pr", "sir",
+                           "adv", "ca", "ag", "ing", "dipl"}
+# Mailboxes that name a desk or a role, never a person, even when a name starts with them ('ed' for Edward, 'md', 'info').
+ROLE_LOCALS = re.compile(r"^(info|infos|sales|contact|contacts|enquiries|enquiry|inquiries|inquiry|bookings?|reservations?|res|admin|office|hello|mail|"
+                         r"support|accounts?|finance|marketing|press|media|hr|dhrma|humanresources?|people|talent|careers|jobs|recruitment|"
+                         r"md|ceo|gm|dg|vc|dvc|ed|cd|es|ded|director|principal|rector|registrar|secretary|chair|chairman|president|head|"
+                         r"headteacher|headmaster|management|manager|operations|ops|team|general|webmaster|noreply|tours|travel|safari|safaris|"
+                         r"karibu|welcome|reception|customercare|customer|feedback|events|programs?|programmes?|projects?|partnerships?|donate|"
+                         r"giving|volunteer|national|country|executive|board|legal|audit|hq|headoffice|headquarters|branch|regional|"
+                         r"arusha|moshi|dar|dsm|dodoma|mwanza|zanzibar|kilimanjaro|tanzania|tz|africa|kenya|uganda|nairobi|"
+                         r"communications?|pr|it|ict|procurement|tender|tenders|complaints?|whistleblowing|investorrelations|"
+                         r"admissions?|students?|library|research|academic|exam|examinations|bursar|accounting|payments?)$")
+
+
+def _fold(word: str) -> str:
+    return re.sub(r"[^a-z]", "", unicodedata.normalize("NFKD", word).encode("ascii", "ignore").decode().lower())
+
+
+def mailbox_name_words(name: str) -> list[str]:
+    """A person's name words in plain ASCII letters, in order, titles and initials left out."""
+    text = re.sub(r"\([^)]*\)", " ", name or "")
+    words = [_fold(w) for w in re.findall(r"[^\W\d_]+(?:['’][^\W\d_]+)?", text)]
+    return [w for w in words if len(w) >= 2 and w not in MAILBOX_TITLES]
+
+
+def mailbox_name_parts(name: str) -> tuple[str, str]:
+    """(first, last) of a person's name in plain ASCII letters, titles and initials left out; (first, '') for one name."""
+    words = mailbox_name_words(name)
+    return (words[0], words[-1]) if len(words) >= 2 else ((words[0], "") if words else ("", ""))
+
+
+def mailbox_match(address: str, name: str) -> int:
+    """How strongly the mailbox carries the person's name (the strict test, D1 and D7 of 11 October 2026):
+    2 when it is formed from the person's own names only: first name (three letters or more) at the start, optionally followed by
+      another of their names or its initial (joseph@, zaharahnamanda@, sarap@, hilde.keil@, henryobedi.mejooli@), or first initial
+      and surname (jvann@, f.thomas@);
+    1 when it is the start of the first name (sam@ for Samantha) or holds the surname (four letters or more) as a word;
+    0 otherwise. A desk or role mailbox (info@, md@, ed@ ...) never carries a name; another person's name in the mailbox breaks it
+    (camilla.brian@ is not Brian Mengoriki's, peter.kroll@ is not Peter Owaga's)."""
+    local = str(address or "").split("@")[0]
+    letters = _fold(local)
+    words = mailbox_name_words(name)
+    if not words or len(letters) < 3 or ROLE_LOCALS.match(letters):
+        return 0
+    first, rest = words[0], words[1:]
+    last = rest[-1] if rest else ""
+    parts = [p for p in (_fold(x) for x in re.split(r"[._\-+]+", local)) if p]
+
+    def own(part: str) -> bool:  # one of the person's later names, or its initial or start (three letters or more)
+        return any(part == w or part == w[0] or (len(part) >= 3 and w.startswith(part)) for w in rest)
+
+    def initials_then_surname(text: str) -> bool:  # lctenga@ (L. C. Tenga), jvann@, fthomas@
+        prefix = text[: len(text) - len(last)] if last and text.endswith(last) else ""
+        return bool(prefix) and len(prefix) <= 3 and prefix[0] == first[0]
+
+    if len(parts) >= 2:
+        head, tail = parts[0], parts[1:]
+        head_ok = head == first or head == first[0] or (len(first) >= 3 and head.startswith(first) and own(head[len(first):]))
+        if head_ok and rest and all(own(p) for p in tail):
+            return 2
+        return 1 if last and len(last) >= 4 and last in parts else 0
+    if len(first) >= 3 and letters.startswith(first):
+        remainder = letters[len(first):]
+        if not remainder or own(remainder) or (rest and "".join(w[0] for w in rest) == remainder):
+            return 2
+        return 0  # another name follows the first name: someone else's (peterkroll@ is not Peter Owaga's)
+    if last and initials_then_surname(letters):
+        return 2
+    if (len(first) >= 3 and first.startswith(letters)) or (last and len(last) >= 4 and letters == last):
+        return 1
+    return 0
+
+
+def mailbox_carries_name(address: str, name: str) -> bool:
+    return mailbox_match(address, name) > 0
+
+
+def mailbox_owner(address: str, names, person: str = "") -> str:
+    """The one person among names whose mailbox this is: the strongest match by mailbox_match, unique at that strength (Hilde Keil's
+    hilde.keil@ is hers although Robin Keil shares the surname); '' when no one matches or two people match equally. With person,
+    returns person only when it is that owner."""
+    scored = [(mailbox_match(address, n), n) for n in names if n]
+    best = max((s for s, _ in scored), default=0)
+    top = {W.name_key(n): n for s, n in scored if s == best and best > 0}
+    owner = next(iter(top.values())) if len(top) == 1 else ""
+    if person:
+        return person if owner and (W.name_key(owner) == W.name_key(person) or same_person(owner, person)) else ""
+    return owner
+
+
 def split_pair(line: str):
     """(name, role) from one line laid out as 'Name - Role', 'Name, Role', 'Name (Role)' or 'Role: Name'."""
     m = re.match(r"^(.{3,50}?)\s*(?:[-–—|,]|\s\(|:)\s*(.{3,80}?)\)?$", line)
@@ -794,6 +903,8 @@ def people_from(lines: list[str]) -> list[dict]:
             found.append({"name": name, "role": role, "decision_maker": decision, "context": context[:120], **({"prose": True} if prose else {})})
 
     for i, line in enumerate(lines):
+        if line.lstrip().startswith(("—", "–", "―")) or (i and lines[i - 1].rstrip().endswith(("”", "\""))):
+            continue  # a quotation's attribution ('— Natalie Portman / Actress, Director and Producer'), not the organisation's people
         for name, role, text in prose_people(line):
             add(name, role, text, prose=True)
         if len(line) > 120:
@@ -823,8 +934,9 @@ def people_from(lines: list[str]) -> list[dict]:
     return found[:40]
 
 
-def rank_links(base: str, links) -> list[str]:
-    """Same-site links most likely to hold contacts or named leaders, best first."""
+def rank_links(base: str, links, deep: bool = False) -> list[str]:
+    """Same-site links most likely to hold contacts or named leaders, best first. deep (crawl_org_websites.py --deep) also scores
+    leadership, management, staff, directory and profile pages, and a link whose text is a person's name (a staff profile)."""
     site = registrable(urlsplit(base).netloc)
     scored = {}
     for url, text in links:
@@ -835,6 +947,11 @@ def rank_links(base: str, links) -> list[str]:
             continue
         probe = f"{parts.path} {text}".lower()
         score = max((LINK_SCORE[kind] for kind, pattern in PAGE_KINDS if re.search(pattern, probe)), default=0)
+        if deep and not score:
+            if DEEP_PAGES.search(probe):
+                score = 2
+            elif text and len(text) <= 60 and is_name(text):
+                score = 1  # a staff profile linked from its holder's name
         if score:
             clean = url.split("#")[0]
             scored[clean] = max(score, scored.get(clean, 0))

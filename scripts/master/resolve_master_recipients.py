@@ -16,7 +16,9 @@ Two steps, both on the selection of outreach plans (no record is merged or delet
    otherwise becomes the escalation contact (outreach_plans escalation_contact_id, escalation_recipient, escalation_route,
    escalation_trigger; the same names as the welfare run): not a CC and without a draft. Another country's head is neither.
    Board roles (chair, non-executive, trustee) are never chosen, except an introducer's elected chair. Ties keep the plan already
-   selected. data/reference/recipient-overrides.json records reviewed exceptions (recipient, its address, escalation contact).
+   selected. data/reference/recipient-overrides.json records reviewed exceptions (recipient, its address, escalation contact), and
+   since 11 October 2026 its 'excluded_contacts': records that are never a recipient or escalation contact (a page heading read as
+   a person), each with a review item.
 Reviewed relations (data/reference/organisation-relations.json, added 2026-10-11) join records the rules above cannot see: a
 'duplicate' pair is one cluster whose primary is the record the person chose; a 'branch' is clustered with its main organisation
 (the primary), so one message goes to the business as for other branches the website or name rule groups, and its review item
@@ -272,6 +274,8 @@ def senior_rank(contact, segment: str = ""):
 
 
 def verified_person(contact) -> bool:
+    if contact.get("contact_id") in EXCLUDED:
+        return False
     name = contact["name"] or ""
     verification = contact["verification"] or ""
     return (len(name.split()) >= 2 and not re.search(r"\d|\?", name) and bool(VERIFIED.search(verification))
@@ -311,6 +315,8 @@ def primary_of(members, orgs, plans, contacts, wide_orgs=frozenset()):
 def plan_key(plan, contacts, primary_org, wide_orgs=frozenset()):
     """Lower sorts first: a verified named decision-maker (in-country first); otherwise the draft already chosen for the primary record.
     Between two equal candidates the one already selected stays, so a re-run never flips a tie."""
+    if plan["target_type"] == "contact" and plan["target_id"] in EXCLUDED:
+        return (2, (), plan["message_id"])  # never the recipient (recipient-overrides.json excluded_contacts)
     if plan.get("variant_body"):  # the plan that holds a variant draft (assign_message_variants.py) is the company's recipient
         return (-1, (), plan["message_id"])
     e = eligible(plan, contacts, wide_orgs)
@@ -333,6 +339,15 @@ def plan_key(plan, contacts, primary_org, wide_orgs=frozenset()):
 def load_overrides() -> dict:
     """Reviewed recipient choices (data/reference/recipient-overrides.json): {organisation_id: {contact_id, route, reason, source, decided}}."""
     return json.loads(OVERRIDES.read_text(encoding="utf-8"))["organisations"] if OVERRIDES.exists() else {}
+
+
+def load_excluded() -> dict:
+    """Contacts that are never a recipient or an escalation contact (recipient-overrides.json 'excluded_contacts', added 11 October 2026:
+    a page heading read as a person, a public figure): {contact_id: {name, reason, source, decided}}."""
+    return json.loads(OVERRIDES.read_text(encoding="utf-8")).get("excluded_contacts", {}) if OVERRIDES.exists() else {}
+
+
+EXCLUDED = load_excluded()
 
 
 def wide_organisations(contacts) -> set:
@@ -504,6 +519,13 @@ def main() -> int:
                             (sid("misattributed", wrong["contact_id"], wrong.get("value", "")), "Contact email belongs to another person", oid,
                              wrong["contact_id"], "named_email", f"{wrong.get('value', '')}: {wrong.get('reason', '')}"[:400],
                              "Remove the address from this contact through the update skill; the recipient override uses it for its owner."))
+        for cid, x in EXCLUDED.items():
+            if cid in contacts:  # flagged for a person to correct through the update skill; the contact is kept, never deleted
+                con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                            (sid("excluded-contact", cid), "Contact excluded as recipient", contacts[cid]["organisation_id"], cid, "name",
+                             f"{x.get('name', '')}: {x.get('reason', '')}"[:400],
+                             "Never chosen as recipient or escalation contact (data/reference/recipient-overrides.json excluded_contacts). "
+                             "Correct or remove the contact through the update skill."))
         con.execute("UPDATE outreach_plans SET escalation_contact_id=NULL, escalation_recipient=NULL, escalation_route=NULL, escalation_trigger=NULL")
         for mid, e in escalations.items():
             con.execute("UPDATE outreach_plans SET escalation_contact_id=?, escalation_recipient=?, escalation_route=?, escalation_trigger=? WHERE message_id=?",

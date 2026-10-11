@@ -981,9 +981,11 @@ def government_units(places, districts, district_council, gconf, date, leads, go
                     "osm_id": p["osm_id"], "source_url": OSM_URL.format(p["osm_id"]),
                     "source_path": f"data/raw/gap-census/osm_{'offices' if p.get('office') else 'places'}_{date}.json",
                     "campus": p["campus"], "distance_km": p["distance_km"], "in_government_run": p["osm_id"] in villages,
-                    "proposed": unit in ("village", "mtaa"),
+                    # An unnamed place point (place=village and no name) cannot be addressed: listed, never proposed (fixed 11 October 2026).
+                    "proposed": unit in ("village", "mtaa") and bool(str(p.get("name") or "").strip()),
                     "note": ("OpenStreetMap neighbourhood: confirm it is an official mtaa. " if unit.startswith("mtaa") else "")
-                            + ("Sub-village: listed, not proposed as an office. " if unit.startswith("kitongoji") else "")})
+                            + ("Sub-village: listed, not proposed as an office. " if unit.startswith("kitongoji") else "")
+                            + ("Unnamed place point: not proposed until its name is known. " if not str(p.get("name") or "").strip() else "")})
     # one unit per council and name: an office point first, then the nearest place point of that name
     best = {}
     for u in sorted(out, key=lambda r: (r["location_kind"] != "office point", not r["proposed"], r["distance_km"] or 99)):

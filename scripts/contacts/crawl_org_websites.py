@@ -19,6 +19,7 @@ import sqlite3
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import date
+from pathlib import Path
 
 import contact_lib as C
 
@@ -50,10 +51,13 @@ def page_ok(result: dict) -> bool:
     return result.get("status") == 200 and "html" in str(result.get("content_type") or "html").lower() and bool(result.get("body"))
 
 
-def crawl(rec: dict) -> dict:
+def crawl(rec: dict, deep: bool = False) -> dict:
+    """One site. deep (--deep, high-direct plan D-3): up to C.DEEP_MAX_PAGES pages instead of C.MAX_PAGES, ranking leadership,
+    management, staff, directory and profile pages too, and following those pages' own such links (staff profiles) one level down."""
     start = rec["start_url"]
+    limit = C.DEEP_MAX_PAGES if deep else C.MAX_PAGES
     out = {**rec, "fetched_on": date.today().isoformat(), "robots": "allowed", "pages": [], "emails": {}, "phones": {}, "socials": {},
-           "postal": [], "people": [], "errors": []}
+           "postal": [], "people": [], "errors": [], **({"deep": True} if deep else {})}
     # robots.txt applies per scheme and host: a file unreachable on one scheme may be readable on the other, and after a
     # redirect the rules of the host actually served apply. Explicit Disallow rules are honoured. A robots.txt that cannot
     # be read (server, network or certificate error) does not stop the crawl; the site is crawled and flagged.
@@ -89,10 +93,24 @@ def crawl(rec: dict) -> dict:
             queue = []
         else:
             first = C.extract(home["final_url"], home["body"])
-            for link in C.rank_links(home["final_url"], first["links"])[: C.MAX_PAGES - 1]:
+            for link in C.rank_links(home["final_url"], first["links"], deep=deep)[: limit - 1]:
                 if link not in visited and C.allowed(robots, link):
                     visited.add(link)
                     queue.append((C.fetch(link, retries=1), None))
+            if deep:
+                # One level down from the team, about and leadership pages: their own staff and profile links, while pages remain.
+                for result, _ in list(queue[1:]):
+                    if len(queue) >= limit:
+                        break
+                    if not page_ok(result) or C.page_kind(result["final_url"]) not in ("team", "about"):
+                        continue
+                    links = C.extract(result["final_url"], result["body"])["links"]
+                    for link in C.rank_links(result["final_url"], links, deep=True):
+                        if len(queue) >= limit:
+                            break
+                        if link not in visited and C.allowed(robots, link):
+                            visited.add(link)
+                            queue.append((C.fetch(link, retries=1), None))
     else:
         out["errors"].append(f"home page not readable: {home.get('error') or home.get('status')}")
         queue = [(home, "home")]
@@ -133,7 +151,7 @@ def reextract(out_path, workers: int) -> int:
     todo = {i: r for i, r in enumerate(records) if any(p.get("status") == 200 for p in r["pages"])}
     print(f"{len(records)} sites in {out_path.name}; re-extracting {len(todo)} readable sites from the cache", flush=True)
     with ThreadPoolExecutor(max_workers=max(1, min(workers, 12))) as pool:
-        futures = {pool.submit(crawl, {k: r[k] for k in ("domain", "start_url", "orgs")}): i for i, r in todo.items()}
+        futures = {pool.submit(crawl, {k: r[k] for k in ("domain", "start_url", "orgs")}, bool(r.get("deep"))): i for i, r in todo.items()}
         for future in as_completed(futures):
             i = futures[future]
             records[i] = {**future.result(), "fetched_on": records[i].get("fetched_on", "")}
@@ -157,24 +175,42 @@ def main() -> int:
     parser.add_argument("--only", nargs="+", default=[], metavar="DOMAIN",
                         help="crawl only these sites (for example the websites of newly added leads into a new date's file); "
                              "combine with --recrawl to replace records the date's file already holds")
+    parser.add_argument("--deep", action="store_true",
+                        help=f"read up to {C.DEEP_MAX_PAGES} pages per site (leadership, management, staff, directory and profile pages, one "
+                             "level down from team pages); a deep record replaces a shallow record of the same site in the date's file")
+    parser.add_argument("--orgs", type=Path,
+                        help="JSON list of organisations to crawl ({db, organisation_id}, or {track, organisation_id} rows from "
+                             "analyse_high_direct_pool.py --detail): only their websites")
     args = parser.parse_args()
     C.RAW.mkdir(parents=True, exist_ok=True)
     out_path = C.RAW / f"website_contacts_{args.date}.jsonl"
     if args.reextract:
         return reextract(out_path, args.workers)
+    wanted = None
+    if args.orgs:
+        wanted = {(o.get("db") or ("welfare" if o.get("track") == "welfare" else "master"), o["organisation_id"])
+                  for o in json.loads(args.orgs.read_text(encoding="utf-8"))}
+    all_targets = targets()
+    chosen = {d for d, rec in all_targets.items() if wanted is None or any((o["db"], o["organisation_id"]) in wanted for o in rec["orgs"])}
+    if args.deep and out_path.exists():
+        # A deep record supersedes a shallow one of the same site (its pages include the shallow crawl's, re-read from the cache).
+        replace = {d for d in chosen if not args.only or d in args.only}
+        kept = [line for line in out_path.read_text(encoding="utf-8").splitlines()
+                if line.strip() and (json.loads(line)["domain"] not in replace or json.loads(line).get("deep"))]
+        out_path.write_text("".join(line + "\n" for line in kept), encoding="utf-8")
     if args.recrawl and out_path.exists():
         kept = [line for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip() and json.loads(line)["domain"] not in args.recrawl]
         out_path.write_text("".join(line + "\n" for line in kept), encoding="utf-8")
     done = set()
     if out_path.exists():
         done = {json.loads(line)["domain"] for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip()}
-    todo = [rec for domain, rec in sorted(targets().items()) if domain not in done and (not args.only or domain in args.only)]
+    todo = [rec for domain, rec in sorted(all_targets.items()) if domain not in done and domain in chosen and (not args.only or domain in args.only)]
     if args.limit:
         todo = todo[: args.limit]
     print(f"{len(done)} sites already crawled; {len(todo)} to crawl with {args.workers} workers", flush=True)
     finished = 0
     with ThreadPoolExecutor(max_workers=max(1, min(args.workers, 12))) as pool:
-        futures = {pool.submit(crawl, rec): rec["domain"] for rec in todo}
+        futures = {pool.submit(crawl, rec, args.deep): rec["domain"] for rec in todo}
         for future in as_completed(futures):
             domain = futures[future]
             try:

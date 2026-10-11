@@ -63,6 +63,9 @@ COPY_VERSION = "request-first-v5"
 MESSAGE_STATUS = "Draft - not sent; request-first review"
 TODAY = "2026-09-23"
 OBSOLETE_NOTES = {"replace sender name"}  # the sender is Mariam Haji for every draft
+# Variant A (sponsorship) plans: the register approves no follow-up for a sponsorship ask before a reply.
+SPONSORSHIP_FOLLOW_UP_NOTE = ("Sponsorship follow-up awaiting approved copy (variant A: no staff-benefit follow-up, because the offer register "
+                              "gives sponsorship rows no offer message until they reply).")
 # The two holds a new plan gets from its organisation (below, in main). They describe the organisation when the plan was
 # created, so each rewrite checks them against the organisation as it is now (decided 2026-10-11): a lead an enrichment round
 # matched to a real organisation (verification no longer 'Raw OSM') is not held as map-only, and an organisation that now
@@ -354,7 +357,16 @@ def main() -> int:
             copy = rivertrees_copy(org)
         else:
             copy = employer_copy(plan, org, track)
-        updates.append((plan, copy, plan_notes(copy, plan["organisation_id"], welfare_links)))
+        notes = plan_notes(copy, plan["organisation_id"], welfare_links)
+        if str(plan.get("message_variant") or "").startswith("A"):
+            # Variant A asks for sponsorship (draft_employer_sponsorship.py). The offer register gives sponsorship rows no offer message
+            # until they reply, so the staff-benefit follow-ups would switch the ask mid-thread: left blank until sponsorship follow-up
+            # copy is approved (fixed 11 October 2026).
+            copy = {**copy, "follow_up_1": "", "follow_up_2": ""}
+            notes.append(SPONSORSHIP_FOLLOW_UP_NOTE)
+        else:
+            plan = {**plan, "missing_information": drop_note(str(plan.get("missing_information") or ""), SPONSORSHIP_FOLLOW_UP_NOTE)}
+        updates.append((plan, copy, notes))
         # The pre-offer and the offer-led copies are each kept once; later, only a copy that actually changes is kept, so a
         # re-run adds nothing.
         stored = tuple(plan.get(k) or "" for k in COPY_FIELDS)

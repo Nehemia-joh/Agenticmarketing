@@ -1,10 +1,10 @@
 {
-  "file": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-a004343b4d6f5d613\\data\\runs\\arusha-government-2026-09\\intake.csv",
+  "file": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-a881ff7fb97e6ce7a\\data\\runs\\arusha-government-2026-09\\intake.csv",
   "status": "valid",
-  "row_count": 852,
+  "row_count": 846,
   "counts": {
-    "contact": 622,
-    "organisation": 230
+    "contact": 618,
+    "organisation": 228
   },
   "error_count": 0,
   "warning_count": 0,

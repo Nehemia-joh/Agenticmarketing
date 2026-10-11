@@ -134,10 +134,13 @@ def merge_organisations(orgs: list[dict]) -> tuple[list[dict], list[dict]]:
             base["latest_activity_date"] = sorted({str(m.get("latest_activity_date")) for m in members if m.get("latest_activity_date")})[-1]
         base["alternative_names"] = sorted({W.norm_text(n) for m in members for n in [m.get("organisation_name")] + W.as_list(m.get("alternative_names")) if n}
                                            - {W.norm_text(base["organisation_name"])})
-        # The organisation's own-domain inbox comes first (the run's email field takes the first), then other domains, then free-mail.
+        # The organisation's own-domain inbox comes first (the run's email field takes the first), then other domains, then free-mail;
+        # within each, its general inbox (info@, contact@, office@ ...) before a desk's or a person's (assistantbishop@), so a deeper
+        # crawl that publishes more inboxes does not change the route (11 October 2026).
         site = W.own_domain(base.get("website") or next((m.get("website") for m in members if m.get("website")), ""))
         base["public_emails"] = sorted({e for m in members for e in map(W.norm_email, W.as_list(m.get("public_emails"))) if e},
-                                       key=lambda e: (bool(W.PERSONAL_EMAIL.search(e)), not (site and e.split("@")[-1].endswith(site)), e))
+                                       key=lambda e: (bool(W.PERSONAL_EMAIL.search(e)), not (site and e.split("@")[-1].endswith(site)),
+                                                      not re.match(r"(info|contact|contacts|office|admin|hello|enquiries|enquiry|mail)@", e), e))
         phones = {}
         for m in members:
             for p in W.as_list(m.get("public_phones")):

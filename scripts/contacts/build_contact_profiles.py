@@ -359,8 +359,11 @@ def main() -> int:
     # crawling was read at the user's direction (24 September 2026): its people are tagged risky and the organisation is
     # flagged, so the data is kept and its source is visible.
     search_stats, hotlines = Counter(), set()
+    # website_direct_<date>.jsonl (extract_direct_emails.py, 11 October 2026): own-site addresses tied to people already on file, read
+    # from the crawl cache; they rank with the website's own records.
     records = [("search", path) for path in sorted(C.RAW.glob(f"search_*_{args.date}.jsonl"))] + \
-              [("browser", path) for path in sorted(C.RAW.glob(f"browser_*_{args.date}.jsonl"))]
+              [("browser", path) for path in sorted(C.RAW.glob(f"browser_*_{args.date}.jsonl"))] + \
+              [("website", path) for path in sorted(C.RAW.glob(f"website_direct_{args.date}.jsonl"))]
     for method, path in records:
         for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not line.strip():
@@ -488,10 +491,13 @@ def main() -> int:
                 continue
             etype, person = email_type(email, [x["name"] for x in people] + [c["name"] for c in o["contacts"] if c["name"]])
             emails.append({"email": email, "type": etype, "person": person, **info})
+        everyone = [x["name"] for x in people] + [c["name"] for c in o["contacts"] if c["name"]]
         for p in people:
             p["email"], p["phone"] = ("" if p["email"] in bad else p["email"]), ("" if p["phone"] in bad else p["phone"])
             if not p["email"]:
-                linked = next((x["email"] for x in emails if x["person"] == p["name"]), "")
+                # A mailbox found on the page is the person's only by the strict test, unique among the organisation's people (D1 and D7,
+                # 11 October 2026): camilla.brian@ is not Brian Mengoriki's, and keil@ is no one's when two Keils are listed.
+                linked = next((x["email"] for x in emails if x["person"] == p["name"] and C.mailbox_owner(x["email"], everyone, p["name"])), "")
                 p["email"] = linked
             if p["email"] and W.PERSONAL_EMAIL.search(p["email"]):
                 p["pdpa_risk"], p["pdpa_risk_reason"] = "risky", "Named person linked to a personal-domain email."

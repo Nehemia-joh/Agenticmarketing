@@ -12,6 +12,13 @@ No network, no database writes. The segments come from scripts/messaging/export_
 --runtime defaults to this checkout's runtime/; a worktree points it at the main checkout's runtime/ (read-only use).
 Writes a summary JSON to stdout and, with --detail <path>, one row per pool lead (names and addresses: keep it under
 runtime/, never commit it).
+
+Before and after a wave (no cache reading):
+  --snapshot runtime/analysis/before.json     every exported row and its segment
+  --compare before.json after.json            segment counts, moves, high-direct gained, and any high-direct row lost (exit 1)
+  --check                                     the plan's invariants: no free-mail, rejected or inferred address among high-direct,
+                                              every company high-direct address on a sourced fact, no risky/incomplete/board-only
+                                              high-direct recipient (exit 1 on a failure)
 """
 from __future__ import annotations
 
@@ -84,11 +91,111 @@ def cache_body(cache: Path, url: str) -> bytes:
     return data
 
 
+SNAPSHOT_FIELDS = ("track", "organisation", "plan_id", "email", "confidence", "high_route", "recipient")
+REJECTED = ROOT / "data" / "reference" / "rejected-routes.json"
+
+
+def segment(r: dict) -> str:
+    return f"{r['track']}-{r['confidence']}" + (f"-{r['high_route']}" if r.get("high_route") else "")
+
+
+def snapshot(path: Path) -> int:
+    """Every exported row (all tracks except government) as the exporter builds it now: the before or after picture of a wave.
+    Holds addresses, so keep it under runtime/."""
+    master, welfare = ro(MASTER), ro(WELFARE)
+    rows, _ = X.dedupe(X.company_rows(master)[0] + X.welfare_rows(welfare)[0])
+    data = [{k: r.get(k, "") for k in SNAPSHOT_FIELDS} for r in rows]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=1, ensure_ascii=False), encoding="utf-8")
+    print(json.dumps(dict(sorted(Counter(segment(r) for r in data).items())), indent=1))
+    return 0
+
+
+def compare(before_path: Path, after_path: Path) -> int:
+    """Segment counts before and after, the leads that moved (by organisation and track), and every earlier high-direct row that
+    is no longer high-direct (there should be none)."""
+    before = json.loads(before_path.read_text(encoding="utf-8"))
+    after = json.loads(after_path.read_text(encoding="utf-8"))
+    key = lambda r: (r["track"], r["organisation"])  # noqa: E731
+    b, a = {key(r): r for r in before}, {key(r): r for r in after}
+    counts_b, counts_a = Counter(segment(r) for r in before), Counter(segment(r) for r in after)
+    moved = Counter((segment(b[k]), segment(a[k])) for k in b.keys() & a.keys() if segment(b[k]) != segment(a[k]))
+    lost = [{"organisation": k[1], "track": k[0], "now": segment(a[k]) if k in a else "not exported"}
+            for k, r in b.items() if r.get("high_route") == "direct" and (k not in a or a[k].get("high_route") != "direct")]
+    gained = [{"organisation": k[1], "track": k[0], "was": segment(b[k]) if k in b else "not exported", "recipient": a[k]["recipient"]}
+              for k, r in a.items() if r.get("high_route") == "direct" and (k not in b or b[k].get("high_route") != "direct")]
+    out = {"segments": {s: {"before": counts_b.get(s, 0), "after": counts_a.get(s, 0)} for s in sorted(set(counts_b) | set(counts_a))},
+           "moves": {f"{x} -> {y}": n for (x, y), n in sorted(moved.items())},
+           "high_direct_gained": sorted(gained, key=lambda g: (g["track"], g["organisation"])),
+           "high_direct_lost": lost,
+           "rows_only_before": len(b.keys() - a.keys()), "rows_only_after": len(a.keys() - b.keys())}
+    print(json.dumps(out, indent=1, ensure_ascii=False))
+    return 1 if lost else 0
+
+
+def check() -> int:
+    """Invariants on the high and high-direct rows (docs/plans/high-direct-wave-2026-10-11.md section 5): no free-mail and no rejected
+    route among high-direct, no inferred candidate as a high address, every company high-direct address traceable to a fact with a
+    source record, and no high recipient whose contact is risky, incomplete or board-only. Exit 1 on any failure."""
+    master, welfare = ro(MASTER), ro(WELFARE)
+    rows, _ = X.dedupe(X.company_rows(master)[0] + X.welfare_rows(welfare)[0])
+    rejected = {str(x["value"]).lower() for x in json.loads(REJECTED.read_text(encoding="utf-8"))["routes"] if x["kind"] == "email"}
+    try:
+        inferred = {r[0].lower() for r in master.execute("SELECT address FROM candidate_emails")}
+    except sqlite3.OperationalError:
+        inferred = set()
+    plans = {r["message_id"]: dict(r) for r in master.execute("SELECT message_id, target_type, target_id FROM outreach_plans")}
+    contacts = {r["contact_id"]: dict(r) for r in master.execute("SELECT contact_id, name, role, verification FROM contacts")}
+    traced = {(r[0], str(r[1]).lower()) for r in master.execute(
+        "SELECT f.entity_id, f.value FROM facts f JOIN source_records s ON s.record_id=f.record_id "
+        "WHERE f.entity_type='contact' AND f.field IN ('named_email','published_role_email','shared_email','email')")}
+    org_traced = {str(r[0]).lower() for r in master.execute(
+        "SELECT f.value FROM facts f JOIN source_records s ON s.record_id=f.record_id WHERE f.entity_type='organisation' AND f.field LIKE '%email%'")}
+    failures = defaultdict(list)
+    for r in rows:
+        address = r["email"].lower()
+        if r["confidence"] != "high":
+            continue
+        if address in inferred:
+            failures["inferred candidate used as a high address"].append(r["organisation"])
+        if r["high_route"] != "direct":
+            continue
+        if FREE.search(address):
+            failures["free-mail high-direct address"].append(r["organisation"])
+        if address in rejected:
+            failures["rejected route as high-direct"].append(r["organisation"])
+        if r["track"] in ("companies", "introducers"):
+            p = plans.get(r["plan_id"], {})
+            c = contacts.get(p.get("target_id")) if p.get("target_type") == "contact" else None
+            if c and not any(cid == c["contact_id"] and address in v for cid, v in traced) and address not in org_traced:
+                failures["high-direct address without a sourced fact"].append(r["organisation"])
+            if c and (R.UNUSABLE.search(c["verification"] or "") or (R.BOARD.search(c["role"] or "") and not R.EXECUTIVE.search(c["role"] or ""))):
+                failures["high-direct recipient risky, incomplete or board-only"].append(r["organisation"])
+    result = {"high_rows": sum(1 for r in rows if r["confidence"] == "high"),
+              "high_direct_rows": sum(1 for r in rows if r["high_route"] == "direct"),
+              "failures": {k: sorted(set(v)) for k, v in failures.items()}}
+    print(json.dumps(result, indent=1, ensure_ascii=False))
+    return 1 if failures else 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--runtime", type=Path, default=ROOT / "runtime")
     parser.add_argument("--detail", type=Path, help="write one row per pool lead here (contains names and addresses: runtime/ only)")
+    parser.add_argument("--snapshot", type=Path, help="write every exported row (segment, address) here and stop (runtime/ only)")
+    parser.add_argument("--compare", nargs=2, type=Path, metavar=("BEFORE", "AFTER"), help="compare two snapshots and stop")
+    parser.add_argument("--check", action="store_true", help="check the high-direct invariants on the databases as they are now and stop")
+    parser.add_argument("--master", type=Path, help="another master database (a trial copy)")
+    parser.add_argument("--welfare", type=Path, help="another welfare run database (a trial copy)")
     args = parser.parse_args()
+    global MASTER, WELFARE
+    MASTER, WELFARE = args.master or MASTER, args.welfare or WELFARE
+    if args.snapshot:
+        return snapshot(args.snapshot)
+    if args.compare:
+        return compare(*args.compare)
+    if args.check:
+        return check()
     cache = args.runtime / "contacts" / "http-cache"
     profiles = json.loads((args.runtime / "contacts" / "profiles.json").read_text(encoding="utf-8"))["profiles"]
     prof = {(p["db"], p["organisation_id"]): p for p in profiles}

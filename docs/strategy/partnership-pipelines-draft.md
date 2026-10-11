@@ -1,504 +1,268 @@
 # Partnership pipelines: draft for review
 
-Version: 2026-10-11 draft 1 (phase 1, for the user's review)
-Status: **Design only.** Nothing here is built, no database has changed, and nothing is sent. Sending and automations stay disabled.
-Scope: every core segment and subsegment in [Silverleaf Core Segments - 2026-10-11](../../outputs/messages/Silverleaf%20Core%20Segments%20-%202026-10-11.md): employers (with savings groups), introducers, welfare organisations and government offices.
+Version: 2026-10-11 draft 2 (phase 1, revised for the user's review)
+Status: **Design only.** Nothing is built, no database has changed, and nothing is sent. Sending and automations stay disabled.
+Scope: every core segment and subsegment in [Silverleaf Core Segments - 2026-10-11](../../outputs/messages/Silverleaf%20Core%20Segments%20-%202026-10-11.md).
 
-## What this document is
+There is one shared spine of stages. Every segment's pipeline maps onto it, and every subsegment has its own funnel drawn on it, so results add up across segments. The spine comes first. After it come an overview, the parent funnel that every partner feeds, and one funnel per subsegment group. The open questions are in [section 14](#14-open-questions-for-the-user).
 
-Silverleaf writes to four kinds of organisation. Each needs a pipeline: the stages a deal moves through from "ready to contact" to "partnership closed" and then to families enrolling. This draft proposes those pipelines, one per segment, with the variations each subsegment needs, so the user can review them before anything is built.
+**How to read the diagrams**
 
-For each pipeline it sets out:
-- what counts as a win;
-- the stages, with who acts and the asset used;
-- how staff, members or parents opt in;
-- what is recorded;
-- timing and when a stalled deal is re-prompted or closed;
-- the hand-off to admissions;
-- the numbers to watch.
+| Colour | Meaning |
+|---|---|
+| Blue box | Silverleaf acts |
+| Amber box | The partner acts |
+| Dashed diamond | A decision or a gate |
+| Green, thick border | **The win: the partnership is closed** |
+| Purple box | Results, and the hand-off to the parent funnel (Inquiry, Tour, Application, Enrolment) |
+| Red box | Closed, lost (always with a reason) |
 
-Section 12 lists the conflicts found in the existing strategy documents. Section 13 lists the open questions, each with a recommended answer. Section 14 says what would be built after approval.
-
-**Counts.** All counts come from read-only copies of the three databases, taken on the evening of 11 October 2026: the master, the welfare run `arusha-welfare-2026-09` and the government run `arusha-government-2026-09`. They are larger than the Core Segments document, which was written that morning before the day's new leads were added (companies rose from 716 to 1,118; government offices from 150 to 230). Confidence bands are computed with the rules in `scripts/messaging/export_resend_contacts.py`, before shared inboxes are collapsed, so they can differ by a few from the Resend files.
+**Abbreviations used in the diagrams:**
+- Coord: Marketing and Partnership Coordinator;
+- Adm: admissions officer at the family's or the partner's nearest campus;
+- Head: campus head;
+- Fin: Finance;
+- CEO: chief executive, who signs agreements (the MOU gate in the scope of work);
+- DSL: designated safeguarding lead;
+- WEO / VEO: ward / village executive officer.
 
 ---
 
-## 1. Overview on one page
+## 1. The shared spine
 
-"Ready" means a draft is ready for review with a usable route today. The stage path leaves out the "Closed, lost" exit, which every stage has.
+### Spine stages
 
-| Segment | Subsegment | Organisations (ready) | Stage path | Partnership closed when |
+```mermaid
+flowchart TD
+  S0["S0 Held<br/>research or checks"]
+  S1["S1 Ready"]
+  S2["S2 Contacted"]
+  S3["S3 Responded"]
+  S4["S4 Meeting"]
+  S5["S5 Activation<br/>session, visit, slot or circulation"]
+  S6["S6 Proposal<br/>only when terms are signed"]
+  S7["S7 PARTNER<br/>partnership closed"]
+  S8["S8 Results<br/>families, referrals or placements"]
+  S9["S9 Renewal"]
+  SX["SX Closed-lost<br/>with a reason"]
+  S0 --> S1 --> S2 --> S3 --> S4 --> S5 --> S6 --> S7 --> S8 --> S9
+  S5 -->|no terms to sign| S7
+  S9 -.->|next intake window| S8
+  S2 & S3 & S4 & S5 & S6 -.-> SX
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class S1,S2,S4,S5,S6,S9 sl
+  class S3 pt
+  class S0 gate
+  class S7 win
+  class S8 hand
+  class SX lost
+```
+
+| Stage | Purpose | Entry trigger | Exit trigger | Shared outcome codes |
 |---|---|---|---|---|
-| **Employers** | Safari operators and travel agencies | 480 (432) | Ready → Contacted → Responded → Call or meeting → Office visit, cluster session or webinar → Partner → Staff nurture | The employer circulates Silverleaf's sign-up invitation to staff, or signs a staff-benefit agreement |
-| | Hotels, lodges and camps | 194 (123) | Same, with the session timed to shift handover (two short slots) | Same |
-| | Hospitals and clinics | 188 (37) | Hospitals: same, with a staff-room session or recorded webinar. Small clinics: pamphlet pack, no session | Same |
-| | Banks and other companies | 87 (70) | Same; an agreement may come before the session | Same; usually a signed benefit agreement |
-| | NGOs and research bodies | 62 (28) | Same, local staff only | Same |
-| | Colleges and universities | 23 (19) | Same, through staff welfare or HR, away from exam periods | Same |
-| | Public bodies (HR route) | 19 (12) | **Compliance check** → Ready → … → Call or meeting with HR → **HR approval** → Session → Partner | An HR circular to staff, or a signed agreement through HR |
-| | International organisations | 10 (9) | Same, usually through the staff association or welfare committee | The staff association circulates, or the organisation signs |
-| | Manufacturing | 19 (11) | Same, with a canteen session at shift change, in Kiswahili | Same |
-| | Retail | 17 (6) | Same, with a store huddle; head-office approval for chains | Same |
-| | Farms and estates | 14 (3) | Same, with an on-site session through the welfare officer, in Kiswahili | Same |
-| | Aviation | 5 (2) | Same, with a webinar or an off-site session (secure sites) | Same |
-| | Variant A: sponsorship (all safari operators so far) | 14 | Ready → Contacted → Responded → Meeting → Sponsorship proposal → Sponsorship agreement → Sponsored students enrolled | A signed sponsorship agreement (any size) |
-| | Savings groups (SACCOS), in Kiswahili | 117 (1): 48 employer-based, 67 community, 2 unclassified | Ready → Contacted (letter or call) → Responded → Committee meeting → Members' meeting or AGM slot → Partner → Member nurture | The committee circulates the sign-up invitation to members or gives a meeting slot; optionally a group rate agreed by Finance |
-| **Introducers** | Chambers (3), employers' associations (5), sector associations (6), HR body (1), other (1) | 16 (16) | Ready → Contacted → Responded → Meeting → Circulation agreed → Circulated → Employer referrals | At least one circulation to members: a newsletter item, a members' meeting slot or an HR forum. Its results are employer leads, not parents |
-| **Welfare** | Residential care (children's homes) | 100 (17) | Ready → Contacted → Responded → Placement conversation → Safeguarding visit → Proposal → Placement agreement → Children enrolled → Renewal | A signed placement agreement on approved terms |
-| | Family-based and sponsorship programmes | 164 (25) | Same; or the programme circulates information to caregivers, who opt in | A placement agreement, or the programme agrees to circulate |
-| | Specialised centres | 70 (5) | Same, with a **needs-fit check** before the visit | A placement agreement for the needs Silverleaf can support |
-| | Funders | 104 (34) | Ready → Contacted → Responded → Meeting (often remote) → Sponsorship proposal tied to a linked home → Sponsorship agreement → Students enrolled → Reporting and renewal | A signed sponsorship agreement |
-| | Welfare networks (introducers) | 7 (5) | Ready → Contacted → Responded → Meeting → Circulated to member homes → Home referrals | At least one circulation to member homes |
-| **Government** | Pilot councils (Arusha City, Arusha District, Hai, Meru) | 4 (4) | Letter by hand → Call after 5 working days → Courtesy visit → Introduction recorded | The council introduces Silverleaf to its ward and village executive officers |
-| | Other councils | 5 (0) | Same, after the pilot | Same |
-| | District and regional offices | 7 + 3 (0) | Courtesy notice → Acknowledged | Informed. No request is made, so there is no win beyond that |
-| | Ward offices | 129 (0; 57 within 10 km) | Introduction → Convening request → Slot agreed → Community meeting held → Parent opt-ins → Repeat convener | A community meeting is held at which Silverleaf speaks to parents |
-| | Village offices | 82 (0; 31 within 10 km) | Same, at the village assembly | Same |
-| | Mtaa offices (city streets) | 0 recorded | Same, at the mtaa meeting | Same (a gap: none are in the run yet) |
+| **S0 Held** | Not yet contactable | Research, a check or a hold is open (AQ00, WA00, GA00) | The gap is closed (→ S1), or the record is dropped | `researching`, `check_pending`, `held` |
+| **S1 Ready** | Approved to contact | Draft reviewed, route chosen, gates passed | First touch delivered | `ready` |
+| **S2 Contacted** | Reach the person who decides | First email, call or letter delivered | A human reply (→ S3), or the sequence and escalation end (→ SX) | `delivered`, `bounced`, `opted_out`, `no_answer`, `escalated` |
+| **S3 Responded** | Classify the reply and agree a next step | A human reply | Meeting booked (→ S4), deferred, or declined (→ SX) | `interested`, `details_requested`, `referred`, `not_now`, `declined` |
+| **S4 Meeting** | Learn the fit and agree the format | Call or meeting booked | Activation agreed (→ S5), proposal requested (→ S6), or no fit (→ SX) | `booked`, `held`, `rescheduled`, `no_show`, `no_fit` |
+| **S5 Activation** | Reach the audience, or prove the fit | Session, visit, slot or circulation confirmed in writing | Held or circulated (→ S7 or S6) | `booked`, `held`, `cancelled`, `attendance_recorded`, `circulated` |
+| **S6 Proposal** | Put terms in writing (only when the win is a signature) | Proposal sent | Accepted (→ S7) or rejected (→ SX) | `sent`, `revised`, `accepted`, `rejected` |
+| **S7 Partner (win)** | **The partnership is closed** | The segment's win event (see the mapping below) | First result (→ S8) | `circulation_partner`, `benefit_partner`, `sponsorship`, `placement`, `group_rate`, `introduced`, `meeting_held`, `informed` |
+| **S8 Results** | Families, referrals or placements coming through | First sign-up, referral or enrolment | Renewal due (→ S9) | `producing`, `dormant` |
+| **S9 Renewal** | Keep the partnership going | Before each intake window, or the agreement's review date | Renewed or re-circulated (→ S8), or lapsed | `recirculated`, `renewed`, `repeat_convener`, `lapsed` |
+| **SX Closed-lost** | Exit at any stage | A lost event | — | One lost reason (see [side states and lost reasons](#side-states-and-lost-reasons)) |
 
-Across all segments the results are counted the same way: opted-in families moving from Inquiry to Tour, Application and Enrolment, each linked to the partner that produced it.
+**Two rules make the spine work for every segment:**
+- **S6 is optional.** A partner whose win needs no signature (a circulation partner, a council introduction, a community meeting) goes from S5 straight to S7. The stage is recorded as skipped.
+- **Agreement first.** An employer that wants the agreement before any staff session goes S4 → S6 → S7. The staff session then becomes the launch event of S8, and is recorded as `session held` there. Each deal records which order it followed.
 
----
+### Mapping each segment onto the spine
 
-## 2. Rules that apply to every pipeline
-
-1. **Staff, members and parents opt in themselves.** The partner circulates Silverleaf's invitation, pamphlet, QR code or sign-up form. Only people who sign up are contacted. Silverleaf never asks for, and never accepts, a list of staff, members, residents or children. This follows Tanzania's Personal Data Protection Act 2022, which requires explicit consent for direct marketing. It also matches the existing design: VM01, F04 steps 2–3, and the government plan's VM16.
-2. **Request first.** The first message asks for a short meeting and states no offer terms. Terms follow in the next message, or in the meeting ([offer register](../../skills/silverleaf-outreach/references/offer-register.md), rule 2).
-3. **Offer terms come only from the register** (`data/reference/silverleaf-offer-register.json`). Finance confirms each term for 2027 before it is stated. Nothing in this document adds or changes a term.
-4. **The recipient rule.** The first message goes to the in-country person who can decide. A senior executive is the escalation contact, used only after silence, a refusal or a referral to head office.
-5. **One active sequence per organisation** (F02 step 4). A referral moves the same deal to the new person. It does not start a second deal.
-6. **Results go back to partners as totals only.** Silverleaf never reports which person signed up or enrolled. Small numbers are hidden, so a small employer cannot work out who enrolled (see question 13).
-7. **Parent data never enters the repository or the three lead databases.** It lives in a consented parent store owned by admissions. The databases hold counts by partner code only.
-8. **Kiswahili for parents, members and government.** Every Kiswahili asset has a native-speaker review before use.
-9. **People send; the repository drafts.** Every stage change is recorded by a person after it happens.
-
----
-
-## 3. The shared stage spine
-
-Each segment has its own stage names, because a council introduction is not a staff session. All of them map onto one shared spine, so the reports add up across segments. The spine also maps onto the six partner stages in Silverleaf's own Process Map (Prospect, Contacted, Engaged, Negotiating, Active, Producing Results).
-
-| Spine stage | Meaning | Process Map stage | Employers | SACCOS | Introducers | Welfare homes | Funders | Government |
+| Spine | Employers (variant B) | Sponsorship (variant A) | SACCOS | Introducers and welfare networks | Welfare homes and programmes | Welfare funders | Government councils | Government wards and villages |
 |---|---|---|---|---|---|---|---|---|
-| 0 Held | Not yet contactable: research, checks or a hold | (before Prospect) | AQ00 | AQ00 | AQ00 | WA00 | WA00 | GA00 |
-| 1 Ready | Draft reviewed, route chosen | Prospect | Ready | Ready | Ready | Ready | Ready | Letter ready |
-| 2 Contacted | First touch delivered | Contacted | Contacted | Contacted | Contacted | Contacted | Contacted | Letter delivered |
-| 3 Responded | A human reply | Engaged | Responded | Responded | Responded | Responded | Responded | Acknowledged |
-| 4 Meeting | Call or meeting booked or held | Engaged | Call or meeting | Committee meeting | Meeting | Placement conversation | Meeting | Courtesy visit |
-| 5 Activation | The step that reaches the audience, or proves fit | Negotiating | Staff session | Members' meeting slot | Circulation agreed | Visit, then proposal | Proposal | Introduced, then convening agreed |
-| 6 Partner | **Partnership closed** | Active | Circulation partner or benefit partner (sponsorship for variant A) | Circulation or group-rate partner | Circulated | Placement agreement | Sponsorship agreement | Community meeting held |
-| 7 Producing results | Families or referrals coming through | Producing Results | Staff nurture | Member nurture | Employer referrals | Children enrolled; renewal | Students enrolled; reporting | Parent opt-ins; repeat convener |
-| X Closed, lost | Exit at any stage, with a reason | — | | | | | | |
+| S0 Held | AQ00 hold; public bodies before the compliance check | AQ00 | AQ00; Kiswahili and Finance checks pending | AQ00 | WA00 | WA00; no verified link to a home | GA00 (councils outside the pilot) | GA00 until the council introduction |
+| S1 Ready | Ready | Ready | Ready | Ready | Ready | Ready | Letter ready | Convening request ready |
+| S2 Contacted | Contacted | Contacted | Letter or call | Contacted | Contacted | Contacted | Letter delivered by hand | Request delivered by hand |
+| S3 Responded | Responded | Responded | Responded | Responded | Responded | Responded | Call after 5 working days | Acknowledged |
+| S4 Meeting | Call or meeting | Meeting | Committee meeting | Meeting with the secretariat | Placement conversation | Meeting (often video) | Courtesy visit | Meeting with the WEO or VEO |
+| S5 Activation | Staff session: site visit, webinar or pamphlet pack | skipped | Members' meeting or AGM slot | Circulation agreed | Safeguarding visit | skipped | skipped | Slot agreed in writing |
+| S6 Proposal | Benefit proposal (only for a signed agreement) | Sponsorship proposal | Group-rate proposal (optional) | Member-benefit MOU (optional) | Placement proposal | Sponsorship proposal tied to the home | skipped | skipped |
+| **S7 Partner** | **Circulation partner or benefit partner** | **Sponsorship agreement** | **Committee circulates, or slot held** | **First circulation done** | **Placement agreement** | **Sponsorship agreement** | **Introduction recorded** | **Community meeting held** |
+| S8 Results | Staff sign-ups enter the parent funnel | Sponsored students enrolled | Member sign-ups enter the parent funnel | Referred employers or homes | Children enrolled through admissions | Students enrolled through the home | Ward and village funnels open | Parent opt-ins enter the parent funnel |
+| S9 Renewal | Re-circulation each window; agreement review | Reporting and renewal | Re-circulation | Next circulation | Renewal 8 weeks before intake | Reporting and renewal | Re-verify after reshuffles | Repeat convener |
+
+District and regional offices only receive a courtesy notice: S0 → S2 → S3 → S7 `informed` (funnel G3).
+
+### Mapping the older stage names
+
+Three earlier documents named partner stages differently. This table shows where each name now sits, so the conflicts are resolved in one place.
+
+| Spine | Process Map, partner stages | Process Map, workflow | Welfare plan (F14, `account_pipeline`) | Government plan (office stages) | Acquisition tracks |
+|---|---|---|---|---|---|
+| S0 Held | — | Identify partner | (WA00) | (GA00) | AQ00, WA00, GA00 |
+| S1 Ready | Prospect | Identify partner | — | `prospect` | AQ01 or AQ02; WA01 or WA02; GA01 or GA02 chosen |
+| S2 Contacted | Contacted | Outreach | `contacted` | `letter_sent` (council); `convening_requested` (ward or village) | — |
+| S3 Responded | Engaged | — | `contacted` (reply received) | — | — |
+| S4 Meeting | Engaged | Meeting | `needs_assessed` | — | — |
+| S5 Activation | Negotiating | Activation (moved earlier) | `visit_held` | `convening_agreed` | — |
+| S6 Proposal | Negotiating | Proposal | `proposal` | — | — |
+| S7 Partner | Active | Agreement / MOU | `placement` | `introduced` (council); `event_held` (ward or village) | — |
+| S8 Results | Producing Results | Leads / referrals | `placement` (place counts) | `event_held` counts (opt-ins) | — |
+| S9 Renewal | (Relationship management) | Relationship management | `renewal` | `repeat_convener` | — |
+
+**How the conflicts are resolved:**
+- The Process Map puts activation after the agreement. The spine allows both orders, and records which one each deal followed.
+- The Process Map's "Active" needs an agreement. The spine also counts a confirmed circulation as a win, because it is the partner's commitment and is in its control.
+- The welfare and government plans keep their own stage names inside their tracks, so nothing in those plans is lost. Reports roll them up to spine stages.
+
+### Side states and lost reasons
 
 Two side states are not stages:
 - **Deferred:** the other side said "not now" and gave a date. The deal keeps its stage and gets a next-action date.
-- **Dormant partner:** a partner with no new sign-ups for two intake windows. It is not lost. It gets one re-engagement message per window.
+- **Dormant:** a partner with no new results for two intake windows. It is not lost. It gets one re-engagement message per window.
 
-### Common lost reasons
-
-Every "Closed, lost" record carries one of these, plus a short note.
-
-| Code | Meaning |
+| Lost reason | Meaning |
 |---|---|
-| `no_response` | The sequence ended (and the escalation, if any) with no reply |
+| `no_response` | The sequence, and any escalation, ended with no reply |
 | `declined` | A human said no |
 | `not_relevant` | No staff, members or children the offer can serve near a campus |
 | `no_route` | No working route after the call and visit attempts |
 | `suppressed` | Opt-out, hard bounce or a request not to be contacted |
-| `deferred_expired` | The deferred date passed and the one contextual follow-up got no reply |
+| `deferred_expired` | The deferred date passed, and the one contextual follow-up got no reply |
 | `stalled_after_meeting` | Re-prompts after the meeting went unanswered |
 | `stalled_after_session` | Re-prompts after the session or visit went unanswered |
-| `terms_not_agreed` | The proposal or agreement was not accepted |
-| `compliance_blocked` | A compliance, HR or protocol check failed (public bodies, government) |
+| `terms_not_agreed` | The proposal was not accepted |
+| `compliance_blocked` | A compliance, HR or protocol check failed |
 | `closed_or_moved` | The organisation closed or left the catchment |
 | `duplicate` | Merged into another record |
 | `capacity` | Silverleaf cannot serve the request (level, place or need) |
-| Welfare only: `safeguarding_stop`, `needs_not_supported`, `funder_no_link` | |
-| Government only: `election_period`, `payment_requested` (stop and escalate), `lists_offered` (refused and recorded) | |
+| `rate_not_approved` | SACCOS: Finance did not extend the member rate (OF07) |
+| `safeguarding_stop`, `needs_not_supported`, `funder_no_link` | Welfare only |
+| `election_period`, `payment_requested`, `lists_offered` | Government only. A payment request means stop and escalate; offered lists are refused and recorded |
 
----
+<!-- contents -->
 
-## 4. The first stages by confidence band
+## 2. All segments at a glance
 
-The confidence band decides the first route and channel. Bands come from `export_resend_contacts.py`.
+```mermaid
+flowchart LR
+  EMP["Employers<br/>1,118"]
+  SAC["SACCOS<br/>117"]
+  INT["Introducers 16<br/>welfare networks 7"]
+  WEL["Welfare homes<br/>and funders 438"]
+  GOV["Government<br/>230 offices"]
+  SP["Spine S1 to S6<br/>Ready to Proposal"]
+  WIN["S7 PARTNER"]
+  RES["S8 Results"]
+  OPT["Opt-in and<br/>Inquiry"]
+  TA["Tour and<br/>Application"]
+  ENR["Enrolment"]
+  EMP & SAC & INT & WEL & GOV --> SP --> WIN --> RES
+  RES --> OPT --> TA --> ENR
+  RES -.->|referred employers and homes| SP
+  RES -.->|placements and sponsored students| ENR
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  class EMP,SAC,INT,WEL,GOV pt
+  class SP sl
+  class WIN,ENR win
+  class RES,OPT,TA hand
+```
 
-| Band | Employers | SACCOS | Introducers | Welfare | First route and channel | Sequence | Goes to "Responded" when |
-|---|---|---|---|---|---|---|---|
-| **High, direct** | 30 | 0 | 2 | 13 | Email to the named decision-maker's own or role address | AQ02 / F01: Day 0, then +4 and +4 working days, then stop | Any human reply |
-| **High, indirect** | 215 | 0 | 10 | 60 | Email to a general inbox, addressed to the named person. Before sending, try one call to confirm that person reads the inbox (the row's `confidence_reason` says what would make it direct) | AQ02 / F01 if the role is verified; otherwise AQ01 | Any human reply |
-| **Medium** | 370 | 0 | 4 | 10 | Email to the organisation's inbox, asking for the right person | AQ01 / F13: Day 0, then a routing check-in after 5 working days, then stop | A named owner is given. The deal moves to that person and continues on the high route, as the same deal |
-| **Low** | 52 | 1 | 0 | 129 | Not contacted. Held for research or checks (stage 0) | None | It is promoted to Ready, or closed |
-| **No email (call sheet)** | 451 | 116 | 0 | 233 | Phone call using a short script in Kiswahili or English, asking for the decision-maker and a route. If there is no phone, or the call fails and the place is within 10 km, the letter is hand-delivered | Up to two call attempts on different days, then one visit, then `no_route` | The call reaches the decision-maker or yields a route. The first message is then sent "as discussed" |
-| **Government** | — | — | — | — | Always a formal Kiswahili letter on letterhead, delivered by hand. 11 offices also have an official inbox, used for an advance copy | Call after 5 working days, then a courtesy visit (F15) | The office acknowledges the letter |
+Introducers feed employers and homes back into the spine. Welfare placements and sponsored students reach enrolment through admissions, without a parent opt-in. Every other result reaches the parent funnel through a self-made opt-in.
 
-**Escalation step (all bands).** When a sequence ends without a reply, send one message to the escalation contact 5 working days later, if one is recorded. Then close as `no_response`. Only 8 of the 1,118 company plans have an escalation contact today, so this step rarely applies yet.
+**Counts** come from read-only copies of the three databases, taken on the evening of 11 October 2026. "Ready" means a draft is ready for review with a usable route today.
 
-**Order of work.** The January primary intake takes applications from October to December, and daycare and pre-primary enrol at any time (register, published facts). Sessions held in October and November therefore matter most this year. Recommended first wave: the P1 employers (100), the introducers (16), the welfare high-priority organisations with a route, and the four pilot councils.
-
----
-
-## 5. Employers (staff-benefit partnership, variant B)
-
-**Size:** 1,118 companies. 752 are ready, 1,090 carry variant B, and 14 new leads have no variant assigned yet. Reach tiers: P1 100, P2 150, P3 853, held (X) 15.
-
-### 5.1 Goal and win
-
-**Goal:** staff with children of school age hear about Silverleaf through their employer and choose to sign up. The offer (follow-up 1, after the first message) is the staff school-fee benefit (OF04), which costs the employer nothing, plus the family offer (OF01, OF02, OF09). The employer may present the benefit as its own, or add to it.
-
-**Partnership closed (stage 6)** in either of two forms:
-- **6a Circulation partner:** the employer agrees in writing (an email is enough) to circulate Silverleaf's invitation, pamphlet or QR code to staff, and confirms the first circulation has gone out.
-- **6b Benefit partner:** the employer signs an education-benefit agreement, approved by the CEO (the MOU gate in the scope of work), usually with circulation as well.
-
-The win is defined by what the employer controls. Sign-ups are counted as results (stage 7), not as the win (see question 8).
-
-### 5.2 Stages
-
-| # | Stage | Entry trigger | Exit trigger | Silverleaf role | The employer | Asset |
-|---|---|---|---|---|---|---|
-| 1 | Ready | Draft reviewed, band assigned, nothing held | First touch delivered | Marketing and Partnership Coordinator (the coordinator) | — | First message (existing drafts) |
-| 2 | Contacted | First message delivered, or a call held | A human reply; or the sequence and escalation end | Coordinator | Reads, replies or refers | Follow-up 1 (offer on AQ02, routing question on AQ01); follow-up 2 (close, AQ02 only) |
-| 3 | Responded | Reply classified (F02): interested, wants details, referred, not now or declined | A call or meeting is booked; or deferred; or lost | Coordinator | Says what they want | One-page offer outline (new; OF04 plus the family offer) |
-| 4 | Call or meeting | Booked (date recorded), then held | Session agreed, or agreement agreed first, or lost | Coordinator; campus head where convenient | Explains staff numbers near the campuses, shifts, the best format, how staff are reached and who approves | Meeting checklist (new): approximate staff count at each site, shift pattern, staff channels (WhatsApp group, notice board, payslip insert, email), language, decision-maker |
-| 5 | Staff session | Date, place or link, and format confirmed in writing | Session held, with an attendance estimate and pamphlets handed out | Coordinator plus an admissions officer from the nearest campus | Hosts or circulates the invitation, gives a slot | Pamphlet with QR code (new, Kiswahili and English); sign-up form (new); session talk or webinar deck (new); the invitation text in F04 step 2 |
-| 6 | Partner | 6a circulation confirmed, or 6b agreement signed | Moves to 7 at the first sign-up | Coordinator; Finance confirms terms; CEO signs 6b | Circulates; signs | Circulation confirmation email (new template); benefit agreement template (new; modelled on the Rivertrees proposal, OF08, with register terms only) |
-| 7 | Staff nurture | First staff sign-up with this employer's partner code | Ongoing; reviewed each intake window | Admissions officer (each family); coordinator (the account) | Re-circulates before each intake window | F06 acknowledgement, then F04 steps 3–5; partner report (new, totals only) |
-
-**Order of session and agreement.** The user's model puts the staff session before the agreement, which suits most companies: little effort for them, and value shown first. Formal employers (banks, public bodies, international organisations) may want the agreement first. The pipeline allows 4 → 6b → 5, and records which order happened.
-
-### 5.3 Session format and size
-
-Only 19 of 1,118 companies publish a staff count, so the format is chosen from the count the employer gives at the meeting. Recommended rule (question 2):
-
-| Staff at one site within 25 km of a campus | Format |
-|---|---|
-| 20 or more (or 10 or more within 10 km) | Site visit: a 20–30 minute talk with questions, pamphlets and the QR code |
-| Several sites, or staff mostly in the field | Webinar (recorded, so later shifts can watch) plus a pamphlet pack for each site |
-| Fewer than 10 | No dedicated session. A pamphlet and QR pack for the notice board and WhatsApp group, plus an invitation to a shared session: a monthly "employer families" session at the nearest campus, or a cluster session through an introducer such as TATO or HAT |
-
-**Notice period.** A routine session with the standard, pre-approved pamphlet and talk needs 7 days' notice. A bespoke event (a stall at a large employer's family day, co-branded material) follows the event SOP's T-21 clock. The government plan already makes this split. F04 step 1 currently requires 21 days for every partner session (see conflict 3).
-
-### 5.4 Subsegment variations
-
-| Kind | Size (ready) | Bands: high-direct / high-indirect / medium / low / no email | What changes, and why |
-|---|---|---|---|
-| Safari operators and travel agencies | 480 (432) | 19 / 167 / 229 / 40 / 25 | Mostly small offices; guides and porters are often in the field or seasonal. Use an office visit when the team is in town, or a cluster session through TATO (388 of them are recorded as TATO members). Circulate through the crew WhatsApp group. The decision-maker is usually the founder or managing director, not HR. |
-| Hotels, lodges and camps | 194 (123) | 1 / 10 / 56 / 4 / 123 | Shift workers: time the visit to shift handover, with two 15-minute slots (morning and afternoon handover) or a table in the staff canteen. Leave pamphlets in the staff room. Ask the general manager about the quiet season. Most have no email (123), so the call sheet comes first; 50 publish a phone. HAT is the introducer. |
-| Hospitals and clinics | 188 (37) | 1 / 6 / 10 / 0 / 171 | Clinical staff cannot leave the wards. Hospitals: a staff-room session at handover, or a recorded webinar, arranged through HR or the matron. Clinics and dispensaries are small, and most (about 150, added from map data) have no route: give a pamphlet pack, no session. Faith-based hospitals may also be linked to welfare homes. APHFTA and CSSC are the introducers. |
-| Banks and other companies | 87 (70) | 4 / 18 / 36 / 1 / 28 | There is a real HR department and formal benefits, so a signed agreement (6b) is more likely, and may come first. Branch networks may need head-office approval (escalation contact). Use a lunchtime session or webinar, and circulate through the intranet or payslips. TBA is the introducer. |
-| NGOs and research bodies | 62 (28) | 2 / 1 / 18 / 0 / 41 | Aim at local staff. Do not imply programme funding or endorsement (segment rule). A slot at a staff meeting or a webinar. Some are also welfare funders: check the welfare run, and run one deal per organisation. |
-| Colleges and universities | 23 (19) | 3 / 5 / 6 / 0 / 9 | Go through staff welfare or HR, never the student admissions inbox (segment rule). Avoid exam periods. A staff SACCOS may exist (for example Arusha Technical College): run one combined account. |
-| Public bodies | 19 (12) | 0 / 5 / 0 / 6 / 8 | Two extra gates. **Compliance check before Ready:** no pending official business with Silverleaf, never combined with a request for official action (OF04 restriction), and named approval (question 12). **HR approval before the session:** the benefit is offered to all staff through an HR circular or an MOU through the legal unit. Expect 60–90 days. The six held now are "low" for this check. |
-| International organisations | 10 (9) | 0 / 2 / 6 / 1 / 1 | Host-country and staff rules apply. The counterpart is often the staff association or welfare committee, which circulates (6a). A webinar suits mixed-site staff. Approval is slow. |
-| Manufacturing | 19 (11) | 0 / 1 / 5 / 0 / 13 | Shift workers on the factory floor. A canteen session at shift change, with Kiswahili material, through HR or the workers' committee. Stress the four instalments (OF09). CTI is the introducer. |
-| Retail | 17 (6) | 0 / 0 / 2 / 0 / 15 | Shift-based floor staff. A short store huddle and a staff-room QR poster. A chain's head office may approve (escalation contact). |
-| Farms and estates | 14 (3) | 0 / 0 / 1 / 0 / 13 | Permanent and seasonal workers, often housed on site, often far from a campus. An on-site session during a break, through the welfare officer, in Kiswahili. Do not promise transport (VM12 is not approved). TAHA is the introducer. |
-| Aviation | 5 (2) | 0 / 0 / 1 / 0 / 4 | Shift work and secure sites. A webinar, or a session off site or in a landside canteen, with any clearance arranged by the employer. |
-
-The newer master segments map onto these kinds: healthcare employers to hospitals and clinics, education employers to colleges and universities, public-sector employers to public bodies, and NGO employers to NGOs and research bodies.
-
-### 5.5 Variant A: sponsorship (14 safari operators)
-
-These companies publish education or community giving. They are asked to sponsor students, at any size, including textbooks, transport or meals.
-
-- **Win:** a signed sponsorship agreement (amount or items, number of students, term, reporting), approved by the CEO.
-- **Stages:** Ready → Contacted → Responded → Meeting → Sponsorship proposal → Sponsorship agreement (6) → Sponsored students enrolled (7) → Reporting and renewal.
-- **Different from variant B:**
-  - there is no staff session or opt-in step;
-  - the offer register gives variant A no offer message until it replies, so the follow-up must not be the staff-benefit text (see conflict 5);
-  - students are chosen through admissions and, where relevant, a welfare partner, never by the sponsor;
-  - reporting to the sponsor is in totals unless the family consents (VM10).
-- **Staff benefit:** offered as a separate, optional conversation one month after the sponsorship is agreed, never bundled into the sponsorship ask (question 3).
-
-### 5.6 The opt-in step (employers)
-
-- **How staff sign up:** scan the QR code on the pamphlet or poster, open the link the employer shares, or fill in the paper form at the session (collected by Silverleaf, never by the employer).
-- **Form fields** (for review by the data protection officer, aligned with the government plan's form):
-  - name;
-  - phone, and whether WhatsApp is preferred;
-  - email (optional);
-  - area of residence;
-  - level of interest (daycare, pre-primary or primary);
-  - preferred campus (Usa River, Arusha City, Kijenge, Ilboru, Boma Ng'ombe, or "not sure");
-  - preferred language;
-  - consent statement and date;
-  - the partner code (filled in automatically from the QR code).
-
-  The form asks for the level of interest, not a child's age or name, so it holds no children's data. Admissions asks about the child later, within a relationship the parent agreed to.
-- **Consent wording (draft for the data protection officer):** "I agree that Silverleaf Academy may contact me by phone, WhatsApp or email about school admissions. My employer will not see my details; Silverleaf will share only total numbers with my employer. I can withdraw at any time by replying STOP or calling +255 769 486 660." It needs a Kiswahili version and review.
-- **Which campus:** the parent chooses. Admissions confirms fit by level and travel area (the register says no offer guarantees a place or transport).
-- **Link to the employer:** each partner gets a partner code (for example `EMP-<organisation id>`). The code is in the QR link and printed on the paper form. It is not personal data. Every family keeps the code through Inquiry, Tour, Application and Enrolment.
-- **Eligibility for OF04** (20% for heads of department, 10% off the first year for other staff): the parent declares the employer and role on the application. HR confirms employment and grade in a one-line reply, with the parent's consent. No staff list is exchanged (question 11).
-- **Until the consented store is live:** run inbound-only. Hand out the pamphlet with the admissions number and the application link, and ask families to quote the partner code.
-
-### 5.7 What is recorded
-
-| Stage | Fields | Outcome codes | Lost reasons |
-|---|---|---|---|
-| All stages | stage, stage date, owner (role), next action, next-action date, band and track at first touch, partner code, touch count, last touch date, escalation used | — | see §3 |
-| 2 Contacted | first-touch date and channel, sequence (AQ01, AQ02 or call sheet), escalation date | delivered, bounced, opted out | `no_response`, `suppressed`, `no_route` |
-| 3 Responded | reply date, reply type, referred-to role | interested, details, referred, not now (with date), declined | `declined`, `not_relevant`, `deferred_expired` |
-| 4 Call or meeting | booked date, held date, format, approximate staff count at sites near campuses (a range, as the employer stated it), shift pattern, staff channels, language, approver role | session agreed, agreement first, no fit | `stalled_after_meeting`, `not_relevant` |
-| 5 Staff session | type (site visit, webinar, staff room, cluster), booked and held dates, attendance estimate and method, pamphlets handed out | held, cancelled, rescheduled | `stalled_after_session` |
-| 6 Partner | type (6a or 6b), circulation channel and date, agreement signed date, approver (CEO), offer IDs, Finance confirmation date, renewal-due date | circulation partner, benefit partner | `terms_not_agreed`, `compliance_blocked` |
-| 7 Staff nurture | totals by month: sign-ups, enquiries, tours, applications, enrolments; last report sent | producing, dormant | — |
-
-### 5.8 Timing and stall rules
-
-| Gap | Typical | Re-prompt | Close or hold |
-|---|---|---|---|
-| Ready → Contacted | Within the wave | — | — |
-| Contacted (AQ02) | Day 0, +4, +4 working days (F01) | Built into the sequence | Then escalation, then `no_response` |
-| Contacted (AQ01) | Day 0, +5 working days (F13) | Built in | Same |
-| Call sheet | Two call attempts on different days, within 5 working days | One visit if within 10 km | `no_route` |
-| Reply → answer | Same or next working day (F02) | — | — |
-| Responded → meeting booked | Within 10 working days | Two nudges, 4 working days apart | Deferred if a date is given, else `stalled_after_meeting` |
-| Meeting → session booked | Summary sent within 2 working days; session within 3–6 weeks | +5 and +10 working days | Deferred to the next intake window, then `stalled_after_session` |
-| Session → partner | Proposal or circulation request within 5 working days | +7 and +14 days | Held to the next intake window once, then `terms_not_agreed` |
-| Deferred ("not now") | The date they gave | One contextual message on that date (F02 step 5) | `deferred_expired`. If they gave no date, one message at the next intake window |
-| Partner → results | Re-circulation before each window: September for January primary, May for mid-year; daycare and pre-primary at any time | One reminder to the partner | Dormant after two windows with no sign-ups; one re-engagement per window |
-
-### 5.9 Hand-off and reporting
-
-- **Hand-off:** each sign-up goes to the admissions officer for the chosen campus the same working period, or the next working day. Then F06 (acknowledgement, a reminder after 2 working days, a close after 5) and F04 steps 3–5 (qualification, visit offer, then tour, application or enrolment).
-- **Reporting back:** a partner report once a term, and after each session. It gives sessions held, attendance estimate, sign-ups, enquiries, tours, applications and enrolments, in totals, with numbers below 3 shown as "fewer than 3". There are no names, ever.
-
-### 5.10 Metrics
-
-- **Stage conversion:** delivered → replied; replied → meeting held; meeting → session held; session → partner; partner → at least one sign-up; sign-ups → enquiry → tour → application → enrolment.
-- **Leading indicators:**
-  - reply rate by band and by kind;
-  - days from reply to meeting;
-  - sessions booked per week;
-  - sign-ups per 100 attendees, and per circulation;
-  - share of partners re-circulating each window;
-  - cost per sign-up and per enrolment.
-
-Compare one change at a time (acquisition framework, Measurement).
-
----
-
-## 6. Savings groups (SACCOS)
-
-**Size:** 117: 48 employer- or institution-based, 67 community or open-bond, 2 from map data with no type. Only one publishes an email, and that one is held. So almost every first touch is a Kiswahili letter or a call.
-
-**Audience:** members, not staff, reached through the committee, in Kiswahili. The first message asks to meet the committee about members' children's education (F03). The offer message gives the family offer and the member-association rate (OF07: "starting at 7% per student at 50 students"). OF07 is documented for KINEFA only, so Finance must agree to extend it before it is stated. There is no loan, payroll or subsidy claim (VM06).
-
-**Win (stage 6):** the committee agrees in writing to circulate Silverleaf's invitation or QR code to members, or gives Silverleaf a slot at a members' meeting or AGM. A group-rate agreement, once Finance approves, is an optional stronger form.
-
-| # | Stage | Entry → exit | Silverleaf role | The SACCOS | Asset |
-|---|---|---|---|---|---|
-| 1 | Ready | Kiswahili review and Finance approval of the member rate done → first touch | Coordinator | — | Kiswahili first message or letter (F03) |
-| 2 | Contacted | Letter delivered or call held → reply, or end of sequence | Coordinator | Manager or chair reads it | F03 follow-ups (offer, then close) |
-| 3 | Responded | Reply → committee meeting booked | Coordinator | Puts it on the committee agenda | One-page member offer sheet (Kiswahili) |
-| 4 | Committee meeting | Booked → held | Coordinator plus a Kiswahili-speaking admissions officer | Committee decides | Short talk; member offer sheet |
-| 5 | Members' meeting or AGM slot | Slot confirmed → held | Admissions officer presents | Gives 10–15 minutes on the agenda | Kiswahili pamphlet with QR code; paper sign-up form |
-| 6 | Partner | Circulation confirmed or slot held; optionally a group-rate letter | Coordinator; Finance; CEO for a rate agreement | Circulates to members | Circulation confirmation; group-rate letter (new) |
-| 7 | Member nurture | First member sign-up with the SACCOS partner code (`SAC-<id>`) | Admissions | Re-circulates before each intake | F06, then F04 steps 3–5 |
-
-**Variations:**
-- **Employer-based SACCOS (48):** the members are one employer's staff. If that employer is already in the pipeline (for example Arusha Technical College and its staff SACCOS), run one combined account. The employer deal leads and the SACCOS committee joins at the session stage (question 16).
-- **Community SACCOS (67):** a broader community membership. The members' meeting is the main event. Ward community development officers, recorded in the government run, are a possible route; the government plan notes this link to savings groups.
-- **Timing:** members' meetings and AGMs follow each society's calendar. Ask the committee for the next date and record it as the next-action date. Group-rate counts (50, 100 and 150 students) are tracked as totals by partner code.
-
-Recorded fields, stall rules and reporting are as for employers, except that F03's three touches stand in for F01. Lost reasons add `rate_not_approved` (Finance does not extend OF07).
-
----
-
-## 7. Introducers
-
-**Size:** 16, all ready.
-
-| Kind | Organisations | Route band |
-|---|---|---|
-| Chambers | TNCC national, TNCC Arusha regional, TNCC Kilimanjaro regional | 2 high-indirect, 1 medium |
-| Employers' associations | ATE (national; Northern Zone, Arusha), CTI (national; Arusha and Moshi office), TPSF | CTI high-direct; ATE and TPSF high-indirect; ATE Northern Zone and CTI Arusha and Moshi medium |
-| Sector associations | TATO, HAT, TBA, TAHA, APHFTA, CSSC | TATO high-direct; HAT, TBA, TAHA and CSSC high-indirect; APHFTA medium |
-| HR body | Women HR Association of Tanzania (WHAT) | High-indirect |
-| Other | East African Business Council (EABC) | High-indirect |
-
-**Goal:** the introducer shares the staff benefit with its member employers. Its pipeline produces **employer leads, not parents**.
-
-**Win (stage 6):** at least one circulation to members, such as a newsletter or bulletin item, a slot at a members' meeting or HR forum, or a set of introduction emails. A formal member-benefit listing or MOU is a stronger form, and needs the CEO's approval.
-
-| # | Stage | Entry → exit | Silverleaf role | The introducer | Asset |
-|---|---|---|---|---|---|
-| 1–3 | Ready, Contacted, Responded | As for employers (F01/F13, F02) | Coordinator | Executive secretary or secretariat | Existing introducer drafts |
-| 4 | Meeting | Booked → held | Coordinator | Agrees the channel and timing | Member-facing one-page note (new; the follow-up offers "a one-page note you could share with members") |
-| 5 | Circulation agreed | Channel and date agreed → circulated | Coordinator | Schedules it | Newsletter text; event slot talk; QR link carrying the introducer code (`INT-<id>`) |
-| 6 | Circulated | Confirmed circulation → first referral | Coordinator | Circulates | — |
-| 7 | Employer referrals | Each employer that responds through the introducer | Coordinator | — | Thank-you letter and termly report in totals (question 6) |
-
-**How referrals enter the employer pipeline:** an employer that responds through an introducer enters the employer pipeline at stage 3, Responded, as a warm lead. Its source records the introducer code. If the employer is already in the master, the existing deal is updated rather than duplicated. A staff member who signs up directly from an introducer's circulation is recorded under the introducer code, and later re-linked to the employer's code if the employer becomes a partner.
-
-**Variations:**
-- **Sector associations reach a kind of employer directly:**
-  - TATO: safari operators (480; 388 are recorded as TATO members);
-  - HAT: hotels (194);
-  - TBA: banks;
-  - TAHA: farms and estates;
-  - APHFTA: private health facilities (188 hospitals and clinics);
-  - CSSC: faith-based hospitals and welfare.
-
-  Ask each for a cluster session as well as circulation. For the hundreds of small employers, this is the cheapest way to reach staff (§5.3).
-- **Chambers and employers' associations (TNCC, ATE, CTI, TPSF)** cover all kinds of employer. Their channels are events and HR forums, so plan around their calendar.
-- **WHAT's members are HR practitioners**, the people who decide benefits. Ask for a speaker slot.
-- **EABC** is regional, with little local reach. Treat it as low priority.
-
-**Stall rules:** as for employers. After circulation, check referrals at 2 and 6 weeks. If there are none, ask once for a second channel, then mark the introducer dormant.
-
-**No referral rewards:** OF05 has expired and F11 is blocked until the 2027 scheme is approved. Any acknowledgement is non-monetary.
-
-**Metrics:** circulations per introducer, employers responding per circulation, referred employers reaching stage 6, and enrolments traced back through referred employers.
-
----
-
-## 8. Welfare organisations
-
-**Size:** 445 in scope; 86 drafts are ready. Tracks: WA00 hold 321, WA01 routing 124, WA02 consultative 0 (it needs a licence confirmed by the authority). The welfare lead is an **account that pays fees for the children in its care**, not a channel to parents (welfare skill). The design builds on F14 in [the welfare plan](../../plans/b2b-welfare-leads-plan.md) §5.6.
-
-| Kind | High / medium / low priority | Total | Ready | Bands: high-direct / high-indirect / medium / low / no email |
+| Segment | Subsegment | Leads (ready) | Funnel | Partnership closed when |
 |---|---|---|---|---|
-| Residential care (children's homes) | 23 / 20 / 57 | 100 | 17 | 3 / 9 / 4 / 38 / 46 |
-| Family-based and sponsorship programmes | 12 / 14 / 138 | 164 | 25 | 2 / 17 / 5 / 28 / 112 |
-| Specialised centres | 3 / 6 / 61 | 70 | 5 | 0 / 5 / 0 / 17 / 48 |
-| Funders | 3 / 7 / 94 | 104 | 34 | 8 / 24 / 1 / 44 / 27 |
-| Welfare networks (introducers) | 0 / 0 / 7 | 7 | 5 | 0 / 5 / 0 / 2 / 0 |
-
-### 8.1 Homes, programmes and centres (placement partnership)
-
-**Goal:** the organisation places children in its care at Silverleaf. The offer message gives the partner rate (OF03), the free uniform (OF01) and the instalments (OF09). OF03 applies only when the home places **all** its primary-age children, from 3% per child at 10 children up to 18% at 60. A smaller home pays standard fees with the family offer.
-
-**Win (stage 6):** a signed placement agreement on terms Finance has approved, covering the number of places by level and campus, billing, and reporting, and approved by the CEO.
-
-| # | Stage | Entry → exit | Silverleaf role | The organisation | Asset |
-|---|---|---|---|---|---|
-| 1–3 | Ready, Contacted, Responded | WA01: one message or call, one check-in after 5 working days. WA02: one follow-up after 4 working days (F14) | Coordinator | Head of home, country manager or programme director | Existing drafts and follow-up |
-| 4 | Placement conversation | A 20–30 minute call → needs recorded in totals by age band | Coordinator plus admissions | Shares the age bands and timing | Placement-planning checklist (VM08) |
-| 5a | Safeguarding visit | Visit protocol confirmed → visit held | Two staff; designated safeguarding lead informed | Hosts, or visits a campus | Visit protocol (new); no photographs |
-| 5b | Proposal | Within 5 working days of the visit → accepted or declined | Coordinator; Finance | Reviews, often with a funder | Proposal using approved terms only (VM13 is blocked until a terms memo is approved) |
-| 6 | Placement agreement | Signed | CEO signs | Signs | Placement agreement template (new) |
-| 7 | Children enrolled; renewal | Admissions assesses each child in Ed-admin, outside the lead database → totals recorded. A renewal check 8 weeks before the next intake | Admissions; coordinator | Supplies documents with the guardian's written consent | Termly progress summary (VM10, with consent) |
-
-**Variations:**
-- **Residential care:** the standard path above. The home is the guardian and the payer.
-- **Family-based and sponsorship programmes:** the children live with families and may attend many schools, so OF03's "all primary-age children" condition may not fit. Two paths:
-  - **(a)** the programme pays for chosen children, on the standard path;
-  - **(b)** the programme circulates Silverleaf's information to caregivers, who opt in themselves, as for employers (programme code `WEL-<id>`). This path needs the programme's agreement, and the form adds no data about children.
-
-  The decision is often the sponsor's. Route to the funder only with the programme's agreement.
-- **Specialised centres** (disability, rescue, street children): add a **needs-fit check** before the visit (welfare plan decision 4: which needs Silverleaf can support well). Close as `needs_not_supported` where the fit is not there. Rescue and safe-house locations stay confidential: no address appears in any shared material.
-- **Opt-in:** there is no parent opt-in, except path (b). Children's data is held only by admissions, with the guardian's written consent. The lead databases record places discussed and places enrolled as totals.
-
-### 8.2 Funders (sponsorship)
-
-**Goal:** sponsorship of students, at any size. It is asked only where the run holds a sourced, verified link to a home or programme near the campuses. Without that link the draft is held.
-
-**Win (stage 6):** a signed sponsorship agreement, approved by the CEO. It is often three-way: the funder pays, the linked home places the children, and Silverleaf teaches.
-
-**Stages:** Ready → Contacted → Responded → Meeting (often a video call, across time zones and sometimes languages) → Sponsorship proposal tied to the linked home (5) → Sponsorship agreement (6) → Students enrolled, then reporting and renewal (7).
-
-**Variations:**
-- Many funders are abroad, and their decision-maker is often a chair. A chair is used only when no executive is named (the recipient rule).
-- Their budget cycles matter: record the cycle as the next-action date.
-- The follow-up already offers the partner rate as "a way to stretch sponsorship".
-
-**Reporting:** to the funder only with the home's consent, in an approved format (VM10).
-
-### 8.3 Welfare networks (introducers)
-
-Like the employer introducers: circulation to member homes is the win, and each home that responds enters §8.1 at stage 3 with the network code.
-
-### 8.4 Timing, records and metrics (welfare)
-
-- **Timing:**
-  - follow F14;
-  - a budget-timing "not now" is held with a dated next action;
-  - a licence that is not confirmed returns the deal to WA00;
-  - a safeguarding concern stops the deal and is escalated to the designated safeguarding lead, with nothing automated;
-  - decisions for a January start are mostly made between October and November.
-- **Records:**
-  - as for employers;
-  - plus age bands discussed (totals), places discussed, places agreed and places enrolled;
-  - plus the linked home for funders, the visit date and the safeguarding lead informed.
-
-  Lost reasons add `safeguarding_stop`, `needs_not_supported` and `funder_no_link`.
-- **Metrics:**
-  - conversations held per contacted organisation;
-  - visits, then proposals, then agreements;
-  - places agreed, then places enrolled;
-  - renewal rate;
-  - sponsorship value agreed (totals).
+| Employers | Safari operators and travel agencies | 480 (432), of which 14 are variant A | [E1](#e1-small-and-field-based-employers) | The employer circulates the sign-up invitation, or signs a benefit agreement |
+| | Hotels, lodges and camps | 194 (123) | [E2](#e2-shift-based-employers) | Same |
+| | Hospitals and clinics | 188 (37) | [E2](#e2-shift-based-employers) | Same |
+| | Manufacturing | 19 (11) | [E2](#e2-shift-based-employers) | Same |
+| | Retail | 17 (6) | [E2](#e2-shift-based-employers) | Same |
+| | Farms and estates | 14 (3) | [E2](#e2-shift-based-employers) | Same |
+| | Aviation | 5 (2) | [E2](#e2-shift-based-employers) | Same |
+| | Banks and other companies | 87 (70) | [E3](#e3-office-based-employers-with-an-hr-function) | Same; usually a signed benefit agreement |
+| | NGOs and research bodies | 62 (28) | [E3](#e3-office-based-employers-with-an-hr-function) | Same |
+| | Colleges and universities | 23 (19) | [E3](#e3-office-based-employers-with-an-hr-function) | Same |
+| | International organisations | 10 (9) | [E3](#e3-office-based-employers-with-an-hr-function) | The staff association circulates, or the organisation signs |
+| | Public bodies (HR route only) | 19 (12) | [E4](#e4-public-bodies) | An HR circular to staff, or an MOU signed through HR |
+| | Variant A: sponsorship | 14 (within safari operators) | [E5](#e5-sponsorship-variant-a) | A signed sponsorship agreement |
+| | Savings groups (SACCOS): employer-based 48, community 67, unclassified 2 | 117 (1) | [E6](#e6-savings-groups-saccos) | The committee circulates to members or gives a meeting slot; optionally a group rate |
+| Introducers | Chambers (3), employers' associations (5), sector associations (6), HR body (1), other (1) | 16 (16) | [I1](#i1-introducer-funnel) | At least one circulation to member employers |
+| Welfare | Residential care (children's homes) | 100 (17) | [W1](#w1-childrens-homes-and-specialised-centres) | A signed placement agreement |
+| | Specialised centres | 70 (5) | [W1](#w1-childrens-homes-and-specialised-centres), with a needs-fit gate | Same, for needs Silverleaf can support |
+| | Family-based and sponsorship programmes | 164 (25) | [W2](#w2-family-based-and-sponsorship-programmes) | A placement agreement, or the programme circulates to caregivers |
+| | Funders | 104 (34) | [W3](#w3-funders) | A signed sponsorship agreement tied to a linked home |
+| | Welfare networks | 7 (5) | [I1](#i1-introducer-funnel) (see [welfare networks](#welfare-networks)) | At least one circulation to member homes |
+| Government | Pilot councils (Arusha City, Arusha District, Hai, Meru) | 4 (4) | [G1](#g1-councils) | The council introduces Silverleaf to its WEOs and VEOs |
+| | Other councils (Moshi Municipal, Moshi District, Siha, Monduli, Simanjiro) | 5 (0) | [G1](#g1-councils), after the pilot | Same |
+| | Ward offices | 129 (0) | [G2](#g2-ward-village-and-mtaa-offices) | A community meeting is held at which Silverleaf speaks to parents |
+| | Village offices | 82 (0) | [G2](#g2-ward-village-and-mtaa-offices) | Same |
+| | Mtaa offices | 0 recorded (a gap) | [G2](#g2-ward-village-and-mtaa-offices) | Same |
+| | District commissioner and regional offices | 7 + 3 (0) | [G3](#g3-district-and-regional-offices) | Informed (no request is made) |
 
 ---
 
-## 9. Government offices
+## 3. The parent funnel hand-off
 
-**Size:** 230 offices; no letter has been delivered yet, and no community events are recorded. The design follows F15 and F16 in [the government plan](../../plans/b2b-government-leads-plan.md) §5.7. Its office stages (`prospect`, `letter_sent`, `introduced`, `convening_requested`, `convening_agreed`, `event_held`, `repeat_convener`) map onto the spine in §3.
+Every funnel that reaches parents ends here. Admissions owns each family from the opt-in onward.
 
-**Goal:** a community meeting at which Silverleaf gives a free 15–20 minute talk in Kiswahili on getting children ready for school, with a take-home parent booklet. Parents opt in there. Silverleaf asks the office for nothing for itself, offers nothing to officials, and never takes lists of residents (OF04 restriction; register rule 5).
+```mermaid
+flowchart LR
+  P["Partner circulates<br/>QR, pamphlet, form"]
+  OI["Opt-in<br/>with partner code"]
+  I["Inquiry<br/>Adm replies, F06"]
+  Q["Qualified<br/>campus fit, F04 step 4"]
+  T["Tour"]
+  A["Application"]
+  E["ENROLMENT"]
+  R["Totals to partner<br/>small numbers hidden"]
+  C["Closed<br/>no reply after F06"]
+  P --> OI --> I --> Q --> T --> A --> E --> R
+  Q -->|applies directly| A
+  I -.-> C
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class P pt
+  class I,Q,R sl
+  class OI,T,A hand
+  class E win
+  class C lost
+```
 
-| Subsegment | Offices | Order and request | Stage path | Win |
-|---|---|---|---|---|
-| Pilot councils (GA01) | 4: Arusha City, Arusha District, Hai, Meru (all ready) | First: a protocol introduction | Letter by hand → call after 5 working days → courtesy visit → introduction recorded | The council introduces Silverleaf to its ward and village executive officers |
-| Other councils | 5: Moshi Municipal, Moshi District, Siha, Monduli, Simanjiro (held) | After the pilot | Same | Same |
-| District commissioner and regional offices | 7 + 3 (held) | A courtesy notice only, after the pilot introductions, once the B2G owner approves | Notice delivered → acknowledged | Informed |
-| Ward offices | 129: 57 within 10 km, 35 at 10–20 km, 32 beyond 20 km, 5 not yet located | After the council's introduction, nearest first; the executive officer verified within 90 days (GA02) | Convening request → slot agreed → meeting held → opt-ins → repeat | A community meeting held with Silverleaf's talk |
-| Village offices | 82: 31 within 10 km, 41 at 10–20 km, 10 beyond 20 km (37 Hai, 35 Meru, 9 Arusha District, 1 mapped inside Arusha City and flagged, because cities have mitaa, not villages) | Same | Same, at the village assembly | Same |
-| Mtaa offices | None recorded | A gap in the run | Same, at the mtaa meeting | Same |
+| Step | What happens | Flow | Who |
+|---|---|---|---|
+| Opt-in | The person signs up: QR code, link or paper form, carrying a partner code | Staff opt-in form (new); VM16 for events | The person themselves |
+| Inquiry | Acknowledged the same working period (next working day at most); age or grade and travel area asked; a reminder after 2 working days; a close after 5 more | F06 steps 1–3 | Adm |
+| Qualified | Campus fit confirmed; visit slots or the application step offered | F04 step 4 | Adm |
+| Tour, Application, Enrolment | Recorded as they happen | F04 step 5 | Adm |
+| Report | Totals per partner code go back to the partner each term | F04 step 5; VM17 | Coord |
 
-**Variations:**
-- **Ward:** the ward public meeting is convened by the ward executive officer with the councillor, and the Ward Development Committee meets at least four times a year. The councillor is elected, so engage elected leaders only through the forum they chair (political neutrality).
-- **Village:** the village assembly includes all residents aged 18 and over and meets at least quarterly (confirm the section of the Act before quoting it). The village chair is elected; the village executive officer is the administrative route.
-- **District commissioner offices:** district public meetings are formal and are not a v1 target. The notice only keeps the office informed.
-- **Councils:** a council may also offer stalls at its own public events. Those are bespoke events (T-21).
-
-**Opt-in step (VM16):** Silverleaf's own paper form, or a QR code, offered at the end of the talk. The fields follow the government plan:
+**The opt-in form** (for review by the data protection officer, aligned with the government plan's form):
 - name;
 - phone, and whether WhatsApp is preferred;
-- area (mtaa or village);
-- level of interest;
-- preferred campus;
+- email (optional);
+- area of residence;
+- level of interest (daycare, pre-primary or primary);
+- preferred campus (Usa River, Arusha City, Kijenge, Ilboru, Boma Ng'ombe, or "not sure");
+- preferred language;
 - consent statement and date;
-- the event code.
+- partner code, filled in from the QR link or printed on the paper form.
 
-The office never collects or sees the forms. Paper forms are entered into the consented store within 24 hours, then secured or destroyed. Until the store is live, run inbound-only: hand out the booklet with the admissions number and the application link, and ask parents to quote the event code.
+The form asks for the level of interest, never a child's name or age, so it holds no children's data. Admissions asks about the child later, within a relationship the parent agreed to.
 
-**Recorded:** office stage and date, letter delivered date, introduction reference, convening request date, the post-holder verified date (within 90 days), and the `community_events` row (it already exists, with counts only): event code, date, expected and estimated attendance and method, opt-ins, enquiries, tours, applications, enrolments and cost. Lost reasons add `election_period`, `payment_requested` and `lists_offered`.
-
-**Timing:**
-- call 5 working days after the letter;
-- courtesy visit after the call;
-- re-verify the post holder within 90 days before a convening request;
-- a routine agenda slot needs 7 days' notice, with materials approved once; a bespoke event needs T-21;
-- confirm logistics at T-2;
-- a thank-you letter with aggregate feedback (VM17) within 5 working days;
-- pull counts weekly for 8 weeks after each event.
-
-**Stop when:** an office declines; an election campaign period starts; anyone asks for payment or gifts (stop and escalate); or anyone offers lists (refuse and record).
-
-**Hand-off:** each opt-in goes to F06, then F04 steps 3–5, outside the databases. Only counts by event code come back.
-
-**Metrics:**
-- letters → introductions → convening requests → meetings held;
-- attendance;
-- opt-ins per 100 attendees;
-- cost per opt-in;
-- enrolments per event;
-- repeat conveners.
-
-The ward score's "observed yield" factor starts to count once the first events are recorded.
-
----
-
-## 10. The parent funnel: one hand-off for every segment
-
-| Step | What happens | Flow | Owner |
-|---|---|---|---|
-| Opt-in | The family signs up with a partner or event code | VM16 / new staff opt-in form | — |
-| Inquiry | Acknowledged the same working period (next working day at most); age or grade and travel area asked | F06 steps 1–3 | Admissions officer, nearest campus |
-| Qualified | Campus fit confirmed; visit slots or the application step offered | F04 step 4 | Admissions |
-| Tour, Application, Enrolment | Recorded as they happen | F04 step 5 | Admissions |
-| Report | Totals by partner code, back to the partner | F04 step 5; VM17 | Coordinator |
+**Consent wording (a draft for the data protection officer, in Kiswahili and English):** "I agree that Silverleaf Academy may contact me by phone, WhatsApp or email about school admissions. [My employer / the organisation that shared this] will not see my details; Silverleaf will share only total numbers. I can withdraw at any time by replying STOP or calling [admissions number]."
 
 **Partner codes:**
 - `EMP-` employer;
@@ -507,129 +271,946 @@ The ward score's "observed yield" factor starts to count once the first events a
 - `WEL-` welfare programme circulation;
 - `EVT-` government community event.
 
-The code travels with the family in the consented store and in admissions records. The lead databases hold only totals per code per month.
+A code is not personal data. It travels with the family in the consented parent store and in admissions records. The lead databases hold only totals per code per month.
+
+**Rules:**
+- Staff, members and parents opt in themselves. No partner ever hands over a list of people (Personal Data Protection Act 2022).
+- Parent data never enters the repository or the three lead databases.
+- Until the consented store is live, run inbound-only. Hand out material with the admissions number and the application link, and ask families to quote the partner code.
+- Reports to partners show totals only, and any count of 1 or 2 is shown as "fewer than 3".
 
 ---
 
-## 11. Existing flows, and the gaps
+## 4. First touch by confidence band
+
+The confidence band (rules in `scripts/messaging/export_resend_contacts.py`) decides the route and channel for S1 → S2. Counts are taken before shared inboxes are collapsed.
+
+| Band | Employers | SACCOS | Introducers | Welfare | First route and channel | Sequence | Reaches S3 when |
+|---|---|---|---|---|---|---|---|
+| **High, direct** | 30 | 0 | 2 | 13 | Email to the named decision-maker's own or role address | AQ02 / F01: Day 0, +4, +4 working days | Any human reply |
+| **High, indirect** | 215 | 0 | 10 | 60 | Email to a general inbox, addressed to the named person. Try one call first to confirm that person reads it | AQ02 / F01 if the role is verified; otherwise AQ01 | Any human reply |
+| **Medium** | 370 | 0 | 4 | 10 | Email to the organisation's inbox, asking for the right person | AQ01 / F13: Day 0, then a routing check-in after 5 working days | A named owner is given. The same deal continues with that person |
+| **Low** | 52 | 1 | 0 | 129 | Not contacted: held at S0 for research or checks | None | It is promoted to S1, or dropped |
+| **No email (call sheet)** | 451 | 116 | 0 | 233 | Phone call with a short Kiswahili or English script. Hand-deliver the letter if there is no phone, or the call fails and the place is within 10 km | Two call attempts on different days, then one visit, then `no_route` | The call reaches the decision-maker, or yields a route. The first message follows "as discussed" |
+| **Government** | — | — | — | — | Formal Kiswahili letter on letterhead, by hand; 11 offices also get an advance copy at an official inbox | Call after 5 working days, then a courtesy visit (F15) | The office acknowledges the letter |
+
+**Escalation (all bands).** When a sequence ends without a reply, send one message to the escalation contact 5 working days later, if one is recorded, then close as `no_response`. Only 8 of 1,118 company plans record an escalation contact today.
+
+**Order of work.** January primary applications run from October to December, and daycare and pre-primary enrol at any time. Sessions held in October and November therefore matter most this year. Recommended first wave:
+- the P1 employers (100);
+- the introducers (16);
+- welfare high-priority organisations with a route;
+- the four pilot councils.
+
+---
+
+## 5. Employers
+
+**Size:** 1,118 companies (752 ready) plus 117 savings groups. Variants: B 1,090, A 14, not yet assigned 14 (new leads). Reach tiers: P1 100, P2 150, P3 853, held (X) 15.
+
+### Rules shared by every employer funnel
+
+- **Goal and offer.** Staff hear about Silverleaf through their employer and choose to sign up. The first message asks for a meeting and states no terms. Follow-up 1 states the staff school-fee benefit at no cost to the employer (OF04), and the family offer (OF01, OF02, OF09). The employer may present the benefit as its own or add to it. Terms come only from the [offer register](../../skills/silverleaf-outreach/references/offer-register.md), and Finance confirms each for 2027 before it is sent.
+- **The win (S7).** One of two forms:
+  - **Circulation partner:** the employer agrees in writing (an email is enough) to circulate the invitation, pamphlet or QR code, and confirms the first circulation has gone out.
+  - **Benefit partner:** an education-benefit agreement is signed by the CEO, modelled on the Rivertrees proposal (OF08) but with register terms only.
+- **Staff session format,** chosen from the staff count the employer gives at the meeting (only 19 companies publish one):
+
+  | Staff at one site within 25 km of a campus | Format |
+  |---|---|
+  | 20 or more (or 10 or more within 10 km) | Site visit: a 20–30 minute talk with questions, pamphlets and the QR code |
+  | Staff on several sites, on shifts that cannot meet, or mostly in the field | Recorded webinar, plus a pamphlet and QR pack for each site |
+  | Fewer than 10 | Pamphlet and QR pack, plus an invitation to a shared session: a monthly "employer families" session at the nearest campus, or a cluster session through an introducer |
+- **Notice period.** A routine session with the standard, pre-approved assets needs 7 days' notice. A bespoke event (a stall at a family day, co-branded material) follows the event SOP's T-21 clock.
+- **OF04 eligibility without a staff list.** The parent declares the employer and role on the application. HR confirms employment and grade for that one person, with the parent's consent.
+- **Records, timing and metrics:** see sections [9](#9-what-is-recorded), [10](#10-timing-and-stall-rules) and [11](#11-metrics).
+
+### E1 Small and field-based employers
+
+**Subsegments:** safari operators and travel agencies. Mostly small offices, with guides and porters often in the field or seasonal; the decision-maker is usually the founder or MD. The 14 variant A sponsorship rows follow [E5](#e5-sponsorship-variant-a) instead.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · first message"]
+  RS["S3 Responded<br/>Coord · offer outline"]
+  M["S4 Call or meeting<br/>Coord · meeting checklist"]
+  G{"Staff at the<br/>office?"}
+  V["S5 Office visit<br/>Coord + Adm · talk, pamphlet, QR"]
+  CL["S5 Pack + cluster session<br/>via TATO or campus evening"]
+  WB["S5 Webinar + crew pack<br/>for field staff"]
+  W["S7 PARTNER<br/>circulation confirmed<br/>or benefit signed"]
+  N["S8 Staff sign-ups<br/>code EMP"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  LOST["SX Closed-lost"]
+  R --> RS --> M --> G
+  G -->|10 or more| V --> W
+  G -->|under 10| CL --> W
+  G -->|mostly in the field| WB --> W
+  W --> N --> PF
+  R & RS & M -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,V,CL,WB sl
+  class RS pt
+  class G gate
+  class W win
+  class N,PF hand
+  class LOST lost
+```
+
+| Funnel facts | E1 |
+|---|---|
+| Leads (ready) | 480 (432), of which 14 are variant A (E5) |
+| Tiers P1 / P2 / P3 / X | 36 / 8 / 421 / 15 |
+| First touch: high-direct / high-indirect / medium / low / call sheet | 19 / 167 / 229 / 40 / 25 |
+| Gates | Finance confirms OF04 before follow-up 1; session format by staff count |
+| Win | S7: circulation confirmed, or benefit agreement signed |
+| Closed-lost | `no_response`, `declined`, `not_relevant`, `no_route`, `stalled_after_meeting`, `stalled_after_session`, `terms_not_agreed`, `closed_or_moved` |
+| Hand-off | Each sign-up goes to Adm, then F06 and F04 steps 3–5 |
+
+| Stage | Silverleaf | The employer | Asset |
+|---|---|---|---|
+| S1–S2 | Coord sends the first message, or calls | Reads and replies | First message (existing drafts); follow-ups |
+| S3 | Coord answers the same or next working day (F02) | Says what they want | One-page offer outline (new) |
+| S4 | Coord; campus head where convenient | Staff numbers in town and in the field; crew WhatsApp group; who approves | Meeting checklist (new) |
+| S5 | Coord + Adm present; or a pack is sent | Hosts or circulates | Pamphlet with QR code (Kiswahili and English); talk or webinar deck; sign-up form |
+| S7 | Coord; Fin confirms terms; CEO signs a benefit agreement | Circulates; signs | Circulation confirmation email; benefit agreement template |
+| S8–S9 | Adm handles each family; Coord the account | Re-circulates before each intake window | Partner report (totals) |
+
+**Why this group differs:** TATO lists 388 of these operators as members. A cluster session through TATO reaches many small offices at once, which costs far less than one visit per office.
+
+### E2 Shift-based employers
+
+**Subsegments:** hotels, lodges and camps; hospitals and clinics; manufacturing; retail; farms and estates; aviation. They share one funnel because staff work in shifts and cannot all leave their posts. The session is timed to shift handover, or recorded. Small sites (most clinics, small shops) get a pamphlet pack instead.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · message or call"]
+  RS["S3 Responded<br/>Coord · offer outline"]
+  M["S4 Meeting with GM, HR or matron<br/>Coord · shifts, language"]
+  G{"Staff at<br/>one site?"}
+  H["S5 Handover sessions<br/>two 15-min slots or canteen<br/>Coord + Adm · Kiswahili pamphlet"]
+  WB["S5 Recorded webinar<br/>later shifts, secure sites"]
+  PK["Pamphlet and QR pack<br/>staff room, notice board"]
+  W["S7 PARTNER<br/>circulation confirmed<br/>or benefit signed"]
+  N["S8 Staff sign-ups<br/>code EMP"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  LOST["SX Closed-lost"]
+  R --> RS --> M --> G
+  G -->|20 or more| H --> W
+  G -->|split shifts or secure site| WB --> W
+  G -->|under 10| PK --> W
+  W --> N --> PF
+  R & RS & M -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,H,WB,PK sl
+  class RS pt
+  class G gate
+  class W win
+  class N,PF hand
+  class LOST lost
+```
+
+| Funnel facts | E2 |
+|---|---|
+| Leads (ready) | 437 (182) across six subsegments |
+| Biggest first-touch need | 339 have no email: the call sheet comes first (50 hotels and 18 hospitals and clinics publish a phone) |
+| Gates | Finance confirms OF04; session format by staff count; secure sites need the employer's clearance |
+| Win | S7: circulation confirmed, or benefit agreement signed |
+| Closed-lost | `no_response`, `no_route`, `declined`, `not_relevant`, `stalled_after_meeting`, `stalled_after_session`, `terms_not_agreed` |
+| Hand-off | Each sign-up goes to Adm, then F06 and F04 steps 3–5 |
+
+| Subsegment | Leads (ready) | P1 / P2 / P3 | Bands: hd / hi / med / low / none | What changes, and why |
+|---|---|---|---|---|
+| Hotels, lodges and camps | 194 (123) | 5 / 88 / 101 | 1 / 10 / 56 / 4 / 123 | Two 15-minute slots at the morning and afternoon handovers, or a table in the staff canteen. Leave pamphlets in the staff room. Ask the GM about the quiet season. HAT is the introducer. |
+| Hospitals and clinics | 188 (37) | 27 / 1 / 160 | 1 / 6 / 10 / 0 / 171 | Hospitals: a staff-room session at handover, or a recorded webinar, through HR or the matron. Clinics and dispensaries (about 150, mostly from map data, mostly without a route) get the pamphlet pack. Faith-based hospitals may also be linked to welfare homes. APHFTA and CSSC are the introducers. |
+| Manufacturing | 19 (11) | 1 / 3 / 15 | 0 / 1 / 5 / 0 / 13 | A canteen session at shift change, in Kiswahili, through HR or the workers' committee. Stress the four instalments (OF09). CTI is the introducer. |
+| Retail | 17 (6) | 0 / 5 / 12 | 0 / 0 / 2 / 0 / 15 | A short store huddle and a staff-room QR poster. A chain's head office may approve (escalation contact). |
+| Farms and estates | 14 (3) | 0 / 2 / 12 | 0 / 0 / 1 / 0 / 13 | An on-site session during a break, through the welfare officer, in Kiswahili. Workers are often housed on site, far from a campus. Never promise transport (VM12 is not approved). TAHA is the introducer. |
+| Aviation | 5 (2) | 0 / 1 / 4 | 0 / 0 / 1 / 0 / 4 | Secure sites: a webinar, or a session off site or in a landside canteen, with any clearance arranged by the employer. |
+
+Roles and assets are the same as in E1. The difference is that the pamphlet and session are in Kiswahili first for factory, farm and retail staff.
+
+### E3 Office-based employers with an HR function
+
+**Subsegments:** banks and other companies; NGOs and research bodies; colleges and universities; international organisations. They share one funnel because each has an HR or staff-welfare function and formal benefits. That makes a signed agreement more likely, and some will want it before any session.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · first message"]
+  RS["S3 Responded<br/>Coord · offer outline"]
+  M["S4 Meeting with HR or MD<br/>Coord · meeting checklist"]
+  ORD{"Session first or<br/>agreement first?"}
+  S["S5 Lunchtime session or webinar<br/>Coord + Adm · deck, pamphlet, QR"]
+  P["S6 Benefit proposal<br/>Coord + Fin · agreement template"]
+  W["S7 PARTNER<br/>circulation confirmed<br/>or agreement signed by CEO"]
+  N["S8 Staff sign-ups<br/>code EMP"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  LOST["SX Closed-lost"]
+  R --> RS --> M --> ORD
+  ORD -->|session first, default| S
+  S -->|circulation only| W
+  S -->|wants terms| P
+  ORD -->|agreement first| P --> W
+  W -->|agreement first: launch session| N --> PF
+  RS & M & P -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,S,P sl
+  class RS pt
+  class ORD gate
+  class W win
+  class N,PF hand
+  class LOST lost
+```
+
+| Funnel facts | E3 |
+|---|---|
+| Leads (ready) | 182 (126) across four subsegments |
+| Gates | Finance confirms the terms; CEO signs any agreement; head-office approval for branch networks |
+| Win | S7: circulation confirmed, or benefit agreement signed |
+| Closed-lost | `no_response`, `declined`, `stalled_after_meeting`, `stalled_after_session`, `terms_not_agreed`, `compliance_blocked` |
+| Hand-off | Each sign-up goes to Adm, then F06 and F04 steps 3–5 |
+
+| Subsegment | Leads (ready) | P1 / P2 / P3 | Bands: hd / hi / med / low / none | What changes, and why |
+|---|---|---|---|---|
+| Banks and other companies | 87 (70) | 21 / 36 / 30 | 4 / 18 / 36 / 1 / 28 | Branch networks may need head-office approval (escalation contact). Circulate through the intranet or payslips. TBA is the introducer. |
+| NGOs and research bodies | 62 (28) | 0 / 1 / 61 | 2 / 1 / 18 / 0 / 41 | Local staff only. Never imply programme funding or endorsement. Some are also welfare funders: run one deal per organisation. |
+| Colleges and universities | 23 (19) | 10 / 0 / 13 | 3 / 5 / 6 / 0 / 9 | Go through staff welfare or HR, never the student admissions inbox. Avoid exam periods. Combine with a staff SACCOS where one exists. |
+| International organisations | 10 (9) | 0 / 5 / 5 | 0 / 2 / 6 / 1 / 1 | Often the staff association or welfare committee is the counterpart, and it circulates. Host-country staff rules apply, and approval is slow. |
+
+### E4 Public bodies
+
+**Subsegment:** public bodies such as agencies, authorities and parastatals, approached only as employers. A public body has its own funnel because of two gates:
+- a **compliance check** before S1;
+- **HR approval** before any session or agreement.
+
+The benefit is never combined with a request for official action (OF04 restriction).
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  C{"Compliance check<br/>CEO or compliance lead"}
+  R["S1-S2 Ready, Contacted<br/>Coord · HR-route message"]
+  RS["S3 Responded<br/>Coord · offer outline"]
+  M["S4 Meeting with HR<br/>Coord · meeting checklist"]
+  HA{"HR approval<br/>head of institution"}
+  S["S5 Staff session or webinar<br/>Coord + Adm · pamphlet, QR"]
+  P["S6 MOU draft<br/>Coord + Fin · MOU template"]
+  W["S7 PARTNER<br/>HR circular or signed MOU"]
+  N["S8 Staff sign-ups<br/>code EMP"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  LOST["SX Closed-lost<br/>compliance_blocked"]
+  C -->|passes| R --> RS --> M --> HA
+  C -->|fails| LOST
+  HA -->|circular first| S --> W
+  HA -->|MOU first| P --> W
+  HA -->|refused| LOST
+  W --> N --> PF
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,S,P sl
+  class RS pt
+  class C,HA gate
+  class W win
+  class N,PF hand
+  class LOST lost
+```
+
+| Funnel facts | E4 |
+|---|---|
+| Leads (ready) | 19 (12); all P3 |
+| First touch: hd / hi / med / low / call sheet | 0 / 5 / 0 / 6 / 8 (the 6 low rows wait for the compliance check) |
+| Gates | Compliance check (question 12); HR approval; CEO signs an MOU |
+| Win | S7: an HR circular to all staff, or a signed MOU |
+| Closed-lost | `compliance_blocked`, `declined`, `no_response`, `terms_not_agreed` |
+| Typical length | 60–90 days from meeting to win |
+| Hand-off | Each sign-up goes to Adm, then F06 and F04 steps 3–5 |
+
+**What fails the check:** a body that taxes, regulates, inspects or licenses Silverleaf (for example the revenue authority), or any body with official business pending with Silverleaf.
+
+### E5 Sponsorship (variant A)
+
+**Subsegment:** employers that publish education or community giving. All 14 so far are safari operators. They are asked to sponsor students, at any size (including textbooks, transport or meals). There is no staff session and no opt-in step.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · sponsorship request"]
+  RS["S3 Responded<br/>Coord · no offer until reply"]
+  M["S4 Meeting<br/>Coord · school and students"]
+  P["S6 Sponsorship proposal<br/>Coord + Fin · amount, students, term"]
+  W["S7 PARTNER<br/>sponsorship agreement<br/>CEO signs"]
+  SEL["Students chosen<br/>by admissions, not the sponsor"]
+  E["Enrolment<br/>sponsored students"]
+  REP["S9 Reporting and renewal<br/>totals unless family consents"]
+  SB["Optional later:<br/>staff benefit, funnel E1"]
+  LOST["SX Closed-lost"]
+  R --> RS --> M --> P --> W --> SEL --> E --> REP
+  W -.->|one month later| SB
+  RS & M & P -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,P,REP,SB sl
+  class RS pt
+  class W win
+  class SEL,E hand
+  class LOST lost
+```
+
+| Funnel facts | E5 |
+|---|---|
+| Leads | 14 (all safari operators) |
+| Gates | No offer message until the employer replies (offer register); CEO signs |
+| Win | S7: a signed sponsorship agreement (amount or items, number of students, term, reporting) |
+| Closed-lost | `no_response`, `declined`, `terms_not_agreed` |
+| Hand-off | Admissions chooses and enrols the students (with a welfare partner where relevant) |
+| Known fault | All 14 rows carry staff-benefit follow-ups. **Being fixed in the T1 task** |
+
+The staff benefit is offered as a separate conversation one month after the sponsorship is agreed. It is never bundled into the sponsorship ask (question 3).
+
+### E6 Savings groups (SACCOS)
+
+**Subsegments:** employer- or institution-based SACCOS (48), community or open-bond SACCOS (67), and 2 from map data with no type. The audience is members, reached through the committee, in Kiswahili (F03).
+
+The offer message gives the family offer and the member-association rate. That rate (OF07) is documented for KINEFA only, so Finance must agree to extend it before it is stated. There is no loan, payroll or subsidy claim (VM06).
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  K{"Employer-based, and<br/>employer already in pipeline?"}
+  J["Join the employer's deal<br/>committee joins at S5"]
+  R["S1-S2 Ready, Contacted<br/>Coord · Kiswahili letter or call"]
+  RS["S3 Responded<br/>Coord · member offer sheet"]
+  CM["S4 Committee meeting<br/>Coord + Adm · short talk"]
+  MM["S5 Members' meeting or AGM slot<br/>Adm · Kiswahili pamphlet, form"]
+  GR["S6 Group-rate proposal<br/>only if Fin extends OF07"]
+  W["S7 PARTNER<br/>committee circulates<br/>or slot held"]
+  N["S8 Member sign-ups<br/>code SAC"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  LOST["SX Closed-lost"]
+  K -->|yes| J
+  K -->|no| R --> RS --> CM --> MM --> W
+  CM -->|asks for a rate| GR --> W
+  W --> N --> PF
+  RS & CM & GR -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class J,R,CM,MM,GR sl
+  class RS pt
+  class K gate
+  class W win
+  class N,PF hand
+  class LOST lost
+```
+
+| Funnel facts | E6 |
+|---|---|
+| Leads (ready) | 117 (1): employer-based 48, community 67, unclassified 2 |
+| First touch | 116 have no email, so a Kiswahili letter or call comes first; 1 is low (held) |
+| Gates | Kiswahili review and Finance approval of the member rate before S1 |
+| Win | S7: the committee circulates to members, or a meeting slot is held; a group rate is a stronger optional form |
+| Closed-lost | `no_response`, `no_route`, `declined`, `rate_not_approved` |
+| Hand-off | Each member sign-up goes to Adm, then F06 and F04 steps 3–5 |
+
+| Subsegment | Leads | What changes, and why |
+|---|---|---|
+| Employer-based SACCOS | 48 | The members are one employer's staff. If that employer is already in a funnel (for example a college and its staff SACCOS), run one combined deal; the committee joins at the session. |
+| Community SACCOS | 67 | A broader community membership, so the members' meeting is the main event. Ward community development officers, recorded in the government run, are a possible route. |
+| Unclassified | 2 | Treated as community until the type is known. |
+
+**Timing:** members' meetings and AGMs follow each society's own calendar. Ask the committee for the next date, and record it as the next-action date. Sign-ups are counted against the group-rate thresholds (50, 100 and 150 students) as totals.
+
+---
+
+## 6. Introducers
+
+### I1 Introducer funnel
+
+**Subsegments:** chambers (TNCC national, Arusha regional and Kilimanjaro regional); employers' associations (ATE national and Northern Zone, CTI national and Arusha/Moshi, TPSF); sector associations (TATO, HAT, TBA, TAHA, APHFTA, CSSC); the HR body (WHAT); and other (EABC). The [welfare networks](#welfare-networks) use the same funnel.
+
+All of them share one funnel. Their win is a circulation to members, and their results are **employer or home leads, not parents**.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · introducer message"]
+  RS["S3 Responded<br/>Coord · member note"]
+  M["S4 Meeting with secretariat<br/>Coord · channel and timing"]
+  CA["S5 Circulation agreed<br/>newsletter, members' slot, HR forum"]
+  CS{"Many small<br/>members?"}
+  CL["Cluster session<br/>Coord + Adm"]
+  W["S7 PARTNER<br/>first circulation done"]
+  REF["S8 Referrals<br/>code INT"]
+  EP["Employer enters E1-E4 at S3<br/>or home enters W1-W2 at S3"]
+  ACK["Thank-you letter<br/>and termly totals"]
+  LOST["SX Closed-lost"]
+  R --> RS --> M --> CA --> CS
+  CS -->|yes| CL --> W
+  CS -->|no| W
+  W --> REF --> EP
+  REF --> ACK
+  RS & M -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,CL,ACK sl
+  class RS,CA pt
+  class CS gate
+  class W win
+  class REF,EP hand
+  class LOST lost
+```
+
+| Funnel facts | I1 |
+|---|---|
+| Leads (ready) | 16 (16): chambers 3, employers' associations 5, sector associations 6, HR body 1, other 1 |
+| First touch: hd / hi / med | 2 (TATO, CTI) / 10 / 4 (ATE Northern Zone shares ATE's inbox) |
+| Gates | CEO approves any formal member-benefit listing or MOU (optional S6) |
+| Win | S7: at least one circulation, such as a newsletter item, a members' meeting slot, an HR forum or introduction emails |
+| Closed-lost | `no_response`, `declined`, `not_relevant` |
+| Hand-off | Referred employers enter an employer funnel at S3 as warm leads. A staff member who signs up straight from a circulation enters the parent funnel under the INT code |
+
+| Kind | Organisations | What changes, and why |
+|---|---|---|
+| Sector associations | TATO, HAT, TBA, TAHA, APHFTA, CSSC | Each reaches one kind of employer directly: TATO the safari operators (388 recorded members), HAT hotels, TBA banks, TAHA farms, APHFTA private health facilities, CSSC faith-based hospitals and welfare. Ask for a cluster session as well as a circulation. |
+| Chambers and employers' associations | TNCC (3), ATE (2), CTI (2), TPSF | They reach all kinds of employer, through events and HR forums, so plan around their calendar. |
+| HR body | WHAT | Its members are HR practitioners, the people who decide benefits. Ask for a speaker slot. |
+| Other | EABC | Regional, with little local reach: low priority. |
+
+**Timing:** check referrals 2 and 6 weeks after each circulation. If there are none, ask once for a second channel, then mark the introducer dormant.
+
+**No referral rewards.** OF05 has expired and F11 is blocked until the 2027 scheme is approved, so the acknowledgement is a thank-you letter and termly totals only.
+
+---
+
+## 7. Welfare organisations
+
+**Size:** 445 in scope; 86 drafts are ready. Tracks: WA00 hold 321, WA01 routing 124, WA02 consultative 0 (it needs a licence confirmed by the authority). A welfare lead is an **account that pays fees for the children in its care**, not a channel to parents. These funnels build on F14 in [the welfare plan](../../plans/b2b-welfare-leads-plan.md) §5.6.
+
+### Rules shared by every welfare funnel
+
+- **Offer.** The follow-up gives the partner rate (OF03), the free uniform (OF01) and the instalments (OF09). OF03 applies only when a home places **all** its primary-age children: 3% per child at 10 children, rising to 18% at 60. A smaller home pays standard fees with the family offer. Further institutional terms (VM13) stay blocked until Finance approves a terms memo.
+- **Children's data.** The lead databases never hold a child's name, age, photo or story. Admissions assesses each child in Ed-admin with the guardian's written consent. The databases record totals only: age bands discussed, places discussed, agreed and enrolled.
+- **Safeguarding.** Two staff on every visit, no photographs, and the DSL informed. A concern stops the deal, nothing is automated, and it is escalated to the DSL.
+- **Recipient.** The leader on the ground first. A senior executive abroad is the escalation contact. A chair is used only when no executive is named.
+
+### W1 Children's homes and specialised centres
+
+**Subsegments:** residential care (children's homes) and specialised centres (disability, rescue, street children). They share one funnel because both are the children's guardian and payer. A specialised centre adds one gate, the needs-fit check, before the visit.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · partnership message"]
+  RS["S3 Responded<br/>Coord · partner-rate follow-up"]
+  M["S4 Placement conversation<br/>Coord + Adm · age bands, totals"]
+  NF{"Needs-fit check<br/>specialised centres only"}
+  V["S5 Safeguarding visit<br/>two staff, DSL informed"]
+  P["S6 Proposal<br/>Coord + Fin · approved terms"]
+  W["S7 PARTNER<br/>placement agreement<br/>CEO signs"]
+  A["Adm assesses each child<br/>Ed-admin, guardian consent"]
+  E["Enrolment<br/>totals recorded"]
+  RN["S9 Renewal<br/>8 weeks before intake"]
+  LOST["SX Closed-lost"]
+  R --> RS --> M --> NF
+  NF -->|home, or need supported| V --> P --> W --> A --> E --> RN
+  NF -->|need not supported| LOST
+  V -.->|safeguarding concern| LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,V,P,RN sl
+  class RS pt
+  class NF gate
+  class W win
+  class A,E hand
+  class LOST lost
+```
+
+| Funnel facts | W1 |
+|---|---|
+| Leads (ready) | Residential care 100 (17); specialised centres 70 (5) |
+| Priority high / medium / low | Residential 23 / 20 / 57; specialised 3 / 6 / 61 |
+| First touch: hd / hi / med / low / call sheet | Residential 3 / 9 / 4 / 38 / 46; specialised 0 / 5 / 0 / 17 / 48 |
+| Gates | Needs-fit check (specialised); safeguarding visit protocol; terms memo approved by Fin; CEO signs |
+| Win | S7: a signed placement agreement on approved terms |
+| Closed-lost | `no_response`, `declined`, `needs_not_supported`, `safeguarding_stop`, `capacity`, `terms_not_agreed` |
+| Hand-off | Admissions, child by child, outside the lead databases; no parent opt-in |
+
+| Subsegment | What changes, and why |
+|---|---|
+| Residential care (children's homes) | The standard path: the home is the guardian and the payer. |
+| Specialised centres | A needs-fit check comes first, because Silverleaf must decide which needs it can support well (welfare plan decision 4). Rescue and safe-house locations stay confidential, so no address appears in any shared material. |
+
+### W2 Family-based and sponsorship programmes
+
+**Subsegment:** family-based care, orphans and vulnerable children programmes, and sponsorship programmes. They get their own funnel because the children live with families and may attend many schools, so the decision can sit with the programme, the sponsor or the family.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  R["S1-S2 Ready, Contacted<br/>Coord · partnership message"]
+  RS["S3 Responded<br/>Coord · partner-rate follow-up"]
+  M["S4 Conversation<br/>Coord + Adm"]
+  B{"Who chooses<br/>the school?"}
+  V["S5 Safeguarding visit"]
+  P["S6 Proposal<br/>approved terms"]
+  WA["S7 PARTNER a<br/>placement agreement"]
+  F["Funder decides:<br/>funnel W3, with consent"]
+  C["S5 Circulation agreed<br/>to caregivers"]
+  WB["S7 PARTNER b<br/>programme circulates"]
+  PF["Caregivers opt in<br/>parent funnel, code WEL"]
+  E["Admissions enrols<br/>placed children"]
+  R --> RS --> M --> B
+  B -->|programme pays| V --> P --> WA --> E
+  B -->|sponsor decides| F
+  B -->|families choose| C --> WB --> PF
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  class R,M,V,P,F sl
+  class RS,C pt
+  class B gate
+  class WA,WB win
+  class PF,E hand
+```
+
+| Funnel facts | W2 |
+|---|---|
+| Leads (ready) | 164 (25) |
+| Priority high / medium / low | 12 / 14 / 138 |
+| First touch: hd / hi / med / low / call sheet | 2 / 17 / 5 / 28 / 112 |
+| Gates | Who chooses the school; safeguarding visit; the programme's agreement before contacting its funder or caregivers |
+| Win | S7: (a) a placement agreement, or (b) the programme circulates to caregivers |
+| Closed-lost | `no_response`, `declined`, `not_relevant`, `terms_not_agreed`, `safeguarding_stop` |
+| Hand-off | (a) admissions enrols the placed children; (b) caregivers enter the parent funnel. The form adds no data about children |
+
+OF03's "all primary-age children" condition often does not fit these programmes, so path (a) usually means standard fees with the family offer.
+
+### W3 Funders
+
+**Subsegment:** funders (foreign charities, foundations, corporate giving programmes). Sponsorship is asked only where the run holds a sourced, verified link to a home or programme near a campus. Without that link the draft is held.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  L{"Verified link to a<br/>home near a campus?"}
+  H["S0 Held<br/>funder_no_link"]
+  R["S1-S2 Ready, Contacted<br/>Coord · sponsorship request"]
+  RS["S3 Responded<br/>Coord · partner-rate follow-up"]
+  M["S4 Meeting, often by video<br/>Coord"]
+  P["S6 Sponsorship proposal<br/>tied to the home · Coord + Fin"]
+  W["S7 PARTNER<br/>sponsorship agreement<br/>funder, home, Silverleaf"]
+  E["Enrolment via the home<br/>Adm, guardian consent"]
+  REP["S9 Reporting and renewal<br/>home consents, VM10"]
+  LOST["SX Closed-lost"]
+  L -->|no| H
+  L -->|yes| R --> RS --> M --> P --> W --> E --> REP
+  RS & M & P -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,M,P,REP sl
+  class RS pt
+  class L,H gate
+  class W win
+  class E hand
+  class LOST lost
+```
+
+| Funnel facts | W3 |
+|---|---|
+| Leads (ready) | 104 (34) |
+| Priority high / medium / low | 3 / 7 / 94 |
+| First touch: hd / hi / med / low / call sheet | 8 / 24 / 1 / 44 / 27 |
+| Gates | A verified link to a home; CEO signs; reporting needs the home's consent |
+| Win | S7: a signed sponsorship agreement, usually three-way (the funder pays, the home places, Silverleaf teaches) |
+| Closed-lost | `funder_no_link`, `no_response`, `declined`, `terms_not_agreed` |
+| Hand-off | Enrolment through the linked home and admissions |
+
+**Why funders differ:**
+- Many are abroad, so meetings are by video, across time zones and sometimes languages.
+- The decision-maker is often a chair.
+- Budget cycles drive timing: record the cycle as the next-action date.
+- The follow-up offers the partner rate as "a way to stretch sponsorship".
+
+### Welfare networks
+
+**Subsegment:** welfare networks, bodies that can share the partnership with many homes (7 leads, 5 ready; bands 5 high-indirect, 2 low). They follow the [I1 introducer funnel](#i1-introducer-funnel) exactly. The win is a circulation to member homes, and each home that responds enters W1 or W2 at S3 with the network's code. Government social-welfare offices are never treated as networks; they belong to the government track.
+
+---
+
+## 8. Government offices
+
+**Size:** 230 offices. No letter has been delivered yet, and no community events are recorded. These funnels follow F15 and F16 in [the government plan](../../plans/b2b-government-leads-plan.md) §5.7.
+
+**Goal:** a community meeting at which Silverleaf gives a free 15–20 minute talk in Kiswahili on getting children ready for school, with a parent booklet. Silverleaf asks nothing for itself, offers nothing to officials, and never takes lists of residents (OF04 restriction; register rule 5). It stays politically neutral: administrative offices come first, and elected leaders are engaged only through the forum they chair.
+
+### G1 Councils
+
+**Subsegments:** the pilot councils (Arusha City, Arusha District, Hai, Meru) and the other councils (Moshi Municipal, Moshi District, Siha, Monduli, Simanjiro). They share one funnel. The other councils start only after the pilot introductions.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  PI{"Pilot council?"}
+  WAIT["S0 Held<br/>until pilot introductions"]
+  R["S1 Letter ready<br/>Kiswahili, letterhead"]
+  D["S2 Delivered by hand<br/>Coord · advance copy if official inbox"]
+  CALL["S3 Call after 5 working days<br/>Coord"]
+  CV["S4 Courtesy visit<br/>Coord + Head"]
+  W["S7 PARTNER<br/>introduction to WEOs and VEOs"]
+  WV["S8 Results<br/>ward and village funnels open, G2"]
+  RN["S9 Renewal<br/>re-verify holders, 90 days"]
+  LOST["SX Closed-lost"]
+  PI -->|yes, 4| R
+  PI -->|no, 5| WAIT --> R
+  R --> D --> CALL --> CV --> W --> WV --> RN
+  CALL & CV -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,D,CALL,CV,RN sl
+  class PI,WAIT gate
+  class W win
+  class WV hand
+  class LOST lost
+```
+
+| Funnel facts | G1 |
+|---|---|
+| Leads (ready) | Pilot 4 (4, GA01); other 5 (0, GA00) |
+| Gates | B2G owner informed before any letter; native-speaker review of the letter |
+| Win | S7: the council introduces Silverleaf to its ward and village executive officers |
+| Closed-lost | `declined`, `no_response`, `election_period`, `payment_requested` |
+| Hand-off | None directly: the result is G2 funnels opening |
+
+### G2 Ward, village and mtaa offices
+
+**Subsegments:** ward offices, village offices, and mtaa offices (none recorded yet: a gap). They share one funnel. Only the forum differs:
+
+| Subsegment | Leads | Waves by distance to a campus | Forum |
+|---|---|---|---|
+| Ward offices | 129 | 57 within 10 km, 35 at 10–20 km, 32 beyond 20 km, 5 not yet located | Ward public meeting convened by the WEO with the councillor; the Ward Development Committee meets at least four times a year |
+| Village offices | 82 (37 Hai, 35 Meru, 9 Arusha District, 1 mapped inside Arusha City and flagged) | 31 within 10 km, 41 at 10–20 km, 10 beyond 20 km | Village assembly: all residents aged 18 and over, at least quarterly (confirm the section of the Act before quoting it). VEO administrative; chair elected |
+| Mtaa offices | 0 | — | Mtaa meeting (cities have mitaa, not villages) |
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  GI{"Council introduction, and<br/>officer verified in 90 days?"}
+  H["S0 Held<br/>GA00"]
+  R["S1 Convening request ready<br/>Kiswahili letter"]
+  D["S2 Delivered by hand<br/>Coord"]
+  M["S4 Meet the WEO or VEO<br/>learn the meeting calendar"]
+  CA["S5 Slot agreed in writing<br/>date, venue, minutes"]
+  W["S7 PARTNER<br/>community meeting held<br/>talk + booklet"]
+  OI["Parents opt in<br/>paper form or QR, code EVT"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  RP["S9 Thank-you with totals<br/>repeat convener"]
+  LOST["SX Closed-lost<br/>election, payment, lists"]
+  GI -->|no| H
+  GI -->|yes| R --> D --> M --> CA --> W --> OI --> PF
+  W --> RP
+  D & CA -.-> LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class R,D,M,RP sl
+  class CA pt
+  class GI,H gate
+  class W win
+  class OI,PF hand
+  class LOST lost
+```
+
+| Funnel facts | G2 |
+|---|---|
+| Leads (ready) | 211 (0): wards 129, villages 82; all held until a council introduction (GA02 gate) |
+| Gates | Council introduction recorded; the post holder verified within 90 days; Kiswahili talk, booklet and form approved once; consented store live, or inbound-only |
+| Win | S7: a community meeting held with Silverleaf's talk |
+| Closed-lost | `declined`, `election_period`, `payment_requested` (stop and escalate), `lists_offered` (refused and recorded), event cancelled |
+| Hand-off | Paper forms are entered into the consented store within 24 hours, then secured or destroyed. Each family then goes to F06 and F04 steps 3–5. Totals by event code come back |
+
+**At the meeting:** two Silverleaf staff (one from admissions) present the talk (VM14) and hand out the booklet (VM15). The voluntary form or QR code (VM16) is offered at the end. There are no photographs, gifts or payments. The office never collects or sees the forms.
+
+**Timing:**
+- a routine agenda slot needs 7 days' notice; a bespoke event needs T-21;
+- confirm logistics at T-2;
+- send a thank-you letter with totals (VM17) within 5 working days;
+- pull counts weekly for 8 weeks after each event.
+
+### G3 District and regional offices
+
+**Subsegments:** district commissioner offices (7) and regional offices (3). They receive a courtesy notice only, once the pilot introductions are done and the B2G owner approves. District public meetings are formal and are not a v1 target.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  P{"Pilot introductions done<br/>and B2G owner approves?"}
+  H["S0 Held"]
+  N["S2 Courtesy notice delivered<br/>Coord · Kiswahili letter"]
+  A["S3 Acknowledged"]
+  W["S7 Informed<br/>no request made"]
+  P -->|no| H
+  P -->|yes| N --> A --> W
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  class N sl
+  class A pt
+  class P,H gate
+  class W win
+```
+
+| Funnel facts | G3 |
+|---|---|
+| Leads (ready) | 10 (0): districts 7, regions 3 |
+| Gate | Pilot introductions recorded; B2G owner approves |
+| Win | S7 `informed`: no request is made, so there is nothing more to win |
+| Closed-lost | Not applicable; an objection is recorded and escalated to the B2G owner |
+
+---
+
+## 9. What is recorded
+
+This becomes the tracking schema after approval. It holds organisation-level facts and totals only, never a person in the parent funnel.
+
+| Spine stage | Fields |
+|---|---|
+| Every stage | stage, stage date, owner role, next action, next-action date (required while open), outcome code, band and acquisition track at first touch, partner code, touch count, last touch date, escalation used and its date |
+| S0 | hold reason, check owner, check due date |
+| S2 | first-touch date and channel, sequence (AQ01, AQ02, F03, call sheet or letter) |
+| S3 | reply date, reply type, referred-to role, deferred-until date |
+| S4 | booked and held dates, format, approximate staff or member count as stated (a range), shift pattern, staff channels, language, approver role |
+| S5 | type (site visit, handover sessions, webinar, pack, cluster, members' meeting, safeguarding visit, slot), booked and held dates, attendance estimate and method, pamphlets handed out |
+| S6 | proposal sent date, offer IDs, Finance confirmation date, version |
+| S7 | win type (outcome code), date, approver (CEO where signed), circulation channel and date, agreement reference, renewal-due date |
+| S8 | monthly totals per partner code: sign-ups, enquiries, tours, applications, enrolments; welfare: places agreed and enrolled; government: the `community_events` counts |
+| S9 | review date, outcome, next window |
+| SX | lost reason, date, short note |
+
+Segment additions:
+- **Welfare:** age bands discussed (totals), places discussed, the linked home for funders, the visit date and the DSL informed.
+- **Government:** letter delivered date, introduction reference, post holder verified date, event code.
+
+---
+
+## 10. Timing and stall rules
+
+| Spine step | Typical gap | Re-prompt | Close or hold |
+|---|---|---|---|
+| S2 (AQ02) | Day 0, +4, +4 working days (F01) | Built into the sequence | Escalation, then `no_response` |
+| S2 (AQ01) | Day 0, +5 working days (F13) | Built in | Same |
+| S2 (SACCOS) | Day 0, +4, +4 working days (F03) | Built in | Same |
+| S2 (call sheet) | Two call attempts on different days, within 5 working days | One visit if within 10 km | `no_route` |
+| S2 (government) | Call 5 working days after the letter, then a courtesy visit (F15) | — | `no_response` after the visit |
+| S3 → S4 | Answer the same or next working day (F02); meeting within 10 working days | Two nudges, 4 working days apart | Deferred if a date is given; otherwise `stalled_after_meeting` |
+| S4 → S5 | Summary within 2 working days; session within 3–6 weeks (7 days' notice for routine sessions) | +5 and +10 working days | Deferred to the next intake window, then `stalled_after_session` |
+| S5 → S6/S7 | Proposal or circulation request within 5 working days | +7 and +14 days | Held to the next window once, then `terms_not_agreed` |
+| Deferred | The date they gave | One contextual message on that date (F02 step 5) | `deferred_expired`. With no date given, one message at the next intake window |
+| S8 → S9 | Re-circulation before each window (September for January primary, May for mid-year; daycare and pre-primary at any time); agreements reviewed 8 weeks before the January intake | One reminder to the partner | Dormant after two windows with no results |
+| Welfare | F14: one follow-up after 4 working days (WA02), or one check-in after 5 (WA01) | Budget timing: hold with a dated next action | A licence not confirmed returns the deal to WA00 |
+| Government events | T-7 materials (T-21 bespoke), T-2 logistics, thank-you within 5 working days, counts weekly for 8 weeks | — | Stop on an election period or a payment request |
+
+---
+
+## 11. Metrics
+
+| Level | Conversion to watch | Leading indicators |
+|---|---|---|
+| Spine | S2 → S3 (reply rate), S3 → S4, S4 → S5, S5 → S7, S7 → first result | Reply rate by band and by subsegment; days from reply to meeting; meetings and sessions booked per week |
+| Employers and SACCOS | Session → partner; partner → at least one sign-up | Sign-ups per 100 attendees and per circulation; share of partners re-circulating each window; cost per sign-up |
+| Introducers | Circulation → referred employers → referred partners | Referrals per circulation; enrolments traced back through referred employers |
+| Welfare | Conversation → visit → proposal → agreement; places agreed → enrolled | Renewal rate; sponsorship value agreed (totals) |
+| Government | Letter → introduction → request → meeting held | Attendance; opt-ins per 100 attendees; cost per opt-in; repeat conveners (feeds the ward score's observed-yield factor) |
+| Parent funnel | Opt-in → inquiry → tour → application → enrolment, by partner code | Time to first reply; share of opt-ins that give age and area |
+
+Change one thing at a time (acquisition framework, Measurement).
+
+---
+
+## 12. Existing flows and the gaps
 
 | Stage | Covered by | Note |
 |---|---|---|
-| Intake and track choice | F12 (named in outreach-flows.md and campaigns C01 and C02) | **Not in the flows table** (only F01–F11 are recorded) |
-| First touch, AQ02 | F01 | Three touches, then stop |
-| First touch, AQ01 routing | F13 | Two touches. **Not in the flows table** |
-| SACCOS first touch | F03 | |
-| Reply handling | F02 | Covers interested, details, referral, not now, refusal, bounce and out of office |
-| Partner session to opt-in | F04 steps 1–2 | Its 21-day rule is too slow for routine sessions (conflict 3) |
-| Opt-in to enrolment | F06, then F04 steps 3–5 | |
-| Welfare consultative path | F14 (welfare plan) | Plan only; not in the flows table |
-| Government protocol and convening | F15 (government plan) | Plan only |
-| Community session to opt-in | F16 (government plan) | Plan only |
+| S0 → S1 intake and track choice | F12 (named in outreach-flows.md and campaigns C01, C02) | **Not in the flows table**, which holds F01–F11 only |
+| S2, AQ02 | F01 | Three touches, then stop |
+| S2, AQ01 routing | F13 | Two touches. **Not in the flows table** |
+| S2, SACCOS | F03 | |
+| S3 reply handling | F02 | Interested, details, referral, not now, refusal, bounce, out of office |
+| S5 partner session to opt-in | F04 steps 1–2 | Its 21-day rule is too slow for routine sessions (conflict 3) |
+| Parent funnel | F06, then F04 steps 3–5 | |
+| Welfare W1–W2 | F14 (welfare plan) | Plan only |
+| Government G1–G2 | F15, F16 (government plan) | Plan only |
 | Referral rewards | F11 | Blocked |
 
-**Gaps that need new flows (named only; not written here):**
-- **F17 Meeting to staff session (employers):** meeting summary, format choice, booking, 7-day light path.
-- **F18 Partner agreement:** proposal, Finance and CEO gates, signature, renewal, and the circulation confirmation for 6a.
-- **F19 Partner re-circulation and dormancy:** a reminder to the partner before each intake window, and dormant re-engagement.
+**Gaps that need new flows (named only):**
+- **F17 Meeting to staff session (employers):** format choice, booking, the 7-day light path.
+- **F18 Partner agreement:** proposal, Finance and CEO gates, signature, circulation confirmation, renewal.
+- **F19 Re-circulation and dormancy.**
 - **F20 Sponsorship:** variant A and welfare funders, with proposal, agreement, reporting and renewal.
 - **F21 SACCOS committee to members' meeting.**
-- **F22 Introducer circulation and referral intake**, with the non-monetary acknowledgement.
-- **F23 Escalation contact:** one message after a silent sequence.
-- **F24 Call-sheet first touch:** call script, attempts, visit and the "as discussed" email.
-- **F25 Partner reporting:** the termly totals report with small-number suppression.
+- **F22 Introducer circulation and referral intake.**
+- **F23 Escalation contact.**
+- **F24 Call-sheet first touch.**
+- **F25 Partner reporting** (totals, small numbers hidden).
 
 ---
 
-## 12. Conflicts with the existing documents
+## 13. Conflicts with the existing documents
 
-1. **Stage order and names.** The Process Map's partner workflow is Meeting → Proposal → Agreement/MOU → Activation, with the stages Prospect → Contacted → Engaged → Negotiating → Active → Producing Results. The user's model runs the staff session before the agreement.
+1. **Stage order and names.** The Process Map runs meeting → proposal → agreement/MOU → activation. The user's model runs the staff session first. The welfare and government plans each use their own stage names. *Resolved by the spine and the [older-names table](#mapping-the-older-stage-names).*
+2. **The win.** The Process Map's "Active" follows an agreement. The user's model also counts a circulation partner as closed. *Resolved: both are S7 win types.*
+3. **Notice period.** F04 step 1 needs at least 21 days before any partner session. The government plan uses 7 days for routine slots with pre-approved materials. *Proposed: 7 days for routine sessions, T-21 for bespoke events; F04 step 1 to be amended.*
+4. **Band and track disagree.** 227 company and introducer rows in a high band (216 high-indirect, 11 high-direct) are on AQ01 routing. Their follow-up asks who to speak to instead of giving the offer, and they get two touches, not three. Only 37 chosen rows are on AQ02, the F01 three-message path.
+5. **Variant A follow-ups (fault).** All 14 sponsorship rows carry staff-benefit follow-ups in `follow_up_1`, and four also carry a close offering "the one-page staff offer sheet". The offer register gives variant A no offer message until it replies. **Being fixed in the T1 task.**
+6. **Empty village names (fault).** Two village convening drafts in the government run, and their two English translations, have an empty village name ("Kijiji cha ,"). **Being fixed in the T1 task.**
+7. **Call-to-action labels.** The master's `outreach_plans.cta_type` values ("Welfare referral", "Sponsor referral", "Committee referral", "Information offer", "Format choice") no longer describe the drafts. Every first message now asks for "a short meeting, either in person or by phone". Tracking must not read the CTA from this column.
+8. **Flows missing from the table.** F12 and F13 are named but are not in the master's `outreach_flows` table. F14–F16 exist only in the plans.
+9. **What government material may say.** The register's JSON rules let convening letters describe the family offer (OF01, OF02, OF09). Its Markdown rule 5 (changed 1 October) says letters state no offer. The government plan's booklet (VM15) lists fees, which the campaign document holds back until the 2027 fees are approved. *Question 19.*
+10. **Who is asked for sponsorship.** The acquisition framework still says "Sponsorship is asked of welfare funders only". Since 1 October, employers with published education giving are asked too (variant A).
+11. **Escalation.** The recipient rule relies on an escalation contact after silence, but only 8 of 1,118 company plans record one.
+12. **The Core Segments document is out of date.** It was written on the morning of 11 October, before the day's new leads and location work. Its figures against tonight's databases:
 
-   **Proposed:** keep both orders (session first by default) and map them onto the six stages (§3). The welfare plan (F14, `account_pipeline`) and the government plan (office stages) each use their own names too. This draft keeps those as track stages under one spine.
-2. **The win is defined differently.** The Process Map treats "Active" as after an agreement or MOU. The user's model also counts a circulation partner (6a) as closed, with no signed agreement.
-3. **Notice period.** F04 step 1 needs at least 21 days before any partner session (the event SOP). The government plan uses 7 days for routine slots with pre-approved materials. A small site visit would wait three weeks under F04.
-4. **Band and track disagree.** 227 company and introducer rows in a high band (216 high-indirect, 11 high-direct) are on AQ01 routing. Their follow-up asks who to speak to instead of giving the offer, and they get two touches, not three. Only 37 chosen company and introducer rows are on AQ02, the F01 three-message path. "F01: three messages and stop" therefore describes a small minority of today's sequences.
-5. **Variant A follow-ups.** All 14 sponsorship rows carry staff-benefit (variant B) follow-ups in `follow_up_1`, and four also carry a close that offers "the one-page staff offer sheet". The offer register says variant A gets no offer message until it replies. Sending the stored follow-up would switch the ask mid-thread.
-6. **Call-to-action labels.** The master's `outreach_plans.cta_type` values ("Welfare referral", "Sponsor referral", "Committee referral", "Information offer", "Format choice") no longer describe the drafts. Every first message now asks for "a short meeting, either in person or by phone". Tracking should not read the CTA from this column.
-7. **Flows missing from the flows table.** F12 and F13 are named in `outreach-flows.md` and in campaigns C01 and C02, but are not in the master's `outreach_flows` table. F14–F16 exist only in the plans.
-8. **What government material may say.** The register's JSON rules say convening letters "describe the family offer for parents only (OF01, OF02, OF09)". The register's Markdown rule 5 (changed 1 October) says letters state no offer. The government plan's booklet (VM15) lists "published levels, fees and intake windows", while the campaign document holds 2027 fee figures out of copy until they are approved. The booklet's content needs one decision.
-9. **Who is asked for sponsorship.** The acquisition framework (Message construction, point 1) still says "Sponsorship is asked of welfare funders only". AGENTS.md and the offer register have also allowed employers with published education giving (variant A) since 1 October.
-10. **Escalation.** The recipient rule relies on an escalation contact after silence, but only 8 of 1,118 company plans record one.
-11. **Counts.** The Core Segments document (written on the morning of 11 October) is behind the databases: companies 716 → 1,118, hotels 117 → 194, hospitals and clinics 29 → 188, government offices 150 → 230 (villages 2 → 82), and introducers with no email 1 → 0.
-12. **The user's model and the decided opt-in rule.** The user's first model mentioned asking the employer for "a direct list of emails". That is now replaced by the opt-in decision. The existing documents already agree with the decision: VM01, F04 steps 2–3, the campaign document's partner message ("the organisation decides whether to circulate the invitation; interested parents contact Silverleaf directly"), and VM16. No existing document asks for a staff list.
+    | Measure | Core Segments doc | Databases (evening) |
+    |---|---|---|
+    | Companies | 716 | 1,118 |
+    | Safari operators and travel agencies | 463 | 480 |
+    | Hotels, lodges and camps | 117 | 194 |
+    | Hospitals and clinics | 29 | 188 |
+    | Banks and other companies (now split out: manufacturing, retail, farms, aviation, international organisations) | 67 | 87 + 65 |
+    | Colleges / public bodies / NGOs | 16 / 15 / 9 | 23 / 19 / 62 |
+    | Welfare organisations in scope | 444 | 445 |
+    | Government offices | 150 (2 villages) | 230 (82 villages) |
+    | Wards not yet located | 12 | 5 |
+    | Introducers with no email | 1 | 0 |
+
+    The confidence-band split in that document is also older. *Recommendation: regenerate it after the T1 fixes, so the map, the Resend files and this document agree.*
+13. **No conflict on the opt-in rule.** The user's first model mentioned asking employers for "a direct list of emails", and the opt-in decision replaces that. The existing documents already agree with the decision: VM01, F04 steps 2–3, the campaign document's partner message, and VM16. None of them asks for a staff list.
 
 ---
 
-## 13. Open questions for the user
+## 14. Open questions for the user
 
 | # | Question | Recommended answer |
 |---|---|---|
-| 1 | Who owns each stage? | The coordinator owns stages 1–6 for employers, SACCOS, introducers and welfare, and the government letters. The admissions officer at the family's chosen campus owns every opt-in onward, and co-presents sessions. The campus head hosts campus-based sessions. Finance confirms terms. The CEO signs agreements (the MOU gate). The B2G owner is informed before any government letter. Welfare funders move to the Fundraising and Partnerships Associate once that role is filled. |
-| 2 | Minimum staff size for a site visit rather than a webinar? | A site visit for 20 or more staff at one site within 25 km (or 10 or more within 10 km). A webinar for multi-site or field staff. Under 10: a pamphlet pack plus a shared or cluster session. Use the staff count the employer gives at the meeting, since only 19 companies publish one. |
-| 3 | Do variant A sponsors also get a staff session? | Yes, but separately: offer the staff benefit as an optional second conversation one month after the sponsorship is agreed. Never bundle it into the sponsorship ask. |
-| 4 | Community meeting format? | 15–20 minutes inside an existing ward or village meeting, in Kiswahili, by two Silverleaf staff (one from admissions), with the parent booklet and a voluntary paper form plus QR code. No photographs, gifts or payments. Inbound-only until the consented store is live. |
-| 5 | How are welfare-sponsored children enrolled? | Admissions assesses each child in Ed-admin, with the guardian institution's written consent. The databases hold only places discussed, agreed and enrolled. OF03 applies only when all primary-age children are placed. A funder pays under a three-way agreement with the linked home. Reporting to funders needs the home's consent. |
-| 6 | Do introducers get a referral acknowledgement? | Yes, non-monetary only: a thank-you letter and a termly report in totals (employers reached, partners closed). There is no reward until the 2027 referral scheme is approved (OF05 expired, F11 blocked). |
-| 7 | Where do sign-ups live? | In a restricted store outside the repository, owned by admissions: the admissions system if it can take enquiries with a source code, otherwise a restricted form and sheet. Run inbound-only until the data protection officer approves the notice and form and PDPC registration is confirmed. |
-| 8 | Is the partnership closed at the circulation, or at the first sign-up? | At the circulation (6a) or the signature (6b), because those are in the partner's control. Sign-ups measure results. |
+| 1 | Who owns each stage? | The Coord owns S1–S7 for employers, SACCOS, introducers and welfare, and the government letters. Adm owns every opt-in onward and co-presents sessions. The campus head hosts campus-based sessions. Fin confirms terms. The CEO signs agreements. The B2G owner is informed before any government letter. Welfare funders move to the Fundraising and Partnerships Associate once that role is filled. |
+| 2 | Minimum staff size for a site visit rather than a webinar? | A site visit for 20 or more staff at one site within 25 km (or 10 or more within 10 km). A webinar for staff on several sites, on shifts or in the field. Under 10: a pamphlet pack plus a shared or cluster session. Use the count the employer gives at the meeting. |
+| 3 | Do variant A sponsors also get a staff session? | Yes, but separately: the staff benefit is an optional second conversation one month after the sponsorship is agreed, never bundled into the ask. |
+| 4 | Community meeting format? | 15–20 minutes inside an existing ward, village or mtaa meeting, in Kiswahili, given by two Silverleaf staff (one from admissions), with the booklet and a voluntary paper form plus QR code. No photographs, gifts or payments. Inbound-only until the consented store is live. |
+| 5 | How are welfare-sponsored children enrolled? | Admissions assesses each child in Ed-admin with the guardian institution's written consent. The databases hold totals only. OF03 applies only when all primary-age children are placed. A funder pays under a three-way agreement with the linked home. Reporting to funders needs the home's consent. |
+| 6 | Do introducers get a referral acknowledgement? | Yes, non-monetary only: a thank-you letter and termly totals. There is no reward until the 2027 referral scheme is approved. |
+| 7 | Where do sign-ups live? | In a restricted store outside the repository, owned by admissions. Run inbound-only until the data protection officer approves the notice and form, and PDPC registration is confirmed. |
+| 8 | Is the partnership closed at the circulation, or at the first sign-up? | At the circulation or the signature, because those are in the partner's control. Sign-ups are S8 results. |
 | 9 | Session first, or agreement first? | Session first by default. Agreement first when the employer asks, which is typical for banks, public bodies and international organisations. Record which order happened. |
-| 10 | Notice period for staff sessions? | 7 days with pre-approved standard assets; T-21 only for bespoke events. Amend F04 step 1 accordingly. |
-| 11 | How is OF04 eligibility (heads of department 20%, others 10%) confirmed without a staff list? | The parent declares the employer and role on the application. HR confirms employment and grade for that one person, with the parent's consent. |
-| 12 | Who performs the public-body compliance check, and what fails it? | The CEO or a named compliance lead. Exclude bodies that tax, regulate, inspect or license Silverleaf (for example the revenue authority) and any body with official business pending with Silverleaf. Others go through HR only. |
-| 13 | How small a number may a partner report show? | Show "fewer than 3" for any count of 1 or 2, so that a small employer cannot identify who enrolled. |
-| 14 | Use the escalation contact after a silent sequence? | Yes: one message, 5 working days after the sequence ends, then close. Record escalation contacts for P1 employers first. |
-| 15 | How are no-email rows worked (451 companies, 116 SACCOS, 233 welfare)? | Phone first: two attempts on different days, then a hand-delivered letter for the nearest (within 10 km) or P1 and P2 leads. Then `no_route`. Start with the 50 hotels and 18 hospitals and clinics that publish a phone. |
-| 16 | Combine an employer-based SACCOS with its employer? | Yes: one account. The employer deal leads, and the SACCOS committee joins at the session. |
-| 17 | How many sessions a week can the team run? | Cap at three sessions or meetings a week until the Fundraising and Partnerships Associate is hired, and book the P1 employers and introducers first, before the January primary window closes in December. |
-| 18 | What is the renewal and re-circulation cadence? | Ask partners to re-circulate before each intake window (September for January primary, May for mid-year). Review each agreement 8 weeks before the January intake. A partner becomes dormant after two windows with no sign-ups. |
-| 19 | What may the government booklet say (conflict 8)? | Letters state no offer. The booklet may give the published levels, campuses, intake windows and the family offer (OF01, OF02, OF09) with the Finance condition, but no fee figures until the 2027 fees are approved. |
+| 10 | Notice period for staff sessions? | 7 days with pre-approved assets; T-21 only for bespoke events. |
+| 11 | How is OF04 eligibility confirmed without a staff list? | The parent declares the employer and role. HR confirms that one person's employment and grade, with the parent's consent. |
+| 12 | Who performs the public-body compliance check, and what fails it? | The CEO or a named compliance lead. Exclude bodies that tax, regulate, inspect or license Silverleaf, and any body with official business pending. |
+| 13 | How small a number may a partner report show? | Show "fewer than 3" for counts of 1 or 2. |
+| 14 | Use the escalation contact after a silent sequence? | Yes: one message 5 working days after the sequence ends, then close. Record escalation contacts for P1 employers first. |
+| 15 | How are no-email rows worked (451 companies, 116 SACCOS, 233 welfare)? | Phone first: two attempts, then a hand-delivered letter for leads within 10 km and P1–P2 leads, then `no_route`. Start with the 50 hotels and 18 hospitals and clinics that publish a phone. |
+| 16 | Combine an employer-based SACCOS with its employer? | Yes: one deal, with the committee joining at the session. |
+| 17 | How many sessions a week can the team run? | At most three sessions or meetings a week until the Fundraising and Partnerships Associate is hired. Book P1 employers and introducers before the January primary window closes in December. |
+| 18 | What is the renewal and re-circulation cadence? | Re-circulate before each intake window; review agreements 8 weeks before the January intake; a partner becomes dormant after two windows with no results. |
+| 19 | What may the government booklet say? | Letters state no offer. The booklet may give the published levels, campuses, intake windows and the family offer (OF01, OF02, OF09) with the Finance condition, but no fee figures until the 2027 fees are approved. |
 
 ---
 
-## 14. What gets built after approval
+## 15. What gets built after approval
 
 Nothing below is built yet. Each item would be planned with its own file boundaries before work starts.
 
-**Data fixes to make first** (they affect what the pipeline would track):
-- give the 14 variant A rows sponsorship follow-ups, or none (conflict 5);
-- align the AQ track with the band for the 227 high company and introducer rows on AQ01 (conflict 4);
+**Data fixes first:**
+- variant A follow-ups and empty village names (**being fixed in the T1 task**);
+- align the AQ track with the band for the 227 high rows on AQ01;
 - assign a variant to the 14 new leads that have none;
-- retire or relabel `cta_type` (conflict 6);
+- retire or relabel `cta_type`;
 - add F12 and F13 to the flows table.
 
 **Tracking, in all three databases:**
-- A shared vocabulary file listing the stages for each track, the spine mapping, outcome codes and lost reasons. It would sit with, or extend, the controlled-vocabulary registry proposed in Phase 0 of the welfare plan.
-- `account_pipeline` (Phase 0.9 of the welfare plan, not yet built): one row per account, holding the track, subsegment, stage, stage date, owner role, next action and date, partner code, band and track at first touch, agreement type and dates, approver, offer IDs and Finance confirmation date.
+- A shared vocabulary file holding the spine stages S0–S9 and SX, each track's stage names and their spine mapping, outcome codes and lost reasons. It would sit with, or extend, the controlled-vocabulary registry proposed in Phase 0 of the welfare plan.
+- `account_pipeline` (welfare plan Phase 0.9, not yet built): one row per deal, holding the spine stage, track stage, funnel ID (E1–E6, I1, W1–W3, G1–G3), win type, the fields in [section 9](#9-what-is-recorded), and the partner code.
 - `pipeline_events`: the history of stage changes, with the date and the role that made each change.
-- `partner_results`: monthly totals per partner code (sign-ups, enquiries, tours, applications, enrolments, last report sent). It never holds a person.
-- `partner_code` and link fields: SACCOS to employer, referral source, and funder to linked home. The welfare run's relationships table already holds the funder link.
+- `partner_results`: monthly totals per partner code. It never holds a person.
+- Link fields: SACCOS to employer, referral source, and funder to linked home (the welfare run's relationships table already holds the last of these).
 - The government run reuses `community_events`.
-- **Rebuild safety:** the welfare and government run databases are regenerated by `run_pipeline.py --rebuild-db`, so their pipeline state must live in a committed file the pipeline loads (for example `data/runs/<run-id>/pipeline.csv`). It must never be typed into the database alone. The master takes changes through the update skill's validator, preflight and one transaction.
+- **Rebuild safety:** the run databases are regenerated by `run_pipeline.py --rebuild-db`, so their pipeline state must live in a committed file the pipeline loads (for example `data/runs/<run-id>/pipeline.csv`). The master takes changes through the update skill's validator, preflight and one transaction.
 - **Verification checks:**
+  - stage moves follow the spine;
   - every open deal has a next-action date;
   - every lost deal has a reason;
-  - stage moves follow the allowed order;
   - no person-level parent or child field exists anywhere.
 
-**Workbook:** a "Pipeline" sheet in the master workbook (`scripts/master/export_master_workbook_data.py`, then `npm run build:workbook`) and in each run workbook. Columns: organisation, kind, band, stage, stage date, owner, next action, next-action date, outcome, lost reason, partner code, and the totals.
+**Workbook:** a "Pipeline" sheet in the master workbook (`scripts/master/export_master_workbook_data.py`, then `npm run build:workbook`) and in each run workbook. Columns: organisation, subsegment, funnel, band, spine stage, track stage, stage date, owner, next action, next-action date, outcome, lost reason, partner code and the totals.
 
-**Resend:** new contact properties `pipeline_stage`, `next_action_date` and `partner_code`. Only stage 1 (Ready) rows would be exported for first messages. This touches `scripts/messaging/export_resend_contacts.py`, which **another task is editing now**, so this part must run after that task merges.
+**Resend:** contact properties `pipeline_stage`, `funnel` and `next_action_date`. Only S1 rows would be exported for first messages. This touches `scripts/messaging/export_resend_contacts.py`, which **another task is editing now**, so it must run after that task merges.
 
-**Map:** filters by spine stage, partner status (partner, dormant, lost) and "producing results", in `scripts/maps/build_lead_map.py`.
+**Map:** filters by spine stage, funnel and win status (partner, dormant, lost), in `scripts/maps/build_lead_map.py`.
 
-**Flows (design only):** add F12–F16 to the flows table and draft F17–F25 (§11). All stay disabled.
+**Flows (design only):** add F12–F16 to the flows table and draft F17–F25. All stay disabled.
 
 **Assets (people, not code):**
 - one-page offer outline;
 - staff pamphlet with QR code (Kiswahili and English);
-- sign-up form and privacy notice (data protection officer review);
+- sign-up form and privacy notice;
 - session talk and webinar deck;
 - SACCOS member sheet;
 - introducer member note;
-- circulation confirmation, benefit, sponsorship, placement and group-rate agreement templates (Finance and CEO);
+- circulation, benefit, sponsorship, placement and group-rate agreement templates;
 - partner report template;
 - call script.
 
-Each Kiswahili asset gets a native-speaker review.
+Every Kiswahili asset gets a native-speaker review.
+
+**Review page:** `outputs/strategy/Silverleaf Partnership Pipelines - Draft.html` is generated from this document by `scripts/strategy/render_markdown_page.py`. Re-run it after any edit.
 
 ---
 
@@ -642,4 +1223,4 @@ Each Kiswahili asset gets a native-speaker review.
 - `references/Marketing & Partnerships - Department Process Map.docx`, process 9 (partner stages)
 - [Welfare plan](../../plans/b2b-welfare-leads-plan.md) §4, §5.4–5.6, §9; [government plan](../../plans/b2b-government-leads-plan.md) §4, §5.6–5.7
 - `skills/silverleaf-welfare-leads/SKILL.md`, `skills/silverleaf-government-leads/SKILL.md`
-- Read-only copies of the three databases (11 October 2026, evening): `outreach_plans` (selection, segment, variant, track, CTA, follow-ups), `organisations`, `employer_reach`, the welfare and government `outreach_plans`, `government_office_profiles` and `community_events`. Bands use `company_rows` and `welfare_rows` from `scripts/messaging/export_resend_contacts.py`.
+- Read-only copies of the three databases (11 October 2026, evening). Bands use `company_rows` and `welfare_rows` from `scripts/messaging/export_resend_contacts.py`.

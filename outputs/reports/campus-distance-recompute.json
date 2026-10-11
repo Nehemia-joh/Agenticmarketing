@@ -1,0 +1,85 @@
+{
+ "stats": {
+  "stored distance kept": 440,
+  "no location": 101,
+  "gazetteer point reproduced": 383,
+  "coordinates": 47,
+  "records to update": 821,
+  "nearest campus changed": 51
+ },
+ "nearest_campus_changed": [
+  "Tandala Expeditions Limited: Kijenge -> Ilboru (2.3 km)",
+  "Fairtrek Jicho Tanzania: Arusha City -> Ilboru (1.7 km)",
+  "Aardvark Expeditions (T) Limited: Kijenge -> Ilboru (2.6 km)",
+  "Shree Hindu Hospital: Kijenge -> Ilboru (2.3 km)",
+  "Pamoja Expedition Lodge:  -> Kijenge (1.4 km)",
+  "Precision Air:  -> Boma Ngombe (22.1 km)",
+  "Fastjet ticket office Shuttlebus:  -> Boma Ngombe (22.2 km)",
+  "Tintintours:  -> Boma Ngombe (21.7 km)",
+  "Kili Star Tours:  -> Boma Ngombe (22.5 km)",
+  "Dar Express Booking Office:  -> Ilboru (2.0 km)",
+  "Mtey Booking Office:  -> Ilboru (2.0 km)",
+  "Lim Safaris Booking Office:  -> Boma Ngombe (21.8 km)",
+  "JM Tours:  -> Kijenge (0.7 km)",
+  "Leopard Tours Ltd.:  -> Kijenge (0.9 km)",
+  "Monjes Tours & Lodges Office:  -> Ilboru (1.9 km)",
+  "Zara Tours:  -> Boma Ngombe (21.9 km)",
+  "Basecamp Tanzania:  -> Ilboru (2.0 km)",
+  "Access 2 Tanzania:  -> Ilboru (1.9 km)",
+  "Roy Safaris:  -> Kijenge (1.3 km)",
+  "Duma Explorers:  -> Arusha City (5.7 km)",
+  "trekkingandsafariadventures:  -> Boma Ngombe (21.8 km)",
+  "Nyange Adventures Ltd.:  -> Boma Ngombe (21.8 km)",
+  "Africa VIP Travel:  -> Arusha City (1.7 km)",
+  "Ahsante Tours:  -> Boma Ngombe (20.6 km)",
+  "Kipepeo:  -> Kijenge (2.4 km)",
+  "Meru Mountain Treks & Safari Ltd.:  -> Ilboru (1.9 km)",
+  "Tropical Trails:  -> Kijenge (1.1 km)",
+  "Shadows of Africa Ltd:  -> Arusha City (9.2 km)",
+  "Monkey Adventures:  -> Boma Ngombe (20.7 km)",
+  "Boker Adventures:  -> Boma Ngombe (21.4 km)",
+  "Usa River Booking Office:  -> Usa River (1.3 km)",
+  "Nale Moru experiential travel:  -> Kijenge (1.4 km)",
+  "Summit 2 Sand Safaris:  -> Boma Ngombe (21.8 km)",
+  "Gazelle Adventures:  -> Boma Ngombe (21.8 km)",
+  "Top Of Africa Treks and Safaris LTD:  -> Kijenge (7.1 km)",
+  "Kkikalora Saccos:  -> Boma Ngombe (20.9 km)",
+  "Tcp Saccos Ltp Milling Machine:  -> Boma Ngombe (29.6 km)",
+  "ATA Safaris - Travel & Tour Operators in Arusha:  -> Kijenge (5.1 km)",
+  "Kilimanjaro Bliss Safaris:  -> Ilboru (2.0 km)",
+  "Explore Active:  -> Boma Ngombe (21.4 km)",
+  "Roving Africa Safaris:  -> Boma Ngombe (26.1 km)",
+  "Tanzania Hugos Safaris:  -> Boma Ngombe (22.7 km)",
+  "Dorobo Safaris:  -> Arusha City (4.9 km)",
+  "Arusha Tours:  -> Kijenge (4.9 km)",
+  "Tanzanian Pioneers:  -> Arusha City (5.9 km)",
+  "Kessy Brothers:  -> Boma Ngombe (22.1 km)",
+  "Coastal Aviation Booking Office:  -> Boma Ngombe (21.5 km)",
+  "Enosa Expedition:  -> Boma Ngombe (22.5 km)",
+  "Nihapa Tours:  -> Arusha City (0.8 km)",
+  "Gladys Adventure & Safaris:  -> Boma Ngombe (21.7 km)",
+  "Auric Air:  -> Arusha City (4.1 km)"
+ ],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

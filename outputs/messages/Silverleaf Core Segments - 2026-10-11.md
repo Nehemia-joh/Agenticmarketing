@@ -9,7 +9,7 @@ We write to four kinds of audience. Each has its own reason to talk to us, its o
 | 1. Employers | Customers through their staff | A partnership on an education benefit for staff's children (or sponsorship, for the few that already fund education) | 716 companies + 117 savings groups |
 | 2. Introducers | Multipliers | Share the staff benefit with their member employers | 16 |
 | 3. Welfare organisations | Partners and funders | A partnership on the education of the children in their care, or sponsorship of students | 444 in scope |
-| 4. Government offices | A trusted forum for parents | A free 15–20 minute talk to parents at a community meeting | 149 |
+| 4. Government offices | A trusted forum for parents | A free 15–20 minute talk to parents at a community meeting | 150 |
 
 ---
 
@@ -96,7 +96,7 @@ Local offices that can convene the community meetings where parents already gath
 | Councils, pilot (Arusha City, Arusha District, Hai, Meru) | 4 | First: a protocol introduction, asking the council to introduce us to its ward executive officers |
 | Councils, other | 5 | After the pilot |
 | District and regional offices | 7 districts, 3 regions | Courtesy notice only |
-| Wards and villages | 128 wards, 2 villages | Only after the council's introduction; nearest first (51 within 10 km, 34 at 10–20 km, 31 beyond 20 km, 12 not yet located) |
+| Wards and villages | 129 wards, 2 villages | Only after the council's introduction; nearest first (55 within 10 km, 33 at 10–20 km, 31 beyond 20 km, 12 not yet located) |
 
 **Who decides:** the council director (DED) for councils, the District or Regional Commissioner, and the ward or village executive officer. Education, community development and social welfare officers are recorded as quick-decision contacts. Names go on the delivery list, not in the letter.
 
@@ -120,7 +120,7 @@ Each first message sits in one confidence segment. The Resend import files and t
 | Employers | 232 (29 + 203) | 323 | 48 | 229 |
 | Introducers | 12 (2 + 10) | 3 | 0 | 1 |
 | Welfare | 67 (12 + 55) | 9 | 118 | 233 |
-| Government | 4 (the pilot councils) | 0 | 145 (held until the council introduction) | delivered by hand; 11 offices have an official inbox |
+| Government | 4 (the pilot councils) | 0 | 146 (held until the council introduction) | delivered by hand; 11 offices have an official inbox |
 
 An address two rows share is exported once (19 this week).
 

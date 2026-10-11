@@ -25,13 +25,14 @@ REFERENCE = ROOT / "data" / "reference" / "lead-gazetteer.txt"
 def P(f): return str(REFERENCE if f == "gazetteer.txt" else RAW / f)
 
 # ---------------------------------------------------------------- campuses
-# Nominatim ward/town centroids; Usa River point nudged north of town toward Momela Rd.
+# The map pins on the campus pages of Silverleaf's own website (read 2026-10-11; the master's campuses table holds the same points).
+# Until 2026-10-11 these were Nominatim ward/town centroids, 0.1-1.2 km off.
 CAMPUSES = OrderedDict([
-    ("Usa River",   (-3.3645, 36.8632, "Momela Road, Usa River (Arusha) — primary + boarding")),
-    ("Arusha City", (-3.3528, 36.6613, "Sakina, Arusha–Nairobi Rd — primary")),
-    ("Ilboru",      (-3.3465, 36.6922, "Ilboru, Arusha — daycare/pre-primary")),
-    ("Kijenge",     (-3.3837, 36.7100, "Kijenge, Arusha — daycare/pre-primary")),
-    ("Boma Ng'ombe",(-3.3342, 37.1383, "Mahakama Rd, Boma Ng'ombe (Hai, Kilimanjaro) — daycare/pre-primary")),
+    ("Usa River",   (-3.361003, 36.8644524, "Momela Road, Usa River (Arusha) — primary + boarding")),
+    ("Arusha City", (-3.3604966, 36.6609326, "Sakina, Arusha–Nairobi Rd — primary")),
+    ("Ilboru",      (-3.3497598, 36.6822737, "Ilboru, Arusha — daycare/pre-primary")),
+    ("Kijenge",     (-3.382946, 36.710752, "Kijenge, Arusha — daycare/pre-primary")),
+    ("Boma Ng'ombe",(-3.341456, 37.1457123, "Mahakama Rd, Boma Ng'ombe (Hai, Kilimanjaro) — daycare/pre-primary")),
 ])
 CORE_KM, OUTER_KM = 10, 25
 

@@ -7,7 +7,7 @@
 - We start from **971 organisations** on file. 17 belong to the welfare or government runs or are excluded, and 105 are duplicate records, so we write to **833 separate businesses** (716 companies and 117 savings groups), plus 16 introducers (associations, chambers and HR bodies).
 - **593 (83%) of the companies are ready for review now** (a draft and a usable route). The rest are held, mostly for want of a published route.
 - The audience is **overwhelmingly tourism**: 580 (81%) are safari operators, travel agencies, hotels or lodges. The rest are banks and other companies, hospitals, colleges and NGOs.
-- **Founders and owners are the largest named role group in our contact list** (282 of 1073 people), and HR contacts are rare (19). So the person who decides is usually the founder, managing director or general manager, not an HR department.
+- **Founders and owners are the largest named role group in our contact list** (282 of 1075 people), and HR contacts are rare (19). So the person who decides is usually the founder, managing director or general manager, not an HR department.
 - We ask **one of two things** of a company. A strong fit (it already funds education) is asked to sponsor students. Every other company is asked to set up a partnership on an education benefit for its staff's children. Neither first message states an offer.
 
 ## Kinds of company
@@ -26,26 +26,26 @@
 
 | Distance to the nearest campus | Businesses |
 |---|---|
-| 0-5 km | 452 |
-| 6-10 km | 65 |
-| 11-25 km | 39 |
-| More than 25 km | 38 |
-| Location not recorded | 122 |
+| 0-5 km | 505 |
+| 6-10 km | 64 |
+| 11-25 km | 60 |
+| More than 25 km | 37 |
+| Location not recorded | 50 |
 
 | Nearest campus | Businesses |
 |---|---|
-| Ilboru | 247 |
-| Kijenge | 165 |
-| Arusha City | 101 |
-| Boma Ng'ombe | 87 |
-| Not recorded | 67 |
-| Usa River | 49 |
+| Ilboru | 254 |
+| Kijenge | 164 |
+| Arusha City | 102 |
+| Boma Ng'ombe | 98 |
+| Usa River | 50 |
+| Not recorded | 48 |
 
 Desk-research tiers (A is the strongest fit): A 257, B 81, C 41, D 22, X (out of range) 38, unscored 277.
 
 ## Size
 
-Staff numbers are published for only 14 of 716 companies, so we do not size the audience by headcount. Where a site does say, the range is wide: a hospital with 650 staff, a university with 150, safari operators with 11 to 100.
+Staff numbers are published for only 16 of 716 companies, so we do not size the audience by headcount. Where a site does say, the range is wide: a hospital with 650 staff, a university with 150, safari operators with 11 to 100.
 
 ## Who receives the message
 
@@ -66,11 +66,11 @@ Staff numbers are published for only 14 of 716 companies, so we do not size the 
 | phone only | 30 | 4% |
 | no route yet | 107 | 15% |
 
-Our contact list holds **1073 people**. 567 hold a senior role (HR, owner, founder, MD, CEO, general manager or director), 471 of them with a role we have confirmed on a published page. 113 have a published email of their own or for their role; most are reachable only through the company's shared inbox, and we do not guess personal addresses.
+Our contact list holds **1075 people**. 568 hold a senior role (HR, owner, founder, MD, CEO, general manager or director), 472 of them with a role we have confirmed on a published page. 113 have a published email of their own or for their role; most are reachable only through the company's shared inbox, and we do not guess personal addresses.
 
 | Role on file | People |
 |---|---|
-| Other roles | 329 |
+| Other roles | 331 |
 | Founder, owner or co-founder | 282 |
 | General manager or director | 216 |
 | Operations, reservations, sales or marketing | 127 |
@@ -89,9 +89,9 @@ Each company is scored on the kind of employer, published staff numbers, verifie
 
 | Tier | Companies | Named recipient | Share named |
 |---|---|---|---|
-| P1 | 100 | 59 | 59% |
+| P1 | 100 | 62 | 62% |
 | P2 | 150 | 36 | 24% |
-| P3 | 450 | 177 | 39% |
+| P3 | 451 | 175 | 39% |
 | X | 15 | 1 | 7% |
 
 ## Introducers

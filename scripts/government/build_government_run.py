@@ -785,6 +785,11 @@ def main() -> int:
         loc = located[f"{w['council']}|{w['ward']}"]
         fields = campus_fields(loc["lat"], loc["lon"], campuses, clusters)
         in_catchment = "unknown" if fields["distance_km"] is None else ("yes" if fields["distance_km"] <= cfg["catchment_km"] else "no")
+        # A ward inside the catchment before a campus point was corrected stays in scope (run-config catchment_kept).
+        kept = next((k for k in cfg.get("catchment_kept", []) if k["council"] == w["council"] and k["ward"] == w["ward"]), None)
+        if kept and in_catchment == "no":
+            in_catchment = "yes"
+            loc = {**loc, "location_note": f"{loc.get('location_note') or ''} Kept in the catchment: {kept['reason']}".strip()}
         c = councils[w["council"]]
         units.append({"record_key": f"AU_ward_{slug(w['council'])}_{slug(w['ward'])}", "level": "ward", "name": w["ward"], "council": w["council"],
                       "region": c["region"], "admin_district": c["admin_district"], "core_council": c["core"],

@@ -7,11 +7,46 @@
 - **The catchment is 25 km in a straight line from the nearest of our five campuses.** Silverleaf's own school transport is priced up to 25 km, so families beyond that are unlikely to reach us every day.
 - **Nearer is better, in steps of 5 km.** Every lead with a known location falls into one of six bands: 0–5, 6–10, 11–15, 16–20, 21–25 or beyond 25 km. The bands feed each segment's score.
 - **Each segment applies the line differently.** For employers it is a ranking factor, since staff live in many places. Homes and programmes beyond 25 km are held. Funders and introducers are judged by whom they reach near the campuses, not by where their office is. For government, only offices covering wards within 25 km are in scope, and the nearest wards come first.
-- **Distances are approximate.** They are straight-line distances from estimated campus points, not road distances, and many leads are placed only to a neighbourhood or town.
+- **Everything starts from the campus points.** Each campus is placed at the map pin on its own page of Silverleaf's website (section 1).
+- **Distances are approximate on the lead side.** They are straight-line distances, not road distances, and many leads are placed only to a neighbourhood or town.
 
 ---
 
 ## 1. The anchors: five campuses
+
+### Where the campus coordinates come from
+
+The method starts here: every distance in this document is measured from these five points.
+
+1. **The source is Silverleaf's own website.** Each campus page on silverleaf.co.tz (under *Our Schools*) embeds a map with a pin the school placed itself. The pin's coordinates are stored in the page's own data, in the map widget's `locations` entry (`latitude`, `longitude`, `title`). We read them on 2026-10-11.
+2. **Google Maps corroborates two.** The Usa River and Ilboru listings sit on the same points. The website's business location for Usa River is within 25 m of the pin. Google has no listing for Arusha City (Sakina) or Boma Ng'ombe. Its "Kijenge Campus" listing is pinned about 70 km away, so it was not used. (That Google listing needs correcting: parents searching it get wrong directions.)
+3. **The points are stored in the master database.** They sit in the `campuses` table, with the page used as the source. The welfare and government runs read them from there. `scripts/collection/build_partner_leads.py` carries the same points.
+4. **When a campus moves or a pin is corrected,** update the table and re-run:
+   - `scripts/master/recompute_campus_distances.py --apply`
+   - `scripts/master/rank_employer_reach.py --apply`
+   - the welfare and government pipelines
+
+   A lead that was inside the catchment before a correction is never dropped because of it (section 5).
+
+| Campus | Latitude | Longitude | Source (campus page) |
+|---|---|---|---|
+| Arusha City (Sakina) | −3.3604966 | 36.6609326 | silverleaf.co.tz/our-schools/arusha-city-campus |
+| Usa River | −3.3610030 | 36.8644524 | silverleaf.co.tz/our-schools/usa-river-campus (and Google Maps) |
+| Ilboru | −3.3497598 | 36.6822737 | silverleaf.co.tz/our-schools/ilboru-campus (and Google Maps) |
+| Kijenge | −3.3829460 | 36.7107520 | silverleaf.co.tz/our-schools/kijenge-campus |
+| Boma Ng'ombe | −3.3414560 | 37.1457123 | silverleaf.co.tz/our-schools/boma-campus (plus code M45W+H6R) |
+
+Until 2026-10-11 the campuses were placed at ward or town centres (Nominatim), 0.1 to 1.2 km from these pins:
+
+| Campus | Correction |
+|---|---|
+| Kijenge | 0.1 km |
+| Usa River | 0.4 km |
+| Arusha City | 0.9 km |
+| Ilboru | 1.2 km |
+| Boma Ng'ombe | 1.2 km |
+
+### The campuses
 
 | Campus | Area | Levels taught | Primary (Std 1–7)? |
 |---|---|---|---|
@@ -23,23 +58,21 @@
 
 **Three clusters.** The government run groups the campuses into three clusters, and the map and the ward waves follow them:
 - **Arusha:** Sakina, Ilboru and Kijenge lie within about 6 km of one another.
-- **Usa River:** about 17–22 km east of the Arusha campuses.
+- **Usa River:** about 17–23 km east of the Arusha campuses.
 - **Boma Ng'ombe:** about 31 km beyond Usa River.
 
 | Straight-line km | Ilboru | Kijenge | Usa River | Boma Ng'ombe |
 |---|---|---|---|---|
-| Arusha City | 3.5 | 6.4 | 22.4 | 53.0 |
-| Ilboru | | 4.6 | 19.1 | 49.5 |
-| Kijenge | | | 17.1 | 47.9 |
-| Usa River | | | | 30.7 |
+| Arusha City | 2.7 | 6.1 | 22.6 | 53.9 |
+| Ilboru | | 4.9 | 20.3 | 51.5 |
+| Kijenge | | | 17.2 | 48.5 |
+| Usa River | | | | 31.3 |
 
 **Only two campuses teach primary.** Usa River and Arusha City teach Std 1–7; the other three stop at K2. The welfare and government runs therefore record two distances for every place:
 - to the **nearest campus**: for daycare and pre-primary children;
 - to the **nearest primary campus**: for school-age children.
 
 The government ward score weights the two equally.
-
-**The campus points are estimates.** Each campus is placed at its ward or town centre (Nominatim), not at its gate. Replacing them with the gates' coordinates would sharpen every distance in this document by up to a kilometre or two.
 
 ---
 
@@ -92,11 +125,11 @@ The employer is a route to its staff, and staff do not all live next to the offi
 
 | Distance to the nearest campus | Businesses |
 |---|---|
-| 0–5 km | 452 |
-| 6–10 km | 65 |
-| 11–25 km | 39 |
-| More than 25 km | 38 |
-| Location not recorded | 122 |
+| 0–5 km | 505 |
+| 6–10 km | 64 |
+| 11–25 km | 60 |
+| More than 25 km | 37 |
+| Location not recorded | 50 |
 
 ### Introducers
 
@@ -123,33 +156,51 @@ There is no distance rule. A chamber, association or HR body is judged by how ma
 | Band (all 502 welfare records) | Organisations |
 |---|---|
 | 0–5 km | 228 |
-| 6–10 km | 42 |
-| 11–15 km | 29 |
-| 16–20 km | 15 |
-| 21–25 km | 92 |
-| Beyond 25 km | 24 |
+| 6–10 km | 49 |
+| 11–15 km | 22 |
+| 16–20 km | 16 |
+| 21–25 km | 93 |
+| Beyond 25 km | 22 |
 | Unknown | 72 |
 
 ### Government offices
 
 | Level | Rule |
 |---|---|
-| **Ward** | In scope when its reference point is within 25 km of a campus. A ward in a pilot council whose location is unknown is also kept, without a score. Its transport score is 25 points × the average of two band weights: one for the nearest campus and one for the nearest primary campus. The weights are 0–5 km 1.0, 6–10 km 0.8, 11–15 km 0.6, 16–20 km 0.4, 21–25 km 0.2. |
-| **Order** | Wards within 10 km come first (51), then 10–20 km (34). The 31 beyond 20 km are a later wave, and 12 are not yet located. A council's introduction letter names only its highest-scored wards within 10 km. |
+| **Ward** | In scope when its reference point is within 25 km of a campus. A ward in a pilot council whose location is unknown is also kept, without a score. So is a ward listed under `catchment_kept` in the run configuration: it was inside the line before a campus point was corrected. Its transport score is 25 points × the average of two band weights: one for the nearest campus and one for the nearest primary campus. The weights are 0–5 km 1.0, 6–10 km 0.8, 11–15 km 0.6, 16–20 km 0.4, 21–25 km 0.2. |
+| **Order** | Wards and villages within 10 km come first (55), then 10–20 km (33). The 31 beyond 20 km are a later wave, and 12 are not yet located. A council's introduction letter names only its highest-scored wards within 10 km. |
 | **Council** | In scope when at least one of its wards falls within 25 km of a campus. Longido District Council is out: it has no ward within 25 km. The four pilot councils are Arusha City, Arusha District, Meru and Hai. |
 | **District and region** | Courtesy notices for the districts and regions that contain catchment wards. |
 | **Village** | In scope when mapped within 25 km. |
 
 ---
 
-## 5. Known gaps and proposed fixes
+## 5. Corrections never remove a lead
 
-1. **Campus coordinates are estimates.** Record each campus gate's coordinates. Then re-run the three pipelines, which recompute every distance and band.
-2. **Straight-line distance only.** For leads at 11–25 km, a road distance or drive time would be fairer. This is not yet built.
-3. **Stale bands on some company records.** 21 of 661 company records carry a transport band that disagrees with their recorded distance. For example, one record at 2.7 km is marked "beyond 40 km". 426 records have no radius tier at all, because they came from later imports. The reach rank reads the band, so recomputing bands and tiers from the coordinates is the fix.
-4. **122 companies have no location.** Most have an address or town that could be placed at locality level.
-5. **Ward locations are estimates.** OpenStreetMap has no ward boundaries here. Official ward boundaries would replace the single reference points.
+When a campus point is corrected, some distances move by up to about a kilometre. On 2026-10-11 the user decided that such a correction may place a lead nearer a different campus, but must never remove a lead that was inside the catchment or its bands.
+
+| List | What the 2026-10-11 correction changed |
+|---|---|
+| Welfare | No organisation crossed the 25 km line outward and no draft changed status. Two moved inside the line (We Care Aid and Kilimanjaro Aid Project, both now 24.9 km). 19 now sit nearer a different campus. |
+| Government | Gararagua ward (Siha) moved from 24.2 to 25.4 km. It is **kept in scope** through `catchment_kept` in `data/runs/arusha-government-2026-09/run-config.json`, with the reason recorded. Msaranga ward (Moshi Municipal) moved from 25.4 to 24.5 km and came into scope, making 150 offices. |
+| Employers | Distance never removes a company. 51 companies now sit nearer a different campus, mostly within the Arusha cluster. Reach tiers were re-ranked: 32 companies changed tier, mainly because stale bands were corrected. |
+
+**How the company distances were recomputed.** The master holds coordinates for only 47 companies. The rest were placed at import by their locality, using the importer's gazetteer:
+- **47** were recomputed from their own coordinates.
+- **383** were recomputed from the gazetteer point the importer used. The point was accepted only where it reproduces the stored distance under the old campus points.
+- **440** kept their stored distance, which is at most about 1.2 km off. Their band and tier were recomputed from it, which also fixed the 21 stale bands.
+- **101** have no location.
+
+The full record is in `outputs/reports/campus-distance-recompute.json`.
+
+## 6. Known gaps and proposed fixes
+
+1. **Straight-line distance only.** For leads at 11–25 km, a road distance or drive time would be fairer. This is not yet built.
+2. **440 companies keep a distance computed from the old campus points.** Placing them from their address would give them coordinates of their own.
+3. **About 50 companies have no nearest campus recorded.** Most have an address or town that could be placed at locality level.
+4. **Ward locations are estimates.** OpenStreetMap has no ward boundaries here. Official ward boundaries would replace the single reference points.
+5. **Google Maps listings.** The Kijenge listing is pinned about 70 km away. Two other listings ("Silverleaf Primary School" near Usa River, and "Silverleaf Academy Office" in Moshi) match no campus. Whoever manages the school's Google profile should correct or remove them.
 
 ---
 
-*Sources: `outputs/master/Silverleaf Master Database.sqlite` (campuses, organisations, employer_reach), `data/runs/arusha-welfare-2026-09/run-config.json`, `data/runs/arusha-government-2026-09/run-config.json`, `scripts/welfare/welfare_lib.py` (bands, distances, boxes), `scripts/welfare/build_welfare_run.py` (welfare holds and points), `scripts/government/build_government_run.py` (ward scope and weights), `scripts/master/rank_employer_reach.py`, `scripts/collection/build_partner_leads.py`, `data/reference/employer-corrections.json`, `data/reference/silverleaf-offer-register.json` (transport fees).*
+*Sources: the campus pages of silverleaf.co.tz (campus pins, read 2026-10-11), `outputs/master/Silverleaf Master Database.sqlite` (campuses, organisations, employer_reach), `scripts/master/recompute_campus_distances.py`, `outputs/reports/campus-distance-recompute.json`, `data/runs/arusha-welfare-2026-09/run-config.json`, `data/runs/arusha-government-2026-09/run-config.json`, `scripts/welfare/welfare_lib.py` (bands, distances, boxes), `scripts/welfare/build_welfare_run.py` (welfare holds and points), `scripts/government/build_government_run.py` (ward scope and weights), `scripts/master/rank_employer_reach.py`, `scripts/collection/build_partner_leads.py`, `data/reference/employer-corrections.json`, `data/reference/silverleaf-offer-register.json` (transport fees).*

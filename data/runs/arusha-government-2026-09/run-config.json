@@ -238,5 +238,12 @@
   "Usa River": "Usa River",
   "Boma Ngombe": "Boma Ng'ombe"
  },
- "location_disagreement_km": 5
+ "location_disagreement_km": 5,
+ "catchment_kept": [
+  {
+   "council": "Siha District Council",
+   "ward": "Gararagua",
+   "reason": "24.2 km from Boma Ng'ombe under the campus estimates used until 2026-10-11; 25.4 km from the website's campus pin. Kept by the user's decision (2026-10-11) that a campus-point correction removes no lead."
+  }
+ ]
 }

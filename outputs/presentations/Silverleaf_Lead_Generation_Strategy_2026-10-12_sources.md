@@ -1,8 +1,24 @@
 # Sources and queries: Partnership Lead Strategy deck, 12 October 2026
 
-Deck: `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (43 slides), built on the master, layout, theme and media of `outputs/presentations/Silverleaf_Lead_Generation_Progress_2026-09-10_redesign.pptx`.
+Deck: `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (44 slides: a main body of 30, an appendix divider, appendix slides A1–A12 and a closing slide), built on the master, layout, theme and media of `outputs/presentations/Silverleaf_Lead_Generation_Progress_2026-09-10_redesign.pptx`.
 
 Every number in the deck comes from one of the queries or files below. No person's name, email address or phone number appears in the deck; sample messages use placeholders (`<Full Name>`, `<Role>`, `<Organisation>`, `<Sender name>`). Nothing is sent from the repository.
+
+## Slide map
+
+| Slides | Content |
+|---|---|
+| 1–3 | Title, agenda, executive summary |
+| 4–9 | Section 01: catchment and lead capture (lead-map link in the footer of 3 and 5–9) |
+| 10–16 | Section 02: segments and confidence |
+| 17–25 | Section 03: drafting the first touch |
+| 26–29 | Section 04: pipelines: the spine (27), after the offer (28), tracking and reporting (29); pipeline-page link in the footer |
+| 30 | Next steps (both links) |
+| 31 | Appendix divider |
+| A1–A7 | Overview and parent-funnel hand-off; funnels E1–E6, I1, W1–W3, G1–G3 |
+| A8–A11 | Fallout and re-activation; opt-in and data protection; open questions (two slides) |
+| A12 | Sources and data dates (both links, absolute and relative) |
+| Closing | Both links |
 
 ## Data snapshot
 
@@ -56,7 +72,7 @@ Within 25 km: 1,805. Unmapped: welfare 33 (30 funders with no local point), empl
 
 Campus points: `SELECT name, latitude, longitude, geocode_basis FROM campuses;` (website pins, read 2026-10-11).
 
-### Employer subsegments (slides 12, 29–31)
+### Employer subsegments (slides 12, A2–A4)
 
 ```sql
 SELECT p.segment, o.subtype, p.review_status, p.message_variant, r.tier
@@ -70,13 +86,13 @@ SELECT message_variant, COUNT(*) FROM outreach_plans
 
 Kind = `build_company_audience_profile.kind_of`; the Corporate employers segment (152) is split by `organisations.subtype` into Manufacturing 19, Retail 17, Farms and estates 14, International organisations 10, Aviation 5 and Banks and other companies 87, as in the pipeline draft. Leads (ready): safari 480 (432), hotels 194 (123), hospitals 188 (37), banks 87 (70), NGOs 62 (28), colleges 23 (19), public bodies 19 (12), manufacturing 19 (11), retail 17 (6), farms 14 (3), international 10 (9), aviation 5 (2); total 1,118 (752). SACCOS subtypes: employer-based 48, community 67, map-only 2. Introducer kinds from `organisations.segment` ('Introducer: …'): chambers 3, employers' associations 5, sector associations 6, HR body 1, other 1.
 
-Per-funnel first-touch bands (high-direct / high-indirect / medium / low / no email) come from `company_rows` and `welfare_rows` after `dedupe`, grouped by the same kinds.
+Per-funnel first-touch bands on slides A2–A7 (high-direct / high-indirect / medium / low / no email) come from `company_rows` and `welfare_rows` after `dedupe`, grouped by the same kinds.
 
 ### Confidence and Resend segments (slides 1, 3, 15, 16)
 
 `company_rows(master)`, `welfare_rows(welfare)`, `dedupe(...)`: companies high-direct 36, high-indirect 228, medium 349, low 52; introducers 4 / 8 / 3 / 0; welfare 14 / 55 / 10 / 117; no email: companies 569 (453 companies + 116 SACCOS), welfare 233; shared addresses exported once: 18. These equal `outputs/messages/Silverleaf Resend Segments - 2026-10-12.md`.
 
-Growth: `Silverleaf Resend Segments - 2026-10-06.md` (255 high, no direct/indirect split), `- 2026-10-10.md` (high-direct 28 + 2 + 11 = 41; high-indirect 203 + 10 + 55 = 268), `- 2026-10-12.md` (54 and 291).
+Slide 16 shows the high-direct and high-indirect split by track (companies 36 / 228, introducers 4 / 8, welfare 14 / 55). Earlier exports, for reference only: `Silverleaf Resend Segments - 2026-10-06.md` (255 high, no direct/indirect split), `- 2026-10-10.md` (high-direct 28 + 2 + 11 = 41; high-indirect 203 + 10 + 55 = 268), `- 2026-10-12.md` (54 and 291).
 
 Government: `government_rows(gov, '2026-10-12')`: high 4 (pilot councils), low 224; ward waves 58 / 35 / 32 / 4 to locate; village waves 29 / 41 / 10; 11 offices with an official inbox; villages by council: Hai 36, Meru 34, Arusha District 9, Arusha City 1.
 

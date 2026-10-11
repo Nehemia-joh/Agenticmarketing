@@ -657,16 +657,22 @@ def main() -> int:
 
     # 2. curated sources (Google Maps pins from the coordinator, targeted directory records) - preferred over OpenStreetMap
     curated = []
-    for g in read_jsonl(RAW / f"google_maps_named_{date}.jsonl"):
-        curated.append({"candidate_source": "google_maps", "name": g["name"], "alt_names": [], "segment": g["segment"], "subsegment": g["proposed_subsegment"],
+    google = [(g, False) for g in read_jsonl(RAW / f"google_maps_named_{date}.jsonl")] + \
+             [(g, True) for g in read_jsonl(RAW / f"google_maps_user_named_{date}.jsonl")]
+    for g, user_named in google:
+        curated.append({"candidate_source": "google_maps", "user_named": user_named, "name": g["name"], "alt_names": [], "segment": g["segment"],
+                        "subsegment": g["proposed_subsegment"],
                         "org_segment": {"International organisations": "International organisation", "Manufacturing": "industrial:manufacturing",
-                                        "Aviation": "aeroway:aerodrome", "Farms and estates": "farm:flowers"}.get(g["proposed_subsegment"], "office:company"),
+                                        "Aviation": "aeroway:aerodrome", "Farms and estates": "farm:flowers",
+                                        "Safari operators and travel agencies": "office:travel_agent",
+                                        "Hotels, lodges and camps": "tourism:hotel"}.get(g["proposed_subsegment"], "office:company"),
                         "latitude": g["latitude"], "longitude": g["longitude"], "precision": g["precision"], "coord_source_url": g["source_url"],
                         "locality": "", "address": g.get("address", ""), "website": g.get("website", ""), "phone": g.get("phone", ""), "email": "",
                         "google_maps_url": g["source_url"], "google_category": g.get("google_category", ""),
                         "evidence": [{"url": g["source_url"], "fetched_on": g["fetched"], "fetched": True, "evidence_basis": "directory", "source_date": "",
                                       "excerpt": f"Google Maps listing '{g['name']}' ({g.get('google_category', '')}), {g.get('address', '')}".strip()}],
-                        "reason": "", "verification_status": "verified", "notes": g.get("source", ""), "search_ref": "", "raw_file": f"data/raw/gap-census/google_maps_named_{date}.jsonl"})
+                        "reason": "", "verification_status": "verified", "notes": g.get("source", ""), "search_ref": "",
+                        "raw_file": f"data/raw/gap-census/google_maps_{'user_' if user_named else ''}named_{date}.jsonl"})
     for t in read_jsonl(RAW / f"research_targeted_{date}.jsonl"):
         if t.get("supplements"):  # official details for a record found elsewhere (a Google Maps pin): merge, never a second record
             base = next((c for c in curated if c["name"] == t["supplements"]), None)
@@ -675,6 +681,7 @@ def main() -> int:
                     base[f] = base.get(f) or t.get(f, "")
                 base["evidence"] = base["evidence"] + t["evidence"]
                 base["search_ref"] = base.get("search_ref") or t.get("search_ref", "")
+                base["notes"] = " ".join(x for x in (base.get("notes", ""), t.get("notes", "")) if x)
             continue
         curated.append({**t, "raw_file": f"data/raw/gap-census/research_targeted_{date}.jsonl"})
     # The welfare run's NGO register: international NGOs inside the catchment that no list holds and that are active.
@@ -777,6 +784,10 @@ def main() -> int:
         if dist is not None and dist > CATCHMENT_KM:
             continue
         status = m["status"]
+        if c.get("user_named") and status != "new":
+            # the user named these as missing; the coordinator checked the master. A similar name is noted, never a reason to drop.
+            c["notes"] = (c.get("notes", "") + f" Similar lead in the lists: {m['lead']['name']} ({m['basis']}); checked as a different business.").strip()
+            status, m = "new", {"status": "new", "lead": None, "basis": "", "score": 0.0, "saccos": m.get("saccos", "")}
         if status == "captured":
             continue
         put(record(c, m, status, campus, dist, date))

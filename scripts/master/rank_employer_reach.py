@@ -10,7 +10,9 @@ the master records:
 - named people on file: 5 or more +1;
 - distance to the nearest campus: 0-5 km +2, 6-10 km +1, over 40 km -3;
 - desk-research tier A +1.
-Tiers: P1 the top 100 by score, P2 the next 150, P3 the rest; X for plans held as outside the catchment or not an employer.
+Tiers: P1 the top 100 by score, P2 the next 150, P3 the rest; X for plans held as outside the catchment or not an employer. A record known
+only from the map (verification 'Raw OSM ...', such as the gap census's OpenStreetMap leads) ranks after every curated lead until it is
+matched to a curated organisation, so a batch of map points never displaces researched employers from P1 and P2.
 Writes the table employer_reach (organisation_id, score, tier, factors, ranked_on) for every company with a chosen draft (savings groups
 are left out). Preview by default; --apply replaces the table in one transaction. Afterwards run export_master_workbook_data.py,
 npm run build:workbook and verify_master.py.
@@ -86,9 +88,12 @@ def main() -> int:
         org = orgs[p["organisation_id"]]
         score, factors = score_of(p, org, hooked, people)
         held = "Outside the Arusha-Kilimanjaro catchment or not an employer" in (p["missing_information"] or "")
-        ranked.append({"organisation_id": p["organisation_id"], "name": org["name"], "score": score, "factors": "; ".join(factors), "held": held,
+        raw = str(org["verification"] or "").startswith("Raw OSM")
+        if raw:
+            factors.append("map record only: ranked after curated leads")
+        ranked.append({"organisation_id": p["organisation_id"], "name": org["name"], "score": score, "factors": "; ".join(factors), "held": held, "raw": raw,
                        "distance": float(org["distance_km"]) if str(org["distance_km"] or "").replace(".", "", 1).isdigit() else 999.0})
-    ranked.sort(key=lambda r: (r["held"], -r["score"], r["distance"], r["name"]))
+    ranked.sort(key=lambda r: (r["held"], r["raw"], -r["score"], r["distance"], r["name"]))
     position = 0
     for r in ranked:
         if r["held"]:

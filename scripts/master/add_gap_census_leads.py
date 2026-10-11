@@ -116,11 +116,16 @@ def main() -> int:
                     continue
                 precision = {"rooftop": "point", "address": "address", "locality": "locality"}.get(r["geocode_precision"], "locality")
                 src = {"openstreetmap": "OpenStreetMap", "google_maps": "Google Maps", "ngo_register": "NGO register"}.get(r["candidate_source"], "official site")
+                how = "the location recorded with the lead"
+                if "offline gazetteer" in r["notes"]:
+                    src, how = "offline gazetteer (data/reference/lead-gazetteer.txt)", "the published locality placed with the offline gazetteer"
+                elif "Coordinates of the site it shares" in r["notes"]:
+                    src, how = "shared site", "the point of the site it shares (see notes)"
                 fh.write(json.dumps({"db": "master", "organisation_id": p["organisation_id"], "organisation_name": r["organisation_name"], "key": "",
                                      "status": "placed", "latitude": float(r["latitude"]), "longitude": float(r["longitude"]), "precision": precision,
                                      "source_type": src, "source_url": r["source_url"], "fetched_on": r["acquired_on"],
                                      "as_found": f"{r['latitude']},{r['longitude']}", "osm_id": r["osm_id"],
-                                     "basis": f"Gap census {args.date}: the location recorded with the lead ({r['geocode_precision']})."},
+                                     "basis": f"Gap census {args.date}: {how} ({r['geocode_precision']})."},
                                     ensure_ascii=False) + "\n")
         print(f"Wrote {path.relative_to(ROOT)}")
     if not args.apply:

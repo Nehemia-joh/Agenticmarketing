@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-11T11:48:44.161633+00:00",
+  "checked_at": "2026-10-11T13:10:01.988955+00:00",
   "result": "passed",
-  "database": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-ad302a4eb4b9dd7fb\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "c763864c574b658bc30531a433f3b2b173a2c4a8936d57e4a19a64ec4dbf92ef",
-  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-ad302a4eb4b9dd7fb\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "aa3901d7a2c20cbbd945b26d43bc9ab68041988b555da88163a6219a1fe0f086",
+  "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
+  "database_sha256": "2b93c2adb3cb74fa9cdc71efae25d4f7b11e966856bc74d4aa0a5a597fd538d8",
+  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
+  "workbook_sha256": "d613aa2415c31d20561232350db17591c19ae6d1c4e6046d509112f5e1773105",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -17,32 +17,32 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 138,
-    "source_records": 12797,
-    "organisations": 1375,
-    "contacts": 1075,
+    "source_files": 149,
+    "source_records": 13173,
+    "organisations": 1376,
+    "contacts": 1119,
     "enquiries": 32,
-    "messages": 2458,
-    "outreach_plans": 2458,
+    "messages": 2503,
+    "outreach_plans": 2503,
     "strategies": 141,
     "automation_recipes": 54,
-    "campaign_lead_assignments": 2490,
+    "campaign_lead_assignments": 2535,
     "acquisition_tracks": 3,
     "value_proposition_modules": 8,
     "lead_intake_rules": 9
   },
   "hooks": {
-    "verified": 458,
+    "verified": 465,
     "active_unverified": 0,
     "verified_without_source": 0
   },
   "lead_briefs": {
-    "facts": 648,
+    "facts": 661,
     "untraceable": 0
   },
   "assignments": {
-    "plans": 2458,
-    "with_track": 2458
+    "plans": 2503,
+    "with_track": 2503
   },
   "enabled_automations": 0,
   "unwanted_paths": []

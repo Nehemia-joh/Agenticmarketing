@@ -1016,241 +1016,241 @@ master	O9777d7fafe06	Kilari farm	farm:estate	False	False						0	0
 master	Od600e32e3632	Enza Zaden Africa	farm:seed breeding	True	True	https://www.enzazaden.com/	info@enzazaden.com (role) | info@enzazaden.nl (role) | vacancies@enzazaden.co.tz (general)	+310228350100 (international) | +255764169756 (mobile)	P.O. Box 2750, Arusha	linkedin: https://www.linkedin.com/company/enza-zaden | facebook: https://nl-nl.facebook.com/enzazaden | instagram: https://www.instagram.com/enzazaden/ | twitter: https://twitter.com/enzazaden | youtube: https://www.youtube.com/channel/UCayv2g1x8L3vJ3jN4RBfDvA	0	1	search, website	
 master	Ocffcb3124e7e	Buturi Health Laboratory	amenity:clinic	False	False						0	0		
 master	O80445f3d4b12	Bible Baptist Clinic	amenity:clinic	False	False						0	0		
-master	Oa8f5d2c24265	ELERAI DISP. Dispensary	amenity:clinic	False	False						0	0		
+master	Oa8f5d2c24265	ELERAI DISP. Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oc5f0be6c043d	Total Care Health Center	amenity:clinic	True	True			+255787882273 (mobile)			0	0	browser	
 master	Oba580e04150c	Total Care Medical Center	amenity:clinic	True	True						0	0	browser:not_found	
 master	O4c213bd8b299	Medical Relief Trust Health Centre	amenity:clinic	False	False						0	0		
 master	Oe6976705aec6	Star Optometry Eye clinic	amenity:clinic	False	False						0	0		
 master	O01120ab314cb	Dream Molecular Health Labs	amenity:clinic	False	False						0	0		
 master	O0134a89dbe37	HiTek Biolab (Laboratory technician)	amenity:clinic	False	False						0	0		
-master	O2261c01b2598	Eben Dispensary	amenity:clinic	False	False						0	0		
-master	O5197ad6f50dd	Matumaini Cogi Dispensary	amenity:clinic	False	False						0	0		
+master	O2261c01b2598	Eben Dispensary	amenity:clinic	True	True			+255754994152 (mobile)			0	0	browser	
+master	O5197ad6f50dd	Matumaini Cogi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O1415adbccfb8	Themi Health Centre	amenity:clinic	False	False						0	0	browser:not_found	
-master	Oe4ced3a18f6d	Jobi Dispensary	amenity:clinic	False	False						0	0		
+master	Oe4ced3a18f6d	Jobi Dispensary	amenity:clinic	True	True			+255754290437 (mobile)			0	0	browser	
 master	Obe799fbe5d64	Daraja II Health Centre	amenity:clinic	False	False						0	0	browser	
 master	O3b2b4d3d40a4	NSK Hospital LTD Clinic	amenity:clinic	True	True	http://nskhospitals.co.tz/		+255626221331 (mobile)			0	0	browser, search:not_found	
 master	O8caef1f3aef1	Ithnaasheri charitable Dispensary	amenity:clinic	False	False						0	0		
-master	O524e09c7f160	Juakali Dispensary	amenity:clinic	False	False						0	0		
-master	O57bf409c9cd6	Baraa RC Dispensary	amenity:clinic	False	False						0	0		
+master	O524e09c7f160	Juakali Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O57bf409c9cd6	Baraa RC Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O75620acbaec8	Respect Health Labaratory	amenity:clinic	False	False						0	0		
-master	Oa01de189225a	Tanya dental clinic	amenity:clinic	False	False						0	0		
-master	Oa26f13dd6268	Holy Family Dispensary	amenity:clinic	False	False						0	0		
-master	O7d2bf5e94420	Lumen Cristi Dispensary	amenity:clinic	False	False						0	0		
-master	O4603e607af73	OldonyoSapuk Dispensary	amenity:clinic	False	False						0	0		
-master	Ocd1665ca09b9	Maryland Dispensary	amenity:clinic	False	False						0	0		
+master	Oa01de189225a	Tanya dental clinic	amenity:clinic	True	True	https://drtanya.afrobiz.org/		+255754570357 (mobile)			0	0	browser	
+master	Oa26f13dd6268	Holy Family Dispensary	amenity:clinic	False	False						0	0	browser	
+master	O7d2bf5e94420	Lumen Cristi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O4603e607af73	OldonyoSapuk Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Ocd1665ca09b9	Maryland Dispensary	amenity:clinic	False	False						0	0	browser	
 master	Oc64de7cea03f	Tanzania Adventist Dispensary	amenity:clinic	False	False						0	0		
 master	O9ff997dbcc33	Kambi la Nyuki Dispensary	amenity:clinic	False	False						0	0		
 master	Ofa3a8ad24c85	Mungushi Dispensary	amenity:clinic	False	False						0	0		
-master	Obe9703d60b90	Sinon Parish Dispensary	amenity:clinic	False	False						0	0		
+master	Obe9703d60b90	Sinon Parish Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O6cc98a75aabf	Magereza Dispensary	amenity:clinic	False	False						0	0		
-master	O11fb5581de8f	Bangata Dispensary	amenity:clinic	False	False						0	0		
+master	O11fb5581de8f	Bangata Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oab7fafe4d1c8	Tanganyika Packers Dispensary	amenity:clinic	False	False						0	0		
-master	O375d0f20295c	Ngyani Dispensary	amenity:clinic	False	False						0	0		
-master	Odea2cec0a209	Ngongongare Dispensary	amenity:clinic	False	False						0	0		
-master	O40dfcbe19050	Kitefu Dispensary	amenity:clinic	False	False						0	0		
-master	O1b33fa94c98a	SoftMed Company Limited	amenity:clinic	False	False						0	0		
-master	Odeb60e4df6b9	Maisha Health Care Dispensary	amenity:clinic	False	False						0	0		
-master	O7bce244df52c	Ngires Dispensary	amenity:clinic	False	False						0	0		
+master	O375d0f20295c	Ngyani Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Odea2cec0a209	Ngongongare Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O40dfcbe19050	Kitefu Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O1b33fa94c98a	SoftMed Company Limited	amenity:clinic	True	True	https://softmed.co.tz/		+255752503013 (mobile)			0	0	browser	
+master	Odeb60e4df6b9	Maisha Health Care Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O7bce244df52c	Ngires Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O93572d99cd32	Maji ya Chai Dispensary	amenity:clinic	False	False						0	0		
 master	O481675087f24	Mulala Dispensary	amenity:clinic	False	False						0	0		
-master	O2af51f568a04	Chekereni Dispensary	amenity:clinic	False	False						0	0		
-master	Oc6b7fdd941ae	Olkereyan Dispensary	amenity:clinic	False	False						0	0		
+master	O2af51f568a04	Chekereni Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oc6b7fdd941ae	Olkereyan Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Ob0fad41ec14f	Kilinga Dispensary	amenity:clinic	False	False						0	0		
-master	O4babc277235d	Sanya Station Dispensary	amenity:clinic	False	False						0	0		
+master	O4babc277235d	Sanya Station Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O9e617992109d	ELGIBO HEALTH LABORATORY	amenity:clinic	False	False						0	0		
-master	Oe0b830b9332f	Sambasha Dispensary	amenity:clinic	False	False						0	0		
-master	O9e4bb87221a1	Ngurdoto RC Dispensary	amenity:clinic	False	False						0	0		
+master	Oe0b830b9332f	Sambasha Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O9e4bb87221a1	Ngurdoto RC Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O1fd2b8571f80	Mbosho Rc Dispensary	amenity:clinic	False	False						0	0		
-master	Od264898fc348	Forestry Training Institute Olmotonyi Dispensary	amenity:clinic	False	False						0	0		
-master	Ob9aa6242636f	Nkoanrua Dispensary	amenity:clinic	False	False						0	0		
+master	Od264898fc348	Forestry Training Institute Olmotonyi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Ob9aa6242636f	Nkoanrua Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Obea00838ed71	Poli Health Centre	amenity:clinic	False	False						0	0		
-master	O0b06fcb753d4	Kipande Nkoavele Dispensary	amenity:clinic	False	False						0	0		
+master	O0b06fcb753d4	Kipande Nkoavele Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O77377a8793e6	Nambala Dispensary	amenity:clinic	False	False						0	0		
 master	Oda70ffe9c6be	Mbatakero Dispensary	amenity:clinic	False	False						0	0		
-master	Oa5296c94bda0	Kiseriani Dispensary	amenity:clinic	False	False						0	0		
+master	Oa5296c94bda0	Kiseriani Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O641b78fefd8c	Ngyeku Dispensary	amenity:clinic	False	False						0	0		
-master	Oc180116af5a0	CANNOSA DISPENSARY	amenity:hospital	False	False						0	0		
-master	O7ea8db1ef593	Kisongo Lutheran Dispensary	amenity:clinic	False	False						0	0		
-master	O82954e14c37a	Mount meru hope Dispensary	amenity:clinic	False	False						0	0		
-master	Oc40cc0b84883	Kikatiti Lutheran Dispensary	amenity:clinic	False	False						0	0		
+master	Oc180116af5a0	CANNOSA DISPENSARY	amenity:hospital	False	False						0	0	browser	
+master	O7ea8db1ef593	Kisongo Lutheran Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O82954e14c37a	Mount meru hope Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oc40cc0b84883	Kikatiti Lutheran Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O8826906989d1	Mkonoo Health Centre	amenity:clinic	False	False						0	0	browser	
-master	Oe636eac84c76	Nkoarisambu Dispensary	amenity:clinic	False	False						0	0		
+master	Oe636eac84c76	Nkoarisambu Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O334c34461e13	Seela Dispensary	amenity:clinic	False	False						0	0		
-master	O7db3da494d52	Rundugai Dispensary	amenity:clinic	False	False						0	0		
+master	O7db3da494d52	Rundugai Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oeb48b607cf84	Manyata Dispensary	amenity:clinic	False	False						0	0		
 master	Ob985beab85ea	Kisongo Charitable Health Centre	amenity:clinic	True	True			+255767254206 (mobile)			0	0	browser	
 master	O55ecd69fee27	Terrat Dispensary	amenity:clinic	False	False						0	0		
 master	O91f0cfc756ec	Tindigani Dispensary	amenity:clinic	False	False						0	0		
 master	Ocbe585838d5e	Sakila Dispensary	amenity:clinic	False	False						0	0		
-master	O519b861e3927	Kia Rc Dispensary	amenity:clinic	False	False						0	0		
-master	O0d70d5d808fa	Lambo Dispensary	amenity:clinic	False	False						0	0		
-master	O409d5e170898	Mlangarini Dispensary	amenity:clinic	False	False						0	0		
+master	O519b861e3927	Kia Rc Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O0d70d5d808fa	Lambo Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O409d5e170898	Mlangarini Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O436e0a7a89a2	Nkwansira Health Centre	amenity:hospital	False	False						0	0	browser	
-master	O25d58677a21d	Lemira Dispensary	amenity:clinic	False	False						0	0		
+master	O25d58677a21d	Lemira Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O34f300eba9e9	Olkokola Health Centre	amenity:clinic	False	False						0	0		
 master	Oc1aa7f59090f	Masama Lutheran Dispensary	amenity:hospital	False	False						0	0		
-master	O76e2d4238257	Manyire Dispensary	amenity:clinic	False	False						0	0		
-master	Oc33848f9175d	Kisongo SDA Dispensary	amenity:clinic	False	False						0	0		
+master	O76e2d4238257	Manyire Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oc33848f9175d	Kisongo SDA Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O46bc8322e073	Engorora Health Centre	amenity:clinic	False	False						0	0		
-master	Oc8dea8680825	Nadosoito Dispensary	amenity:clinic	False	False						0	0		
+master	Oc8dea8680825	Nadosoito Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O1589bc896ba4	Donyomurwa Dispensary	amenity:clinic	False	False						0	0		
 master	O63c62b6f09c9	Karangai Dispensary	amenity:clinic	False	False						0	0		
-master	O1d127cf29f80	Likamba Dispensary	amenity:clinic	False	False						0	0		
-master	O2888fb3a7539	Mangasheny Dispensary	amenity:clinic	False	False						0	0		
+master	O1d127cf29f80	Likamba Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O2888fb3a7539	Mangasheny Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Of7da0c5bc233	Doni Dispensary	amenity:clinic	False	False						0	0		
-master	O005233adcb29	Narumu Dispensary	amenity:clinic	False	False						0	0		
+master	O005233adcb29	Narumu Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O6d55a40c88f3	Tumaini Lawate Dispensary	amenity:clinic	False	False						0	0		
 master	Ofd03156b043a	Ngaritati Dispensary	amenity:clinic	False	False						0	0		
-master	Oc0c204f33870	Longoi Dispensary	amenity:clinic	False	False						0	0		
+master	Oc0c204f33870	Longoi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oa3a5a64f40fb	Nduruma Health Centre	amenity:clinic	False	False						0	0	browser	
 master	O4306497b36c3	Mailisita Medical Centre Dispensary	amenity:clinic	False	False						0	0		
 master	Obe47da59dd0f	Samaria Dispensary	amenity:clinic	False	False						0	0		
-master	O35a16c7db058	Kishimbwe Dispensary	amenity:clinic	False	False						0	0		
-master	Of063651002f4	Leguruki Dispensary	amenity:clinic	False	False						0	0		
-master	O6f777c542c07	Kashasahi Dispensary	amenity:clinic	False	False						0	0		
-master	Oe313f91f546e	Imbibia Dispensary	amenity:clinic	False	False						0	0		
+master	O35a16c7db058	Kishimbwe Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Of063651002f4	Leguruki Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O6f777c542c07	Kashasahi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oe313f91f546e	Imbibia Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Of02cb947b883	Losaa Dispensary	amenity:clinic	False	False						0	0		
 master	Oc5f8a42554be	Mareu Health Centre	amenity:clinic	False	False						0	0		
 master	O6d9dcddbc45d	King'ori Dispensary	amenity:clinic	False	False						0	0		
-master	O1e7d75c1c870	Kisiki Dispensary	amenity:clinic	False	False						0	0		
+master	O1e7d75c1c870	Kisiki Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O5fc62bad3f81	Uroki Dispensary	amenity:clinic	False	False						0	0		
-master	Ocb18a2cee5a7	Manushi Dispensary	amenity:clinic	False	False						0	0		
-master	O25c949da5955	Kawaya Dispensary	amenity:clinic	False	False						0	0		
+master	Ocb18a2cee5a7	Manushi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O25c949da5955	Kawaya Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Obf3eb68ba567	Musa Dispensary	amenity:clinic	False	False						0	0		
 master	O680408ca9eff	Ngarenairobi Health Centre	amenity:clinic	False	False						0	0		
-master	O4bc5d531f3a7	Kisereni Dispensary	amenity:clinic	False	False						0	0		
-master	Ob572194fcf78	Kindi Dispensary	amenity:clinic	False	False						0	0		
-master	Obe65b5ac3b52	Lengijave Dispensary	amenity:clinic	False	False						0	0		
-master	O57f94cce4909	Emmaus Dispensary	amenity:clinic	False	False						0	0		
+master	O4bc5d531f3a7	Kisereni Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Ob572194fcf78	Kindi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Obe65b5ac3b52	Lengijave Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O57f94cce4909	Emmaus Dispensary	amenity:clinic	True	True			+255742317426 (mobile)			0	0	browser	
 master	O8382655b0fa5	Lukani Dispensary	amenity:clinic	False	False						0	0		
 master	O8d02a09a1067	Shirimgungani Dispensary	amenity:clinic	False	False						0	0		
-master	Od9eae9d68311	Lyamungo Dispensary	amenity:clinic	False	False						0	0		
+master	Od9eae9d68311	Lyamungo Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O6727bbf1ccd8	Nsengonyi Dispensary	amenity:clinic	False	False						0	0		
-master	Od36f18fe17be	Miririnyi Dispensary	amenity:clinic	False	False						0	0		
+master	Od36f18fe17be	Miririnyi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O66f8305aba9d	Machame Hospital	amenity:hospital	True	True			+255717767678 (mobile)			0	0	browser, search:not_found	
 master	Ob3c764f1a75b	Lesiraa Dispensary	amenity:clinic	False	False						0	0		
-master	O39e297811c0c	Emmausi Cogi Dispensary	amenity:clinic	False	False						0	0		
-master	O9de009c0b67f	Kirima Dispensary	amenity:clinic	False	False						0	0		
-master	Odd22386bf29d	Shiri Matunda Dispensary	amenity:clinic	False	False						0	0		
+master	O39e297811c0c	Emmausi Cogi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O9de009c0b67f	Kirima Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Odd22386bf29d	Shiri Matunda Dispensary	amenity:clinic	True	True			+255759166443 (mobile)			0	0	browser	
 master	O92c82a2fba51	Oljoro Dispensary	amenity:clinic	False	False						0	0		
-master	Oad466a4517b9	Mkalama Dispensary	amenity:clinic	False	False						0	0		
+master	Oad466a4517b9	Mkalama Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O80a6369bdd07	Mungush Dispensary	amenity:clinic	False	False						0	0		
-master	O4959ab0f279c	Mwandet Dispensary	amenity:clinic	False	False						0	0		
+master	O4959ab0f279c	Mwandet Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O97ca07ee9cdb	St. Joseph Hospital	amenity:hospital	True	True	https://stjosephhospitalmoshi.or.tz/	info@stjosephhospitalmoshi.or.tz (role)	+255272753843 (office) | +255738835248 (mobile)	P.O. Box 330, Soweto, Moshi		1	0	browser, search	
 master	O5a17e131ddfd	Umbwe Health Centre	amenity:clinic	False	False						0	0	browser	
 master	O9a80dea9ce54	Umbwe Rc Dispensary	amenity:clinic	False	False						0	0		
 master	Offfa16fe7087	Shant Town Dispensary	amenity:clinic	False	False						0	0		
-master	O74aea02114b9	Mango Dispensary	amenity:clinic	False	False						0	0		
-master	O1eecd12af14a	Kikavu Chini Dispensary	amenity:clinic	False	False						0	0		
+master	O74aea02114b9	Mango Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O1eecd12af14a	Kikavu Chini Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O118579a81625	Makiba Health Centre	amenity:clinic	False	False						0	0	browser	
 master	Of59a3bdb7d87	Kishisha Dispensary	amenity:clinic	False	False						0	0		
-master	O09c7ad69b6fd	Nkweshoo Dispensary	amenity:clinic	False	False						0	0		
+master	O09c7ad69b6fd	Nkweshoo Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O606937bd5285	Siha Hospital	amenity:hospital	False	False						0	0	search:not_found	
 master	O8f9e4e1b7ad5	Kilimanjaro Christian Medical Centre	amenity:hospital	True	True	http://www.kcmc.ac.tz/ | https://www.kcmc.ac.tz/	kcmcadmin@kcmc.ac.tz (general)	+255272754377 (office)	P.O. Box 3010, Moshi		1	0	browser, search	
 master	Oe7dd9b1a9153	Levishi Dispensary	amenity:clinic	False	False						0	0		
 master	O5843a0df1bf2	Moshi Health Centre	amenity:clinic	True	True			+255756376470 (mobile)			0	0	browser	
-master	O7b9b41581926	Ngarenanyuki Lutheran Dispensary	amenity:clinic	False	False						0	0		
+master	O7b9b41581926	Ngarenanyuki Lutheran Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oe29235b55df4	Siima Health Centre	amenity:clinic	True	True			+255754244084 (mobile)			0	0	browser	
-master	Odeecde89780b	Olarashi Dispensary	amenity:clinic	False	False						0	0		
-master	Ocda3bdbb0197	Oldonyowasi Dispensary	amenity:clinic	False	False						0	0		
-master	O714a5e0f70cc	Kibosho Barazani Dispensary	amenity:clinic	False	False						0	0		
+master	Odeecde89780b	Olarashi Dispensary	amenity:clinic	True	True			+255759666287 (mobile)			0	0	browser	
+master	Ocda3bdbb0197	Oldonyowasi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O714a5e0f70cc	Kibosho Barazani Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O75df5b314b45	Oldonyo Sambu Health Centre	amenity:clinic	False	False						0	0	browser	
-master	Odd1082851df0	Bondeni Dispensary	amenity:clinic	False	False						0	0		
-master	O550b9b51f0fe	Okaoni Dispensary	amenity:clinic	False	False						0	0		
+master	Odd1082851df0	Bondeni Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O550b9b51f0fe	Okaoni Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O1886aed10a75	Pasua Hospital	amenity:hospital	True	True			+255737212022 (mobile)			0	0	browser	
 master	Od6dd2911b1e8	First Health Hospital	amenity:hospital	False	False						0	0	browser	
-master	O8a2f1b1057cb	Meserani Juu Dispensary	amenity:clinic	False	False						0	0		
-master	O027ca76b7c83	Kisimiri Chini Dispensary	amenity:clinic	False	False						0	0		
-master	O98a9c4d9d3d3	Jaffery Charitable Medical Services Dispensary	amenity:clinic	False	False						0	0		
+master	O8a2f1b1057cb	Meserani Juu Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O027ca76b7c83	Kisimiri Chini Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O98a9c4d9d3d3	Jaffery Charitable Medical Services Dispensary	amenity:clinic	True	True			+255760909095 (mobile)			0	0	browser	
 master	O733379bfee18	Mbuyuni Health Centre	amenity:clinic	False	False						0	0	browser	
 master	Oe00345d51704	Mkombole Dispensary	amenity:clinic	False	False						0	0		
 master	O07f396ec5d19	Majengo Dispensary	amenity:clinic	False	False						0	0		
 master	O19ad918cfbad	Kibosho Hospital	amenity:hospital	False	False						0	0	browser, search:not_found	
-master	Oacac8d1bee43	Mawela Dispensary	amenity:clinic	False	False						0	0		
+master	Oacac8d1bee43	Mawela Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O4e29808fcf20	Njoro Dispensary	amenity:clinic	False	False						0	0		
 master	Oef528d1b21ee	CAWM Dispensary	amenity:clinic	False	False						0	0		
 master	Of0ca71c5f0e8	Charlotte Health Center	amenity:hospital	False	False						0	0		
 master	Oabc397d4af02	Themi ya Simba Dispensary	amenity:clinic	False	False						0	0		
-master	O6579d2fbaa3e	Mji Mpya Dispensary	amenity:clinic	False	False						0	0		
-master	O9f6f25420161	Mweka Omi Dispensary	amenity:clinic	False	False						0	0		
-master	Oe9abd1a4229d	Losinoni Dispensary	amenity:clinic	False	False						0	0		
-master	Oeedcadd6961a	Mrawi Dispensary	amenity:clinic	False	False						0	0		
-master	O1ea31d075e5e	Sinzia Villas	tourism:guest_house	False	True			+255689658552 (mobile)			0	0	browser	
-master	O9cab12f6fb46	Summit Safari Lodge	tourism:hotel	False	True	http://summitlodge.co.tz/		+255788989809 (mobile)			0	0	browser	
+master	O6579d2fbaa3e	Mji Mpya Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O9f6f25420161	Mweka Omi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oe9abd1a4229d	Losinoni Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oeedcadd6961a	Mrawi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
+master	O1ea31d075e5e	Sinzia Villas	tourism:guest_house	True	True			+255689658552 (mobile)			0	0	browser	
+master	O9cab12f6fb46	Summit Safari Lodge	tourism:hotel	True	True	http://summitlodge.co.tz/		+255788989809 (mobile)			0	0	browser	
 master	O376e22045d8d	Kili-Meru Annex Resort	tourism:guest_house	False	False						0	0		
 master	O54fa2052d117	Bright Star Hotels and Safaris Arusha	tourism:hotel	True	True						0	0	search:not_found	
-master	Oc0b3902e5917	Kiriwe Lodge	tourism:guest_house	False	True			+255783421512 (mobile)			0	0	browser	
+master	Oc0b3902e5917	Kiriwe Lodge	tourism:guest_house	True	True			+255783421512 (mobile)			0	0	browser	
 master	O863b59b9f98c	Masai Camp	tourism:camp_site	True	True						0	0		
 master	O3daa117dbab9	Swahili Villa	tourism:guest_house	True	True						0	0		
-master	O3c855a39db69	Outpost Lodge	tourism:guest_house	False	True	http://www.outpost-lodge.com/		+255754318523 (mobile)			0	0	browser	
-master	Ocd748bbf4b23	Vanus primer hotel	tourism:guest_house (hostel)	False	True	http://venushotels.co.tz/		+255272547174 (office)			0	0	browser	
+master	O3c855a39db69	Outpost Lodge	tourism:guest_house	True	True	http://www.outpost-lodge.com/		+255754318523 (mobile)			0	0	browser	
+master	Ocd748bbf4b23	Vanus primer hotel	tourism:guest_house (hostel)	True	True	http://venushotels.co.tz/		+255272547174 (office)			0	0	browser	
 master	O29521c9999ab	Six Eight Motel	tourism:hotel	False	False						0	0	browser:not_found	
-master	O42880bff34c1	Villa Boma	tourism:guest_house	False	True			+255657426075 (mobile)			0	0	browser	
-master	Occ2c9c725b6b	Africa Safari Arusha Lodge	tourism:guest_house	False	True	https://beachsafarihotels.com/africa-safari-arusha		+255242162920 (office)			0	0	browser	
+master	O42880bff34c1	Villa Boma	tourism:guest_house	True	True			+255657426075 (mobile)			0	0	browser	
+master	Occ2c9c725b6b	Africa Safari Arusha Lodge	tourism:guest_house	True	True	https://beachsafarihotels.com/africa-safari-arusha		+255242162920 (office)			0	0	browser	
 master	O78b0178fc1f7	Emma lodge	tourism:hotel	False	False						0	0		
 master	Ode2acc429c4a	Monjes Guesthouse B	tourism:guest_house	False	False						0	0		
-master	Of63c3ae5fffe	Ivory lodge	tourism:guest_house	False	True			+255772321321 (mobile)			0	0	browser	
+master	Of63c3ae5fffe	Ivory lodge	tourism:guest_house	True	True			+255772321321 (mobile)			0	0	browser	
 master	O677d24ac044e	Kiria lodge	tourism:guest_house	False	False						0	0	browser:not_found	
-master	O30e69765e5ed	Kitundu Guesthouse	tourism:guest_house	False	True			+255754263216 (mobile)			0	0	browser	
+master	O30e69765e5ed	Kitundu Guesthouse	tourism:guest_house	True	True			+255754263216 (mobile)			0	0	browser	
 master	O2b5497cbc08d	Hotel Equator	tourism:hotel	True	True	https://www.equator-hotel.com/					0	0	website	
 master	Oc9c7b25502b7	Mount Meru Hotel	tourism:guest_house (hostel)	True	True	https://www.mountmeruhotel.co.tz/	hr@mountmeruhotel.co.tz (role) | info@mountmeruhotel.co.tz (role)	+255272970256 (office)			0	0	browser, search	
-master	O69fef634c7dd	Naaz Hotel & Restauarant	tourism:hotel	False	True	https://arushanaaz.net/		+255733201788 (mobile)			0	0	browser	
+master	O69fef634c7dd	Naaz Hotel & Restauarant	tourism:hotel	True	True	https://arushanaaz.net/		+255733201788 (mobile)			0	0	browser	
 master	Obbe00c61091f	Villa Poa	tourism:guest_house	True	True						0	0		
-master	Oc599d2f96b06	Hotel Flamingo	tourism:hotel	False	True			+255754260309 (mobile)			0	0	browser	
-master	O67c0a682323b	Mc-Elly's hotel	tourism:guest_house (hostel)	False	True	http://www.mcellyshotel.com/		+255759547123 (mobile)			0	0	browser	
-master	O7bcc403bf56c	Machweo Wellness Retreat & Fine Dining	tourism:guest_house	False	True	http://www.machweo.com/		+255689103552 (mobile)			0	0	browser	
-master	O815781e53bf6	Megan resort	tourism:hotel	False	True			+255754241005 (mobile)			0	0	browser	
+master	Oc599d2f96b06	Hotel Flamingo	tourism:hotel	True	True			+255754260309 (mobile)			0	0	browser	
+master	O67c0a682323b	Mc-Elly's hotel	tourism:guest_house (hostel)	True	True	http://www.mcellyshotel.com/		+255759547123 (mobile)			0	0	browser	
+master	O7bcc403bf56c	Machweo Wellness Retreat & Fine Dining	tourism:guest_house	True	True	http://www.machweo.com/		+255689103552 (mobile)			0	0	browser	
+master	O815781e53bf6	Megan resort	tourism:hotel	True	True			+255754241005 (mobile)			0	0	browser	
 master	O3c287747b170	Ringanami Lodge	tourism:guest_house	False	False						0	0		
-master	O206e0461b2ee	Arusha Safari Hostel (REAL)	tourism:guest_house (hostel)	False	True	http://www.safarihostel.com/					0	0	browser	
+master	O206e0461b2ee	Arusha Safari Hostel (REAL)	tourism:guest_house (hostel)	True	True	http://www.safarihostel.com/					0	0	browser	
 master	Oe160947ab356	LBT LODGE & RECABI INSTITUTE	tourism:guest_house	True	True						0	0		
 master	Oe1694b0f06fb	Twiga Lodge Campsite	tourism:camp_site	False	False						0	0		
-master	O46700d57a0da	Tushabe lodge	tourism:guest_house	False	True	http://tushabelodge.com/		+255754282716 (mobile)			0	0	browser	
-master	O8ffdcf6848be	Bella Lodge	tourism:guest_house	False	True			+255624281796 (mobile)			0	0	browser	
+master	O46700d57a0da	Tushabe lodge	tourism:guest_house	True	True	http://tushabelodge.com/		+255754282716 (mobile)			0	0	browser	
+master	O8ffdcf6848be	Bella Lodge	tourism:guest_house	True	True			+255624281796 (mobile)			0	0	browser	
 master	O4a80173aa9ac	Golf Safari House	tourism:hotel	True	True						0	0	search:not_found	golfsafarihouse.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
 master	O3efe6e6933e6	Antelope homestay hotel	tourism:guest_house	False	False						0	0	browser	
-master	O6e8eb4b28bcd	Shamba Lodge	tourism:guest_house	False	True	http://www.shambalodgearusha.co.tz/		+255753194162 (mobile)			0	0	browser	
+master	O6e8eb4b28bcd	Shamba Lodge	tourism:guest_house	True	True	http://www.shambalodgearusha.co.tz/		+255753194162 (mobile)			0	0	browser	
 master	O0a81effdd1bf	Hatari Lodge	tourism:hotel	True	True	https://hatari.travel/	reservation@hatari.travel (role)	+255761862229 (mobile)	P.O. Box 3171, Arusha, Tanzania	facebook: https://www.facebook.com/Hatari.Travel/ | instagram: https://www.instagram.com/hatari.travel/ | linkedin: https://www.linkedin.com/company/hatari-travel	2	0	search, website	
-master	O5a8e6ef3554f	"Lutheran international Guest House ""Rafiki Hostel"""	tourism:guest_house (hostel)	False	True			+255714550364 (mobile)			0	0	browser	
+master	O5a8e6ef3554f	"Lutheran international Guest House ""Rafiki Hostel"""	tourism:guest_house (hostel)	True	True			+255714550364 (mobile)			0	0	browser	
 master	O72711ab4bdbe	Momella Camp	tourism:guest_house	False	False						0	0	browser	
 master	Of6d4116253cc	Shose Chalets Farmhouse & Campsite	tourism:camp_site	False	False						0	0	browser:not_found	
-master	O1e06c80d45ef	Kilimanjaro Safaris Lodge	tourism:guest_house	False	True			+255715281849 (mobile)			0	0	browser	
+master	O1e06c80d45ef	Kilimanjaro Safaris Lodge	tourism:guest_house	True	True			+255715281849 (mobile)			0	0	browser	
 master	Oee6cb4774725	Kili Cottages Moshi	tourism:hotel	True	True						0	0		
 master	O9f1465551153	Panama Garden Resort Hotel	tourism:hotel	True	True	https://panamagardenresort.co.tz	info@panamagardenresort.co.tz (role) | reservation@panamagardenresort.co.tz (role)	+255753374178 (mobile)		twitter: https://twitter.com/panama_garden | facebook: https://www.facebook.com/panamagardenresort | instagram: https://www.instagram.com/panamagardenresort	0	0	website	
 master	O851b689cfe43	Salinero  Kilimanjaro Villa	tourism:hotel	False	False						0	0		
 master	O32b91ddb2048	Lutheran Uhuru Hotel	tourism:hotel	True	True	https://uhuruhotel.org/		+255753037216 (mobile)			0	0	browser, search	
-master	O47c4aea4476c	White House Bar Lodge	tourism:guest_house (hostel)	False	True			+255758441079 (mobile)			0	0	browser	
+master	O47c4aea4476c	White House Bar Lodge	tourism:guest_house (hostel)	True	True			+255758441079 (mobile)			0	0	browser	
 master	O8f15c5445993	Hugos Hotel	tourism:hotel	False	False						0	0	browser	
 master	Ob0e6db080b80	executive lodge	tourism:hotel	False	False						0	0		
 master	O1a1fd9605515	Comfort Guest House	tourism:guest_house	False	False						0	0		
 master	Od1d65111f246	Kilimanjaro Wonders Hotel	tourism:hotel	True	True						0	0	search:not_found	kiliwonders.com: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
 master	O8d8d7069279b	Twiga Guesthouse	tourism:hotel	False	False						0	0		
 master	Odd35f29ffc41	Corner lodge	tourism:guest_house	False	False						0	0		
-master	Ob7c41c6144d4	La Mama Hotel	tourism:hotel	False	True	https://lamamahotels.com/		+255793206791 (mobile)			0	0	browser	
+master	Ob7c41c6144d4	La Mama Hotel	tourism:hotel	True	True	https://lamamahotels.com/		+255793206791 (mobile)			0	0	browser	
 master	Ob17744b6448e	Selig Hotel	tourism:hotel	True	True	https://selighotel.co.tz/	info@selighotel.co.tz (role)	+255272752413 (office) | +255782264271 (mobile)		twitter: http://www.twitter.com | youtube: http://www.youtube.com | facebook: http://www.facebook.com/selighotels	0	0	website	
-master	Ob8afcbf9a855	New Siesta Inn	tourism:guest_house	False	True			+255752799245 (mobile)			0	0	browser	
-master	O8ab9162347bc	Q'wine Hotel	tourism:hotel	False	True	http://www.qwinehotel.com/		+255753645844 (mobile)			0	0	browser	
-master	O0fae0e7f596b	Shimoni Lodge	tourism:hotel	False	True			+255699416463 (mobile)			0	0	browser	
-master	O905ecfc41409	Golden View Hotel	tourism:hotel	False	True			+255759878065 (mobile)			0	0	browser	
+master	Ob8afcbf9a855	New Siesta Inn	tourism:guest_house	True	True			+255752799245 (mobile)			0	0	browser	
+master	O8ab9162347bc	Q'wine Hotel	tourism:hotel	True	True	http://www.qwinehotel.com/		+255753645844 (mobile)			0	0	browser	
+master	O0fae0e7f596b	Shimoni Lodge	tourism:hotel	True	True			+255699416463 (mobile)			0	0	browser	
+master	O905ecfc41409	Golden View Hotel	tourism:hotel	True	True			+255759878065 (mobile)			0	0	browser	
 master	O585c72e82198	Osy Grand Hotel	tourism:hotel	True	True						0	0	search:not_found	osygrandhotel.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
 master	Ob1679ab84d1e	Kilimanjaro Backpacker Hostel	tourism:guest_house (hostel)	True	True	https://backpackerstanzania.com/					0	0	website	
-master	O380bf52e8178	Parkview Inn	tourism:hotel	False	True	https://www.pvim.com/		+255754052000 (mobile)			0	0	browser	
-master	O32f6260f32d8	Buffalo Hotel	tourism:hotel	False	True			+255765068295 (mobile)			0	0	browser	
-master	Oe813996f7fe2	East Point Hotel	tourism:hotel	False	True	https://www.eastpointhotelmoshi.com/		+255688200200 (mobile)			0	0	browser	
-master	Od20e9f7b6c22	Kindoroko Hotel	tourism:guest_house (hostel)	False	True			+255715377795 (mobile)			0	0	browser, search:not_found	
-master	Od2f498cc291c	Mbugani Hotel	tourism:hotel	False	True			+255763283330 (mobile)			0	0	browser	
-master	Of53624fb2b74	Bristol Cottages	tourism:hotel	False	True	http://www.bristolcottages.com/		+255693975139 (mobile)			0	0	browser	
-master	O49b303eea3c6	Kilemakyaro Lodge	tourism:hotel	False	True	http://www.kilimanjarosafari.com/		+255763777400 (mobile)			0	0	browser, search:not_found	
+master	O380bf52e8178	Parkview Inn	tourism:hotel	True	True	https://www.pvim.com/		+255754052000 (mobile)			0	0	browser	
+master	O32f6260f32d8	Buffalo Hotel	tourism:hotel	True	True			+255765068295 (mobile)			0	0	browser	
+master	Oe813996f7fe2	East Point Hotel	tourism:hotel	True	True	https://www.eastpointhotelmoshi.com/		+255688200200 (mobile)			0	0	browser	
+master	Od20e9f7b6c22	Kindoroko Hotel	tourism:guest_house (hostel)	True	True			+255715377795 (mobile)			0	0	browser, search:not_found	
+master	Od2f498cc291c	Mbugani Hotel	tourism:hotel	True	True			+255763283330 (mobile)			0	0	browser	
+master	Of53624fb2b74	Bristol Cottages	tourism:hotel	True	True	http://www.bristolcottages.com/		+255693975139 (mobile)			0	0	browser	
+master	O49b303eea3c6	Kilemakyaro Lodge	tourism:hotel	True	True	http://www.kilimanjarosafari.com/		+255763777400 (mobile)			0	0	browser, search:not_found	
 master	Ofb48df225aac	Moshi Backpackers Paradise	tourism:guest_house (hostel)	False	False						0	0		
-master	Ob24ba36bb062	Zebra Hotel	tourism:hotel	False	True			+255766998648 (mobile)			0	0	browser	
+master	Ob24ba36bb062	Zebra Hotel	tourism:hotel	True	True			+255766998648 (mobile)			0	0	browser	
 master	O9c1cd2e9fe59	HubHill Budget Lodge	tourism:guest_house (hostel)	False	False						0	0		
-master	O55b60f2d5bcb	Kilimanjaro Crane Hotel	tourism:hotel	False	True	http://www.holidaysexpeditionsafari.com/		+255733176999 (mobile)			0	0	browser	
-master	O8b15e467bb06	Kilimanjaro Homes & Camps	tourism:guest_house (hostel)	False	True			+255655023239 (mobile)			0	0	browser	
+master	O55b60f2d5bcb	Kilimanjaro Crane Hotel	tourism:hotel	True	True	http://www.holidaysexpeditionsafari.com/		+255733176999 (mobile)			0	0	browser	
+master	O8b15e467bb06	Kilimanjaro Homes & Camps	tourism:guest_house (hostel)	True	True			+255655023239 (mobile)			0	0	browser	
 master	Oded5b8f02a1f	White Lodge	tourism:hotel	False	False						0	0		
 master	O0101826d7e6e	Gästehaus AKO	tourism:guest_house	False	False						0	0		
 master	O1b77e60fd2c1	Hartebeest View Lodge	tourism:hotel	True	True						0	0	search:not_found	hartebeest-lodge.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
 master	O6ad338f1dfda	Macarela Inn	tourism:hotel	True	True						0	0		
 master	Ocbbee53770fa	Rau Forest camp	tourism:camp_site	False	False						0	0		
-master	O7dbee5e7f657	Keys Hotel	tourism:hotel	False	True	https://keyshotelstz.com/		+255755486377 (mobile)			0	0	browser	
+master	O7dbee5e7f657	Keys Hotel	tourism:hotel	True	True	https://keyshotelstz.com/		+255755486377 (mobile)			0	0	browser	
 master	Oa1ee8ca0ec08	Keys Lodge	tourism:camp_site	False	False						0	0		
 master	O9ce85855e5c3	Consolidated Tourist & Hotels Investment Ltd (Sopa Lodges)	tourism:hotel group	True	True	https://www.sopalodges.com/	info@sopalodges.com (role)	+255784250630 (mobile)			0	0	search	
 master	O5673bb705977	African Court on Human and Peoples' Rights	International organisation	True	True	https://www.african-court.org/ | https://www.african-court.org/afchpr/	registrar@african-court.org (role) | chipiliro.kansilanga@african-court.org (general) | robert.eno@african-court.org (named) | ecossocc@africanunion.org (general) | jilomboc@africanunion.org (general) | ecosocc@africanunion.org (general)	+255272510510 (office) | +255272970430 (office) | +255680500555 (mobile)	P.O. Box 6274 Arusha, TANZANIA | P.O. Box 6274, Arusha	twitter: https://twitter.com/court_afchpr | facebook: https://www.facebook.com/afchpr/ | linkedin: https://www.linkedin.com/company/connect-talks/?viewAsMember=true | youtube: https://www.youtube.com/user/africancourt | whatsapp: https://api.whatsapp.com/send?text=<?php echo $post_url; ?>	2	0	search, website	
@@ -1317,7 +1317,7 @@ master	O105f6d33a182	Now For Compassion (Nfc) Tanzania	office:ngo	False	False			
 master	O06063e7b67f6	2givelife.org Tanzania	office:ngo	False	False						0	0		
 master	O3872c47d89bb	German Foundation For World Population (Dsw) Tanzania	office:ngo	True	True	https://www.dsw.org/en/tanzania/	dsw@dswtz.org (general)	+255272555020 (office)	P.O. Box 14279, Arusha		3	0	browser, search	
 master	O4fc05b8278ac	Tanzania People And Wildlife	office:ngo	False	False						0	0	search:not_found	
-master	O7d5d44b3a7c0	CANNOSA STIRITUALITY CENTRE	office:ngo	False	True			+255758012994 (mobile)			0	0	browser	
+master	O7d5d44b3a7c0	CANNOSA STIRITUALITY CENTRE	office:ngo	True	True			+255758012994 (mobile)			0	0	browser	
 master	O15226ed8534d	Friends Of Meili International.Inc	office:ngo	False	False						0	0		
 master	Oc4bd894260ec	World Vegetable Center (WorldVeg) – Eastern and Southern Africa, Arusha	office:research	True	True						0	0	search:blocked	worldveg.org: home page not readable: 202
 master	Od1aa975469dd	ZV Horizon Project	office:ngo	False	False						0	0		

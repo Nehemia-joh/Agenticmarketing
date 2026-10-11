@@ -16,8 +16,15 @@ precision and basis, to data/raw/geocode-research/geocodes_<date>.jsonl; scripts
   osm       named OpenStreetMap features in the map box (amenity, shop, office, craft, industrial, tourism, leisure,
             healthcare, named buildings), five Overpass queries one at a time, >= 6 s apart, [timeout:180], mirror fallback,
             cached in runtime/geocode/overpass/; then candidate name matches for every target. Writes runtime/geocode/osm_hits.json.
+  osm-names named OpenStreetMap features anywhere in Tanzania whose name holds a target's distinctive words (for offices outside
+            the box), a few batched name-regex queries, one at a time, >= 6 s apart. Writes runtime/geocode/osm_name_hits.json.
   nominatim street addresses of the targets that name a street or building, at most 1 request per second with a User-Agent,
             cached (runtime/geocode/nominatim/); results outside northern Tanzania are dropped. Writes runtime/geocode/nominatim_hits.json.
+
+--targets-file runs sites, osm, osm-names and nominatim on a named list of master leads (for example
+data/raw/geocode-research/user_requested_locations_<date>.json) instead of the map's targets; sites --crawl-cache reads another
+checkout's crawl cache (read-only), --always-fetch reads contact pages even when a pin is cached, and --mentions records the text
+around Arusha, Moshi, Usa River and airport mentions (evidence of a local branch); nominatim --queries takes reviewer-written queries.
 
 Rate limits: skills/silverleaf-create-lead-list/references/research-rate-limits.md (Overpass and Nominatim rules).
 """
@@ -117,7 +124,21 @@ def cmd_targets(_args) -> int:
     return 0
 
 
-def load_targets(scope: str) -> list[dict]:
+def targets_from_file(path: Path) -> list[dict]:
+    """A named list of master leads (e.g. data/raw/geocode-research/user_requested_locations_<date>.json: organisation_id,
+    name, address, locality, website, ...) as targets, so the collectors can run on leads the user names, wherever they are."""
+    rows = json.loads(Path(path).read_text(encoding="utf-8"))
+    out = []
+    for r in rows:
+        site = str(r.get("website") or "").split()[0] if str(r.get("website") or "").strip() else ""
+        out.append({"db": "master", "seg": "emp", "id": r["organisation_id"], "name": r["name"], "tier": "", "prec": "none", "how": "named",
+                    "website": site, "locality": r.get("locality", ""), "address": r.get("address", ""), "segment": "", "lat": None, "lon": None})
+    return out
+
+
+def load_targets(scope: str, targets_file: Path | None = None) -> list[dict]:
+    if targets_file:
+        return targets_from_file(targets_file)
     targets = json.loads((WORK / "targets.json").read_text(encoding="utf-8"))
     if scope == "unplaced":
         return [t for t in targets if t["prec"] in ("none", "outside")]
@@ -164,9 +185,30 @@ def read_cached(meta_path: Path) -> tuple[dict, bytes] | None:
     return meta, raw
 
 
-def cached_pages_by_host(hosts: set[str]) -> dict[str, list[tuple[str, bytes]]]:
+BRANCH_WORDS = re.compile(r"\b(arusha|moshi|usa[ -]?river|kia\b|kilimanjaro (?:international )?airport|njiro|sakina|kijenge|themi|"
+                          r"sekei|ngarenaro|kaloleni|sokoine road|india street|boma road|old moshi road|nairobi road|tengeru)", re.I)
+
+
+def page_text(body: str) -> str:
+    body = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", body)
+    return re.sub(r"\s+", " ", re.sub(r"(?s)<[^>]+>", " ", body)).strip()
+
+
+def branch_mentions(body: str, limit: int = 8) -> list[str]:
+    """Text around a mention of Arusha, Moshi, Usa River or the airport area: the evidence for (or against) a local branch."""
+    text, out = page_text(body), []
+    for m in BRANCH_WORDS.finditer(text):
+        snippet = text[max(0, m.start() - 90):m.end() + 90]
+        if not any(snippet[20:-20] in s for s in out):
+            out.append(snippet)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def cached_pages_by_host(hosts: set[str], cache_dir: Path | None = None) -> dict[str, list[tuple[str, bytes]]]:
     pages = defaultdict(list)
-    for meta_path in CRAWL_CACHE.glob("*.json"):
+    for meta_path in (cache_dir or CRAWL_CACHE).glob("*.json"):
         try:
             meta = json.loads(meta_path.read_text(encoding="utf-8"))
         except (OSError, ValueError):
@@ -183,20 +225,21 @@ def cached_pages_by_host(hosts: set[str]) -> dict[str, list[tuple[str, bytes]]]:
 
 
 def cmd_sites(args) -> int:
-    targets = [t for t in load_targets(args.scope) if host_of(t.get("website"))]
+    targets = [t for t in load_targets(args.scope, getattr(args, "targets_file", None)) if host_of(t.get("website"))]
     hosts = {host_of(t["website"]) for t in targets}
     if args.no_crawl_cache:  # the crawl cache was scanned before (it is slow to read): only the pages fetched here are read
         print(f"{len(targets)} targets with a website on {len(hosts)} hosts; crawl cache skipped", flush=True)
         pages = defaultdict(list)
     else:
         print(f"{len(targets)} targets with a website on {len(hosts)} hosts; reading the crawl cache ...", flush=True)
-        pages = cached_pages_by_host(hosts)
+        pages = cached_pages_by_host(hosts, getattr(args, "crawl_cache", None))
     fetched_note = {}
     if args.fetch:
         import contact_lib as C
         C.CACHE = WORK / "http-cache"   # new pages are cached here; the crawl cache is only read
         for host in sorted(hosts):
-            if host in args.skip or any(scan_page(b.decode("utf-8", "replace")) for _u, b in pages.get(host, [])):
+            if host in args.skip or (not getattr(args, "always_fetch", False)
+                                     and any(scan_page(b.decode("utf-8", "replace")) for _u, b in pages.get(host, []))):
                 continue
             site = next(t["website"] for t in targets if host_of(t["website"]) == host).split()[0]
             home = site if "://" in site else "https://" + site
@@ -227,13 +270,19 @@ def cmd_sites(args) -> int:
     out = []
     for t in targets:
         host = host_of(t["website"])
-        found = []
+        found, mentions = [], []
         for url, body in pages.get(host, []):
             for h in scan_page(body.decode("utf-8", "replace")):
                 found.append({"url": url, **h})
-        out.append({"db": t["db"], "seg": t["seg"], "id": t["id"], "name": t["name"], "prec": t["prec"], "website": t["website"],
-                    "pages_read": len(pages.get(host, [])), "fetch_note": fetched_note.get(host, ""), "hits": found})
-    (WORK / "site_hits.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+            if getattr(args, "mentions", False):
+                mentions += [{"url": url, "text": m} for m in branch_mentions(body.decode("utf-8", "replace"))]
+        row = {"db": t["db"], "seg": t["seg"], "id": t["id"], "name": t["name"], "prec": t["prec"], "website": t["website"],
+               "pages_read": len(pages.get(host, [])), "fetch_note": fetched_note.get(host, ""), "hits": found}
+        if getattr(args, "mentions", False):
+            row["pages"] = [u for u, _b in pages.get(host, [])]
+            row["branch_mentions"] = mentions
+        out.append(row)
+    (WORK / (getattr(args, "out", None) or "site_hits.json")).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     with_pts = [o for o in out if any(h.get("in_box") for h in o["hits"])]
     print(f"targets with a coordinate in the map box on their own site: {len(with_pts)}; with any hit: {sum(1 for o in out if o['hits'])}")
     return 0
@@ -315,7 +364,7 @@ def cmd_osm(args) -> int:
                 if len(tok) >= 3:
                     index[tok].append((el, n))
     out = []
-    for t in load_targets(args.scope):
+    for t in load_targets(args.scope, getattr(args, "targets_file", None)):
         toks = [x for x in norm(re.sub(r"\(.*?\)", "", t["name"])) if x not in GENERIC and len(x) >= 3]
         if not toks:
             continue
@@ -336,8 +385,103 @@ def cmd_osm(args) -> int:
         if cands:
             best = sorted(cands.values(), key=lambda c: (-c["exact"], -c["score"]))[:6]
             out.append({"db": t["db"], "seg": t["seg"], "id": t["id"], "name": t["name"], "prec": t["prec"], "tier": t.get("tier"), "candidates": best})
-    (WORK / "osm_hits.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    (WORK / (getattr(args, "out", None) or "osm_hits.json")).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"targets with OpenStreetMap name candidates: {len(out)}")
+    return 0
+
+
+def cmd_pages(args) -> int:
+    """Scan named pages (a lead's contact page found by hand, a directory profile) for map pins, plus codes, embed place text
+    and Arusha-area mentions, through the same polite fetcher (robots.txt honoured, 1.5 s per site, blocks reported)."""
+    import contact_lib as C
+    C.CACHE = WORK / "http-cache"
+    out = []
+    for url in args.url:
+        url = url if "://" in url else "https://" + url
+        robots, _state = C.robots_state(C.site_base(url))
+        if not C.allowed(robots, url):
+            out.append({"url": url, "note": "robots.txt disallows this page: not read"})
+            continue
+        res = C.fetch(url, retries=1)
+        if res.get("status") != 200 or not res.get("body"):
+            out.append({"url": url, "note": f"not readable ({res.get('status')} {res.get('error', '')})"})
+            continue
+        body = res["body"].decode("utf-8", "replace")
+        out.append({"url": res.get("final_url") or url, "fetched": time.strftime("%Y-%m-%d"), "hits": scan_page(body),
+                    "branch_mentions": branch_mentions(body, 12)})
+    print(json.dumps(out, ensure_ascii=False, indent=1))
+    return 0
+
+
+# ------------------------------------------------------------------ OpenStreetMap by name, nationwide
+LEGAL = {"the", "a", "and", "ltd", "limited", "co", "company", "plc", "inc", "e", "v", "t"}
+
+
+def name_core(name: str) -> str:
+    """The lead's name for a nationwide name regex: legal words dropped, the first two words kept (a single generic word
+    such as 'Discover' would match thousands of features)."""
+    toks = [x for x in norm(re.sub(r"\(.*?\)", "", name.split("/")[0])) if x not in LEGAL]
+    return " ".join(toks[:2])
+
+
+def cmd_osm_names(args) -> int:
+    """Named OpenStreetMap features anywhere in Tanzania whose name contains a target's distinctive words, for leads whose
+    office may lie outside the map box. Targets are batched into a few name-regex queries (one at a time, >= 6 s apart,
+    [timeout:180], mirror fallback), cached in runtime/geocode/overpass-names/."""
+    import gov_lib as G
+    targets = load_targets(args.scope, getattr(args, "targets_file", None))
+    cores = {}
+    for t in targets:
+        core = name_core(t["name"])
+        if len(core) >= 4:
+            cores.setdefault(core, []).append(t)
+    cache = WORK / "overpass-names"
+    cache.mkdir(parents=True, exist_ok=True)
+    keys, elements, last = sorted(cores), [], 0.0
+    for i in range(0, len(keys), args.batch):
+        batch = keys[i:i + args.batch]
+        rx = "|".join(k.replace(" ", ".{0,8}") for k in batch)
+        query = (f'[out:json][timeout:180];area["ISO3166-1"="TZ"][admin_level=2]->.tz;'
+                 f'nwr["name"~"{rx}",i](area.tz);out center tags;')
+        path = cache / (hashlib.sha256(query.encode()).hexdigest()[:16] + ".json")
+        if path.exists() and not args.refresh:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        else:
+            wait = last + 6.0 - time.monotonic()
+            if wait > 0:
+                time.sleep(wait)
+            print(f"Overpass names {i // args.batch + 1}: {len(batch)} names ...", flush=True)
+            try:
+                body, endpoint = G.overpass(query)
+            except SystemExit as exc:
+                print(f"  batch skipped: {exc}", flush=True)
+                last = time.monotonic()
+                continue
+            last = time.monotonic()
+            data = json.loads(body)
+            if data.get("remark") and "error" in data["remark"].lower():
+                print(f"  {data['remark'][:200]}")
+                continue
+            data["_endpoint"], data["_fetched"], data["_query"] = endpoint, time.strftime("%Y-%m-%d"), query
+            path.write_text(json.dumps(data), encoding="utf-8")
+            print(f"  {len(data.get('elements', []))} elements from {endpoint}", flush=True)
+        for el in data.get("elements", []):
+            lat = el.get("lat", (el.get("center") or {}).get("lat"))
+            lon = el.get("lon", (el.get("center") or {}).get("lon"))
+            if lat is not None:
+                elements.append({"osm": f"{el['type']}/{el['id']}", "lat": lat, "lon": lon, "tags": el.get("tags", {}),
+                                 "fetched": data.get("_fetched", ""), "endpoint": data.get("_endpoint", "")})
+    out = []
+    for core, ts in cores.items():
+        cands = [{"osm": e["osm"], "name": e["tags"].get("name"), "lat": e["lat"], "lon": e["lon"], "in_box": in_box(e["lat"], e["lon"]),
+                  "tags": {x: e["tags"][x] for x in e["tags"] if not x.startswith(("contact:", "phone", "email"))}, "fetched": e["fetched"],
+                  "endpoint": e["endpoint"]}
+                 for e in elements if re.search(core.replace(" ", ".{0,8}"), " ".join(norm(e["tags"].get("name", ""))))]
+        cands.sort(key=lambda c: (not c["in_box"], c["name"] or ""))
+        for t in ts:
+            out.append({"db": t["db"], "id": t["id"], "name": t["name"], "core": core, "candidates": cands[:12]})
+    (WORK / (getattr(args, "out", None) or "osm_name_hits.json")).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"targets with nationwide OpenStreetMap name candidates: {sum(1 for o in out if o['candidates'])} of {len(out)}")
     return 0
 
 
@@ -347,11 +491,18 @@ STREETISH = re.compile(r"\b(road|rd|street|st|avenue|ave|drive|plot|house|tower|
 
 def cmd_nominatim(args) -> int:
     cache = WORK / "nominatim"
-    targets = [t for t in load_targets(args.scope) if STREETISH.search(str(t.get("address") or "")) and t["seg"] != "gov"]
+    if getattr(args, "queries", None):   # reviewer-written queries: [{"id", "name", "query"}], e.g. an address read on the lead's own site
+        targets = [{"db": "master", "seg": "emp", "prec": "none", **q} for q in json.loads(Path(args.queries).read_text(encoding="utf-8"))]
+    else:
+        targets = [t for t in load_targets(args.scope, getattr(args, "targets_file", None))
+                   if STREETISH.search(str(t.get("address") or "")) and t["seg"] != "gov"]
     out = []
     for t in targets[: args.limit]:
-        parts = [p.strip() for p in re.split(r";|\bP\.?\s*O\.?\s*Box[^,;]*", str(t["address"]), flags=re.I) if p.strip()]
-        query = next((p for p in parts if STREETISH.search(p)), parts[0] if parts else "")
+        if t.get("query"):
+            query = t["query"]
+        else:
+            parts = [p.strip() for p in re.split(r";|\bP\.?\s*O\.?\s*Box[^,;]*", str(t["address"]), flags=re.I) if p.strip()]
+            query = next((p for p in parts if STREETISH.search(p)), parts[0] if parts else "")
         if not re.search(r"arusha|moshi|usa river|kilimanjaro|tanzania", query, re.I):
             query += ", Tanzania"
         url = "https://nominatim.openstreetmap.org/search?" + urllib.parse.urlencode({"q": query, "format": "jsonv2", "limit": 3, "countrycodes": "tz"})
@@ -365,7 +516,7 @@ def cmd_nominatim(args) -> int:
                  "osm": f"{r.get('osm_type')}/{r.get('osm_id')}", "in_box": in_box(float(r["lat"]), float(r["lon"]))}
                 for r in res if tanzania(float(r["lat"]), float(r["lon"]))]
         out.append({"db": t["db"], "seg": t["seg"], "id": t["id"], "name": t["name"], "prec": t["prec"], "query": query, "url": url, "hits": hits})
-    (WORK / "nominatim_hits.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    (WORK / (getattr(args, "out", None) or "nominatim_hits.json")).write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(out)} addresses looked up; {sum(1 for o in out if o.get('hits'))} with a result in Tanzania")
     return 0
 
@@ -374,21 +525,34 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("targets")
-    for name in ("sites", "osm", "nominatim"):
+    pg = sub.add_parser("pages", help="scan named pages for map pins and Arusha-area mentions (prints JSON)")
+    pg.add_argument("url", nargs="+")
+    for name in ("sites", "osm", "osm-names", "nominatim"):
         p = sub.add_parser(name)
         p.add_argument("--scope", choices=["unplaced", "estimated", "all"], default="estimated")
+        p.add_argument("--targets-file", type=Path, help="a JSON list of named master leads (organisation_id, name, address, website) "
+                       "to use instead of runtime/geocode/targets.json")
+        p.add_argument("--out", help="output file name under runtime/geocode/ (default: the command's usual file)")
+        if name == "osm-names":
+            p.add_argument("--batch", type=int, default=12, help="names per Overpass query")
+            p.add_argument("--refresh", action="store_true")
         if name == "sites":
             p.add_argument("--fetch", action="store_true", help="read home and contact pages the crawl cache lacks")
             p.add_argument("--max-extra", type=int, default=2)
             p.add_argument("--no-crawl-cache", action="store_true", help="read only pages fetched by this command")
             p.add_argument("--skip", nargs="*", default=[], help="hosts not to fetch (a server that stalls)")
+            p.add_argument("--crawl-cache", type=Path, help="read this contact-crawler cache instead (e.g. the main checkout's, from a worktree)")
+            p.add_argument("--always-fetch", action="store_true", help="read home and contact pages even when the cache already has a pin")
+            p.add_argument("--mentions", action="store_true", help="also record text around Arusha, Moshi, Usa River or airport mentions")
         if name == "osm":
             p.add_argument("--refresh", action="store_true")
         if name == "nominatim":
             p.add_argument("--limit", type=int, default=120)
+            p.add_argument("--queries", type=Path, help='a JSON list of {"id", "name", "query"} written by a reviewer')
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
-    return {"targets": cmd_targets, "sites": cmd_sites, "osm": cmd_osm, "nominatim": cmd_nominatim}[args.cmd](args)
+    return {"targets": cmd_targets, "sites": cmd_sites, "osm": cmd_osm, "osm-names": cmd_osm_names, "nominatim": cmd_nominatim,
+            "pages": cmd_pages}[args.cmd](args)
 
 
 if __name__ == "__main__":

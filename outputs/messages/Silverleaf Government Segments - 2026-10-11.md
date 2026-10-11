@@ -15,25 +15,25 @@ Every office in the government run, in one confidence segment, whatever the chan
 |---|---:|---:|
 | government-high | 4 | 4 |
 | government-medium | 0 | 0 |
-| government-low | 146 | 7 |
+| government-low | 226 | 7 |
 
 | Segment | Council | District | Region | Ward | Village |
 |---|---:|---:|---:|---:|---:|
 | high | 4 | 0 | 0 | 0 | 0 |
 | medium | 0 | 0 | 0 | 0 | 0 |
-| low | 5 | 7 | 3 | 129 | 2 |
+| low | 5 | 7 | 3 | 129 | 82 |
 
 Within the segments, `release_order` gives the order of delivery once each gate opens:
 
 | Release order | Offices | Segment |
 |---|---:|---|
 | 1 now: pilot council introduction | 4 | high |
-| 2 after the introduction: pilot ward, first wave | 57 | low |
-| 3 after the introduction: pilot ward, second wave | 26 | low |
+| 2 after the introduction: pilot ward, first wave | 86 | low |
+| 3 after the introduction: pilot ward, second wave | 67 | low |
 | 4 courtesy notice after the pilot introductions | 10 | low |
 | 5 if the pilot widens: non-pilot council | 5 | low |
 | 6 later: non-pilot ward | 11 | low |
-| 7 later wave or locate first | 37 | low |
+| 7 later wave or locate first | 47 | low |
 
 ## High and medium: deliver first
 
@@ -69,15 +69,15 @@ Wards and villages (all low until their council introduces us), by council and w
 | Council | First wave (up to 10 km) | Second wave (10 to 20 km) | Later wave (over 20 km) | Locate first |
 |---|---:|---:|---:|---:|
 | Arusha City Council | 24 | 1 | 0 | 1 |
-| Arusha District Council | 16 | 6 | 3 | 1 |
-| Hai District Council | 2 | 12 | 0 | 2 |
-| Meru District Council | 15 | 7 | 3 | 1 |
+| Arusha District Council | 20 | 10 | 4 | 1 |
+| Hai District Council | 9 | 39 | 3 | 2 |
+| Meru District Council | 33 | 17 | 9 | 1 |
 | Monduli District Council | 0 | 1 | 4 | 0 |
 | Moshi District Council | 0 | 1 | 3 | 0 |
 | Moshi Municipal Council | 0 | 3 | 15 | 0 |
 | Siha District Council | 2 | 4 | 3 | 0 |
 | Simanjiro District Council | 0 | 0 | 1 | 0 |
 
-Ward and village executive officers named by an official source: 3 of 131. Ask each pilot council for the WEO list at the GA01 meeting.
+Ward and village executive officers named by an official source: 3 of 211. Ask each pilot council for the WEO list at the GA01 meeting.
 
 Rules in full: the docstring of scripts/messaging/export_resend_contacts.py. Each row's confidence_reason says what would promote it.

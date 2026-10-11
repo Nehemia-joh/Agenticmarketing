@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-11T11:49:58.549369+00:00",
+ "checked_at": "2026-10-11T11:52:38.098097+00:00",
  "run_id": "arusha-government-2026-09",
  "result": "passed",
  "checks": {
@@ -78,7 +78,7 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-11T14:49:50",
+   "recorded_at": "2026-10-11T14:52:29",
    "master_db_sha256": "c763864c574b658bc30531a433f3b2b173a2c4a8936d57e4a19a64ec4dbf92ef",
    "master_workbook_sha256": "aa3901d7a2c20cbbd945b26d43bc9ab68041988b555da88163a6219a1fe0f086"
   },

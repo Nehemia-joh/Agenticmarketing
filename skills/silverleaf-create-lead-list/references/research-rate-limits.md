@@ -15,6 +15,10 @@ The scripts enforce the network limits in code: `scripts/welfare/welfare_lib.py`
   4. Agents number every query in their coverage log (`Q7/25`) and stop at their allocation.
   5. Once searches are spent, agents continue only with WebFetch on URLs they already have. Never route searches through WebFetch, a browser or a search-results page to get around the cap.
 - **Raising the cap is the user's decision.** They set the environment variable and start a new session; do not assume it has been raised. When the cap is reached, finish what can be done by fetching known pages, record the unsearched areas, and report them.
+- **Never spend a search twice.** The research ledger (`data/raw/research-ledger/research_ledger.jsonl`, `scripts/research/ledger.py`; added 11 October 2026) records every search, page read, crawl, browser read and map lookup made so far.
+  - Read `docs/methodology/research-playbook.md` before planning a wave: it shows which patterns have paid and which have stopped paying (a repeated name search hit 11% of the time against 24% for a first one).
+  - The planners skip organisations whose allowed patterns are all used inside the 90-day retry window and put each organisation's already-tried list into the prompt; agents check `ledger.py tried --org <id>` before searching.
+  - After the slices finish, before the merge, the coordinator runs `ledger.py ingest <coverage log> <research file>`; its own Google Maps lookups, browser passes and crawls go in the same way (`docs/methodology/contact-research.md`, "Research ledger").
 
 ## Web fetch
 

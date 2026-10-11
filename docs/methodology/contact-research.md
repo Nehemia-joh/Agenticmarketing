@@ -37,8 +37,10 @@ Government offices are addressed by office title. Officials are named only from 
      - `--second-pass` also plans organisations an earlier wave searched, but only for what no wave searched them for yet. `data/raw/contact-research/search-targets.json` records what each search file looked for (a published route or a named decision-maker); the planner adds each new wave's files
      - `--db master|welfare` plans one database, `--max-slices` sets the number of agents (at most four), `--rank tier` puts the company master's desk tier first (A, B, C, D, then nearest), and `--exclude-wave <n>` leaves out organisations a wave still running already holds, so the next wave can start as agents finish
      - writes each slice and its agent prompt under `runtime/contacts/`
+     - reads the research ledger (next section): it skips an organisation for which every query-pattern family the target allows was already used inside the retry window (`--min-retry-days`, default 90), ranks one with half or more used after the rest, and writes each organisation's compact already-tried list and still-open families into the slice and the prompt; `--ignore-ledger` plans without it, and `--dry-run` writes to `runtime/contacts/dry-run/` and leaves `search-targets.json` unchanged
    - Give each agent a fixed share of the session's WebSearch cap. Launch at most four agents per wave.
    - Each agent writes `data/raw/contact-research/search_<slice>_<date>.jsonl` and a coverage log in `data/raw/contact-research/coverage/`.
+   - **After the slices finish, before the merge,** fold each slice into the research ledger: `python scripts/research/ledger.py ingest <coverage log> <search file> [runtime/research-ledger/pending/<slice>.jsonl]`.
    - The agent brief is below.
    - **Browser pass:** `plan_browser_pass.py --date <date>` (after a profile build) plans the own websites the crawler could not use:
      - sites whose robots.txt disallows crawling (read at the user's direction and tagged risky, see the rules below)
@@ -53,6 +55,20 @@ Government offices are addressed by office title. Officials are named only from 
      3. Refresh and verify: `draft_master_messages.py`, then `refresh_acquisition_metadata.py`, `export_master_workbook_data.py` and `verify_master.py`.
    - **Welfare and government runs:** `export_run_contact_research.py`, then each run's `run_pipeline.py --rebuild-db`.
 5. **Review:** `build_contact_workbook.py --date <date>` writes `outputs/contacts/Silverleaf Contact Profiles - <date>.xlsx`.
+
+## Research ledger (added 11 October 2026)
+
+`data/raw/research-ledger/research_ledger.jsonl` records every search, page read, crawl, browser read and map lookup made so far, one line per attempt, so no worker repeats one. `docs/methodology/research-playbook.md` says what has paid and what has stopped paying; read it before planning a wave.
+
+- **A line holds:** `id`, `date`, `run`, `agent`, `tool` (websearch, webfetch, crawler, browser, gmaps, overpass, nominatim, ngo-register, council-api, places, other), `db`, `organisation_ids`, `organisation_names`, `segment`, `query` (the exact text, or the URL read), `query_pattern` (a template such as `"<org>" "@<domain>"` or `site:<domain> "<person>"`, derived by `ledger.py`), `target` (route, decision-maker, direct-email, location, hook, discovery, verification, relationship), `outcome` (hit, partial, nothing, blocked, refused-cap, skipped, unknown), `found` (a short factual summary), `source_file`, `ref` (`Q7/40`, a line number) and `count`.
+- **No contact details beyond the research files.** `found` never holds an email address or a phone number; `ledger.py` removes them and `ledger.py check` fails on one.
+- **Before searching:** `python scripts/research/ledger.py tried --org <organisation_id>` lists what was tried for an organisation; `tried --pattern <family or text>` lists the organisations a pattern was used for. The planners put the same list into each prompt.
+- **The retry window.** A query pattern is not repeated for the same organisation within 90 days (`--min-retry-days`). A refused or skipped attempt does not use up a pattern.
+- **Recording:**
+  - Agents log each search in their coverage log as a numbered table, `| Q | Query | Organisation | Outcome |`, naming the organisation as the slice does, and each page read in their JSONL `sources`. They may also append to their own pending file with `ledger.py append --file runtime/research-ledger/pending/<slice>.jsonl`. They never write the ledger file itself.
+  - The coordinator folds a finished slice in with `ledger.py ingest <coverage log> <research file> [<pending file>]`, after the slices finish and before the merge. A line already in the ledger is skipped, so a re-run adds nothing.
+  - The coordinator's own work goes in the same way: a Google Maps round with `ledger.py ingest data/raw/gap-census/google_maps_enrich_<date><round>.jsonl` (or one lookup with `ledger.py append --tool gmaps --org <id> --query "<what was typed>" --outcome <outcome> --found "<listing; pin; phone listed>"`), a browser pass with `ledger.py ingest data/raw/contact-research/browser_<slice>_<date>.jsonl`, and a crawl with `ledger.py ingest data/raw/contact-research/website_contacts_<date>.jsonl`.
+- **Checks:** `ledger.py check` validates every line and reports duplicates; `ledger.py stats` gives yield by tool, family, pattern, target, segment and date; `ledger.py backfill` re-reads every research file in the repository and adds only what is missing.
 
 ## Depth over breadth (decided 2 October 2026)
 
@@ -152,6 +168,7 @@ Give every research agent the following, with its slice file, its search allowan
 
 - **Goal:** for each organisation, fill the organisation profile, and find contact leads who lead or decide for it: founder, director, manager, head, coordinator, HR, administrator, owner, principal. Record every such person, most senior first. Record a person the source names only in part ("Mogens", founder) exactly as given; the builder labels the name incomplete rather than dropping it.
 - **Sources for people:** the organisation's own site or report, an official register, a parent body's official page, the organisation's own text on a membership or operator directory (such as TATO's), or a funder's or partner's own page that names the organisation's current leaders. For a funder or partner page, fetch it, quote the sentence that names the person and their role at the organisation, and say in `notes` that the source is a funder or partner. News stories, personal profiles and people-search sites are not sources for people.
+- **Already tried:** before searching for an organisation, read its already-tried list (in the prompt or the slice, or `python scripts/research/ledger.py tried --org <organisation_id>`). Do not repeat a query pattern for the same organisation inside the retry window (90 days); use a pattern still open, or fetch the pages an earlier attempt found.
 - **Search budget:**
   - Use at most the allowance, and number every search in the log (Q1/40, Q2/40 …).
   - One search per organisation is normal, for example `"<exact name>" Arusha`. Then fetch the organisation's own contact, about or team pages instead of searching again.
@@ -172,4 +189,4 @@ Give every research agent the following, with its slice file, its search allowan
   - `risky`: a named person on a personal email domain, or anything touching private life
 - **Output:**
   - One JSON line per organisation, including those with nothing found. Fields: `db`, `organisation_id`, `organisation_name`, `status` (found, partial, not_found or blocked), `identity`, `searches_used`, `website`, `emails[]`, `phones[]`, `postal_address`, `physical_address`, `socials[]`, `people[]`, `sources[]`, `notes`.
-  - A coverage log listing every search and its outcome, the blocked sites, and the organisations not reached.
+  - A coverage log listing every search and its outcome, the blocked sites, and the organisations not reached. Searches go in a numbered table, `| Q | Query | Organisation | Outcome |`, one row per search with the exact query, so the coordinator can ingest the log into the research ledger. An agent may also append each attempt to its own pending file (`ledger.py append --file runtime/research-ledger/pending/<slice>.jsonl`), never to the ledger itself.

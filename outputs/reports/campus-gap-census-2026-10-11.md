@@ -19,7 +19,7 @@
 | Offices (company, NGO, government, international, ...) | 191 | 163 | 102 | 17 | 30 | 42 |
 | Industrial and factory sites | 670 | 659 | 2 | 7 | 2 | 659 |
 | Farms, estates and nurseries | 192 | 9 | 0 | 5 | 0 | 187 |
-| Hospitals and clinics | 109 | 106 | 26 | 70 | 4 | 9 |
+| Hospitals and clinics | 109 | 106 | 26 | 69 | 5 | 9 |
 | Colleges, universities and research | 29 | 28 | 14 | 2 | 0 | 13 |
 | Hotels, lodges and camps | 237 | 210 | 106 | 30 | 38 | 63 |
 | Supermarkets and malls | 31 | 27 | 0 | 12 | 1 | 18 |
@@ -36,7 +36,7 @@
 | Offices (company, NGO, government, international, ...) | 189 | 162 | 103 | 17 | 28 | 41 |
 | Industrial and factory sites | 663 | 652 | 2 | 7 | 2 | 652 |
 | Farms, estates and nurseries | 192 | 9 | 0 | 5 | 0 | 187 |
-| Hospitals and clinics | 112 | 109 | 26 | 73 | 4 | 9 |
+| Hospitals and clinics | 112 | 109 | 26 | 72 | 5 | 9 |
 | Colleges, universities and research | 29 | 28 | 14 | 2 | 0 | 13 |
 | Hotels, lodges and camps | 241 | 214 | 107 | 33 | 38 | 63 |
 | Supermarkets and malls | 31 | 27 | 0 | 12 | 1 | 18 |
@@ -53,7 +53,7 @@
 | Offices (company, NGO, government, international, ...) | 193 | 165 | 105 | 18 | 28 | 42 |
 | Industrial and factory sites | 671 | 660 | 2 | 6 | 2 | 661 |
 | Farms, estates and nurseries | 197 | 9 | 0 | 5 | 0 | 192 |
-| Hospitals and clinics | 114 | 111 | 26 | 76 | 4 | 8 |
+| Hospitals and clinics | 114 | 111 | 26 | 75 | 5 | 8 |
 | Colleges, universities and research | 29 | 28 | 14 | 2 | 0 | 13 |
 | Hotels, lodges and camps | 240 | 213 | 107 | 33 | 37 | 63 |
 | Supermarkets and malls | 31 | 27 | 0 | 12 | 1 | 18 |
@@ -70,7 +70,7 @@
 | Offices (company, NGO, government, international, ...) | 181 | 157 | 96 | 23 | 24 | 38 |
 | Industrial and factory sites | 643 | 634 | 2 | 4 | 2 | 635 |
 | Farms, estates and nurseries | 112 | 8 | 0 | 5 | 0 | 107 |
-| Hospitals and clinics | 111 | 109 | 25 | 76 | 4 | 6 |
+| Hospitals and clinics | 111 | 109 | 25 | 75 | 5 | 6 |
 | Colleges, universities and research | 30 | 29 | 14 | 2 | 0 | 14 |
 | Hotels, lodges and camps | 237 | 210 | 104 | 35 | 35 | 63 |
 | Supermarkets and malls | 31 | 28 | 0 | 13 | 1 | 17 |
@@ -104,7 +104,7 @@
 | Offices (company, NGO, government, international, ...) | 288 | 241 | 143 | 39 | 44 | 62 |
 | Industrial and factory sites | 1151 | 1130 | 2 | 17 | 2 | 1130 |
 | Farms, estates and nurseries | 414 | 27 | 0 | 9 | 0 | 405 |
-| Hospitals and clinics | 216 | 209 | 27 | 168 | 5 | 16 |
+| Hospitals and clinics | 216 | 209 | 27 | 167 | 6 | 16 |
 | Colleges, universities and research | 38 | 36 | 15 | 7 | 0 | 16 |
 | Hotels, lodges and camps | 359 | 314 | 119 | 85 | 71 | 84 |
 | Supermarkets and malls | 54 | 46 | 0 | 20 | 1 | 33 |
@@ -124,25 +124,25 @@ New candidates (review candidates in brackets).
 | employer | Banks and other companies | 2 | 2 | 5 (1) | 0 | 6 (5) | 3 | 18 (6) |
 | employer | Colleges and universities | 0 | 0 | 2 | 0 | 5 | 0 | 7 |
 | employer | Farms and estates | 3 | 0 | 3 | 3 | 4 | 1 | 14 |
-| employer | Hospitals and clinics | 18 | 12 (1) | 32 | 29 (5) | 71 (3) | 0 | 162 (9) |
+| employer | Hospitals and clinics | 18 | 11 (2) | 32 | 29 (5) | 71 (3) | 0 | 161 (10) |
 | employer | Hotels, lodges and camps | 5 (11) | 8 (7) | 15 (18) | 6 (4) | 44 (35) | 1 | 79 (75) |
 | employer | International organisations | 2 | 0 | 3 | 1 | 0 | 4 | 10 |
 | employer | Manufacturing | 2 (1) | 0 | 4 (1) | 0 | 10 | 3 | 19 (2) |
 | employer | NGOs and research bodies | 7 | 8 | 22 | 10 | 6 | 2 | 55 |
 | employer | Public bodies | 0 | 1 | 1 (1) | 0 | 1 | 1 | 4 (1) |
 | employer | Retail | 6 | 0 | 4 (2) | 1 | 6 (2) | 0 | 17 (4) |
-| employer | Safari operators and travel agencies | 11 | 0 (1) | 0 | 1 | 3 | 0 | 15 (1) |
+| employer | Safari operators and travel agencies | 12 | 0 (1) | 0 | 1 | 3 | 0 | 16 (1) |
 | welfare | Residential care (children's homes) | 0 | 0 | 0 | 0 | 1 | 0 | 1 |
 
 ## Largest gaps
 
-- **Hospitals and clinics**: 168 new named features, 27 captured. Nearest new: Buturi Health Laboratory (0.3 km, Kijenge), Bible Baptist Clinic (0.6 km, Kijenge), ELERAI DISP. Dispensary (1.0 km, Arusha City (Sakina)), Total Care Health Center (1.1 km, Kijenge), Total Care Medical Center (1.1 km, Kijenge).
+- **Hospitals and clinics**: 167 new named features, 27 captured. Nearest new: Buturi Health Laboratory (0.3 km, Kijenge), Bible Baptist Clinic (0.6 km, Kijenge), ELERAI DISP. Dispensary (1.0 km, Arusha City (Sakina)), Total Care Health Center (1.1 km, Kijenge), Total Care Medical Center (1.1 km, Kijenge).
 - **Hotels, lodges and camps**: 85 new named features, 119 captured. Nearest new: Sinzia Villas (0.1 km, Arusha City (Sakina)), Summit Safari Lodge (0.3 km, Arusha City (Sakina)), Kili-Meru Annex Resort (1.0 km, Boma Ng'ombe), Kiriwe Lodge (1.1 km, Boma Ng'ombe), Masai Camp (1.1 km, Kijenge).
 - **Offices (company, NGO, government, international, ...)**: 39 new named features, 143 captured. Nearest new: Asante Rabi (1.8 km, Ilboru), Kimotco Ltd (1.8 km, Ilboru), Modern Refrigeration (2.3 km, Kijenge), Tanfoam (3.0 km, Arusha City (Sakina)), East Africa Seed (3.0 km, Arusha City (Sakina)).
 - **Supermarkets and malls**: 20 new named features, 0 captured. Nearest new: Green Supermarket (0.2 km, Kijenge), Mariam Supermarket (0.2 km, Arusha City (Sakina)), Sakina Supermarket (1.1 km, Arusha City (Sakina)), Mr Price (1.3 km, Boma Ng'ombe), HEAVENLIGHT SUPERMARKET (1.4 km, Arusha City (Sakina)).
 - **Industrial and factory sites**: 17 new named features, 2 captured. Nearest new: Seven-up Bottling Company Tanzania Ltd (1.3 km, Kijenge), Sunkist Bakery Limited Milling Machine (2.2 km, Kijenge), A-TO-Z FACTORY (3.1 km, Kijenge), Arsho Industry (7.9 km, Boma Ng'ombe), Halisi Product Limited Milling Machine (9.4 km, Arusha City (Sakina)).
 - **Farms, estates and nurseries**: 9 new named features, 0 captured. Nearest new: Kili Flora Flower Farms (0.5 km, Usa River), Tanzania Poultry Farm (3.3 km, Usa River), Kiliflora Farm Nduruma (6.3 km, Kijenge), Shamba la Maua (9.1 km, Boma Ng'ombe), Lambo Estate (10.8 km, Boma Ng'ombe).
-- **Targeted known gaps** (official pages, the ATE employer directory, the coordinator's Google Maps pins): 51 new, 0 to review.
+- **Targeted known gaps** (official pages, the ATE employer directory, the coordinator's Google Maps pins): 52 new, 0 to review.
 - **International NGOs on the NGO register** inside the catchment and active since 2024, held by no list: 50.
 
 ## Excluded, by reason
@@ -249,7 +249,7 @@ Official totals for comparison (council websites, captured 2026-10-10): Arusha C
 - `data/raw/gap-census/osm_worship_2026-10-11.json`: 143 features, OpenStreetMap data as of 2026-10-11T11:27:05Z
 - `data/raw/gap-census/osm_social_2026-10-11.json`: 12 features, OpenStreetMap data as of 2026-10-11T11:25:59Z
 - `data/raw/gap-census/osm_places_2026-10-11.json`: 384 features, OpenStreetMap data as of 2026-10-11T11:34:06Z
-- `data/raw/gap-census/candidates_2026-10-11.jsonl`: 504 candidates (406 new, 98 review)
+- `data/raw/gap-census/candidates_2026-10-11.jsonl`: 505 candidates (406 new, 99 review)
 - `data/raw/gap-census/master_intake_2026-10-11.csv`: 405 new employers in the shared intake contract
 - `data/raw/gap-census/research_GC_welfare_2026-10-11.jsonl`, `government_subward_units_2026-10-11.json`, `faith_candidates_2026-10-11.json`
 - `data/raw/gap-census/coverage_2026-10-11.md`: queries, searches and blocks

@@ -1,0 +1,36 @@
+{
+ "stats": {
+  "stored distance kept": 639,
+  "coordinates": 603,
+  "no location": 88,
+  "gazetteer point reproduced": 45,
+  "records to update": 2,
+  "nearest campus changed": 2
+ },
+ "nearest_campus_changed": [
+  "Majengo Dispensary: Boma Ng'ombe -> Usa River (22.3 km)",
+  "Futuresense Foundation: Kijenge -> Ilboru (2.7 km)"
+ ],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

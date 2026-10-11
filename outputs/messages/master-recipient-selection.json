@@ -10,13 +10,13 @@
    "shared inbox": 4
   },
   "duplicate_organisations_held": 105,
-  "candidates_after": 849,
+  "candidates_after": 1253,
   "escalation_contacts": 8,
-  "override_routes": 1,
+  "override_routes": 0,
   "candidates_before": 938,
-  "plans_changed": 461,
+  "plans_changed": 462,
   "plans_now_candidate": 163,
-  "plans_now_alternative": 298,
+  "plans_now_alternative": 299,
   "named_contacts_now_candidate": 148
  },
  "clusters": [
@@ -3163,6 +3163,12 @@
    "message_id": "M7f4bb541dde1",
    "organisation": "Pure Afro Travels",
    "recipient": "Pure Afro Travels",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M49f521e6c2bb",
+   "organisation": "PwC Tanzania",
+   "recipient": "PwC Tanzania",
    "role": "Organisation routing"
   },
   {

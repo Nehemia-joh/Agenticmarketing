@@ -224,6 +224,13 @@ def load_leads() -> tuple[list[dict], dict[str, dict]]:
             leads.append({"db": "welfare", "id": r["matched_organisation_id"], "name": r["name"], "segment": "NGO register entry", "lat": None,
                           "lon": None, "osm_id": "", "domain": ""})
     con.close()
+    # the welfare run's alternative names ('Kafika House' was 'The Plaster House'), from its last build
+    final = ROOT / "runtime" / "welfare" / WELFARE_RUN / "final.json"
+    if final.exists():
+        for o in json.loads(final.read_text(encoding="utf-8")).get("organisations", []):
+            for alt in o.get("alternative_names") or []:
+                leads.append({"db": "welfare", "id": o["organisation_name"], "name": alt, "segment": o.get("segment") or "", "lat": num(o.get("latitude")),
+                              "lon": num(o.get("longitude")), "osm_id": "", "domain": ""})
     links = json.loads((ROOT / "data" / "runs" / WELFARE_RUN / "links.json").read_text(encoding="utf-8"))
     for name, v in (links.get("osm") or {}).items():
         if isinstance(v, dict) and v.get("osm_id"):

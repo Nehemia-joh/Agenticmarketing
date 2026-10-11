@@ -130,6 +130,146 @@
    "lon": 35.85,
    "precision": "town",
    "basis": "The Bandari Project's own About page (read 10 October 2026): 'You can find us in Mto wa Mbu, Tanzania'; the NGO register pin near Kijenge is the registered office, not the school (gazetteer: mto wa mbu)."
+  },
+  "Asali partner community centre, Majengo (Moshi)": {
+   "lat": -3.356807,
+   "lon": 37.355613,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://www.simbasfootprints.org/contact.html (fetched 2026-09-23); as found: d?pb=!1m18!1m12!1m3!1d3982.9728008482953!2d37.355612574856266!3d-3.3568071413945!2m3!1f0!2",
+   "url": "https://www.simbasfootprints.org/contact.html",
+   "fetched": "2026-09-23",
+   "as_found": "d?pb=!1m18!1m12!1m3!1d3982.9728008482953!2d37.355612574856266!3d-3.3568071413945!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Kili Kids at Rainbow Ridge": {
+   "lat": -3.310307,
+   "lon": 37.277549,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (structured data (latitude/longitude)) on the page cited. Source: own site embed, https://www.communitiesassist.org/contact (fetched 2026-09-25); as found: :\"25212\",\"businessLocationCoordinates\":{\"latitude\":-3.3103071,\"longitude\":37.2775491},\"busines",
+   "url": "https://www.communitiesassist.org/contact",
+   "fetched": "2026-09-25",
+   "as_found": ":\"25212\",\"businessLocationCoordinates\":{\"latitude\":-3.3103071,\"longitude\":37.2775491},\"busines",
+   "source_type": "own site embed"
+  },
+  "ELCT Northern Diocese": {
+   "lat": -3.351028,
+   "lon": 37.339432,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://elctnortherndiocese.org/contact-us/ (fetched 2026-10-03); as found: d?pb=!1m18!1m12!1m3!1d3982.9963450082755!2d37.33943181475807!3d-3.351027897560625!2m3!1f0!2",
+   "url": "https://elctnortherndiocese.org/contact-us/",
+   "fetched": "2026-10-03",
+   "as_found": "d?pb=!1m18!1m12!1m3!1d3982.9963450082755!2d37.33943181475807!3d-3.351027897560625!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Tupendane Orphanage (Arusha)": {
+   "lat": -3.357532,
+   "lon": 36.671642,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://www.tupendaneafricafoundation.or.tz/contact (fetched 2026-10-03); as found: d?pb=!1m18!1m12!1m3!1d359.44560351869103!2d36.67164214972467!3d-3.3575320317927173!2m3!1f0!2",
+   "url": "https://www.tupendaneafricafoundation.or.tz/contact",
+   "fetched": "2026-10-03",
+   "as_found": "d?pb=!1m18!1m12!1m3!1d359.44560351869103!2d36.67164214972467!3d-3.3575320317927173!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Christ Hope Orphanage": {
+   "lat": -3.385359,
+   "lon": 36.691548,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (structured data (latitude/longitude)) on the page cited. Source: own site embed, https://christhopetanzania.com/ (fetched 2026-09-23); as found: ry\":\"\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-3.3853584828805863\",\"longitude\":\"36.691548335110475\"}}</scrip",
+   "url": "https://christhopetanzania.com/",
+   "fetched": "2026-09-23",
+   "as_found": "ry\":\"\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"-3.3853584828805863\",\"longitude\":\"36.691548335110475\"}}</scrip",
+   "source_type": "own site embed"
+  },
+  "Ummu Aisha Orphanage Centre": {
+   "lat": -3.380436,
+   "lon": 36.699495,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://www.ummuaishaorphanage.org/contact (fetched 2026-09-26); as found: ed?pb=!1m18!1m12!1m3!1d3189.275030578556!2d36.699495!3d-3.380436!2m3!1f0!2",
+   "url": "https://www.ummuaishaorphanage.org/contact",
+   "fetched": "2026-09-26",
+   "as_found": "ed?pb=!1m18!1m12!1m3!1d3189.275030578556!2d36.699495!3d-3.380436!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "RESCUE CHILDREN CHARITY ORGANIZATION": {
+   "lat": -3.464027,
+   "lon": 36.706597,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps link (!3d/!4d)) on the page cited. Source: own site embed, https://rescuechildrentz.org/contact-us/ (fetched 2026-09-23); as found: 40218,924m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-3.464027!4d36.7065967?entry=ttu",
+   "url": "https://rescuechildrentz.org/contact-us/",
+   "fetched": "2026-09-23",
+   "as_found": "40218,924m/data=!3m2!1e3!4b1!4m4!3m3!8m2!3d-3.464027!4d36.7065967?entry=ttu",
+   "source_type": "own site embed"
+  },
+  "Seeway Tanzania": {
+   "lat": -3.357136,
+   "lon": 36.822376,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://www.swtz.org/contact-us/ (fetched 2026-09-23); as found: ed?pb=!1m14!1m8!1m3!1d127455.08678163114!2d36.8223764!3d-3.3571355!3m2!1i102",
+   "url": "https://www.swtz.org/contact-us/",
+   "fetched": "2026-09-23",
+   "as_found": "ed?pb=!1m14!1m8!1m3!1d127455.08678163114!2d36.8223764!3d-3.3571355!3m2!1i102",
+   "source_type": "own site embed"
+  },
+  "HEALTH INTEGRATED MULTISECTORAL DEVELOPMENT (HIMD)": {
+   "lat": -3.304663,
+   "lon": 36.641531,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://himd.or.tz/contact-us/ (fetched 2026-09-23); as found: d?pb=!1m18!1m12!1m3!1d3983.1837645041865!2d36.64153095097473!3d-3.304663142079747!2m3!1f0!2",
+   "url": "https://himd.or.tz/contact-us/",
+   "fetched": "2026-09-23",
+   "as_found": "d?pb=!1m18!1m12!1m3!1d3983.1837645041865!2d36.64153095097473!3d-3.304663142079747!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Private Explorers": {
+   "lat": -3.432342,
+   "lon": 36.70161,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://privateexplorers.com/contact-private-explorers/ (fetched 2026-09-25); as found: ed?pb=!1m18!1m12!1m3!1d3982.661353244555!2d36.70161020973301!3d-3.432341741721659!2m3!1f0!2",
+   "url": "https://privateexplorers.com/contact-private-explorers/",
+   "fetched": "2026-09-25",
+   "as_found": "ed?pb=!1m18!1m12!1m3!1d3982.661353244555!2d36.70161020973301!3d-3.432341741721659!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Kilimanjaro Orphanage Centre": {
+   "lat": -3.392815,
+   "lon": 37.295673,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://www.kilimanjaroorphanagecentre.org/contact/ (fetched 2026-09-23); as found: d?pb=!1m28!1m12!1m3!1d63725.203099172104!2d37.29567338833187!3d-3.3928153248914765!2m3!1f0!2",
+   "url": "https://www.kilimanjaroorphanagecentre.org/contact/",
+   "fetched": "2026-09-23",
+   "as_found": "d?pb=!1m28!1m12!1m3!1d63725.203099172104!2d37.29567338833187!3d-3.3928153248914765!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Kilimanjaro Childlight Foundation": {
+   "lat": -3.338337,
+   "lon": 37.340807,
+   "precision": "point",
+   "basis": "The organisation's own website publishes this map point (Google Maps embed (!2d/!3d)) on the page cited. Source: own site embed, https://www.kilimanjarochildlight.org/contact-us/ (fetched 2026-09-23); as found: d?pb=!1m18!1m12!1m3!1d3983.0479065138343!2d37.34080751175499!3d-3.3383364966223863!2m3!1f0!2",
+   "url": "https://www.kilimanjarochildlight.org/contact-us/",
+   "fetched": "2026-09-23",
+   "as_found": "d?pb=!1m18!1m12!1m3!1d3983.0479065138343!2d37.34080751175499!3d-3.3383364966223863!2m3!1f0!2",
+   "source_type": "own site embed"
+  },
+  "Africa Amini Alama": {
+   "lat": -3.217553,
+   "lon": 36.859451,
+   "precision": "point",
+   "basis": "OpenStreetMap childcare site 'Momella Orphanage', operated by Africa Amini Alama, at Ngabobo; the organisation's hospital is mapped 0.5 km away (node/3320900795). Source: OpenStreetMap, https://www.openstreetmap.org/way/528955936 (fetched 2026-10-11); as found: way/528955936 at -3.2175526, 36.8594506; tags {\"amenity\": \"childcare\", \"building\": \"yes\", \"name\": \"Momella Orphanage\", \"operator\": \"Africa Amini Alama\"}",
+   "url": "https://www.openstreetmap.org/way/528955936",
+   "fetched": "2026-10-11",
+   "as_found": "way/528955936 at -3.2175526, 36.8594506; tags {\"amenity\": \"childcare\", \"building\": \"yes\", \"name\": \"Momella Orphanage\", \"operator\": \"Africa Amini Alama\"}",
+   "source_type": "OpenStreetMap"
+  },
+  "Sibusiso Foundation": {
+   "lat": -3.385564,
+   "lon": 36.772809,
+   "precision": "point",
+   "basis": "OpenStreetMap community centre 'Sibusiso Centre', the only feature of that name. Source: OpenStreetMap, https://www.openstreetmap.org/node/2702194071 (fetched 2026-10-11); as found: node/2702194071 at -3.3855636, 36.7728091; tags {\"amenity\": \"community_centre\", \"name\": \"Sibusiso Centre\"}",
+   "url": "https://www.openstreetmap.org/node/2702194071",
+   "fetched": "2026-10-11",
+   "as_found": "node/2702194071 at -3.3855636, 36.7728091; tags {\"amenity\": \"community_centre\", \"name\": \"Sibusiso Centre\"}",
+   "source_type": "OpenStreetMap"
   }
  },
  "nis_to_org_evidence": {

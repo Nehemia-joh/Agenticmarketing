@@ -201,6 +201,12 @@ def geocode(merged: list[dict], gaz: dict, campuses: dict, overrides: dict) -> N
         override = overrides.get(o["organisation_name"])
         if override:
             lat, lon, precision, basis = override["lat"], override["lon"], override.get("precision", "locality"), "manual: " + override.get("basis", "")
+            if override.get("url"):  # a reviewed point with its own evidence (scripts/master/apply_geocodes.py)
+                src = {"url": override["url"], "title": f"Location: {override.get('source_type') or 'research'}", "source_date": "",
+                       "accessed_on": override.get("fetched", ""), "evidence_basis": "directory", "fetched": True, "facts_supported": ["location"],
+                       "evidence_excerpt": str(override.get("as_found") or "")[:200]}
+                if src["url"] not in [s.get("url") for s in W.as_list(o.get("sources")) if isinstance(s, dict)]:
+                    o["sources"] = W.as_list(o.get("sources")) + [src]
         if lat is None:
             best = None
             for field in ("ward", "locality", "address", "district"):  # most specific field first

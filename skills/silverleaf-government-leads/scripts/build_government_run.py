@@ -382,6 +382,14 @@ def locate_wards(cfg, census, wiki, places, districts, gaz, links, reviews, offi
                 if el:
                     chosen = {"lat": el["lat"], "lon": el["lon"], "location_source": "osm_facility", "location_ref": ref,
                               "location_url": f"https://www.openstreetmap.org/{ref}"}
+            elif src == "point":
+                # A reviewed point with its own evidence (data/raw/geocode-research/geocodes_<date>.jsonl, merged by
+                # scripts/master/apply_geocodes.py): the source URL, the date it was read and the coordinates as found.
+                if valid_point(override.get("lat"), override.get("lon")) and override.get("url"):
+                    chosen = {"lat": float(override["lat"]), "lon": float(override["lon"]),
+                              "location_source": f"reviewed point ({override.get('source_type') or 'research'})",
+                              "location_ref": str(override.get("as_found") or "")[:120], "location_url": override["url"],
+                              "geocode_precision": "address" if override.get("precision") in ("point", "address") else "estimated"}
             elif src == "none":
                 chosen = {"lat": None, "lon": None, "location_source": "none", "location_ref": "", "location_url": ""}
             if chosen is None:
@@ -1220,6 +1228,21 @@ def main() -> int:
                        "campus": "", "distance_km": None, "linked_office": "",
                        "note": "Unnamed office points cannot be identified as conveners; not imported."})
 
+    # Reviewed office points (links.json office_locations, keyed by record key) for offices no official map or OpenStreetMap
+    # office places: each carries its source URL, the date read and the coordinates as found. Never replaces a point.
+    for o in offices:
+        point = links.get("office_locations", {}).get(o["record_key"])
+        if not point or valid_point(o.get("lat"), o.get("lon")):
+            continue
+        if not (valid_point(point.get("lat"), point.get("lon")) and point.get("url")):
+            reviews.add("override_not_applied", o["name"], point, "The reviewed office point has no valid coordinates or source URL.")
+            continue
+        o.update(lat=float(point["lat"]), lon=float(point["lon"]),
+                 geocode_precision="address" if point.get("precision") in ("point", "address") else "estimated",
+                 location_source=f"reviewed point ({point.get('source_type') or 'research'})", location_note=point.get("note", ""))
+        o.update(campus_fields(o["lat"], o["lon"], campuses, clusters))
+        o["all_sources"].append(source(point["url"], f"Office location: {point.get('source_type') or 'research'}", "directory",
+                                       point.get("fetched") or date, ["office location"], str(point.get("as_found") or "")[:200]))
     for o in offices:
         if valid_point(o.get("lat"), o.get("lon")) and o.get("distance_km") is None:
             o.update(campus_fields(o["lat"], o["lon"], campuses, clusters))

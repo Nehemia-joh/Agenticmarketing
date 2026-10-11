@@ -84,6 +84,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--database", default=str(MASTER))
+    ap.add_argument("--report", default=str(REPORT), help="where --apply records the run (keep the campus-correction record of "
+                                                          "2026-10-11 by giving a later run its own file)")
     args = ap.parse_args()
     con = sqlite3.connect(args.database)
     con.row_factory = sqlite3.Row
@@ -134,7 +136,7 @@ def main() -> int:
     if args.apply:
         with con:
             con.executemany("UPDATE organisations SET campus=?, distance_km=?, transport_band=?, radius_tier=? WHERE organisation_id=?", updates)
-        REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+        Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
         print("applied", len(updates))
     return 0
 

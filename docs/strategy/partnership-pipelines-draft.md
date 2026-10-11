@@ -367,6 +367,8 @@ Any name or address the front desk gives, by reply, forward or phone, is recorde
 | SACCOS | The committee chair or secretary | Kiswahili wording, to be drafted and reviewed by a native speaker | The same request in Kiswahili, reviewed by a native speaker (most SACCOS have no email, so the call script carries it) |
 | Government | **Does not apply.** Letters are delivered by hand and addressed to the office holder by title, under Tanzanian protocol | — | — |
 
+The case C opening line ("I am writing from Silverleaf Academy in Arusha about …") by segment: employers and public bodies, "a staff education benefit for the children of <Organisation>'s employees"; variant A sponsors and welfare funders, "sponsoring students' education at Silverleaf"; welfare homes and programmes, "the education of the children in <Organisation>'s care"; introducers and networks, "an education benefit for <Organisation>'s members" (approved 12 October 2026).
+
 ### First touch by confidence band
 
 Counts are from the copies refreshed after T1, before shared inboxes are collapsed. The band rules are in `scripts/messaging/export_resend_contacts.py`.

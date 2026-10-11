@@ -255,7 +255,7 @@ def introducer_copy(plan: dict, org: dict, track: str, fallout: str = "") -> dic
                 f"I will close this.\n\n{L.SIGNATURE}")
 
     def offer_text(opener: str) -> str:
-        return (f"{greet}\n\n{opener} Silverleaf Academy would like to offer the staff of {the}{org_name} member organisations {L.EN['OF04']}. Every Silverleaf family "
+        return (f"{greet}\n\n{opener} Silverleaf Academy would like to offer the staff of {the}{org_name}'s member organisations {L.EN['OF04']}. Every Silverleaf family "
                 f"can also get {L.family_offer_en()}.\n\n{LEVELS_EN} {CAMPUSES_EN}\n\n{(the + org_name)[:1].upper() + (the + org_name)[1:]} would only share the offer with members; interested parents "
                 f"deal with our admissions team directly, and applications for the 2027 school year are open. We can provide a one-page note for your bulletin "
                 f"or forum.\n\n{CTA['Information offer']}\n\n{L.SIGNATURE}")

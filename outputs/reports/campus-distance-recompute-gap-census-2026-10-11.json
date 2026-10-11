@@ -1,16 +1,13 @@
 {
  "stats": {
   "stored distance kept": 639,
-  "coordinates": 603,
+  "coordinates": 604,
   "no location": 88,
   "gazetteer point reproduced": 45,
-  "records to update": 2,
-  "nearest campus changed": 2
+  "records to update": 0,
+  "nearest campus changed": 0
  },
- "nearest_campus_changed": [
-  "Majengo Dispensary: Boma Ng'ombe -> Usa River (22.3 km)",
-  "Futuresense Foundation: Kijenge -> Ilboru (2.7 km)"
- ],
+ "nearest_campus_changed": [],
  "campuses": {
   "Usa River": [
    -3.361003,

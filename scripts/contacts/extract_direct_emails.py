@@ -58,6 +58,8 @@ ROLE_INBOX = [
     (re.compile(r"^(ed|edr|executivedirector)$"), re.compile(r"executive director", re.I)),
     (re.compile(r"^(cd|countrydirector)$"), re.compile(r"country director", re.I)),
     (re.compile(r"^(es|executivesecretary)$"), re.compile(r"executive secretary", re.I)),
+    (re.compile(r"^(generalsecretary|secretarygeneral|sg|gs)$"), re.compile(r"general secretary|secretary[- ]general", re.I)),
+    (re.compile(r"^director$"), re.compile(r"^\s*(executive |managing |country )?director\b(?! of)|executive director", re.I)),
     (re.compile(r"^(headteacher|headmaster|headofschool)$"), re.compile(r"head ?teacher|headmaster|headmistress|head of school", re.I)),
     (re.compile(r"^(hr|hrm|humanresources?|dhrma|hrmanager)$"), re.compile(r"(head|manager|director|chief|officer)\b.*(human resource|\bhr\b)|"
                                                                          r"(human resource|\bhr\b).*(head|manager|director|chief)", re.I)),

@@ -32,6 +32,9 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `coverage/companies_stratified_2026-10-10_coverage.md` | `8acdbd83fcc98e0f…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/D_hotels_government_coverage.md` | `7cf9af38752b1a92…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/gov_enrichment_2026-10-10_coverage.md` | `142846df9f2193d5…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/hd1_companies_p12_named_coverage.md` | `917fabd17b14f632…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/hd1_companies_p12_unnamed_coverage.md` | `1953c2ac8f9d1459…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/hd1_welfare_introducers_coverage.md` | `a81d4f0bb273e0fb…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/newleads_2026-10-11_coverage.md` | `05b40652c5e73269…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave10_master_employers_a_coverage.md` | `b4fc0b5b1fa21d41…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/wave10_master_employers_b_coverage.md` | `59b879e0c94aae72…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
@@ -67,13 +70,16 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `introducers_wave12_2026-10-02.jsonl` | `b61746ec1756c467…` | Contact-research evidence |
 | `osm_contacts_2026-09-23.json` | `b46ccf133bda5b5b…` | OpenStreetMap contact tags (phone, email, website) in the catchment |
 | `osm_contacts_2026-10-10.json` | `d19a52bc7b4616fa…` | OpenStreetMap contact tags (phone, email, website) in the catchment |
-| `search-targets.json` | `a3b195a618b19371…` | Contact-research evidence |
+| `search-targets.json` | `d144ae74d15e804a…` | Contact-research evidence |
 | `search_A_welfare_care_2026-09-23.jsonl` | `2b6257d8f4570ffe…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_B_welfare_specialised_funders_2026-09-23.jsonl` | `84f4597e427f1e65…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_C_master_employers_2026-09-23.jsonl` | `9824bd0daddb9a91…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_companies_2026-10-10.jsonl` | `dca034ef94902f92…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_companies_stratified_2026-10-10.jsonl` | `900608ccdc24f3d5…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_D_hotels_government_2026-09-23.jsonl` | `c8c9c3e2f726d356…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_hd1_companies_p12_named_2026-10-11.jsonl` | `34716e3e2617c370…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_hd1_companies_p12_unnamed_2026-10-11.jsonl` | `24639ad4baed6ac2…` | Budgeted search-agent records, one per organisation, with per-fact sources |
+| `search_hd1_welfare_introducers_2026-10-11.jsonl` | `2ee0e929bcdcee99…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_newleads_2026-10-11.jsonl` | `6662e7844d742fc8…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave10_master_employers_a_2026-10-02.jsonl` | `e7fe621fe4963077…` | Budgeted search-agent records, one per organisation, with per-fact sources |
 | `search_wave10_master_employers_b_2026-10-02.jsonl` | `52afdb6223ce252c…` | Budgeted search-agent records, one per organisation, with per-fact sources |

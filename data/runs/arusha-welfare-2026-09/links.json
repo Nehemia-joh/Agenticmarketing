@@ -794,6 +794,84 @@
     "source_url": "https://tabasamuafrica.org/about-tabasamu-africa/",
     "decided_on": "2026-10-11"
    }
+  ],
+  "O'BRIEN SCHOOL FOR THE MAASAI": [
+   {
+    "name": "Stephen Kimani",
+    "reason": "Quoted on the school's About page as 'Chairman of the Ward Council, Sanya Station' in a 'From the field' testimonial: a role at another body, not at the school, so he is never its addressee. The site names no school leader, so the draft goes to the school's inbox.",
+    "source_url": "https://www.obrienschool.org/about",
+    "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl",
+    "decided_on": "2026-10-11"
+   }
+  ],
+  "Milelo Tanzania Organization": [
+   {
+    "name": "NGO Mangement",
+    "reason": "A team-page label ('NGO Management') read as a person's name.",
+    "source_url": "https://www.milelo.de/team",
+    "decided_on": "2026-10-11"
+   }
+  ]
+ },
+ "recipient_choices": {
+  "Arusha NGO Network (ANGONET)": {
+   "name": "Peter Bayo",
+   "reason": "The network's own About page names Peter Bayo as Executive Director above the Coordinator on file; by the recipient rule the executive head is the addressee (the network rule that prefers a children's or programme lead is for church networks).",
+   "source_url": "https://angonet.or.tz/about-us/",
+   "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl",
+   "decided_on": "2026-10-11"
+  },
+  "The Foundation For Tomorrow": {
+   "name": "Noah Kayanda",
+   "escalation": "Miller Bianucci",
+   "reason": "On-the-ground rule: Noah Kayanda is the Managing Director of the Tanzania team; Miller Bianucci, the US Executive Director on file, becomes the escalation contact.",
+   "source_url": "https://thefoundationfortomorrow.org/our-team-board-of-directors/",
+   "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl",
+   "decided_on": "2026-10-11"
+  },
+  "Milelo Tanzania Organization": {
+   "name": "Angel Izoba",
+   "escalation": "Lenni Boekstegers",
+   "reason": "On-the-ground rule: the team page names Angel Izoba as MILELO's Local Manager in Tanzania; the co-founder on file (Lenni, Lennard Boekstegers) sits on the German board and becomes the escalation contact.",
+   "source_url": "https://www.milelo.de/team",
+   "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl",
+   "decided_on": "2026-10-11"
+  },
+  "kipepeo family foudation": {
+   "name": "Nixon Aqulin Simba",
+   "escalation": "Joy Baumann",
+   "reason": "On-the-ground rule: the team page names Nixon Aqulin Simba as the Tanzanian co-founder and Local Leader; Joy Baumann, the Swiss founder on file, becomes the escalation contact.",
+   "source_url": "https://www.kipepeo-kiwavi.com/english/team/",
+   "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl",
+   "decided_on": "2026-10-11"
+  },
+  "Happy Family Children's Village": {
+   "name": "Rehema Mussa",
+   "escalation": "Rebecca Ross Russell",
+   "reason": "On-the-ground rule: the operator's Tanzanian Managing Director, Rehema Mussa (recorded by the 23 September 2026 browser read), runs the village; Rebecca Ross Russell, the US Executive Director on file, becomes the escalation contact.",
+   "source_url": "https://www.thesmallthings.org/about/history",
+   "source": "data/raw/contact-research/browser_sites_b_2026-09-23.jsonl; data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl",
+   "decided_on": "2026-10-11"
+  }
+ },
+ "review_flags": {
+  "Ucare Family Home": [
+   {
+    "kind": "possible_overlap",
+    "related": "Neema Village",
+    "detail": "Ucare (Norway) built the Ucare Family Home with Neema House (Neema Village), which manages it day to day; the run may already hold the same home under Neema Village. Review only: nothing is merged.",
+    "action": "Check whether the Ucare Family Home and Neema Village records describe the same home; merge only on a supported match.",
+    "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl (http://www.ucareproject.com/ucare-family-home)"
+   }
+  ],
+  "Tumaini House (YWAM Arusha Tumaini Children Ministry)": [
+   {
+    "kind": "identity_to_confirm",
+    "related": "",
+    "detail": "Tumaini House is assumed to be YWAM Arusha's Tumaini Children's Ministry; the location is unconfirmed (YWAM Arusha base) and no ministry lead is named. Review only.",
+    "action": "Confirm that this record is YWAM Arusha's Tumaini Children's Ministry before any message.",
+    "source": "data/raw/contact-research/search_hd1_welfare_introducers_2026-10-11.jsonl (https://ywamarusha.org/about/)"
+   }
   ]
  }
 }

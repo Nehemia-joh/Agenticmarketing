@@ -40,6 +40,16 @@
    "source": "https://www.ajiriwa.net/view-job/marketing-officer-63fa11317dd71",
    "reason": "Role inbox for the recipient's role (companies research, 10 October 2026): DTB Tanzania's own vacancy notice (Ajiriwa, closing 20 January 2020) gives HR@diamondtrust.co.tz as the bank's HR inbox, and the bank's executive-committee page names Pamela Kieti as Head - Human Resources. The draft goes to the HR inbox on the bank's domain instead of customercare@ (a direct route under the high-split rule of 10 October 2026: the inbox for the HR head's role). The notice is from 2020: a bounce means the inbox has changed.",
    "decided": "2026-10-10"
+  },
+  "Oeacd041c2d5f": {
+   "name": "Matembezi Company Ltd",
+   "contact_id": "C38a2223bb0ae",
+   "recipient": "Hagai Zvulun (Founder and partner)",
+   "route": "hagai@matembezi.co.tz",
+   "role_confirmed": "https://matembezi.co.tz/about-us/",
+   "source": "https://matembezi.co.tz/about-us/ (Hagai Zvulun started Matembezi in 2005) and the site's footer mailto:hagai@matembezi.co.tz (name-matched on the own site, D1); data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl",
+   "reason": "On-the-ground rule (11 October 2026): Matembezi is run from Arusha by its partners. Among the recipient on file (Ilan Kessel, partner for tour operations, no published address) and the two partners with named mailboxes, the founder Hagai Zvulun is the most senior decision-maker (he started the company in 2005 and is a partner) and publishes his own address; Stephanie Kuerzinger (partner, management line on the contact page, stephanie@) stays an alternative. No group or overseas head is named, so there is no escalation contact.",
+   "decided": "2026-10-11"
   }
  },
  "excluded_contacts": {

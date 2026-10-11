@@ -125,6 +125,17 @@
    "as_found": "Ofisi ya kata ya sinoni at -3.4163098, 36.6814466; Sokoni I area, Arusha",
    "source_type": "Google Maps listing",
    "note": "Reviewed point (2026-10-11): Google listing of the Sinoni ward office (Ofisi ya Kata ya Sinoni). Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.4163098,36.6814466 (fetched 2026-10-11); as found: Ofisi ya kata ya sinoni at -3.4163098, 36.6814466; Sokoni I area, Arusha"
+  },
+  "Arusha City Council|Olmoti": {
+   "source": "point",
+   "lat": -3.366763,
+   "lon": 36.592465,
+   "precision": "point",
+   "url": "https://www.google.com/maps/place/OFISI+YA+KATA+OLMOTI/data=!4m6!3m5!1s0x1836e3ed5a08ba25:0xfaf8c317bf4cc877!8m2!3d-3.3667635!4d36.5924652",
+   "fetched": "2026-10-11",
+   "as_found": "Google Maps listing 'OFISI YA KATA OLMOTI' at -3.3667635, 36.5924652",
+   "source_type": "Google Maps listing",
+   "note": "Reviewed point (2026-10-11): The coordinator's Google Maps lookup (11 October 2026) found a listing named for the Olmoti ward office in Arusha City; accepted as the office's own pin. Listing named Ofisi ya Kata Olmoti (Olmoti ward office). Source: Google Maps listing, https://www.google.com/maps/place/OFISI+YA+KATA+OLMOTI/data=!4m6!3m5!1s0x1836e3ed5a08ba25:0xfaf8c317bf4cc877!8m2!3d-3.3667635!4d36.5924652 (fetched 2026-10-11); as found: Google Maps listing 'OFISI YA KATA OLMOTI' at -3.3667635, 36.5924652"
   }
  },
  "osm_office_links": {

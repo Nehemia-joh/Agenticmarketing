@@ -279,6 +279,13 @@ def main() -> int:
             words = cleared.get("flags", "all")
             o["red_flags"] = [] if words == "all" else [f for f in o["red_flags"] if not any(w.lower() in f.lower() for w in W.as_list(words))]
             o["notes"] = " | ".join(x for x in (o.get("notes"), f"Red flags reviewed: {cleared.get('basis', '')}") if x)
+    # Reviewed flags for a person to check (links.json review_flags, added 11 October 2026): a possible overlap or an identity question a
+    # research agent raised, recorded as a review item only; nothing is merged or changed.
+    for org_name, items in links.get("review_flags", {}).items():
+        for item in items:
+            reviews.append({"kind": item["kind"], "entity": org_name, "related": item.get("related", ""), "detail": item.get("detail", ""),
+                            "action": item.get("action", "Check and decide; merge or correct only on a supported match."),
+                            "source": item.get("source", "")})
     print(f"rejected routes removed: {drop_rejected(merged, contacts, rejected_routes(links))}")
     geocode(merged, gaz, campuses, links.get("geo_overrides", {}))
     out = {"organisations": merged, "contacts": contacts, "relationships": relations, "enquiries": enquiries, "reviews": reviews}

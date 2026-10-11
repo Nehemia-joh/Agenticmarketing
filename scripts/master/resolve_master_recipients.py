@@ -146,7 +146,9 @@ def role_rank(role: str):
     if re.search(r"non-?executive", role, re.I) or (BOARD.search(role) and not EXECUTIVE.search(role)):
         return None
     if HR.search(role):
-        return 0
+        # An HR assistant, clerk or intern supports the HR head and is not the decision-maker (11 October 2026: 'HR and Admin Assistant'
+        # had outranked a named managing director).
+        return None if re.search(r"assistant|\bass\.|\bclerk\b|\bintern\b|trainee", role, re.I) else 0
     if TOP.search(role) and not re.search(r"assistant|deputy|\bass\.|kenya|kisumu|nairobi|uganda", role, re.I):
         return 1
     if NOT_SENIOR.search(role):
@@ -519,6 +521,13 @@ def main() -> int:
                             (sid("misattributed", wrong["contact_id"], wrong.get("value", "")), "Contact email belongs to another person", oid,
                              wrong["contact_id"], "named_email", f"{wrong.get('value', '')}: {wrong.get('reason', '')}"[:400],
                              "Remove the address from this contact through the update skill; the recipient override uses it for its owner."))
+        for oid, o in overrides.items():
+            # A reviewed choice may confirm the recipient's role from a fetched page ('role_confirmed', added 11 October 2026): noted on the
+            # contact exactly as update_master_contacts.py notes a confirmation, so the exporter counts the person as verified.
+            if o.get("role_confirmed") and o.get("contact_id") in contacts:
+                note = f"role confirmed {o.get('decided', '')} ({o['role_confirmed']})"
+                con.execute("UPDATE contacts SET verification = COALESCE(verification,'') || ? WHERE contact_id=? AND COALESCE(verification,'') NOT LIKE ?",
+                            (f"; {note}", o["contact_id"], f"%{note}%"))
         for cid, x in EXCLUDED.items():
             if cid in contacts:  # flagged for a person to correct through the update skill; the contact is kept, never deleted
                 con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",

@@ -4,32 +4,32 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 
 | Segment | Contacts |
 |---|---|
-| companies-high | 255 |
-| companies-high-direct | 34 |
-| companies-high-indirect | 221 |
-| companies-medium | 360 |
+| companies-high | 263 |
+| companies-high-direct | 36 |
+| companies-high-indirect | 227 |
+| companies-medium | 351 |
 | companies-low | 52 |
 | introducers-high | 12 |
-| introducers-high-direct | 3 |
-| introducers-high-indirect | 9 |
+| introducers-high-direct | 4 |
+| introducers-high-indirect | 8 |
 | introducers-medium | 3 |
 | welfare-high | 69 |
-| welfare-high-direct | 12 |
-| welfare-high-indirect | 57 |
+| welfare-high-direct | 14 |
+| welfare-high-indirect | 55 |
 | welfare-medium | 10 |
 | welfare-low | 117 |
 
 Left out (no email address; use the call sheets):
 
-- companies: no email route (phone only or none): 567
+- companies: no email route (phone only or none): 568
 - welfare: no email route (phone only or none): 233
 
 Addresses shared by two rows, exported once (18):
 
 - info@almc.or.tz: Arusha Lutheran Medical Center (welfare, high) kept as Arusha Lutheran Medical Centre (companies)
+- pmaduki@cssc.or.tz: Christian Social Services Commission (welfare, high) kept as Christian Social Services Commission (introducers)
 - info@tz.ci.org: Compassion International Tanzania (welfare, high) kept as Compassion International Tanzania (welfare)
 - connie@karamaconnection.org: Karama Kids (Karama Care orphanage), Arusha (welfare, high) kept as Karama Connection (welfare)
-- office@africaaminialama.com: KinderVilla Momella (welfare, high) kept as Africa Amini Alama (welfare)
 - national.office@sos-tanzania.org: SOS Children's Villages International / SOS Children's Villages Tanzania (welfare, high) kept as SOS Children's Village Arusha (welfare)
 - info@ate.or.tz: ATE Northern Zone Office (introducers, medium) kept as Association of Tanzania Employers (introducers)
 - dhrma@atc.ac.tz: Arusha Technical College Staff SACCOS Ltd (companies, low) kept as Arusha Technical College (companies)

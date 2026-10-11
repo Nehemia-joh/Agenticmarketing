@@ -36,6 +36,9 @@
    "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"},
   {"db": "master", "organisation_id": "O7948a9942116", "organisation_name": "NSK HOSPITALS LTD", "kind": "email", "value": "ijaz.lalji@nsktz.com",
    "reason": "An inbox on nsktz.com, the hospital's former domain, which is now a parked domain (GoDaddy parking lander): the address no longer reaches the hospital, so nothing from that domain is used. The hospital's own site is nskhospitals.co.tz.",
-   "source": "master review D25e5ce0a00d7 ('Contact research: hijacked or parked site'), from data/raw/contact-research/search_wave4_master_employers_2026-09-23.jsonl (nsktz.com read as a GoDaddy parking lander)", "decided_on": "2026-10-11"}
+   "source": "master review D25e5ce0a00d7 ('Contact research: hijacked or parked site'), from data/raw/contact-research/search_wave4_master_employers_2026-09-23.jsonl (nsktz.com read as a GoDaddy parking lander)", "decided_on": "2026-10-11"},
+  {"db": "master", "organisation_id": "O2b5497cbc08d", "organisation_name": "Hotel Equator", "kind": "email", "value": "manager@equator-hotel.com",
+   "reason": "An inbox on equator-hotel.com, which now serves an empty page whose sitemap lists only /lander (the parked-domain pattern): the address may no longer reach the hotel, so it is not used.",
+   "source": "master review 'Contact research: hijacked or parked site', from data/raw/contact-research/search_hd1_companies_p12_unnamed_2026-10-11.jsonl (equator-hotel.com read 2026-10-11)", "decided_on": "2026-10-11"}
  ]
 }

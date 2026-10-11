@@ -124,7 +124,8 @@
    "action": "segment",
    "segment": "Corporate employers",
    "reason": "audit, tax and consulting firm with an Arusha office",
-   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10; the record's own segment corrected 2026-10-11 (high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl (claritas.co.tz/leadership fetched 2026-10-11))",
+   "organisation_segment": "office:accountant"
   },
   "O3af036625f00": {
    "name": "Delight Polyclinic",
@@ -152,7 +153,10 @@
    "action": "segment",
    "segment": "Corporate employers",
    "reason": "procurement and supply company",
-   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10",
+   "phone": "+255 694 774 477",
+   "field_reason": "the master's phone was truncated (+255 694 774); King Mart's TATO listing gives the full number",
+   "field_source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl (tatotz.org/portfolio/king-mart/ fetched 2026-10-11)"
   },
   "O628305bfb723": {
    "name": "Kitamu Africa LTD",
@@ -251,7 +255,10 @@
    "action": "segment",
    "segment": "Corporate employers",
    "reason": "insurance broker with Arusha offices",
-   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10",
+   "website": "https://tm.co.tz/",
+   "field_reason": "the company's own site is tm.co.tz (its management page names the Arusha branch); jwseagon.com answers 403 and belongs to the group brand",
+   "field_source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl (tm.co.tz/management/ fetched 2026-10-11)"
   },
   "O91d927bdd2c3": {
    "name": "United Aviation Services Company Ltd",
@@ -287,6 +294,77 @@
    "segment": "Corporate employers",
    "reason": "charter airline with an office at Arusha Airport",
    "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+  },
+  "O911659e30dbc": {
+   "name": "KCB",
+   "action": "fields",
+   "website": "https://kcbbank.co.tz",
+   "reason": "tz.kcbgroup.com no longer resolves; the bank's Tanzania site is kcbbank.co.tz (executive management page fetched)",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl (kcbbank.co.tz/executive-management fetched 2026-10-11)"
+  },
+  "Oe724c258de33": {
+   "name": "KCB Bank",
+   "action": "fields",
+   "website": "https://kcbbank.co.tz",
+   "reason": "tz.kcbgroup.com no longer resolves; the bank's Tanzania site is kcbbank.co.tz (the same bank as record O911659e30dbc)",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl (kcbbank.co.tz/executive-management fetched 2026-10-11)"
+  },
+  "Oc93d0a7a76f8": {
+   "name": "Jumla Africa, Arusha Branch",
+   "action": "fields",
+   "website": "https://jumlaafrica.com/",
+   "reason": "the live site is jumlaafrica.com (head office at Tengeru); the master's jumlaafrica.net is not its current site",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_unnamed_2026-10-11.jsonl (jumlaafrica.com fetched 2026-10-11)"
+  },
+  "O2b5497cbc08d": {
+   "name": "Hotel Equator",
+   "action": "review",
+   "review_kind": "Website parked",
+   "review_field": "website",
+   "review": "equator-hotel.com now serves an empty page whose sitemap lists only /lander (the parked-domain pattern), so manager@equator-hotel.com is no longer used as a route (data/reference/rejected-routes.json).",
+   "review_action": "Find the hotel's current website and inbox; record them through the update skill.",
+   "reason": "parked domain",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_unnamed_2026-10-11.jsonl (equator-hotel.com read 2026-10-11)"
+  },
+  "Oe6e5abab7703": {
+   "name": "Pan African Postal Union (PAPU)",
+   "action": "review",
+   "review_kind": "Website redirects elsewhere",
+   "review_field": "website",
+   "review": "upap-papu.africa redirects to an unrelated site (catholichomeandgarden.com), so it is no longer PAPU's website; nothing is taken from it.",
+   "review_action": "Find PAPU's current official website before using any web route.",
+   "reason": "website redirect",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_unnamed_2026-10-11.jsonl (upap-papu.africa read 2026-10-11)"
+  },
+  "Oc0616ccade39": {
+   "name": "Gran Melia Arusha",
+   "action": "review",
+   "review_kind": "Contact may be out of date",
+   "review_field": "contact",
+   "review": "The general manager on file rests on a 2022 article (justluxe.com award story); the name may be out of date.",
+   "review_action": "Confirm the current general manager (hotel's own page or a call) before addressing the letter by name.",
+   "reason": "GM name sourced 2022",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl"
+  },
+  "Obf2f0abb3e36": {
+   "name": "Gran Melia Arusha",
+   "action": "review",
+   "review_kind": "Contact may be out of date",
+   "review_field": "contact",
+   "review": "The general manager on file rests on a 2022 article (justluxe.com award story); the name may be out of date.",
+   "review_action": "Confirm the current general manager (hotel's own page or a call) before addressing the letter by name.",
+   "reason": "GM name sourced 2022",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl"
+  },
+  "O35c0ce5e291d": {
+   "name": "Elewana Arusha Coffee Lodge",
+   "action": "review",
+   "review_kind": "Contact may be out of date",
+   "review_field": "contact",
+   "review": "The general manager on file rests on 2020 newsletters; a February 2026 vacancy notice gives only the GM office's inbox (gm.coffeelodge@elewana.co.tz). The name may be out of date.",
+   "review_action": "Confirm the current general manager before addressing the letter by name.",
+   "reason": "GM name sourced 2020",
+   "source": "high-direct wave 1, data/raw/contact-research/search_hd1_companies_p12_named_2026-10-11.jsonl (fursa.co.tz Elewana notice fetched 2026-10-11)"
   }
  }
 }

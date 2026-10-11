@@ -37,6 +37,7 @@ Research is rate-limited; read `../skills/silverleaf-create-lead-list/references
 - WebSearch has a per-session cap shared by all subagents: plan budgets with `scripts/welfare/plan_research.py`.
 - Run deterministic collectors first, and launch at most four research agents per wave.
 - Never work around a cap or a block.
+- Never repeat what was already tried: read `../docs/methodology/research-playbook.md` before planning a wave, check `scripts/research/ledger.py tried --org <id>` before searching, and `ledger.py ingest` each finished slice's coverage log and research file before the merge. The coordinator's own Google Maps lookups and browser passes go in the ledger too.
 
 
 

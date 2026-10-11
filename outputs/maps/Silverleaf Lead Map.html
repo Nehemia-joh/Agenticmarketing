@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Silverleaf Lead Map</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,6 +232,8 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
 }
 @media (prefers-reduced-motion: reduce) { .panel { transition: none; } }
 </style>
+</head>
+<body>
 
 <div class="app">
   <aside class="panel" id="panel" aria-label="Filters and counts">
@@ -859,3 +866,5 @@ const BASE = {"type":"FeatureCollection","features":[{"type":"Feature","properti
   window.__leadMap = { map, leads, state, update, selectCampus };
 })();
 </script>
+</body>
+</html>

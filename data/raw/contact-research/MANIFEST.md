@@ -4,11 +4,13 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 
 | File | SHA-256 | Contents |
 |---|---|---|
+| `browser_companies_2026-10-11.jsonl` | `e0bf2b1a0ac85191…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_robots_2026-09-23.jsonl` | `626d96b1a521e39a…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_sites_a_2026-09-23.jsonl` | `f55dd70f46e6cb71…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_sites_b_2026-09-23.jsonl` | `e5926e95cf183d8a…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_wave10_robots_2026-10-02.jsonl` | `ed6ed8f919784fc4…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_wave10_script_2026-10-02.jsonl` | `00ccd0c3c1c748eb…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
+| `browser_welfare_2026-10-11.jsonl` | `d50be5d4c09edf6d…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `coverage/A_welfare_care_coverage.md` | `d25d2249d7910c7d…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/B_welfare_specialised_funders_coverage.md` | `b2ac59894fdfab1e…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_robots_2026-09-26_coverage.md` | `bb1565ded8bcee62…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |

@@ -5,30 +5,31 @@ Research behind the first-message hooks and lead briefs of the company master's 
 | File | SHA-256 | Contents |
 |---|---|---|
 | `coordinator-review_2026-09-23.json` | `245e4e646710a20c…` | Coordinator review: decisions on proposed hooks and checks for a person |
-| `coordinator-review_2026-09-25.json` | `3f47dfe2d83c4122…` | Coordinator review: decisions on proposed hooks and checks for a person |
-| `coordinator-review_2026-10-02.json` | `c8cf97db68c32672…` | Coordinator review: decisions on proposed hooks and checks for a person |
-| `coverage/hooks_a_2026-09-25_coverage.md` | `48f744e2ae4f5cea…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_a_2026-10-02_coverage.md` | `4db5327c748bb484…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_a_coverage.md` | `f1f3b897f0738127…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_b_2026-09-25_coverage.md` | `f33d38ace8f59b39…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_b_2026-10-02_coverage.md` | `3e3826e0fbc5f3d1…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_b_coverage.md` | `e3d77477252e23ad…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_c_2026-09-25_coverage.md` | `a46fb0767014115f…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_c_2026-10-02_coverage.md` | `68077ea26aa11ed4…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_c_coverage.md` | `ac4cddac206756a8…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_d_2026-09-25_coverage.md` | `78193294c5312bce…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_d_2026-10-02_coverage.md` | `1e3a04b2727508c3…` | Coverage log: pages read, queries, blocks and gaps |
-| `coverage/hooks_d_coverage.md` | `1e90be6201aee0a6…` | Coverage log: pages read, queries, blocks and gaps |
+| `coordinator-review_2026-09-25.json` | `e474fd05a5bb1e3d…` | Coordinator review: decisions on proposed hooks and checks for a person |
+| `coordinator-review_2026-10-02.json` | `175cc77a4ee3d836…` | Coordinator review: decisions on proposed hooks and checks for a person |
+| `coverage/hooks_a_2026-09-25_coverage.md` | `be7f934f834f98df…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_a_2026-10-02_coverage.md` | `d50d25fddafe8a34…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_a_coverage.md` | `963839d58601afe2…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_b_2026-09-25_coverage.md` | `d093a46346f9f18d…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_b_2026-10-02_coverage.md` | `25f008504a28c48b…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_b_coverage.md` | `c0ca8e10c86116f3…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_c_2026-09-25_coverage.md` | `51991297b5efa0a6…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_c_2026-10-02_coverage.md` | `10c34d73a9f347b5…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_c_coverage.md` | `5564d37f21522cb1…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_d_2026-09-25_coverage.md` | `aaf4cb0eda0fc643…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_d_2026-10-02_coverage.md` | `ab475a2b79151443…` | Coverage log: pages read, queries, blocks and gaps |
+| `coverage/hooks_d_coverage.md` | `b5ac857a9de69785…` | Coverage log: pages read, queries, blocks and gaps |
 | `hooks_a_2026-09-23.jsonl` | `feb687ff56023777…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_a_2026-09-25.jsonl` | `377918b867f31030…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_a_2026-10-02.jsonl` | `9d5cfccd90abfcb8…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_b_2026-09-23.jsonl` | `1a75bdb06a93c491…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_b_2026-09-25.jsonl` | `a8ec3710790adc1a…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_b_2026-10-02.jsonl` | `5bfee3adf5980124…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_c_2026-09-23.jsonl` | `e2d38940a9eac1bf…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_c_2026-09-25.jsonl` | `01aff0d8c71d5da7…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_c_2026-10-02.jsonl` | `1c172ff89a3df617…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_a_2026-09-25.jsonl` | `3528ac6f44a760d5…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_a_2026-10-02.jsonl` | `d2902e0c410e7498…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_b_2026-09-23.jsonl` | `3f539da4a739c057…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_b_2026-09-25.jsonl` | `7160ab318d603476…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_b_2026-10-02.jsonl` | `6a9ebb58b9b47b50…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_browser_2026-10-11.jsonl` | `c57e3151cc431245…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_c_2026-09-23.jsonl` | `17cee668be701d29…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_c_2026-09-25.jsonl` | `fcf7836328228c97…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_c_2026-10-02.jsonl` | `0d9bc8e5216832ee…` | Research records: lead brief, hook and role checks per organisation |
 | `hooks_companies_2026-10-10.jsonl` | `9454ca0beb4a37af…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_d_2026-09-23.jsonl` | `73b1253f87cfa159…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_d_2026-09-25.jsonl` | `8eb5af81357a6840…` | Research records: lead brief, hook and role checks per organisation |
-| `hooks_d_2026-10-02.jsonl` | `ea5acf1ca9ea12a6…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_d_2026-09-23.jsonl` | `d86f72dd9ad76d60…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_d_2026-09-25.jsonl` | `121e806b9a2d1651…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_d_2026-10-02.jsonl` | `d7bcc66040228c5b…` | Research records: lead brief, hook and role checks per organisation |

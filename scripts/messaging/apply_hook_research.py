@@ -9,7 +9,7 @@ them). Two stages:
     to the contacts whose roles it checked.
   - Merge into the organisation's lead brief (table lead_briefs; earlier waves' facts are kept): one row per fact, with its source URL, page title and
     date, verbatim excerpt, the date it was read and its source record. A person can then learn about the lead quickly
-    if they reply.
+    if they reply. A workforce fact whose excerpt states a staff number fills an empty headcount (read by rank_employer_reach.py).
   - Set a verified hook on every outreach plan for the organisation, when the record's hook passes the checks below.
   - Record each contact's role check:
     - a confirmed role is noted on the contact;
@@ -230,6 +230,14 @@ def apply(con, files: list[Path], clean: list[dict], run_date: str, stats: Count
                         (hid("B", oid, f["source_url"], f["excerpt"]), oid, position, f["type"], f["fact"], f["source_url"], f["source_title"],
                          f["source_date"], f["excerpt"], f["accessed_on"] or run_date, record))
             stats["brief_facts"] += 1
+            # A workforce fact whose excerpt states a staff number fills an empty headcount (the reach rank reads it); never overwritten.
+            staff = [int(n.replace(",", "")) for n in re.findall(r"(\d[\d,]*)\s+(?:\w+\s+){0,2}(?:staff|employees|people|workers)", f["excerpt"] or "", re.I)]
+            if f["type"] == "workforce" and staff:
+                filled = con.execute("UPDATE organisations SET headcount=? WHERE organisation_id=? AND COALESCE(headcount,'')=''", (str(max(staff)), oid)).rowcount
+                if filled:
+                    con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                                (hid("X", oid, "headcount", max(staff)), "organisation", oid, "headcount", str(max(staff)), record))
+                    stats["headcounts_filled"] += 1
         plans = con.execute("SELECT message_id, target_type, target_id, evidence_record_ids FROM outreach_plans WHERE organisation_id=?",
                             (oid,)).fetchall()
         if r["hook"]:

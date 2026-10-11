@@ -2,32 +2,26 @@
  "run_on": "2026-10-11",
  "offer_version": "2026-09-23-offer-v4",
  "outcomes": {
-  "rewritten": 1983,
+  "rewritten": 2052,
   "decision-maker drafts moved from a phone to an email route": 0,
   "government track (government run)": 6,
   "welfare track (welfare run)": 6,
   "excluded: no message": 5,
-  "new contact plan (AQ02)": 5,
-  "new contact plan (AQ01)": 64,
+  "new contact plan (AQ01)": 2,
   "historical parent replies updated": 9,
   "parent enquiries without a draft (unchanged)": 23
  },
  "conformance_issues": 0,
  "tracks_new": {
-  "AQ02": 5,
-  "AQ01": 64
+  "AQ01": 2
  },
  "segments_new": {
-  "Introducers": 57,
-  "Public-sector employers": 2,
-  "Tourism employers": 6,
-  "Education employers": 3,
-  "Healthcare employers": 1
+  "Corporate employers": 2
  },
  "counts_after": {
-  "messages": 2052,
-  "outreach_plans": 2052,
+  "messages": 2054,
+  "outreach_plans": 2054,
   "message_versions": 7060,
-  "campaign_lead_assignments": 2084
+  "campaign_lead_assignments": 2086
  }
 }

@@ -8,7 +8,7 @@ We write to four kinds of audience. Each has its own reason to talk to us, its o
 |---|---|---|---|
 | 1. Employers | Customers through their staff | A partnership on an education benefit for staff's children (or sponsorship, for the few that already fund education) | 716 companies + 117 savings groups |
 | 2. Introducers | Multipliers | Share the staff benefit with their member employers | 16 |
-| 3. Welfare organisations | Partners and funders | A partnership on the education of the children in their care, or sponsorship of students | 439 in scope |
+| 3. Welfare organisations | Partners and funders | A partnership on the education of the children in their care, or sponsorship of students | 444 in scope |
 | 4. Government offices | A trusted forum for parents | A free 15–20 minute talk to parents at a community meeting | 149 |
 
 ---
@@ -41,7 +41,7 @@ Companies whose staff are the parents we want to reach. Most are in tourism: 81%
 |---|---|---|
 | P1 | 100 | First wave |
 | P2 | 150 | Second wave |
-| P3 | 452 | The rest |
+| P3 | 451 | The rest |
 | X | 15 | Held (outside the catchment, not an employer, or another blocker) |
 
 **Who receives it:** the most senior person running the Tanzania or Arusha operation: the owner, founder, MD, GM or HR head. A group or global executive is kept as the escalation contact.
@@ -76,7 +76,7 @@ Children's homes, programmes, specialised centres and their funders, within the 
 | Kind | High | Medium | Low | Total |
 |---|---|---|---|---|
 | Residential care (children's homes) | 22 | 20 | 57 | 99 |
-| Family-based and sponsorship programmes | 12 | 12 | 135 | 159 |
+| Family-based and sponsorship programmes | 12 | 14 | 138 | 164 |
 | Specialised centres (disability, rescue, street children) | 3 | 6 | 61 | 70 |
 | Funders | 3 | 7 | 94 | 104 |
 | Welfare networks (introducers: bodies that can share the partnership with many homes) | – | – | 7 | 7 |
@@ -119,7 +119,7 @@ Each first message sits in one confidence segment. The Resend import files and t
 |---|---|---|---|---|
 | Employers | 232 (29 + 203) | 323 | 48 | 229 |
 | Introducers | 12 (2 + 10) | 3 | 0 | 1 |
-| Welfare | 67 (12 + 55) | 9 | 117 | 229 |
+| Welfare | 67 (12 + 55) | 9 | 118 | 233 |
 | Government | 4 (the pilot councils) | 0 | 145 (held until the council introduction) | delivered by hand; 11 offices have an official inbox |
 
 An address two rows share is exported once (19 this week).

@@ -17,12 +17,12 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 | welfare-high-direct | 12 |
 | welfare-high-indirect | 55 |
 | welfare-medium | 9 |
-| welfare-low | 117 |
+| welfare-low | 118 |
 
 Left out (no email address; use the call sheets):
 
 - companies: no email route (phone only or none): 229
-- welfare: no email route (phone only or none): 229
+- welfare: no email route (phone only or none): 233
 
 Addresses shared by two rows, exported once (19):
 

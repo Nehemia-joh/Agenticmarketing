@@ -114,6 +114,17 @@
    "as_found": "footer map lat -3.362353, lng 36.709356; site text: 'The offices of the Arusha District Council headquarters are located in Kiutu Ward, Engorika Village, Sekei area near the Mount Meru International Hotel'",
    "source_type": "official site",
    "note": "Reviewed point (2026-10-11): The council's headquarters, which its own website places in Kiutu ward, at the point of its website map (data/raw/government-research/council_sites/arushadc.go.tz_2026-10-10.json). OpenStreetMap's 'Kiutu Parish' (way/275161584) lies 2.6 km north-east. Source: official site, https://arushadc.go.tz/api/footer (fetched 2026-10-10); as found: footer map lat -3.362353, lng 36.709356; site text: 'The offices of the Arusha District Council headquarters are located in Kiutu Ward, Engorika Village, Sekei area near the Mount Meru International Hotel'"
+  },
+  "Arusha City Council|Sinoni": {
+   "source": "point",
+   "lat": -3.41631,
+   "lon": 36.681447,
+   "precision": "point",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.4163098,36.6814466",
+   "fetched": "2026-10-11",
+   "as_found": "Ofisi ya kata ya sinoni at -3.4163098, 36.6814466; Sokoni I area, Arusha",
+   "source_type": "Google Maps listing",
+   "note": "Reviewed point (2026-10-11): Google listing of the Sinoni ward office (Ofisi ya Kata ya Sinoni). Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.4163098,36.6814466 (fetched 2026-10-11); as found: Ofisi ya kata ya sinoni at -3.4163098, 36.6814466; Sokoni I area, Arusha"
   }
  },
  "osm_office_links": {
@@ -171,6 +182,39 @@
    "as_found": "node/9329913784 at -3.3167822, 37.4033941; tags {\"name\": \"Halmashauri ya Wilaya Moshi new office\", \"office\": \"government\"}",
    "source_type": "OpenStreetMap",
    "note": "Reviewed point (2026-10-11): OpenStreetMap government office 'Halmashauri ya Wilaya Moshi new office' (a school polygon of the same name marks the same site); the council's website publishes no map point. Source: OpenStreetMap, https://www.openstreetmap.org/node/9329913784 (fetched 2026-10-11); as found: node/9329913784 at -3.3167822, 37.4033941; tags {\"name\": \"Halmashauri ya Wilaya Moshi new office\", \"office\": \"government\"}"
+  },
+  "GOFF_district_hai": {
+   "source": "point",
+   "lat": -3.334014,
+   "lon": 37.142701,
+   "precision": "point",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.334014,37.1427009",
+   "fetched": "2026-10-11",
+   "as_found": "The Office of The District Commissioner - Hai DC at -3.334014, 37.1427009; M48V+93W, Bomang'ombe",
+   "source_type": "Google Maps listing",
+   "note": "Reviewed point (2026-10-11): Google listing of the Hai District Commissioner's office (Ofisi ya Mkuu wa Wilaya ya Hai). Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.334014,37.1427009 (fetched 2026-10-11); as found: The Office of The District Commissioner - Hai DC at -3.334014, 37.1427009; M48V+93W, Bomang'ombe"
+  },
+  "GOFF_district_monduli": {
+   "source": "point",
+   "lat": -3.294838,
+   "lon": 36.4467,
+   "precision": "point",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.2948377,36.4467",
+   "fetched": "2026-10-11",
+   "as_found": "Ofisi ya Mkuu wa Wilaya/ Monduli DC at -3.2948377, 36.4467; PC4W+3M8, Monduli",
+   "source_type": "Google Maps listing",
+   "note": "Reviewed point (2026-10-11): Google listing of the Monduli District Commissioner's office. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.2948377,36.4467 (fetched 2026-10-11); as found: Ofisi ya Mkuu wa Wilaya/ Monduli DC at -3.2948377, 36.4467; PC4W+3M8, Monduli"
+  },
+  "GOFF_district_moshi": {
+   "source": "point",
+   "lat": -3.346168,
+   "lon": 37.339564,
+   "precision": "point",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.346168,37.3395638",
+   "fetched": "2026-10-11",
+   "as_found": "Ofisi ya Mkuu wa Wilaya ya Moshi at -3.346168, 37.3395638; Boma Rd, Moshi",
+   "source_type": "Google Maps listing",
+   "note": "Reviewed point (2026-10-11): Google listing of the Moshi District Commissioner's office. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.346168,37.3395638 (fetched 2026-10-11); as found: Ofisi ya Mkuu wa Wilaya ya Moshi at -3.346168, 37.3395638; Boma Rd, Moshi"
   }
  }
 }

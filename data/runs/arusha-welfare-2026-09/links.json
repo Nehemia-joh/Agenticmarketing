@@ -270,6 +270,106 @@
    "fetched": "2026-10-11",
    "as_found": "node/2702194071 at -3.3855636, 36.7728091; tags {\"amenity\": \"community_centre\", \"name\": \"Sibusiso Centre\"}",
    "source_type": "OpenStreetMap"
+  },
+  "AREM FOUNDATION": {
+   "lat": -3.388128,
+   "lon": 36.898456,
+   "precision": "point",
+   "basis": "Same name; the listing links aremfoundation.or.tz. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3881276,36.8984557 (fetched 2026-10-11); as found: Arem Foundation at -3.3881276, 36.8984557; JV6X+P9, Maji ya Chai; +255 754 661 679; https://www.aremfoundation.or.tz/",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3881276,36.8984557",
+   "fetched": "2026-10-11",
+   "as_found": "Arem Foundation at -3.3881276, 36.8984557; JV6X+P9, Maji ya Chai; +255 754 661 679; https://www.aremfoundation.or.tz/",
+   "source_type": "Google Maps listing"
+  },
+  "TANZANIAN  AMBASSADORS  FACILITATING COMMUNITY-DEVELOPMENT  METHODOLOGIES (TAFCOM)": {
+   "lat": -3.388828,
+   "lon": 37.347894,
+   "precision": "point",
+   "basis": "Same acronym in Moshi, where the record places it. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3888281,37.347894 (fetched 2026-10-11); as found: TAFCOM at -3.3888281, 37.347894; J86X+F56, Mabogini, Moshi",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3888281,37.347894",
+   "fetched": "2026-10-11",
+   "as_found": "TAFCOM at -3.3888281, 37.347894; J86X+F56, Mabogini, Moshi",
+   "source_type": "Google Maps listing"
+  },
+  "Canaan Children's Center": {
+   "lat": -3.347263,
+   "lon": 36.572634,
+   "precision": "point",
+   "basis": "Same name; west of Arusha towards Kisongo, where the record places it. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3472635,36.5726339 (fetched 2026-10-11); as found: Canaan Children Center (CCC) at -3.3472635, 36.5726339; Kisongo area; +255 768 850 196",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3472635,36.5726339",
+   "fetched": "2026-10-11",
+   "as_found": "Canaan Children Center (CCC) at -3.3472635, 36.5726339; Kisongo area; +255 768 850 196",
+   "source_type": "Google Maps listing"
+  },
+  "Emusoi Centre": {
+   "lat": -3.388468,
+   "lon": 36.656077,
+   "precision": "point",
+   "basis": "Exact name and website. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.388468,36.656077 (fetched 2026-10-11); as found: Emusoi Centre at -3.388468, 36.656077; Arusha; +255 736 500 405; http://www.emusoicentre.co.tz/",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.388468,36.656077",
+   "fetched": "2026-10-11",
+   "as_found": "Emusoi Centre at -3.388468, 36.656077; Arusha; +255 736 500 405; http://www.emusoicentre.co.tz/",
+   "source_type": "Google Maps listing"
+  },
+  "Faraja Orphanage Children's Home": {
+   "lat": -3.377731,
+   "lon": 36.758519,
+   "precision": "point",
+   "basis": "Exact name; Shangarai matches the record. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3777305,36.7585194 (fetched 2026-10-11); as found: FARAJA ORPHANAGE CHILDREN'S HOME at -3.3777305, 36.7585194; Shangarai; +255 763 485 866",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3777305,36.7585194",
+   "fetched": "2026-10-11",
+   "as_found": "FARAJA ORPHANAGE CHILDREN'S HOME at -3.3777305, 36.7585194; Shangarai; +255 763 485 866",
+   "source_type": "Google Maps listing"
+  },
+  "Fruitful Orphanage and Day Care Centre": {
+   "lat": -3.372203,
+   "lon": 36.759826,
+   "precision": "point",
+   "basis": "Same name; Duluti area. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3722035,36.7598262 (fetched 2026-10-11); as found: Fruitful Orphanage at -3.3722035, 36.7598262; JQH5+4W8, Arusha (Duluti area); +255 762 353 576; http://www.fruitfulorphanage.jimdo.com/",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3722035,36.7598262",
+   "fetched": "2026-10-11",
+   "as_found": "Fruitful Orphanage at -3.3722035, 36.7598262; JQH5+4W8, Arusha (Duluti area); +255 762 353 576; http://www.fruitfulorphanage.jimdo.com/",
+   "source_type": "Google Maps listing"
+  },
+  "Green Path for Community Success (GP-COSU)": {
+   "lat": -3.349831,
+   "lon": 36.682239,
+   "precision": "point",
+   "basis": "Exact name. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.349831,36.6822392 (fetched 2026-10-11); as found: Green Path for Community Success-Gp-CoSu at -3.349831, 36.6822392; Arusha; +255 755 730 032; http://www.greenpathforcommunity.org/",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.349831,36.6822392",
+   "fetched": "2026-10-11",
+   "as_found": "Green Path for Community Success-Gp-CoSu at -3.349831, 36.6822392; Arusha; +255 755 730 032; http://www.greenpathforcommunity.org/",
+   "source_type": "Google Maps listing"
+  },
+  "Safe Home for Children with Disabilities": {
+   "lat": -3.382356,
+   "lon": 36.69258,
+   "precision": "point",
+   "basis": "Same name; day care centre. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3823564,36.69258 (fetched 2026-10-11); as found: Safehome for Children with Disabilities (SCDI) at -3.3823564, 36.69258; JM9V+324, Arusha; +255 754 504 999",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3823564,36.69258",
+   "fetched": "2026-10-11",
+   "as_found": "Safehome for Children with Disabilities (SCDI) at -3.3823564, 36.69258; JM9V+324, Arusha; +255 754 504 999",
+   "source_type": "Google Maps listing"
+  },
+  "Samaritan Village Orphanage": {
+   "lat": -3.401848,
+   "lon": 36.745562,
+   "precision": "point",
+   "basis": "Same name; Nelson Mandela Road near Moshono matches the record. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.4018485,36.7455619 (fetched 2026-10-11); as found: Samaritan Village Orphanage Center at -3.4018485, 36.7455619; HPXW+767, Nelson Mandela Rd; +255 754 507 376",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.4018485,36.7455619",
+   "fetched": "2026-10-11",
+   "as_found": "Samaritan Village Orphanage Center at -3.4018485, 36.7455619; HPXW+767, Nelson Mandela Rd; +255 754 507 376",
+   "source_type": "Google Maps listing"
+  },
+  "Compassion International Tanzania": {
+   "lat": -3.365437,
+   "lon": 36.705841,
+   "precision": "point",
+   "basis": "Building named in the record's own address (PAPU Tower, Plot 144, Block Z); the point is the building. Source: Google Maps listing, https://www.google.com/maps/search/?api=1&query=-3.3654366,36.7058409 (fetched 2026-10-11); as found: PAPU Tower at -3.3654366, 36.7058409; PAPU Tower, Plot 144, Block Z, Sekei, Arusha",
+   "url": "https://www.google.com/maps/search/?api=1&query=-3.3654366,36.7058409",
+   "fetched": "2026-10-11",
+   "as_found": "PAPU Tower at -3.3654366, 36.7058409; PAPU Tower, Plot 144, Block Z, Sekei, Arusha",
+   "source_type": "Google Maps listing"
   }
  },
  "nis_to_org_evidence": {

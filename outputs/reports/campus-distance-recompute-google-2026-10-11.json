@@ -1,0 +1,33 @@
+{
+ "stats": {
+  "stored distance kept": 640,
+  "coordinates": 213,
+  "no location": 73,
+  "gazetteer point reproduced": 45,
+  "records to update": 1,
+  "nearest campus changed": 0
+ },
+ "nearest_campus_changed": [],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

@@ -1,6 +1,6 @@
 # Lead map
 
-`outputs/maps/Silverleaf Lead Map.html` shows every lead of the company master, the welfare run and the government run around the five campuses. It is one self-contained page: the leads, the campuses and the basemap are embedded, and only the MapLibre GL JS script comes from a CDN.
+`outputs/maps/Silverleaf Lead Map.html` shows every lead of the company master, the welfare run and the government run around the five campuses. It is one complete HTML page that works opened from disk or from a web server: the leads, the campuses and the basemap are embedded, and the MapLibre GL JS 4.7.1 script comes from a CDN. The default view needs nothing else; the other views load tiles from their providers while the page is open. The page is self-hosted, so it may call those providers.
 
 ```powershell
 python scripts/maps/build_basemap.py     # only when the basemap needs refreshing (Overpass; cached in runtime/maps/)
@@ -26,6 +26,43 @@ python scripts/maps/build_lead_map.py    # read-only on the databases; prints co
 
   Steps 3 and 4 give an estimated location, drawn with a dashed outline. Leads at one spot are laid on a small spiral so each can be clicked. Leads outside the map box (3.75 to 2.95 S, 36.30 to 37.55 E) or with no location are listed in the page, not drawn.
 - **Nearest campus and distance** are straight-line, from the master's `campuses` table.
+
+## Map views
+
+A segmented control beside the zoom buttons switches the basemap. The leads, campus pins, distance rings, filters, counts and popups stay the same in every view.
+
+| View | What it shows | Source | Attribution shown |
+|---|---|---|---|
+| **Lead map** (default) | The embedded basemap below, in the page's light or dark colours | `data/reference/maps/arusha-catchment-basemap.geojson`, inside the page | © OpenStreetMap contributors |
+| **Street** | Buildings, shop and office names, street names (zoom to 18) | [OpenFreeMap](https://openfreemap.org) `liberty` style, `https://tiles.openfreemap.org/styles/liberty` | OpenFreeMap © OpenMapTiles Data from © OpenStreetMap contributors |
+| **Terrain** | Hill shading over the lead map's basemap | [Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) on AWS Open Data, Terrarium encoding, `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png` | © OpenStreetMap contributors · Elevation: Terrain Tiles (Mapzen, AWS Open Data; SRTM and GMTED2010 courtesy of the U.S. Geological Survey, ETOPO1 by NOAA) |
+| **Topographic** | Contours, relief, paths and place names | [OpenTopoMap](https://opentopomap.org), `https://tile.opentopomap.org/{z}/{x}/{y}.png` | Map data: © OpenStreetMap contributors, SRTM \| Map style: © OpenTopoMap (CC-BY-SA) |
+
+How it works (`scripts/maps/lead_map_template.html`, the `VIEWS` list):
+- Each view builds a complete MapLibre style: its basemap, then our overlay (`rings`, `excluded`, `leads`).
+- Switching calls `map.setStyle(style, { diff: false })`. On `style.load` the page redraws the marker images and sets the overlay data from the current filters. A `styleimagemissing` handler draws any marker image that is missing.
+- Campus pins, popups and the place labels are HTML, so a style change does not touch them. Place labels are hidden in Street and Topographic, which have their own.
+- The page fetches the Street style document itself, with a 12-second timeout, before switching. If that fails, the map stays on the current view and a note says why.
+- If the current view's tiles, sprite or fonts fail to load, a small note offers **Back to Lead map**. The leads and filters keep working either way.
+- The chosen view is kept per viewer in `localStorage` (`silverleaf-lead-map-view`). Each read and write is wrapped in try/catch, so blocked storage falls back to Lead map. A saved view other than Lead map is applied after the first load, so a provider that is down cannot blank the page.
+- Themes: Lead map and Terrain follow light and dark; the hill shading has its own light and dark colours. Street uses `liberty` in both themes, because OpenFreeMap's dark styles (`dark`, `fiord`) and `positron` leave out shop and office names. Topographic is light only, because its tiles are fixed images.
+- **Satellite** is deferred until a provider is chosen. The commented entry at the end of `VIEWS`, and the matching branch in `viewStyle()`, are where it goes.
+
+Provider terms, checked 2026-10-11:
+- **OpenFreeMap:** free, with no key, no registration and no cookies. Production and commercial use are allowed and no limits are stated. There is no SLA. Attribution is required.
+- **AWS Terrain Tiles:** an open dataset on the AWS Registry of Open Data. Its source credits are in [joerd's attribution.md](https://github.com/tilezen/joerd/blob/master/docs/attribution.md). Around Arusha the data comes from SRTM, GMTED2010 and ETOPO1.
+- **OpenTopoMap:** CC-BY-SA, free with attribution. Its FAQ allows embedding in websites as long as the server is not overloaded, for example by mass downloads. There is no numeric quota and no uptime guarantee. That suits a small self-hosted page; do not prefetch or bulk-download its tiles. The operators welcome a short note about how the map is used.
+- **Not used:** `tile.openstreetmap.org`. Its tile usage policy rules out this kind of production use.
+
+## Street-level links
+
+Every popup (lead, excluded record and campus) has a **See the place** row. Each link opens in a new tab, and the links carry the coordinates only:
+- **Street View:** `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=<lat>,<lon>`
+- **Mapillary:** `https://www.mapillary.com/app/?lat=<lat>&lng=<lon>&z=17`
+- **Google Maps:** `https://www.google.com/maps/search/?api=1&query=<lat>,<lon>`
+- **OpenStreetMap:** `https://www.openstreetmap.org/?mlat=<lat>&mlon=<lon>#map=18/<lat>/<lon>`
+
+For a lead with an estimated location (dashed outline), the popup says that the point is approximate, so street-level imagery may show the general area rather than the building. Street View and Mapillary coverage around Arusha is patchy away from the main roads. Where a link finds no imagery, Google shows the nearest panorama or none, and Mapillary opens an empty map.
 
 ## Privacy
 

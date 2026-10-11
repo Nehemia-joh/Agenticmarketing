@@ -173,13 +173,30 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
 .legend-body .row { display: flex; gap: 7px; align-items: center; }
 .legend-body .full { grid-column: 1 / -1; }
 .legend-body p { margin: 0; color: var(--muted); font-size: 11.5px; }
-.attrib { position: absolute; left: 0; bottom: 0; z-index: 2; background: var(--label-halo); color: var(--muted); font-size: 11px; padding: 2px 8px; border-top-right-radius: 6px; }
+.attrib { position: absolute; left: 0; bottom: 0; z-index: 2; background: var(--label-halo); color: var(--muted); font-size: 11px; padding: 2px 8px; border-top-right-radius: 6px; max-width: calc(100% - 340px); box-sizing: border-box; }
+.attrib a { color: inherit; }
+.labels.no-places .lbl:not(.ring) { visibility: hidden; }
+
+/* View switcher: a segmented control beside the zoom buttons. */
+.views { position: absolute; right: 64px; top: 16px; z-index: 2; display: flex; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+.views button { border: 0; background: none; cursor: pointer; font-size: 12.5px; font-weight: 600; padding: 0 11px; height: 36px; color: var(--muted); white-space: nowrap; }
+.views button + button { border-left: 1px solid var(--line); }
+.views button:hover { background: var(--raised); color: var(--ink); }
+.views button[aria-pressed="true"] { background: var(--campus); color: var(--campus-text); }
+.views button[aria-busy="true"] { opacity: 0.6; cursor: progress; }
+.views .short { display: none; }
+.notice { position: absolute; right: 64px; top: 60px; z-index: 3; max-width: 320px; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-left: 3px solid var(--wel); border-radius: 10px; box-shadow: var(--shadow); padding: 10px 12px; font-size: 12.5px; display: flex; flex-direction: column; gap: 8px; }
+.notice[hidden] { display: none; }
+.notice p { margin: 0; }
+.notice .acts { display: flex; gap: 8px; justify-content: flex-end; }
+.notice button { border: 1px solid var(--line); background: var(--raised); border-radius: 999px; padding: 4px 11px; cursor: pointer; font-size: 12.5px; font-weight: 600; }
+.notice button.primary { background: var(--campus); color: var(--campus-text); border-color: var(--campus); }
 .zoom { position: absolute; right: 16px; top: 16px; z-index: 2; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
 .zoom button { width: 36px; height: 36px; border: 0; background: none; cursor: pointer; font-size: 18px; line-height: 1; }
 .zoom button + button { border-top: 1px solid var(--line); }
 .zoom button:hover { background: var(--raised); }
 
-/* MapLibre essentials (its stylesheet cannot be loaded from a CDN here). */
+/* MapLibre essentials, inline so the page needs only the MapLibre script (attribution is our own .attrib box). */
 .maplibregl-map { position: relative; overflow: hidden; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 .maplibregl-canvas { position: absolute; left: 0; top: 0; }
 .maplibregl-canvas-container.maplibregl-interactive { cursor: grab; }
@@ -210,6 +227,10 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
 .pop dt { color: var(--muted); }
 .pop dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 .pop .why { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+.pop .look { margin: -2px 0 10px; padding-bottom: 8px; border-bottom: 1px solid var(--line); font-size: 12.5px; }
+.pop .look .eyebrow { display: block; margin-bottom: 3px; }
+.pop .look .links { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.pop .look a { color: var(--focus); text-underline-offset: 2px; white-space: nowrap; padding: 2px 0; }
 .badge { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 1px 7px; border-radius: 999px; border: 1px solid currentColor; }
 
 @media (max-width: 760px) {
@@ -225,10 +246,19 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
   .panel-head p { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .panel-head .long { display: none; }
   .drawer-toggle { display: inline-flex; border: 1px solid var(--line); background: var(--raised); border-radius: 999px; padding: 7px 14px; cursor: pointer; font-weight: 600; flex: none; }
-  .legend { left: 16px; right: auto; top: 16px; bottom: auto; max-width: calc(100% - 92px); }
+  .legend { left: 16px; right: auto; top: 60px; bottom: auto; max-width: calc(100% - 92px); }
   .legend-body { grid-template-columns: 1fr; max-height: 50vh; overflow-y: auto; }
-  .zoom { top: 16px; right: 16px; }
-  .attrib { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+  .views { right: 16px; top: 16px; }
+  .views button { padding: 0 10px; }
+  .views .long { display: none; }
+  .views .short { display: inline; }
+  .zoom { top: 60px; right: 16px; }
+  .notice { left: 16px; right: 16px; top: 60px; max-width: none; }
+  .attrib { bottom: calc(64px + env(safe-area-inset-bottom, 0px)); max-width: 100%; }
+  /* A 330 px popup cannot sit beside a point on a phone without running off the screen: dock it as a card above the drawer. */
+  .maplibregl-popup { transform: none !important; left: 12px; right: 12px; top: auto; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); max-width: none !important; }
+  .maplibregl-popup-content { flex: 1; max-height: 48vh; }
+  .maplibregl-popup-tip { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { .panel { transition: none; } }
 </style>
@@ -284,6 +314,7 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
         <p>Leads come from the company master, the welfare run and the government run. Confidence follows the Resend segments: who the first message reaches and how sure we are it reaches the person who can say yes.</p>
         <p>The map shows organisations, roles and reasons only. No personal names, addresses or numbers.</p>
         <p id="attribText"></p>
+        <p id="viewCredit"></p>
       </section>
     </div>
   </aside>
@@ -291,12 +322,14 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
   <main class="mapwrap">
     <div id="map" role="region" aria-label="Map of leads around the Silverleaf campuses"></div>
     <div class="labels" id="labels" aria-hidden="true"></div>
+    <div class="views" id="views" role="group" aria-label="Map view"></div>
+    <div class="notice" id="notice" role="status" hidden></div>
     <div class="zoom"><button type="button" id="zoomIn" aria-label="Zoom in">+</button><button type="button" id="zoomOut" aria-label="Zoom out">&#8722;</button><button type="button" id="zoomAll" aria-label="Show the whole catchment" title="Whole catchment">&#8962;</button></div>
     <details class="legend" id="legend" open>
       <summary>Legend</summary>
       <div class="legend-body" id="legendBody"></div>
     </details>
-    <div class="attrib">&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" style="color:inherit">OpenStreetMap</a> contributors</div>
+    <div class="attrib" id="attrib">&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
   </main>
 </div>
 
@@ -432,12 +465,9 @@ const BASE = /*__BASEMAP__*/null;
   const phone = window.matchMedia("(max-width: 760px)").matches;
   const bboxAll = phone ? [[36.62, -3.47], [36.92, -3.27]] : [[36.49, -3.47], [37.40, -3.24]];
   const base = (layer) => ["==", ["get", "layer"], layer];
-  const map = window.maplibregl ? new maplibregl.Map({
-    container: "map", attributionControl: false, bounds: bboxAll, fitBoundsOptions: { padding: 30 },
-    maxBounds: [[DATA.bbox[0] - 0.25, DATA.bbox[1] - 0.2], [DATA.bbox[2] + 0.25, DATA.bbox[3] + 0.2]], minZoom: 8, maxZoom: 17,
-    dragRotate: false, pitchWithRotate: false, touchPitch: false,
-    style: {
-      version: 8,
+  // The lead map's own basemap: the embedded OpenStreetMap extract. Used by the Lead map view and, with hill shading, by Terrain.
+  function leadBase() {
+    return {
       sources: { base: { type: "geojson", data: BASE, tolerance: 0.3 } },
       layers: [
         { id: "bg", type: "background", paint: { "background-color": "#e9ede7" } },
@@ -452,24 +482,165 @@ const BASE = /*__BASEMAP__*/null;
         { id: "major-case", type: "line", source: "base", filter: ["all", base("road"), ["in", ["get", "class"], ["literal", ["trunk", "primary"]]]], layout: { "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#c99542", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.8, 14, 8] } },
         { id: "major", type: "line", source: "base", filter: ["all", base("road"), ["in", ["get", "class"], ["literal", ["trunk", "primary"]]]], layout: { "line-join": "round", "line-cap": "round" }, paint: { "line-color": "#e9b863", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1, 14, 6] } },
       ],
-    },
+    };
+  }
+
+  // Our own sources and layers, drawn on top of every view: distance rings, excluded records and leads. Their data is set
+  // by drawRings() and update() after each style load, so a view change keeps every filter, count and popup.
+  const OVERLAY_IDS = ["rings", "excluded", "leads"];
+  function overlay() {
+    const empty = () => ({ type: "geojson", data: { type: "FeatureCollection", features: [] } });
+    const iconSize = ["interpolate", ["linear"], ["zoom"], 8, 0.55, 10, 0.7, 12, 0.9, 15, 1.15];
+    return {
+      sources: { rings: empty(), excluded: empty(), leads: empty() },
+      layers: [
+        { id: "rings", type: "line", source: "rings", paint: { "line-color": "#15201b", "line-width": 1.4, "line-dasharray": [2, 2], "line-opacity": 0.7 } },
+        { id: "excluded", type: "symbol", source: "excluded", layout: { "icon-image": ["get", "icon"], "icon-size": iconSize, "icon-allow-overlap": true, "icon-ignore-placement": true } },
+        { id: "leads", type: "symbol", source: "leads", layout: { "icon-image": ["get", "icon"], "icon-size": iconSize, "icon-allow-overlap": true, "icon-ignore-placement": true, "symbol-sort-key": ["get", "rank"] } },
+      ],
+    };
+  }
+
+  // ---------------------------------------------------------------- map views
+  // Each view builds a complete style: its basemap, then the overlay. Switching calls map.setStyle with diff off, and the
+  // style.load handler re-adds the marker images and the overlay data. Campus pins, popups and place labels are HTML and stay.
+  // `remote` lists the sources served by an outside provider: an error from one of them offers the way back to Lead map.
+  const OSM = '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
+  const VIEWS = [
+    { k: "lead", label: "Lead map", short: "Lead map", maxZoom: 17, places: true, remote: [],
+      credit: OSM,
+      note: "Lead map: the embedded OpenStreetMap extract; works offline once the page has loaded." },
+    { k: "street", label: "Street", short: "Street", maxZoom: 18, places: false, remote: ["openmaptiles", "ne2_shaded"],
+      styleURL: "https://tiles.openfreemap.org/styles/liberty", // Liberty in both themes: Positron and Dark leave out shop and office names.
+      credit: '<a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a> &copy; <a href="https://www.openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> Data from ' + OSM,
+      note: "Street: OpenFreeMap Liberty style (OpenMapTiles schema) of OpenStreetMap data, loaded from tiles.openfreemap.org." },
+    { k: "terrain", label: "Terrain", short: "Terrain", maxZoom: 17, places: true, remote: ["dem"],
+      credit: OSM + ' &middot; Elevation: <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md" target="_blank" rel="noopener">Terrain Tiles</a> (Mapzen, AWS Open Data; SRTM and GMTED2010 courtesy of the U.S. Geological Survey, ETOPO1 by NOAA)',
+      note: "Terrain: hill shading from the Terrain Tiles open dataset on AWS (Terrarium encoding) over the lead map's basemap." },
+    { k: "topo", label: "Topographic", short: "Topo", maxZoom: 17, places: false, remote: ["topo"],
+      credit: 'Map data: ' + OSM + ', SRTM | Map style: &copy; <a href="https://opentopomap.org" target="_blank" rel="noopener">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener">CC-BY-SA</a>)',
+      note: "Topographic: OpenTopoMap raster tiles (contours and relief), a volunteer service for light use." },
+    // Extension point: a satellite view is deferred until a provider is chosen. Add an entry here, e.g.
+    // { k: "satellite", label: "Satellite", short: "Sat", maxZoom: 18, places: true, remote: ["sat"], credit: "<provider credit>", note: "..." },
+    // and a branch in viewStyle() returning a raster source "sat" (its tile URL and tileSize) with one raster layer.
+  ];
+  const VIEW = Object.fromEntries(VIEWS.map((v) => [v.k, v]));
+  const VIEW_KEY = "silverleaf-lead-map-view";
+  const streetStyles = {};
+
+  function hillshadePaint() {
+    const th = document.documentElement.getAttribute("data-theme");
+    const dark = th === "dark" || (th !== "light" && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    return dark
+      ? { "hillshade-exaggeration": 0.8, "hillshade-shadow-color": "#000000", "hillshade-highlight-color": "rgba(255, 255, 255, 0.24)", "hillshade-accent-color": "#000000", "hillshade-illumination-direction": 315 }
+      : { "hillshade-exaggeration": 0.5, "hillshade-shadow-color": "rgba(38, 52, 44, 0.75)", "hillshade-highlight-color": "rgba(255, 255, 255, 0.55)", "hillshade-accent-color": "rgba(38, 52, 44, 0.6)", "hillshade-illumination-direction": 315 };
+  }
+
+  // The style for a view, without the overlay. Street needs its style document first (fetchStreet).
+  function viewStyle(k) {
+    if (k === "street") {
+      const s = JSON.parse(JSON.stringify(streetStyles.liberty));
+      return { sources: s.sources, layers: s.layers, glyphs: s.glyphs, sprite: s.sprite };
+    }
+    const lb = leadBase();
+    if (k === "terrain") {
+      lb.sources.dem = { type: "raster-dem", encoding: "terrarium", tiles: ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+        tileSize: 256, minzoom: 0, maxzoom: 15 };
+      const at = lb.layers.findIndex((l) => l.id === "water");
+      lb.layers.splice(at, 0, { id: "hillshade", type: "hillshade", source: "dem", paint: hillshadePaint() });
+      return lb;
+    }
+    if (k === "topo") {
+      return { sources: { topo: { type: "raster", tiles: ["https://tile.opentopomap.org/{z}/{x}/{y}.png"], tileSize: 256, maxzoom: 17 } },
+        layers: [{ id: "bg", type: "background", paint: { "background-color": "#f2efe9" } }, { id: "topo", type: "raster", source: "topo" }] };
+    }
+    return lb;
+  }
+  function composeStyle(k) {
+    const v = viewStyle(k), o = overlay();
+    const style = { version: 8, sources: Object.assign({}, v.sources, o.sources), layers: v.layers.concat(o.layers) };
+    if (v.glyphs) style.glyphs = v.glyphs;
+    if (v.sprite) style.sprite = v.sprite;
+    return style;
+  }
+  async function fetchStreet() {
+    if (streetStyles.liberty) return;
+    const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 12000);
+    try {
+      const res = await fetch(VIEW.street.styleURL, { signal: ctl.signal, mode: "cors" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const s = await res.json();
+      if (!s || !Array.isArray(s.layers) || !s.sources) throw new Error("not a map style");
+      for (const id of OVERLAY_IDS) if (s.sources[id] || s.layers.some((l) => l.id === id)) throw new Error("style uses our id " + id);
+      streetStyles.liberty = s;
+    } finally { clearTimeout(timer); }
+  }
+
+  const map = window.maplibregl ? new maplibregl.Map({
+    container: "map", attributionControl: false, bounds: bboxAll, fitBoundsOptions: { padding: 30 },
+    maxBounds: [[DATA.bbox[0] - 0.25, DATA.bbox[1] - 0.2], [DATA.bbox[2] + 0.25, DATA.bbox[3] + 0.2]], minZoom: 8, maxZoom: 17,
+    dragRotate: false, pitchWithRotate: false, touchPitch: false,
+    style: composeStyle("lead"),
   }) : null;
 
-  function applyTheme() {
-    if (!map || !map.getLayer("bg")) return;
-    const t = (n) => token(n);
-    map.setPaintProperty("bg", "background-color", t("--bg"));
-    map.setPaintProperty("park", "fill-color", t("--park"));
-    map.setPaintProperty("park-line", "line-color", t("--park-line"));
-    map.setPaintProperty("water", "fill-color", t("--water"));
-    map.setPaintProperty("river", "line-color", t("--water-line"));
-    map.setPaintProperty("district", "line-color", t("--district"));
-    map.setPaintProperty("street", "line-color", t("--road"));
-    map.setPaintProperty("road-case", "line-color", t("--road-case"));
-    map.setPaintProperty("road", "line-color", t("--road"));
-    map.setPaintProperty("major-case", "line-color", t("--road-major-case"));
-    map.setPaintProperty("major", "line-color", t("--road-major"));
-    if (map.getLayer("rings")) map.setPaintProperty("rings", "line-color", t("--ring"));
+  let view = "lead", switching = 0, viewFailed = false;
+  function readSavedView() { try { const v = localStorage.getItem(VIEW_KEY); return VIEW[v] ? v : "lead"; } catch (e) { return "lead"; } }
+  function saveView(k) { try { localStorage.setItem(VIEW_KEY, k); } catch (e) { /* storage blocked: the choice lasts this visit */ } }
+  function renderViews(busy) {
+    document.getElementById("views").innerHTML = VIEWS.map((v) => `<button type="button" data-view="${v.k}" aria-pressed="${v.k === view}"${busy === v.k ? ' aria-busy="true"' : ""}>`
+      + `<span class="long">${esc(v.label)}</span><span class="short" aria-hidden="true">${esc(v.short)}</span></button>`).join("");
+    document.getElementById("attrib").innerHTML = VIEW[view].credit;
+    document.getElementById("viewCredit").textContent = VIEW[view].note;
+  }
+  const notice = document.getElementById("notice");
+  function showNotice(text, offerBack) {
+    notice.innerHTML = `<p>${esc(text)}</p><div class="acts">${offerBack ? '<button type="button" class="primary" data-act="back">Back to Lead map</button>' : ""}<button type="button" data-act="close">${offerBack ? "Keep this view" : "OK"}</button></div>`;
+    notice.hidden = false;
+  }
+  function hideNotice() { notice.hidden = true; notice.innerHTML = ""; }
+  notice.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-act]"); if (!b) return;
+    hideNotice();
+    if (b.dataset.act === "back") setView("lead");
+  });
+
+  async function setView(k, quiet) {
+    if (!map || !VIEW[k]) return;
+    const ticket = ++switching;
+    hideNotice();
+    if (k === "street") {
+      renderViews(k);
+      try { await fetchStreet(); } catch (err) {
+        if (ticket !== switching) return;
+        renderViews();
+        window.__mapErrors.push("street style: " + (err && err.message));
+        if (!quiet) showNotice(`The street map did not load (${navigator.onLine === false ? "you are offline" : "the provider did not answer"}). The map stays on ${VIEW[view].label}.`, false);
+        return;
+      }
+      if (ticket !== switching) return;
+    }
+    view = k; viewFailed = false;
+    saveView(k);
+    renderViews();
+    document.getElementById("labels").classList.toggle("no-places", !VIEW[k].places);
+    map.setMaxZoom(VIEW[k].maxZoom);
+    try { map.setStyle(composeStyle(k), { diff: false }); } catch (err) {
+      window.__mapErrors.push("setStyle: " + (err && err.message));
+      if (k !== "lead") { showNotice(`The ${VIEW[k].label.toLowerCase()} view could not be drawn.`, false); setView("lead", true); }
+    }
+  }
+  // A tile, sprite or font that fails to load from the current view's provider: say so once and offer the way back.
+  function onViewError(e) {
+    if (view === "lead" || viewFailed) return;
+    const v = VIEW[view], msg = String((e && e.error && (e.error.message || e.error.url)) || "");
+    const fromView = (e && e.sourceId && v.remote.includes(e.sourceId)) || (view === "street" && /openfreemap/i.test(msg))
+      || (view === "terrain" && /elevation-tiles/i.test(msg)) || (view === "topo" && /opentopomap/i.test(msg));
+    if (!fromView) return;
+    viewFailed = true;
+    showNotice(`Some ${v.label.toLowerCase()} tiles did not load (${navigator.onLine === false ? "you are offline" : "the provider is not answering"}). Leads, filters and counts still work.`, true);
+  }
+
+  function installIcons() {
     for (const seg of [...SEGS.map((s) => s.k), "exc"]) {
       for (const conf of seg === "exc" ? ["x"] : CONFS.map((c) => c.k)) {
         for (const est of [0, 1]) {
@@ -478,6 +649,26 @@ const BASE = /*__BASEMAP__*/null;
         }
       }
     }
+  }
+  function applyTheme() {
+    if (!map || !map.getLayer("leads")) return;
+    const t = (n) => token(n);
+    const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
+    paint("bg", "background-color", view === "topo" ? "#f2efe9" : t("--bg"));
+    paint("park", "fill-color", t("--park"));
+    paint("park-line", "line-color", t("--park-line"));
+    paint("water", "fill-color", t("--water"));
+    paint("river", "line-color", t("--water-line"));
+    paint("district", "line-color", t("--district"));
+    paint("street", "line-color", t("--road"));
+    paint("road-case", "line-color", t("--road-case"));
+    paint("road", "line-color", t("--road"));
+    paint("major-case", "line-color", t("--road-major-case"));
+    paint("major", "line-color", t("--road-major"));
+    if (map.getLayer("hillshade")) for (const [p, v] of Object.entries(hillshadePaint())) map.setPaintProperty("hillshade", p, v);
+    // The street and topographic styles are light in both themes, so the rings stay dark there.
+    paint("rings", "line-color", view === "street" || view === "topo" ? "#15201b" : t("--ring"));
+    installIcons();
     renderLegend();
   }
 
@@ -501,19 +692,35 @@ const BASE = /*__BASEMAP__*/null;
   }
 
   if (map) {
-    map.on("error", (e) => { const m = (e && e.error && e.error.message) || String(e); window.__mapErrors.push(m); console.error("map:", m); });
-    map.on("load", () => {
-      map.addSource("rings", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-      map.addLayer({ id: "rings", type: "line", source: "rings", paint: { "line-color": "#15201b", "line-width": 1.4, "line-dasharray": [2, 2], "line-opacity": 0.7 } });
-      map.addSource("excluded", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-      map.addSource("leads", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-      const iconSize = ["interpolate", ["linear"], ["zoom"], 8, 0.55, 10, 0.7, 12, 0.9, 15, 1.15];
-      map.addLayer({ id: "excluded", type: "symbol", source: "excluded", layout: { "icon-image": ["get", "icon"], "icon-size": iconSize, "icon-allow-overlap": true, "icon-ignore-placement": true } });
-      map.addLayer({ id: "leads", type: "symbol", source: "leads", layout: { "icon-image": ["get", "icon"], "icon-size": iconSize, "icon-allow-overlap": true, "icon-ignore-placement": true, "symbol-sort-key": ["get", "rank"] } });
+    map.on("error", (e) => {
+      const m = (e && e.error && (e.error.message || e.error.url)) || String(e);
+      if (window.__mapErrors.length < 200) window.__mapErrors.push((e && e.sourceId ? e.sourceId + ": " : "") + m);
+      console.error("map:", m);
+      onViewError(e);
+    });
+    // Every style load (the first one and each view change): marker images, theme colours, then the overlay data.
+    map.on("style.load", () => {
       applyTheme();
+      update();
+      drawRings();
+    });
+    // A marker image the style lacks (for instance mid-switch) is drawn on demand.
+    map.on("styleimagemissing", (e) => {
+      const [seg, conf, est] = String(e.id).split("|");
+      if ((SEG[seg] && CONF[conf]) || (seg === "exc" && conf === "x")) {
+        if (!map.hasImage(e.id)) map.addImage(e.id, drawIcon(seg, conf, est === "1"), { pixelRatio: 2 });
+      }
+    });
+    renderViews();
+    document.getElementById("views").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-view]");
+      if (b && b.dataset.view !== view) setView(b.dataset.view);
+    });
+    map.on("load", () => {
       addCampusPins();
       buildLabels();
-      update();
+      const saved = readSavedView();
+      if (saved !== "lead") setView(saved, true);
       for (const id of ["leads", "excluded"]) {
         map.on("click", id, (e) => { const f = e.features[0]; openPopup(id === "leads" ? leads[f.properties.i] : excl[f.properties.i], id === "excluded"); });
         map.on("mouseenter", id, () => map.getCanvasContainer().classList.add("hovering"));
@@ -553,7 +760,7 @@ const BASE = /*__BASEMAP__*/null;
     const near = leads.filter((l) => l.cp === c.key);
     const within = (km) => leads.filter((l) => hav(l.la, l.lo, c.lat, c.lon) <= km).length;
     const bySeg = SEGS.map((s) => `${esc(s.label)} ${fmt(near.filter((l) => l.s === s.k).length)}`).join(" · ");
-    const html = `<div class="pop"><h2>${esc(c.label)}</h2><div class="tag"><span class="campus-pin" style="pointer-events:none"><span class="dia" style="width:9px;height:9px;border-width:2px"></span></span>Silverleaf campus</div><dl>`
+    const html = `<div class="pop"><h2>${esc(c.label)}</h2><div class="tag"><span class="campus-pin" style="pointer-events:none"><span class="dia" style="width:9px;height:9px;border-width:2px"></span></span>Silverleaf campus</div>${lookLinks(c.lat, c.lon, !c.pin)}<dl>`
       + `<dt>Nearest campus for</dt><dd>${fmt(near.length)} leads on the map<span class="why">${bySeg}</span></dd>`
       + `<dt>Leads within</dt><dd>5 km: ${fmt(within(5))} · 10 km: ${fmt(within(10))} · 25 km: ${fmt(within(25))}<span class="why">Any segment, whichever campus is nearest</span></dd>`
       + `<dt>Source</dt><dd>${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener" style="color:inherit">${esc(c.source)}</a>` : esc(c.source)}</dd></dl></div>`;
@@ -775,6 +982,20 @@ const BASE = /*__BASEMAP__*/null;
 
   // ---------------------------------------------------------------- popup
   let popup = null;
+  // Street-level links for a point, each in a new tab. Coordinates only: no organisation name leaves the page.
+  function lookLinks(lat, lon, approx) {
+    const la = Number(lat).toFixed(6), lo = Number(lon).toFixed(6);
+    const links = [
+      ["Street View", `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${la},${lo}`],
+      ["Mapillary", `https://www.mapillary.com/app/?lat=${la}&lng=${lo}&z=17`],
+      ["Google Maps", `https://www.google.com/maps/search/?api=1&query=${la},${lo}`],
+      ["OpenStreetMap", `https://www.openstreetmap.org/?mlat=${la}&mlon=${lo}#map=18/${la}/${lo}`],
+    ];
+    return `<div class="look"><span class="eyebrow">See the place</span><div class="links">`
+      + links.map(([t, u]) => `<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">${t}</a>`).join("") + `</div>`
+      + (approx ? `<span class="why">Approximate point: street-level imagery may show the general area rather than the building.</span>` : "")
+      + `</div>`;
+  }
   function subLine(l) {
     const u = l.u;
     if (l.s === "emp") return [u.kind, u.variant !== "none" ? "Variant " + LABELS.variant[u.variant] : "", u.tier !== "unranked" ? "Reach tier " + u.tier : ""].filter(Boolean);
@@ -788,12 +1009,12 @@ const BASE = /*__BASEMAP__*/null;
     const camp = CAMPUS[l.cp];
     let html = `<div class="pop"><h2>${esc(l.n)}</h2>`;
     if (isExcl) {
-      html += `<div class="tag">${swatch("grey")}Excluded record (${l.src === "welfare" ? "welfare run" : "company master"})</div><dl>`
+      html += `<div class="tag">${swatch("grey")}Excluded record (${l.src === "welfare" ? "welfare run" : "company master"})</div>${lookLinks(l.la, l.lo, l.e)}<dl>`
         + `<dt>Why</dt><dd>${esc(l.y)}</dd><dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km</dd><dt>Location</dt><dd>${esc(l.h)}</dd></dl></div>`;
     } else {
       const c = CONF[l.c];
       const est = l.e ? `${esc(l.h)}${l.sp > 1 ? `; spread with ${l.sp - 1} other lead${l.sp > 2 ? "s" : ""} at the same spot` : ""}` : esc(l.h) + (l.sp > 1 ? "; nudged apart from a lead at the same point" : "");
-      html += `<div class="tag">${swatch(l.s)}${esc(SEG[l.s].one)}</div><dl>`
+      html += `<div class="tag">${swatch(l.s)}${esc(SEG[l.s].one)}</div>${lookLinks(l.la, l.lo, l.e)}<dl>`
         + `<dt>Subsegment</dt><dd>${subLine(l).map(esc).join(" · ")}</dd>`
         + `<dt>Confidence</dt><dd><span class="badge" style="color:var(--${l.s})">${esc(c.label)}</span><span class="why">${esc(l.y.charAt(0).toUpperCase() + l.y.slice(1))}</span></dd>`
         + `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km (straight line)</dd>`
@@ -863,7 +1084,7 @@ const BASE = /*__BASEMAP__*/null;
   renderUnmapped();
   renderLegend();
   update();
-  window.__leadMap = { map, leads, state, update, selectCampus };
+  window.__leadMap = { map, leads, state, update, selectCampus, setView, view: () => view, openPopup, campusPopup, VIEWS };
 })();
 </script>
 </body>

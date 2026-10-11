@@ -273,13 +273,51 @@
    "contacts_with_incomplete_names": 0,
    "source_files": 2,
    "contacts_after": 1075
+  },
+  {
+   "run_date": "2026-10-11",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "organisations_updated": 89,
+   "fields_filled": 183,
+   "facts": 566,
+   "contacts_inserted": 51,
+   "reviews": 21,
+   "plans_unheld": 26,
+   "plans_held_for_closure": 2,
+   "plans_held_for_unconfirmed_route": 0,
+   "plans_released_route_confirmed": 0,
+   "research_emails_cleaned": 0,
+   "contacts_on_twin_records_skipped": 0,
+   "contacts_with_incomplete_names": 4,
+   "source_files": 5,
+   "contacts_after": 1126
+  },
+  {
+   "run_date": "2026-10-11",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "organisations_updated": 90,
+   "fields_filled": 186,
+   "facts": 569,
+   "contacts_inserted": 44,
+   "reviews": 21,
+   "plans_unheld": 27,
+   "plans_held_for_closure": 2,
+   "plans_held_for_unconfirmed_route": 0,
+   "plans_released_route_confirmed": 0,
+   "research_emails_cleaned": 0,
+   "contacts_on_twin_records_skipped": 0,
+   "contacts_with_incomplete_names": 4,
+   "source_files": 5,
+   "contacts_after": 1119
   }
  ],
  "totals": {
-  "contacts_inserted": 679,
-  "fields_filled": 702,
-  "plans_unheld": 112,
-  "organisations_updated": 364
+  "contacts_inserted": 774,
+  "fields_filled": 1071,
+  "plans_unheld": 165,
+  "organisations_updated": 543
  },
- "contacts_after": 1075
+ "contacts_after": 1119
 }

@@ -16,6 +16,8 @@ For every row:
   (the coordinator checks Google Maps for those).
 Coordinates are not written here: --geocodes writes data/raw/gap-census/geocodes_gap_census_<date>.jsonl in the format of
 scripts/master/apply_geocodes.py, which then fills latitude, longitude and geocode_precision with their facts and source records.
+--matches data/raw/gap-census/osm_matches_<date>.jsonl relabels map-only leads that an enrichment round matched to a real organisation
+(see apply_matches); run it before draft_master_messages.py so their drafts are no longer held for being map-only.
 Preview by default (runtime/master/gap-census-preview.json); --apply writes. Afterwards run, in order:
   python scripts/master/apply_geocodes.py --file data/raw/gap-census/geocodes_gap_census_<date>.jsonl --db master --apply
   python scripts/master/recompute_campus_distances.py --apply --report outputs/reports/campus-distance-recompute-gap-census-<date>.json
@@ -65,14 +67,82 @@ def verification(row: dict, date: str) -> str:
     return f"Gap census {date}: {label} ({row['verification_status']})"
 
 
+def apply_matches(args) -> int:
+    """Re-label map-only leads that an enrichment round matched to a real organisation (one transaction; preview by default).
+
+    Each line of the matches file names organisation_id, organisation_name, basis (what the place was matched to), source_url,
+    accessed_on and a verbatim excerpt. Only a lead whose verification still starts with 'Raw OSM' changes; the earlier
+    verification is kept as a fact, the file is registered in source_files with one source record per lead, and a review item
+    records the match so a person can check it. Nothing else changes."""
+    path = args.matches if args.matches.is_absolute() else ROOT / args.matches
+    rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    con = sqlite3.connect(args.database)
+    con.row_factory = sqlite3.Row
+    current = {r["organisation_id"]: r["verification"] or "" for r in con.execute("SELECT organisation_id, verification FROM organisations")}
+    plan, skipped = [], []
+    for i, r in enumerate(rows, 1):
+        oid = r["organisation_id"]
+        if oid not in current:
+            skipped.append({"line": i, "organisation_id": oid, "reason": "not in the master"})
+        elif not current[oid].startswith("Raw OSM"):
+            skipped.append({"line": i, "organisation_id": oid, "reason": "not a map-only lead"})
+        else:
+            new = f"Gap census {args.date}: OpenStreetMap place matched to {r['basis']} ({r['source_url']}, read {r.get('accessed_on', args.date)})"
+            plan.append({"line": i, "row": r, "before": current[oid], "after": new})
+    report = {"matches": path.relative_to(ROOT).as_posix(), "rows": len(rows), "relabelled": len(plan), "skipped": skipped,
+              "changes": [{"organisation_id": p["row"]["organisation_id"], "name": p["row"]["organisation_name"], "after": p["after"]} for p in plan]}
+    out = ROOT / "runtime" / "master" / "gap-census-matches-preview.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
+    sys.stdout.reconfigure(encoding="utf-8")
+    print(json.dumps({k: v for k, v in report.items() if k != "changes"}, indent=1, ensure_ascii=False))
+    if not args.apply:
+        print(f"Preview only: {out.relative_to(ROOT)}")
+        return 0
+    payload = path.read_bytes()
+    try:
+        con.execute("BEGIN")
+        sid = hid("F", "gap-census-matches", path.name)
+        con.execute("INSERT OR REPLACE INTO source_files (source_id, path, sha256, bytes, kind, encoding, content) VALUES (?,?,?,?,?,?,?)",
+                    (sid, path.relative_to(ROOT).as_posix(), hashlib.sha256(payload).hexdigest(), len(payload), "jsonl", "utf-8", payload))
+        for p in plan:
+            r, oid = p["row"], p["row"]["organisation_id"]
+            record = hid("R", "gap-census-matches", path.name, oid)
+            con.execute("INSERT OR REPLACE INTO source_records (record_id, source_id, location, payload_json) VALUES (?,?,?,?)",
+                        (record, sid, f"line {p['line']}: {r['organisation_name']}", json.dumps(r, ensure_ascii=False)))
+            con.execute("INSERT OR IGNORE INTO entity_sources (entity_type, entity_id, record_id) VALUES ('organisation', ?, ?)", (oid, record))
+            con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                        (hid("X", oid, "verification_before_match", p["before"]), "organisation", oid, "verification_before_match", p["before"], record))
+            con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                        (hid("X", oid, "osm_match", r["source_url"]), "organisation", oid, "osm_match", f"{r['basis']}: {r.get('excerpt', '')}"[:500], record))
+            con.execute("UPDATE organisations SET verification=? WHERE organisation_id=?", (p["after"], oid))
+            con.execute("INSERT OR IGNORE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                        (hid("V", "gap-census-match", oid), "Gap census: map point matched", oid, "", "verification", p["after"][:500],
+                         "Check that the matched listing or page is this organisation at this place before the first message."))
+        if con.execute("PRAGMA foreign_key_check").fetchall() or con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
+            raise RuntimeError("integrity check failed")
+        con.execute("COMMIT")
+    except Exception:
+        con.execute("ROLLBACK")
+        raise
+    print(f"Applied: {len(plan)} leads relabelled.")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--date", default="2026-10-11")
     parser.add_argument("--intake", type=Path)
     parser.add_argument("--database", type=Path, default=MASTER)
     parser.add_argument("--geocodes", action="store_true", help="write the apply_geocodes.py file for the organisations this run adds")
+    parser.add_argument("--matches", type=Path,
+                        help="a reviewed data/raw/gap-census/osm_matches_<date>.jsonl: map-only leads (verification 'Raw OSM ...') that an "
+                             "enrichment round matched to a real organisation; their verification becomes 'Gap census <date>: OpenStreetMap "
+                             "place matched to ...' so draft_master_messages.py releases the draft (other holds stay)")
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
+    if args.matches:
+        return apply_matches(args)
     intake = args.intake or RAW / f"master_intake_{args.date}.csv"
     rows = list(csv.DictReader(intake.open(encoding="utf-8-sig", newline="")))
     con = sqlite3.connect(args.database)

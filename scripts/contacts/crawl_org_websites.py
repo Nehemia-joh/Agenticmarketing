@@ -154,6 +154,9 @@ def main() -> int:
                              "again from its cached pages with the current extraction rules; the others keep their record")
     parser.add_argument("--recrawl", nargs="+", default=[], metavar="DOMAIN",
                         help="crawl these sites again, with the network, replacing their records (for example after a robots.txt fix)")
+    parser.add_argument("--only", nargs="+", default=[], metavar="DOMAIN",
+                        help="crawl only these sites (for example the websites of newly added leads into a new date's file); "
+                             "combine with --recrawl to replace records the date's file already holds")
     args = parser.parse_args()
     C.RAW.mkdir(parents=True, exist_ok=True)
     out_path = C.RAW / f"website_contacts_{args.date}.jsonl"
@@ -165,7 +168,7 @@ def main() -> int:
     done = set()
     if out_path.exists():
         done = {json.loads(line)["domain"] for line in out_path.read_text(encoding="utf-8").splitlines() if line.strip()}
-    todo = [rec for domain, rec in sorted(targets().items()) if domain not in done]
+    todo = [rec for domain, rec in sorted(targets().items()) if domain not in done and (not args.only or domain in args.only)]
     if args.limit:
         todo = todo[: args.limit]
     print(f"{len(done)} sites already crawled; {len(todo)} to crawl with {args.workers} workers", flush=True)

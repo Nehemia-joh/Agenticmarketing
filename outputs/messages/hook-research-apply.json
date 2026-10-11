@@ -247,6 +247,30 @@
    "headcounts_filled": 2,
    "lead_briefs_after": 648,
    "left_out": []
+  },
+  {
+   "run_date": "2026-10-11",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "source_files": 2,
+   "brief_facts": 16,
+   "plans_with_hook": 7,
+   "organisations_with_hook": 7,
+   "headcounts_filled": 3,
+   "lead_briefs_after": 661,
+   "left_out": []
+  },
+  {
+   "run_date": "2026-10-11",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "source_files": 2,
+   "brief_facts": 16,
+   "plans_with_hook": 7,
+   "organisations_with_hook": 7,
+   "headcounts_filled": 3,
+   "lead_briefs_after": 661,
+   "left_out": []
   }
  ]
 }

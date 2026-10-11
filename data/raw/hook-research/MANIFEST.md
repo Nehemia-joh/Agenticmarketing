@@ -33,3 +33,4 @@ Research behind the first-message hooks and lead briefs of the company master's 
 | `hooks_d_2026-09-23.jsonl` | `d86f72dd9ad76d60…` | Research records: lead brief, hook and role checks per organisation |
 | `hooks_d_2026-09-25.jsonl` | `121e806b9a2d1651…` | Research records: lead brief, hook and role checks per organisation |
 | `hooks_d_2026-10-02.jsonl` | `d7bcc66040228c5b…` | Research records: lead brief, hook and role checks per organisation |
+| `hooks_newleads_2026-10-11.jsonl` | `2ac7df29607b87e4…` | Research records: lead brief, hook and role checks per organisation |

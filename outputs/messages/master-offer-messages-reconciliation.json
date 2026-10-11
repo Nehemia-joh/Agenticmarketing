@@ -2,26 +2,21 @@
  "run_on": "2026-10-11",
  "offer_version": "2026-09-23-offer-v4",
  "outcomes": {
-  "rewritten": 2458,
+  "rewritten": 2503,
   "decision-maker drafts moved from a phone to an email route": 0,
   "government track (government run)": 6,
   "welfare track (welfare run)": 6,
   "excluded: no message": 5,
-  "new plan (AQ01)": 1,
   "historical parent replies updated": 9,
   "parent enquiries without a draft (unchanged)": 23
  },
  "conformance_issues": 0,
- "tracks_new": {
-  "AQ01": 1
- },
- "segments_new": {
-  "Tourism employers": 1
- },
+ "tracks_new": {},
+ "segments_new": {},
  "counts_after": {
-  "messages": 2459,
-  "outreach_plans": 2459,
-  "message_versions": 7471,
-  "campaign_lead_assignments": 2491
+  "messages": 2503,
+  "outreach_plans": 2503,
+  "message_versions": 7472,
+  "campaign_lead_assignments": 2535
  }
 }

@@ -4,12 +4,12 @@
  "note": "No record was merged or deleted. The baseline is the selection before the first run; the lists compare the database with it.",
  "summary": {
   "clusters": 94,
-  "organisations_in_clusters": 199,
+  "organisations_in_clusters": 200,
   "cluster_kinds": {
    "same organisation": 90,
    "shared inbox": 4
   },
-  "duplicate_organisations_held": 105,
+  "duplicate_organisations_held": 106,
   "candidates_after": 1253,
   "escalation_contacts": 8,
   "override_routes": 0,
@@ -672,6 +672,7 @@
    "kind": "same organisation",
    "primary": "NSK HOSPITALS LTD (O7948a9942116)",
    "duplicates": [
+    "NSK Hospital LTD Clinic (O3b2b4d3d40a4)",
     "NSK Hospital Arusha (O4241e461a3cd)"
    ]
   },

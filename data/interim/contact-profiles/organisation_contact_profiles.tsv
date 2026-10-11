@@ -836,7 +836,7 @@ master	O006a10d492af	Zohar African Safaris Ltd	Safari / tour operator	True	True	
 master	O35c962655ba3	Abercrombie & Kent	Safari / tour operator	True	True						0	0		
 master	O694a46db51f5	Kilpath African Safaris	Safari / tour operator	True	True						0	0		
 master	O560785f0759a	Lashku Forex Bureau Limited	Safari / tour operator	True	True						0	0		
-master	O4693f9dbaae1	PwC Tanzania	Safari / tour operator	True	True	https://www.pwc.co.tz/		+255272970274 (office) | +255739970274 (mobile)			2	2	browser	
+master	O4693f9dbaae1	PwC Tanzania	Safari / tour operator	True	True	https://www.pwc.co.tz/		+255272970274 (office) | +255739970274 (mobile)			4	0	browser	
 master	Of4240dab377e	SIDAI DESIGNS (Safari Atelier)	Safari / tour operator	True	True						3	0		
 master	O628305bfb723	Kitamu Africa LTD	Safari / tour operator	True	True	https://kitamuhouse.com/	info@kitamutanzania.com (role)	+255687286721 (mobile)		facebook: https://www.facebook.com/kitamuhousearusha | instagram: https://www.instagram.com/kitamuhouse | tripadvisor: https://www.tripadvisor.com/Restaurant_Review-g297913-d26577354-Reviews-Kitamu_House-Arusha_Arusha_Region.html	1	0	browser	
 master	O508f496d01ae	Mbasha Holdings Ltd	Safari / tour operator	True	True						0	0		
@@ -970,6 +970,411 @@ master	Ob21384549145	Christian Social Services Commission (CSSC)	Introducer: sec
 master	Oc9833f8bf164	Tanzania Horticultural Association (TAHA)	Introducer: sector association	True	True						11	0		
 master	O9c9d72076018	East African Business Council (EABC)	Introducer: other	True	True						26	0		
 master	O726d10e43fa3	Women HR Association of Tanzania (WHAT)	Introducer: HR professional body	True	True						6	0		
+master	O21cb42888654	Ethiopian Airlines	aeroway:yes	False	False						0	1	search	
+master	O8e9a22483707	Arusha airport	aeroway:aerodrome	False	False						0	0	browser:not_found	
+master	O2425964677da	Kilimanjaro International Airport (KADCO)	aeroway:aerodrome	True	True			+255272554252 (office)	P.O. Box 10, Kilimanjaro		0	0	search	
+master	O8e28b0e4e504	Swissport Tanzania – Kilimanjaro International Airport station	aeroway:ground handling	True	True	https://www.swissport.com/en/our-global-entities/tanzania	flora.kishala@swissport.co.tz (named) | tz.info@swissport.com (general)	+255222844610 (office)	P.O. Box 18043	linkedin: https://www.linkedin.com/company/swissport/ | instagram: https://www.instagram.com/swissport_intl/ | facebook: https://de-de.facebook.com/swissportintl/ | twitter: https://twitter.com/swissportnews | youtube: https://www.youtube.com/channel/UCRRobacWP8EwiL-WITSfNqw	0	9	search, website	
+master	Oe762ba9e4226	Moshi Airport	aeroway:aerodrome	False	False						0	0	browser	
+master	O270bba358086	GA Insurance Tanzania – Arusha branch	office:insurance	True	True	https://www.gainsuranceltd.com/tz/	info@gatanzania.co.tz (role)	+255699177400 (mobile) | +255788969794 (mobile) | +255222110311 (office) | +255222110312 (office) | +255767162525 (mobile) | +255686775068 (mobile)	P.O. Box 75908, Dar es Salaam	facebook: https://www.facebook.com/GA-Insurance-Tanzania-102783551520207 | twitter: https://twitter.com/GAInsuranceTZ | instagram: https://www.instagram.com/gainsurancetanzania/ | linkedin: https://www.linkedin.com/company/ga-insurance-tanzania/	0	3	search, website	
+master	O055626336901	LGT Logistics Limited	office:company	True	True	https://lgtlogisticstz.com/	info@lgtlogisticstz.com (role)	+255744300945 (mobile) | +255744395856 (mobile) | +255746555516 (mobile)		linkedin: https://www.linkedin.com/company/lgt-logistics-limited | instagram: https://www.instagram.com/lgtlogisticstz	0	4	website	
+master	O56abb85991de	Asante Rabi	office:yes	False	True	https://asanterabi.co.tz/	info@asanterabi.co.tz (role)	+255746422221 (mobile)			0	0	browser, search	
+master	O7e0496e54fe9	Kimotco Ltd	office:yes	False	True			+255673434363 (mobile)			0	0	browser	
+master	Oeb4139867b46	Modern Refrigeration	office:yes	False	False						0	0		
+master	O820fb58ad39a	GreenLight Planet Tanzania Ltd	office:company	True	True						0	0		
+master	O9f09b920909b	Tanfoam	office:yes	False	True			+255789210210 (mobile)			0	0	browser, search:not_found	
+master	O8d57ff5ae381	Ngara mtoni	amenity:bank	False	False						0	0		
+master	O3efe76549e1a	Balton Arusha	office:consulting	True	True			+255719222722 (mobile)			0	0	browser	baltontz.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O5e1b35c9a8d1	Rock-Explorer	office:telecommunication	True	True	http://www.rock-explorer.com/ | https://www.rock-explorer.com/	info@rock-explorer.com (role) | bunthorn@rock-explorer.com (general)	+255658892939 (mobile) | +66852188484 (international) | +27786555945 (international)	P.O.Box 1657, Moshi, Kilimanjaro, Tanzania		0	0	browser, website	
+master	Od1242b46bcb9	NMB	amenity:bank	False	False						0	0	browser	
+master	Oad245686d91a	Caessar Insurance Agency	office:insurance	False	False						0	0		
+master	Oe8d5c4da1b56	Stanbic Bank	amenity:bank	False	True			+255272754409 (office)			0	0	browser	
+master	O7ac3337cad3a	I&M Bank	amenity:bank	False	True	https://www.imbankgroup.com/tz		+255784107999 (mobile)			0	0	browser	
+master	O59e93b17c4b5	NBC Moshi	amenity:bank	False	True			+255739229976 (mobile)			0	0	browser	
+master	O08623d3abba9	KK Security (Arusha)	office:company	False	True	https://kksecurity.garda.com/					0	0	search	
+master	O641e0a86af3e	Kiure Engineering Limited	office:company	True	True	https://kiureengineering.com/ | https://www.kiureengineering.com/	info@kiureengineering.com (role)	+255754281971 (mobile)	P.O. Box 2714, Arusha		0	0	browser, search	
+master	O0fa1b9389e78	Strategis Insurance Tanzania – Arusha sales point	office:insurance	True	True	http://strategis.co.tz/ | https://www.strategis.co.tz/	insurance@strategis.co.tz (general)	+255755772111 (mobile) | +255782700800 (mobile) | +255222602570 (office) | +255769210906 (mobile)	P.O. Box 7893, Dar es Salaam | P.o Box 7893, Dar es Salaam | P.o. Box 1520, Sokoine Road,	facebook: https://www.facebook.com/StrategisInsurance/ | youtube: https://www.youtube.com/channel/UCrtk3TxFX-pJQaHOMxQPqrA | instagram: https://www.instagram.com/strategisinsurancetz/	0	10	browser, website	
+master	O36ba55efc919	Spiritan Missionary Seminary Institute of philosophers	amenity:college	False	True			+255620483303 (mobile)			0	0	browser, search:not_found	
+master	O4aa6e7d309fb	Methodist college	amenity:college	False	False						0	0	browser:not_found, search:not_found	
+master	Ofe7ebed54010	Chuo cha Uganga Machame(Machame COTC)	amenity:college	False	True			+255737317070 (mobile)			0	0	browser	
+master	O8fe679baba1f	Kilimanjaro Chrisitian Medical College Univerisity	amenity:university	False	True	http://kcmuco.ac.tz/		+255272753616 (office)			0	0	browser, search:not_found	
+master	Obc953f67aac6	Moshi Co-operative University (MoCU)	amenity:university	True	True	https://www.mocu.ac.tz/	info@mocu.ac.tz (role) | vc@mocu.ac.tz (role) | ictsupport@mocu.ac.tz (general) | troppustci@mocu.ac.tz (general) | jaffar.ponera@mocu.ac.tz (general) | dcla@mocu.ac.tz (general)	+255272751833 (office) | +255716641808 (mobile)	P.O. Box 474, Moshi, Tanzania	facebook: https://www.facebook.com/MoCU2014/ | twitter: https://twitter.com/home?lang=en | youtube: https://www.youtube.com/channel/UCM0w_s7Tc1LV0G-xNroHBqA | instagram: https://www.instagram.com/mocu_official_page/ | linkedin: https://cm.linkedin.com/company/mocu-official	0	4	website	
+master	O1bd26e3e26de	Moshi Institute of Technology	amenity:college	False	True	http://www.mit.tareo-tz.org/		+255754469894 (mobile)			0	0	browser	
+master	Oa87f9bcddbc1	College of African Wildlife Management, Mweka	amenity:college	False	True	http://www.mwekawildlife.ac.tz/ | https://www.mwekawildlife.ac.tz/	mweka@mwekawildlife.ac.tz (general)	+255654369818 (mobile) | +255689542136 (mobile)	P.O. Box 3031, Kilimanjaro (Moshi)		0	0	browser, search	
+master	O2f805d1fbb6b	Kili Flora Flower Farms	farm:estate	False	False						0	0	browser:not_found, search:not_found	
+master	Oc0f374e7da78	Mringa Estate	farm:coffee estate	False	False						0	0	browser:not_found	
+master	Oc9b2abc6dd8f	Burka Coffee Estate	farm:coffee estate	False	False						0	0	browser	
+master	Ob842c82f8390	East Africa Seed	farm:seed or flower company	False	True			+255789589589 (mobile)			0	0	browser, search:not_found	
+master	O56e929b69763	Tanzania Poultry Farm	farm:estate	False	False						0	0		
+master	Od6757320c83f	Kiliflora Farm Nduruma	farm:estate	False	False						0	0	search:not_found	
+master	Odb47d5ffeb45	Mount Meru Flowers Ltd	farm:flowers	True	True						0	0	search:not_found	
+master	O4defd5e701b0	Fides Tanzania (T) Limited	farm:flower cuttings	False	False				P.O. Box 1304, Arusha		0	0	browser, search	
+master	O2bb7295b04ae	Shamba la Maua	farm:estate	False	False						0	0		
+master	Of4cc14a84629	Lambo Estate	farm:estate	False	False						0	0		
+master	Oe569267549db	Kirenga Farm	farm:estate	False	False						0	0		
+master	O2642b17e1005	Mondul Coffee Estate	farm:estate	False	True	http://mondulcoffee.com/ | https://mondulcoffee.com/			P.O. Box 667, Arusha		0	0	browser, search	
+master	O9777d7fafe06	Kilari farm	farm:estate	False	False						0	0		
+master	Od600e32e3632	Enza Zaden Africa	farm:seed breeding	True	True	https://www.enzazaden.com/	info@enzazaden.com (role) | info@enzazaden.nl (role) | vacancies@enzazaden.co.tz (general)	+310228350100 (international) | +255764169756 (mobile)	P.O. Box 2750, Arusha	linkedin: https://www.linkedin.com/company/enza-zaden | facebook: https://nl-nl.facebook.com/enzazaden | instagram: https://www.instagram.com/enzazaden/ | twitter: https://twitter.com/enzazaden | youtube: https://www.youtube.com/channel/UCayv2g1x8L3vJ3jN4RBfDvA	0	1	search, website	
+master	Ocffcb3124e7e	Buturi Health Laboratory	amenity:clinic	False	False						0	0		
+master	O80445f3d4b12	Bible Baptist Clinic	amenity:clinic	False	False						0	0		
+master	Oa8f5d2c24265	ELERAI DISP. Dispensary	amenity:clinic	False	False						0	0		
+master	Oc5f0be6c043d	Total Care Health Center	amenity:clinic	False	True			+255787882273 (mobile)			0	0	browser	
+master	Oba580e04150c	Total Care Medical Center	amenity:clinic	True	True						0	0	browser:not_found	
+master	O4c213bd8b299	Medical Relief Trust Health Centre	amenity:clinic	False	False						0	0		
+master	Oe6976705aec6	Star Optometry Eye clinic	amenity:clinic	False	False						0	0		
+master	O01120ab314cb	Dream Molecular Health Labs	amenity:clinic	False	False						0	0		
+master	O0134a89dbe37	HiTek Biolab (Laboratory technician)	amenity:clinic	False	False						0	0		
+master	O2261c01b2598	Eben Dispensary	amenity:clinic	False	False						0	0		
+master	O5197ad6f50dd	Matumaini Cogi Dispensary	amenity:clinic	False	False						0	0		
+master	O1415adbccfb8	Themi Health Centre	amenity:clinic	False	False						0	0	browser:not_found	
+master	Oe4ced3a18f6d	Jobi Dispensary	amenity:clinic	False	False						0	0		
+master	Obe799fbe5d64	Daraja II Health Centre	amenity:clinic	False	False						0	0	browser	
+master	O3b2b4d3d40a4	NSK Hospital LTD Clinic	amenity:clinic	False	True	http://nskhospitals.co.tz/		+255626221331 (mobile)			0	0	browser, search:not_found	
+master	O8caef1f3aef1	Ithnaasheri charitable Dispensary	amenity:clinic	False	False						0	0		
+master	O524e09c7f160	Juakali Dispensary	amenity:clinic	False	False						0	0		
+master	O57bf409c9cd6	Baraa RC Dispensary	amenity:clinic	False	False						0	0		
+master	O75620acbaec8	Respect Health Labaratory	amenity:clinic	False	False						0	0		
+master	Oa01de189225a	Tanya dental clinic	amenity:clinic	False	False						0	0		
+master	Oa26f13dd6268	Holy Family Dispensary	amenity:clinic	False	False						0	0		
+master	O7d2bf5e94420	Lumen Cristi Dispensary	amenity:clinic	False	False						0	0		
+master	O4603e607af73	OldonyoSapuk Dispensary	amenity:clinic	False	False						0	0		
+master	Ocd1665ca09b9	Maryland Dispensary	amenity:clinic	False	False						0	0		
+master	Oc64de7cea03f	Tanzania Adventist Dispensary	amenity:clinic	False	False						0	0		
+master	O9ff997dbcc33	Kambi la Nyuki Dispensary	amenity:clinic	False	False						0	0		
+master	Ofa3a8ad24c85	Mungushi Dispensary	amenity:clinic	False	False						0	0		
+master	Obe9703d60b90	Sinon Parish Dispensary	amenity:clinic	False	False						0	0		
+master	O6cc98a75aabf	Magereza Dispensary	amenity:clinic	False	False						0	0		
+master	O11fb5581de8f	Bangata Dispensary	amenity:clinic	False	False						0	0		
+master	Oab7fafe4d1c8	Tanganyika Packers Dispensary	amenity:clinic	False	False						0	0		
+master	O375d0f20295c	Ngyani Dispensary	amenity:clinic	False	False						0	0		
+master	Odea2cec0a209	Ngongongare Dispensary	amenity:clinic	False	False						0	0		
+master	O40dfcbe19050	Kitefu Dispensary	amenity:clinic	False	False						0	0		
+master	O1b33fa94c98a	SoftMed Company Limited	amenity:clinic	False	False						0	0		
+master	Odeb60e4df6b9	Maisha Health Care Dispensary	amenity:clinic	False	False						0	0		
+master	O7bce244df52c	Ngires Dispensary	amenity:clinic	False	False						0	0		
+master	O93572d99cd32	Maji ya Chai Dispensary	amenity:clinic	False	False						0	0		
+master	O481675087f24	Mulala Dispensary	amenity:clinic	False	False						0	0		
+master	O2af51f568a04	Chekereni Dispensary	amenity:clinic	False	False						0	0		
+master	Oc6b7fdd941ae	Olkereyan Dispensary	amenity:clinic	False	False						0	0		
+master	Ob0fad41ec14f	Kilinga Dispensary	amenity:clinic	False	False						0	0		
+master	O4babc277235d	Sanya Station Dispensary	amenity:clinic	False	False						0	0		
+master	O9e617992109d	ELGIBO HEALTH LABORATORY	amenity:clinic	False	False						0	0		
+master	Oe0b830b9332f	Sambasha Dispensary	amenity:clinic	False	False						0	0		
+master	O9e4bb87221a1	Ngurdoto RC Dispensary	amenity:clinic	False	False						0	0		
+master	O1fd2b8571f80	Mbosho Rc Dispensary	amenity:clinic	False	False						0	0		
+master	Od264898fc348	Forestry Training Institute Olmotonyi Dispensary	amenity:clinic	False	False						0	0		
+master	Ob9aa6242636f	Nkoanrua Dispensary	amenity:clinic	False	False						0	0		
+master	Obea00838ed71	Poli Health Centre	amenity:clinic	False	False						0	0		
+master	O0b06fcb753d4	Kipande Nkoavele Dispensary	amenity:clinic	False	False						0	0		
+master	O77377a8793e6	Nambala Dispensary	amenity:clinic	False	False						0	0		
+master	Oda70ffe9c6be	Mbatakero Dispensary	amenity:clinic	False	False						0	0		
+master	Oa5296c94bda0	Kiseriani Dispensary	amenity:clinic	False	False						0	0		
+master	O641b78fefd8c	Ngyeku Dispensary	amenity:clinic	False	False						0	0		
+master	Oc180116af5a0	CANNOSA DISPENSARY	amenity:hospital	False	False						0	0		
+master	O7ea8db1ef593	Kisongo Lutheran Dispensary	amenity:clinic	False	False						0	0		
+master	O82954e14c37a	Mount meru hope Dispensary	amenity:clinic	False	False						0	0		
+master	Oc40cc0b84883	Kikatiti Lutheran Dispensary	amenity:clinic	False	False						0	0		
+master	O8826906989d1	Mkonoo Health Centre	amenity:clinic	False	False						0	0	browser	
+master	Oe636eac84c76	Nkoarisambu Dispensary	amenity:clinic	False	False						0	0		
+master	O334c34461e13	Seela Dispensary	amenity:clinic	False	False						0	0		
+master	O7db3da494d52	Rundugai Dispensary	amenity:clinic	False	False						0	0		
+master	Oeb48b607cf84	Manyata Dispensary	amenity:clinic	False	False						0	0		
+master	Ob985beab85ea	Kisongo Charitable Health Centre	amenity:clinic	False	True			+255767254206 (mobile)			0	0	browser	
+master	O55ecd69fee27	Terrat Dispensary	amenity:clinic	False	False						0	0		
+master	O91f0cfc756ec	Tindigani Dispensary	amenity:clinic	False	False						0	0		
+master	Ocbe585838d5e	Sakila Dispensary	amenity:clinic	False	False						0	0		
+master	O519b861e3927	Kia Rc Dispensary	amenity:clinic	False	False						0	0		
+master	O0d70d5d808fa	Lambo Dispensary	amenity:clinic	False	False						0	0		
+master	O409d5e170898	Mlangarini Dispensary	amenity:clinic	False	False						0	0		
+master	O436e0a7a89a2	Nkwansira Health Centre	amenity:hospital	False	False						0	0	browser	
+master	O25d58677a21d	Lemira Dispensary	amenity:clinic	False	False						0	0		
+master	O34f300eba9e9	Olkokola Health Centre	amenity:clinic	False	False						0	0		
+master	Oc1aa7f59090f	Masama Lutheran Dispensary	amenity:hospital	False	False						0	0		
+master	O76e2d4238257	Manyire Dispensary	amenity:clinic	False	False						0	0		
+master	Oc33848f9175d	Kisongo SDA Dispensary	amenity:clinic	False	False						0	0		
+master	O46bc8322e073	Engorora Health Centre	amenity:clinic	False	False						0	0		
+master	Oc8dea8680825	Nadosoito Dispensary	amenity:clinic	False	False						0	0		
+master	O1589bc896ba4	Donyomurwa Dispensary	amenity:clinic	False	False						0	0		
+master	O63c62b6f09c9	Karangai Dispensary	amenity:clinic	False	False						0	0		
+master	O1d127cf29f80	Likamba Dispensary	amenity:clinic	False	False						0	0		
+master	O2888fb3a7539	Mangasheny Dispensary	amenity:clinic	False	False						0	0		
+master	Of7da0c5bc233	Doni Dispensary	amenity:clinic	False	False						0	0		
+master	O005233adcb29	Narumu Dispensary	amenity:clinic	False	False						0	0		
+master	O6d55a40c88f3	Tumaini Lawate Dispensary	amenity:clinic	False	False						0	0		
+master	Ofd03156b043a	Ngaritati Dispensary	amenity:clinic	False	False						0	0		
+master	Oc0c204f33870	Longoi Dispensary	amenity:clinic	False	False						0	0		
+master	Oa3a5a64f40fb	Nduruma Health Centre	amenity:clinic	False	False						0	0	browser	
+master	O4306497b36c3	Mailisita Medical Centre Dispensary	amenity:clinic	False	False						0	0		
+master	Obe47da59dd0f	Samaria Dispensary	amenity:clinic	False	False						0	0		
+master	O35a16c7db058	Kishimbwe Dispensary	amenity:clinic	False	False						0	0		
+master	Of063651002f4	Leguruki Dispensary	amenity:clinic	False	False						0	0		
+master	O6f777c542c07	Kashasahi Dispensary	amenity:clinic	False	False						0	0		
+master	Oe313f91f546e	Imbibia Dispensary	amenity:clinic	False	False						0	0		
+master	Of02cb947b883	Losaa Dispensary	amenity:clinic	False	False						0	0		
+master	Oc5f8a42554be	Mareu Health Centre	amenity:clinic	False	False						0	0		
+master	O6d9dcddbc45d	King'ori Dispensary	amenity:clinic	False	False						0	0		
+master	O1e7d75c1c870	Kisiki Dispensary	amenity:clinic	False	False						0	0		
+master	O5fc62bad3f81	Uroki Dispensary	amenity:clinic	False	False						0	0		
+master	Ocb18a2cee5a7	Manushi Dispensary	amenity:clinic	False	False						0	0		
+master	O25c949da5955	Kawaya Dispensary	amenity:clinic	False	False						0	0		
+master	Obf3eb68ba567	Musa Dispensary	amenity:clinic	False	False						0	0		
+master	O680408ca9eff	Ngarenairobi Health Centre	amenity:clinic	False	False						0	0		
+master	O4bc5d531f3a7	Kisereni Dispensary	amenity:clinic	False	False						0	0		
+master	Ob572194fcf78	Kindi Dispensary	amenity:clinic	False	False						0	0		
+master	Obe65b5ac3b52	Lengijave Dispensary	amenity:clinic	False	False						0	0		
+master	O57f94cce4909	Emmaus Dispensary	amenity:clinic	False	False						0	0		
+master	O8382655b0fa5	Lukani Dispensary	amenity:clinic	False	False						0	0		
+master	O8d02a09a1067	Shirimgungani Dispensary	amenity:clinic	False	False						0	0		
+master	Od9eae9d68311	Lyamungo Dispensary	amenity:clinic	False	False						0	0		
+master	O6727bbf1ccd8	Nsengonyi Dispensary	amenity:clinic	False	False						0	0		
+master	Od36f18fe17be	Miririnyi Dispensary	amenity:clinic	False	False						0	0		
+master	O66f8305aba9d	Machame Hospital	amenity:hospital	False	True			+255717767678 (mobile)			0	0	browser, search:not_found	
+master	Ob3c764f1a75b	Lesiraa Dispensary	amenity:clinic	False	False						0	0		
+master	O39e297811c0c	Emmausi Cogi Dispensary	amenity:clinic	False	False						0	0		
+master	O9de009c0b67f	Kirima Dispensary	amenity:clinic	False	False						0	0		
+master	Odd22386bf29d	Shiri Matunda Dispensary	amenity:clinic	False	False						0	0		
+master	O92c82a2fba51	Oljoro Dispensary	amenity:clinic	False	False						0	0		
+master	Oad466a4517b9	Mkalama Dispensary	amenity:clinic	False	False						0	0		
+master	O80a6369bdd07	Mungush Dispensary	amenity:clinic	False	False						0	0		
+master	O4959ab0f279c	Mwandet Dispensary	amenity:clinic	False	False						0	0		
+master	O97ca07ee9cdb	St. Joseph Hospital	amenity:hospital	False	True	https://stjosephhospitalmoshi.or.tz/	info@stjosephhospitalmoshi.or.tz (role)	+255272753843 (office) | +255738835248 (mobile)	P.O. Box 330, Soweto, Moshi		0	1	browser, search	
+master	O5a17e131ddfd	Umbwe Health Centre	amenity:clinic	False	False						0	0	browser	
+master	O9a80dea9ce54	Umbwe Rc Dispensary	amenity:clinic	False	False						0	0		
+master	Offfa16fe7087	Shant Town Dispensary	amenity:clinic	False	False						0	0		
+master	O74aea02114b9	Mango Dispensary	amenity:clinic	False	False						0	0		
+master	O1eecd12af14a	Kikavu Chini Dispensary	amenity:clinic	False	False						0	0		
+master	O118579a81625	Makiba Health Centre	amenity:clinic	False	False						0	0	browser	
+master	Of59a3bdb7d87	Kishisha Dispensary	amenity:clinic	False	False						0	0		
+master	O09c7ad69b6fd	Nkweshoo Dispensary	amenity:clinic	False	False						0	0		
+master	O606937bd5285	Siha Hospital	amenity:hospital	False	False						0	0	search:not_found	
+master	O8f9e4e1b7ad5	Kilimanjaro Christian Medical Centre	amenity:hospital	False	True	http://www.kcmc.ac.tz/ | https://www.kcmc.ac.tz/	kcmcadmin@kcmc.ac.tz (general)	+255272754377 (office)	P.O. Box 3010, Moshi		0	1	browser, search	
+master	Oe7dd9b1a9153	Levishi Dispensary	amenity:clinic	False	False						0	0		
+master	O5843a0df1bf2	Moshi Health Centre	amenity:clinic	False	True			+255756376470 (mobile)			0	0	browser	
+master	O7b9b41581926	Ngarenanyuki Lutheran Dispensary	amenity:clinic	False	False						0	0		
+master	Oe29235b55df4	Siima Health Centre	amenity:clinic	False	True			+255754244084 (mobile)			0	0	browser	
+master	Odeecde89780b	Olarashi Dispensary	amenity:clinic	False	False						0	0		
+master	Ocda3bdbb0197	Oldonyowasi Dispensary	amenity:clinic	False	False						0	0		
+master	O714a5e0f70cc	Kibosho Barazani Dispensary	amenity:clinic	False	False						0	0		
+master	O75df5b314b45	Oldonyo Sambu Health Centre	amenity:clinic	False	False						0	0	browser	
+master	Odd1082851df0	Bondeni Dispensary	amenity:clinic	False	False						0	0		
+master	O550b9b51f0fe	Okaoni Dispensary	amenity:clinic	False	False						0	0		
+master	O1886aed10a75	Pasua Hospital	amenity:hospital	False	True			+255737212022 (mobile)			0	0	browser	
+master	Od6dd2911b1e8	First Health Hospital	amenity:hospital	False	False						0	0	browser	
+master	O8a2f1b1057cb	Meserani Juu Dispensary	amenity:clinic	False	False						0	0		
+master	O027ca76b7c83	Kisimiri Chini Dispensary	amenity:clinic	False	False						0	0		
+master	O98a9c4d9d3d3	Jaffery Charitable Medical Services Dispensary	amenity:clinic	False	False						0	0		
+master	O733379bfee18	Mbuyuni Health Centre	amenity:clinic	False	False						0	0	browser	
+master	Oe00345d51704	Mkombole Dispensary	amenity:clinic	False	False						0	0		
+master	O07f396ec5d19	Majengo Dispensary	amenity:clinic	False	False						0	0		
+master	O19ad918cfbad	Kibosho Hospital	amenity:hospital	False	False						0	0	browser, search:not_found	
+master	Oacac8d1bee43	Mawela Dispensary	amenity:clinic	False	False						0	0		
+master	O4e29808fcf20	Njoro Dispensary	amenity:clinic	False	False						0	0		
+master	Oef528d1b21ee	CAWM Dispensary	amenity:clinic	False	False						0	0		
+master	Of0ca71c5f0e8	Charlotte Health Center	amenity:hospital	False	False						0	0		
+master	Oabc397d4af02	Themi ya Simba Dispensary	amenity:clinic	False	False						0	0		
+master	O6579d2fbaa3e	Mji Mpya Dispensary	amenity:clinic	False	False						0	0		
+master	O9f6f25420161	Mweka Omi Dispensary	amenity:clinic	False	False						0	0		
+master	Oe9abd1a4229d	Losinoni Dispensary	amenity:clinic	False	False						0	0		
+master	Oeedcadd6961a	Mrawi Dispensary	amenity:clinic	False	False						0	0		
+master	O1ea31d075e5e	Sinzia Villas	tourism:guest_house	False	False						0	0		
+master	O9cab12f6fb46	Summit Safari Lodge	tourism:hotel	False	False						0	0		
+master	O376e22045d8d	Kili-Meru Annex Resort	tourism:guest_house	False	False						0	0		
+master	O54fa2052d117	Bright Star Hotels and Safaris Arusha	tourism:hotel	True	True						0	0	search:not_found	
+master	Oc0b3902e5917	Kiriwe Lodge	tourism:guest_house	False	False						0	0		
+master	O863b59b9f98c	Masai Camp	tourism:camp_site	True	True						0	0		
+master	O3daa117dbab9	Swahili Villa	tourism:guest_house	True	True						0	0		
+master	O3c855a39db69	Outpost Lodge	tourism:guest_house	False	False						0	0		
+master	Ocd748bbf4b23	Vanus primer hotel	tourism:guest_house (hostel)	False	False						0	0		
+master	O29521c9999ab	Six Eight Motel	tourism:hotel	False	False						0	0		
+master	O42880bff34c1	Villa Boma	tourism:guest_house	False	False						0	0		
+master	Occ2c9c725b6b	Africa Safari Arusha Lodge	tourism:guest_house	False	False						0	0		
+master	O78b0178fc1f7	Emma lodge	tourism:hotel	False	False						0	0		
+master	Ode2acc429c4a	Monjes Guesthouse B	tourism:guest_house	False	False						0	0		
+master	Of63c3ae5fffe	Ivory lodge	tourism:guest_house	False	False						0	0		
+master	O677d24ac044e	Kiria lodge	tourism:guest_house	False	False						0	0		
+master	O30e69765e5ed	Kitundu Guesthouse	tourism:guest_house	False	False						0	0		
+master	O2b5497cbc08d	Hotel Equator	tourism:hotel	True	True	https://www.equator-hotel.com/					0	0	website	
+master	Oc9c7b25502b7	Mount Meru Hotel	tourism:guest_house (hostel)	False	True	https://www.mountmeruhotel.co.tz/	hr@mountmeruhotel.co.tz (role) | info@mountmeruhotel.co.tz (role)	+255272970256 (office)			0	0	search	
+master	O69fef634c7dd	Naaz Hotel & Restauarant	tourism:hotel	False	False						0	0		
+master	Obbe00c61091f	Villa Poa	tourism:guest_house	True	True						0	0		
+master	Oc599d2f96b06	Hotel Flamingo	tourism:hotel	False	False						0	0		
+master	O67c0a682323b	Mc-Elly's hotel	tourism:guest_house (hostel)	False	False						0	0		
+master	O7bcc403bf56c	Machweo Wellness Retreat & Fine Dining	tourism:guest_house	False	False						0	0		
+master	O815781e53bf6	Megan resort	tourism:hotel	False	False						0	0		
+master	O3c287747b170	Ringanami Lodge	tourism:guest_house	False	False						0	0		
+master	O206e0461b2ee	Arusha Safari Hostel (REAL)	tourism:guest_house (hostel)	False	False						0	0		
+master	Oe160947ab356	LBT LODGE & RECABI INSTITUTE	tourism:guest_house	True	True						0	0		
+master	Oe1694b0f06fb	Twiga Lodge Campsite	tourism:camp_site	False	False						0	0		
+master	O46700d57a0da	Tushabe lodge	tourism:guest_house	False	False						0	0		
+master	O8ffdcf6848be	Bella Lodge	tourism:guest_house	False	False						0	0		
+master	O4a80173aa9ac	Golf Safari House	tourism:hotel	True	True						0	0	search:not_found	golfsafarihouse.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O3efe6e6933e6	Antelope homestay hotel	tourism:guest_house	False	False						0	0		
+master	O6e8eb4b28bcd	Shamba Lodge	tourism:guest_house	False	False						0	0		
+master	O0a81effdd1bf	Hatari Lodge	tourism:hotel	True	True	https://hatari.travel/	reservation@hatari.travel (role)	+255761862229 (mobile)	P.O. Box 3171, Arusha, Tanzania	facebook: https://www.facebook.com/Hatari.Travel/ | instagram: https://www.instagram.com/hatari.travel/ | linkedin: https://www.linkedin.com/company/hatari-travel	0	2	search, website	
+master	O5a8e6ef3554f	"Lutheran international Guest House ""Rafiki Hostel"""	tourism:guest_house (hostel)	False	False						0	0		
+master	O72711ab4bdbe	Momella Camp	tourism:guest_house	False	False						0	0		
+master	Of6d4116253cc	Shose Chalets Farmhouse & Campsite	tourism:camp_site	False	False						0	0		
+master	O1e06c80d45ef	Kilimanjaro Safaris Lodge	tourism:guest_house	False	False						0	0		
+master	Oee6cb4774725	Kili Cottages Moshi	tourism:hotel	True	True						0	0		
+master	O9f1465551153	Panama Garden Resort Hotel	tourism:hotel	True	True	https://panamagardenresort.co.tz	info@panamagardenresort.co.tz (role) | reservation@panamagardenresort.co.tz (role)	+255753374178 (mobile)		twitter: https://twitter.com/panama_garden | facebook: https://www.facebook.com/panamagardenresort | instagram: https://www.instagram.com/panamagardenresort	0	0	website	
+master	O851b689cfe43	Salinero  Kilimanjaro Villa	tourism:hotel	False	False						0	0		
+master	O32b91ddb2048	Lutheran Uhuru Hotel	tourism:hotel	False	True	https://uhuruhotel.org/		+255753037216 (mobile)			0	0	search	
+master	O47c4aea4476c	White House Bar Lodge	tourism:guest_house (hostel)	False	False						0	0		
+master	O8f15c5445993	Hugos Hotel	tourism:hotel	False	False						0	0		
+master	Ob0e6db080b80	executive lodge	tourism:hotel	False	False						0	0		
+master	O1a1fd9605515	Comfort Guest House	tourism:guest_house	False	False						0	0		
+master	Od1d65111f246	Kilimanjaro Wonders Hotel	tourism:hotel	True	True						0	0	search:not_found	kiliwonders.com: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
+master	O8d8d7069279b	Twiga Guesthouse	tourism:hotel	False	False						0	0		
+master	Odd35f29ffc41	Corner lodge	tourism:guest_house	False	False						0	0		
+master	Ob7c41c6144d4	La Mama Hotel	tourism:hotel	False	False						0	0		
+master	Ob17744b6448e	Selig Hotel	tourism:hotel	True	True	https://selighotel.co.tz/	info@selighotel.co.tz (role)	+255272752413 (office) | +255782264271 (mobile)		twitter: http://www.twitter.com | youtube: http://www.youtube.com | facebook: http://www.facebook.com/selighotels	0	0	website	
+master	Ob8afcbf9a855	New Siesta Inn	tourism:guest_house	False	False						0	0		
+master	O8ab9162347bc	Q'wine Hotel	tourism:hotel	False	False						0	0		
+master	O0fae0e7f596b	Shimoni Lodge	tourism:hotel	False	False						0	0		
+master	O905ecfc41409	Golden View Hotel	tourism:hotel	False	False						0	0		
+master	O585c72e82198	Osy Grand Hotel	tourism:hotel	True	True						0	0	search:not_found	osygrandhotel.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	Ob1679ab84d1e	Kilimanjaro Backpacker Hostel	tourism:guest_house (hostel)	True	True	https://backpackerstanzania.com/					0	0	website	
+master	O380bf52e8178	Parkview Inn	tourism:hotel	False	False						0	0		
+master	O32f6260f32d8	Buffalo Hotel	tourism:hotel	False	False						0	0		
+master	Oe813996f7fe2	East Point Hotel	tourism:hotel	False	False						0	0		
+master	Od20e9f7b6c22	Kindoroko Hotel	tourism:guest_house (hostel)	False	False						0	0	search:not_found	
+master	Od2f498cc291c	Mbugani Hotel	tourism:hotel	False	False						0	0		
+master	Of53624fb2b74	Bristol Cottages	tourism:hotel	False	False						0	0		
+master	O49b303eea3c6	Kilemakyaro Lodge	tourism:hotel	False	False						0	0	search:not_found	
+master	Ofb48df225aac	Moshi Backpackers Paradise	tourism:guest_house (hostel)	False	False						0	0		
+master	Ob24ba36bb062	Zebra Hotel	tourism:hotel	False	False						0	0		
+master	O9c1cd2e9fe59	HubHill Budget Lodge	tourism:guest_house (hostel)	False	False						0	0		
+master	O55b60f2d5bcb	Kilimanjaro Crane Hotel	tourism:hotel	False	False						0	0		
+master	O8b15e467bb06	Kilimanjaro Homes & Camps	tourism:guest_house (hostel)	False	False						0	0		
+master	Oded5b8f02a1f	White Lodge	tourism:hotel	False	False						0	0		
+master	O0101826d7e6e	Gästehaus AKO	tourism:guest_house	False	False						0	0		
+master	O1b77e60fd2c1	Hartebeest View Lodge	tourism:hotel	True	True						0	0	search:not_found	hartebeest-lodge.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O6ad338f1dfda	Macarela Inn	tourism:hotel	True	True						0	0		
+master	Ocbbee53770fa	Rau Forest camp	tourism:camp_site	False	False						0	0		
+master	O7dbee5e7f657	Keys Hotel	tourism:hotel	False	False						0	0		
+master	Oa1ee8ca0ec08	Keys Lodge	tourism:camp_site	False	False						0	0		
+master	O9ce85855e5c3	Consolidated Tourist & Hotels Investment Ltd (Sopa Lodges)	tourism:hotel group	False	True	https://www.sopalodges.com/	info@sopalodges.com (role)	+255784250630 (mobile)			0	0	search	
+master	O5673bb705977	African Court on Human and Peoples' Rights	International organisation	True	True	https://www.african-court.org/ | https://www.african-court.org/afchpr/	registrar@african-court.org (role) | chipiliro.kansilanga@african-court.org (general) | robert.eno@african-court.org (named) | ecossocc@africanunion.org (general) | jilomboc@africanunion.org (general) | ecosocc@africanunion.org (general)	+255272510510 (office) | +255272970430 (office) | +255680500555 (mobile)	P.O. Box 6274 Arusha, TANZANIA | P.O. Box 6274, Arusha	twitter: https://twitter.com/court_afchpr | facebook: https://www.facebook.com/afchpr/ | linkedin: https://www.linkedin.com/company/connect-talks/?viewAsMember=true | youtube: https://www.youtube.com/user/africancourt | whatsapp: https://api.whatsapp.com/send?text=<?php echo $post_url; ?>	0	2	search, website	
+master	O42bf75d3746a	East African Court of Justice (EACJ)	International organisation	True	True	https://www.eacj.org/	eacj@eachq.org (general)	+255272506093 (office)	P. O. Box 1096, Arusha, Tanzania.		0	4	website	
+master	O780b66493f97	East African Legislative Assembly (EALA)	International organisation	True	True	https://www.eala.org/	eala@eachq.org (general)	+255272162126 (office) | +255768885633 (mobile) | +255272162179 (office)	P. O Box 1096, Arusha, Tanzania.	twitter: https://x.com/ea_bunge | youtube: https://www.youtube.com/channel/UC-BQE7rDZdOVp-1EtP_l5nA	0	0	website	
+master	Ob8615e921b3e	East, Central and Southern Africa Health Community (ECSA-HC)	International organisation	True	True	https://ecsahc.org/	regsec@ecsahc.org (general) | csfd4055@gmail.com (personal_domain) | arjav@meritconcept.com (general) | rumishashoo@gmail.com (personal_domain) | justusashaba@gmail.com (personal_domain) | vacancies@ecsahc.org (general)	+255272973677 (office) | +255686762218 (mobile) | +255765868501 (mobile) | +263772573066 (international) | +256787304202 (international)	P.O Box 1009, Arusha, Tanzania | P.O Box 1009, Arusha-Tanzania	youtube: https://www.youtube.com/watch?v=4lX7aTahhO8 | twitter: https://twitter.com/ECSA_HC | facebook: https://www.facebook.com/ecsahc	0	4	website	
+master	O0a01726026cf	International Institute of Tropical Agriculture (IITA) – Arusha office	International organisation	True	True						0	0	search	iita.org: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1000)>
+master	O7df68510e72c	United Nations Mechanism for International Criminal Tribunals - UNMICT	International organisation	True	True	https://www.irmct.org/en	marsarusha@un.org (general) | marshague@un.org (general) | mict-registryarusha@un.org (general) | mict-external-relations@un.org (general)	+255272565791 (office) | +255272565347 (office) | +250788301539 (international) | +31611923749 (international) | +310705125037 (international) | +310629565672 (international) | +31705125360 (international) | +310705128877 (international) | +255272565376 (office)	P.O. Box 6016, Arusha, Tanzania	youtube: https://www.youtube.com/v/QBl6Uih5a5w | facebook: https://www.facebook.com/RwandaGenocideFugitives | twitter: https://twitter.com/unirmct | linkedin: https://www.linkedin.com/company/irmct/ | instagram: https://www.instagram.com/unirmct/	0	1	website	
+master	O3042634f0899	African Institute of International Law (AIIL)	International organisation	False	True	https://aiil-iadi.org/	info@aiil-iadi.org (role)	+255710732590 (mobile)	P.O. Box 561, Arusha		0	1	search	
+master	Ob218063406ca	African Union Advisory Board on Corruption (AUABC)	International organisation	False	True	https://anticorruption.au.int/	auabcregistry@africa-union.org (general)	+255272050030 (office)	P.O. Box 6071, Arusha		0	0	search	
+master	O8b468daa8b88	Eastern and Southern African Management Institute (ESAMI)	International organisation	True	True	https://esami-africa.org/	esamicommunication@esami-africa.org (general) | mbd@esami-africa.org (general) | odg@esami-africa.org (general) | esamidar@esami-africa.org (general) | esamikenya@esami-africa.org (general) | esamiuganda@esami-africa.org (general) | esamiswaziland@esami-africa.org (general) | esamimozambique@esami-africa.org (general) | esamimalawi@esami-africa.org (general) | esaminamibia@esami-africa.org (general) | esamizambia@esami-africa.org (general) | esamizimbabwe@esami-africa.org (general)	+255272970068 (office) | +255272970070 (office) | +255222112670 (office) | +255222135046 (office) | +255713327728 (mobile) | +254202228233 (international) | +254726360998 (international) | +256414254222 (international) | +2684048494 (international) | +25821487375 (international) | +265991278800 (international) | +26461236965 (international) | +260211222937 (international) | +26342926672 (international) | +255272970065 (office)	P.O BOX 4234, MBABANE, ESWATINI | P.O. Box 1836, Windhoek 9000, Namibia | P.O. Box 2077, Maputo, Mozambique | P.O. Box 22290, Dar es Salaam, Tanzania | P.O. Box 3030, Arusha	youtube: https://www.youtube.com/channel/UCUKoFf-S67sHwnMRDC8sfYA | facebook: https://www.facebook.com/EasternandSouthernAfricanManagementInstitue/ | twitter: https://www.x.com/ESAMI_INSTITUTE | instagram: https://www.instagram.com/esami__institute | linkedin: https://www.linkedin.com/company/eastern-and-southern-african-management-institute/	0	9	search, website	
+master	Oe6e5abab7703	Pan African Postal Union (PAPU)	International organisation	False	True		sc@papu.co.tz (general)	+255272611440 (office) | +255272543263 (office)	P.O. Box 6026, Arusha 23190		0	0	browser, search	
+master	O50e1d2197b73	Seven-up Bottling Company Tanzania Ltd	industrial:manufacturing	True	True	https://sbctanzania.co.tz/	customerservice@sbc.co.tz (general)	+255232604922 (office) | +255282572659 (office) | +255272549234 (office) | +255252502957 (office) | +255755869119 (mobile)	P. O. Box 2635, | P.O. Box 3073, Arusha | P.O. Box. 1710, | P.O. Box. 3073, | P.O.Box 4162, Dar Es Salaam, Tanzania	facebook: https://www.facebook.com/pepsitz | twitter: https://twitter.com/pepsi_tz?lang=en | instagram: https://www.instagram.com/pepsi_tz/ | youtube: https://www.youtube.com/channel/UCJAT7UeheZ5LYG-RY-69LzQ/videos | linkedin: https://www.linkedin.com/company/sbc-tanzania-ltd--pepsi-/?originalSubdomain=tz	0	0	browser, search, website	
+master	O97d938332b9f	Tanzania Breweries Ltd. (Arusha brewery)	industrial:manufacturing	True	True	https://www.tanzaniabreweries.co.tz/				instagram: https://instagram.com/tblplc?igshid=YmMyMTA2M2Y= | twitter: https://twitter.com/TblPlc | facebook: https://www.facebook.com/profile.php?id=100090242411243 | youtube: https://www.youtube.com/@tblplc7679 | linkedin: https://www.linkedin.com/company/73977765/admin/	0	1	browser, search, website	
+master	Obb3223ec5b70	Sunkist Bakery Limited Milling Machine	industrial:manufacturing	False	True	http://www.sunkistgroup.com/		+255782819000 (mobile)			0	0	browser, search:not_found	
+master	Oe9c12e11a09d	A-TO-Z FACTORY	industrial:manufacturing	False	False						0	0	browser:not_found	
+master	O5943d028d14a	Arsho Industry	industrial:manufacturing	False	True			+255713287409 (mobile)			0	0	browser	
+master	Ob3708be86c61	AtoZ Group Limited (A to Z Textile Mills)	industrial:manufacturing	True	True	https://www.atoz.co.tz/	info@atoz.co.tz (role)	+255696070707 (mobile) | +255782800008 (mobile)	P.O.Box 945, Dodoma Road, | P.O.Box 945, Dodoma Road, Networld Area, Kisongo, Matevesi, Arusha, Tan	facebook: https://www.facebook.com/atoz.tz/ | instagram: https://www.instagram.com/atoz.tz/ | linkedin: https://www.linkedin.com/company/atoz-group-tanzania?originalSubdomain=tz | whatsapp: https://wa.me/255696070707?text=Hello!%20Like%20to%20know%20more%20information%20about%20A%20to%20Z%20...	0	2	search, website	
+master	O201a037dcd3c	Halisi Product Limited Milling Machine	industrial:manufacturing	True	True						0	0		
+master	O0710d842b34c	Kilimanjaro Machine Tools Factory	industrial:manufacturing	False	True			+255698818000 (mobile)			0	0	browser, search:not_found	
+master	O1fc1ff4e9677	Nronga Women Dairy Co-operative Society	industrial:manufacturing	False	False						0	0	browser	
+master	O237eab54343c	Kibo Match LTD	industrial:manufacturing	False	False						0	0	browser:not_found, search:not_found	
+master	Ob191a1b02f2d	Champion Mills Limited Milling Machine	industrial:manufacturing	True	True						0	0		
+master	Oc7e913699814	Bonite Bottlers Limited	industrial:manufacturing	True	True		hr@bbl.co.tz (role)		P.O. Box 1352, Moshi		0	0	search	
+master	O714e7e29b503	Serengeti Beer Brewery	industrial:manufacturing	False	True	https://www.serengetibreweries.co.tz/ | https://www.serengetibreweries.co.tz/en		+255716666663 (mobile)			0	0	browser, search	
+master	O69765b7f2518	Mrema Investment Company Limited Milling Machine	industrial:manufacturing	True	True						0	0		
+master	O26dd93e77ee9	Abdilaah Mills Company Milling Machine	industrial:manufacturing	True	True						0	0		
+master	O8b2ba5e8f8a3	Mlay Factory Milling Machine	industrial:manufacturing	True	True						0	0		
+master	O390be53d9d3e	Arusha Meat Company Ltd	industrial:food processing	True	True	https://www.arushameat.co.tz	arushameatcompany@yahoo.com (personal_domain)	+255734026766 (mobile) | +255734026767 (mobile)	P.O. Box 14167, Arusha | P.O.Box 14167 | P.O.Box 14167 Arusha - Tanzania,		0	0	search, website	
+master	O0b37dffb1068	Nyirefami Limited	industrial:manufacturing	True	True						0	0	search:not_found	
+master	O94e5c3b28cf4	Raha Beverages Company Ltd (RABEC)	industrial:beverages	True	True	https://www.rahabeverages.co.tz/	hello@businessname.com (role) | info@rahabeverages.co.tz (role)	+255754224440 (mobile)	P.O.BOX 10123	facebook: https://www.facebook.com/rahabeverages | instagram: https://www.instagram.com/rahabeverages	0	1	browser, search, website	
+master	O52ecb4c69a1c	Faraja Africa Foundation	office:ngo	False	True	http://tz.farajaafricafdn.org/ | https://tz.farajaafricafdn.org/	admin@tz.farajaafricafdn.org (role)	+255759079150 (mobile)	P.O. Box 15308, Arusha		0	0	browser, search	
+master	O2c33bf5f307d	Korea International Cooperation Service (KOICS)	office:ngo	False	False						0	0		
+master	O1962842bca2e	Mbwa Wa Africa Animal Rescue	office:ngo	False	True	http://www.mbwa-wa-africa.org/ | https://mbwa-wa-africa.org/	info@mbwa-wa-africa.org (role)	+255627593149 (mobile)	P.O. Box 89, Usa River, Arusha		0	0	browser, search	
+master	O5911fd9f4595	Island Of Peace	office:ngo	False	True	https://www.ilesdepaix.org/					0	0	browser	
+master	Oadfa782a0ec3	African Wildlife Foundation	office:ngo	False	True	https://www.awf.org/	africanwildlife@awf.org (general)	+255738251337 (mobile)	P.O. Box 2658, Arusha		0	0	search	
+master	O04cacda602f4	Earthlungs Reforestation Foundation	office:ngo	False	True	https://www.earthlungs.org/	info.tz@earthlungs.org (role)				0	0	search	
+master	O97a897023bcb	Ulandssekretariatet	office:ngo	False	False						0	0	browser, search:not_found	
+master	O100593ae0408	LEAD MISSIONS INTERNATIONAL Inc	office:ngo	False	False						0	0		
+master	Ofd38eee3a416	Solidaridad Eastern And Central Africa Expertise Centre (Eca - Tanzania)	office:ngo	False	True			+255784936392 (mobile)			0	0	browser, search:not_found	
+master	O5f488b0f8419	Friends Of Chabad	office:ngo	False	True			+255763095755 (mobile)			0	0	browser	
+master	Oe04ccfc6f50f	Nzuri Foundation Tanzania	office:ngo	False	False						0	0		
+master	Oafd8a506fd6b	Serving Friends International	office:ngo	False	True	http://www.servingfriends.org/					0	0	browser	
+master	Oba315af115e7	Strait Foundation Tanzania	office:ngo	False	False						0	0		
+master	Oda95ca6c2828	Futuresense Foundation	office:ngo	False	True	https://futuresensefoundation.org/					0	0	browser	
+master	O75d2e16440ef	Dashir Community Projects International Inc.	office:ngo	False	False						0	0		
+master	O7cc7ae5db5ec	Echo East Africa	office:ngo	False	True	https://www.echocommunity.org/		+255763954951 (mobile)			0	1	browser, search	
+master	O8cecf3f43c0e	The Nature Conservancy	office:ngo	False	True	https://www.nature.org/en-us/about-us/where-we-work/africa/tanzania/	africa@tnc.org (general)	+255739979681 (mobile)			0	0	search	
+master	O9e62938e1e67	Kadesh Hope Mission Of Africa	office:ngo	False	False						0	0		
+master	O7589eb102412	Pams Foundation	office:ngo	False	True	https://pamsfoundation.org/	info@pamsfoundation.org (role)				0	0	search	
+master	O29cf71476a6d	Sun Up Foundation (Suf)	office:ngo	False	False						0	0		
+master	Od8a1bd92912c	Hand in Hand Eastern Africa (Tz)	office:ngo	False	True	https://handinhand-ea.org/tz		+255272547559 (office)	P.O. Box 7152, Arusha		0	0	search	
+master	Oc1a1f983d4e2	Somo Africa	office:ngo	False	True	https://somoafrica.org/	contact@somoafrica.org (role)	+255758086441 (mobile)			0	0	search	
+master	O253f11aff38f	Westerwelle Foundation Tanzania	office:ngo	False	True	https://westerwelle-foundation.com/	office@westerwelle-foundation.com (role)				0	1	search	
+master	O7ff4f33b78ae	Thrive Global Project Inc.	office:ngo	False	False						0	0		
+master	Of1abd048e1dd	save the rain tanzania	office:ngo	False	True	https://savetherain.org/	info@savetherain.org (role)				0	0	search	
+master	O7aa2a8afc962	Hope Tanzania	office:ngo	False	False						0	0		
+master	O849e3be93031	The Girls Foundation Of Tanzania	office:ngo	False	True	https://www.girlsfoundationoftanzania.org/	office@girlsfoundationoftanzania.org (role)		P.O. Box 11224, Arusha		0	0	search	
+master	O1d8f3032712d	Lessons In Conservation Npc	office:ngo	False	False						0	0		
+master	O8d6dc3307276	Maasai Access To Education	office:ngo	False	False						0	0		
+master	O39377f77a5dd	Rikolto Tanzania	office:ngo	False	True	https://www.rikolto.org/	info@rikolto.org (role)				0	0	search	
+master	O125994e34221	Inherit Your Rights	office:ngo	False	True	https://www.inherityourrights.org/	info@inherityourrights.org (role)	+255683252738 (mobile)			0	0	search	
+master	O105f6d33a182	Now For Compassion (Nfc) Tanzania	office:ngo	False	False						0	0		
+master	O06063e7b67f6	2givelife.org Tanzania	office:ngo	False	False						0	0		
+master	O3872c47d89bb	German Foundation For World Population (Dsw) Tanzania	office:ngo	False	True	https://www.dsw.org/en/tanzania/	dsw@dswtz.org (general)		P.O. Box 14279, Arusha		0	3	search	
+master	O4fc05b8278ac	Tanzania People And Wildlife	office:ngo	False	False						0	0	search:not_found	
+master	O7d5d44b3a7c0	CANNOSA STIRITUALITY CENTRE	office:ngo	False	False						0	0		
+master	O15226ed8534d	Friends Of Meili International.Inc	office:ngo	False	False						0	0		
+master	Oc4bd894260ec	World Vegetable Center (WorldVeg) – Eastern and Southern Africa, Arusha	office:research	True	True						0	0	search:blocked	worldveg.org: home page not readable: 202
+master	Od1aa975469dd	ZV Horizon Project	office:ngo	False	False						0	0		
+master	O4f552cef0794	Bouncing Books Foundation	office:ngo	False	True	https://www.bouncingbooks.org/	rachel@bouncingbooks.org (named)	+255752496571 (mobile)			0	2	search	
+master	Oa7c2b3621753	Conerstone Development	office:ngo	False	False						0	0		
+master	Oe3f6979ebd4c	Nanapay Foundation	office:ngo	False	False						0	0		
+master	Ocb1ef3331b65	Village Going Forward	office:ngo	False	False						0	0		
+master	O09fdd99a68e1	Hope 2 Other International	office:ngo	False	False						0	0		
+master	Oe091e8a3825f	KNCU Masama Mbweera	office:ngo	False	False						0	0		
+master	Ocdc3f38948a5	Global Bike Inc	office:ngo	False	True	https://www.globalbike.org/					0	0	search	
+master	Obd131ed62543	Widows & Watoto e.V	office:ngo	False	False						0	0		
+master	Oee4828fd83d3	Clarinets For Conservation Inc Dba Daraja Music Initiative	office:ngo	False	True	https://www.darajamusicinitiative.org/	info@darajamusicinitiative.org (role)				0	0	search	
+master	Of7e562e7749c	Give A Heart To Africa	office:ngo	False	True	https://www.giveahearttoafrica.org/	monika@giveahearttoafrica.org (named)				0	1	search	
+master	O5961a4a94782	Zuzu For Africa Tanzania	office:ngo	False	False						0	0		
+master	O38f6be7b0911	Worldserve International	office:ngo	False	False						0	0		
+master	O5d23575e423d	East African Youth Network (Eayn-The Network)	office:ngo	False	False						0	0		
+master	Ob769ef36ca34	Terre Sans Frontières	office:ngo	False	False						0	0		
+master	O49e8f6abce65	Friedkin Conservation Fund (FCF)	office:ngo	True	True	https://www.friedkinconservationfund.org/	andrea.frey@friedkinfund.org (general) | info@mwibafoundation.org (role)				0	0	website	
+master	Oa94fd641d4cf	Tanzania Coffee Research Institute (TaCRI)	office:research	True	True	https://www.tacri.or.tz/	info@tacri.or.tz (role) | ced@tacri.or.tz (general) | suzana.mbwambo@tacri.or.tz (general) | info@tacri.org (role) | deusdedit.kilambo@tacri.org (general) | deusdedit.kilambo@tacri.or.tz (general)	+255272923717 (office)	P.O. Box 3004 Post Code 25301 Moshi, Kilimanjaro, TANZANIA | P.O. Box 3004, Post Code 25301 Moshi, Kilimanjaro, TANZANIA | P.O. Box 3004, Post Code 25301, Moshi | S.L.P 3004, Post Code 25301 Moshi, Kilimanjaro TANZANIA	facebook: https://www.facebook.com/TACRI-Tanzania-Coffee-Research-Institute-1078476972229941/ | youtube: https://www.youtube.com/channel/UCkRuMlLU-vGalvDVBZUeBUw | instagram: https://instagram.com/tacri_tanzania/	0	1	search, website	
+master	O14259a760019	Losaa-KIA Water Supply	office:government	False	False						0	0		
+master	O4cffe71bdc12	Centre for Agricultural Mechanization and Rural Technology (CAMARTEC)	office:government	True	True						0	0		
+master	O0044a3ec3686	Tanzania Insurance Regulatory Authority (TIRA) – Northern Zone office	office:government	True	True						0	0		
+master	O439848a24ae3	Moshi Urban Water Supply and Sanitation Authority (MUWSA)	office:government	True	True	https://www.muwsa.go.tz/	info@muwsa.go.tz (role)	+255272751164 (office)			0	1	search	
+master	O367a126bd050	Green Supermarket	shop:supermarket	False	True			+255758488888 (mobile)			0	0	browser	
+master	Od51e48430b56	Mariam Supermarket	shop:supermarket	False	False						0	0	browser:not_found	
+master	Oa739e0ac3c0d	Sakina Supermarket	shop:supermarket	False	False						0	0	browser:not_found	
+master	O4a3b033e9158	Mr Price	shop:supermarket	False	False						0	0		
+master	Ocb7fe7d8bb98	HEAVENLIGHT SUPERMARKET	shop:supermarket	False	True			+255782600091 (mobile)			0	0	browser	
+master	O279a09b6f274	Rotterdam Supermarket	shop:supermarket	False	False						0	0	browser	
+master	Oc1cef2fe9fda	Village Supermarket	shop:supermarket	False	True			+255272549105 (office)			0	0	browser, search:not_found	
+master	Oc93d0a7a76f8	Jumla Africa, Arusha Branch	shop:wholesale	True	True	https://jumlaafrica.net/	jobs@jumlaafrica.com (role)	+255626280811 (mobile)			0	0	browser, search	jumlaafrica.net: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
+master	O9a3053048aae	Shoppers	shop:supermarket	False	True	https://shoppers.co.tz/	arushabranch@shoppers.co.tz (general)	+255658556707 (mobile) | +255222701545 (office)			0	0	browser, search	
+master	O0ae4b52bc4b1	Fine Food Supermarket	shop:supermarket	False	False						0	0		
+master	Oce15de5bf29d	Monoprix Supermarket	shop:supermarket	False	False						0	0		
+master	O48eab8c57762	Usoke Supermarket	shop:supermarket	False	False						0	0	browser:not_found	
+master	Oa3ea70c81fd0	Safari Park Supermarket	shop:supermarket	False	False						0	0		
+master	O83c4395ca6c5	Highway Supermarket	shop:supermarket	False	False						0	0	browser	
+master	O2af6f7d7e3b5	Kilimanjaro Star Supermarket	shop:supermarket	False	False						0	0		
+master	O5e98df92f256	VIVA Supermarket	shop:supermarket	False	True			+255716423490 (mobile)			0	0	browser	
+master	Oeb4268333e26	Market Basket	shop:supermarket	False	False						0	0		
+master	O06fc76a47a7a	Lelaa Tours & Safaris	office:travel_agent	True	True	https://www.lelaatours.com/	info@lelaatours.com (role) | lelaatours@gmail.com (personal_domain)	+255712917715 (mobile)	Po Box 156	facebook: https://web.facebook.com/Lelaa-Tours-and-safari-114650423788701/ | instagram: https://www.instagram.com/lelaatours/	0	1	website	
+master	O073d0d82f7b4	Masembo Safari LTD	office:travel_agent	True	True						0	0	search:not_found	
+master	Ob71654269a95	Safari Huella	office:travel_agent	True	True	https://safarihuella.com/	info@safarihuella.com (role)	+255660430808 (mobile)		facebook: https://www.facebook.com/safarihuella/ | instagram: https://www.instagram.com/safarihuella | youtube: https://youtube.com/safarihuella/ | tiktok: https://www.tiktok.com/@safarihuella/ | whatsapp: https://wa.me/255660430808 | twitter: https://www.x.com/safarihuella	0	0	search:not_found, website	
+master	Oe335fa800199	Safari Junction's Adventures	office:travel_agent	True	True	https://www.safarijunctions.com/					0	0	search:not_found, website	
+master	Of4d653dc7eef	Mzuka Safaris & Adventures	office:travel_agent	True	True						0	0	search:not_found	mzukadventure.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O4595c190c89f	Papaya Tours & Safaris	office:travel_agent	True	True	https://www.papayatoursandsafaris.com/	info@papayatoursandsafaris.com (role) | book@papayatoursandsafaris.com (general)	+255748494926 (mobile)			0	0	search, website	
+master	Ocd2f3cce80f1	Safari with Rafiki	office:travel_agent	True	True						0	0	search:not_found	
+master	O92a14084faa1	Suricata Safaris	office:travel_agent	True	True	https://suricatasafaris.com/	info@suricatasafaris.com (role)	+255763222293 (mobile)	P.O. Box 16301, Arusha		0	2	search	
+master	O50091f66b7eb	Tanzania Safari's	office:travel_agent	True	True						0	0	search:not_found	tanzania-safaris.com: home page not readable: 202
+master	O451686210644	Black & white travelers safari	office:travel_agent	True	True						0	0	search:not_found	
+master	Oc70292da50ad	Kilimanjaro Explore	office:travel_agent	True	True						0	0	search:not_found	
+master	O0c05535e1bfd	Mazingira Safari	office:travel_agent	True	True			+255784278205 (mobile)	P.O. Box 12544, Arusha		0	0	search	
+master	O6dc98f30a7a5	Mulala Cultural Tourism	office:travel_agent	True	True	https://agapetourism.com/		+255763969742 (mobile)			0	0	browser	agapetourism.com: home page not readable: HTTP 403
+master	O3c5d6f0acd49	Viafrica	office:travel_agent	False	False						0	0		
+master	O2d2fab71e148	KILI TRIPS TZ	office:travel_agent	False	False						0	0		
+master	O55f937240745	Lindo travel	office:travel_agent	False	True	https://www.lindotravel.com/	info@lindotravel.com (role)	+255768884042 (mobile)			0	0	browser, search	
+master	O1b41f1a2e525	Kimgoni Tanzania Safaris	office:travel_agent	True	True	https://kimgoni-tanzania-safaris.com/	info@kimgoni-tanzania-safaris.com (role) | schentz.maja@hotmail.com (personal_domain)	+255756904675 (mobile)		facebook: https://www.facebook.com/KimgoniSafari/ | instagram: https://www.instagram.com/kimgonisafaris/	0	1	search, website	
 welfare	ORG_fe82dcee83ae30d5	House of Happiness	Welfare residential care	True	True						3	0		
 welfare	ORG_3b93a2a133f07ccf	Light in Africa Children's Homes	Welfare residential care	True	True						1	0		
 welfare	ORG_2347b71049d38c08	Ujamaa Children's Home	Welfare residential care	True	True						2	0		
@@ -977,27 +1382,28 @@ welfare	ORG_c7ad9b28d323c467	Mesha's Village	Welfare funder	True	True						0	0
 welfare	ORG_6e366db99cd6105c	Ngarasero Community Organization	Welfare family-based programme	False	False						1	0		
 welfare	ORG_2abe4745ba1bc106	The Foundation For Tomorrow	Welfare family-based programme	True	True						3	0		
 welfare	ORG_68f4dd062cfc97e1	The Small Things	Welfare funder	True	True	https://www.thesmallthings.org/	info@thesmallthings.org (role)	+255768922302 (mobile) | +14753310505 (international)	PO Box 594, Usa River, Arumeru District, Tanzania	facebook: https://www.facebook.com/smallthingsorg | instagram: https://www.instagram.com/smallthingsorg/ | youtube: https://www.youtube.com/c/TheSmallThings | linkedin: https://www.linkedin.com/company/the-small-things | tiktok: https://www.tiktok.com/@thesmallthingsorg	4	0	browser	
+welfare	ORG_545648d6858a4766	Safe Home for Children with Disabilities	Welfare specialised centre	False	False						1	0		
+welfare	ORG_e7b5ce5a6d0d287c	Hope and Soul Tanzania	Welfare family-based programme	True	True	https://hopeandsoul.org.uk/	hello@hopeandsoul.org (role)				1	1	browser	
+welfare	ORG_5528a6b369441c09	Emusoi Centre	Welfare family-based programme	True	True						3	0		
+welfare	ORG_272c9d8106d584da	Kili Kids at Rainbow Ridge	Welfare residential care	True	True						3	0		
 welfare	ORG_94763fb53c3e44c7	WOMEN INITIATIVES FOR THE STREET AND WORKING CHILDREN' WELFARE (WIWOCHI)	Welfare family-based programme	True	True						0	0		
+welfare	ORG_e41e8be1b5108970	Kao La Amani Children's Village	Welfare residential care	True	True	https://tirnanogchildrensfoundation.com/					3	0	browser	
 welfare	ORG_729680a693e77baf	Afroplan Foundation	Welfare family-based programme	True	True						2	0		
 welfare	ORG_1f50a73c8875fbda	Tumaini Children's Foundation	Welfare residential care	True	True						2	0		
 welfare	ORG_b06447d649a63ebd	Compassion International Tanzania	Welfare family-based programme	True	True						3	0		
-welfare	ORG_e7b5ce5a6d0d287c	Hope and Soul Tanzania	Welfare family-based programme	True	True	https://hopeandsoul.org.uk/	hello@hopeandsoul.org (role)				1	1	browser	
-welfare	ORG_0c6d2df66a74c368	Faraja Orphanage Children's Home	Welfare residential care	True	True						1	0		
-welfare	ORG_e41e8be1b5108970	Kao La Amani Children's Village	Welfare residential care	True	True	https://tirnanogchildrensfoundation.com/					3	0	browser	
 welfare	ORG_dbd998c2bac924fd	Green Path for Community Success (GP-COSU)	Welfare family-based programme	True	True						1	0		
+welfare	ORG_232dc2de1a16ef84	Tupendane Orphanage (Arusha)	Welfare residential care	True	True						2	0		
 welfare	ORG_fc99a8c3d9d8c697	Child First Initiative (CFI)	Welfare family-based programme	True	True						1	0		
 welfare	ORG_420f595e9e261ecd	Tumaini For Africa Orphanage	Welfare residential care	True	True						1	0		
-welfare	ORG_232dc2de1a16ef84	Tupendane Orphanage (Arusha)	Welfare residential care	True	True						2	0		
+welfare	ORG_0c6d2df66a74c368	Faraja Orphanage Children's Home	Welfare residential care	True	True						1	0		
 welfare	ORG_9c510660d0950f75	Laketatu Orphanage	Welfare residential care	False	False						3	0		
 welfare	ORG_519fd29630fe26f8	ProManity International	Welfare residential care	True	True						2	0		
 welfare	ORG_71093e632f295104	LOHADA	Welfare residential care	True	True						1	0		
 welfare	ORG_089a499b0a90adac	POSA - Positive Steps in Arumeru	Welfare family-based programme	False	False						1	0		
+welfare	ORG_20eeed7cbba54e8b	Ummu Aisha Orphanage Centre	Welfare residential care	True	True						0	0		
 welfare	ORG_0dd9922dc3e7e5f8	Enyorata Children's Home	Welfare residential care	True	True						2	0		
 welfare	ORG_0704a4bdc46aad3e	Fruitful Orphanage and Day Care Centre	Welfare residential care	True	True						1	0		
-welfare	ORG_272c9d8106d584da	Kili Kids at Rainbow Ridge	Welfare residential care	True	True						3	0		
-welfare	ORG_5528a6b369441c09	Emusoi Centre	Welfare family-based programme	True	True						3	0		
 welfare	ORG_6e38e1a5bfb9dd93	Inuka	Welfare funder	True	True						1	0		
-welfare	ORG_545648d6858a4766	Safe Home for Children with Disabilities	Welfare specialised centre	False	False						1	0		
 welfare	ORG_efa87f3ba9e9144a	Malaika Children's Friends	Welfare residential care	True	True						0	0		
 welfare	ORG_844eafff33788600	Canaan Children's Center	Welfare residential care	True	True						4	0		
 welfare	ORG_8bfa5913c73d18cd	Save Africa Orphanage	Welfare residential care	True	True						1	0		
@@ -1011,43 +1417,45 @@ welfare	ORG_35d77a9ce929f214	Kitaa Hope Home	Welfare residential care	True	True	
 welfare	ORG_4c98a3d70ae300f9	Msamaria Centre for Street Children	Welfare specialised centre	True	True						2	0		
 welfare	ORG_d7c116912019f3d4	Tuleeni Children's Home	Welfare residential care	True	True						5	0		
 welfare	ORG_b1603ec797c054fa	NEW STARS FOUNDATION	Welfare family-based programme	True	True						1	0		
+welfare	ORG_3bfd038fe997f2e3	Kilimanjaro Orphanage Centre	Welfare residential care	True	True						2	0		
 welfare	ORG_5c920f7f4c77f17a	Kilimanjaro Children's Fund	Welfare residential care	True	True						1	0		
 welfare	ORG_b77e34f1fcaef5aa	Giving Smiles e.V.	Welfare funder	True	True						1	0		
 welfare	ORG_d771d7a3e1188eeb	Karim Children's Care Centre	Welfare residential care	True	True						1	0		
 welfare	ORG_d015b3a0176fcb44	SOS Children's Village Arusha	Welfare residential care	True	True						1	0		
+welfare	ORG_86345760403cc2c7	Kukua Pamoja Tanzania	Welfare family-based programme	True	True						1	0		
+welfare	ORG_a0b80abf3eedbe61	Twiga Vision Tanzania	Welfare family-based programme	True	True						1	0		
 welfare	ORG_70c06f36c9f7b688	Arusha Children's Effort	Welfare family-based programme	True	True						2	0		
 welfare	ORG_5bcecf7064e184eb	Cradle of Love Baby Home	Welfare residential care	True	True						0	0		
-welfare	ORG_3bfd038fe997f2e3	Kilimanjaro Orphanage Centre	Welfare residential care	True	True						2	0		
 welfare	ORG_7254f0911ca6903e	Born to Learn (BTL)	Welfare family-based programme	True	True						1	0		
 welfare	ORG_16666b98505674c3	Mkombozi Centre for Street Children	Welfare specialised centre	True	True	https://mkombozi.org/					0	0	browser	
 welfare	ORG_a8967f48b8afe52c	Havilah Children's Village	Welfare residential care	True	True						2	0		
 welfare	ORG_0ee76ec3c9ffaae3	Nkoaranga Orphanage (Baby Home)	Welfare residential care	True	True						1	0		
+welfare	ORG_067ffe23096284ac	Christ Hope Orphanage	Welfare residential care	True	True						2	0		
 welfare	ORG_8c90415bbaa47c9c	Karama Kids (Karama Care orphanage), Arusha	Welfare residential care	True	True						1	0		
-welfare	ORG_20eeed7cbba54e8b	Ummu Aisha Orphanage Centre	Welfare residential care	True	True						0	0		
 welfare	ORG_fba60d3424dfe3e2	Arusha Kids Trust	Welfare funder	True	True	https://www.arushakidstrust.com/	arushakidstrust@gmail.com (personal_domain)		P.O. Box 1320, Rozelle, NSW 2039, Australia		1	3	browser	
 welfare	ORG_12913609e7f94d5b	Seeway Tanzania	Welfare residential care	True	True						2	0		
 welfare	ORG_4c1ec0d652908b6f	Sibusiso Foundation	Welfare specialised centre	True	True	https://sibusiso.com/					3	0	browser	
 welfare	ORG_9155091ca037223c	OKAT Children's Home	Welfare residential care	True	True						3	0		
+welfare	ORG_8a9eb2eeaffcbb34	Africa Amini Alama	Welfare funder	True	True						2	0		
+welfare	ORG_427f7963fdceab6e	Mother Kevina Feeding Program-Centre (Kijenge, Arusha)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_2fe5bd5a1f542756	Sun of Hope Village/Orphanage	Welfare residential care	True	True						0	0		
 welfare	ORG_d08f3f49fc239159	HopeCare (Arusha)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_56f9ae1884e0f852	Building a Caring Community (BCC)	Welfare specialised centre	True	True						1	0		
-welfare	ORG_427f7963fdceab6e	Mother Kevina Feeding Program-Centre (Kijenge, Arusha)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_3df4ee48b5d5096b	Under The Same Sun	Welfare funder	True	True						0	0		
 welfare	ORG_45d5abb9c0a13c82	St. Joseph's Orphanage (Kiserian)	Welfare residential care	True	True						1	0		
 welfare	ORG_68ab26966770a550	Moshi Kids Centre	Welfare family-based programme	True	True						2	0		
+welfare	ORG_d0dab6bbff2ba236	FOUNDATION LE SOLSTICE TANZANIA	Welfare family-based programme	True	True	https://www.lesolstice.org/	info@lesolstice.org (role)				0	1	browser	
 welfare	ORG_53e477a79e319bce	TUPENDANE FOUNDATION AND INITIATIVES (TUFOI)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_9d3ee167fe391ed4	Bahath Orphanage & Children's Home	Welfare residential care	False	False						0	0		
 welfare	ORG_56957c45db8186b9	Children of Kilimanjaro Orphanage	Welfare residential care	True	True						5	0		
 welfare	ORG_f594a41fc7d2a4a6	Kilimanjaro Centre for Orphans and Street Children	Welfare specialised centre	True	True						1	0		
 welfare	ORG_86561b16241ac1b8	Upendo Children's Home	Welfare residential care	True	True						0	0		
-welfare	ORG_8a9eb2eeaffcbb34	Africa Amini Alama	Welfare funder	True	True						2	0		
 welfare	ORG_b8e667ff60877dfb	From Hearts 2 Hands	Welfare funder	True	True						1	0		
-welfare	ORG_aae277e315db86a3	Usa River Rehabilitation and Training Centre (URRC)	Welfare specialised centre	True	True						1	0		
 welfare	ORG_97a11fa114d87340	Peace House (Arusha)	Welfare residential care	True	True						0	0		
 welfare	ORG_a000fd7889e6b5c7	GEM LEGACY INC	Welfare funder	True	True						0	0		
+welfare	ORG_aae277e315db86a3	Usa River Rehabilitation and Training Centre (URRC)	Welfare specialised centre	True	True						1	0		
 welfare	ORG_6ee07bda0909b7d8	Rainbow Centre, Catholic Diocese of Moshi	Welfare family-based programme	True	True						0	0		
 welfare	ORG_5dc2ab5415e2a3a1	TAG Kilimanjaro Revival Temple Child and Youth Development Centre	Welfare family-based programme	False	False						2	0		
-welfare	ORG_d0dab6bbff2ba236	FOUNDATION LE SOLSTICE TANZANIA	Welfare family-based programme	True	True	https://www.lesolstice.org/	info@lesolstice.org (role)				0	1	browser	
 welfare	ORG_8797eaeb13c2cf3a	Tabasamu Childcare and Orphanage Centre	Welfare residential care	True	True						1	0		
 welfare	ORG_76c8dfc5ff58e063	Compassion International Tanzania	Welfare funder	True	True						4	0		
 welfare	ORG_d7f6f726c5a3bba7	Bethlehem Center for Children	Welfare residential care	True	True						0	0		
@@ -1056,10 +1464,10 @@ welfare	ORG_6cab4cfa59fba51c	Matumaini Child Care	Welfare residential care	True	
 welfare	ORG_6b1860583ec123c4	THE BANDARI YA MAENDELEO ORGANIZATION	Welfare family-based programme	True	True						2	0		
 welfare	ORG_9f5aaa71266dda3d	Maasai Girls Rescue Center - Children's Home and Rescue Center (Karatu)	Welfare specialised centre	True	True						0	0		
 welfare	ORG_df95ed32fda83144	ADVENTIST DEVELOPMENT AND RELIEF AGENCY	Welfare funder	True	True						0	0		
-welfare	ORG_067ffe23096284ac	Christ Hope Orphanage	Welfare residential care	True	True						2	0		
 welfare	ORG_eaff1bbfaaed2e6c	Eripoto Safe House	Welfare specialised centre	True	True						0	0		
 welfare	ORG_08b0d9a3e3caefd0	One Heart Source	Welfare residential care	True	True						1	0		
 welfare	ORG_52655fd946d6717e	Hope Orphanage Center	Welfare residential care	True	True						3	0		
+welfare	ORG_0be2a48ff947048e	Habashabi Orphanage Centre	Welfare residential care	True	True						1	0		
 welfare	ORG_93c3a1e24d8cdb12	Tanzania School Foundation, Inc.	Welfare family-based programme	True	True						0	0		
 welfare	ORG_fc6bdb43c50f2440	Good Hope Orphanage, School & Clinic	Welfare residential care	True	True						0	0		
 welfare	ORG_5c716b08a0d962dd	Matonyok Children's Home	Welfare residential care	True	True						0	0		
@@ -1071,7 +1479,6 @@ welfare	ORG_715f06f91f4713be	Passion Projects International Inc.	Welfare funder	
 welfare	ORG_6e3408808b0df46b	Standing Voice	Welfare funder	True	True						0	0		
 welfare	ORG_ecda3e381f90c5d7	Huruma Centre Orphanage	Welfare residential care	False	False						0	0		
 welfare	ORG_352494f3be4cdaba	CHISWEA (Children of the Street Welfare Association)	Welfare specialised centre	False	False						1	0		
-welfare	ORG_0be2a48ff947048e	Habashabi Orphanage Centre	Welfare residential care	True	True						1	0		
 welfare	ORG_d5f73ed1d9110e3f	ZARA Tanzania Charity	Welfare funder	True	True						1	0		
 welfare	ORG_b2bc4bc520cdd901	The Foundation for African Empowerment (FAE)	Welfare specialised centre	True	True						0	0		
 welfare	ORG_48995d3476257145	Small Steps for Compassion	Welfare residential care	True	True						2	0		
@@ -1092,106 +1499,113 @@ welfare	ORG_f3bd1e45046847c1	Bassari Community Empowerment and Development	Welfa
 welfare	ORG_5266c1e9bf4cace5	Friends Support for Community Development (FRI-SUCODE) Organization	Welfare family-based programme	True	True						0	0		
 welfare	ORG_659ef68fb79ea9fb	ROAM Humanitarian	Welfare funder	True	True						1	0		
 welfare	ORG_25ee34d6ed658e77	Habari Foundation (Moshi)	Welfare family-based programme	True	True						0	0		
+welfare	ORG_d2f9a35154f54032	O'BRIEN SCHOOL FOR THE MAASAI	Welfare family-based programme	True	True						0	0		
+welfare	ORG_8ccf2f20b2fbdc38	PROJECT ZAWADI INCORPORATED	Welfare family-based programme	True	True						0	0		
 welfare	ORG_ea16c8df7475989e	Mosses Confort Home Foundation (CHF)	Welfare residential care	True	True						0	0		
 welfare	ORG_2ecaadc2bedfaa30	ASANTE AFRICA TANZANIA	Welfare family-based programme	True	True						1	0		
-welfare	ORG_8ccf2f20b2fbdc38	PROJECT ZAWADI INCORPORATED	Welfare family-based programme	True	True						0	0		
-welfare	ORG_d2f9a35154f54032	O'BRIEN SCHOOL FOR THE MAASAI	Welfare family-based programme	True	True						0	0		
-welfare	ORG_d82bfc7e8937c548	Gily's Children Foundation	Welfare family-based programme	True	True						0	0		
 welfare	ORG_2b93addb8e53e60d	Arusha NGO Network (ANGONET)	Welfare network (introducer)	True	True						2	0		
+welfare	ORG_1773aab8e0d6c9e3	Rafiki Initiative Organization	Welfare family-based programme	True	True						1	0		
 welfare	ORG_3e94b1cf6978738d	Evangelical Lutheran Church in Tanzania (ELCT)	Welfare funder	True	True						1	0		
-welfare	ORG_625ffe9021a73962	OSOTUWA FOUNDATION	Welfare family-based programme	True	True						0	0		
+welfare	ORG_d82bfc7e8937c548	Gily's Children Foundation	Welfare family-based programme	True	True						0	0		
+welfare	ORG_9e523d465f68bd58	Bird Charity Tanzania	Welfare family-based programme	True	True						1	0		
 welfare	ORG_6f5b26e68d18c402	DYSLEXIA TANZANIA	Welfare specialised centre	True	True						0	0		
 welfare	ORG_60d9320fb191af2f	Maasai Women and Children Initiative ( MWACI-Ogranization)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_17289bafe9b97ea6	Furahia Mtoto Foundation (FUMFO)	Welfare family-based programme	True	True	https://furahiafoundation.org/				instagram: https://www.instagram.com/furahiamtoto | linkedin: https://www.linkedin.com/in/furahia-foundation-b97066186	0	1	browser	
-welfare	ORG_dc17765764b52a61	SAFARIS WITH A HEART	Welfare family-based programme	True	True						0	0		
 welfare	ORG_a39c615f52041596	GOOD HOPE KIWAWA FOUNDATION	Welfare family-based programme	True	True						0	0		
+welfare	ORG_dc17765764b52a61	SAFARIS WITH A HEART	Welfare family-based programme	True	True						0	0		
 welfare	ORG_58bc92d05b7239b9	AHSANTE FOUNDATION TANZANIA (AFOTA)	Welfare funder	True	True						0	0		
+welfare	ORG_625ffe9021a73962	OSOTUWA FOUNDATION	Welfare family-based programme	True	True						0	0		
 welfare	ORG_d2446d781076ead9	Gabriella Children's Rehabilitation Centre	Welfare specialised centre	True	True						0	0		
 welfare	ORG_7d61a0cd337f3b57	Children Concern Foundation - Tanzania	Welfare residential care	True	True						0	0		
 welfare	ORG_a3983a987c112c11	African Moons Tanzania	Welfare funder	True	True						1	0		
 welfare	ORG_f761a6f2fccaa8e3	ELY EDUCATION VISION ORGANIZATION	Welfare family-based programme	True	True						0	0		
+welfare	ORG_e0ee669d4dbfe9a5	Private Explorers	Welfare funder	True	True						0	0		
+welfare	ORG_851d2f873a11f20f	HEALTH INTEGRATED MULTISECTORAL DEVELOPMENT (HIMD)	Welfare specialised centre	True	True						0	0		
+welfare	ORG_cc42ea29f997afed	RESCUE CHILDREN CHARITY ORGANIZATION	Welfare specialised centre	True	True						0	0		
 welfare	ORG_dbdb8776edeea8a4	KIKATITI HAPPY WATOTO HOME	Welfare residential care	True	True						0	0		
+welfare	ORG_bcdec25d0dba1cb8	Living Water Children Centre	Welfare residential care	True	True						0	0		
 welfare	ORG_ac50f69f1783d585	Milelo Tanzania Organization	Welfare family-based programme	True	True						0	0		
 welfare	ORG_65586942a818f80a	KinderVilla Momella (Africa Amini Alama children's home)	Welfare residential care	True	True						1	0		
 welfare	ORG_4f9aff40e153bac4	Faraja Forward Tanzania.	Welfare specialised centre	True	True	https://farajaschool.org/					0	0	browser	
+welfare	ORG_145491e0b51ef4ab	WARIOBA CHILD COMPASSION	Welfare family-based programme	True	True						0	0		
+welfare	ORG_babdcb281c17a96b	Ilboru Special Needs School (Arusha)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_4ee28dba68955a05	ELCT Meru Diocese	Welfare network (introducer)	True	True						2	0		
 welfare	ORG_f3d5debf5911f814	Jericho Orphanage Home	Welfare residential care	True	True						0	0		
-welfare	ORG_145491e0b51ef4ab	WARIOBA CHILD COMPASSION	Welfare family-based programme	True	True						0	0		
 welfare	ORG_a1f68e65402583d5	THE LITTLE OASIS FOUNDATION (TLOF)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_68ac5ccf51d6175c	Ereto East Africa Foundation	Welfare family-based programme	True	True						0	0		
-welfare	ORG_e4510f9b70b2d47d	Watoto Kicheko Orphanage	Welfare residential care	True	True						0	0		
 welfare	ORG_a39127c1c143dce0	Big Future Foundation	Welfare family-based programme	True	True						1	0		
-welfare	ORG_032304ca3113161b	Happy Childhood Foundation	Welfare funder	False	False						0	0		
 welfare	ORG_c30210c520ccf6f2	Sandra Jones Centre	Welfare specialised centre	False	False						0	0		
 welfare	ORG_30c77d609b4a8daf	Sunrise Hope for Foundation	Welfare family-based programme	True	True						0	0		
+welfare	ORG_e4510f9b70b2d47d	Watoto Kicheko Orphanage	Welfare residential care	True	True						0	0		
+welfare	ORG_032304ca3113161b	Happy Childhood Foundation	Welfare funder	False	False						0	0		
 welfare	ORG_032395a73bad1b3e	WORLD VISION TANZANIA	Welfare funder	True	True						0	0		
 welfare	ORG_024737bc97309aad	Tanzania Youth Support and Self Reliance Organization	Welfare residential care	True	True						0	0		
-welfare	ORG_babdcb281c17a96b	Ilboru Special Needs School (Arusha)	Welfare specialised centre	False	False						0	0		
-welfare	ORG_bcdec25d0dba1cb8	Living Water Children Centre	Welfare residential care	True	True						0	0		
 welfare	ORG_47fe03eccbb215f4	TABASAMU AFRICA ORGANIZATION	Welfare family-based programme	True	True						0	0		
 welfare	ORG_16297186ccc76c28	YOUNG MINDS EDUCATION ORGANIZATION	Welfare family-based programme	True	True						0	0		
 welfare	ORG_cab5ec6fca9ec7e0	Hope Village for Orphaned and Vulnerable Children	Welfare residential care	True	True						1	0		
+welfare	ORG_f706ae395f81de75	Asali partner community centre, Majengo (Moshi)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_22f3e02347a381cb	Kalali Orphanage	Welfare residential care	False	False						1	0		
 welfare	ORG_1270c542fd8b3016	Son and Oscar Foundation	Welfare family-based programme	False	False						0	0		
-welfare	ORG_b231869d0df6836f	GLORY REACH AND HELP FOUNDATION	Welfare funder	False	False						0	0		
-welfare	ORG_6aacfec3733b96a3	Gloria foundation	Welfare specialised centre	False	False						0	0		
-welfare	ORG_30f7ac4d34497159	LITTLE PROSPECTS FOUNDATION (LPF)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_ce4f6b18bdaa1684	Upendo Kwanza	Welfare family-based programme	True	True						0	0		
-welfare	ORG_73358e7c9681e655	BETTER LIFE FOR DEAF FOUNDATION TANZANIA	Welfare specialised centre	False	False						0	0		
-welfare	ORG_93fee2a0222a53bd	MORAVIAN NORTHERN SOCIAL DEVELOPMENT ORGANIZATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_c8d87d5ae3b514cd	CENTRAL CHILDREN SUPPORT (CCS)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_b7bbe3204810e3ae	NIKUMBUKE LEO ORGANIZATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_3a50c7bf5f32a3f1	BETTER FUTURE FOR ALL	Welfare specialised centre	False	False						0	0		
 welfare	ORG_3174d52d4287c6fe	AFRICA MASTERPIECE CHILDREN ORGANIZATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_918245dc05d4a0f2	BRIGHT HOPE CHILDREN DOUNDATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_a5a05f99272796b6	Gladness Kanyika Home Organization	Welfare residential care	False	False						0	0		
-welfare	ORG_a5b6458654d0b65f	UGUTU COMMUNITY FOUNDATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_2589d604515f25ba	Change your life Foundation	Welfare family-based programme	False	False						0	0		
-welfare	ORG_e50c6340861bab4b	AFRO RURAL DEVELOPMENT CONSORTIUM	Welfare family-based programme	False	False						0	0		
-welfare	ORG_4b35ae098323e1a6	SPORTS HOSTEL FOUNDATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_a333075740c7d402	VUKA INITIATIVE	Welfare specialised centre	False	False						0	0		
+welfare	ORG_3a50c7bf5f32a3f1	BETTER FUTURE FOR ALL	Welfare specialised centre	False	False						0	0		
 welfare	ORG_b41a6c9f2a6ef1fd	FRIENDS OF KIDS SPEAK OUT	Welfare specialised centre	False	False						0	0		
+welfare	ORG_6aacfec3733b96a3	Gloria foundation	Welfare specialised centre	False	False						0	0		
 welfare	ORG_b11c6b462059e489	HUSNA FOUNDATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_f239449efeecf696	CARORYAN FOUNDATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_b231869d0df6836f	GLORY REACH AND HELP FOUNDATION	Welfare funder	False	False						0	0		
 welfare	ORG_d1a1cf9e5af50bff	SHIELD OF WOMEN AND CHILDREN FOUNDATION	Welfare specialised centre	False	False						0	0		
-welfare	ORG_a6266a71f76c8a7b	The Hearts of Hope Foundation Tanzania	Welfare family-based programme	False	False						0	0		
-welfare	ORG_807fb6b11fb1e419	ATPEACE FOUNDATION	Welfare specialised centre	False	False						0	0		
+welfare	ORG_ce4f6b18bdaa1684	Upendo Kwanza	Welfare family-based programme	True	True						0	0		
+welfare	ORG_c8d87d5ae3b514cd	CENTRAL CHILDREN SUPPORT (CCS)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_b7bbe3204810e3ae	NIKUMBUKE LEO ORGANIZATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_93fee2a0222a53bd	MORAVIAN NORTHERN SOCIAL DEVELOPMENT ORGANIZATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_4b35ae098323e1a6	SPORTS HOSTEL FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_c8437bbef1b0d2dd	ME AND ORPHANS TANZANIA	Welfare family-based programme	False	False						0	0		
-welfare	ORG_4e5c8606195c68d6	VOLANTE'S EAGLES ORGANIZATION (VEO)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_e50c6340861bab4b	AFRO RURAL DEVELOPMENT CONSORTIUM	Welfare family-based programme	False	False						0	0		
+welfare	ORG_73358e7c9681e655	BETTER LIFE FOR DEAF FOUNDATION TANZANIA	Welfare specialised centre	False	False						0	0		
+welfare	ORG_2589d604515f25ba	Change your life Foundation	Welfare family-based programme	False	False						0	0		
+welfare	ORG_192876c47bbdf703	EASTERN STAR CHILDREN ORGANIZATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_a6266a71f76c8a7b	The Hearts of Hope Foundation Tanzania	Welfare family-based programme	False	False						0	0		
+welfare	ORG_30f7ac4d34497159	LITTLE PROSPECTS FOUNDATION (LPF)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_a5b6458654d0b65f	UGUTU COMMUNITY FOUNDATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_f239449efeecf696	CARORYAN FOUNDATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_f12f0b4c517baada	SUPPORT CHILDREN AND COMMUNITY ADVANCEMENT   (SUCARE)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_a5a05f99272796b6	Gladness Kanyika Home Organization	Welfare residential care	False	False						0	0		
+welfare	ORG_807fb6b11fb1e419	ATPEACE FOUNDATION	Welfare specialised centre	False	False						0	0		
 welfare	ORG_370a777769b10bbf	LEADING BY FEEDING AFRICA	Welfare family-based programme	False	False						0	0		
 welfare	ORG_a447c702f8f86a18	TANZANIA CHILD CARE AND TECHNICAL SUPPORT	Welfare specialised centre	False	False						0	0		
-welfare	ORG_192876c47bbdf703	EASTERN STAR CHILDREN ORGANIZATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_1750013c04cfa873	I Want to Be Foundation	Welfare family-based programme	False	False						0	0		
-welfare	ORG_f12f0b4c517baada	SUPPORT CHILDREN AND COMMUNITY ADVANCEMENT   (SUCARE)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_489f4d32263b7390	DEAF AND COMMUNITY PROGRESS ORGANIZATION	Welfare specialised centre	False	False						0	0		
-welfare	ORG_b152d3d266f623db	ANGAZIA	Welfare specialised centre	False	False						0	0		
+welfare	ORG_4e5c8606195c68d6	VOLANTE'S EAGLES ORGANIZATION (VEO)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_3e503de92126f00b	Africa Dream Safaris	Welfare funder	True	True						0	0		
-welfare	ORG_5845c804bf81ea8a	EDUCATION FOR CHILDREN IN NEED (ECN)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_810ef2b9b722f620	FARAJA SUPPORT FOR NEEDY CHILDREN AND ORPHANS ORGANIZATION (FSNO)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_1f4af913d5a05009	Heart for Africa (UK)	Welfare funder	True	True						0	0		
+welfare	ORG_1750013c04cfa873	I Want to Be Foundation	Welfare family-based programme	False	False						0	0		
 welfare	ORG_f7c41ad6457cb5c8	Osiligi Orphanage Center (Arusha)	Welfare residential care	True	True						0	0		
 welfare	ORG_b6bc291bc53de13f	Tumaini House (YWAM Arusha Tumaini Children Ministry)	Welfare family-based programme	True	True						3	0		
 welfare	ORG_2f79eb36c2b80e13	Ucare Family Home	Welfare residential care	True	True						1	0		
+welfare	ORG_489f4d32263b7390	DEAF AND COMMUNITY PROGRESS ORGANIZATION	Welfare specialised centre	False	False						0	0		
+welfare	ORG_57027566f8bf7234	HELP FOR THE MAASAI ORGANIZATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_b152d3d266f623db	ANGAZIA	Welfare specialised centre	False	False						0	0		
+welfare	ORG_f00475035064ba00	LIFE BRIDGE FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_b31f8d1d8da9ad7c	Levites Children Foundation (LCF)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_5845c804bf81ea8a	EDUCATION FOR CHILDREN IN NEED (ECN)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_810ef2b9b722f620	FARAJA SUPPORT FOR NEEDY CHILDREN AND ORPHANS ORGANIZATION (FSNO)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_47b33a0f82a0f2f1	Kilimanjaro Children and Youth Centre (KCYC)	Welfare specialised centre	True	True						0	0		
+welfare	ORG_10c9df3e14c67cd2	LENGIJABE CHILDREN'S VOLUNTEERING RELIEF	Welfare family-based programme	False	False						0	0		
 welfare	ORG_e29f6f4c66e82279	RELIEF FOR THE HOPELESS FOUNDATION (RHF)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_7bcc97ded7a50796	Uplifting  and Nurturing Them	Welfare family-based programme	False	False						0	0		
-welfare	ORG_57027566f8bf7234	HELP FOR THE MAASAI ORGANIZATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_10c9df3e14c67cd2	LENGIJABE CHILDREN'S VOLUNTEERING RELIEF	Welfare family-based programme	False	False						0	0		
-welfare	ORG_aec28a05de4162a4	Empact Foundation	Welfare family-based programme	False	False						0	0		
 welfare	ORG_45a2afa13b2b7fa3	Every Child Count	Welfare family-based programme	False	False						0	0		
-welfare	ORG_f00475035064ba00	LIFE BRIDGE FOUNDATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_47b33a0f82a0f2f1	Kilimanjaro Children and Youth Centre (KCYC)	Welfare specialised centre	True	True						0	0		
-welfare	ORG_7094f8e6e8f02e13	Starving children	Welfare family-based programme	False	False						0	0		
+welfare	ORG_0cab4584375baa7a	TATA CHILDREN ORGANIZATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_7473867d381d1efb	Exploration Kids Organization - EKO	Welfare family-based programme	False	False						0	0		
+welfare	ORG_38651d0c777b3a05	Emayani vulnerable people's center	Welfare specialised centre	False	False						0	0		
+welfare	ORG_aec28a05de4162a4	Empact Foundation	Welfare family-based programme	False	False						0	0		
 welfare	ORG_950eb7fa35608312	NASHUMU VULNERABLE GIRLS RESCUE INITIATIVES (NAVUGIREI)	Welfare specialised centre	False	False						0	0		
+welfare	ORG_7094f8e6e8f02e13	Starving children	Welfare family-based programme	False	False						0	0		
 welfare	ORG_fd4c76169339ed62	TANZANIA PEOPLE WITH DISABILITY SUPPORT ORGANISATION- (TAPDISO)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_5f3295fcfe399a38	EBENEZER ORPHANAGE CENTRE	Welfare residential care	False	False						0	0		
-welfare	ORG_0cab4584375baa7a	TATA CHILDREN ORGANIZATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_38651d0c777b3a05	Emayani vulnerable people's center	Welfare specialised centre	False	False						0	0		
-welfare	ORG_7473867d381d1efb	Exploration Kids Organization - EKO	Welfare family-based programme	False	False						0	0		
-welfare	ORG_25c604f4f9c0dde4	Ndovu Foundation	Welfare family-based programme	False	False						0	0		
-welfare	ORG_b9b747ec5a01e149	MERU PEAK FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_bd7807f6f651b93b	HEALTH INITIATIVE FOR KIDS AND ELDERS (HIKE)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_b9b747ec5a01e149	MERU PEAK FOUNDATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_25c604f4f9c0dde4	Ndovu Foundation	Welfare family-based programme	False	False						0	0		
+welfare	ORG_d67b719a1eb143ba	AREM FOUNDATION	Welfare family-based programme	True	True						0	0		
 welfare	ORG_0dc0ecbd3cfcf969	The Light of Change Foundation	Welfare specialised centre	False	False						0	0		
-welfare	ORG_f706ae395f81de75	Asali partner community centre, Majengo (Moshi)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_559a4fb511627ff0	OMAWA (Moshi)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_046466a048ffa573	Tanzania Women Research Foundation (Moshi)	Welfare family-based programme	True	True						0	0		
 welfare	ORG_40700c22aae33c5c	Afrikids (Coral Gables, FL)	Welfare funder	True	True						2	0		
@@ -1208,19 +1622,20 @@ welfare	ORG_eba5eb781c2c0f15	Love Our Tanzania Family Inc	Welfare funder	True	Tr
 welfare	ORG_39f8f6995e3d2c57	Scott Willis Legacy Foundation	Welfare funder	True	True						1	0		
 welfare	ORG_32edee56fc8a6b69	Uboratz Inc (UBORA)	Welfare funder	True	True						1	0		
 welfare	ORG_07cd00727d973938	Utopia Foundation Inc	Welfare funder	True	True						1	0		
-welfare	ORG_a333075740c7d402	VUKA INITIATIVE	Welfare specialised centre	False	False						0	0		
 welfare	ORG_5ea487783e009264	Yelloh Foundation	Welfare funder	True	True						1	0		
 welfare	ORG_49dbdbab08b2092a	Espero Foundation	Welfare family-based programme	True	True						0	0		
 welfare	ORG_2b725552cb4e8836	Marangu Anza Pamoja Organization	Welfare family-based programme	True	True						1	0		
 welfare	ORG_b2f279687e45fedd	kipepeo family foudation	Welfare family-based programme	True	True						0	0		
+welfare	ORG_7c95c3546a2b23db	ELCT Northern Diocese	Welfare network (introducer)	True	True						3	0		
+welfare	ORG_d788cac25e9f03c3	Kilimanjaro Childlight Foundation	Welfare family-based programme	True	True						1	0		
 welfare	ORG_6241c101af9c24f6	HALEVAFRICA	Welfare family-based programme	True	True						1	0		
 welfare	ORG_54a974bf971a2119	SINONI NGARASHI EDUCATION AND ORPHANS ORGANIZATION	Welfare family-based programme	True	True						0	0		
-welfare	ORG_7b1b8d0b39c73fd1	Best Centre for the Blind	Welfare specialised centre	False	False						0	0		
-welfare	ORG_3453cd3ae70d84ef	YOUTH POWER IN SOCIAL ACTION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_b13612c968389298	Green Path Foundation (Green PF)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_fe9c4cb0ef911751	Shujaa wa Upendo Initiative (SUI Tanzania)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_9769a5d226dd529e	HOSSANA HOME CARE FOUNDATION	Welfare residential care	False	False						0	0		
 welfare	ORG_8775a4ea09b47e91	LEAD  FOR HUMAN CARE AND SHARE ORGANIZATION (LEHCSO)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_3453cd3ae70d84ef	YOUTH POWER IN SOCIAL ACTION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_7b1b8d0b39c73fd1	Best Centre for the Blind	Welfare specialised centre	False	False						0	0		
 welfare	ORG_7ca3ed1e15a3c1ad	WAMOJA FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_cf6eb889cea44481	Lomayana-Saint	Welfare family-based programme	False	False						0	0		
 welfare	ORG_c51433b9ea8c5516	The Kutamani Foundation	Welfare family-based programme	False	False						0	0		
@@ -1232,6 +1647,9 @@ welfare	ORG_856dedfa3d649047	AFRICA NDOTO ORGANIZATION	Welfare family-based prog
 welfare	ORG_ef42f4670d10ecc4	WATOTO FUTURE INITIATIVES	Welfare family-based programme	False	False						0	0		
 welfare	ORG_c5ea81fc8175669a	Kingdom Matters Organisation	Welfare specialised centre	False	False						0	0		
 welfare	ORG_5af4ec031968056e	Salama Home and Joyful Children Organization	Welfare specialised centre	False	False						0	0		
+welfare	ORG_a0fa2c97f15716e1	ARUSHA CHILD RIGHTS ORGANIZATION (ACRO)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_e6035f0f9254b941	Shalom Center (Kisongo)	Welfare residential care	False	False						0	0		
+welfare	ORG_5bd4e88daef3faaa	Volcano Development of Children's (VODEC)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_317b4fb89c017278	Amazing Grace Widows and orphans Tanzania	Welfare family-based programme	True	True						0	0		
 welfare	ORG_b89d48bb2af39ef8	Arusha Children Center	Welfare specialised centre	True	True						0	0		
 welfare	ORG_9ad8684aa8e102e8	Arusha Children's Trust (ACT)	Welfare funder	True	True						0	0		
@@ -1243,11 +1661,8 @@ welfare	ORG_a701ebf6a2b9fbbd	Connects Autism Tanzania	Welfare specialised centre
 welfare	ORG_b8833b7ea12a8d24	ELCT North Central Diocese	Welfare network (introducer)	True	True						4	0		
 welfare	ORG_6682c9566d1c522a	FORTUNE KIDS AND EDUCATION FOUNDATION (FKEF)	Welfare specialised centre	True	True						0	0		
 welfare	ORG_8ae2598f233d2b33	HANDICAPPED CHILDREN REHABILITATION TANZANIA (HACRET)	Welfare specialised centre	True	True						0	0		
-welfare	ORG_851d2f873a11f20f	HEALTH INTEGRATED MULTISECTORAL DEVELOPMENT (HIMD)	Welfare specialised centre	True	True						0	0		
 welfare	ORG_9b46fae3ec64077a	New Hope Initiative, Inc	Welfare specialised centre	True	True						0	0		
 welfare	ORG_58f1eb3ed28d57a8	PEACEMAKERS FOR ALBINISM AND COMMUNITY (PAC)	Welfare specialised centre	True	True						0	0		
-welfare	ORG_e0ee669d4dbfe9a5	Private Explorers	Welfare funder	True	True						0	0		
-welfare	ORG_cc42ea29f997afed	RESCUE CHILDREN CHARITY ORGANIZATION	Welfare specialised centre	True	True						0	0		
 welfare	ORG_b694722a0288477c	Read With Me Arusha	Welfare funder	True	True						1	0		
 welfare	ORG_ee895ae977532252	Tansania Laechelt Organization	Welfare family-based programme	True	True						0	0		
 welfare	ORG_6945625ec43ca27c	Watoto Foundation Tanzania	Welfare specialised centre	True	True						0	0		
@@ -1256,13 +1671,12 @@ welfare	ORG_61b5d4ac92500587	AUTISM BEYOND BORDERS  TZ	Welfare specialised centr
 welfare	ORG_2c70b6e07a808e15	Better Future International Tanzania (Moshi)	Welfare residential care	True	True						0	0		
 welfare	ORG_0050c8fb39706440	Catholic Diocese of Moshi	Welfare funder	True	True						0	0		
 welfare	ORG_4a22f1344209f72f	Child Hope Development Organization	Welfare family-based programme	True	True						1	0		
-welfare	ORG_7c95c3546a2b23db	ELCT Northern Diocese	Welfare network (introducer)	True	True						3	0		
-welfare	ORG_d788cac25e9f03c3	Kilimanjaro Childlight Foundation	Welfare family-based programme	True	True						1	0		
 welfare	ORG_9f8fd4eefcb75ab4	Kilimanjaro Foundation	Welfare family-based programme	True	True						0	0		
 welfare	ORG_495c07c01b748589	Neema International	Welfare family-based programme	True	True						0	0		
 welfare	ORG_c3a06e16775751be	SECOND CHANCE EDUCATION CENTRE	Welfare specialised centre	True	True						0	0		
 welfare	ORG_ee5aa6f12ec0b808	SHARE CHILDREN'S VILLAGES FOUNDATION	Welfare residential care	True	True						0	0		
 welfare	ORG_123ace4d0cd54921	SONGAMBELE INITIATIVE ORGANIZATION	Welfare specialised centre	True	True						0	0		
+welfare	ORG_2e899e23820d298d	THE SAME QUALITIES FOUNDATION (SQF)	Welfare specialised centre	True	True	https://samequalitiesfoundation.org/	info@samequalitiesfoundation.org (role)	+255739773999 (mobile)	P.O. Box 11641, Arusha, Tanzania	facebook: https://www.facebook.com/samequalitiesfoundation.org | instagram: https://www.instagram.com/samequalitiesfoundation/ | youtube: https://www.youtube.com/channel/UCNgwBo0bHcURki5rafXC3CQ	0	2	browser	
 welfare	ORG_8c7ad679efd4e72e	SEEDS OF KINDNESS ORGANIZATION (SOK)	Welfare funder	True	True						0	0		
 welfare	ORG_66f4352545606001	KAHE HOME FOR MENTAL RETARTED CHILDREN	Welfare specialised centre	True	True						0	0		
 welfare	ORG_88014b12cd35dae6	TUMAINI HOME ORGANIZATION (T.H.T.O)	Welfare residential care	True	True						2	0		
@@ -1316,15 +1730,13 @@ welfare	ORG_9c1aaee778affe38	SOS Children's Villages International / SOS Childre
 welfare	ORG_d6f96b14d8808eab	Tanzania Child Rights Forum (TCRF)	Welfare network (introducer)	True	True						2	0		
 welfare	ORG_c55172f46f7162d4	The Bahati Trust for Orphans in Tanzania	Welfare funder	True	True	https://www.bahatitrust.com/	contact@bahatitrust.com (role)				0	0	browser	
 welfare	ORG_c64d5120541518db	Le Bao's Kids Foundation	Welfare specialised centre	True	True						2	0		
-welfare	ORG_e6035f0f9254b941	Shalom Center (Kisongo)	Welfare residential care	False	False						0	0		
-welfare	ORG_a0fa2c97f15716e1	ARUSHA CHILD RIGHTS ORGANIZATION (ACRO)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_5bd4e88daef3faaa	Volcano Development of Children's (VODEC)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_54df456df6bebaa8	STABLE LIFE FOR TANZANIA KIDS FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_f495661315952d21	ASHE FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_ffedee7606a62921	EJUNG'O CHILD AND YOUTH FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_b44a288aa0f74068	Hope Sunshine Foundation	Welfare family-based programme	False	False						0	0		
-welfare	ORG_54df456df6bebaa8	STABLE LIFE FOR TANZANIA KIDS FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_217522f0661e6cce	ZOE AFRICA (TZ)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_ea6715489a587eae	KINGDOM CHILDCARE ORGANIZATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_0e6e36885128a918	Ikunda Needs and Orphans Children Organization	Welfare family-based programme	False	False						0	0		
 welfare	ORG_c05202ae2783b1aa	DEAFBLIND ASSISTANCE SERVICES (DBAS)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_98d96623812345d5	MOSHONO CHILDREN FOUNDATION (MCF)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_f7cb0d575c4e9b2e	NICE ORPHANS CENTRE (NOC)	Welfare family-based programme	False	False						0	0		
@@ -1332,23 +1744,25 @@ welfare	ORG_1d235a7ba61118eb	Precious Orphans Children (POCH)	Welfare family-bas
 welfare	ORG_afa781a571839ce9	MESHACK ERETO FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_9990beecd05c2640	SHALOM CENTRE FOR STREET CHILDREN	Welfare specialised centre	False	False						0	0		
 welfare	ORG_253bcddac2c7cfc1	THEMI YOUTH ORPHANAGE	Welfare residential care	False	False						0	0		
-welfare	ORG_0e6e36885128a918	Ikunda Needs and Orphans Children Organization	Welfare family-based programme	False	False						0	0		
 welfare	ORG_5d39fedd7bbbff28	Kujengana Network	Welfare family-based programme	False	False						0	0		
 welfare	ORG_5f658e3616c1a17b	ABILITY IN DISABILITY TANZANIA	Welfare specialised centre	False	False						0	0		
 welfare	ORG_cba49d0f6be84790	Glory Vision Tanzania	Welfare family-based programme	False	False						0	0		
 welfare	ORG_f5ea15600308678b	ESAM Foundation for Change	Welfare family-based programme	False	False						0	0		
+welfare	ORG_8d26b0ce71c3c112	Neema Orphanage Centre (ELCT Northern Diocese)	Welfare residential care	False	True		neema@elct.org (general)		P.O. Box 1, Moshi (Sisterhood Ushirika wa Neema)		0	0	search	
 welfare	ORG_5593daf0d8c05a53	Huduma ya Fahari Kubwa Foundation	Welfare specialised centre	False	False						0	0		
 welfare	ORG_a5ea896cd72f4f5e	TUNAJALI Foundation	Welfare family-based programme	False	False						0	0		
-welfare	ORG_e252964e8be56f09	CHILDREN MUST LIVE-TANZANIA  (CML-T)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_677eabb2454d8685	YOUNG AND SINGLE MOTHERS DISABILITY ORGANIZATION-YOSIMODO	Welfare specialised centre	False	False						0	0		
 welfare	ORG_5883a77fbac74d54	ST. SIMON TOMORROW RETURN OF HOPE FOUNDATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_677eabb2454d8685	YOUNG AND SINGLE MOTHERS DISABILITY ORGANIZATION-YOSIMODO	Welfare specialised centre	False	False						0	0		
 welfare	ORG_30b3480487614aca	GRACIOUS GIVERS FAMILY	Welfare family-based programme	False	False						0	0		
+welfare	ORG_c72ef616274e9b5d	Child & Youth Development Center - DLBC	Welfare family-based programme	False	False						0	0		
+welfare	ORG_e252964e8be56f09	CHILDREN MUST LIVE-TANZANIA  (CML-T)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_9a2e1fd51caa26b7	His Healing Hands Africa Ministry (Meru, Arusha)	Welfare residential care	False	False						0	0		
 welfare	ORG_27b52e72276973ec	Amazing Children's Home (Arusha)	Welfare residential care	False	False						0	0		
 welfare	ORG_ca6e294c4a7b83a9	CANDENEZ MISSION FOR EMPOWERING VULNERABLE CHILDREN	Welfare family-based programme	True	True						0	0		
 welfare	ORG_8c2d70b606133ece	CONVOY OF HOPE	Welfare family-based programme	True	True						0	0		
 welfare	ORG_3de4936491265945	Choose Love home for orphans (Arusha)	Welfare residential care	False	False						0	0		
 welfare	ORG_7601c9c319952110	Holley Children Orphanage (Arusha)	Welfare residential care	False	False						0	0		
+welfare	ORG_055d4e8369ec44c0	Hope Children's Support Organization	Welfare family-based programme	True	True						0	0		
 welfare	ORG_90d5a3b22943e0fe	Kidcare International centre for street children (Arusha)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_ec2d1fb3334e22e4	Malaika Orphanage (Arusha)	Welfare residential care	False	False						0	0		
 welfare	ORG_e881feed8003a276	Mama Jane's Orphanage (Arusha)	Welfare residential care	False	False						0	0		
@@ -1369,44 +1783,41 @@ welfare	ORG_77a5a91149309e27	St Joseph's Children's Home (Franciscan Sisters of 
 welfare	ORG_72d04c7ad70ddb32	VOV Center (Moshi)	Welfare residential care	False	False						0	0		
 welfare	ORG_25188ad4459e4fcb	Concordia Lutheran Ministries Foundation	Welfare funder	True	True						0	0		
 welfare	ORG_1798337b5bb97fc7	TerraWatu	Welfare funder	True	True						0	0		
-welfare	ORG_c72ef616274e9b5d	Child & Youth Development Center - DLBC	Welfare family-based programme	False	False						0	0		
+welfare	ORG_846b82f9b63ee379	ONE LOVE AFRICA FOUNDATION	Welfare residential care	False	False						0	0		
+welfare	ORG_072cd5c7e1122bfa	LIPO TUMAINI ORGANIZATION (LTO)	Welfare specialised centre	False	False						0	0		
+welfare	ORG_f7df0453c9e30c17	Green Future and Community Development Tanzania Organization.	Welfare family-based programme	False	False						0	0		
 welfare	ORG_ec7e47c207b478ef	RESTORE HOPE FOR YOUTH	Welfare family-based programme	False	False						0	0		
 welfare	ORG_4ecb8d51254eb0ed	Rise Up and Go (RU&GO)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_ecc1dfeaad1c6fd1	THE SAMARITAN CHILDREN'S HOME (TSCH)	Welfare residential care	False	False						0	0		
-welfare	ORG_846b82f9b63ee379	ONE LOVE AFRICA FOUNDATION	Welfare residential care	False	False						0	0		
-welfare	ORG_f7df0453c9e30c17	Green Future and Community Development Tanzania Organization.	Welfare family-based programme	False	False						0	0		
 welfare	ORG_37336aeecdf95525	ROLINA ASSOCIATION FOR ORPHANS	Welfare family-based programme	False	False						0	0		
-welfare	ORG_f255ef80d21e5935	EMUNYANI CHARITY	Welfare family-based programme	False	False						0	0		
 welfare	ORG_a22d16abd24d6cad	NEEMAH WINGS FOUNDATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_072cd5c7e1122bfa	LIPO TUMAINI ORGANIZATION (LTO)	Welfare specialised centre	False	False						0	0		
+welfare	ORG_f255ef80d21e5935	EMUNYANI CHARITY	Welfare family-based programme	False	False						0	0		
 welfare	ORG_2689736e2dbac2e1	JAMII JASIRI	Welfare specialised centre	False	False						0	0		
 welfare	ORG_37b966150904e1e8	USA-RIVER CHILDREN CENTRE	Welfare family-based programme	False	False						0	0		
+welfare	ORG_42ff3f0456d4c9ed	STUDENTS SUPPORT FOUNDATION(SSF)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_cf29bb57dbe4faa1	KILI-HOPE ORGANISATION	Welfare family-based programme	False	False						0	0		
+welfare	ORG_40edac7d3f7dfb5e	TANZANIAN  AMBASSADORS  FACILITATING COMMUNITY-DEVELOPMENT  METHODOLOGIES (TAFCOM)	Welfare specialised centre	True	True						0	0		
 welfare	ORG_9004f457f0e03110	EMPATHY FOUNDATION  TANZANIA	Welfare family-based programme	False	False						0	0		
 welfare	ORG_e109d8ebfa169209	TANZANIA INCLUSIVE EDUCATION SUPPORT ORGANIZATION (TIESO)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_4e8fb3efbbc9b9ad	Comfort Watoto Foundation [COWAFO]	Welfare family-based programme	False	False						0	0		
 welfare	ORG_9298cd45ad7280fb	LIFE SUPPORT FOR CHANGE (LSFORC)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_42ff3f0456d4c9ed	STUDENTS SUPPORT FOUNDATION(SSF)	Welfare family-based programme	False	False						0	0		
-welfare	ORG_cf29bb57dbe4faa1	KILI-HOPE ORGANISATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_a5a3c79a005bcdbb	ARUSHA YOUNG  FEMALE RECOVERY COMMUNITY (AYOFERC)	Welfare specialised centre	False	False						0	0		
 welfare	ORG_2263fa9d9c9e5808	DOVE FOUNDATION	Welfare family-based programme	False	False						0	0		
 welfare	ORG_e49bccdfeb8f4926	INITIATIVE FOR YOUTH (INFOY)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_bf7bfd088fff7d0d	SAIDIA WANAJAMII TANZANIA (SAWATA)	Welfare family-based programme	False	False						0	0		
+welfare	ORG_502aeb8ec711ef01	KILIMANJARO AID PROJECT	Welfare family-based programme	False	False						0	0		
+welfare	ORG_f5281d4ed4a005dd	WE CARE AID (WCAid) Organization	Welfare family-based programme	False	False						0	0		
 welfare	ORG_a44aa5a88abf73fe	Arusha Children's Home (It Takes a Whole Village Kids)	Welfare residential care	False	False						0	0		
 welfare	ORG_46c3beb50ef64447	Passionist Community Arusha	Welfare funder	True	True						0	0		
-welfare	ORG_f5281d4ed4a005dd	WE CARE AID (WCAid) Organization	Welfare family-based programme	False	False						0	0		
-welfare	ORG_502aeb8ec711ef01	KILIMANJARO AID PROJECT	Welfare family-based programme	False	False						0	0		
 welfare	ORG_95661e64d4476be9	HOPE FOR CHILDREN ORGANIZATION	Welfare family-based programme	False	False						0	0		
-welfare	ORG_2e899e23820d298d	THE SAME QUALITIES FOUNDATION (SQF)	Welfare specialised centre	True	True	https://samequalitiesfoundation.org/	info@samequalitiesfoundation.org (role)	+255739773999 (mobile)	P.O. Box 11641, Arusha, Tanzania	facebook: https://www.facebook.com/samequalitiesfoundation.org | instagram: https://www.instagram.com/samequalitiesfoundation/ | youtube: https://www.youtube.com/channel/UCNgwBo0bHcURki5rafXC3CQ	0	2	browser	
 welfare	ORG_75f2fb14e81adbcf	SILOAM INTERNATIONAL AFRICA	Welfare specialised centre	False	False						0	0		
 welfare	ORG_8156a90b055ab231	Bridge foundation	Welfare family-based programme	False	False						0	0		
 welfare	ORG_a0b939e41d3980de	Deaf Hands Foundation(DEHAFO)	Welfare specialised centre	False	False						0	0		
-welfare	ORG_d67b719a1eb143ba	AREM FOUNDATION	Welfare family-based programme	True	True						0	0		
 welfare	ORG_6e25942fd741d675	Choose Love Inc	Welfare funder	False	False						0	0		
 welfare	ORG_5d44966a86fd5122	DISABILITY REPRO - LIGHT ORGANIZATION	Welfare specialised centre	True	True						0	0		
 welfare	ORG_510bb8dd35cc2d90	Orphans International America	Welfare funder	False	False						0	0		
 welfare	ORG_5d587f7dfe3178ad	Peace House Africa	Welfare funder	True	True						0	0		
 welfare	ORG_5856f27365776e2a	Son and Oscar Foundation	Welfare funder	True	True						0	0		
-welfare	ORG_40edac7d3f7dfb5e	TANZANIAN  AMBASSADORS  FACILITATING COMMUNITY-DEVELOPMENT  METHODOLOGIES (TAFCOM)	Welfare specialised centre	True	True						0	0		
 welfare	ORG_43740005e31ff587	Weily Tribe Foundation	Welfare funder	True	True						0	0		
 welfare	ORG_1e9911f37aee0f14	Home Foundation (Rhotia)	Welfare family-based programme	False	False						0	0		
 welfare	ORG_3125559ff23979f3	Children, Youth education and Talent Empowerment Organisation (CHAYETEO)	Out of scope	True	True						0	0		
@@ -1414,11 +1825,11 @@ welfare	ORG_d6d11f72488c76f0	Enjivai Orphanage	Out of scope	True	True						2	0
 welfare	ORG_70cb5fcb461d26e3	IBES Home (IBES Incorporated Limited)	Out of scope	True	True						0	0		
 welfare	ORG_cfbd6ac8688bce7b	Africa Hearts Desire (Volunteers Africa Heart's Desire Limited)	Out of scope	True	True						1	0		
 welfare	ORG_403a96adba1fdb7b	ELLE PEUT NAIDIM (EPN)	Out of scope	True	True						0	0		
-welfare	ORG_dfd79380d796a599	Renea Pre and Primary School	Out of scope	True	True						0	0		
 welfare	ORG_a80b9e0c9b4c6c52	NURU YETU FOUNDATION	Out of scope	True	True						0	0		
+welfare	ORG_dfd79380d796a599	Renea Pre and Primary School	Out of scope	True	True						0	0		
 welfare	ORG_e381e6ebc6653775	Benjamin Runga Foundation	Out of scope	True	True						0	0		
-welfare	ORG_7de42e9433dbc49f	LIFTED STRONG COMMUNITY ORGANIZATION (LISCO)	Out of scope	True	True	https://liftedstrong.org/					0	0	browser	
 welfare	ORG_9e9b0163d6e5bc4b	Ndoto in Action (NIA)	Out of scope	True	True						0	0		
+welfare	ORG_7de42e9433dbc49f	LIFTED STRONG COMMUNITY ORGANIZATION (LISCO)	Out of scope	True	True	https://liftedstrong.org/					0	0	browser	
 welfare	ORG_e8d84dc1814c1716	MALEZI AIDS/CARE AWARENESS ORGANIZATION (MACAO)	Out of scope	False	False						0	0		
 welfare	ORG_7c04beac2800544a	GENTECH FOUNDATION	Out of scope	True	True						0	0		
 welfare	ORG_4438a8d033533749	WILLOWS INTERNATIONAL TANZANIA	Out of scope	True	True						0	0		
@@ -1426,27 +1837,27 @@ welfare	ORG_0f332bc0dba8d282	DINKWA WOMEN DEVELOPMENT ORGANIZATION (DIWODEO)	Out
 welfare	ORG_dbad33389cd4f07c	LEARNING MINDS AFRICA ORGANIZATION	Out of scope	True	True						0	0		
 welfare	ORG_94bd6caa86861c35	WOMEN AND CHILD VISION (WOCHIVI)	Out of scope	True	True						0	0		
 welfare	ORG_8738f330a6032812	TANZANIA HOST VOLUNTEER (THV)	Out of scope	True	True						0	0		
+welfare	ORG_3d935a07f6b844e4	Aim Hai Pre & Primary School	Out of scope	True	True						0	0		
 welfare	ORG_396698e1603aced1	MOTHER AND CHILD CARE	Out of scope	False	False						0	0		
 welfare	ORG_1b434c1b00c134f7	HOPE SEED INITIATIVES	Out of scope	False	False						0	0		
-welfare	ORG_e1de47e54cb95bc9	TREE OF LOVE FOUNDATION	Out of scope	False	False						0	0		
-welfare	ORG_07ae6214b2abd98f	HANDS FOR CHILDREN AND WOMEN IN TANZANIA (HACHAWOTA)	Out of scope	False	False						0	0		
-welfare	ORG_cb43050c99980d46	LOVING BY ACTIONS ORGANIZATION	Out of scope	False	False						0	0		
-welfare	ORG_b5b9a477a89343a3	Butterfly Africa	Out of scope	False	False						0	0		
 welfare	ORG_b4e0e1685845af81	Salama Foundation Tanzania	Out of scope	False	False						0	0		
+welfare	ORG_e1de47e54cb95bc9	TREE OF LOVE FOUNDATION	Out of scope	False	False						0	0		
+welfare	ORG_cb43050c99980d46	LOVING BY ACTIONS ORGANIZATION	Out of scope	False	False						0	0		
+welfare	ORG_07ae6214b2abd98f	HANDS FOR CHILDREN AND WOMEN IN TANZANIA (HACHAWOTA)	Out of scope	False	False						0	0		
+welfare	ORG_e1e86eecceccea04	OKIA TANZANIA	Out of scope	False	False						0	0		
+welfare	ORG_b5b9a477a89343a3	Butterfly Africa	Out of scope	False	False						0	0		
 welfare	ORG_b4d903331e1297a7	ACHA WACHEZE	Out of scope	False	False						0	0		
 welfare	ORG_fb633d62b7bd6b0e	Jitihada Pre & Primary School (orphans)	Out of scope	False	False						0	0		
-welfare	ORG_e1e86eecceccea04	OKIA TANZANIA	Out of scope	False	False						0	0		
 welfare	ORG_5b282013970add06	LIGHT FOR MANY	Out of scope	False	False						0	0		
-welfare	ORG_ff2772a9cc05c3ea	KALULU  CHARITABLE  FOUNDATION	Out of scope	False	False						0	0		
 welfare	ORG_3f8af8559eb36f05	Children Talents Identification and Development Organization	Out of scope	False	False						0	0		
 welfare	ORG_27a331be16a7156c	TODAY'S CHILDREN  AND YOUTH LIFE ORGANIZATION (TCYLO)	Out of scope	False	False						0	0		
-welfare	ORG_ba24ad6a611c53fd	MAMA ZETU FOUNDATION	Out of scope	False	False						0	0		
+welfare	ORG_ff2772a9cc05c3ea	KALULU  CHARITABLE  FOUNDATION	Out of scope	False	False						0	0		
 welfare	ORG_910e37195df7227a	Hope Bearers	Out of scope	False	False						0	0		
-welfare	ORG_3d935a07f6b844e4	Aim Hai Pre & Primary School	Out of scope	True	True						0	0		
-welfare	ORG_2bb4520a0fe72e98	Next Life Foundation	Out of scope	True	True						0	0		
+welfare	ORG_ba24ad6a611c53fd	MAMA ZETU FOUNDATION	Out of scope	False	False						0	0		
 welfare	ORG_2c99c49e7035e66f	NAFGEM Tanzania	Out of scope	True	True						0	0		
-welfare	ORG_9b2b888cf76605c6	NDOTO ZETU	Out of scope	True	True						0	0		
+welfare	ORG_2bb4520a0fe72e98	Next Life Foundation	Out of scope	True	True						0	0		
 welfare	ORG_912db48c5fbcdda0	ZION GATES FOUNDATION	Out of scope	True	True						0	0		
+welfare	ORG_9b2b888cf76605c6	NDOTO ZETU	Out of scope	True	True						0	0		
 welfare	ORG_96cd2affe1422b18	Uhuru Unit Primary School	Out of scope	False	False						0	0		
 welfare	ORG_6bb8a4b1b7038858	Huduma ya Kijamii Tanzania (HKT)	Out of scope	False	False						0	0		
 welfare	ORG_802f16986ead5931	JAMII IMARIKA FOUNDATION	Out of scope	False	False						0	0		
@@ -1460,9 +1871,9 @@ welfare	ORG_fe8659c661349adb	ELECTIVE DEVELOPMENT VOLUNTEERS ORGANIZATION	Out of
 welfare	ORG_7eec6867b81bf6d4	UNITED WE CHANGE LIVES	Out of scope	False	False						0	0		
 welfare	ORG_5833d2cea2946267	PASSIONATE KIDS CONNECT	Out of scope	False	False						0	0		
 welfare	ORG_00811260764f0d55	RELIGHT WINGS FOUNDATION	Out of scope	False	False						0	0		
-welfare	ORG_490ae09aa0809c68	KILIMANJARO SMILEY FOUNDATION	Out of scope	False	False						0	0		
 welfare	ORG_217bbac04c2ace59	Alliance on Traditional Practices and Women Empowerment (ATPWE)	Out of scope	False	False						0	0		
 welfare	ORG_f7d2423293a10c10	KABILA MOJA IMPACT	Out of scope	False	False						0	0		
+welfare	ORG_490ae09aa0809c68	KILIMANJARO SMILEY FOUNDATION	Out of scope	False	False						0	0		
 welfare	ORG_38ebc8bf4612345d	Vision of East African Child	Out of scope	False	False						0	0		
 welfare	ORG_bd3975eb693ec2de	LIKALILO INITIATIVES FOUNDATION	Out of scope	False	False						0	0		
 welfare	ORG_dfa41f0dcc934072	Mahabusu ya Watoto Arusha (Arusha Children's Retention Home)	Out of scope	True	True						0	0		
@@ -1599,6 +2010,7 @@ government	ORG_20655786741c56db	Ofisi ya Kata ya Bomambuzi (Moshi Municipal Coun
 government	ORG_ac88b557eb808ab3	Ofisi ya Kata ya Majengo (Moshi Municipal Council)	ward	False	False						1	0		
 government	ORG_36d003ca5d5c90fd	Ofisi ya Kata ya Mawenzi (Moshi Municipal Council)	ward	False	False						1	0		
 government	ORG_1e632b1845722f64	Ofisi ya Kata ya Bondeni (Moshi Municipal Council)	ward	False	False						1	0		
+government	ORG_d6b4a671cd86bee4	Ofisi ya Kata ya Msaranga (Moshi Municipal Council)	ward	False	False						0	0		
 government	ORG_fd710290f9b93c99	Ofisi ya Kata ya Mji Mpya (Moshi Municipal Council)	ward	False	False						1	0		
 government	ORG_993e8f8f866e30b6	Ofisi ya Kata ya Miembeni (Moshi Municipal Council)	ward	False	False						1	0		
 government	ORG_e70c685a938e834f	Ofisi ya Kata ya Njoro (Moshi Municipal Council)	ward	False	False						0	0		
@@ -1616,3 +2028,83 @@ government	ORG_640054a489f3be31	Ofisi ya Kata ya Makiwaru (Siha District Council
 government	ORG_06bfea218e992a3d	Ofisi ya Kata ya Naisinyai (Simanjiro District Council)	ward	False	False						1	0		
 government	ORG_0ee2925b7c7bc0a7	Ofisi ya Kijiji cha Maji ya Chai (Meru District Council)	village	False	False						0	0		
 government	ORG_dd5697b330436f6a	Ofisi ya Kijiji cha Mwanama (Arusha City Council)	village	False	False						0	0		
+government	ORG_1114b7665b3d4d0a	Ofisi ya Kijiji cha Themi ya Simba, Bwawani (Arusha District Council)	village	False	False						0	0		
+government	ORG_9ba0e55a12898a5b	Ofisi ya Kijiji cha Ilkiding'a (Arusha District Council)	village	False	False						0	0		
+government	ORG_96394e8a8d9b9a00	Ofisi ya Kijiji cha Kisongo (Arusha District Council)	village	False	False						0	0		
+government	ORG_a10419f96fa07120	Ofisi ya Kijiji cha Laroi (Arusha District Council)	village	False	False						0	0		
+government	ORG_a3cc4c92616caebc	Ofisi ya Kijiji cha Ngorbobu (Arusha District Council)	village	False	False						0	0		
+government	ORG_632b026f2cd587a9	Ofisi ya Kijiji cha Mlangarini (Arusha District Council)	village	False	False						0	0		
+government	ORG_f176373905df0d12	Ofisi ya Kijiji cha Nduruma (Arusha District Council)	village	False	False						0	0		
+government	ORG_e97941507c7be05b	Ofisi ya Kijiji cha Lemongo, Oldonyosambo (Arusha District Council)	village	False	False						0	0		
+government	ORG_ef1316631a280012	Ofisi ya Kijiji cha Oltoroto (Arusha District Council)	village	False	False						0	0		
+government	ORG_a1a151759d7131d7	Ofisi ya Kijiji cha  (Hai District Council)	village	False	False						0	0		
+government	ORG_77ddc61e77f61108	Ofisi ya Kijiji cha Bomang'Ombe (Hai District Council)	village	False	False						0	0		
+government	ORG_f589434b0742e448	Ofisi ya Kijiji cha Lerai (Hai District Council)	village	False	False						0	0		
+government	ORG_d5a84ea226e226d0	Ofisi ya Kijiji cha Sanya Station (Hai District Council)	village	False	False						0	0		
+government	ORG_fbaa04482e1dfb67	Ofisi ya Kijiji cha Kware (Hai District Council)	village	False	False						0	0		
+government	ORG_a7cf2125592ba25c	Ofisi ya Kijiji cha Makao Mapya (Hai District Council)	village	False	False						0	0		
+government	ORG_109fd7b05c69a770	Ofisi ya Kijiji cha Foo (Hai District Council)	village	False	False						0	0		
+government	ORG_77cdcdbd96044d9d	Ofisi ya Kijiji cha Kyeeri (Hai District Council)	village	False	False						0	0		
+government	ORG_2fb1541afb859bc9	Ofisi ya Kijiji cha Lyamungo Sinde (Hai District Council)	village	False	False						0	0		
+government	ORG_85b61eef7c1fc480	Ofisi ya Kijiji cha Machame (Hai District Council)	village	False	False						0	0		
+government	ORG_903bdfa944b3078a	Ofisi ya Kijiji cha Nkuundoo (Hai District Council)	village	False	False						0	0		
+government	ORG_17d0cffe0878f1cd	Ofisi ya Kijiji cha Nkuusinde (Hai District Council)	village	False	False						0	0		
+government	ORG_4d00f7e696fe0c3c	Ofisi ya Kijiji cha Nkweseko (Hai District Council)	village	False	False						0	0		
+government	ORG_b50a2b381c06b8c9	Ofisi ya Kijiji cha Wari (Hai District Council)	village	False	False						0	0		
+government	ORG_109cc8319e4ce49a	Ofisi ya Kijiji cha Kilanya (Hai District Council)	village	False	False						0	0		
+government	ORG_635622f865672887	Ofisi ya Kijiji cha Lyamungo Kati (Hai District Council)	village	False	False						0	0		
+government	ORG_8855f250c5269c5c	Ofisi ya Kijiji cha Mlama (Hai District Council)	village	False	False						0	0		
+government	ORG_3b0a481a59e5e322	Ofisi ya Kijiji cha Nshara (Hai District Council)	village	False	False						0	0		
+government	ORG_a87fb7779bc4add2	Ofisi ya Kijiji cha Orori (Hai District Council)	village	False	False						0	0		
+government	ORG_551e0db14fcc2db3	Ofisi ya Kijiji cha Tella (Hai District Council)	village	False	False						0	0		
+government	ORG_c9eb462a1e2cb353	Ofisi ya Kijiji cha Usari (Hai District Council)	village	False	False						0	0		
+government	ORG_6ab456cd183b6959	Ofisi ya Kijiji cha Uduru (Hai District Council)	village	False	False						0	0		
+government	ORG_7fb716008b644c5d	Ofisi ya Kijiji cha Mashua (Hai District Council)	village	False	False						0	0		
+government	ORG_f34bd0973f30b46a	Ofisi ya Kijiji cha Chekimaji (Hai District Council)	village	False	False						0	0		
+government	ORG_bd9cc2e8cb453b33	Ofisi ya Kijiji cha Chemka (Hai District Council)	village	False	False						0	0		
+government	ORG_e5dcfe0d8086ee21	Ofisi ya Kijiji cha Kawaya (Hai District Council)	village	False	False						0	0		
+government	ORG_447424756a556700	Ofisi ya Kijiji cha Ngosero (Hai District Council)	village	False	False						0	0		
+government	ORG_2f4086dc2d870c67	Ofisi ya Kijiji cha Rundugai (Hai District Council)	village	False	False						0	0		
+government	ORG_127e51d0af2831b1	Ofisi ya Kijiji cha Kimashuku (Hai District Council)	village	False	False						0	0		
+government	ORG_4338fe5224ed85e2	Ofisi ya Kijiji cha Mbatakero (Hai District Council)	village	False	False						0	0		
+government	ORG_c9f51d09de820924	Ofisi ya Kijiji cha Kikavu chini (Hai District Council)	village	False	False						0	0		
+government	ORG_8eb5292c3d4891d9	Ofisi ya Kijiji cha Kiyungi (Hai District Council)	village	False	False						0	0		
+government	ORG_6d5c6bf064be3df8	Ofisi ya Kijiji cha Kwatito (Hai District Council)	village	False	False						0	0		
+government	ORG_884660c0aa14b57c	Ofisi ya Kijiji cha Longoi (Hai District Council)	village	False	False						0	0		
+government	ORG_197d0e8b16ed97e6	Ofisi ya Kijiji cha Mijongweni (Hai District Council)	village	False	False						0	0		
+government	ORG_b317dc79f52772d8	Ofisi ya Kijiji cha Mkalama (Hai District Council)	village	False	False						0	0		
+government	ORG_f8946a37c8b6ec58	Ofisi ya Kijiji cha Weru Weru (Hai District Council)	village	False	False						0	0		
+government	ORG_ae2ca3891d23ee7b	Ofisi ya Kijiji cha Tengeru (Meru District Council)	village	False	False						0	0		
+government	ORG_363b0e470d687604	Ofisi ya Kijiji cha Shangarai (Meru District Council)	village	False	False						0	0		
+government	ORG_b9755e01d13f7087	Ofisi ya Kijiji cha Tuvaila (Meru District Council)	village	False	False						0	0		
+government	ORG_b8a548f603d16625	Ofisi ya Kijiji cha Kikatiti (Meru District Council)	village	False	False						0	0		
+government	ORG_1618321f8cd984fd	Ofisi ya Kijiji cha King'ori (Meru District Council)	village	False	False						0	0		
+government	ORG_437d1257c7183fcf	Ofisi ya Kijiji cha Leguruki (Meru District Council)	village	False	False						0	0		
+government	ORG_7465a75cc4adaf84	Ofisi ya Kijiji cha Nkoasenga, Leguruki (Meru District Council)	village	False	False						0	0		
+government	ORG_edb81d8648086fe3	Ofisi ya Kijiji cha  (Meru District Council)	village	False	False						0	0		
+government	ORG_0caced1c854372ea	Ofisi ya Kijiji cha Malula (Meru District Council)	village	False	False						0	0		
+government	ORG_a4192d16571810b8	Ofisi ya Kijiji cha Maroroni (Meru District Council)	village	False	False						0	0		
+government	ORG_6f7694b965800c55	Ofisi ya Kijiji cha Muungano (Meru District Council)	village	False	False						0	0		
+government	ORG_88e15974e1e775b2	Ofisi ya Kijiji cha Nsengonyi (Meru District Council)	village	False	False						0	0		
+government	ORG_15815a49d1a9be79	Ofisi ya Kijiji cha Mbuguni (Meru District Council)	village	False	False						0	0		
+government	ORG_6f7e6930af9ea855	Ofisi ya Kijiji cha Kisimiri (Meru District Council)	village	False	False						0	0		
+government	ORG_8bba4fa618909c14	Ofisi ya Kijiji cha Kisimiri Juu, Ngarenanyuki (Meru District Council)	village	False	False						0	0		
+government	ORG_5d7de06f6752e54c	Ofisi ya Kijiji cha Momella, Ngarenanyuki (Meru District Council)	village	False	False						0	0		
+government	ORG_9afaf4476a46e763	Ofisi ya Kijiji cha Mwakeny, Ngarenanyuki (Meru District Council)	village	False	False						0	0		
+government	ORG_933430a470d4d3a5	Ofisi ya Kijiji cha Olkung´wado, Ngarenanyuki (Meru District Council)	village	False	False						0	0		
+government	ORG_cad0257aaf134a76	Ofisi ya Kijiji cha Uwirio, Ngarenanyuku (Meru District Council)	village	False	False						0	0		
+government	ORG_69f415368b1b68f4	Ofisi ya Kijiji cha Nnkure (Meru District Council)	village	False	False						0	0		
+government	ORG_3a49f8fa00c6575f	Ofisi ya Kijiji cha Kipande Nnkoavele (Meru District Council)	village	False	False						0	0		
+government	ORG_1a1eedce5827c0b4	Ofisi ya Kijiji cha Nkoanrua (Meru District Council)	village	False	False						0	0		
+government	ORG_11a677a8d503e1f2	Ofisi ya Kijiji cha Nkoarisambu (Meru District Council)	village	False	False						0	0		
+government	ORG_3a2c80f047ccc031	Ofisi ya Kijiji cha Poli (Meru District Council)	village	False	False						0	0		
+government	ORG_581b46f0bd69842b	Ofisi ya Kijiji cha Kilala (Meru District Council)	village	False	False						0	0		
+government	ORG_f86de56051cd6a94	Ofisi ya Kijiji cha Makumira (Meru District Council)	village	False	False						0	0		
+government	ORG_f8c951f6303d3174	Ofisi ya Kijiji cha Malala (Meru District Council)	village	False	False						0	0		
+government	ORG_af6bf91edf235ee9	Ofisi ya Kijiji cha Nambala (Meru District Council)	village	False	False						0	0		
+government	ORG_965e750f89a30d68	Ofisi ya Kijiji cha Singisi, Seela Sing Isi (Meru District Council)	village	False	False						0	0		
+government	ORG_a4707bfa2c585ed3	Ofisi ya Kijiji cha Msitu Wa Mbogo (Meru District Council)	village	False	False						0	0		
+government	ORG_bddc956d3e865724	Ofisi ya Kijiji cha Tangajuu (Meru District Council)	village	False	False						0	0		
+government	ORG_49fe82594526dddb	Ofisi ya Kijiji cha Kilinga (Meru District Council)	village	False	False						0	0		
+government	ORG_a1d4f2d90f7fc90b	Ofisi ya Kijiji cha Mulala (Meru District Council)	village	False	False						0	0		
+government	ORG_2b8f137a33be453a	Ofisi ya Kijiji cha Urisho (Meru District Council)	village	False	False						0	0		

@@ -4,11 +4,11 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 
 | Segment | Contacts |
 |---|---|
-| companies-high | 233 |
-| companies-high-direct | 29 |
-| companies-high-indirect | 204 |
-| companies-medium | 334 |
-| companies-low | 57 |
+| companies-high | 245 |
+| companies-high-direct | 30 |
+| companies-high-indirect | 215 |
+| companies-medium | 358 |
+| companies-low | 65 |
 | introducers-high | 12 |
 | introducers-high-direct | 2 |
 | introducers-high-indirect | 10 |
@@ -16,13 +16,13 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 | welfare-high | 67 |
 | welfare-high-direct | 12 |
 | welfare-high-indirect | 55 |
-| welfare-medium | 9 |
+| welfare-medium | 10 |
 | welfare-low | 118 |
 
 Left out (no email address; use the call sheets):
 
-- companies: no email route (phone only or none): 613
-- welfare: no email route (phone only or none): 234
+- companies: no email route (phone only or none): 568
+- welfare: no email route (phone only or none): 233
 
 Addresses shared by two rows, exported once (19):
 

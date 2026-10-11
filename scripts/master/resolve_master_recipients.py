@@ -17,6 +17,10 @@ Two steps, both on the selection of outreach plans (no record is merged or delet
    escalation_trigger; the same names as the welfare run): not a CC and without a draft. Another country's head is neither.
    Board roles (chair, non-executive, trustee) are never chosen, except an introducer's elected chair. Ties keep the plan already
    selected. data/reference/recipient-overrides.json records reviewed exceptions (recipient, its address, escalation contact).
+Reviewed relations (data/reference/organisation-relations.json, added 2026-10-11) join records the rules above cannot see: a
+'duplicate' pair is one cluster whose primary is the record the person chose; a 'branch' is clustered with its main organisation
+(the primary), so one message goes to the business as for other branches the website or name rule groups, and its review item
+reads 'Branch of another organisation (collapsed for sending)' instead of a duplicate. Both records are always kept.
 
 Default: preview (runtime/master/recipient-selection-preview.json); nothing changes. --apply: one transaction, then the
 record of everything changed since the first run goes to outputs/messages/master-recipient-selection.json. Re-running changes nothing.
@@ -39,6 +43,22 @@ MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 PREVIEW = ROOT / "runtime" / "master" / "recipient-selection-preview.json"
 RECORD = ROOT / "outputs" / "messages" / "master-recipient-selection.json"
 OVERRIDES = ROOT / "data" / "reference" / "recipient-overrides.json"
+RELATIONS = ROOT / "data" / "reference" / "organisation-relations.json"
+BRANCH_KIND = "Branch of another organisation (collapsed for sending)"
+
+
+def load_relations() -> list:
+    """Reviewed duplicate and branch relations: [{kind, organisation_id, related_id, primary?, decision, decided, ...}]."""
+    return json.loads(RELATIONS.read_text(encoding="utf-8"))["relations"] if RELATIONS.exists() else []
+
+
+def reviewed_primary(members, relations):
+    """The record a reviewed relation makes primary: a duplicate pair's chosen survivor, or a branch's main organisation."""
+    for r in relations:
+        target = r.get("primary") if r["kind"] == "duplicate" else r["related_id"]
+        if r["organisation_id"] in members and r["related_id"] in members and target in members:
+            return target
+    return None
 ESCALATION_TRIGGER = "no reply after the follow-up, or the country office declines or defers to head office"
 ESCALATION_COLUMNS = ("escalation_contact_id", "escalation_recipient", "escalation_route", "escalation_trigger")
 
@@ -46,7 +66,7 @@ FREE_MAIL = re.compile(r"@(gmail|yahoo|hotmail|outlook|live|icloud|ymail)\.", re
 NOT_A_SITE = re.compile(r"facebook|instagram|tripadvisor|linkedin|google|wordpress|wix|twitter|youtube", re.I)
 NAME_NOISE = re.compile(r"\b(ltd|limited|co|company|tz|t|inc|the|and|safaris?|tours?|travels?|expeditions?|adventures?|holidays?|arusha|"
                         r"tanzania|africa|group|plc|bank)\b")
-DUPLICATE_NOTE = re.compile(r"(Duplicate organisation:|Shared inbox with) [^;]*?\(O[0-9a-f]{12}\)[;,] held as an alternative so one message goes to this business\.;?\s*")
+DUPLICATE_NOTE = re.compile(r"(Duplicate organisation:|Shared inbox with|Branch of) [^;]*?\(O[0-9a-f]{12}\)[;,] held as an alternative so one message goes to this business\.;?\s*")
 ROLE_NOT_CONFIRMED = re.compile(r"Role not confirmed|Possible closure", re.I)
 
 HR = re.compile(r"human resource|\bhr\b|people (and|&) culture|talent|personnel", re.I)
@@ -197,6 +217,9 @@ def cluster(orgs, contacts, plans):
         join(g, "phone", True)
     for g in by_email.values():
         join(g, "email", False)
+    for r in load_relations():  # reviewed duplicate pairs and branches (data/reference/organisation-relations.json)
+        if r["organisation_id"] in parent and r["related_id"] in parent:
+            join([r["organisation_id"], r["related_id"]], "reviewed", False)
     groups = defaultdict(list)
     for o in ids:
         groups[find(o)].append(o)
@@ -204,7 +227,7 @@ def cluster(orgs, contacts, plans):
     for root, members in groups.items():
         if len(members) > 1:
             why = set().union(*[edges[m] for m in members])
-            out[root] = (sorted(members), "same organisation" if why & {"website", "name"} else "shared inbox")
+            out[root] = (sorted(members), "same organisation" if why & {"website", "name", "reviewed"} else "shared inbox")
     return out, kind_of
 
 
@@ -349,12 +372,14 @@ def decide(orgs, contacts, plans):
     clusters, kind_of = cluster(orgs, contacts, plans)
     wide_orgs = wide_organisations(contacts)
     overrides = load_overrides()
+    relations = load_relations()
     cluster_of, info = {}, {}
     for root, (members, kind) in clusters.items():
-        primary = primary_of(members, orgs, plans, contacts, wide_orgs)
+        pinned_primary = reviewed_primary(members, relations)
+        primary = pinned_primary or primary_of(members, orgs, plans, contacts, wide_orgs)
         for m in members:
             cluster_of[m] = root
-        info[root] = {"members": members, "kind": kind, "primary": primary}
+        info[root] = {"members": members, "kind": kind, "primary": primary, "reviewed": bool(pinned_primary)}
     groups = defaultdict(list)
     for p in plans:
         if p["selection"] in ("Candidate for review", "Alternative") and p["target_type"] in ("organisation", "contact"):
@@ -363,7 +388,11 @@ def decide(orgs, contacts, plans):
     for root, group in groups.items():
         primary = info[root]["primary"] if root in info else group[0]["organisation_id"]
         chosen = min(group, key=lambda p: plan_key(p, contacts, primary, wide_orgs))
-        members = set(info[root]["members"]) if root in info else {group[0]["organisation_id"]}
+        if root in info and info[root]["reviewed"] and chosen["organisation_id"] != primary:
+            # A reviewed relation names the record that carries the message: its best draft is chosen.
+            own = [p for p in group if p["organisation_id"] == primary]
+            chosen = min(own, key=lambda p: plan_key(p, contacts, primary, wide_orgs)) if own else chosen
+        members =set(info[root]["members"]) if root in info else {group[0]["organisation_id"]}
         pinned = [p for p in group if p["target_type"] == "contact" and any(
             o.get("contact_id") == p["target_id"] for oid, o in overrides.items() if oid in members) and p["review_status"] == "Draft review"]
         if pinned:  # a reviewed choice (data/reference/recipient-overrides.json) wins
@@ -377,7 +406,7 @@ def decide(orgs, contacts, plans):
                           "escalation_route": own[0] if own else (c["role_phone"] or ""), "escalation_trigger": ESCALATION_TRIGGER}
         if escalation:
             escalations[chosen["message_id"]] = escalation
-        if root in info and chosen["organisation_id"] in info[root]["members"]:
+        if root in info and chosen["organisation_id"] in info[root]["members"] and not info[root]["reviewed"]:
             primary = info[root]["primary"] = chosen["organisation_id"]  # the record that carries the message is the primary
         for p in group:
             want = "Candidate for review" if p["message_id"] == chosen["message_id"] else "Alternative"
@@ -389,9 +418,11 @@ def decide(orgs, contacts, plans):
     return changes, info, escalations
 
 
-def note_for(change, orgs) -> str:
+def note_for(change, orgs, branch_of=None) -> str:
     target = orgs[change["duplicate_of"]]["name"]
     kind = "Shared inbox with" if change["cluster_kind"] == "shared inbox" else "Duplicate organisation:"
+    if (branch_of or {}).get(change["organisation_id"]) == change["duplicate_of"]:
+        kind = "Branch of"
     return f"{kind} {target} ({change['duplicate_of']}), held as an alternative so one message goes to this business."
 
 
@@ -411,6 +442,8 @@ def main() -> int:
                 route_fixes.append((o["route"], p["message_id"], o))
                 p["contact_channel"] = o["route"]
     changes, info, escalations = decide(orgs, contacts, plans)
+    relations = load_relations()
+    branch_of = {r["organisation_id"]: r["related_id"] for r in relations if r["kind"] == "branch"}
     by_id = {p["message_id"]: p for p in plans}
     moved = [c for c in changes if c["from"] != c["to"]]
     promoted = [c for c in moved if c["to"] == "Candidate for review"]
@@ -479,28 +512,40 @@ def main() -> int:
             plan = by_id[c["message_id"]]
             missing = DUPLICATE_NOTE.sub("", plan["missing_information"] or "").strip("; ").strip()
             if c["duplicate_of"]:
-                missing = f"{missing}; {note_for(c, orgs)}" if missing else note_for(c, orgs)
+                note = note_for(c, orgs, branch_of)
+                missing = f"{missing}; {note}" if missing else note
             ready = plan["review_status"] == "Draft review"
             if c["to"] == "Candidate for review":
                 status, action = ("Candidate after checks" if ready else "Needs research"), "Human review, then send the request"
             else:
-                status, action = "Alternative - inactive", ("Duplicate organisation; keep inactive unless the primary record is rejected." if c["duplicate_of"]
+                status, action = "Alternative - inactive", (("Branch of the main organisation; keep inactive unless the main record is rejected."
+                                                             if branch_of.get(c["organisation_id"]) == c["duplicate_of"] else
+                                                             "Duplicate organisation; keep inactive unless the primary record is rejected.") if c["duplicate_of"]
                                                             else "Keep inactive unless the selected recipient is rejected or invalid.")
             if (c["to"], missing) != (plan["selection"], plan["missing_information"] or ""):
                 con.execute("UPDATE outreach_plans SET selection=?, missing_information=? WHERE message_id=?", (c["to"], missing, c["message_id"]))
             if c["from"] != c["to"]:
                 con.execute("UPDATE campaign_lead_assignments SET selection=?, eligibility_status=?, next_action=? WHERE message_id=?",
                             (c["to"], status, action, c["message_id"]))
-        con.execute("DELETE FROM review WHERE kind LIKE 'Duplicate organisation (collapsed%' OR kind LIKE 'Shared inbox (one message%'")
+        con.execute("DELETE FROM review WHERE kind LIKE 'Duplicate organisation (collapsed%' OR kind LIKE 'Shared inbox (one message%' OR kind=?", (BRANCH_KIND,))
+        reviewed_pair = {(r["organisation_id"], r.get("primary") if r["kind"] == "duplicate" else r["related_id"]): r for r in relations}
         for root, v in info.items():
             for m in v["members"]:
                 if m == v["primary"]:
                     continue
+                rel = reviewed_pair.get((m, v["primary"]))
+                if branch_of.get(m) == v["primary"]:
+                    kind, values = BRANCH_KIND, (f"{orgs[m]['name']} is a branch of {orgs[v['primary']]['name']} at another site; both records are kept. "
+                                                 f"{rel['decision']} (data/reference/organisation-relations.json)")
+                    action = ("A branch link, not a duplicate: never merge the records. Its drafts are alternatives and one message goes to the main "
+                              "organisation, as for other branches of one employer.")
+                else:
+                    kind = "Duplicate organisation (collapsed for sending)" if v["kind"] == "same organisation" else "Shared inbox (one message per inbox)"
+                    values = (f"{orgs[m]['name']} and {orgs[v['primary']]['name']}: {v['kind']}. "
+                              + (f"{rel['decision']} (data/reference/organisation-relations.json)" if rel else f"Decided {today} by resolve_master_recipients.py."))
+                    action = "Its drafts are alternatives and one message goes to the primary record. Merge the records through the update skill when a person confirms."
                 con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
-                            (sid("collapse", m), "Duplicate organisation (collapsed for sending)" if v["kind"] == "same organisation" else "Shared inbox (one message per inbox)",
-                             m, v["primary"], "organisation",
-                             f"{orgs[m]['name']} and {orgs[v['primary']]['name']}: {v['kind']}. Decided {today} by resolve_master_recipients.py.",
-                             "Its drafts are alternatives and one message goes to the primary record. Merge the records through the update skill when a person confirms."))
+                            (sid("collapse", m), kind, m, v["primary"], "organisation", values[:900], action))
         if con.execute("PRAGMA foreign_key_check").fetchall() or con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             raise RuntimeError("integrity check failed")
         candidates = con.execute("SELECT COUNT(*) FROM outreach_plans WHERE selection='Candidate for review'").fetchone()[0]

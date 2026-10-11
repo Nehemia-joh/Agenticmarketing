@@ -1,0 +1,29 @@
+{
+ "about": "Reviewed relations between company-master organisation records, read by scripts/master/resolve_master_recipients.py. Both records are always kept. 'duplicate': the two records are one organisation at one site; 'primary' is the surviving record that carries the message, and the other record's drafts are alternatives (review item 'Duplicate organisation (collapsed for sending)'). 'branch': 'organisation_id' is a branch, at another site, of 'related_id' (the main organisation); the records stay separate, linked by the review item 'Branch of another organisation (collapsed for sending)', and, as with other branches of one employer that the resolver groups by website or name, one message goes to the main organisation. Each entry gives the evidence, the decision and its date. A relation is added only on a person's decision; the resolver never infers one.",
+ "relations": [
+  {
+   "kind": "duplicate",
+   "organisation_id": "Oba580e04150c",
+   "organisation_name": "Total Care Medical Center",
+   "related_id": "Oc5f0be6c043d",
+   "related_name": "Total Care Health Center",
+   "primary": "Oc5f0be6c043d",
+   "evidence": "Two OpenStreetMap features 25 m apart at Kijenge (node/4302292591 'Total Care Medical Center', amenity=clinic, phone +255 0272549428; way/667309438 'Total Care Health Center', amenity=clinic), and one Google Maps listing, 'Total Care Health Center' (Medical Center, Arusha CC Themi Corridor, 255 787 882 273), covers both points (data/raw/gap-census/osm_health_2026-10-11.json; data/raw/gap-census/google_maps_enrich_2026-10-11.jsonl). Nothing in the repository tells them apart.",
+   "decision": "The user approved the recommended option on 2026-10-11: one facility at one site; Total Care Health Center is the survivor, both records are kept, and only one message goes to the facility.",
+   "decided": "2026-10-11"
+  },
+  {
+   "kind": "branch",
+   "organisation_id": "O3b2b4d3d40a4",
+   "organisation_name": "NSK Hospital LTD Clinic",
+   "related_id": "O7948a9942116",
+   "related_name": "NSK HOSPITALS LTD",
+   "evidence": "OpenStreetMap way/664494420, a building tagged amenity=clinic and named 'NSK Hospital LTD Clinic', 3.9 km west of the hospital (OpenStreetMap node/13097871035 'NSK Hospital Arusha', Industrial Rd; Health Facility Registry 111486-7, NSK HOSPITALS LTD, a regional-level hospital). The clinic has no phone, website or address of its own on record: those it holds came from the hospital's Google Maps listing.",
+   "decision": "The user approved the recommended option on 2026-10-11: a branch of NSK HOSPITALS LTD at another site, kept as its own record and linked to the hospital; one message goes to NSK HOSPITALS LTD, as for other branches of one employer.",
+   "decided": "2026-10-11",
+   "borrowed_fields": ["phone", "website", "address"],
+   "borrowed_from": "the hospital's Google Maps listing 'NSK Hospital Arusha' (Industrial Rd), matched to this record in the gap census (data/raw/gap-census/osm_matches_2026-10-11.jsonl) and read again in data/raw/contact-research/browser_googlemaps_2026-10-11.jsonl",
+   "confirm_operating": true
+  }
+ ]
+}

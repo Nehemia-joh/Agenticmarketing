@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-11T13:53:57.082866+00:00",
+ "checked_at": "2026-10-11T14:17:55.277129+00:00",
  "run_id": "arusha-welfare-2026-09",
  "result": "passed",
  "checks": {
@@ -61,9 +61,9 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-11T16:53:40",
-   "master_db_sha256": "8506178cbfd428bca2d566fb8baa8d2c82650ca860e0c138200bbc84c08cd7f9",
-   "master_workbook_sha256": "dc79a39fb00ec219b87c74b9011efcd70d6d4f117c63df167456b7236b4f849f"
+   "recorded_at": "2026-10-11T17:17:35",
+   "master_db_sha256": "2e5e5c0d31a0d4558b0144bc9b8519795f132071fdc81fcbea10ec33932618f9",
+   "master_workbook_sha256": "8d39af6bd3bd75bc164a846e003309e7af3326b68156ce44250d9ec1812f1236"
   },
   "script_copies_out_of_sync": [],
   "message_issues": [],

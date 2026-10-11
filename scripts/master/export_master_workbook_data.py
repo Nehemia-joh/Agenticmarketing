@@ -100,7 +100,7 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
         chosen = {}
     duplicate_of = dict(connection.execute(
         "SELECT r.entity_id, p.name FROM review r JOIN organisations p ON p.organisation_id=r.related_id "
-        "WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%'"))
+        "WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%' OR r.kind LIKE 'Branch of%'"))
     # Candidate addresses (infer_candidate_emails.py): inferred from the company's own published pattern, unverified, kept apart from every route.
     try:
         candidates = {r[0]: r for r in connection.execute("SELECT contact_id, address, confidence, pattern, evidence FROM candidate_emails WHERE status LIKE 'candidate%' OR status LIKE 'approved%'")}

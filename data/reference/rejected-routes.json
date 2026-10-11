@@ -1,5 +1,5 @@
 {
- "about": "Published values that research found attached to an organisation but that are not its route: another organisation's inbox or phone, a fax, or an inbox on a domain that does not exist. Each entry is reviewed and sourced. scripts/contacts/build_contact_profiles.py leaves the value out of that organisation's profile, so the welfare and government runs never take it and the company-master merge never adds it. A value already in the company master is corrected through skills/silverleaf-update-lead-list instead. Match is by database and organisation (the name resolves a changed organisation ID) and by the value, normalised.",
+ "about": "Published values that research found attached to an organisation but that are not its route: another organisation's inbox or phone, a fax, or an inbox on a domain that does not exist. Each entry is reviewed and sourced. scripts/contacts/build_contact_profiles.py leaves the value out of that organisation's profile, so the welfare and government runs never take it and the company-master merge never adds it. A value already in the company master is corrected through skills/silverleaf-update-lead-list: for a 'master' entry, scripts/contacts/merge_master_contacts.py --apply takes the value out of the organisation's email or phone, its contacts and its drafts' channel (the draft falls back to the organisation's other route, else is held for a route), keeps it as the fact 'rejected_route' with the reason, and adds a review item. Match is by database and organisation (the name resolves a changed organisation ID) and by the value, normalised.",
  "routes": [
   {"db": "welfare", "organisation_id": "ORG_d015b3a0176fcb44", "organisation_name": "SOS Children's Village Arusha", "kind": "email", "value": "info@soskenya.org",
    "reason": "SOS Children's Villages Kenya's inbox: the international site's country-redirect page served SOS Kenya's footer to the crawler.",
@@ -33,6 +33,9 @@
    "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"},
   {"db": "welfare", "organisation_id": "ORG_678178d329f3761c", "organisation_name": "CHETI NGO", "kind": "email", "value": "hello@inukacommunity.org",
    "reason": "Inuka's own inbox (its Sydney office), published on Inuka's contact page under 'Contact Details for Inuka'; CHETI NGO's contact on the same page is chetingo@gmail.com.",
-   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"}
+   "source": "data/raw/welfare-research/research_Q_funders_and_leaders_2026-10-03.jsonl", "source_url": "https://www.inukacommunity.org/contact", "decided_on": "2026-10-10"},
+  {"db": "master", "organisation_id": "O7948a9942116", "organisation_name": "NSK HOSPITALS LTD", "kind": "email", "value": "ijaz.lalji@nsktz.com",
+   "reason": "An inbox on nsktz.com, the hospital's former domain, which is now a parked domain (GoDaddy parking lander): the address no longer reaches the hospital, so nothing from that domain is used. The hospital's own site is nskhospitals.co.tz.",
+   "source": "master review D25e5ce0a00d7 ('Contact research: hijacked or parked site'), from data/raw/contact-research/search_wave4_master_employers_2026-09-23.jsonl (nsktz.com read as a GoDaddy parking lander)", "decided_on": "2026-10-11"}
  ]
 }

@@ -3,14 +3,14 @@
  "method": "scripts/master/resolve_master_recipients.py",
  "note": "No record was merged or deleted. The baseline is the selection before the first run; the lists compare the database with it.",
  "summary": {
-  "clusters": 95,
-  "organisations_in_clusters": 202,
+  "clusters": 96,
+  "organisations_in_clusters": 204,
   "cluster_kinds": {
-   "same organisation": 91,
+   "same organisation": 92,
    "shared inbox": 4
   },
-  "duplicate_organisations_held": 107,
-  "candidates_after": 1252,
+  "duplicate_organisations_held": 108,
+  "candidates_after": 1251,
   "escalation_contacts": 8,
   "override_routes": 0,
   "candidates_before": 938,
@@ -695,6 +695,13 @@
    "primary": "Moivaro Coffee Lodge (O9c8b8f0aea8e)",
    "duplicates": [
     "KIA Lodge (O14794c5b1781)"
+   ]
+  },
+  {
+   "kind": "same organisation",
+   "primary": "Total Care Health Center (Oc5f0be6c043d)",
+   "duplicates": [
+    "Total Care Medical Center (Oba580e04150c)"
    ]
   }
  ],

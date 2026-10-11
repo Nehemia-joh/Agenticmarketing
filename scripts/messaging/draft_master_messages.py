@@ -15,6 +15,11 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
 - Master organisations with no plan get one, unless they belong to another track or are excluded: local
   administration offices are in the government run, excluded offices (party, court, police, religious) get none.
   New plans are AQ01 when the organisation has a public email or phone and AQ00 (hold) otherwise.
+- On every rewrite, an organisation plan's two creation-time holds are checked against the organisation as it is now
+  (refresh_creation_holds, 11 October 2026): the map-only note goes once the lead is matched (verification no longer
+  'Raw OSM', add_gap_census_leads.py --matches), and the no-route note goes once the organisation has a published email or
+  phone (the contact merge). A plan held by nothing else returns to 'Draft review' on its track (AQ01 or AQ02, as
+  refresh_acquisition_metadata.py sets it), with the organisation's route as its channel; any other hold stays.
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
   value module VM19, positioning evidence PE025-PE028 and the strategy records; everything in one transaction with
@@ -42,6 +47,8 @@ import offer_lib as L
 
 sys.path.insert(0, str(L.ROOT / "scripts" / "master"))
 import resolve_master_recipients as R  # noqa: E402  (contact verification and role ranking)
+sys.path.insert(0, str(L.ROOT / "scripts" / "contacts"))
+from merge_master_contacts import BLOCKER, drop_note  # noqa: E402  (the same holds as the contact merge)
 
 ROOT = L.ROOT
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
@@ -56,6 +63,38 @@ COPY_VERSION = "request-first-v5"
 MESSAGE_STATUS = "Draft - not sent; request-first review"
 TODAY = "2026-09-23"
 OBSOLETE_NOTES = {"replace sender name"}  # the sender is Mariam Haji for every draft
+# The two holds a new plan gets from its organisation (below, in main). They describe the organisation when the plan was
+# created, so each rewrite checks them against the organisation as it is now (decided 2026-10-11): a lead an enrichment round
+# matched to a real organisation (verification no longer 'Raw OSM') is not held as map-only, and an organisation that now
+# has a published email or phone is not held as contactless. A plan held only by these is released; any other hold stays.
+NO_ROUTE_NOTE = "No public email or phone; find the organisation's route before any message."
+RAW_OSM_NOTE = "Raw OpenStreetMap place: match it to a curated organisation first."
+OTHER_HOLD = re.compile(BLOCKER.pattern + r"|Role not confirmed|No public email or phone|No published route", re.I)
+
+
+def refresh_creation_holds(plan: dict, org: dict) -> tuple[dict, str]:
+    """The plan with its creation-time holds brought up to date with the organisation, and what changed ('' for nothing,
+    'notes' when a stale note was dropped but another hold remains, 'released' when the plan no longer has any hold)."""
+    if plan["target_type"] != "organisation":
+        return plan, ""
+    notes = str(plan.get("missing_information") or "")
+    route = org.get("email") or org.get("phone") or ""
+    stale = [n for n, gone in ((RAW_OSM_NOTE, not str(org.get("verification") or "").startswith("Raw OSM")), (NO_ROUTE_NOTE, bool(route)))
+             if gone and n in notes]
+    if not stale:
+        return plan, ""
+    for note in stale:
+        notes = drop_note(notes, note)
+    plan = {**plan, "missing_information": notes}
+    if plan["review_status"] != "Needs research" or OTHER_HOLD.search(notes):
+        return plan, "notes"
+    plan["review_status"] = "Draft review"
+    # The track follows the status, exactly as scripts/master/refresh_acquisition_metadata.py sets it.
+    plan["acquisition_track_id"] = "AQ01" if "referral" in str(plan.get("cta_type") or "").lower() else "AQ02"
+    if not plan.get("contact_channel"):
+        plan["contact_channel"] = route
+        plan["channel_attribution"] = "Organisation's published route in the master (released when its lead was matched or its route found)"
+    return plan, "released"
 COPY_FIELDS = ("subject", "body", "follow_up_1", "follow_up_2", "offer_message")
 CAMPUSES_EN = "Our five campuses are Arusha City (Sakina), Kijenge and Ilboru in Arusha, Usa River, and Boma Ng'ombe."
 LEVELS_EN = "We teach Daycare (from 18 months) to Grade 7 in English, with technology in lessons and a focus on student wellness."
@@ -298,8 +337,14 @@ def main() -> int:
         g.close()
 
     updates, backups, outcomes, new_rows = [], [], Counter(), []
+    released = Counter()
     for plan in plans:
         org = orgs.get(plan["organisation_id"], {})
+        plan, change = refresh_creation_holds(plan, org)
+        if change:
+            outcomes[f"stale creation holds dropped ({change})"] += 1
+            if change == "released":
+                released[f"{plan['selection']}: {plan['segment']}"] += 1
         track = plan["acquisition_track_id"]
         if plan["segment"] == "SACCOS members":
             copy = saccos_copy(plan, org, track)
@@ -419,7 +464,7 @@ def main() -> int:
         for problem in L.check_message(body, PARENT_OFFERS):
             issues.append({"message_id": d["enquiry_id"], "field": "parent reply", "issue": problem})
     summary = {"outcomes": dict(outcomes), "conformance_issues": len(issues), "tracks_new": dict(Counter(t for _, _, t, _, _, _ in new_rows)),
-               "segments_new": dict(Counter(p["segment"] for p, *_ in new_rows))}
+               "segments_new": dict(Counter(p["segment"] for p, *_ in new_rows)), "released_by_selection_and_kind": dict(released)}
     preview_dir = ROOT / "runtime" / "messaging"
     preview_dir.mkdir(parents=True, exist_ok=True)
     if args.dry_run or issues:
@@ -456,6 +501,9 @@ def main() -> int:
                         (copy["subject"], copy["body"], copy["follow_up_1"], copy["follow_up_2"], copy["offer_message"],
                          offer_summary(copy["offer_ids"]), vm, missing, COPY_STATUS, L.OFFER_VERSION, "; ".join(copy["offer_ids"]), evidence,
                          copy["sw"], COPY_VERSION, hook_status, plan["message_id"]))
+            # A plan whose creation-time holds were released (refresh_creation_holds): its status, track and route.
+            con.execute("UPDATE outreach_plans SET review_status=?, acquisition_track_id=?, contact_channel=?, channel_attribution=? WHERE message_id=?",
+                        (plan["review_status"], plan["acquisition_track_id"], plan["contact_channel"], plan["channel_attribution"], plan["message_id"]))
             con.execute("UPDATE messages SET subject=?, body=?, strategy_id=?, status=?, conditions=? WHERE message_id=?",
                         (copy["subject"], copy["body"], STRATEGY_ID, MESSAGE_STATUS, conditions_for(copy), plan["message_id"]))
         con.executemany("UPDATE outreach_plans SET contact_channel=?, channel_attribution='Company inbox first for a verified decision-maker; the published phone follows' WHERE message_id=?", channel_updates)

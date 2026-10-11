@@ -193,7 +193,7 @@ def write_file(con, rows, today: str) -> Path:
     others = other_companies(con, reviewed)
     held_dups = [dict(r) for r in con.execute(
         "SELECT r.entity_id, o.name AS dup, r.related_id, p.name AS primary_name FROM review r JOIN organisations o ON o.organisation_id=r.entity_id "
-        "JOIN organisations p ON p.organisation_id=r.related_id WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%' ORDER BY o.name")]
+        "JOIN organisations p ON p.organisation_id=r.related_id WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%' OR r.kind LIKE 'Branch of%' ORDER BY o.name")]
     ready = [p for p in others if p["review_status"] == "Draft review"]
     held = [p for p in others if p["review_status"] != "Draft review"]
     import build_company_audience_profile as P  # the audience profile goes first, for presenting

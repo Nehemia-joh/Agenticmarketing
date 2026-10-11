@@ -301,6 +301,7 @@ table.cells { border-collapse: collapse; width: 100%; font-size: 12.5px; font-va
       <section class="section" aria-labelledby="layerHead">
         <h2 class="eyebrow" id="layerHead">Map layers</h2>
         <label class="toggle"><input type="checkbox" id="showEstimated" checked><span>Leads with an estimated location<small>Placed from a locality, town or ward centre; drawn with a dashed outline.</small></span></label>
+        <label class="toggle"><input type="checkbox" id="showOutside" checked><span>Leads outside the catchment area (<span id="outsideCount">0</span>)<small>Their own point is beyond the map area, well over 25 km from a campus; drawn faded with a square outline, under the others, and not counted under any campus. Pan or zoom out to see them; the Street, Terrain and Topographic views show their surroundings.</small></span></label>
         <label class="toggle"><input type="checkbox" id="showRings" checked><span>Distance rings for the selected campus<small>5, 10 and 25 km, straight line.</small></span></label>
         <label class="toggle"><input type="checkbox" id="showExcluded"><span>Excluded records (<span id="excludedCount">0</span> on the map)<small>Duplicates collapsed for sending, records with no plan, and welfare entries out of scope. Not written to.</small></span></label>
       </section>
@@ -392,7 +393,7 @@ const BASE = /*__BASEMAP__*/null;
   // ---------------------------------------------------------------- state
   const state = {
     campus: "all", q: "", segs: new Set(SEGS.map((s) => s.k)), confs: new Set(CONFS.map((c) => c.k)),
-    sub: {}, estimated: true, rings: true, excluded: false,
+    sub: {}, estimated: true, rings: true, excluded: false, outside: true,
   };
   const values = {};
   for (const s of SEGS) {
@@ -409,20 +410,23 @@ const BASE = /*__BASEMAP__*/null;
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
   function fmt(n) { return n.toLocaleString("en-GB"); }
 
-  const passCampus = (l) => state.campus === "all" || l.cp === state.campus;
+  // A lead outside the catchment area (l.x) belongs to no campus: it shows only under "All campuses" and only with its toggle on.
+  const passCampus = (l) => state.campus === "all" || (l.cp === state.campus && !l.x);
   const passQuery = (l) => !state.q || l.key.includes(state.q);
   const passEst = (l) => state.estimated || !l.e;
+  const passOut = (l) => state.outside || !l.x;
   const passSub = (l, skipDim) => SUBDIMS[l.s].every(([dim]) => dim === skipDim || state.sub[l.s][dim].has(l.u[dim]));
-  const passBase = (l) => passCampus(l) && passQuery(l) && passEst(l) && passSub(l);
+  const passBase = (l) => passCampus(l) && passQuery(l) && passEst(l) && passOut(l) && passSub(l);
   const visible = (l) => passBase(l) && state.segs.has(l.s) && state.confs.has(l.c);
 
   // ---------------------------------------------------------------- colours and marker icons
   const css = () => getComputedStyle(document.documentElement);
   function token(name) { return css().getPropertyValue(name).trim(); }
-  function drawIcon(seg, conf, est) {
+  function drawIcon(seg, conf, est, out) {
     const ratio = 2, size = 28, c = size / 2;
     const cv = document.createElement("canvas"); cv.width = cv.height = size * ratio;
     const g = cv.getContext("2d"); g.scale(ratio, ratio);
+    if (out) g.globalAlpha = 0.5; // outside the catchment area: faded, with a square outline (below)
     const col = seg === "exc" ? token("--grey") : token("--" + seg);
     const panel = token("--panel"), grey = token("--grey");
     const circle = (r) => { g.beginPath(); g.arc(c, c, r, 0, Math.PI * 2); };
@@ -445,13 +449,16 @@ const BASE = /*__BASEMAP__*/null;
       circle(4.2); g.lineWidth = 1.4; g.strokeStyle = grey; g.stroke(); circle(1.6); g.fillStyle = col; g.fill(); outer = 4.6;
     }
     if (est) {
-      circle(outer + 3.2); g.setLineDash([2.2, 2]); g.lineWidth = 1.3; g.strokeStyle = col; g.globalAlpha = 0.9; g.stroke(); g.setLineDash([]); g.globalAlpha = 1;
+      circle(outer + 3.2); g.setLineDash([2.2, 2]); g.lineWidth = 1.3; g.strokeStyle = col; g.globalAlpha = out ? 0.5 : 0.9; g.stroke(); g.setLineDash([]); g.globalAlpha = out ? 0.5 : 1;
+    }
+    if (out) {
+      const h = outer + (est ? 4.6 : 3); g.globalAlpha = 0.85; g.lineWidth = 1.4; g.strokeStyle = token("--grey"); g.strokeRect(c - h, c - h, 2 * h, 2 * h); g.globalAlpha = 1;
     }
     return { width: size * ratio, height: size * ratio, data: new Uint8Array(g.getImageData(0, 0, size * ratio, size * ratio).data.buffer) };
   }
-  function iconName(seg, conf, est) { return `${seg}|${conf}|${est ? 1 : 0}`; }
-  function iconURL(seg, conf, est) {
-    const img = drawIcon(seg, conf, est);
+  function iconName(seg, conf, est, out) { return `${seg}|${conf}|${est ? 1 : 0}${out ? "|x" : ""}`; }
+  function iconURL(seg, conf, est, out) {
+    const img = drawIcon(seg, conf, est, out);
     const cv = document.createElement("canvas"); cv.width = img.width; cv.height = img.height;
     cv.getContext("2d").putImageData(new ImageData(new Uint8ClampedArray(img.data.buffer), img.width, img.height), 0, 0);
     return cv.toDataURL();
@@ -464,6 +471,7 @@ const BASE = /*__BASEMAP__*/null;
   // Whole catchment on a wide screen; on a phone (portrait) the city campuses and Usa River, so the view stays inside the basemap.
   const phone = window.matchMedia("(max-width: 760px)").matches;
   const bboxAll = phone ? [[36.62, -3.47], [36.92, -3.27]] : [[36.49, -3.47], [37.40, -3.24]];
+  const EXT = DATA.extent || DATA.bbox;
   const base = (layer) => ["==", ["get", "layer"], layer];
   // The lead map's own basemap: the embedded OpenStreetMap extract. Used by the Lead map view and, with hill shading, by Terrain.
   function leadBase() {
@@ -578,7 +586,8 @@ const BASE = /*__BASEMAP__*/null;
 
   const map = window.maplibregl ? new maplibregl.Map({
     container: "map", attributionControl: false, bounds: bboxAll, fitBoundsOptions: { padding: 30 },
-    maxBounds: [[DATA.bbox[0] - 0.25, DATA.bbox[1] - 0.2], [DATA.bbox[2] + 0.25, DATA.bbox[3] + 0.2]], minZoom: 8, maxZoom: 17,
+    // Pannable to every drawn pin, including leads outside the catchment area (DATA.extent); the basemap covers DATA.bbox only.
+    maxBounds: [[EXT[0] - 0.25, EXT[1] - 0.2], [EXT[2] + 0.25, EXT[3] + 0.2]], minZoom: EXT.some((v, i) => v !== DATA.bbox[i]) ? 6 : 8, maxZoom: 17,
     dragRotate: false, pitchWithRotate: false, touchPitch: false,
     style: composeStyle("lead"),
   }) : null;
@@ -644,8 +653,10 @@ const BASE = /*__BASEMAP__*/null;
     for (const seg of [...SEGS.map((s) => s.k), "exc"]) {
       for (const conf of seg === "exc" ? ["x"] : CONFS.map((c) => c.k)) {
         for (const est of [0, 1]) {
-          const name = iconName(seg, conf, est), img = drawIcon(seg, conf, est);
-          if (map.hasImage(name)) map.updateImage(name, img); else map.addImage(name, img, { pixelRatio: 2 });
+          for (const out of seg === "exc" ? [0] : [0, 1]) {
+            const name = iconName(seg, conf, est, out), img = drawIcon(seg, conf, est, out);
+            if (map.hasImage(name)) map.updateImage(name, img); else map.addImage(name, img, { pixelRatio: 2 });
+          }
         }
       }
     }
@@ -674,7 +685,8 @@ const BASE = /*__BASEMAP__*/null;
 
   function leadFeature(l, seg) {
     return { type: "Feature", id: l.i, geometry: { type: "Point", coordinates: [l.lo, l.la] },
-      properties: { i: l.i, icon: iconName(seg || l.s, seg ? "x" : l.c, l.e), rank: seg ? 0 : RANK[l.c] || 0 } };
+      // A lead outside the catchment area sorts under every other pin (deprioritised for the distance).
+      properties: { i: l.i, icon: iconName(seg || l.s, seg ? "x" : l.c, l.e, !seg && l.x), rank: seg ? 0 : (RANK[l.c] || 0) - (l.x ? 10 : 0) } };
   }
 
   function ringGeo(c) {
@@ -706,9 +718,9 @@ const BASE = /*__BASEMAP__*/null;
     });
     // A marker image the style lacks (for instance mid-switch) is drawn on demand.
     map.on("styleimagemissing", (e) => {
-      const [seg, conf, est] = String(e.id).split("|");
+      const [seg, conf, est, out] = String(e.id).split("|");
       if ((SEG[seg] && CONF[conf]) || (seg === "exc" && conf === "x")) {
-        if (!map.hasImage(e.id)) map.addImage(e.id, drawIcon(seg, conf, est === "1"), { pixelRatio: 2 });
+        if (!map.hasImage(e.id)) map.addImage(e.id, drawIcon(seg, conf, est === "1", out === "x"), { pixelRatio: 2 });
       }
     });
     renderViews();
@@ -757,7 +769,7 @@ const BASE = /*__BASEMAP__*/null;
   }
   function campusPopup(c) {
     if (popup) popup.remove();
-    const near = leads.filter((l) => l.cp === c.key);
+    const near = leads.filter((l) => l.cp === c.key && !l.x);
     const within = (km) => leads.filter((l) => hav(l.la, l.lo, c.lat, c.lon) <= km).length;
     const bySeg = SEGS.map((s) => `${esc(s.label)} ${fmt(near.filter((l) => l.s === s.k).length)}`).join(" · ");
     const html = `<div class="pop"><h2>${esc(c.label)}</h2><div class="tag"><span class="campus-pin" style="pointer-events:none"><span class="dia" style="width:9px;height:9px;border-width:2px"></span></span>Silverleaf campus</div>${lookLinks(c.lat, c.lon, !c.pin)}<dl>`
@@ -857,7 +869,11 @@ const BASE = /*__BASEMAP__*/null;
   const chips = document.getElementById("campusChips");
   function renderChips() {
     const counts = { all: 0 };
-    for (const l of leads) if (passQuery(l) && passEst(l) && passSub(l) && state.segs.has(l.s) && state.confs.has(l.c)) { counts.all++; counts[l.cp] = (counts[l.cp] || 0) + 1; }
+    for (const l of leads) {
+      if (!(passQuery(l) && passEst(l) && passOut(l) && passSub(l) && state.segs.has(l.s) && state.confs.has(l.c))) continue;
+      counts.all++;
+      if (!l.x) counts[l.cp] = (counts[l.cp] || 0) + 1; // outside the catchment area: under "All campuses" only
+    }
     const items = [{ key: "all", label: "All campuses" }].concat(DATA.campuses.map((c) => ({ key: c.key, label: c.label })));
     chips.innerHTML = items.map((c) => `<button type="button" class="chip" data-campus="${esc(c.key)}" aria-pressed="${state.campus === c.key}">${esc(c.label)} <span class="n">${fmt(counts[c.key] || 0)}</span></button>`).join("");
   }
@@ -950,7 +966,7 @@ const BASE = /*__BASEMAP__*/null;
   function renderSubCounts() {
     const n = {};
     for (const l of leads) {
-      if (!(passCampus(l) && passQuery(l) && passEst(l) && state.confs.has(l.c))) continue;
+      if (!(passCampus(l) && passQuery(l) && passEst(l) && passOut(l) && state.confs.has(l.c))) continue;
       for (const [dim] of SUBDIMS[l.s]) if (passSub(l, dim)) { const k = `${l.s}|${dim}|${l.u[dim]}`; n[k] = (n[k] || 0) + 1; }
     }
     subBox.querySelectorAll("[data-n]").forEach((el) => { el.textContent = fmt(n[el.dataset.n] || 0); });
@@ -974,7 +990,8 @@ const BASE = /*__BASEMAP__*/null;
   results.addEventListener("click", (e) => {
     const b = e.target.closest("button"); if (!b) return;
     const l = b.dataset.hit != null ? leads[+b.dataset.hit] : excl[+b.dataset.ex];
-    if (state.campus !== "all" && l.cp !== state.campus) { state.campus = "all"; Object.values(pins).forEach((el) => el.classList.remove("dim", "sel")); drawRings(); update(); }
+    if (state.campus !== "all" && (l.cp !== state.campus || l.x)) { state.campus = "all"; Object.values(pins).forEach((el) => el.classList.remove("dim", "sel")); drawRings(); update(); }
+    if (b.dataset.hit != null && l.x && !state.outside) { state.outside = true; document.getElementById("showOutside").checked = true; update(); }
     if (b.dataset.hit != null && !visible(l)) { state.segs.add(l.s); state.confs.add(l.c); update(); }
     if (map) { map.flyTo({ center: [l.lo, l.la], zoom: Math.max(map.getZoom(), 14), duration: 700 }); openPopup(l, b.dataset.ex != null); }
     if (window.matchMedia("(max-width: 760px)").matches) setDrawer(false);
@@ -1017,7 +1034,8 @@ const BASE = /*__BASEMAP__*/null;
       html += `<div class="tag">${swatch(l.s)}${esc(SEG[l.s].one)}</div>${lookLinks(l.la, l.lo, l.e)}<dl>`
         + `<dt>Subsegment</dt><dd>${subLine(l).map(esc).join(" · ")}</dd>`
         + `<dt>Confidence</dt><dd><span class="badge" style="color:var(--${l.s})">${esc(c.label)}</span><span class="why">${esc(l.y.charAt(0).toUpperCase() + l.y.slice(1))}</span></dd>`
-        + `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km (straight line)</dd>`
+        + (l.x ? `<dt>Catchment</dt><dd>Outside the catchment area: ${l.km} km from the nearest campus, ${esc(camp.label)} (straight line); deprioritised for the distance</dd>`
+          : `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km (straight line)</dd>`)
         + `<dt>Route</dt><dd>${esc(l.r)}</dd>`
         + `<dt>Recipient</dt><dd>${esc(l.o || "Not set")}</dd>`
         + `<dt>Draft</dt><dd>${esc(l.d)}</dd>`
@@ -1031,7 +1049,7 @@ const BASE = /*__BASEMAP__*/null;
     const box = document.getElementById("unmapped");
     const bySeg = {};
     for (const u of DATA.unmapped) (bySeg[u.s] = bySeg[u.s] || []).push(u);
-    let html = `<p class="hint">${fmt(DATA.unmapped.length)} leads have no location in the map area. They still count in their segments' outreach; they are listed here, not drawn.</p>`;
+    let html = `<p class="hint">${fmt(DATA.unmapped.length)} leads have no point to draw (no location, only a town outside the map area, or an office abroad). They still count in their segments' outreach; they are listed here, not drawn.</p>`;
     for (const s of SEGS) {
       const list = (bySeg[s.k] || []).sort((a, b) => a.n.localeCompare(b.n));
       if (!list.length) continue;
@@ -1054,6 +1072,7 @@ const BASE = /*__BASEMAP__*/null;
       `<div class="col"><p class="eyebrow">Segment</p>${segRows}<div class="row"><span class="campus-pin" style="pointer-events:none"><span class="dia" style="width:10px;height:10px;border-width:2px"></span></span><span>Campus</span></div></div>`
       + `<div class="col"><p class="eyebrow">Confidence</p>${confRows}</div>`
       + `<div class="full col"><div class="row">${markImg("emp", "medium", 1)}<span>Dashed outline: location estimated from a locality, town or ward centre. Leads at one spot are spread on a small spiral.</span></div>`
+      + `<div class="row"><img class="mark" alt="" src="${iconURL("emp", "medium", 0, 1)}"><span>Faded, square outline: outside the catchment area (beyond the map area); under all campuses only</span></div>`
       + `<div class="row">${markImg("exc", "x", 0)}<span>Excluded record (layer off by default)</span></div></div>`;
   }
 
@@ -1066,6 +1085,8 @@ const BASE = /*__BASEMAP__*/null;
   document.getElementById("showEstimated").addEventListener("change", (e) => { state.estimated = e.target.checked; update(); });
   document.getElementById("showRings").addEventListener("change", (e) => { state.rings = e.target.checked; drawRings(); });
   document.getElementById("showExcluded").addEventListener("change", (e) => { state.excluded = e.target.checked; update(); });
+  document.getElementById("showOutside").addEventListener("change", (e) => { state.outside = e.target.checked; update(); });
+  document.getElementById("outsideCount").textContent = fmt(leads.filter((l) => l.x).length);
 
   // ---------------------------------------------------------------- update
   function update() {

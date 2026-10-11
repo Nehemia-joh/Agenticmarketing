@@ -207,8 +207,9 @@
    "name": "NSK HOSPITALS LTD",
    "action": "segment",
    "segment": "Healthcare employers",
-   "reason": "private regional-level hospital",
-   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+   "organisation_segment": "amenity:hospital",
+   "reason": "private regional-level hospital, not a tour operator: Health Facility Registry entry 111486-7 ('Facility Type: Hospital at Regional Level; Ownership: Private, For Profit: NSK HOSPITALS LTD')",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10 (master review D1154ee610533); register entry https://hfrs.moh.go.tz/web/index.php?r=portal%2Fpdf-facility-detail&facility_code=111486-7 as read on 2026-09-23 in data/raw/contact-research/search_wave4_master_employers_2026-09-23.jsonl; the record's own segment corrected 2026-10-11"
   },
   "O05869f93c115": {
    "name": "OKKA House",

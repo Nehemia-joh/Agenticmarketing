@@ -43,7 +43,7 @@ def main() -> int:
     reasons = json.loads(D.REASONS.read_text(encoding="utf-8"))["organisations"]
     con = sqlite3.connect(args.database)
     con.row_factory = sqlite3.Row
-    primary_of = {r[0]: r[1] for r in con.execute("SELECT entity_id, related_id FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%'")}
+    primary_of = {r[0]: r[1] for r in con.execute("SELECT entity_id, related_id FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%' OR kind LIKE 'Branch of%'")}
     rows, issues = D.build_drafts(con)
     if issues:
         print("\n".join(issues))

@@ -21,7 +21,9 @@ Excluded records (master duplicates and shared-inbox records collapsed for sendi
 Location: the record's own coordinates first; then a duplicate record's coordinates; then a unique exact name match to a named
 OpenStreetMap feature in the basemap; then the locality or address against the offline gazetteers (data/reference/lead-gazetteer.txt,
 collect_partner_leads.js and the basemap's place names). Everything after the first two steps is marked estimated. Leads at one
-spot are spread on a small spiral so each can be clicked. Leads outside the map area or with no location are listed, not drawn.
+spot are spread on a small spiral so each can be clicked. A lead whose own point lies in Tanzania but outside the map area (well
+beyond 25 km) is drawn as a muted pin outside the catchment area: under the other pins, behind its own layer toggle, and outside the
+campus filters and counts (the user's decision of 2026-10-11). Leads with no point, or only a town outside the map area, are listed.
 
 The page carries no person's name, email address or phone number: only organisation names, roles and reasons. The script fails
 if any contact name, address or number reaches the page data, and if its counts differ from the databases or the exporter.
@@ -189,6 +191,11 @@ def in_box(lat, lon) -> bool:
     return SOUTH <= lat <= NORTH and WEST <= lon <= EAST
 
 
+def in_tanzania(lat, lon) -> bool:
+    """The rough national box apply_geocodes.py also uses: a point beyond it (a funder's office abroad) is listed, not drawn."""
+    return -12 < lat < -0.9 and 29 < lon < 41
+
+
 # ------------------------------------------------------------------ leads
 def master_leads(con, loc: Locator, today: str):
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
@@ -318,9 +325,11 @@ def build_leads(loc: Locator, today: str):
     # Master records with no chosen plan: excluded layer.
     chosen = {p["organisation_id"] for p in plans}
     dup_reason = {}
-    for r in m.execute("SELECT entity_id, related_id, kind FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%'"):
+    for r in m.execute("SELECT entity_id, related_id, kind FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%' "
+                       "OR kind LIKE 'Branch of%'"):
         primary = orgs.get(r["related_id"]) or {}
-        label = "duplicate of" if r["kind"].startswith("Duplicate") else "shares an inbox with"
+        label = ("duplicate of" if r["kind"].startswith("Duplicate") else "branch, at another site, of" if r["kind"].startswith("Branch")
+                 else "shares an inbox with")
         dup_reason.setdefault(r["entity_id"], f"{label} {E.L.display_name(primary.get('name', ''), r['related_id'])}; one message goes to that record")
     for oid, org in orgs.items():
         if oid in chosen:
@@ -366,8 +375,8 @@ def build_leads(loc: Locator, today: str):
             prec, how = "none", ("a funder with no local point: no office location on file and no verified link to a home or programme near the campuses (most are abroad)"
                                  if p["segment"] == "Welfare funder" else "no location on file")
         elif not in_box(lat, lon):
-            prec, how = "outside", f"located outside the map area ({p['locality'] or 'elsewhere in Tanzania or abroad'})"
-            lat = lon = None
+            # Its own point outside the map area: drawn as an outside-the-catchment pin when it lies in Tanzania (see main).
+            prec, how = ("exact" if prec_db == "address" else "estimated"), "the record's own point"
         else:
             prec = "exact" if prec_db == "address" else "estimated"
             how = "the record's address point" if prec == "exact" else f"estimated from the {prec_db or 'locality'}{' (' + p['locality'] + ')' if p['locality'] else ''}"
@@ -404,7 +413,8 @@ def build_leads(loc: Locator, today: str):
         if lat is None:
             prec, how = "none", "no location on file" + (" (ward not yet located)" if d["office_level"] in ("ward", "village") else "")
         elif not in_box(lat, lon):
-            prec, how, lat, lon = "outside", "located outside the map area", None, None
+            # Its own point outside the map area: drawn as an outside-the-catchment pin when it lies in Tanzania (see main).
+            prec, how = ("exact" if o["geocode_precision"] == "address" else "estimated"), "the office's own point"
         else:
             prec = "exact" if o["geocode_precision"] == "address" else "estimated"
             how = "the office's address point" if prec == "exact" else "estimated (ward centre)"
@@ -560,11 +570,17 @@ def main() -> int:
     mapped = [l for l in leads if l["lat"] is not None]
     for l in leads + excluded:
         if l["lat"] is not None and not in_box(l["lat"], l["lon"]):
-            # A lead placed by its own point outside the map area is listed with how far it is (e.g. African Galleria, Karatu,
-            # kept on the map's list outside the catchment by the user's decision of 2026-10-11), not with an older check.
+            # A lead whose own point lies outside the map area (every such point is well beyond 25 km of a campus) is still
+            # drawn, as a muted pin outside the catchment area, ranked under the others and kept out of the campus counts (the
+            # user's decision of 2026-10-11, for African Galleria at Karatu). The online views show its surroundings; the
+            # offline basemap covers only the catchment. A point outside Tanzania, or an excluded record, is listed instead.
             camp, km = nearest(campuses, l["lat"], l["lon"])
-            how = f"located outside the map area: its own point is {km:g} km from the nearest campus ({CAMPUS_LABEL.get(camp, camp)})"
-            l["prec"], l["how"], l["lat"], l["lon"], l["placed_outside"] = "outside", how, None, None, True
+            if l["seg"] != "exc" and in_tanzania(l["lat"], l["lon"]):
+                l["outside"] = True
+                l["how"] = (f"{l['how']}, outside the catchment area: {km:g} km from the nearest campus ({CAMPUS_LABEL.get(camp, camp)}); "
+                            "deprioritised for the distance")
+            else:
+                l["prec"], l["how"], l["lat"], l["lon"] = "outside", "located outside the map area", None, None
     spread([l for l in leads + excluded if l["lat"] is not None])
     seg_code = {"emp": 0, "int": 1, "wel": 2, "gov": 3}
     checked = location_checks()
@@ -577,12 +593,14 @@ def main() -> int:
         if l["seg"] == "gov":
             rec["k"] = l.get("council", "")
         if l["lat"] is None:
-            why = l["how"] if l.get("placed_outside") else checked.get(l.get("key"), l["how"])
+            why = checked.get(l.get("key"), l["how"])
             unmapped.append({"n": l["name"], "s": l["seg"], "c": l["conf"], "why": why})
             continue
         camp, km = nearest(campuses, l["lat"], l["lon"])
         rec.update({"la": round(l["lat"], 5), "lo": round(l["lon"], 5), "e": 0 if l["prec"] == "exact" else 1, "cp": camp, "km": km,
                     "sp": l.get("spread", 0)})
+        if l.get("outside"):
+            rec["x"] = 1  # outside the catchment area: drawn muted, under the others, and left out of the campus counts
         out_leads.append(rec)
     out_excluded = []
     for x in excluded:
@@ -593,18 +611,24 @@ def main() -> int:
                              "lo": round(x["lon"], 5), "e": 0 if x["prec"] == "exact" else 1, "cp": camp, "km": km})
     # Labels stay out of the drawn basemap's points of interest (used for matching only).
     drawn = {"type": "FeatureCollection", "features": [f for f in basemap["features"] if f["properties"]["layer"] != "poi"]}
+    # The pannable area: the basemap box widened to every drawn pin (leads outside the catchment area included).
+    extent = [min([WEST] + [l["lo"] for l in out_leads]), min([SOUTH] + [l["la"] for l in out_leads]),
+              max([EAST] + [l["lo"] for l in out_leads]), max([NORTH] + [l["la"] for l in out_leads])]
     payload = {"built": today, "campuses": campuses, "leads": out_leads, "excluded": out_excluded, "unmapped": unmapped,
-               "excludedTotal": len(excluded), "attribution": basemap.get("attribution", ""), "bbox": [WEST, SOUTH, EAST, NORTH]}
+               "excludedTotal": len(excluded), "attribution": basemap.get("attribution", ""), "bbox": [WEST, SOUTH, EAST, NORTH],
+               "extent": extent}
     errors += privacy_check(payload, person_names)
 
     # Summary.
     seg_name = {"emp": "Employers", "int": "Introducers", "wel": "Welfare", "gov": "Government"}
     print(f"Silverleaf lead map, {today}")
-    print(f"{'Segment':<12} {'leads':>6} {'mapped':>7} {'exact':>6} {'estim.':>7} {'unmapped':>9}")
+    print(f"{'Segment':<12} {'leads':>6} {'mapped':>7} {'exact':>6} {'estim.':>7} {'outside':>8} {'unmapped':>9}")
     for s in ("emp", "int", "wel", "gov"):
         tot = sum(1 for l in leads if l["seg"] == s)
         mp = [l for l in out_leads if l["s"] == s]
-        print(f"{seg_name[s]:<12} {tot:>6} {len(mp):>7} {sum(1 for l in mp if not l['e']):>6} {sum(1 for l in mp if l['e']):>7} {tot - len(mp):>9}")
+        print(f"{seg_name[s]:<12} {tot:>6} {len(mp):>7} {sum(1 for l in mp if not l['e']):>6} {sum(1 for l in mp if l['e']):>7} "
+              f"{sum(1 for l in mp if l.get('x')):>8} {tot - len(mp):>9}")
+    print("  (outside: drawn pins outside the catchment area, beyond the map's basemap; included in mapped)")
     print("\nConfidence (all leads, mapped or not):")
     for s in ("emp", "int", "wel", "gov"):
         cnt = Counter(l["conf"] for l in leads if l["seg"] == s)

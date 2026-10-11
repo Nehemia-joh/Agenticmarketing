@@ -10,6 +10,8 @@ Reads runtime/contacts/profiles.json (build_contact_profiles.py). Two stages:
   a missing route to 'Draft review'. Run scripts/messaging/draft_master_messages.py and
   scripts/master/refresh_acquisition_metadata.py afterwards so the new contacts get drafts and tracks.
   The address field takes the shortest specific physical address (a street, plot, building or number), else a P.O. Box.
+  A reviewed 'master' entry in data/reference/rejected-routes.json is taken out of the organisation, its contacts and its
+  drafts' channel in the same transaction, kept as the fact 'rejected_route' with a review item (apply_rejected_routes).
 - --backfill-addresses [--apply]: fill empty addresses from every earlier wave's search and browser records that an earlier
   merge registered (merges before 2026-10-11 kept only a P.O. Box); preview by default.
 """
@@ -145,6 +147,71 @@ NAME_ACTION = ("The source gives only part of this person's name. The lead is ke
 ROBOTS_REVIEWS = {"robots.txt unreachable": ("contact-robots", "Contact research: robots.txt unreachable", ROBOTS_ACTION),
                   "robots.txt disallows": ("contact-robots-browser", "Contact research: robots.txt disallows (read with a browser)",
                                            ROBOTS_BROWSER_ACTION)}
+
+
+REJECTED_ROUTES = C.ROOT / "data" / "reference" / "rejected-routes.json"
+NO_ROUTE_NOTE = "No public email or phone; find the organisation's route before any message."
+
+
+def apply_rejected_routes(con, stats) -> None:
+    """A reviewed 'master' entry in data/reference/rejected-routes.json (a value research showed is not the organisation's
+    route, such as an inbox on a parked domain) is taken out of the organisation's email or phone, its contacts' addresses and
+    its drafts' channel. The value is kept as the fact 'rejected_route' with its reason and a review item records the change;
+    a draft that used it falls back to the organisation's remaining email or phone, else is held for a route. Re-running
+    changes nothing."""
+    if not REJECTED_ROUTES.exists():
+        return
+    entries = [x for x in json.loads(REJECTED_ROUTES.read_text(encoding="utf-8"))["routes"] if x["db"] == "master"]
+    if not entries:
+        return
+    body = REJECTED_ROUTES.read_bytes()
+    sid = hid("F", "reference", REJECTED_ROUTES.name)
+    con.execute("INSERT OR REPLACE INTO source_files (source_id, path, sha256, bytes, kind, encoding, content) VALUES (?,?,?,?,?,?,?)",
+                (sid, REJECTED_ROUTES.relative_to(C.ROOT).as_posix(), hashlib.sha256(body).hexdigest(), len(body), "json", "zlib", zlib.compress(body, 9)))
+    for x in entries:
+        oid, value = x["organisation_id"], x["value"]
+        key = C.clean_email(value) if x["kind"] == "email" else W.norm_phone(value)
+        same = (lambda v, k=key, kind=x["kind"]: bool(v) and (C.clean_email(v) if kind == "email" else W.norm_phone(v)) == k)
+        org = con.execute("SELECT email, phone FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
+        if org is None:
+            continue
+        record = hid("R", "rejected-route", oid, x["kind"], key)
+        con.execute("INSERT OR REPLACE INTO source_records (record_id, source_id, location, payload_json) VALUES (?,?,?,?)",
+                    (record, sid, f"rejected route {oid} {x['kind']}", json.dumps(x, ensure_ascii=False)))
+        con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) SELECT 'organisation', ?, ? WHERE NOT EXISTS "
+                    "(SELECT 1 FROM entity_sources WHERE entity_type='organisation' AND entity_id=? AND record_id=?)", (oid, record, oid, record))
+        con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                    (hid("X", oid, "rejected_route", value), "organisation", oid, "rejected_route", f"{value}: {x['reason']}"[:500], record))
+        changed = 0
+        field = "email" if x["kind"] == "email" else "phone"
+        parts = [p.strip() for p in re.split(r"[;,/]", str(org[field] or "")) if p.strip()]
+        if any(same(p) for p in parts):
+            con.execute(f"UPDATE organisations SET {field}=? WHERE organisation_id=?", ("; ".join(p for p in parts if not same(p)), oid))
+            changed += 1
+        for column in (("shared_email", "named_email", "published_role_email") if x["kind"] == "email" else ("organisation_phone", "role_phone")):
+            changed += con.execute(f"UPDATE contacts SET {column}='' WHERE organisation_id=? AND {column}=?", (oid, value)).rowcount
+        org = con.execute("SELECT email, phone FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
+        fallback = org["email"] or org["phone"] or ""
+        for plan in con.execute("SELECT message_id, contact_channel, missing_information FROM outreach_plans WHERE organisation_id=?", (oid,)).fetchall():
+            channel = [p.strip() for p in str(plan["contact_channel"] or "").split(";") if p.strip()]
+            if not any(same(p) for p in channel):
+                continue
+            rest = "; ".join(p for p in channel if not same(p)) or fallback
+            if rest:
+                con.execute("UPDATE outreach_plans SET contact_channel=?, channel_attribution=? WHERE message_id=?",
+                            (rest, f"Organisation's published route in the master ({value} is a rejected route: data/reference/rejected-routes.json)",
+                             plan["message_id"]))
+            else:
+                con.execute("UPDATE outreach_plans SET contact_channel='', review_status='Needs research', missing_information=? WHERE message_id=?",
+                            (with_note(NO_ROUTE_NOTE, plan["missing_information"]), plan["message_id"]))
+            changed += 1
+        if changed:
+            con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                        (hid("D", "rejected-route", oid, x["kind"], key), "Rejected route removed", oid, "", field, value,
+                         f"{x['reason']} Removed from the organisation, its contacts and its drafts (data/reference/rejected-routes.json, "
+                         f"decided {x.get('decided_on', '')}; source: {x.get('source', '')}). The value is kept as the fact rejected_route."))
+            stats["rejected_routes_removed"] = stats.get("rejected_routes_removed", 0) + changed
+            stats["reviews"] += 1
 
 
 def repair_research_emails(con, stats) -> None:
@@ -359,8 +426,12 @@ def main() -> int:
             source_ids[path.name] = sid
             stats["source_files"] += 1
         default_source = next(iter(source_ids.values()))
+        relations_file = C.ROOT / "data" / "reference" / "organisation-relations.json"
+        related = {x[k] for x in (json.loads(relations_file.read_text(encoding="utf-8"))["relations"] if relations_file.exists() else [])
+                   for k in ("organisation_id", "related_id")}
         by_org = record_files(run_date)
         repair_research_emails(con, stats)
+        apply_rejected_routes(con, stats)
         for p in profiles:
             oid, org = p["organisation_id"], orgs[p["organisation_id"]]
             file_name = file_for("website" if "website" in p["methods"] else ("browser" if "browser" in p["methods"] else "search"),
@@ -445,6 +516,8 @@ def main() -> int:
                     stats["plans_held_for_closure"] += 1
                 stats["reviews"] += 1
             for kind, note in C.note_flags(p.get("notes")):
+                if kind == "possible duplicate" and oid in related:
+                    continue  # decided in data/reference/organisation-relations.json; apply_organisation_relations.py closed the item
                 if kind != "possible closure":
                     con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
                                 (hid("D", "contact-note", oid, kind), f"Contact research: {kind}", oid, "", "research note", note[:400], NOTE_ACTIONS[kind]))

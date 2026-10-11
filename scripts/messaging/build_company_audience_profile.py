@@ -78,7 +78,7 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
     groups = [p for p in plans if p["segment"] == "SACCOS members"]
     total_orgs = len(orgs)
     no_plan = con.execute("SELECT COUNT(*) FROM organisations o WHERE NOT EXISTS (SELECT 1 FROM outreach_plans p WHERE p.organisation_id = o.organisation_id)").fetchone()[0]
-    held_dups = con.execute("SELECT COUNT(DISTINCT entity_id) FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%'").fetchone()[0]
+    held_dups = con.execute("SELECT COUNT(DISTINCT entity_id) FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%' OR kind LIKE 'Branch of%'").fetchone()[0]
     ready = [p for p in companies if p["review_status"] == "Draft review"]
     kinds = Counter(kind_of(p, orgs[p["organisation_id"]]) for p in companies)
     kinds_ready = Counter(kind_of(p, orgs[p["organisation_id"]]) for p in ready)

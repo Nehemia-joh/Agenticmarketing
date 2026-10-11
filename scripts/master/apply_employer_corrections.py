@@ -2,7 +2,9 @@
 """Apply the reviewed employer corrections (data/reference/employer-corrections.json) to the company master's outreach plans.
 
 - segment: every plan of the organisation is filed under the right kind of employer (Corporate or Healthcare employers instead of
-  Tourism employers). The organisation record is unchanged; the drafts take the new segment the next time draft_master_messages.py runs.
+  Tourism employers). The drafts take the new segment the next time draft_master_messages.py runs. The organisation record is
+  unchanged unless the entry also names 'organisation_segment' (added 2026-10-11): then the record's own segment is corrected, the
+  earlier value kept as the fact segment_before_correction (source record: this file's entry) with a 'Segment corrected' review item.
 - hold: every plan of the organisation is held (review_status 'Needs research') with the note "Outside the Arusha-Kilimanjaro catchment
   or not an employer: <reason>", which the contact merge treats as a blocker, so a new route does not release it.
 Preview by default; --apply in one transaction. Re-running changes nothing. Afterwards run draft_master_messages.py,
@@ -11,6 +13,7 @@ refresh_acquisition_metadata.py, assign_message_variants.py --apply, export_mast
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sqlite3
@@ -22,6 +25,10 @@ MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 CORRECTIONS = ROOT / "data" / "reference" / "employer-corrections.json"
 NOTE = "Outside the Arusha-Kilimanjaro catchment or not an employer: {reason} (data/reference/employer-corrections.json)."
 NOTE_RE = re.compile(r"\s*Outside the Arusha-Kilimanjaro catchment or not an employer: .*?\(data/reference/employer-corrections\.json\)\.;?")
+
+
+def hid(prefix: str, *parts) -> str:
+    return prefix + hashlib.sha256("|".join(str(p) for p in parts).encode()).hexdigest()[:12]
 
 
 def main() -> int:
@@ -45,7 +52,13 @@ def main() -> int:
                 status = "Needs research"
             if (segment, status, missing) != (p["segment"], p["review_status"], p["missing_information"] or ""):
                 changes.append((segment, status, missing, p["message_id"], c["name"], c["action"], p["selection"]))
-    summary = {"organisations": len(corrections), "plans_changed": len(changes),
+    # A segment entry may also correct the organisation record's own segment ('organisation_segment', added 2026-10-11).
+    org_changes = []
+    for oid, c in corrections.items():
+        row = con.execute("SELECT segment FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
+        if c["action"] == "segment" and c.get("organisation_segment") and row and row["segment"] != c["organisation_segment"]:
+            org_changes.append((oid, c, row["segment"] or ""))
+    summary = {"organisations": len(corrections), "plans_changed": len(changes), "organisation_segments_corrected": len(org_changes),
                "chosen_plans_held": sum(1 for x in changes if x[5] == "hold" and x[6] == "Candidate for review"),
                "chosen_plans_refiled": sum(1 for x in changes if x[5] == "segment" and x[6] == "Candidate for review")}
     print(json.dumps(summary, indent=1))
@@ -59,6 +72,25 @@ def main() -> int:
             if status == "Needs research":
                 con.execute("UPDATE campaign_lead_assignments SET eligibility_status='Needs research', next_action='Held: outside the catchment or not an employer' "
                             "WHERE message_id=? AND selection='Candidate for review'", (mid,))
+        if org_changes:
+            body = CORRECTIONS.read_bytes()
+            sid = hid("F", "reference", CORRECTIONS.name)
+            con.execute("INSERT OR REPLACE INTO source_files (source_id, path, sha256, bytes, kind, encoding, content) VALUES (?,?,?,?,?,?,?)",
+                        (sid, CORRECTIONS.relative_to(ROOT).as_posix(), hashlib.sha256(body).hexdigest(), len(body), "json", "utf-8", body))
+        for oid, c, before in org_changes:
+            record = hid("R", "employer-correction", oid)
+            con.execute("INSERT OR REPLACE INTO source_records (record_id, source_id, location, payload_json) VALUES (?,?,?,?)",
+                        (record, sid, f"employer correction {oid}", json.dumps(c, ensure_ascii=False)))
+            con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) SELECT 'organisation', ?, ? WHERE NOT EXISTS "
+                        "(SELECT 1 FROM entity_sources WHERE entity_type='organisation' AND entity_id=? AND record_id=?)", (oid, record, oid, record))
+            for field, value in (("segment_before_correction", before), ("segment", c["organisation_segment"])):
+                con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                            (hid("X", oid, field, value), "organisation", oid, field, value, record))
+            con.execute("UPDATE organisations SET segment=? WHERE organisation_id=?", (c["organisation_segment"], oid))
+            con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                        (hid("D", "employer-correction-segment", oid), "Segment corrected", oid, "", "segment", f"{before} -> {c['organisation_segment']}",
+                         f"{c['reason']} ({c['source']}; data/reference/employer-corrections.json). The earlier segment is kept as the fact "
+                         "segment_before_correction."))
         if con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             raise RuntimeError("integrity check failed")
         con.execute("COMMIT")

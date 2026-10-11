@@ -86,7 +86,8 @@
   "13594": "LOHADA",
   "5067": "Widows Encouragement & HIV/AIDS Foundation (WEHAF)",
   "486": "Africa Amini Alama",
-  "13990": "Eripoto Safe House"
+  "13990": "Eripoto Safe House",
+  "14690": "Kukua Pamoja Tanzania"
  },
  "nis_exclude": [],
  "corporate_funders_in_master": [
@@ -138,7 +139,8 @@
   "13594": "Register name 'Loving Hands For Deprived and Aged (LOHADA)' carries the researched acronym; LOHADA's own site publishes its inbox lovinghand2000@yahoo.com ('loving hand'); register district Arusha matches (checked 2026-10-10).",
   "5067": "Register name 'WIDOWS ENCOURAGEMENT AND HIV/IDS FOUNDATION (WeHAF)' is the researched name and acronym (one letter dropped in 'HIV/IDS'); register district Arusha (checked 2026-10-10).",
   "486": "Register name 'AFRICAN AMINI ALAMA TANZANIA' (international NGO, district Arumeru) is the Tanzanian registration of Africa Amini Alama, whose projects are in Momella, Meru (checked 2026-10-10).",
-  "13990": "Register name 'ERIPOTO FOR GIRLS AND WOMEN' (registered 2022-01-21, district Arusha) is the name on the organisation's own Facebook page and site header ('Eripoto for girls & women'); its site says it was founded in 2022 (checked 2026-10-10)."
+  "13990": "Register name 'ERIPOTO FOR GIRLS AND WOMEN' (registered 2022-01-21, district Arusha) is the name on the organisation's own Facebook page and site header ('Eripoto for girls & women'); its site says it was founded in 2022 (checked 2026-10-10).",
+  "14690": "Register name 'KUKUA PAMOJA TANZANIA' (00NGO/R/3308, registered 2022-05-18, district Arusha) is the name on the organisation's own Idealist profile; both publish the same vision and mission sentences. The classifier's 'unlikely' (medium_projects_only: only its project list names children) is overridden by review: the Idealist profile publishes the Fill the Gap Sponsorship Program for children aged 2-25 (kindergarten to university) and the register lists a 'Child Education Sponsorship Program' (2022). Sources: https://www.idealist.org/en/nonprofit/1167dd4b6c1542bb894840e5f58fe6b2-kukua-pamoja-tanzania-arusha and https://nis.jamii.go.tz/ngo_profile/14690 (both read 2026-10-11)."
  },
  "class_overrides": {
   "The Foundation For Tomorrow": {
@@ -507,6 +509,12 @@
    "basis": "The charity's own team and newsletter pages publish meshasvillage@gmail.com, named after the charity, as its contact (read 3 October 2026 by slice Q).",
    "source_url": "https://www.meshasvillage.com/meet-the-team",
    "decided_on": "2026-10-10"
+  },
+  "Twiga Vision Tanzania": {
+   "address": "twigavisiontz@gmail.com",
+   "basis": "Twiga Vision Tanzania's own site gives twigavisiontz@gmail.com as its email address in the contact footer of every page, and its volunteers page tells applicants to write to it.",
+   "source_url": "https://twigavision.org/volunteers.html",
+   "decided_on": "2026-10-11"
   }
  },
  "rejected_routes": [

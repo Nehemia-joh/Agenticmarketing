@@ -24,6 +24,7 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `coverage/W_contact_profiles_coverage.md` | `f072ad38cf0861df…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/X_leaders_routes_2026-10-10_coverage.md` | `933772438c529140…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/Y_welfare_enrichment_2026-10-10_coverage.md` | `c41ad0c3502ef165…` | Queries, blocked sources and gaps for one research slice |
+| `coverage/Z_new_leads_2026-10-11_coverage.md` | `b9424530c5a3fa0a…` | Queries, blocked sources and gaps for one research slice |
 | `nis_catchment_2026-09-22.json` | `fa137e965fae7fec…` | NGOs Information System map entries (name, pin, vision) within the register radius |
 | `nis_catchment_profiles_2026-09-22.jsonl` | `f2715df95b1e6b60…` | NGOs Information System profiles for every NGO pinned within the register radius |
 | `nis_mapping_source_2026-09-22.json` | `baee08854d68f02a…` | Provenance of the NGOs Information System map extract |
@@ -51,3 +52,4 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `research_W_contact_profiles_2026-09-23.jsonl` | `dab5e1e0cc6afa0a…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_X_leaders_routes_2026-10-10.jsonl` | `3e2a5259bf9fd0c8…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_Y_welfare_enrichment_2026-10-10.jsonl` | `eed7941daf8ae1a7…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
+| `research_Z_new_leads_2026-10-11.jsonl` | `a7b9d8b71c111dbd…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |

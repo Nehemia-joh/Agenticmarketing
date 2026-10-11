@@ -61,7 +61,7 @@ def main() -> int:
         return 0
     links.setdefault("flags_cleared", {}).update(cleared)
     links.setdefault("official_personal_inboxes", {}).update(inboxes)
-    links_path.write_text(json.dumps(links, indent=1, ensure_ascii=False), encoding="utf-8")
+    links_path.write_text(json.dumps(links, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Written to {links_path.relative_to(W.ROOT)}.")
     return 0
 

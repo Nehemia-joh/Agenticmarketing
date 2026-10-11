@@ -13,6 +13,17 @@
   "search_D_hotels_government_2026-09-23.jsonl": [
    "published route"
   ],
+  "search_hd1_companies_p12_named_2026-10-11.jsonl": [
+   "own work email"
+  ],
+  "search_hd1_companies_p12_unnamed_2026-10-11.jsonl": [
+   "own work email",
+   "named decision-maker"
+  ],
+  "search_hd1_welfare_introducers_2026-10-11.jsonl": [
+   "own work email",
+   "named decision-maker"
+  ],
   "search_newleads_2026-10-11.jsonl": [
    "published route",
    "named decision-maker"

@@ -200,26 +200,15 @@ The full record is in `outputs/reports/campus-distance-recompute.json`.
 3. **About 50 companies have no nearest campus recorded.** Most have an address or town that could be placed at locality level.
 4. **Ward locations are estimates.** OpenStreetMap has no ward boundaries here. Official ward boundaries would replace the single reference points.
 
-## 7. Take-aways
+## 7. Take-aways for the Silverleaf team
 
-1. **Start from the school's own pins, not a search engine.** The school placed the pins on its own campus pages itself, so they are the most reliable source. Google Maps confirmed only two campuses, had no listing for two others, and pinned one in the wrong place.
-2. **Fix Silverleaf's Google listings.** This is for whoever manages Silverleaf's Google profile:
-   - The "Kijenge Campus" listing is pinned about 70 km away, so parents get wrong directions.
+1. **Fix Silverleaf's Google Maps listings.** This is for whoever manages Silverleaf's Google profile:
+   - The "Kijenge Campus" listing is pinned about 70 km away, so parents who search for it get wrong directions.
    - Two other listings match no campus: "Silverleaf Primary School" near Usa River, and "Silverleaf Academy Office" in Moshi.
    - Arusha City (Sakina) and Boma Ng'ombe have no listing at all.
 
-   Correct or remove these, and add the missing ones using the website pins.
-3. **A correction should move leads, not drop them.** Re-running distances after a campus point changes can push a lead across the 25 km line. Keep any lead that was inside before, with the reason recorded (section 5), and review it on its merits.
-4. **Keep one source of truth for the campus points (fixed 2026-10-11).** The points used to be written out in three places:
-   - the `campuses` table in the master database
-   - the original importer, `build_partner_leads.py`
-   - the TATO browser collector, `collect_partner_leads.js`, which had its own, different estimates
-
-   Now:
-   - The importer reads the table, like the welfare and government runs, the distance recompute and the lead map do.
-   - The browser collector runs inside a web page and cannot read the database. It keeps a marked preview copy, and its distances are recomputed from the table when the leads are built.
-
-   To correct a campus, change only the table.
+   Correct or remove these, and add the missing two, using the pins on the website's campus pages.
+2. **Keep the website's campus pins accurate.** The map pin on each campus page of silverleaf.co.tz is the reference for every distance in this lead work. If a campus moves or a pin is wrong, correct it on the website and tell the lead team, so the distances can be recomputed.
 
 ---
 

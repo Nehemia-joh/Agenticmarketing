@@ -7,8 +7,8 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 | companies-high | 245 |
 | companies-high-direct | 30 |
 | companies-high-indirect | 215 |
-| companies-medium | 365 |
-| companies-low | 57 |
+| companies-medium | 370 |
+| companies-low | 52 |
 | introducers-high | 12 |
 | introducers-high-direct | 2 |
 | introducers-high-indirect | 10 |

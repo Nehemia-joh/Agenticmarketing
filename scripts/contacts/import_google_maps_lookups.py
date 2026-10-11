@@ -14,6 +14,9 @@ Only accept rows are used; review rows are hints for a person and reject rows ar
   the listing as its source.
 - data/raw/gap-census/osm_matches_<date><round>.jsonl gets a line for a lead still labelled 'Raw OSM' whose listing publishes a phone
   or website (the same rule as rounds 1 and 2), for scripts/master/add_gap_census_leads.py --matches.
+--closure <organisation_id> takes one review row the coordinator judged a possible closure (a listing Google marks 'Permanently
+closed') as a record whose note says so; the contact merge then holds the organisation's drafts with a 'Possible closure' item,
+as for any closure research finds. No detail of that listing is used.
 Stored coordinates are never touched; accept rows whose pin lies more than --far km from the lead's stored point are reported.
 Then: scripts/contacts/build_contact_profiles.py --date <date>, scripts/master/screen_profile_people.py --apply,
 scripts/contacts/merge_master_contacts.py (preflight) and --apply, add_gap_census_leads.py --matches ... --apply, and the drafts,
@@ -45,7 +48,7 @@ def hav(a, b, c, d) -> float:
 def street_address(address: str) -> str:
     """The listing's address when it names more than a plus code and a place or ward (a road, plot, block, number or building)."""
     rest = PLUS_CODE.sub(" ", address or "")
-    rest = re.sub(r"\b(1\d{4}|2\d{4})\b", " ", rest)  # a postcode alone is not a street
+    rest = re.sub(r"\b\d{4,5}\b", " ", rest)  # a postcode ('Moshi 1352', 'Arusha 23100') alone is not a street
     return address.strip() if STREET.search(rest) else ""
 
 
@@ -63,14 +66,38 @@ def main() -> int:
     parser.add_argument("--date", default="2026-10-11")
     parser.add_argument("--far", type=float, default=1.0, help="report accept rows whose pin is more than this many km from the stored point")
     parser.add_argument("--write", action="store_true", help="write the two output files (default: preview)")
+    parser.add_argument("--closure", action="append", default=[], metavar="ORGANISATION_ID",
+                        help="a review row the coordinator decided is a possible closure (the listing marked 'Permanently closed'): it becomes a "
+                             "record whose note says so, which the contact merge turns into a 'Possible closure' hold; none of its details are used")
     args = parser.parse_args()
     path = args.file if args.file.is_absolute() else ROOT / args.file
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
     con = sqlite3.connect(f"file:{MASTER.as_posix()}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
     records, matches, far, problems, counts = [], [], [], [], {"accept": 0, "address": 0, "phone": 0, "website": 0, "nothing": 0}
+    counts["closures"] = 0
     for i, r in enumerate(rows, 1):
-        if r.get("verdict") != "accept":
+        closure = r.get("verdict") == "review" and r["organisation_id"] in args.closure
+        if r.get("verdict") != "accept" and not closure:
+            continue
+        if closure:
+            o = con.execute("SELECT name FROM organisations WHERE organisation_id=?", (r["organisation_id"],)).fetchone()
+            if o is None or o["name"] != r["organisation_name"]:
+                problems.append(f"line {i}: {r['organisation_name']} ({r['organisation_id']}) is not this master record")
+                continue
+            counts["closures"] += 1
+            url, listing = r["source_url"], r["listing_name"]
+            excerpt = "; ".join(x for x in (listing, r.get("address", ""), "Permanently closed") if x)
+            records.append({
+                "db": "master", "organisation_id": r["organisation_id"], "organisation_name": r["organisation_name"], "status": "not_found",
+                "identity": "confirmed", "method": "browser", "robots": "allowed", "searches_used": 0, "website": "", "emails": [], "phones": [],
+                "postal_address": None, "physical_address": None, "socials": [], "people": [],
+                "sources": [{"url": url, "title": f"{listing} - Google Maps", "fetched": True, "accessed_on": r["fetched_on"], "excerpt": excerpt,
+                             "facts": ["status"]}],
+                "pages_read": [url],
+                "notes": (f"Possible closure: {r.get('note', '')} Google Maps listing '{listing}' (coordinator's lookup in the browser, "
+                          f"{r['fetched_on']}; {path.name}, a review row taken as a closure by the coordinator's decision of {r['fetched_on']}). "
+                          "No detail from the listing is used.")})
             continue
         counts["accept"] += 1
         o = con.execute("SELECT name, verification, latitude, longitude FROM organisations WHERE organisation_id=?", (r["organisation_id"],)).fetchone()

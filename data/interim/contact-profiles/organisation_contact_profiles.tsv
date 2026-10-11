@@ -975,12 +975,12 @@ master	O8e9a22483707	Arusha airport	aeroway:aerodrome	False	False						0	0	brows
 master	O2425964677da	Kilimanjaro International Airport (KADCO)	aeroway:aerodrome	True	True			+255272554252 (office)	P.O. Box 10, Kilimanjaro		0	0	search	
 master	O8e28b0e4e504	Swissport Tanzania – Kilimanjaro International Airport station	aeroway:ground handling	True	True	https://www.swissport.com/en/our-global-entities/tanzania	flora.kishala@swissport.co.tz (named) | tz.info@swissport.com (general)	+255222844610 (office)	P.O. Box 18043	linkedin: https://www.linkedin.com/company/swissport/ | instagram: https://www.instagram.com/swissport_intl/ | facebook: https://de-de.facebook.com/swissportintl/ | twitter: https://twitter.com/swissportnews | youtube: https://www.youtube.com/channel/UCRRobacWP8EwiL-WITSfNqw	3	6	search, website	
 master	Oe762ba9e4226	Moshi Airport	aeroway:aerodrome	False	False						0	0	browser	
-master	O270bba358086	GA Insurance Tanzania – Arusha branch	office:insurance	True	True	https://www.gainsuranceltd.com/tz/	info@gatanzania.co.tz (role)	+255699177400 (mobile) | +255788969794 (mobile) | +255222110311 (office) | +255222110312 (office) | +255767162525 (mobile) | +255686775068 (mobile)	P.O. Box 75908, Dar es Salaam	facebook: https://www.facebook.com/GA-Insurance-Tanzania-102783551520207 | twitter: https://twitter.com/GAInsuranceTZ | instagram: https://www.instagram.com/gainsurancetanzania/ | linkedin: https://www.linkedin.com/company/ga-insurance-tanzania/	0	3	search, website	
-master	O055626336901	LGT Logistics Limited	office:company	True	True	https://lgtlogisticstz.com/	info@lgtlogisticstz.com (role)	+255744300945 (mobile) | +255744395856 (mobile) | +255746555516 (mobile)		linkedin: https://www.linkedin.com/company/lgt-logistics-limited | instagram: https://www.instagram.com/lgtlogisticstz	0	4	website	
+master	O270bba358086	GA Insurance Tanzania – Arusha branch	office:insurance	True	True	https://www.gainsuranceltd.com/tz/	info@gatanzania.co.tz (role)	+255699177400 (mobile) | +255788969794 (mobile) | +255222110311 (office) | +255222110312 (office) | +255767162525 (mobile) | +255686775068 (mobile) | +255272520140 (office)	P.O. Box 75908, Dar es Salaam	facebook: https://www.facebook.com/GA-Insurance-Tanzania-102783551520207 | twitter: https://twitter.com/GAInsuranceTZ | instagram: https://www.instagram.com/gainsurancetanzania/ | linkedin: https://www.linkedin.com/company/ga-insurance-tanzania/	0	3	browser, search, website	
+master	O055626336901	LGT Logistics Limited	office:company	True	True	https://lgtlogisticstz.com/	info@lgtlogisticstz.com (role)	+255744300945 (mobile) | +255744395856 (mobile) | +255746555516 (mobile)		linkedin: https://www.linkedin.com/company/lgt-logistics-limited | instagram: https://www.instagram.com/lgtlogisticstz	0	4	browser, website	
 master	O56abb85991de	Asante Rabi	office:yes	True	True	https://asanterabi.co.tz/	info@asanterabi.co.tz (role)	+255746422221 (mobile)			0	0	browser, search	
 master	O7e0496e54fe9	Kimotco Ltd	office:yes	True	True			+255673434363 (mobile)			0	0	browser	
 master	Oeb4139867b46	Modern Refrigeration	office:yes	False	False						0	0		
-master	O820fb58ad39a	GreenLight Planet Tanzania Ltd	office:company	True	True						0	0		
+master	O820fb58ad39a	GreenLight Planet Tanzania Ltd	office:company	True	True						0	0	browser:not_found	
 master	O9f09b920909b	Tanfoam	office:yes	True	True			+255789210210 (mobile)			0	0	browser, search:not_found	
 master	O8d57ff5ae381	Ngara mtoni	amenity:bank	False	False						0	0		
 master	O3efe76549e1a	Balton Arusha	office:consulting	True	True			+255719222722 (mobile)			0	0	browser	baltontz.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
@@ -997,7 +997,7 @@ master	O36ba55efc919	Spiritan Missionary Seminary Institute of philosophers	amen
 master	O4aa6e7d309fb	Methodist college	amenity:college	False	False						0	0	browser:not_found, search:not_found	
 master	Ofe7ebed54010	Chuo cha Uganga Machame(Machame COTC)	amenity:college	True	True			+255737317070 (mobile)			0	0	browser	
 master	O8fe679baba1f	Kilimanjaro Chrisitian Medical College Univerisity	amenity:university	True	True	http://kcmuco.ac.tz/		+255272753616 (office)			0	0	browser, search:not_found	
-master	Obc953f67aac6	Moshi Co-operative University (MoCU)	amenity:university	True	True	https://www.mocu.ac.tz/	info@mocu.ac.tz (role) | vc@mocu.ac.tz (role) | ictsupport@mocu.ac.tz (general) | troppustci@mocu.ac.tz (general) | jaffar.ponera@mocu.ac.tz (general) | dcla@mocu.ac.tz (general)	+255272751833 (office) | +255716641808 (mobile)	P.O. Box 474, Moshi, Tanzania	facebook: https://www.facebook.com/MoCU2014/ | twitter: https://twitter.com/home?lang=en | youtube: https://www.youtube.com/channel/UCM0w_s7Tc1LV0G-xNroHBqA | instagram: https://www.instagram.com/mocu_official_page/ | linkedin: https://cm.linkedin.com/company/mocu-official	3	1	website	
+master	Obc953f67aac6	Moshi Co-operative University (MoCU)	amenity:university	True	True	https://www.mocu.ac.tz/	info@mocu.ac.tz (role) | vc@mocu.ac.tz (role) | ictsupport@mocu.ac.tz (general) | troppustci@mocu.ac.tz (general) | jaffar.ponera@mocu.ac.tz (general) | dcla@mocu.ac.tz (general)	+255272751833 (office) | +255716641808 (mobile)	P.O. Box 474, Moshi, Tanzania	facebook: https://www.facebook.com/MoCU2014/ | twitter: https://twitter.com/home?lang=en | youtube: https://www.youtube.com/channel/UCM0w_s7Tc1LV0G-xNroHBqA | instagram: https://www.instagram.com/mocu_official_page/ | linkedin: https://cm.linkedin.com/company/mocu-official	3	1	browser, website	
 master	O1bd26e3e26de	Moshi Institute of Technology	amenity:college	True	True	http://www.mit.tareo-tz.org/		+255754469894 (mobile)			0	0	browser	
 master	Oa87f9bcddbc1	College of African Wildlife Management, Mweka	amenity:college	True	True	http://www.mwekawildlife.ac.tz/ | https://www.mwekawildlife.ac.tz/	mweka@mwekawildlife.ac.tz (general)	+255654369818 (mobile) | +255689542136 (mobile)	P.O. Box 3031, Kilimanjaro (Moshi)		0	0	browser, search	
 master	O2f805d1fbb6b	Kili Flora Flower Farms	farm:estate	False	False						0	0	browser:not_found, search:not_found	
@@ -1006,14 +1006,14 @@ master	Oc9b2abc6dd8f	Burka Coffee Estate	farm:coffee estate	False	False						0	0
 master	Ob842c82f8390	East Africa Seed	farm:seed or flower company	True	True			+255789589589 (mobile)			0	0	browser, search:not_found	
 master	O56e929b69763	Tanzania Poultry Farm	farm:estate	False	False						0	0		
 master	Od6757320c83f	Kiliflora Farm Nduruma	farm:estate	False	False						0	0	search:not_found	
-master	Odb47d5ffeb45	Mount Meru Flowers Ltd	farm:flowers	True	True						0	0	search:not_found	
+master	Odb47d5ffeb45	Mount Meru Flowers Ltd	farm:flowers	True	True			+255272553041 (office)			0	0	browser, search:not_found	
 master	O4defd5e701b0	Fides Tanzania (T) Limited	farm:flower cuttings	False	False				P.O. Box 1304, Arusha		0	0	browser, search	
 master	O2bb7295b04ae	Shamba la Maua	farm:estate	False	False						0	0		
 master	Of4cc14a84629	Lambo Estate	farm:estate	False	False						0	0		
 master	Oe569267549db	Kirenga Farm	farm:estate	False	False						0	0		
 master	O2642b17e1005	Mondul Coffee Estate	farm:estate	True	True	http://mondulcoffee.com/ | https://mondulcoffee.com/			P.O. Box 667, Arusha		0	0	browser, search	
 master	O9777d7fafe06	Kilari farm	farm:estate	False	False						0	0		
-master	Od600e32e3632	Enza Zaden Africa	farm:seed breeding	True	True	https://www.enzazaden.com/	info@enzazaden.com (role) | info@enzazaden.nl (role) | vacancies@enzazaden.co.tz (general)	+310228350100 (international) | +255764169756 (mobile)	P.O. Box 2750, Arusha	linkedin: https://www.linkedin.com/company/enza-zaden | facebook: https://nl-nl.facebook.com/enzazaden | instagram: https://www.instagram.com/enzazaden/ | twitter: https://twitter.com/enzazaden | youtube: https://www.youtube.com/channel/UCayv2g1x8L3vJ3jN4RBfDvA	0	1	search, website	
+master	Od600e32e3632	Enza Zaden Africa	farm:seed breeding	True	True	https://www.enzazaden.com/	info@enzazaden.com (role) | info@enzazaden.nl (role) | vacancies@enzazaden.co.tz (general)	+310228350100 (international) | +255764169756 (mobile)	P.O. Box 2750, Arusha	linkedin: https://www.linkedin.com/company/enza-zaden | facebook: https://nl-nl.facebook.com/enzazaden | instagram: https://www.instagram.com/enzazaden/ | twitter: https://twitter.com/enzazaden | youtube: https://www.youtube.com/channel/UCayv2g1x8L3vJ3jN4RBfDvA	0	1	browser, search, website	
 master	Ocffcb3124e7e	Buturi Health Laboratory	amenity:clinic	False	False						0	0		
 master	O80445f3d4b12	Bible Baptist Clinic	amenity:clinic	False	False						0	0		
 master	Oa8f5d2c24265	ELERAI DISP. Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
@@ -1038,7 +1038,7 @@ master	Oa26f13dd6268	Holy Family Dispensary	amenity:clinic	False	False						0	0	
 master	O7d2bf5e94420	Lumen Cristi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O4603e607af73	OldonyoSapuk Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Ocd1665ca09b9	Maryland Dispensary	amenity:clinic	False	False						0	0	browser	
-master	Oc64de7cea03f	Tanzania Adventist Dispensary	amenity:clinic	False	False						0	0		
+master	Oc64de7cea03f	Tanzania Adventist Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O9ff997dbcc33	Kambi la Nyuki Dispensary	amenity:clinic	False	False						0	0		
 master	Ofa3a8ad24c85	Mungushi Dispensary	amenity:clinic	False	False						0	0		
 master	Obe9703d60b90	Sinon Parish Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
@@ -1079,8 +1079,8 @@ master	O334c34461e13	Seela Dispensary	amenity:clinic	False	False						0	0
 master	O7db3da494d52	Rundugai Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oeb48b607cf84	Manyata Dispensary	amenity:clinic	False	False						0	0		
 master	Ob985beab85ea	Kisongo Charitable Health Centre	amenity:clinic	True	True			+255767254206 (mobile)			0	0	browser	
-master	O55ecd69fee27	Terrat Dispensary	amenity:clinic	False	False						0	0		
-master	O91f0cfc756ec	Tindigani Dispensary	amenity:clinic	False	False						0	0		
+master	O55ecd69fee27	Terrat Dispensary	amenity:clinic	False	True			+255754373527 (mobile)			0	0	browser	
+master	O91f0cfc756ec	Tindigani Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Ocbe585838d5e	Sakila Dispensary	amenity:clinic	False	False						0	0		
 master	O519b861e3927	Kia Rc Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O0d70d5d808fa	Lambo Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
@@ -1099,7 +1099,7 @@ master	O1d127cf29f80	Likamba Dispensary	amenity:clinic	False	False						0	0	brow
 master	O2888fb3a7539	Mangasheny Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Of7da0c5bc233	Doni Dispensary	amenity:clinic	False	False						0	0		
 master	O005233adcb29	Narumu Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
-master	O6d55a40c88f3	Tumaini Lawate Dispensary	amenity:clinic	False	False						0	0		
+master	O6d55a40c88f3	Tumaini Lawate Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Ofd03156b043a	Ngaritati Dispensary	amenity:clinic	False	False						0	0		
 master	Oc0c204f33870	Longoi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oa3a5a64f40fb	Nduruma Health Centre	amenity:clinic	False	False						0	0	browser	
@@ -1170,7 +1170,7 @@ master	Oacac8d1bee43	Mawela Dispensary	amenity:clinic	False	False						0	0	brows
 master	O4e29808fcf20	Njoro Dispensary	amenity:clinic	False	False						0	0		
 master	Oef528d1b21ee	CAWM Dispensary	amenity:clinic	False	False						0	0		
 master	Of0ca71c5f0e8	Charlotte Health Center	amenity:hospital	False	False						0	0		
-master	Oabc397d4af02	Themi ya Simba Dispensary	amenity:clinic	False	False						0	0		
+master	Oabc397d4af02	Themi ya Simba Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O6579d2fbaa3e	Mji Mpya Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	O9f6f25420161	Mweka Omi Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
 master	Oe9abd1a4229d	Losinoni Dispensary	amenity:clinic	False	False						0	0	browser:not_found	
@@ -1180,8 +1180,8 @@ master	O9cab12f6fb46	Summit Safari Lodge	tourism:hotel	True	True	http://summitlo
 master	O376e22045d8d	Kili-Meru Annex Resort	tourism:guest_house	False	False						0	0		
 master	O54fa2052d117	Bright Star Hotels and Safaris Arusha	tourism:hotel	True	True						0	0	search:not_found	
 master	Oc0b3902e5917	Kiriwe Lodge	tourism:guest_house	True	True			+255783421512 (mobile)			0	0	browser	
-master	O863b59b9f98c	Masai Camp	tourism:camp_site	True	True						0	0		
-master	O3daa117dbab9	Swahili Villa	tourism:guest_house	True	True						0	0		
+master	O863b59b9f98c	Masai Camp	tourism:camp_site	True	True			+255784290447 (mobile)			0	0	browser	
+master	O3daa117dbab9	Swahili Villa	tourism:guest_house	True	True			+255757757928 (mobile)			0	0	browser	
 master	O3c855a39db69	Outpost Lodge	tourism:guest_house	True	True	http://www.outpost-lodge.com/		+255754318523 (mobile)			0	0	browser	
 master	Ocd748bbf4b23	Vanus primer hotel	tourism:guest_house (hostel)	True	True	http://venushotels.co.tz/		+255272547174 (office)			0	0	browser	
 master	O29521c9999ab	Six Eight Motel	tourism:hotel	False	False						0	0	browser:not_found	
@@ -1192,46 +1192,46 @@ master	Ode2acc429c4a	Monjes Guesthouse B	tourism:guest_house	False	False						0	
 master	Of63c3ae5fffe	Ivory lodge	tourism:guest_house	True	True			+255772321321 (mobile)			0	0	browser	
 master	O677d24ac044e	Kiria lodge	tourism:guest_house	False	False						0	0	browser:not_found	
 master	O30e69765e5ed	Kitundu Guesthouse	tourism:guest_house	True	True			+255754263216 (mobile)			0	0	browser	
-master	O2b5497cbc08d	Hotel Equator	tourism:hotel	True	True	https://www.equator-hotel.com/					0	0	website	
+master	O2b5497cbc08d	Hotel Equator	tourism:hotel	True	True	https://www.equator-hotel.com/		+255786766441 (mobile)			0	0	browser, website	
 master	Oc9c7b25502b7	Mount Meru Hotel	tourism:guest_house (hostel)	True	True	https://www.mountmeruhotel.co.tz/	hr@mountmeruhotel.co.tz (role) | info@mountmeruhotel.co.tz (role)	+255272970256 (office)			0	0	browser, search	
 master	O69fef634c7dd	Naaz Hotel & Restauarant	tourism:hotel	True	True	https://arushanaaz.net/		+255733201788 (mobile)			0	0	browser	
-master	Obbe00c61091f	Villa Poa	tourism:guest_house	True	True						0	0		
+master	Obbe00c61091f	Villa Poa	tourism:guest_house	True	True			+255753274046 (mobile)			0	0	browser	
 master	Oc599d2f96b06	Hotel Flamingo	tourism:hotel	True	True			+255754260309 (mobile)			0	0	browser	
 master	O67c0a682323b	Mc-Elly's hotel	tourism:guest_house (hostel)	True	True	http://www.mcellyshotel.com/		+255759547123 (mobile)			0	0	browser	
 master	O7bcc403bf56c	Machweo Wellness Retreat & Fine Dining	tourism:guest_house	True	True	http://www.machweo.com/		+255689103552 (mobile)			0	0	browser	
 master	O815781e53bf6	Megan resort	tourism:hotel	True	True			+255754241005 (mobile)			0	0	browser	
 master	O3c287747b170	Ringanami Lodge	tourism:guest_house	False	False						0	0		
 master	O206e0461b2ee	Arusha Safari Hostel (REAL)	tourism:guest_house (hostel)	True	True	http://www.safarihostel.com/					0	0	browser	
-master	Oe160947ab356	LBT LODGE & RECABI INSTITUTE	tourism:guest_house	True	True						0	0		
+master	Oe160947ab356	LBT LODGE & RECABI INSTITUTE	tourism:guest_house	True	True			+255767577313 (mobile)			0	0	browser	
 master	Oe1694b0f06fb	Twiga Lodge Campsite	tourism:camp_site	False	False						0	0		
 master	O46700d57a0da	Tushabe lodge	tourism:guest_house	True	True	http://tushabelodge.com/		+255754282716 (mobile)			0	0	browser	
 master	O8ffdcf6848be	Bella Lodge	tourism:guest_house	True	True			+255624281796 (mobile)			0	0	browser	
-master	O4a80173aa9ac	Golf Safari House	tourism:hotel	True	True						0	0	search:not_found	golfsafarihouse.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O4a80173aa9ac	Golf Safari House	tourism:hotel	True	True			+255784346462 (mobile)			0	0	browser, search:not_found	golfsafarihouse.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
 master	O3efe6e6933e6	Antelope homestay hotel	tourism:guest_house	False	False						0	0	browser	
 master	O6e8eb4b28bcd	Shamba Lodge	tourism:guest_house	True	True	http://www.shambalodgearusha.co.tz/		+255753194162 (mobile)			0	0	browser	
-master	O0a81effdd1bf	Hatari Lodge	tourism:hotel	True	True	https://hatari.travel/	reservation@hatari.travel (role)	+255761862229 (mobile)	P.O. Box 3171, Arusha, Tanzania	facebook: https://www.facebook.com/Hatari.Travel/ | instagram: https://www.instagram.com/hatari.travel/ | linkedin: https://www.linkedin.com/company/hatari-travel	2	0	search, website	
+master	O0a81effdd1bf	Hatari Lodge	tourism:hotel	True	True	https://hatari.travel/	reservation@hatari.travel (role)	+255761862229 (mobile)	P.O. Box 3171, Arusha, Tanzania	facebook: https://www.facebook.com/Hatari.Travel/ | instagram: https://www.instagram.com/hatari.travel/ | linkedin: https://www.linkedin.com/company/hatari-travel	2	0	browser:not_found, search, website	
 master	O5a8e6ef3554f	"Lutheran international Guest House ""Rafiki Hostel"""	tourism:guest_house (hostel)	True	True			+255714550364 (mobile)			0	0	browser	
 master	O72711ab4bdbe	Momella Camp	tourism:guest_house	False	False						0	0	browser	
 master	Of6d4116253cc	Shose Chalets Farmhouse & Campsite	tourism:camp_site	False	False						0	0	browser:not_found	
 master	O1e06c80d45ef	Kilimanjaro Safaris Lodge	tourism:guest_house	True	True			+255715281849 (mobile)			0	0	browser	
-master	Oee6cb4774725	Kili Cottages Moshi	tourism:hotel	True	True						0	0		
-master	O9f1465551153	Panama Garden Resort Hotel	tourism:hotel	True	True	https://panamagardenresort.co.tz	info@panamagardenresort.co.tz (role) | reservation@panamagardenresort.co.tz (role)	+255753374178 (mobile)		twitter: https://twitter.com/panama_garden | facebook: https://www.facebook.com/panamagardenresort | instagram: https://www.instagram.com/panamagardenresort	0	0	website	
+master	Oee6cb4774725	Kili Cottages Moshi	tourism:hotel	True	True						0	0	browser:not_found	
+master	O9f1465551153	Panama Garden Resort Hotel	tourism:hotel	True	True	https://panamagardenresort.co.tz	info@panamagardenresort.co.tz (role) | reservation@panamagardenresort.co.tz (role)	+255753374178 (mobile)		twitter: https://twitter.com/panama_garden | facebook: https://www.facebook.com/panamagardenresort | instagram: https://www.instagram.com/panamagardenresort	0	0	browser, website	
 master	O851b689cfe43	Salinero  Kilimanjaro Villa	tourism:hotel	False	False						0	0		
 master	O32b91ddb2048	Lutheran Uhuru Hotel	tourism:hotel	True	True	https://uhuruhotel.org/		+255753037216 (mobile)			0	0	browser, search	
 master	O47c4aea4476c	White House Bar Lodge	tourism:guest_house (hostel)	True	True			+255758441079 (mobile)			0	0	browser	
 master	O8f15c5445993	Hugos Hotel	tourism:hotel	False	False						0	0	browser	
 master	Ob0e6db080b80	executive lodge	tourism:hotel	False	False						0	0		
 master	O1a1fd9605515	Comfort Guest House	tourism:guest_house	False	False						0	0		
-master	Od1d65111f246	Kilimanjaro Wonders Hotel	tourism:hotel	True	True						0	0	search:not_found	kiliwonders.com: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
+master	Od1d65111f246	Kilimanjaro Wonders Hotel	tourism:hotel	True	True			+255752201886 (mobile)			0	0	browser, search:not_found	kiliwonders.com: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
 master	O8d8d7069279b	Twiga Guesthouse	tourism:hotel	False	False						0	0		
 master	Odd35f29ffc41	Corner lodge	tourism:guest_house	False	False						0	0		
 master	Ob7c41c6144d4	La Mama Hotel	tourism:hotel	True	True	https://lamamahotels.com/		+255793206791 (mobile)			0	0	browser	
-master	Ob17744b6448e	Selig Hotel	tourism:hotel	True	True	https://selighotel.co.tz/	info@selighotel.co.tz (role)	+255272752413 (office) | +255782264271 (mobile)		twitter: http://www.twitter.com | youtube: http://www.youtube.com | facebook: http://www.facebook.com/selighotels	0	0	website	
+master	Ob17744b6448e	Selig Hotel	tourism:hotel	True	True	https://selighotel.co.tz/	info@selighotel.co.tz (role)	+255272752413 (office) | +255782264271 (mobile)		twitter: http://www.twitter.com | youtube: http://www.youtube.com | facebook: http://www.facebook.com/selighotels	0	0	browser, website	
 master	Ob8afcbf9a855	New Siesta Inn	tourism:guest_house	True	True			+255752799245 (mobile)			0	0	browser	
 master	O8ab9162347bc	Q'wine Hotel	tourism:hotel	True	True	http://www.qwinehotel.com/		+255753645844 (mobile)			0	0	browser	
 master	O0fae0e7f596b	Shimoni Lodge	tourism:hotel	True	True			+255699416463 (mobile)			0	0	browser	
 master	O905ecfc41409	Golden View Hotel	tourism:hotel	True	True			+255759878065 (mobile)			0	0	browser	
-master	O585c72e82198	Osy Grand Hotel	tourism:hotel	True	True						0	0	search:not_found	osygrandhotel.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O585c72e82198	Osy Grand Hotel	tourism:hotel	True	True			+255754266744 (mobile)			0	0	browser, search:not_found	osygrandhotel.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
 master	Ob1679ab84d1e	Kilimanjaro Backpacker Hostel	tourism:guest_house (hostel)	True	True	https://backpackerstanzania.com/					0	0	website	
 master	O380bf52e8178	Parkview Inn	tourism:hotel	True	True	https://www.pvim.com/		+255754052000 (mobile)			0	0	browser	
 master	O32f6260f32d8	Buffalo Hotel	tourism:hotel	True	True			+255765068295 (mobile)			0	0	browser	
@@ -1247,34 +1247,34 @@ master	O55b60f2d5bcb	Kilimanjaro Crane Hotel	tourism:hotel	True	True	http://www.
 master	O8b15e467bb06	Kilimanjaro Homes & Camps	tourism:guest_house (hostel)	True	True			+255655023239 (mobile)			0	0	browser	
 master	Oded5b8f02a1f	White Lodge	tourism:hotel	False	False						0	0		
 master	O0101826d7e6e	Gästehaus AKO	tourism:guest_house	False	False						0	0		
-master	O1b77e60fd2c1	Hartebeest View Lodge	tourism:hotel	True	True						0	0	search:not_found	hartebeest-lodge.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
-master	O6ad338f1dfda	Macarela Inn	tourism:hotel	True	True						0	0		
+master	O1b77e60fd2c1	Hartebeest View Lodge	tourism:hotel	True	True						0	0	browser:not_found, search:not_found	hartebeest-lodge.com: home page not readable: URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+master	O6ad338f1dfda	Macarela Inn	tourism:hotel	True	True			+255787568040 (mobile)			0	0	browser	
 master	Ocbbee53770fa	Rau Forest camp	tourism:camp_site	False	False						0	0		
 master	O7dbee5e7f657	Keys Hotel	tourism:hotel	True	True	https://keyshotelstz.com/		+255755486377 (mobile)			0	0	browser	
 master	Oa1ee8ca0ec08	Keys Lodge	tourism:camp_site	False	False						0	0		
 master	O9ce85855e5c3	Consolidated Tourist & Hotels Investment Ltd (Sopa Lodges)	tourism:hotel group	True	True	https://www.sopalodges.com/	info@sopalodges.com (role)	+255784250630 (mobile)			0	0	search	
-master	O5673bb705977	African Court on Human and Peoples' Rights	International organisation	True	True	https://www.african-court.org/ | https://www.african-court.org/afchpr/	registrar@african-court.org (role) | chipiliro.kansilanga@african-court.org (general) | robert.eno@african-court.org (named) | ecossocc@africanunion.org (general) | jilomboc@africanunion.org (general) | ecosocc@africanunion.org (general)	+255272510510 (office) | +255272970430 (office) | +255680500555 (mobile)	P.O. Box 6274 Arusha, TANZANIA | P.O. Box 6274, Arusha	twitter: https://twitter.com/court_afchpr | facebook: https://www.facebook.com/afchpr/ | linkedin: https://www.linkedin.com/company/connect-talks/?viewAsMember=true | youtube: https://www.youtube.com/user/africancourt | whatsapp: https://api.whatsapp.com/send?text=<?php echo $post_url; ?>	2	0	search, website	
+master	O5673bb705977	African Court on Human and Peoples' Rights	International organisation	True	True	https://www.african-court.org/ | https://www.african-court.org/afchpr/	registrar@african-court.org (role) | chipiliro.kansilanga@african-court.org (general) | robert.eno@african-court.org (named) | ecossocc@africanunion.org (general) | jilomboc@africanunion.org (general) | ecosocc@africanunion.org (general)	+255272510510 (office) | +255272970430 (office) | +255680500555 (mobile) | +255732979509 (mobile)	P.O. Box 6274 Arusha, TANZANIA | P.O. Box 6274, Arusha	twitter: https://twitter.com/court_afchpr | facebook: https://www.facebook.com/afchpr/ | linkedin: https://www.linkedin.com/company/connect-talks/?viewAsMember=true | youtube: https://www.youtube.com/user/africancourt | whatsapp: https://api.whatsapp.com/send?text=<?php echo $post_url; ?>	2	0	browser, search, website	
 master	O42bf75d3746a	East African Court of Justice (EACJ)	International organisation	True	True	https://www.eacj.org/	eacj@eachq.org (general)	+255272506093 (office)	P. O. Box 1096, Arusha, Tanzania.		4	0	website	
 master	O780b66493f97	East African Legislative Assembly (EALA)	International organisation	True	True	https://www.eala.org/	eala@eachq.org (general)	+255272162126 (office) | +255768885633 (mobile) | +255272162179 (office)	P. O Box 1096, Arusha, Tanzania.	twitter: https://x.com/ea_bunge | youtube: https://www.youtube.com/channel/UC-BQE7rDZdOVp-1EtP_l5nA	0	0	website	
-master	Ob8615e921b3e	East, Central and Southern Africa Health Community (ECSA-HC)	International organisation	True	True	https://ecsahc.org/	regsec@ecsahc.org (general) | csfd4055@gmail.com (personal_domain) | arjav@meritconcept.com (general) | rumishashoo@gmail.com (personal_domain) | justusashaba@gmail.com (personal_domain) | vacancies@ecsahc.org (general)	+255272973677 (office) | +255686762218 (mobile) | +255765868501 (mobile) | +263772573066 (international) | +256787304202 (international)	P.O Box 1009, Arusha, Tanzania | P.O Box 1009, Arusha-Tanzania	youtube: https://www.youtube.com/watch?v=4lX7aTahhO8 | twitter: https://twitter.com/ECSA_HC | facebook: https://www.facebook.com/ecsahc	3	1	website	
+master	Ob8615e921b3e	East, Central and Southern Africa Health Community (ECSA-HC)	International organisation	True	True	https://ecsahc.org/	regsec@ecsahc.org (general) | csfd4055@gmail.com (personal_domain) | arjav@meritconcept.com (general) | rumishashoo@gmail.com (personal_domain) | justusashaba@gmail.com (personal_domain) | vacancies@ecsahc.org (general)	+255272973677 (office) | +255686762218 (mobile) | +255765868501 (mobile) | +263772573066 (international) | +256787304202 (international) | +255272549362 (office)	P.O Box 1009, Arusha, Tanzania | P.O Box 1009, Arusha-Tanzania	youtube: https://www.youtube.com/watch?v=4lX7aTahhO8 | twitter: https://twitter.com/ECSA_HC | facebook: https://www.facebook.com/ecsahc	3	1	browser, website	
 master	O0a01726026cf	International Institute of Tropical Agriculture (IITA) – Arusha office	International organisation	True	True						0	0	search	iita.org: home page not readable: URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1000)>
-master	O7df68510e72c	United Nations Mechanism for International Criminal Tribunals - UNMICT	International organisation	True	True	https://www.irmct.org/en	marsarusha@un.org (general) | marshague@un.org (general) | mict-registryarusha@un.org (general) | mict-external-relations@un.org (general)	+255272565791 (office) | +255272565347 (office) | +250788301539 (international) | +31611923749 (international) | +310705125037 (international) | +310629565672 (international) | +31705125360 (international) | +310705128877 (international) | +255272565376 (office)	P.O. Box 6016, Arusha, Tanzania	youtube: https://www.youtube.com/v/QBl6Uih5a5w | facebook: https://www.facebook.com/RwandaGenocideFugitives | twitter: https://twitter.com/unirmct | linkedin: https://www.linkedin.com/company/irmct/ | instagram: https://www.instagram.com/unirmct/	1	0	website	
+master	O7df68510e72c	United Nations Mechanism for International Criminal Tribunals - UNMICT	International organisation	True	True	https://www.irmct.org/en	marsarusha@un.org (general) | marshague@un.org (general) | mict-registryarusha@un.org (general) | mict-external-relations@un.org (general)	+255272565791 (office) | +255272565347 (office) | +250788301539 (international) | +31611923749 (international) | +310705125037 (international) | +310629565672 (international) | +31705125360 (international) | +310705128877 (international) | +255272565376 (office)	P.O. Box 6016, Arusha, Tanzania	youtube: https://www.youtube.com/v/QBl6Uih5a5w | facebook: https://www.facebook.com/RwandaGenocideFugitives | twitter: https://twitter.com/unirmct | linkedin: https://www.linkedin.com/company/irmct/ | instagram: https://www.instagram.com/unirmct/	1	0	browser:not_found, website	
 master	O3042634f0899	African Institute of International Law (AIIL)	International organisation	True	True	https://aiil-iadi.org/	info@aiil-iadi.org (role)	+255710732590 (mobile)	P.O. Box 561, Arusha		1	0	search	
 master	Ob218063406ca	African Union Advisory Board on Corruption (AUABC)	International organisation	True	True	https://anticorruption.au.int/	auabcregistry@africa-union.org (general)	+255272050030 (office)	P.O. Box 6071, Arusha		0	0	search	
-master	O8b468daa8b88	Eastern and Southern African Management Institute (ESAMI)	International organisation	True	True	https://esami-africa.org/	esamicommunication@esami-africa.org (general) | mbd@esami-africa.org (general) | odg@esami-africa.org (general) | esamidar@esami-africa.org (general) | esamikenya@esami-africa.org (general) | esamiuganda@esami-africa.org (general) | esamiswaziland@esami-africa.org (general) | esamimozambique@esami-africa.org (general) | esamimalawi@esami-africa.org (general) | esaminamibia@esami-africa.org (general) | esamizambia@esami-africa.org (general) | esamizimbabwe@esami-africa.org (general)	+255272970068 (office) | +255272970070 (office) | +255222112670 (office) | +255222135046 (office) | +255713327728 (mobile) | +254202228233 (international) | +254726360998 (international) | +256414254222 (international) | +2684048494 (international) | +25821487375 (international) | +265991278800 (international) | +26461236965 (international) | +260211222937 (international) | +26342926672 (international) | +255272970065 (office)	P.O BOX 4234, MBABANE, ESWATINI | P.O. Box 1836, Windhoek 9000, Namibia | P.O. Box 2077, Maputo, Mozambique | P.O. Box 22290, Dar es Salaam, Tanzania | P.O. Box 3030, Arusha	youtube: https://www.youtube.com/channel/UCUKoFf-S67sHwnMRDC8sfYA | facebook: https://www.facebook.com/EasternandSouthernAfricanManagementInstitue/ | twitter: https://www.x.com/ESAMI_INSTITUTE | instagram: https://www.instagram.com/esami__institute | linkedin: https://www.linkedin.com/company/eastern-and-southern-african-management-institute/	1	8	search, website	
+master	O8b468daa8b88	Eastern and Southern African Management Institute (ESAMI)	International organisation	True	True	https://esami-africa.org/	esamicommunication@esami-africa.org (general) | mbd@esami-africa.org (general) | odg@esami-africa.org (general) | esamidar@esami-africa.org (general) | esamikenya@esami-africa.org (general) | esamiuganda@esami-africa.org (general) | esamiswaziland@esami-africa.org (general) | esamimozambique@esami-africa.org (general) | esamimalawi@esami-africa.org (general) | esaminamibia@esami-africa.org (general) | esamizambia@esami-africa.org (general) | esamizimbabwe@esami-africa.org (general)	+255272970068 (office) | +255272970070 (office) | +255222112670 (office) | +255222135046 (office) | +255713327728 (mobile) | +254202228233 (international) | +254726360998 (international) | +256414254222 (international) | +2684048494 (international) | +25821487375 (international) | +265991278800 (international) | +26461236965 (international) | +260211222937 (international) | +26342926672 (international) | +255272970065 (office)	P.O BOX 4234, MBABANE, ESWATINI | P.O. Box 1836, Windhoek 9000, Namibia | P.O. Box 2077, Maputo, Mozambique | P.O. Box 22290, Dar es Salaam, Tanzania | P.O. Box 3030, Arusha	youtube: https://www.youtube.com/channel/UCUKoFf-S67sHwnMRDC8sfYA | facebook: https://www.facebook.com/EasternandSouthernAfricanManagementInstitue/ | twitter: https://www.x.com/ESAMI_INSTITUTE | instagram: https://www.instagram.com/esami__institute | linkedin: https://www.linkedin.com/company/eastern-and-southern-african-management-institute/	1	8	browser:not_found, search, website	
 master	Oe6e5abab7703	Pan African Postal Union (PAPU)	International organisation	True	True		sc@papu.co.tz (general)	+255272611440 (office) | +255272543263 (office)	P.O. Box 6026, Arusha 23190		0	0	browser, search	
 master	O50e1d2197b73	Seven-up Bottling Company Tanzania Ltd	industrial:manufacturing	True	True	https://sbctanzania.co.tz/	customerservice@sbc.co.tz (general)	+255232604922 (office) | +255282572659 (office) | +255272549234 (office) | +255252502957 (office) | +255755869119 (mobile)	P. O. Box 2635, | P.O. Box 3073, Arusha | P.O. Box. 1710, | P.O. Box. 3073, | P.O.Box 4162, Dar Es Salaam, Tanzania	facebook: https://www.facebook.com/pepsitz | twitter: https://twitter.com/pepsi_tz?lang=en | instagram: https://www.instagram.com/pepsi_tz/ | youtube: https://www.youtube.com/channel/UCJAT7UeheZ5LYG-RY-69LzQ/videos | linkedin: https://www.linkedin.com/company/sbc-tanzania-ltd--pepsi-/?originalSubdomain=tz	0	0	browser, search, website	
 master	O97d938332b9f	Tanzania Breweries Ltd. (Arusha brewery)	industrial:manufacturing	True	True	https://www.tanzaniabreweries.co.tz/				instagram: https://instagram.com/tblplc?igshid=YmMyMTA2M2Y= | twitter: https://twitter.com/TblPlc | facebook: https://www.facebook.com/profile.php?id=100090242411243 | youtube: https://www.youtube.com/@tblplc7679 | linkedin: https://www.linkedin.com/company/73977765/admin/	1	0	browser, search, website	
 master	Obb3223ec5b70	Sunkist Bakery Limited Milling Machine	industrial:manufacturing	True	True	http://www.sunkistgroup.com/		+255782819000 (mobile)			0	0	browser, search:not_found	
 master	Oe9c12e11a09d	A-TO-Z FACTORY	industrial:manufacturing	False	False						0	0	browser:not_found	
 master	O5943d028d14a	Arsho Industry	industrial:manufacturing	True	True			+255713287409 (mobile)			0	0	browser	
-master	Ob3708be86c61	AtoZ Group Limited (A to Z Textile Mills)	industrial:manufacturing	True	True	https://www.atoz.co.tz/	info@atoz.co.tz (role)	+255696070707 (mobile) | +255782800008 (mobile)	P.O.Box 945, Dodoma Road, | P.O.Box 945, Dodoma Road, Networld Area, Kisongo, Matevesi, Arusha, Tan	facebook: https://www.facebook.com/atoz.tz/ | instagram: https://www.instagram.com/atoz.tz/ | linkedin: https://www.linkedin.com/company/atoz-group-tanzania?originalSubdomain=tz | whatsapp: https://wa.me/255696070707?text=Hello!%20Like%20to%20know%20more%20information%20about%20A%20to%20Z%20...	2	0	search, website	
-master	O201a037dcd3c	Halisi Product Limited Milling Machine	industrial:manufacturing	True	True						0	0		
+master	Ob3708be86c61	AtoZ Group Limited (A to Z Textile Mills)	industrial:manufacturing	True	True	https://www.atoz.co.tz/	info@atoz.co.tz (role)	+255696070707 (mobile) | +255782800008 (mobile)	P.O.Box 945, Dodoma Road, | P.O.Box 945, Dodoma Road, Networld Area, Kisongo, Matevesi, Arusha, Tan	facebook: https://www.facebook.com/atoz.tz/ | instagram: https://www.instagram.com/atoz.tz/ | linkedin: https://www.linkedin.com/company/atoz-group-tanzania?originalSubdomain=tz | whatsapp: https://wa.me/255696070707?text=Hello!%20Like%20to%20know%20more%20information%20about%20A%20to%20Z%20...	2	0	browser, search, website	
+master	O201a037dcd3c	Halisi Product Limited Milling Machine	industrial:manufacturing	True	True			+255754300748 (mobile)			0	0	browser	
 master	O0710d842b34c	Kilimanjaro Machine Tools Factory	industrial:manufacturing	True	True			+255698818000 (mobile)			0	0	browser, search:not_found	
 master	O1fc1ff4e9677	Nronga Women Dairy Co-operative Society	industrial:manufacturing	False	False						0	0	browser	
 master	O237eab54343c	Kibo Match LTD	industrial:manufacturing	False	False						0	0	browser:not_found, search:not_found	
 master	Ob191a1b02f2d	Champion Mills Limited Milling Machine	industrial:manufacturing	True	True						0	0		
-master	Oc7e913699814	Bonite Bottlers Limited	industrial:manufacturing	True	True		hr@bbl.co.tz (role)		P.O. Box 1352, Moshi		0	0	search	
+master	Oc7e913699814	Bonite Bottlers Limited	industrial:manufacturing	True	True		hr@bbl.co.tz (role)	+255272754422 (office)	P.O. Box 1352, Moshi		0	0	browser, search	
 master	O714e7e29b503	Serengeti Beer Brewery	industrial:manufacturing	True	True	https://www.serengetibreweries.co.tz/ | https://www.serengetibreweries.co.tz/en		+255716666663 (mobile)			0	0	browser, search	
 master	O69765b7f2518	Mrema Investment Company Limited Milling Machine	industrial:manufacturing	True	True						0	0		
 master	O26dd93e77ee9	Abdilaah Mills Company Milling Machine	industrial:manufacturing	True	True						0	0		
@@ -1319,7 +1319,7 @@ master	O3872c47d89bb	German Foundation For World Population (Dsw) Tanzania	offic
 master	O4fc05b8278ac	Tanzania People And Wildlife	office:ngo	False	False						0	0	search:not_found	
 master	O7d5d44b3a7c0	CANNOSA STIRITUALITY CENTRE	office:ngo	True	True			+255758012994 (mobile)			0	0	browser	
 master	O15226ed8534d	Friends Of Meili International.Inc	office:ngo	False	False						0	0		
-master	Oc4bd894260ec	World Vegetable Center (WorldVeg) – Eastern and Southern Africa, Arusha	office:research	True	True						0	0	search:blocked	worldveg.org: home page not readable: 202
+master	Oc4bd894260ec	World Vegetable Center (WorldVeg) – Eastern and Southern Africa, Arusha	office:research	True	True			+255272553093 (office)			0	0	browser, search:blocked	worldveg.org: home page not readable: 202
 master	Od1aa975469dd	ZV Horizon Project	office:ngo	False	False						0	0		
 master	O4f552cef0794	Bouncing Books Foundation	office:ngo	True	True	https://www.bouncingbooks.org/	rachel@bouncingbooks.org (named)	+255752496571 (mobile)			2	0	search	
 master	Oa7c2b3621753	Conerstone Development	office:ngo	False	False						0	0		
@@ -1335,12 +1335,12 @@ master	O5961a4a94782	Zuzu For Africa Tanzania	office:ngo	False	False						0	0
 master	O38f6be7b0911	Worldserve International	office:ngo	False	False						0	0		
 master	O5d23575e423d	East African Youth Network (Eayn-The Network)	office:ngo	False	False						0	0		
 master	Ob769ef36ca34	Terre Sans Frontières	office:ngo	False	False						0	0		
-master	O49e8f6abce65	Friedkin Conservation Fund (FCF)	office:ngo	True	True	https://www.friedkinconservationfund.org/	andrea.frey@friedkinfund.org (general) | info@mwibafoundation.org (role)				0	0	website	
-master	Oa94fd641d4cf	Tanzania Coffee Research Institute (TaCRI)	office:research	True	True	https://www.tacri.or.tz/	info@tacri.or.tz (role) | ced@tacri.or.tz (general) | suzana.mbwambo@tacri.or.tz (general) | info@tacri.org (role) | deusdedit.kilambo@tacri.org (general) | deusdedit.kilambo@tacri.or.tz (general)	+255272923717 (office)	P.O. Box 3004 Post Code 25301 Moshi, Kilimanjaro, TANZANIA | P.O. Box 3004, Post Code 25301 Moshi, Kilimanjaro, TANZANIA | P.O. Box 3004, Post Code 25301, Moshi | S.L.P 3004, Post Code 25301 Moshi, Kilimanjaro TANZANIA	facebook: https://www.facebook.com/TACRI-Tanzania-Coffee-Research-Institute-1078476972229941/ | youtube: https://www.youtube.com/channel/UCkRuMlLU-vGalvDVBZUeBUw | instagram: https://instagram.com/tacri_tanzania/	0	1	search, website	
+master	O49e8f6abce65	Friedkin Conservation Fund (FCF)	office:ngo	True	True	https://www.friedkinconservationfund.org/	andrea.frey@friedkinfund.org (general) | info@mwibafoundation.org (role)	+255621149250 (mobile)			0	0	browser, website	
+master	Oa94fd641d4cf	Tanzania Coffee Research Institute (TaCRI)	office:research	True	True	https://www.tacri.or.tz/	info@tacri.or.tz (role) | ced@tacri.or.tz (general) | suzana.mbwambo@tacri.or.tz (general) | info@tacri.org (role) | deusdedit.kilambo@tacri.org (general) | deusdedit.kilambo@tacri.or.tz (general)	+255272923717 (office)	P.O. Box 3004 Post Code 25301 Moshi, Kilimanjaro, TANZANIA | P.O. Box 3004, Post Code 25301 Moshi, Kilimanjaro, TANZANIA | P.O. Box 3004, Post Code 25301, Moshi | S.L.P 3004, Post Code 25301 Moshi, Kilimanjaro TANZANIA	facebook: https://www.facebook.com/TACRI-Tanzania-Coffee-Research-Institute-1078476972229941/ | youtube: https://www.youtube.com/channel/UCkRuMlLU-vGalvDVBZUeBUw | instagram: https://instagram.com/tacri_tanzania/	0	1	browser, search, website	
 master	O14259a760019	Losaa-KIA Water Supply	office:government	False	False						0	0		
-master	O4cffe71bdc12	Centre for Agricultural Mechanization and Rural Technology (CAMARTEC)	office:government	True	True						0	0		
+master	O4cffe71bdc12	Centre for Agricultural Mechanization and Rural Technology (CAMARTEC)	office:government	True	True			+255272549314 (office)			0	0	browser	
 master	O0044a3ec3686	Tanzania Insurance Regulatory Authority (TIRA) – Northern Zone office	office:government	True	True						0	0		
-master	O439848a24ae3	Moshi Urban Water Supply and Sanitation Authority (MUWSA)	office:government	True	True	https://www.muwsa.go.tz/	info@muwsa.go.tz (role)	+255272751164 (office)			1	0	search	
+master	O439848a24ae3	Moshi Urban Water Supply and Sanitation Authority (MUWSA)	office:government	True	True	https://www.muwsa.go.tz/	info@muwsa.go.tz (role)	+255272751164 (office)			1	0	browser, search	
 master	O367a126bd050	Green Supermarket	shop:supermarket	True	True			+255758488888 (mobile)			0	0	browser	
 master	Od51e48430b56	Mariam Supermarket	shop:supermarket	False	False						0	0	browser:not_found	
 master	Oa739e0ac3c0d	Sakina Supermarket	shop:supermarket	False	False						0	0	browser:not_found	

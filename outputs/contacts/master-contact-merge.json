@@ -388,13 +388,32 @@
    "source_files": 7,
    "rejected_routes_removed": 2,
    "contacts_after": 1119
+  },
+  {
+   "run_date": "2026-10-11",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "organisations_updated": 8,
+   "fields_filled": 9,
+   "facts": 722,
+   "contacts_inserted": 0,
+   "reviews": 18,
+   "plans_unheld": 1,
+   "plans_held_for_closure": 3,
+   "plans_held_for_unconfirmed_route": 0,
+   "plans_released_route_confirmed": 0,
+   "research_emails_cleaned": 0,
+   "contacts_on_twin_records_skipped": 0,
+   "contacts_with_incomplete_names": 0,
+   "source_files": 8,
+   "contacts_after": 1119
   }
  ],
  "totals": {
   "contacts_inserted": 774,
-  "fields_filled": 1176,
-  "plans_unheld": 165,
-  "organisations_updated": 600
+  "fields_filled": 1185,
+  "plans_unheld": 166,
+  "organisations_updated": 608
  },
  "contacts_after": 1119
 }

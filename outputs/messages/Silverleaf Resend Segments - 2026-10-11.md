@@ -21,7 +21,7 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 
 Left out (no email address; use the call sheets):
 
-- companies: no email route (phone only or none): 568
+- companies: no email route (phone only or none): 567
 - welfare: no email route (phone only or none): 233
 
 Addresses shared by two rows, exported once (19):

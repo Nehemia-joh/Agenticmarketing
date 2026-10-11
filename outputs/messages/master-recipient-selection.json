@@ -3,14 +3,14 @@
  "method": "scripts/master/resolve_master_recipients.py",
  "note": "No record was merged or deleted. The baseline is the selection before the first run; the lists compare the database with it.",
  "summary": {
-  "clusters": 94,
-  "organisations_in_clusters": 200,
+  "clusters": 95,
+  "organisations_in_clusters": 202,
   "cluster_kinds": {
-   "same organisation": 90,
+   "same organisation": 91,
    "shared inbox": 4
   },
-  "duplicate_organisations_held": 106,
-  "candidates_after": 1253,
+  "duplicate_organisations_held": 107,
+  "candidates_after": 1252,
   "escalation_contacts": 8,
   "override_routes": 0,
   "candidates_before": 938,
@@ -638,6 +638,13 @@
    "primary": "Superdoll Trailer Manufacturer Co (T) Ltd (O2c2fe6e65ec7)",
    "duplicates": [
     "Superdoll (O0c034b73a3e2)"
+   ]
+  },
+  {
+   "kind": "same organisation",
+   "primary": "Naaz Hotel & Restaurant (Of4a11059eba2)",
+   "duplicates": [
+    "Naaz Hotel & Restauarant (O69fef634c7dd)"
    ]
   },
   {

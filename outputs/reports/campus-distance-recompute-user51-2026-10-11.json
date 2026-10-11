@@ -1,0 +1,59 @@
+{
+ "stats": {
+  "stored distance kept": 615,
+  "coordinates": 644,
+  "no location": 72,
+  "gazetteer point reproduced": 45,
+  "moved beyond 25 km (kept; distance never removes a company)": 1,
+  "records to update": 40,
+  "nearest campus changed": 24
+ },
+ "nearest_campus_changed": [
+  "Dolphin Tours & Safaris Ltd: Boma Ngombe -> Arusha City (425.1 km)",
+  "Fortes Africa Ltd: Ilboru -> Kijenge (1.2 km)",
+  "H & A Holidays ltd:  -> Boma Ngombe (447.8 km)",
+  "Imara Kilele Safaris:  -> Boma Ngombe (21.2 km)",
+  "Mount Kilimanjaro Safari Club: Boma Ngombe -> Arusha City (1.1 km)",
+  "Napenda Adventures Ltd:  -> Boma Ngombe (451.0 km)",
+  "Nuru Tours And Safaris:  -> Boma Ngombe (441.0 km)",
+  "Old Explorer Limited:  -> Boma Ngombe (441.1 km)",
+  "Robin Hurt Safaris:  -> Arusha City (5.3 km)",
+  "Shades of Africa Ltd: Boma Ngombe -> Ilboru (2.3 km)",
+  "Stan Tours & Safaris:  -> Boma Ngombe (446.6 km)",
+  "The Rickshaw Travels Ltd:  -> Kijenge (1.6 km)",
+  "Wilderness Collection:  -> Kijenge (2.1 km)",
+  "AFRICAN GALLERIA Ltd: Ilboru -> Arusha City (94.7 km)",
+  "Easyota:  -> Boma Ngombe (450.4 km)",
+  "United Tansania e.V:  -> Arusha City (140.7 km)",
+  "Victory Attorneys & Consultants:  -> Boma Ngombe (453.4 km)",
+  "Takims Holidays Tours & Safaris Ltd: Boma Ngombe -> Arusha City (5.0 km)",
+  "Claritas International: Boma Ngombe -> Kijenge (1.0 km)",
+  "Flightlink: Boma Ngombe -> Arusha City (4.2 km)",
+  "Kiure Engineering Limited:  -> Arusha City (0.8 km)",
+  "Strategis Insurance Tanzania – Arusha sales point:  -> Arusha City (2.7 km)",
+  "Pan African Postal Union (PAPU):  -> Kijenge (2.0 km)",
+  "Raha Beverages Company Ltd (RABEC):  -> Kijenge (1.1 km)"
+ ],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

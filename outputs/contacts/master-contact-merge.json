@@ -311,13 +311,32 @@
    "contacts_with_incomplete_names": 4,
    "source_files": 5,
    "contacts_after": 1119
+  },
+  {
+   "run_date": "2026-10-11",
+   "applied_on": "2026-10-11",
+   "trial": false,
+   "organisations_updated": 46,
+   "fields_filled": 91,
+   "facts": 671,
+   "contacts_inserted": 0,
+   "reviews": 17,
+   "plans_unheld": 0,
+   "plans_held_for_closure": 2,
+   "plans_held_for_unconfirmed_route": 0,
+   "plans_released_route_confirmed": 0,
+   "research_emails_cleaned": 0,
+   "contacts_on_twin_records_skipped": 0,
+   "contacts_with_incomplete_names": 0,
+   "source_files": 6,
+   "contacts_after": 1119
   }
  ],
  "totals": {
   "contacts_inserted": 774,
-  "fields_filled": 1071,
+  "fields_filled": 1162,
   "plans_unheld": 165,
-  "organisations_updated": 543
+  "organisations_updated": 589
  },
  "contacts_after": 1119
 }

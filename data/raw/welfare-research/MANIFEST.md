@@ -50,7 +50,7 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `research_U_register_classification_2026-10-02.jsonl` | `7744bf163c1f16ce…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_V_flag_location_checks_2026-10-03.jsonl` | `3f43372ce335e8ec…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_W_contact_profiles_2026-09-23.jsonl` | `dab5e1e0cc6afa0a…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
-| `research_W_contact_profiles_2026-10-11.jsonl` | `5bd5fa6301879e45…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
+| `research_W_contact_profiles_2026-10-11.jsonl` | `9c5fbb63d008190e…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_X_leaders_routes_2026-10-10.jsonl` | `3e2a5259bf9fd0c8…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_Y_welfare_enrichment_2026-10-10.jsonl` | `eed7941daf8ae1a7…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_Z_new_leads_2026-10-11.jsonl` | `a7b9d8b71c111dbd…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |

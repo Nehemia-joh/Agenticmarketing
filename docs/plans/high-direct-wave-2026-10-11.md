@@ -670,3 +670,27 @@ None of the 44 earlier rows was lost.
 - Sunflag's "Key Contacts" is in `recipient-overrides.json` `excluded_contacts`. The lead is now medium, on the organisation's inbox.
 - Tabasamu's quoted public figure is in the welfare `links.json` `recipient_exclusions`. The lead is now medium.
 - The crawler now skips a quotation's attribution line.
+
+## T3 results (11 October 2026, no web search)
+
+**Inputs merged:** the three wave 1 search files, the coordinator's browser pass (`browser_sites_2026-10-11.jsonl`) and `website_direct_2026-10-11.jsonl`. They went through profiles, the people screen, the validator, the preflight and one transaction; existing people were updated through `update_master_contacts.py`, and welfare through the run export and pipeline.
+
+**How the rules were applied:**
+- D3: a directory address counts only on the organisation's own domain and dated within 24 months. Bushtops' TATO address is undated, so it is not her address.
+- D6: personal Gmail and Hotmail addresses stay risky and are never routes.
+- D2: only the inbox for the recipient's exact role on the organisation's own domain counts. Recruitment and jobs inboxes from vacancy notices are HR desks, never direct.
+
+**High-direct (from the T1 snapshot):**
+
+| Segment | After T1 | After T3 |
+|---|---|---|
+| companies-high-direct | 34 | 36 |
+| introducers-high-direct | 3 | 4 |
+| welfare-high-direct | 12 | 14 |
+
+No high-direct row was lost. The gains: Aga Khan Health Services (hr@), Matembezi (Hagai Zvulun's own address, by reviewed override), EABC (director@), ELCT Northern Diocese (generalsecretary@) and Innovo Benefits Group (own address).
+
+**First touch** (pipeline draft section 4, `scripts/messaging/first_touch.py`):
+- The master's chosen drafts: Attn 254 (companies 246, of them 7 variant A; introducers 8) and redirect 384 (companies 380, of them 2 variant A; introducers 4).
+- Welfare: Attn 154 and redirect 39.
+- Savings groups and government letters are unchanged.

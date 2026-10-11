@@ -17,6 +17,7 @@ import argparse
 import csv
 import json
 import re
+import sqlite3
 from collections import defaultdict
 
 import contact_lib as C
@@ -67,6 +68,13 @@ def main() -> int:
         return scores[key] == best and list(scores.values()).count(best) == 1
 
     records, counts = [], {"organisations": 0, "contacts": 0}
+    known_names = defaultdict(list)  # welfare organisation_id -> its contacts' names as the run spells them
+    run_db = C.ROOT / "outputs" / "runs" / args.welfare_run / "lead-database.sqlite"
+    if run_db.exists():
+        con = sqlite3.connect(f"file:{run_db.as_posix()}?mode=ro", uri=True)
+        for oid, name in con.execute("SELECT organisation_id, name FROM contacts WHERE COALESCE(name,'') != ''"):
+            known_names[oid].append(name)
+        con.close()
     for p in welfare:
         website = candidate[identity(p)]
         if website and not keeps_website(identity(p), website):
@@ -101,8 +109,18 @@ def main() -> int:
         records.append(record)
         counts["organisations"] += 1
         for person in p["people"]:
-            if person["already_in_database"] or person.get("identity") == "uncertain":
+            if person.get("identity") == "uncertain":
                 continue
+            if person["already_in_database"]:
+                # A person the run already holds (from another research slice) is exported again only to carry a work address this
+                # research found for them (11 October 2026): under the run's own spelling of the name, so the build merges the two.
+                email = person["email"]
+                if not email or W.PERSONAL_EMAIL.search(email) or person.get("pdpa_risk") == "risky":
+                    continue
+                same = [n for n in known_names.get(p["organisation_id"], []) if W.name_key(n) == W.name_key(person["name"]) or C.same_person(n, person["name"])]
+                if len(same) != 1:
+                    continue
+                person = {**person, "name": same[0]}
             email = person["email"]
             etype = "personal_domain" if email and W.PERSONAL_EMAIL.search(email) else ("named" if email else "")
             records.append({"record_type": "contact", "slice": "W", "organisation_name": p["name"], "contact_name": person["name"], "role": person["role"],

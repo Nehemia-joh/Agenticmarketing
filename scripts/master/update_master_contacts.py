@@ -67,15 +67,27 @@ DIRECTORY_MAX_AGE_DAYS = 730  # D3: a directory entry counts when dated within 2
 
 
 def org_domains(con) -> dict:
-    """{organisation_id: registrable domains of its website}."""
+    """{organisation_id: registrable domains of its website and of the inbox it publishes as its own (organisations.email)}."""
     out = {}
-    for oid, website in con.execute("SELECT organisation_id, website FROM organisations"):
+    for oid, website, email in con.execute("SELECT organisation_id, website, email FROM organisations"):
         try:
             host = W.own_domain(str(website or "").split()[0]) if str(website or "").strip() else ""
         except ValueError:  # a website field holding free text
             host = ""
         out[oid] = {C.registrable(host)} if host else set()
+        out[oid] |= {C.registrable(a.split("@")[-1]) for a in re.findall(r"[\w.+-]+@[\w.-]+\.\w+", str(email or "")) if not W.PERSONAL_EMAIL.search(a)}
     return out
+
+
+def role_inbox_ok(email: str, role: str, domains: set) -> bool:
+    """D2: the inbox for the person's exact role (extract_direct_emails.role_inbox_for: hr@ for the head of HR, md@ for the managing
+    director, vc@ for the vice-chancellor ...; never a recruitment or jobs inbox), which the exporter also counts as direct
+    (export_resend_contacts.high_route), on the organisation's own website domain."""
+    sys.path.insert(0, str(ROOT / "scripts" / "messaging"))
+    import export_resend_contacts as X  # noqa: E402
+    import extract_direct_emails as E  # noqa: E402
+    return (bool(domains) and C.registrable(email.split("@")[-1]) in domains and E.role_inbox_for(email.split("@")[0], role)
+            and X.high_route(email, "", role)[0] == "direct")
 
 
 def directory_ok(p: dict, record: dict, domains: set) -> str:
@@ -143,14 +155,19 @@ def plan_updates(con, files: list[Path]) -> tuple[list[dict], Counter]:
                     stats["risky-source addresses sent to review"] += 1
                     email = ""
                 # D3: an address found only on a third-party directory counts when it is on the organisation's domain and dated recently.
-                if email and p.get("source_type") == "directory":
+                if email and (p.get("source_type") == "directory" or link == "directory entry"):
                     why = directory_ok(p, r, domains.get(oid, set()))
                     if why:
                         stats[f"directory addresses not used: {why}"] += 1
                         email = ""
                 if email and link == "role inbox for role":
-                    if not (c["published_role_email"] or "").strip():
-                        change["set"]["published_role_email"] = email
+                    # D2 (11 October 2026): only the inbox for this person's exact role (hr@ for the HR head, md@, vc@ ...) on the
+                    # organisation's own domain; a recruitment or jobs inbox from a vacancy notice is an HR desk, not their inbox.
+                    if role_inbox_ok(email, c["role"] or role, domains.get(oid, set())):
+                        if not (c["published_role_email"] or "").strip():
+                            change["set"]["published_role_email"] = email
+                    else:
+                        stats["role inboxes not used (D2: not the inbox for the person's exact role on the own domain)"] += 1
                     email = ""
                 if email and not (c["named_email"] or "").strip():
                     change["set"]["named_email"] = email

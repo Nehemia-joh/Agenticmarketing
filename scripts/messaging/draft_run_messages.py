@@ -12,6 +12,12 @@ for a home as the reason when the run records one. The follow-up states the offe
 free uniform (OF01) and four instalments (OF09). One neutral reply goes to each current, in-fit public parent enquiry.
 Routes come from the organisation or a low- or medium-risk contact, never a risky one. WA01 organisations with a route
 are 'draft_ready'; everything else is held.
+First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11 October 2026; first_touch.py): a named leader at their
+own or role address keeps the letter; a named leader reached only through a general inbox gets the Attn subject and routing line; an
+organisation with no named leader gets the short redirect request (homes and programmes: who leads the home; funders: the programme
+officer for Tanzania; networks: the executive secretary or CEO), with no follow-up and the planned next touch as a note.
+Reviewed decisions in the run's links.json: recipient_exclusions (never the addressee) and recipient_choices (the in-country lead, with
+the overseas executive as escalation). The leader's role inbox on the organisation's domain counts as their address (D2).
 
 Government (plans/b2b-government-leads-plan.md): one Kiswahili letter per office with an English meaning for review.
 Councils get the GA01 introduction letter, wards and villages the convening request (held until GA01), district and
@@ -30,6 +36,7 @@ import sqlite3
 from collections import Counter
 from datetime import datetime, timezone
 
+import first_touch as FT
 import offer_lib as L
 
 ROOT = L.ROOT
@@ -312,6 +319,25 @@ def best_leader(contacts, prefer=None, funder: bool = False) -> dict | None:
     return best[1] if best else best_chair(contacts, funder)
 
 
+def chosen_person(contacts, name: str) -> dict | None:
+    """The contact a reviewed choice names, shaped like a named_leaders entry (links.json recipient_choices)."""
+    key = lambda s: " ".join(re.findall(r"[a-z0-9]+", greeting_name(s or "").lower()))  # noqa: E731
+    hits = [c for c in contacts if key(c.get("contact_name") or c.get("name")) == key(name) and c.get("pdpa_risk") != "risky"]
+    if not hits:
+        return None
+    c = hits[0]
+    return {**c, "greet_name": greeting_name(c.get("contact_name") or c.get("name") or ""), "_rank": 0, "_where": "tz", "_head": True,
+            "_seniority": 1, "_exec": True, "_overseas": False, "_has_email": bool(c.get("named_email") or c.get("published_role_email"))}
+
+
+def role_inbox_for(local: str, role: str) -> bool:
+    """D2: the inbox for this exact role (scripts/contacts/extract_direct_emails.py ROLE_INBOX)."""
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
+    import extract_direct_emails as E  # noqa: E402
+    return E.role_inbox_for(local, role)
+
+
 ESCALATION_TRIGGER = "No reply after the follow-up, or the country office declines or defers to head office."
 # escalation_route holds the address or phone (the companies master and the Resend exporter read these four by name); the other two are
 # the welfare run's own detail: what kind of route it is and where the executive is published.
@@ -363,6 +389,8 @@ def welfare(con, now, run_cfg) -> dict:
     # addressee or escalation contact (a public figure listed on the site), by organisation name and person name.
     key = lambda s: " ".join(re.findall(r"[a-z0-9]+", str(s or "").lower()))  # noqa: E731
     excluded = {(key(org), key(x["name"])) for org, items in links.get("recipient_exclusions", {}).items() for x in items}
+    # Reviewed recipient choices (links.json recipient_choices, added 11 October 2026): {organisation name: {name, escalation?, reason, ...}}.
+    choices = {key(org): c for org, c in links.get("recipient_choices", {}).items()}
     org_payload, con_payload = payloads(con, "organisation"), payloads(con, "contact")
     org_names = {r["organisation_id"]: r["name"] for r in con.execute("SELECT organisation_id, name FROM organisations")}
     contacts_by_org = {}
@@ -398,9 +426,16 @@ def welfare(con, now, run_cfg) -> dict:
         is_funder = model == "funder" or p.get("segment") == "Welfare funder"
         leader = best_leader(people_of.get(oid, []), re.compile(r"diacon|social|children|programme|program|coordinator|welfare", re.I) if network else None,
                              is_funder)
+        escalate = escalation_contact(people_of.get(oid, []), leader, is_funder)
+        choice = choices.get(key(o["name"]))
+        if choice:  # a reviewed choice (links.json recipient_choices): the in-country lead, and the overseas executive as escalation
+            leader = chosen_person(people_of.get(oid, []), choice["name"]) or leader
+            if choice.get("escalation"):
+                escalate = chosen_person(people_of.get(oid, []), choice["escalation"]) or escalate
+            elif leader:
+                escalate = escalation_contact(people_of.get(oid, []), leader, is_funder)
         greet = f"Dear {leader['greet_name']}," if leader else f"Dear {name} team,"
         recipient = f"{leader['greet_name']} ({leader.get('role') or 'role not published'})" if leader else ""
-        escalate = escalation_contact(people_of.get(oid, []), leader, is_funder)
         for c in contacts_by_org.get(oid, []):
             if c.get("pdpa_risk") == "risky":
                 continue
@@ -419,6 +454,12 @@ def welfare(con, now, run_cfg) -> dict:
         if (direct and "@" in direct and not PERSONAL_DOMAIN.search(direct) and direct.split("@")[-1] in own
                 and str(value or "").lower() != direct):
             route, value = "named_email", direct
+        # D2 (11 October 2026): with no address of their own, the inbox for the leader's exact role on the organisation's domain
+        # (generalsecretary@ for the General Secretary) reaches them directly too.
+        role_box = str((leader or {}).get("published_role_email") or "").strip().lower()
+        if (not (direct and route == "named_email") and role_box and "@" in role_box and not PERSONAL_DOMAIN.search(role_box)
+                and role_box.split("@")[-1] in own and role_inbox_for(role_box.split("@")[0], (leader or {}).get("role") or "")):
+            route, value = "published_role_email", role_box
         escalation = {}
         if escalate:
             # The executive's own published work address when there is one; otherwise the organisation's inbox, addressed to them by name.
@@ -530,6 +571,22 @@ def welfare(con, now, run_cfg) -> dict:
                 "recipient": recipient or f"{o['name']} (organisation route)", "language": "English", "offer_ids": WELFARE_OFFERS,
                 "outcome": "drafted" if ready else "drafted, held",
                 **({"hook": hook, "hook_source_url": reason["url"], "hook_verified_on": reason["verified_on"]} if reason else {})}
+        # First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11 October 2026; first_touch.py): the named leader's
+        # own or role address keeps the letter; a named leader reached only through a general inbox gets the Attn format; no named leader
+        # gets the short redirect request, with no follow-up and the planned next touch as a note.
+        touch_kind = "funder" if funder else ("introducer" if network else "welfare_home")
+        own_routes = {str((leader or {}).get(k) or "").strip().lower() for k in ("named_email", "published_role_email")} - {""}
+        if "@" in str(value or ""):
+            if leader and str(value).strip().lower() in own_routes and route in ("named_email", "published_role_email"):
+                outcomes["first touch: A (own address)"] += 1
+            elif leader:
+                subject, body = FT.attn(touch_kind, body, leader["greet_name"], leader.get("role") or "")
+                outcomes["first touch: B (Attn)"] += 1
+            else:
+                subject, body = FT.redirect(touch_kind, name)
+                follow = ""
+                missing.append(FT.NEXT_TOUCH[touch_kind])
+                outcomes["first touch: C (redirect request)"] += 1
         names = (o["name"], name, recipient.split(" (")[0], reason["supported"] if reason else "", leader["greet_name"] if leader else "")
         for text in (body, follow):
             issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, WELFARE_OFFERS, ignore=names)]

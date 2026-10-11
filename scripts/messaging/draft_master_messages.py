@@ -20,6 +20,14 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   'Raw OSM', add_gap_census_leads.py --matches), and the no-route note goes once the organisation has a published email or
   phone (the contact merge). A plan held by nothing else returns to 'Draft review' on its track (AQ01 or AQ02, as
   refresh_acquisition_metadata.py sets it), with the organisation's route as its channel; any other hold stays.
+- First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11 October 2026; scripts/messaging/first_touch.py):
+  by the route each plan can reach (export_resend_contacts.first_touch_case), a named decision-maker at their own or their role's
+  address keeps the letter (case A); a named decision-maker reached only through a general inbox gets the Attn subject and routing line
+  (case B, with ', or your HR lead' under question 21's rule); no named decision-maker gets the short redirect request with blank
+  follow-ups and the planned next touch as a note (case C). The segment row decides the wording: employers, variant A sponsors (their
+  content stays sponsorship), public bodies, introducers. Savings groups and Rivertrees are unchanged. A stored variant draft
+  (variant_subject/variant_body, which the exporter sends) gets the same format; its untouched text is kept in variant_subject_base and
+  variant_body_base, so run this after assign_message_variants.py.
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
   value module VM19, positioning evidence PE025-PE028 and the strategy records; everything in one transaction with
@@ -49,6 +57,8 @@ sys.path.insert(0, str(L.ROOT / "scripts" / "master"))
 import resolve_master_recipients as R  # noqa: E402  (contact verification and role ranking)
 sys.path.insert(0, str(L.ROOT / "scripts" / "contacts"))
 from merge_master_contacts import BLOCKER, drop_note  # noqa: E402  (the same holds as the contact merge)
+import export_resend_contacts as X  # noqa: E402  (the route and recipient tests the segments use, for the first-touch case)
+import first_touch as F  # noqa: E402  (the approved first-touch formats)
 
 ROOT = L.ROOT
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
@@ -312,6 +322,54 @@ def emailed_channel(contact: dict, org: dict, channel: str) -> str:
     return "; ".join(x for x in (email, channel) if x) if email else channel
 
 
+FIRST_TOUCH_NOTES = set(F.NEXT_TOUCH.values())
+
+
+def first_touch_kind(plan: dict, org: dict) -> str:
+    """The segment row of the first-touch rule (pipeline draft section 4), or '' for copy it leaves alone (savings groups, Rivertrees)."""
+    if plan.get("segment") == "SACCOS members" or str(org.get("name") or "").startswith("Rivertrees"):
+        return ""
+    if plan.get("segment") == "Introducers":
+        return "introducer"
+    if str(plan.get("message_variant") or "").startswith("A"):
+        return "variant_a"
+    return "public" if plan.get("segment") == "Public-sector employers" else "employer"
+
+
+def apply_first_touch(plan: dict, org: dict, copy: dict, ctx: dict) -> tuple[dict, list, str]:
+    """The plan's copy in its first-touch format (first_touch.py): unchanged for case A or no email route; the Attn format for case B;
+    the redirect request with blank follow-ups for case C. Returns (copy, notes to add, case). The stored variant draft (variant A
+    sponsorship or a personalised B), which the exporter sends instead of the body, gets the same format from its base text."""
+    kind = first_touch_kind(plan, org)
+    if not kind:
+        return copy, [], ""
+    contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
+    case = X.first_touch_case(plan, org, contact, ctx["people_at"].get(plan["organisation_id"], []))
+    org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
+    notes, out = [], dict(copy)
+
+    def shaped(subject: str, body: str) -> tuple[str, str]:
+        if case == "B":
+            lead = F.hr_lead(contact["role"], plan["organisation_id"] in ctx["hr_on_file"], ctx["reach"].get(plan["organisation_id"], ""),
+                             org.get("headcount"), f"{org.get('segment') or ''} {plan.get('segment') or ''} {org.get('name') or ''}")
+            return F.attn(kind, body, L.greeting_name(plan["target_name"]), contact["role"], lead)
+        if case == "C":
+            return F.redirect(kind, org_name)
+        return subject, body
+
+    out["subject"], out["body"] = shaped(copy["subject"], copy["body"])
+    if case == "C":
+        out["follow_up_1"], out["follow_up_2"] = "", ""
+        notes.append(F.NEXT_TOUCH[kind])
+    if plan.get("variant_body"):
+        base_subject, base_body = plan.get("variant_subject_base") or "", plan.get("variant_body_base") or ""
+        current = plan["variant_body"]
+        if not (current.startswith(F.ROUTING_START) or F.is_redirect(current)) or not base_body:
+            base_subject, base_body = plan.get("variant_subject") or "", F.strip_routing(current)  # a fresh draft from assign_message_variants.py
+        out["_variant"] = (*shaped(base_subject, base_body), base_subject, base_body)
+    return out, notes, case
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", default=str(MASTER))
@@ -323,6 +381,20 @@ def main() -> int:
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
     plans = [dict(r) for r in con.execute("SELECT * FROM outreach_plans ORDER BY message_id")]
     messages = {r["message_id"]: dict(r) for r in con.execute("SELECT * FROM messages")}
+    # First-touch context (pipeline draft section 4): contacts, each organisation's people, whether an HR head is on file, reach tiers.
+    contacts_by_id = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
+    people_at, hr_on_file = {}, set()
+    for c in contacts_by_id.values():
+        if c["name"]:
+            people_at.setdefault(c["organisation_id"], []).append(c["name"])
+        if c["name"] and R.HR.search(c["role"] or ""):
+            hr_on_file.add(c["organisation_id"])
+    try:
+        reach = {r[0]: r[1] for r in con.execute("SELECT organisation_id, tier FROM employer_reach")}
+    except sqlite3.OperationalError:
+        reach = {}
+    ctx = {"contacts": contacts_by_id, "people_at": people_at, "hr_on_file": hr_on_file, "reach": reach}
+    first_touch_cases = Counter()
     org_record = {}
     for r in con.execute("SELECT entity_id, record_id FROM entity_sources WHERE entity_type='organisation' ORDER BY record_id"):
         org_record.setdefault(r["entity_id"], r["record_id"])
@@ -366,6 +438,14 @@ def main() -> int:
             notes.append(SPONSORSHIP_FOLLOW_UP_NOTE)
         else:
             plan = {**plan, "missing_information": drop_note(str(plan.get("missing_information") or ""), SPONSORSHIP_FOLLOW_UP_NOTE)}
+        # The first touch (approved 11 October 2026): the Attn format or the redirect request, by who the route can reach.
+        copy, touch_notes, case = apply_first_touch(plan, org, copy, ctx)
+        first_touch_cases[(plan["selection"] == "Candidate for review", case or "unchanged")] += 1
+        missing_now = str(plan.get("missing_information") or "")
+        for note in FIRST_TOUCH_NOTES - set(touch_notes):
+            missing_now = drop_note(missing_now, note)
+        plan = {**plan, "missing_information": missing_now}
+        notes += touch_notes
         updates.append((plan, copy, notes))
         # The pre-offer and the offer-led copies are each kept once; later, only a copy that actually changes is kept, so a
         # re-run adds nothing.
@@ -462,8 +542,16 @@ def main() -> int:
     outcomes["historical parent replies updated"] = len(parent_updates)
     outcomes["parent enquiries without a draft (unchanged)"] = con.execute("SELECT COUNT(*) FROM parent_enquiry_drafts WHERE status NOT LIKE 'Review only%'").fetchone()[0]
 
+    # New plans take the first-touch format too, with the route they are created with as their channel.
+    for i, (plan, org, track, route, copy, missing) in enumerate(new_rows):
+        copy, touch_notes, case = apply_first_touch({**plan, "contact_channel": route or "", "message_variant": ""}, org, copy, ctx)
+        first_touch_cases[(False, case or "unchanged")] += 1
+        new_rows[i] = (plan, org, track, route, copy, missing + touch_notes)
+    outcomes.update({f"first touch: {'chosen' if chosen else 'alternative'} plans, {case}": n for (chosen, case), n in sorted(first_touch_cases.items())})
     issues = []
     checked = [(plan, copy) for plan, copy, _ in updates] + [(plan, copy) for plan, _, _, _, copy, _ in new_rows]
+    checked += [(plan, {**copy, "body": copy["_variant"][1], "follow_up_1": "", "follow_up_2": "", "offer_message": "", "sw": ""})
+                for plan, copy, _ in updates if copy.get("_variant")]
     for plan, copy in checked:
         names = tuple(n for raw in (plan.get("organisation_name"), plan.get("target_name")) if raw for n in (raw, L.display_name(raw), L.greeting_name(raw)))
         for field in ("body", "follow_up_1", "follow_up_2", "offer_message", "sw"):
@@ -497,7 +585,7 @@ def main() -> int:
     columns = {r[1] for r in con.execute("PRAGMA table_info(outreach_plans)")}
     try:
         con.execute("BEGIN")
-        for column in ("offer_version", "offer_ids", "offer_evidence", "offer_message_sw", "offer_message"):
+        for column in ("offer_version", "offer_ids", "offer_evidence", "offer_message_sw", "offer_message", "variant_subject_base", "variant_body_base"):
             if column not in columns:
                 con.execute(f'ALTER TABLE outreach_plans ADD COLUMN "{column}" TEXT')
         con.executemany("INSERT OR IGNORE INTO message_versions (version, message_id, original_json) VALUES (?,?,?)",  # keep the first backup
@@ -518,6 +606,10 @@ def main() -> int:
                         (plan["review_status"], plan["acquisition_track_id"], plan["contact_channel"], plan["channel_attribution"], plan["message_id"]))
             con.execute("UPDATE messages SET subject=?, body=?, strategy_id=?, status=?, conditions=? WHERE message_id=?",
                         (copy["subject"], copy["body"], STRATEGY_ID, MESSAGE_STATUS, conditions_for(copy), plan["message_id"]))
+            if copy.get("_variant"):  # the stored variant draft in its first-touch format; its untouched text is kept as the base
+                v_subject, v_body, base_subject, base_body = copy["_variant"]
+                con.execute("UPDATE outreach_plans SET variant_subject=?, variant_body=?, variant_subject_base=?, variant_body_base=? WHERE message_id=?",
+                            (v_subject, v_body, base_subject, base_body, plan["message_id"]))
         con.executemany("UPDATE outreach_plans SET contact_channel=?, channel_attribution='Company inbox first for a verified decision-maker; the published phone follows' WHERE message_id=?", channel_updates)
         # Contact research may have found signs that an organisation has closed; its new drafts start held, as the merge
         # holds its existing ones.

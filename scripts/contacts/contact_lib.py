@@ -577,6 +577,10 @@ def clean_role(name: str, role: str) -> str:
     """The role as a title: without template arrows, unbalanced brackets, degree prefixes, place suffixes, a trailing clause
     ('..., which runs AICC Hospital') or the name itself."""
     role = " ".join(EMAIL_IN_TEXT.sub("", str(role or "")).split())
+    if name:
+        # A bracketed quotation that names the person is evidence, not the title ('Current operator (the founder handed the business
+        # "to the care of Les and Caroline")'): it goes, rather than everything up to the name.
+        role = re.sub(r"\s*\([^()]*" + re.escape(name) + r"[^()]*\)", "", role, flags=re.I).strip()
     if name and name.lower() in role.lower():
         role = role[role.lower().rindex(name.lower()) + len(name):]
     role = re.sub(r",?\s+(?:which|who)\s.*$", "", role, flags=re.I)

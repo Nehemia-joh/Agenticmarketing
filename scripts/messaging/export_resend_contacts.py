@@ -146,7 +146,10 @@ def org_named_inbox(address: str, organisation: str) -> bool:
 # A role inbox that belongs to the recipient's role (hr@ for the HR head, md@ for the managing director): a direct route.
 HR_LOCALS = re.compile(r"^(d?hr[a-z]{0,8}|humanresources?|people|peopleandculture|talent)$", re.I)  # hr@, hrm@, dhrma@ (Director of HR and Admin)
 HEAD_LOCALS = re.compile(r"^(md|ceo|gm|dg|vc|dvc|dvca|director|directorgeneral|principal|rector|headteacher|headmaster|head|ed|edr|cd|countrydirector|"
-                         r"president|chair|chairman|chairperson|secretary|executivesecretary|es|registrar|ded|das|ras|weo|veo|mkurugenzi|katibu)$", re.I)
+                         r"president|chair|chairman|chairperson|secretary|executivesecretary|generalsecretary|secretarygeneral|es|registrar|ded|das|ras|"
+                         r"weo|veo|mkurugenzi|katibu)$", re.I)
+# A recruitment, jobs or careers inbox (from a vacancy notice) is an HR desk, never the HR head's own role inbox (D2, 11 October 2026).
+RECRUITMENT = re.compile(r"recruit|job|career|vacanc|apply|application|cv", re.I)
 
 
 def high_route(address: str, name: str, role: str, others=()) -> tuple[str, str]:
@@ -159,6 +162,8 @@ def high_route(address: str, name: str, role: str, others=()) -> tuple[str, str]
     person = L.greeting_name(name or "")
     if person and C.mailbox_owner(address, [person, *[o for o in others if o and not C.same_person(o, person)]], person):
         return "direct", "direct: the person's own address"
+    if RECRUITMENT.search(letters):
+        return "indirect", f"indirect: {local}@ is a recruitment inbox (an HR desk), not the inbox for their role"
     if HR_LOCALS.match(letters) and R.HR.search(role or ""):
         return "direct", f"direct: {local}@ is the inbox for their HR role"
     if HEAD_LOCALS.match(letters) and (R.role_rank(role) is not None or re.search(r"secretary|chair|registrar|president|officer|director", role or "", re.I)):
@@ -251,6 +256,25 @@ def company_route(plan, org, contact) -> str:
     return (generic or pool or [""])[0]
 
 
+def named_recipient(contact, segment: str) -> bool:
+    """A verified named decision-maker (the rows' 'named' test): verified, not unusable, a first name, and a senior or fallback role."""
+    return bool(contact and R.VERIFIED.search(contact["verification"] or "") and not R.UNUSABLE.search(contact["verification"] or "")
+                and split_name(contact["name"])[0] and (R.role_rank_for(contact["role"], segment) is not None
+                                                        or (R.FALLBACK_OK.search(contact["role"] or "") and not R.BOARD.search(contact["role"] or ""))))
+
+
+def first_touch_case(plan, org, contact, others=()) -> str:
+    """The first-touch case of docs/strategy/partnership-pipelines-draft.md section 4 for a company plan: 'A' a named decision-maker at
+    their own or their role's address, 'B' a named decision-maker reached only through a general inbox, 'C' no named decision-maker and
+    an email route, '' no email route (a phone or nothing: the call sheet)."""
+    address = company_route(plan, org, contact)
+    if "@" not in address:
+        return ""
+    if named_recipient(contact, plan.get("segment") or ""):
+        return "A" if high_route(address, contact["name"], contact["role"], others)[0] == "direct" else "B"
+    return "C"
+
+
 def company_rows(con):
     con.row_factory = sqlite3.Row
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
@@ -278,9 +302,7 @@ def company_rows(con):
             reasons.insert(0, "needs research: recheck the source, role and organisation")
         if p["segment"] == "SACCOS members":
             reasons.append("savings group: Kiswahili review and Finance's approval of the member rate first")
-        named = bool(contact and R.VERIFIED.search(contact["verification"] or "") and not R.UNUSABLE.search(contact["verification"] or "")
-                     and split_name(contact["name"])[0] and (R.role_rank_for(contact["role"], p["segment"]) is not None
-                                                                or (R.FALLBACK_OK.search(contact["role"] or "") and not R.BOARD.search(contact["role"] or ""))))
+        named = named_recipient(contact, p["segment"])
         direct = contact and address in R.emails(contact["named_email"], contact["published_role_email"])
         if R.FREE_MAIL.search(address) and not direct and not org_named_inbox(address, org["name"]):
             reasons.append(f"personal-domain inbox {address} not shown to be the company's own: confirm it before use")

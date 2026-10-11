@@ -15,9 +15,9 @@
   "override_routes": 0,
   "candidates_before": 938,
   "plans_changed": 462,
-  "plans_now_candidate": 162,
-  "plans_now_alternative": 300,
-  "named_contacts_now_candidate": 147
+  "plans_now_candidate": 160,
+  "plans_now_alternative": 302,
+  "named_contacts_now_candidate": 146
  },
  "clusters": [
   {
@@ -791,12 +791,6 @@
    "role": "Co-Founder, Head Guide & Ground Operations (Arusha)"
   },
   {
-   "message_id": "Mfee8d4fac314",
-   "organisation": "Matembezi Company Ltd",
-   "recipient": "Ilan Kessel",
-   "role": "Partner / co-owner (tour operations)"
-  },
-  {
    "message_id": "Mfbce41902fea",
    "organisation": "Rupia Adventure",
    "recipient": "Matt Rupia",
@@ -831,12 +825,6 @@
    "organisation": "Augustine's Adventure Africa ltd (AA Africa)",
    "recipient": "Augustine Minja",
    "role": "Owner / Managing Director (Eva Minja is Director of Accounts and Reservations)"
-  },
-  {
-   "message_id": "Meac6c1f32ef4",
-   "organisation": "Maasai Wanderings Limited",
-   "recipient": "Maasai Wanderings Limited",
-   "role": "Organisation routing"
   },
   {
    "message_id": "M88db12a87a5f",
@@ -1711,12 +1699,6 @@
    "role": "Founder / Owner (also referred to as general manager)"
   },
   {
-   "message_id": "M24bef6d81d6a",
-   "organisation": "Matembezi Company Ltd",
-   "recipient": "Hagai Zvulun",
-   "role": "Founder & Co-owner (guide)"
-  },
-  {
    "message_id": "M3a5bb87dca1b",
    "organisation": "Nihapa Tours",
    "recipient": "Kelvin G. Kaole",
@@ -1847,12 +1829,6 @@
    "organisation": "Livingstone's Africa Ltd",
    "recipient": "Kaanaeli Ndeoya",
    "role": "Managing Director / Tour Operator (also head guide; of Maasai descent)"
-  },
-  {
-   "message_id": "M9d03be54ea28",
-   "organisation": "Maasai Wanderings Limited",
-   "recipient": "Donna Duggan",
-   "role": "Co-founder"
   },
   {
    "message_id": "Mb1b24ec00997",
@@ -2134,6 +2110,12 @@
    "message_id": "M9c463027c723",
    "organisation": "Base Camp Tanzania",
    "recipient": "Base Camp Tanzania",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M9abfdd0ed84c",
+   "organisation": "Bushtops Safari Camps (Orion Hotels Tanzania Ltd)",
+   "recipient": "Bushtops Safari Camps (Orion Hotels Tanzania Ltd)",
    "role": "Organisation routing"
   },
   {
@@ -2929,6 +2911,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "Mf7832dcdaba0",
+   "organisation": "Institute of Accountancy Arusha (IAA)",
+   "recipient": "Institute of Accountancy Arusha (IAA)",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M7265807f89d0",
    "organisation": "JM Tours",
    "recipient": "JM Tours",
@@ -3265,6 +3253,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M08647bcd3b6b",
+   "organisation": "Spiritan Missionary Seminary Institute of Philosophy",
+   "recipient": "Spiritan Missionary Seminary Institute of Philosophy",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M10fde0c85496",
    "organisation": "St. Augustine University of Tanzania - Arusha Campus",
    "recipient": "St. Augustine University of Tanzania - Arusha Campus",
@@ -3436,6 +3430,12 @@
    "message_id": "Mbf18c7ecf89a",
    "organisation": "University of Arusha",
    "recipient": "University of Arusha",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "M9895794d2dee",
+   "organisation": "VODACOM SERVICE CENTER",
+   "recipient": "VODACOM SERVICE CENTER",
    "role": "Organisation routing"
   },
   {

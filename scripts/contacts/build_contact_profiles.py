@@ -69,6 +69,27 @@ def email_type(email: str, names: list[str]) -> tuple[str, str]:
     return "general", ""
 
 
+def directory_email_ok(person: dict, record: dict, org: dict) -> bool:
+    """D3 (11 October 2026): a directory entry's address counts only on the organisation's own domain (its website's, or that of the inbox
+    it publishes as its own), with an ISO source_date within 24 months of access."""
+    email = str(person.get("email") or "").lower()
+    try:
+        site = W.own_domain(str(org.get("website") or "").split()[0]) if str(org.get("website") or "").strip() else ""
+    except ValueError:
+        site = ""
+    own = ({C.registrable(site)} if site else set()) | {C.registrable(a.split("@")[-1]) for a in re.findall(r"[\w.+-]+@[\w.-]+\.\w+", org.get("email") or "")
+                                                       if not W.PERSONAL_EMAIL.search(a)}
+    if not email or C.registrable(email.split("@")[-1]) not in own:
+        return False
+    dated = str(person.get("source_date") or next((s.get("source_date") for s in record.get("sources") or []
+                                                    if s.get("url") == person.get("source_url")), "") or "")
+    accessed = next((s.get("accessed_on") for s in record.get("sources") or [] if s.get("accessed_on")), "") or date.today().isoformat()
+    try:
+        return 0 <= (date.fromisoformat(accessed[:10]) - date.fromisoformat(dated[:10])).days <= 730
+    except ValueError:
+        return False
+
+
 def welfare_research_contacts(run_id: str = "arusha-welfare-2026-09") -> set:
     """(organisation key, contact key) pairs the welfare run's own research supplies, leaving out the contact-research
     export (research_W_*). Only these count as already known: the export must carry everything else every time."""
@@ -359,6 +380,7 @@ def main() -> int:
     # crawling was read at the user's direction (24 September 2026): its people are tagged risky and the organisation is
     # flagged, so the data is kept and its source is visible.
     search_stats, hotlines = Counter(), set()
+    d3_dropped = defaultdict(set)  # addresses D3 refused for a person: never linked to them from the organisation's inbox list either
     # website_direct_<date>.jsonl (extract_direct_emails.py, 11 October 2026): own-site addresses tied to people already on file, read
     # from the crawl cache; they rank with the website's own records.
     records = [("search", path) for path in sorted(C.RAW.glob(f"search_*_{args.date}.jsonl"))] + \
@@ -420,6 +442,13 @@ def main() -> int:
             for p in r.get("people") or []:
                 if not p.get("name") or not p.get("role"):
                     continue
+                if (p.get("email") and (p.get("source_type") == "directory" or p.get("email_link") == "directory entry")
+                        and not directory_email_ok(p, r, orgs[key])):
+                    # D3 (11 October 2026): an address found only on a third-party directory is the person's only when it is on the
+                    # organisation's own domain and the entry is dated within 24 months; otherwise the person is kept without it.
+                    search_stats["directory addresses not used (D3)"] += 1
+                    d3_dropped[key].add(C.clean_email(str(p["email"])))
+                    p = {**p, "email": ""}
                 risk = p.get("pdpa_risk") or "medium"
                 reason = p.get("pdpa_risk_reason") or "Named person in a professional role, as published."
                 if risky_source:
@@ -497,7 +526,8 @@ def main() -> int:
             if not p["email"]:
                 # A mailbox found on the page is the person's only by the strict test, unique among the organisation's people (D1 and D7,
                 # 11 October 2026): camilla.brian@ is not Brian Mengoriki's, and keil@ is no one's when two Keils are listed.
-                linked = next((x["email"] for x in emails if x["person"] == p["name"] and C.mailbox_owner(x["email"], everyone, p["name"])), "")
+                linked = next((x["email"] for x in emails if x["person"] == p["name"] and x["email"] not in d3_dropped.get(key, set())
+                               and C.mailbox_owner(x["email"], everyone, p["name"])), "")
                 p["email"] = linked
             if p["email"] and W.PERSONAL_EMAIL.search(p["email"]):
                 p["pdpa_risk"], p["pdpa_risk_reason"] = "risky", "Named person linked to a personal-domain email."

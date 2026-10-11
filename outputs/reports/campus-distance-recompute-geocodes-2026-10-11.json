@@ -1,0 +1,102 @@
+{
+ "note": "Recompute after the lead-location research of 2026-10-11 (data/raw/geocode-research/geocodes_2026-10-11.jsonl), applied in two passes; the campus-correction record of the same day stays in campus-distance-recompute.json.",
+ "passes": [
+  {
+   "stats": {
+    "stored distance kept": 682,
+    "coordinates": 159,
+    "no location": 81,
+    "gazetteer point reproduced": 49,
+    "records to update": 101,
+    "nearest campus changed": 52
+   }
+  },
+  {
+   "stats": {
+    "stored distance kept": 671,
+    "coordinates": 170,
+    "no location": 81,
+    "gazetteer point reproduced": 49,
+    "records to update": 10,
+    "nearest campus changed": 1
+   }
+  }
+ ],
+ "nearest_campus_changed": [
+  "Tandala Expeditions Limited: Ilboru -> Kijenge (3.8 km)",
+  "Joash Africa Wilderness Insight Ltd: Ilboru -> Kijenge (2.3 km)",
+  "DEBRE Safari Adventure: Ilboru -> Arusha City (3.5 km)",
+  "Destiny Explorers Limited: Ilboru -> Boma Ngombe (19.8 km)",
+  "Jambo Masai Tours: Ilboru -> Arusha City (4.4 km)",
+  "Kilipeak Adventure: Ilboru -> Usa River (6.7 km)",
+  "Meru Slopes Tours And Safaris Ltd: Arusha City -> Ilboru (2.7 km)",
+  "Ozon Light Tours: Arusha City -> Kijenge (5.3 km)",
+  "Vianneys Untamed Expeditions Company Limited: Kijenge -> Arusha City (7.3 km)",
+  "AGLOW SAFARIS Venture into the Wild: Ilboru -> Arusha City (0.8 km)",
+  "DaMona Tanzania Safaris: Ilboru -> Kijenge (6.6 km)",
+  "Lomo Tanzania Safari: Ilboru -> Kijenge (3.0 km)",
+  "Nomad Tanzania: Ilboru -> Usa River (11.4 km)",
+  "African Spoonbill Tours and Safaris Ltd: Ilboru -> Kijenge (2.4 km)",
+  "Triumph Travel & Film Safaris Ltd: Arusha City -> Kijenge (5.8 km)",
+  "Car Light Tours And Safari Limited.: Boma Ngombe -> Kijenge (2.2 km)",
+  "Hola Africa Ltd: Boma Ngombe -> Arusha City (0.6 km)",
+  "Karis Expeditions Ltd:  -> Arusha City (2.3 km)",
+  "Legacy Destinations & DMC: Arusha City (Sakina) -> Ilboru (2.3 km)",
+  "Nature’s Land Safaris & Rentals Limited: Arusha City (Sakina) -> Ilboru (2.3 km)",
+  "Pooja Travel Tour:  -> Kijenge (2.5 km)",
+  "Precious Moments Safaris: Boma Ngombe -> Ilboru (2.3 km)",
+  "Ra Expeditions:  -> Usa River (4.9 km)",
+  "Rafiki Tembo Tours & Safaris: Arusha City (Sakina) -> Ilboru (2.3 km)",
+  "Shemeji Safari:  -> Ilboru (2.3 km)",
+  "Tanzania Roadside Expeditions:  -> Ilboru (1.3 km)",
+  "The African Footprint Co Ltd Bush 2 Beach: Ilboru -> Arusha City (4.9 km)",
+  "TRA (Tanzania Revenue Authority): Kijenge -> Ilboru (2.4 km)",
+  "Temesa: Arusha City (Sakina) -> Ilboru (2.5 km)",
+  "RushTrek Tours Company LTD: Ilboru -> Kijenge (2.0 km)",
+  "Gupta Auto Spares and Hardware Limited: Arusha City (Sakina) -> Kijenge (2.9 km)",
+  "Suniva Insurance Brokers Ltd: Ilboru -> Kijenge (2.4 km)",
+  "Air Excel Ltd.: Ilboru -> Arusha City (4.2 km)",
+  "Hanspaul Assurance Brokers Limited: Ilboru -> Kijenge (2.4 km)",
+  "AMREF Flying Doctors: Ilboru -> Arusha City (2.3 km)",
+  "GADGETRONIX: Ilboru -> Kijenge (2.5 km)",
+  "Dashir Lodge & Safaris: Kijenge -> Usa River (9.4 km)",
+  "Twiga Craft Brewery (1001 Organic Limited):  -> Arusha City (2.0 km)",
+  "Dropping Zone: Ilboru -> Kijenge (2.5 km)",
+  "CRDB Bank Plc:  -> Ilboru (2.7 km)",
+  "NBC Bank Tanzania:  -> Kijenge (2.3 km)",
+  "Rudra distributors:  -> Kijenge (2.5 km)",
+  "LAITOLYA TOURS & SAFARIS LTD:  -> Arusha City (2.4 km)",
+  "YAS Tanzania:  -> Ilboru (2.0 km)",
+  "All season bureau de change:  -> Kijenge (2.5 km)",
+  "Wildreality Safari: Boma Ngombe -> Ilboru (2.3 km)",
+  "Association of Tanzania Employers (ATE):  -> Ilboru (2.3 km)",
+  "Confederation of Tanzania Industries (CTI):  -> Arusha City (2.3 km)",
+  "Tanzania Association of Tour Operators (TATO):  -> Kijenge (1.5 km)",
+  "Christian Social Services Commission (CSSC):  -> Ilboru (2.3 km)",
+  "Tanzania Horticultural Association (TAHA):  -> Arusha City (2.2 km)",
+  "East African Business Council (EABC):  -> Kijenge (1.9 km)",
+  "Kitamu Africa LTD: Ilboru -> Kijenge (2.3 km)"
+ ],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

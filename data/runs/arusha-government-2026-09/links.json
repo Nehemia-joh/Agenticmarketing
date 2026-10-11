@@ -48,6 +48,72 @@
    "source": "osm_place",
    "ref": "node/8019687301",
    "note": "Agent decision 23 September 2026, for review: keeps the OpenStreetMap village 'Kindi'. 'Kindi Dispensary' (way/681492564, data/raw/government-research/osm_named_facilities_2026-09-23.json) lies 1.0 km from it, while the Wikipedia point is 13.5 km away."
+  },
+  "Arusha District Council|Moivo": {
+   "source": "point",
+   "lat": -3.34724,
+   "lon": 36.703578,
+   "precision": "locality",
+   "url": "https://www.openstreetmap.org/node/10836698400",
+   "fetched": "2026-10-11",
+   "as_found": "node/10836698400 at -3.34724, 36.7035778; tags {\"addr:city\": \"Arusha\", \"amenity\": \"school\", \"name\": \"Shule ya Msingi Moivo\"}",
+   "source_type": "OpenStreetMap",
+   "note": "Reviewed point (2026-10-11): OpenStreetMap primary school 'Shule ya Msingi Moivo', inside the Arusha district boundary; a mill tagged addr:place Moivo (node/9375894786) lies 0.8 km away. A school named after the ward, as the run's other facility-based ward points. Source: OpenStreetMap, https://www.openstreetmap.org/node/10836698400 (fetched 2026-10-11); as found: node/10836698400 at -3.34724, 36.7035778; tags {\"addr:city\": \"Arusha\", \"amenity\": \"school\", \"name\": \"Shule ya Msingi Moivo\"}"
+  },
+  "Meru District Council|Ambureni": {
+   "source": "point",
+   "lat": -3.366972,
+   "lon": 36.753341,
+   "precision": "locality",
+   "url": "https://www.openstreetmap.org/node/10837349589",
+   "fetched": "2026-10-11",
+   "as_found": "node/10837349589 at -3.3669719, 36.7533415; tags {\"addr:city\": \"Arusha\", \"amenity\": \"school\", \"name\": \"Shule ya Msingi Ambureni\"}",
+   "source_type": "OpenStreetMap",
+   "note": "Reviewed point (2026-10-11): OpenStreetMap primary school 'Shule ya Msingi Ambureni', inside the Meru district boundary; nine mills tagged addr:place Ambureni lie within 1.5 km of it. Source: OpenStreetMap, https://www.openstreetmap.org/node/10837349589 (fetched 2026-10-11); as found: node/10837349589 at -3.3669719, 36.7533415; tags {\"addr:city\": \"Arusha\", \"amenity\": \"school\", \"name\": \"Shule ya Msingi Ambureni\"}"
+  },
+  "Meru District Council|Majengo": {
+   "source": "point",
+   "lat": -3.494025,
+   "lon": 37.015147,
+   "precision": "locality",
+   "url": "https://www.openstreetmap.org/way/661860363",
+   "fetched": "2026-10-11",
+   "as_found": "way/661860363 at -3.4940254, 37.0151469; tags {\"amenity\": \"clinic\", \"name\": \"Majengo Dispensary\"}",
+   "source_type": "OpenStreetMap",
+   "note": "Reviewed point (2026-10-11): OpenStreetMap 'Majengo Dispensary' inside the Meru district boundary; 'Shule ya Msingi Majengo' (node/10837349556) lies 0.5 km away. The Wikipedia point near Usa River belongs to an article on Monduli District's Majengo and is not used. Source: OpenStreetMap, https://www.openstreetmap.org/way/661860363 (fetched 2026-10-11); as found: way/661860363 at -3.4940254, 37.0151469; tags {\"amenity\": \"clinic\", \"name\": \"Majengo Dispensary\"}"
+  },
+  "Hai District Council|Bondeni": {
+   "source": "point",
+   "lat": -3.250766,
+   "lon": 37.140423,
+   "precision": "locality",
+   "url": "https://www.openstreetmap.org/node/10807801641",
+   "fetched": "2026-10-11",
+   "as_found": "node/10807801641 at -3.250766, 37.1404228; tags {\"addr:city\": \"Kilimanjaro\", \"amenity\": \"school\", \"name\": \"Shule ya Msingi Bondeni\"}",
+   "source_type": "OpenStreetMap",
+   "note": "Reviewed point (2026-10-11): OpenStreetMap primary school 'Shule ya Msingi Bondeni' inside the Hai district boundary (the Wikipedia Bondeni is Moshi Municipal's ward). Source: OpenStreetMap, https://www.openstreetmap.org/node/10807801641 (fetched 2026-10-11); as found: node/10807801641 at -3.250766, 37.1404228; tags {\"addr:city\": \"Kilimanjaro\", \"amenity\": \"school\", \"name\": \"Shule ya Msingi Bondeni\"}"
+  },
+  "Hai District Council|Mnadani": {
+   "source": "point",
+   "lat": -3.322279,
+   "lon": 37.236817,
+   "precision": "locality",
+   "url": "https://www.openstreetmap.org/node/3260642536",
+   "fetched": "2026-10-11",
+   "as_found": "node/3260642536 at -3.3222788, 37.2368171; tags {\"name\": \"Mnadani Market (live auction market)\", \"shop\": \"supermarket\"}",
+   "source_type": "OpenStreetMap",
+   "note": "Reviewed point (2026-10-11): OpenStreetMap 'Mnadani Market (live auction market)' inside the Hai district boundary, the only feature of that name. Weaker than a school or office: check it. Source: OpenStreetMap, https://www.openstreetmap.org/node/3260642536 (fetched 2026-10-11); as found: node/3260642536 at -3.3222788, 37.2368171; tags {\"name\": \"Mnadani Market (live auction market)\", \"shop\": \"supermarket\"}"
+  },
+  "Arusha District Council|Kiutu": {
+   "source": "point",
+   "lat": -3.362353,
+   "lon": 36.709356,
+   "precision": "locality",
+   "url": "https://arushadc.go.tz/api/footer",
+   "fetched": "2026-10-10",
+   "as_found": "footer map lat -3.362353, lng 36.709356; site text: 'The offices of the Arusha District Council headquarters are located in Kiutu Ward, Engorika Village, Sekei area near the Mount Meru International Hotel'",
+   "source_type": "official site",
+   "note": "Reviewed point (2026-10-11): The council's headquarters, which its own website places in Kiutu ward, at the point of its website map (data/raw/government-research/council_sites/arushadc.go.tz_2026-10-10.json). OpenStreetMap's 'Kiutu Parish' (way/275161584) lies 2.6 km north-east. Source: official site, https://arushadc.go.tz/api/footer (fetched 2026-10-10); as found: footer map lat -3.362353, lng 36.709356; site text: 'The offices of the Arusha District Council headquarters are located in Kiutu Ward, Engorika Village, Sekei area near the Mount Meru International Hotel'"
   }
  },
  "osm_office_links": {
@@ -93,5 +159,18 @@
    "source": "https://dailynews.co.tz/?p=163358 (read 2026-10-10)",
    "decided_on": "2026-10-10"
   }
- ]
+ ],
+ "office_locations": {
+  "GOFF_council_moshi-district-council": {
+   "source": "point",
+   "lat": -3.316782,
+   "lon": 37.403394,
+   "precision": "point",
+   "url": "https://www.openstreetmap.org/node/9329913784",
+   "fetched": "2026-10-11",
+   "as_found": "node/9329913784 at -3.3167822, 37.4033941; tags {\"name\": \"Halmashauri ya Wilaya Moshi new office\", \"office\": \"government\"}",
+   "source_type": "OpenStreetMap",
+   "note": "Reviewed point (2026-10-11): OpenStreetMap government office 'Halmashauri ya Wilaya Moshi new office' (a school polygon of the same name marks the same site); the council's website publishes no map point. Source: OpenStreetMap, https://www.openstreetmap.org/node/9329913784 (fetched 2026-10-11); as found: node/9329913784 at -3.3167822, 37.4033941; tags {\"name\": \"Halmashauri ya Wilaya Moshi new office\", \"office\": \"government\"}"
+  }
+ }
 }

@@ -28,12 +28,12 @@ Within the segments, `release_order` gives the order of delivery once each gate 
 | Release order | Offices | Segment |
 |---|---:|---|
 | 1 now: pilot council introduction | 4 | high |
-| 2 after the introduction: pilot ward, first wave | 53 | low |
-| 3 after the introduction: pilot ward, second wave | 24 | low |
+| 2 after the introduction: pilot ward, first wave | 56 | low |
+| 3 after the introduction: pilot ward, second wave | 26 | low |
 | 4 courtesy notice after the pilot introductions | 10 | low |
 | 5 if the pilot widens: non-pilot council | 5 | low |
 | 6 later: non-pilot ward | 11 | low |
-| 7 later wave or locate first | 43 | low |
+| 7 later wave or locate first | 38 | low |
 
 ## High and medium: deliver first
 
@@ -69,9 +69,9 @@ Wards and villages (all low until their council introduces us), by council and w
 | Council | First wave (up to 10 km) | Second wave (10 to 20 km) | Later wave (over 20 km) | Locate first |
 |---|---:|---:|---:|---:|
 | Arusha City Council | 23 | 1 | 0 | 2 |
-| Arusha District Council | 14 | 6 | 3 | 3 |
-| Hai District Council | 2 | 10 | 0 | 4 |
-| Meru District Council | 14 | 7 | 2 | 3 |
+| Arusha District Council | 16 | 6 | 3 | 1 |
+| Hai District Council | 2 | 12 | 0 | 2 |
+| Meru District Council | 15 | 7 | 3 | 1 |
 | Monduli District Council | 0 | 1 | 4 | 0 |
 | Moshi District Council | 0 | 1 | 3 | 0 |
 | Moshi Municipal Council | 0 | 3 | 15 | 0 |

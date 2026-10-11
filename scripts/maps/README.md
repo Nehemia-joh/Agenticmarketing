@@ -24,7 +24,21 @@ python scripts/maps/build_lead_map.py    # read-only on the databases; prints co
   3. a unique, exact name match to a named OpenStreetMap feature
   4. the locality or address against the offline gazetteers (`data/reference/lead-gazetteer.txt`, `collect_partner_leads.js` and the basemap's place names)
 
-  Steps 3 and 4 give an estimated location, drawn with a dashed outline. Leads at one spot are laid on a small spiral so each can be clicked. Leads outside the map box (3.75 to 2.95 S, 36.30 to 37.55 E) or with no location are listed in the page, not drawn.
+  Steps 3 and 4 give an estimated location, drawn with a dashed outline. A master point placed only to a locality (`geocode_precision` locality, town or city) is also drawn as estimated. In step 4 a place in the map area wins over a longer place name elsewhere in the same text, and roads named after other towns ('Dodoma Road', 'Nairobi Rd') are ignored. Leads at one spot are laid on a small spiral so each can be clicked. Leads outside the map box (3.75 to 2.95 S, 36.30 to 37.55 E) or with no location are listed in the page, not drawn; a lead checked by the location research (`data/raw/geocode-research/geocodes_<date>.jsonl`) says so.
+- **Funders** whose own office has no point in the map area (usually abroad) are drawn, estimated, at the home or programme they fund or run, but only where the welfare run records that relationship as verified and the place is itself located in the map area; the nearest such place to a campus is used.
+
+## Placing more leads
+
+```powershell
+python scripts/maps/collect_geocodes.py targets                     # the leads to place, by the map's own rules
+python scripts/maps/collect_geocodes.py sites --scope unplaced --fetch   # pins on the organisations' own websites
+python scripts/maps/collect_geocodes.py osm                         # named OpenStreetMap features (Overpass, cached)
+python scripts/maps/collect_geocodes.py nominatim --scope unplaced  # street addresses
+# review the candidates in runtime/geocode/, write accepted points to data/raw/geocode-research/geocodes_<date>.jsonl
+python scripts/master/apply_geocodes.py            # preview; --apply merges into the master and the runs' links.json
+```
+
+Then recompute the master's distances and reach (`recompute_campus_distances.py --apply`, `rank_employer_reach.py --apply`), rebuild the workbook, run both run pipelines and rebuild this map. A point needs its source URL, the date read, the coordinates or excerpt as found, a precision (point, address or locality) and the basis; a coordinate pair that several unrelated websites share is a listing platform's default for the town, not a pin, and is not used.
 - **Nearest campus and distance** are straight-line, from the master's `campuses` table.
 
 ## Map views

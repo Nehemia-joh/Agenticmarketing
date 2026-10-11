@@ -62,6 +62,8 @@ ALIASES = {"themi": (-3.3900, 36.7000), "unga limited": (-3.3760, 36.6780), "kia
            "kilimanjaro international airport": (-3.4290, 37.0745), "hai": (-3.3342, 37.1383), "arumeru": (-3.3714, 36.8582)}
 OUTSIDE = re.compile(r"dar es salaam|\bdsm\b|mwanza|nairobi|nanyuki|zanzibar|dodoma|tanga|iringa|morogoro|mbeya|kigoma|babati|karatu|"
                      r"mto wa mbu|monduli|loliondo|serengeti|ngorongoro|kinondoni|ilala|national", re.I)
+# Roads in Arusha named after other towns ('Dodoma Road', 'Nairobi Rd') say nothing about where a lead is.
+TOWN_ROADS = re.compile(r"\b(?:dodoma|nairobi|namanga|babati)\s*[-–]?\s*(?:road|rd)\b\.?", re.I)
 EMAIL = re.compile(r"[^\s;,/<>()]+@[^\s;,/<>()]+\.[a-z]{2,}", re.I)
 PHONE = re.compile(r"(?:\+|\b0)\d[\d\s-]{7,}\d")   # +255 ... or 07..., not ISO dates
 
@@ -161,12 +163,17 @@ class Locator:
     def text(self, *values, specific_only: bool = False) -> tuple | None:
         """(lat, lon, place, precision) from a locality or address, most specific name first. A gazetteer name of three letters
         (Hai) counts; a basemap place name needs four. specific_only skips the town fallbacks (Arusha, Moshi, Usa River)."""
-        raw = " ".join(str(v or "") for v in values)
+        raw = TOWN_ROADS.sub(" ", " ".join(str(v or "") for v in values))
         t = " " + re.sub(r"\s+", " ", re.sub(r"[^a-z' ]", " ", raw.lower().replace("-", " "))) + " "
+        first = None
         for k in self.keys:
             if (len(k) >= 4 or k in self.gaz) and f" {k} " in t:
                 lat, lon = self.lookup[k]
-                return lat, lon, k.title(), "locality"
+                if in_box(lat, lon):  # a place in the map area wins over a longer name elsewhere ('Njiro, Arusha' before 'Dar es Salaam')
+                    return lat, lon, k.title(), "locality"
+                first = first or (lat, lon, k.title(), "locality")
+        if first:
+            return first
         if specific_only:
             return None
         if " moshi " in t:
@@ -206,6 +213,8 @@ def place_master(org, orgs, dup_of, loc: Locator):
     """(lat, lon, precision, how) for a master organisation; precision exact, estimated, outside or none."""
     lat, lon = num(org.get("latitude")), num(org.get("longitude"))
     if lat is not None and lon is not None:
+        if str(org.get("geocode_precision") or "").lower() in ("locality", "town", "city"):  # a reviewed point placed only to a locality
+            return lat, lon, "estimated", f"the record's own point, placed to the {org['geocode_precision'].lower()}"
         return lat, lon, "exact", "the record's own map point"
     for d in dup_of.get(org["organisation_id"], []):
         o = orgs.get(d) or {}
@@ -223,7 +232,7 @@ def place_master(org, orgs, dup_of, loc: Locator):
     if not found and (not away or IN_REGION.search(address)):
         # A place in the catchment named in the address wins over an outside locality only when the address also names the region.
         found = loc.text(address, specific_only=True)
-    if not found and (away or OUTSIDE.search(address)):
+    if not found and (away or OUTSIDE.search(TOWN_ROADS.sub(" ", address))):
         return None, None, "outside", f"located outside the map area ({locality or 'address'})"
     if not found:
         found = loc.text(locality if locality != CITY_UNSPECIFIED else "", address)
@@ -304,7 +313,7 @@ def build_leads(loc: Locator, today: str):
         leads.append({"seg": seg, "name": E.L.display_name(org["name"], org["organisation_id"]), "sub": sub, "conf": conf,
                       "why": why, "names": [contact["name"]] if contact else [], "route": route, "role": role,
                       "draft": "Draft ready for review" if p["review_status"] == "Draft review" else (p["review_status"] or ""),
-                      "tier": tier, "lat": lat, "lon": lon, "prec": prec, "how": how})
+                      "tier": tier, "lat": lat, "lon": lon, "prec": prec, "how": how, "key": ("master", p["organisation_id"])})
 
     # Master records with no chosen plan: excluded layer.
     chosen = {p["organisation_id"] for p in plans}
@@ -323,6 +332,19 @@ def build_leads(loc: Locator, today: str):
 
     # --- welfare
     row_by_wplan = {r["plan_id"]: r for r in w_rows}
+    # A funder with no point near the campuses (its office is usually abroad) is shown at the home or programme it funds or runs,
+    # but only where the welfare run records that relationship as verified, and the place is itself located in the map area.
+    w_orgs = {r["organisation_id"]: dict(r) for r in w.execute("SELECT organisation_id, name, segment, latitude, longitude, geocode_precision, distance_km FROM organisations")}
+    funded_at = {}
+    for r in w.execute("SELECT from_organisation_id, to_organisation_id, relationship_type FROM organisation_relationships "
+                       "WHERE verification_status='verified' AND relationship_type IN ('funds', 'operates')"):
+        t = w_orgs.get(r["to_organisation_id"]) or {}
+        tlat, tlon = num(t.get("latitude")), num(t.get("longitude"))
+        if not t or t["segment"] in ("Welfare funder", "Out of scope") or tlat is None or not in_box(tlat, tlon):
+            continue
+        best = funded_at.get(r["from_organisation_id"])
+        if best is None or (t["distance_km"] or 99) < (best[0]["distance_km"] or 99):
+            funded_at[r["from_organisation_id"]] = (t, r["relationship_type"])
     for mid, p in wplans.items():
         row = row_by_wplan.get(mid)
         conf, why = conf_of(row)
@@ -334,8 +356,15 @@ def build_leads(loc: Locator, today: str):
         route = "email" if row is not None else ("phone only" if re.search(r"\d{6}", re.sub(r"\D", "", p["route_value"] or "")) else "none")
         lat, lon = num(p["latitude"]), num(p["longitude"])
         prec_db = p["geocode_precision"] or ""
-        if lat is None:
-            prec, how = "none", "no location on file" + (" (funders are often based abroad)" if p["segment"] == "Welfare funder" else "")
+        if p["segment"] == "Welfare funder" and (lat is None or not in_box(lat, lon)) and p["organisation_id"] in funded_at:
+            t, kind = funded_at[p["organisation_id"]]
+            where = "its own office has no recorded location" if lat is None else f"its own office is outside the map area ({p['locality'] or 'elsewhere'})"
+            lat, lon = num(t["latitude"]), num(t["longitude"])
+            prec, how = "estimated", (f"shown at {E.L.display_name(t['name'], t['organisation_id'])}, which it {'funds' if kind == 'funds' else 'runs'} "
+                                      f"(a verified relationship in the welfare run); {where}")
+        elif lat is None:
+            prec, how = "none", ("a funder with no local point: no office location on file and no verified link to a home or programme near the campuses (most are abroad)"
+                                 if p["segment"] == "Welfare funder" else "no location on file")
         elif not in_box(lat, lon):
             prec, how = "outside", f"located outside the map area ({p['locality'] or 'elsewhere in Tanzania or abroad'})"
             lat = lon = None
@@ -347,7 +376,7 @@ def build_leads(loc: Locator, today: str):
                       "sub": {"kind": WELFARE_KIND.get(p["segment"], p["segment"]), "priority": p["priority"] or "Low"}, "conf": conf, "why": why,
                       "names": [recipient.split("(")[0].strip()], "route": route, "role": role,
                       "draft": "Draft ready for review" if p["review_status"] == "draft_ready" else "Needs review",
-                      "tier": p["priority"] or "", "lat": lat, "lon": lon, "prec": prec, "how": how})
+                      "tier": p["priority"] or "", "lat": lat, "lon": lon, "prec": prec, "how": how, "key": ("welfare", p["organisation_id"])})
     for o in w.execute("SELECT * FROM organisations WHERE segment='Out of scope'"):
         lat, lon = num(o["latitude"]), num(o["longitude"])
         ok = lat is not None and in_box(lat, lon)
@@ -385,10 +414,26 @@ def build_leads(loc: Locator, today: str):
         leads.append({"seg": "gov", "name": o["name"], "sub": {"level": level, "band": band, "pilot": "yes" if d["council"] in pilots else "no"},
                       "conf": d["confidence"], "why": d["confidence_reason"], "names": [], "route": "letter by hand" + (" (and an official inbox)" if d["official_email"] else ""),
                       "role": letter_to, "draft": ("Letter ready" if d["draft_status"] == "draft_ready" else "Held") + f"; release order {d['release_order']}",
-                      "tier": d["release_order"], "council": d["council"], "lat": lat, "lon": lon, "prec": prec, "how": how})
+                      "tier": d["release_order"], "council": d["council"], "lat": lat, "lon": lon, "prec": prec, "how": how,
+                      "key": ("government", o["organisation_id"])})
     return campuses, leads, excluded, {n.strip() for n in person_names if n and len(n.strip()) >= 4}, {
         "c_rows": c_rows, "w_rows": w_rows, "kept": kept, "dropped": dropped_strings, "c_skip": c_skip, "w_skip": w_skip,
         "delivery": delivery, "plans": plans, "wplans": wplans}
+
+
+def location_checks() -> dict:
+    """Why a lead is still unplaced after the location research (data/raw/geocode-research/geocodes_*.jsonl): the reason
+    only, never the address text."""
+    out = {}
+    for path in sorted((ROOT / "data" / "raw" / "geocode-research").glob("geocodes_*.jsonl")):
+        day = path.stem.split("_")[-1]
+        for line in path.read_text(encoding="utf-8").splitlines():
+            r = json.loads(line) if line.strip() else {}
+            if r.get("status") == "outside_confirmed":
+                out[(r["db"], r["organisation_id"])] = f"located outside the map area (checked {day}: no office found near the campuses)"
+            elif r.get("status") == "not_found":
+                out[(r["db"], r["organisation_id"])] = f"no location found yet (checked {day}; listed for a map lookup)"
+    return out
 
 
 # ------------------------------------------------------------------ geometry
@@ -518,6 +563,7 @@ def main() -> int:
             l["prec"], l["how"], l["lat"], l["lon"] = "outside", "located outside the map area", None, None
     spread([l for l in leads + excluded if l["lat"] is not None])
     seg_code = {"emp": 0, "int": 1, "wel": 2, "gov": 3}
+    checked = location_checks()
     out_leads, unmapped = [], []
     by_length = sorted(person_names, key=len, reverse=True)
     for i, l in enumerate(sorted(leads, key=lambda l: (seg_code[l["seg"]], l["name"].lower()))):
@@ -527,7 +573,8 @@ def main() -> int:
         if l["seg"] == "gov":
             rec["k"] = l.get("council", "")
         if l["lat"] is None:
-            unmapped.append({"n": l["name"], "s": l["seg"], "c": l["conf"], "why": l["how"]})
+            why = checked.get(l.get("key"), l["how"])
+            unmapped.append({"n": l["name"], "s": l["seg"], "c": l["conf"], "why": why})
             continue
         camp, km = nearest(campuses, l["lat"], l["lon"])
         rec.update({"la": round(l["lat"], 5), "lo": round(l["lon"], 5), "e": 0 if l["prec"] == "exact" else 1, "cp": camp, "km": km,

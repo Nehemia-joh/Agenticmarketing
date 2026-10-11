@@ -1228,6 +1228,49 @@ def main() -> int:
                        "campus": "", "distance_km": None, "linked_office": "",
                        "note": "Unnamed office points cannot be identified as conveners; not imported."})
 
+    # Villages below ward level (run config 'subward_units_files', written by scripts/collection/build_gap_census.py): each village of a
+    # rural council in scope, mapped within the catchment, becomes a village office (GA00 Hold, reached through the council and the ward
+    # executive officer). Its ward is estimated (nearest ward point) unless the village shares the ward's name; a review item says so.
+    # Mitaa (urban) and vitongoji are listed in the file but not imported: the run has no mtaa level yet.
+    scope_names = {c["name"] for c in council_scope}
+    have_village = {(o.get("council_name"), G.squash(o.get("admin_unit_name", ""))) for o in offices if o["office_level"] == "village"}
+    have_osm = {o.get("osm_id") for o in offices if o.get("osm_id")}
+    for path in W.resolve_globs(cfg.get("subward_units_files", [])):
+        units_file = json.loads(path.read_text(encoding="utf-8"))
+        for u in units_file.get("units", []):
+            council_name = u.get("council", "")
+            if u.get("unit_level") != "village" or not u.get("proposed") or council_name not in scope_names or councils[council_name].get("urban"):
+                continue
+            if u["osm_id"] in have_osm or (council_name, G.squash(u["name"])) in have_village or G.exclusion_reason(u["name"]):
+                continue
+            fields = campus_fields(u["latitude"], u["longitude"], campuses, clusters)
+            if fields["distance_km"] is None or fields["distance_km"] > cfg["catchment_km"]:
+                continue
+            office_point = u.get("location_kind") == "office point"
+            rec = {"record_key": f"GOFF_village_{slug(u['osm_id'])}", "slug": f"village-{slug(u['osm_id'])}",
+                   "name": f"Ofisi ya Kijiji cha {u['name']} ({council_name})", "office_level": "village",
+                   "segment": "Local government office: ward, village or mtaa", "region": councils[council_name]["region"],
+                   "council_name": council_name, "admin_unit_level": "village", "admin_unit_name": u["name"], "parent_admin_unit": u.get("ward", ""),
+                   "domain": "", "website": "", "locality": u["name"], "lat": u["latitude"], "lon": u["longitude"],
+                   "geocode_precision": "address" if office_point else "estimated",
+                   "location_source": "openstreetmap office" if office_point else "openstreetmap place (village centre)",
+                   "location_ref": u["osm_id"], "osm_id": u["osm_id"], "source_url": u["source_url"], "source_path": u.get("source_path", path.relative_to(G.ROOT).as_posix()),
+                   "source_location": u["osm_id"], "evidence_basis": "directory", "verification_status": "needs_review", "convening_forum": FORUMS["village"],
+                   "pdpa_risk": "low", "pdpa_risk_reason": "Public office; organisation-level facts only.", "proposed_government_track": "GA00 Hold",
+                   "track_reason": "Reach through the council introduction (GA01) and the ward executive officer first.",
+                   "missing_information": "Village executive officer and chairperson; village assembly calendar; confirm the village and its ward with the council.",
+                   **{k: fields[k] for k in ("campus", "distance_km", "transport_band", "nearest_primary_campus", "distance_to_primary_km", "primary_band", "campus_cluster")}}
+            rec["all_sources"] = [source(u["source_url"], f"OpenStreetMap: {u['name']} ({u.get('osm_place') or 'village'})", "directory", units_file.get("retrieved", date),
+                                         ["village exists", "village location"])]
+            if not u.get("ward_confirmed"):
+                reviews.add("village_office_ward_estimated", rec["name"], {"osm_id": u["osm_id"], "council": council_name, "ward": u.get("ward", ""),
+                                                                           "basis": u.get("ward_basis", "")},
+                            "Confirm which ward this village belongs to (the council's village list) before any letter.")
+            offices.append(rec)
+            make_posts(rec, "village", None, {})
+            have_village.add((council_name, G.squash(u["name"])))
+            have_osm.add(u["osm_id"])
+
     # Reviewed office points (links.json office_locations, keyed by record key) for offices no official map or OpenStreetMap
     # office places: each carries its source URL, the date read and the coordinates as found. Never replaces a point.
     for o in offices:

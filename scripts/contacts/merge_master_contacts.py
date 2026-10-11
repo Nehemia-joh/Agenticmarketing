@@ -9,6 +9,9 @@ Reads runtime/contacts/profiles.json (build_contact_profiles.py). Two stages:
   values to review, insert the new named contacts with their evidence, and move held drafts (AQ00) whose only gap was
   a missing route to 'Draft review'. Run scripts/messaging/draft_master_messages.py and
   scripts/master/refresh_acquisition_metadata.py afterwards so the new contacts get drafts and tracks.
+  The address field takes the shortest specific physical address (a street, plot, building or number), else a P.O. Box.
+- --backfill-addresses [--apply]: fill empty addresses from every earlier wave's search and browser records that an earlier
+  merge registered (merges before 2026-10-11 kept only a P.O. Box); preview by default.
 """
 from __future__ import annotations
 
@@ -173,6 +176,18 @@ def best_phone(profile) -> str:
     return ""
 
 
+# A physical address is specific enough for the address field when it names a street, plot, building or floor, or carries a
+# number; 'Arusha, Tanzania' or 'Njiro, Arusha' stays a fact only.
+SPECIFIC_ADDRESS = re.compile(r"\d|\b(road|rd|street|st|avenue|drive|plot|block|house|building|plaza|tower|floor|wing|centre|center|"
+                              r"mall|complex|opposite|near|barabara|mtaa)\b", re.I)
+
+
+def best_address(profile) -> str:
+    """The address-field value: the shortest specific physical address, else the first P.O. Box."""
+    physical = sorted((a for a in profile["physical"] if SPECIFIC_ADDRESS.search(a) and len(a) <= 160), key=len)
+    return physical[0] if physical else (profile["postal"][0] if profile["postal"] else "")
+
+
 def raw_files(run_date: str) -> list:
     files = [C.RAW / f"website_contacts_{run_date}.jsonl", C.RAW / f"osm_contacts_{run_date}.json"]
     files += sorted(C.RAW.glob(f"search_*_{run_date}.jsonl")) + sorted(C.RAW.glob(f"browser_*_{run_date}.jsonl"))
@@ -242,17 +257,65 @@ def intake(profiles, run_date, orgs) -> list[dict]:
     return rows
 
 
+def backfill_addresses(database: Path, apply: bool) -> int:
+    """Fill empty organisation addresses from every earlier wave's search and browser records (merges before 2026-10-11 kept
+    only a P.O. Box). Uses only records an earlier merge registered (its 'contact profile <oid> (<date>)' source record), so
+    each filled address and its physical_address fact stay traceable. Preview by default; with apply, one transaction."""
+    con = sqlite3.connect(database)
+    empty = {oid: name for oid, name in con.execute("SELECT organisation_id, name FROM organisations WHERE COALESCE(address,'')=''")}
+    found = {}
+    for path in sorted(list(C.RAW.glob("search_*.jsonl")) + list(C.RAW.glob("browser_*.jsonl"))):
+        stamp = re.search(r"\d{4}-\d\d-\d\d", path.name)
+        for line in path.read_text(encoding="utf-8").splitlines():
+            try:
+                r = json.loads(line)
+            except ValueError:
+                continue
+            if r.get("db") != "master" or r.get("organisation_id") not in empty or r.get("identity") == "uncertain" or not stamp:
+                continue
+            record = hid("R", "contact-research", stamp.group(0), r["organisation_id"])
+            entry = found.setdefault(r["organisation_id"], {"physical": [], "postal": [], "record": {}})
+            for field, target in (("physical_address", "physical"), ("postal_address", "postal")):
+                value = r.get(field)
+                value = value.get("value") if isinstance(value, dict) else value
+                if value:
+                    entry[target].append(str(value)[:120])
+                    entry["record"].setdefault(str(value)[:120], record)
+    registered = {rid for (rid,) in con.execute("SELECT record_id FROM source_records WHERE location LIKE 'contact profile %'")}
+    fills = []
+    for oid, entry in found.items():
+        address = best_address(entry)
+        if address and entry["record"][address] in registered:
+            fills.append((oid, address, entry["record"][address], entry["physical"]))
+    for oid, address, _, _ in fills:
+        print(f"{empty[oid][:40]} | {address}")
+    print(f"{len(fills)} of {len(empty)} empty addresses can be filled from earlier research")
+    if apply:
+        with con:
+            for oid, address, record, physical in fills:
+                con.execute("UPDATE organisations SET address=? WHERE organisation_id=? AND COALESCE(address,'')=''", (address, oid))
+                for value in physical:
+                    con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                                (hid("X", oid, "physical_address", value), "organisation", oid, "physical_address", value, record))
+        print("applied")
+    con.close()
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--database", default=str(MASTER), help="the master database (a temporary copy for a trial run)")
+    parser.add_argument("--backfill-addresses", action="store_true", help="fill empty addresses from earlier waves' research")
     args = parser.parse_args()
-    data = json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))
+    if args.backfill_addresses:
+        return backfill_addresses(Path(args.database), args.apply)
+    data =json.loads((C.WORK / "profiles.json").read_text(encoding="utf-8"))
     run_date = data["date"]
     researched = {oid for (oid,) in sqlite3.connect(f"file:{Path(args.database).resolve().as_posix()}?mode=ro", uri=True).execute(
         "SELECT substr(location, 17, instr(substr(location, 17), ' ') - 1) FROM source_records WHERE location LIKE 'contact profile %'")}
     # Organisations with findings, warnings, or an earlier research record (whose facts must be brought up to date).
-    profiles = [p for p in data["profiles"] if p["db"] == "master" and (p["emails"] or p["phones"] or p["websites"] or p["people"] or p["postal"]
+    profiles = [p for p in data["profiles"] if p["db"] == "master" and (p["emails"] or p["phones"] or p["websites"] or p["people"] or p["postal"] or p["physical"]
                                                                           or C.note_flags(p.get("notes")) or p["organisation_id"] in researched)]
     database = Path(args.database)
     con = sqlite3.connect(database)
@@ -338,8 +401,9 @@ def main() -> int:
                              "replace the field after checking it."))
                 stats["reviews"] += 1
             unsupported_routes(con, oid, org, p, record, stats)
-            if p["postal"] and not org["address"]:
-                updates["address"] = p["postal"][0]
+            address = best_address(p)
+            if address and not org["address"]:
+                updates["address"] = address
             for field, value in updates.items():
                 con.execute(f"UPDATE organisations SET {field}=? WHERE organisation_id=? AND COALESCE({field},'')=''", (value, oid))
                 stats["fields_filled"] += 1
@@ -347,6 +411,7 @@ def main() -> int:
                 stats["organisations_updated"] += 1
             facts = [("website", w) for w in p["websites"]] + [(f"email ({e['type']})", e["email"]) for e in p["emails"]]
             facts += [(f"phone ({x['type']})", x["phone"]) for x in p["phones"]] + [("postal_address", a) for a in p["postal"]]
+            facts += [("physical_address", a) for a in p["physical"]]
             facts += [(f"social ({k})", v) for k, v in p["socials"].items()]
             # The research record was just replaced with the current profile, so its facts are replaced with it: every fact
             # stays traceable to what that record now holds (a later wave may drop a value an earlier one found).

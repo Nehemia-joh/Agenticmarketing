@@ -16,6 +16,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import re
 from collections import defaultdict
 
 import contact_lib as C
@@ -70,7 +71,10 @@ def main() -> int:
         website = candidate[identity(p)]
         if website and not keeps_website(identity(p), website):
             website = ""
-        org_emails = [e["email"] for e in p["emails"] if e["type"] in ("role", "general", "personal_domain")]
+        # The organisation's general inbox first (info@, contact@, office@ ...), so a deeper crawl that reaches a desk's inbox first
+        # (assistantbishop@) does not change the run's route (11 October 2026).
+        org_emails = sorted((e["email"] for e in p["emails"] if e["type"] in ("role", "general", "personal_domain")),
+                            key=lambda a: not re.match(r"(info|contact|contacts|office|admin|hello|enquiries|enquiry|mail)@", a))
         personal = [e for e in org_emails if W.PERSONAL_EMAIL.search(e)]
         socials = {k if k in ("facebook", "instagram", "youtube", "linkedin") else ("x" if k == "twitter" else "other"): v for k, v in p["socials"].items()}
         risk, reason = (("medium", "The organisation publishes an inbox on a personal email domain; confirm it is the official address.") if personal

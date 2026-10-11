@@ -640,3 +640,33 @@ The bracket depends on decision D4. Drop it if D4 is (a).
 The user approved every recommended option, D1–D15, including the rule wording in section 8.5 and the consistency edits. These are applied to `.claude/CLAUDE.md`, `docs/methodology/contact-research.md`, `AGENTS.md` and `skills/silverleaf-create-lead-list/SKILL.md`.
 
 The user also asked that each inferred candidate be checked with one web search for the exact address in quotes. A hit counts only when a public page publishes that exact address for that person; the page then becomes a source through the normal research files. This is added to the methodology's "Email formats" rules and runs after T4 generates the candidates, drawn from the plan's top-up searches.
+
+## T1 results (11 October 2026, no web search)
+
+**What was run:**
+- Deep crawl: 627 pool sites, up to 15 pages each. It read 3,880 pages from 563 readable sites; blocks were recorded and robots.txt honoured.
+- `extract_direct_emails.py`: 7 addresses tied to people on file (3 same block, 1 name-matched, 3 role inboxes), written to `website_direct_2026-10-11.jsonl`.
+- Profiles, then the people screen (54 new reviewed exclusions for global-parent pages and misreads), the validator, the preflight and the merge: 149 contacts inserted, 141 twins skipped.
+- `update_master_contacts.py`: 4 `named_email` and 3 `published_role_email` values filled.
+- Drafts, recipients, tracks and reach tiers; both runs rebuilt; workbook, map and Resend export rebuilt; `verify_master`, both run verifiers and the `--check` invariants all passed.
+
+**High-direct:**
+
+| Segment | Before | After |
+|---|---|---|
+| companies-high-direct | 30 | 34 |
+| introducers-high-direct | 2 | 3 |
+| welfare-high-direct | 12 | 12 |
+
+None of the 44 earlier rows was lost.
+- Gained: Easy Travel (gm@), Joash Africa (own address), Moshi Co-operative University (vc@), Myriad Safari (own address, newly named founder), and CSSC (introducer, own address).
+- 10 companies moved from medium to high-indirect (a named decision-maker found on deep pages).
+
+**Corrections to the phase 1 plan:**
+- TAEC's `dg@` belongs to the Director General, not the chosen recipient, so it is not a D-1 case.
+- The welfare run already applies "a chair only if no executive is named". The chairs listed in 1.4 have no executive on file, so no fix was needed.
+
+**D8:**
+- Sunflag's "Key Contacts" is in `recipient-overrides.json` `excluded_contacts`. The lead is now medium, on the organisation's inbox.
+- Tabasamu's quoted public figure is in the welfare `links.json` `recipient_exclusions`. The lead is now medium.
+- The crawler now skips a quotation's attribution line.

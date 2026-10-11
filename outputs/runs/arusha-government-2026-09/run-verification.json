@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-11T14:40:31.912821+00:00",
+ "checked_at": "2026-10-11T17:50:10.345512+00:00",
  "run_id": "arusha-government-2026-09",
  "result": "passed",
  "checks": {
@@ -35,37 +35,37 @@
   "skill_script_copies_in_sync": true
  },
  "db_counts": {
-  "organisations": 230,
-  "contacts": 622,
+  "organisations": 228,
+  "contacts": 618,
   "enquiries": 0,
-  "outreach_plans": 230,
+  "outreach_plans": 228,
   "automation_recipes": 0,
   "admin_units": 231,
-  "government_office_profiles": 230,
-  "official_posts": 622,
+  "government_office_profiles": 228,
+  "official_posts": 618,
   "community_events": 0,
   "office_triage": 42,
   "master_triage": 33,
   "convening_signals": 285,
   "review": 126,
-  "source_records": 852,
-  "source_files": 47
+  "source_records": 846,
+  "source_files": 48
  },
  "intake_by_type": {
-  "organisation": 230,
-  "contact": 622,
+  "organisation": 228,
+  "contact": 618,
   "enquiry": 0
  },
  "sheet_rows": {
-  "Organisations": 230,
-  "Contacts": 622,
+  "Organisations": 228,
+  "Contacts": 618,
   "Administrative Units": 231,
   "Community Events": 0,
   "Office Triage": 42,
   "Master Triage": 33,
   "Convening Signals": 285,
   "Review Queue": 126,
-  "Outreach Plans": 230
+  "Outreach Plans": 228
  },
  "details": {
   "missing_risk": [],
@@ -78,14 +78,14 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-11T17:40:21",
-   "master_db_sha256": "f6cee695056b3abaa161488830e40e880e2c824d40802ce0dff4f46977f65426",
+   "recorded_at": "2026-10-11T20:49:58",
+   "master_db_sha256": "0f59200a91baa15d958558e31ce3e6c93f6da7428fb29a20d050b6915f267d66",
    "master_workbook_sha256": "e6a21022b0f1466cc937f450414e6cb5854699965ae70e1b81c9c428c35cbd84"
   },
   "script_copies_out_of_sync": [],
   "catchment_wards_without_office": 0,
   "ga02_rows": 0,
   "message_issues": [],
-  "messages_checked": 469
+  "messages_checked": 465
  }
 }

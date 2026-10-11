@@ -4,7 +4,8 @@
 merge_master_contacts.py inserts the new people a wave finds and skips everyone already on file, so a wave that re-reads
 a known person's own page (finding their published work email, their current title, or simply confirming them) had no
 way into the master. This script is that way, following silverleaf-update-lead-list: it reads the wave's research records
-(data/raw/contact-research/search_*_<date>.jsonl and browser_*_<date>.jsonl, the agent-brief format), matches each
+(data/raw/contact-research/search_*_<date>.jsonl, browser_*_<date>.jsonl and website_direct_<date>.jsonl, the agent-brief
+format; --only limits it to named files), matches each
 person to a contact of the same organisation (same normalised name, or the same person written two ways), and:
 - fills an empty work email (named_email) or direct phone (role_phone), only when the same fetched source links it to that
   person and the address is not on a free-mail domain;
@@ -12,7 +13,11 @@ person to a contact of the same organisation (same normalised name, or the same 
   the title the source gives; any other differing title becomes a review item, never an overwrite;
 - notes 'role confirmed <date> (<url>)' on the contact when the person was read on a fetched page, and releases drafts
   held only because hook research could not confirm the role;
-- points the person's draft at their newly found work email when the draft had no email route.
+- points the person's draft at their newly found work email when the draft had no email route;
+- (11 October 2026, high-direct plan) a person's email_link 'role inbox for role' fills published_role_email instead of named_email,
+  and neither it nor 'name-matched on own site' confirms the role; an address from a risky source (robots.txt disallows, or the
+  person marked risky) is never filled but becomes a review item (D6); an address from a third-party directory counts only on the
+  organisation's own domain and dated within 24 months (D3).
 Only people a research agent recorded with identity confirmed and fetched: true are used; snippets change nothing.
 Every change is recorded as a fact with its source record. Nothing is deleted.
 
@@ -49,8 +54,43 @@ def hid(prefix: str, *parts) -> str:
 
 
 def files_for(run_date: str) -> list[Path]:
+    """The wave's research files: search agents, browser readers, and the own-site addresses extract_direct_emails.py found in the
+    crawl cache (website_direct_<date>.jsonl, added 11 October 2026 so people already on file can gain an address from a crawl)."""
     raw = ROOT / "data" / "raw" / "contact-research"
-    return sorted(raw.glob(f"search_*_{run_date}.jsonl")) + sorted(raw.glob(f"browser_*_{run_date}.jsonl"))
+    return (sorted(raw.glob(f"search_*_{run_date}.jsonl")) + sorted(raw.glob(f"browser_*_{run_date}.jsonl"))
+            + sorted(raw.glob(f"website_direct_{run_date}.jsonl")))
+
+
+# Ties of an address to a person that do not show the person's role on the same page: the role is not confirmed by them.
+NO_ROLE_CONFIRMATION = {"name-matched on own site", "role inbox for role"}
+DIRECTORY_MAX_AGE_DAYS = 730  # D3: a directory entry counts when dated within 24 months
+
+
+def org_domains(con) -> dict:
+    """{organisation_id: registrable domains of its website}."""
+    out = {}
+    for oid, website in con.execute("SELECT organisation_id, website FROM organisations"):
+        try:
+            host = W.own_domain(str(website or "").split()[0]) if str(website or "").strip() else ""
+        except ValueError:  # a website field holding free text
+            host = ""
+        out[oid] = {C.registrable(host)} if host else set()
+    return out
+
+
+def directory_ok(p: dict, record: dict, domains: set) -> str:
+    """'' when a directory-sourced address may be used (D3, 11 October 2026): on the organisation's own domain and the entry dated
+    within 24 months; else the reason it is not."""
+    email = str(p.get("email") or "").lower()
+    if not email or C.registrable(email.split("@")[-1]) not in domains:
+        return "directory address not on the organisation's own domain"
+    dated = str(p.get("source_date") or next((s.get("source_date") for s in record.get("sources") or [] if s.get("url") == p.get("source_url")), "") or "")
+    accessed = next((s.get("accessed_on") for s in record.get("sources") or [] if s.get("accessed_on")), "") or date.today().isoformat()
+    try:
+        age = (date.fromisoformat(accessed[:10]) - date.fromisoformat(dated[:10])).days
+    except ValueError:
+        return "directory entry undated"
+    return "" if 0 <= age <= DIRECTORY_MAX_AGE_DAYS else "directory entry older than 24 months"
 
 
 def plain(text) -> str:
@@ -67,6 +107,7 @@ def plan_updates(con, files: list[Path]) -> tuple[list[dict], Counter]:
     for c in con.execute("SELECT * FROM contacts"):
         contacts.setdefault(c["organisation_id"], []).append(dict(c))
     known = {r[0] for r in con.execute("SELECT organisation_id FROM organisations")}
+    domains = org_domains(con)
     out, stats = [], Counter()
     for path in files:
         for line in path.read_text(encoding="utf-8").splitlines():
@@ -88,11 +129,29 @@ def plan_updates(con, files: list[Path]) -> tuple[list[dict], Counter]:
                 email = C.clean_email(str(p.get("email") or ""))
                 if email and W.PERSONAL_EMAIL.search(email):
                     email = ""
+                link = str(p.get("email_link") or "")
                 phone = W.norm_phone(str(p.get("phone") or "")) if p.get("phone") else ""
                 role = plain(p.get("role"))
                 change = {"file": path.name, "organisation_id": oid, "contact_id": c["contact_id"], "name": c["name"], "source_url": p.get("source_url", ""),
                           "accessed_on": next((s.get("accessed_on") for s in r.get("sources") or [] if s.get("accessed_on")), "") or "",
-                          "excerpt": plain(p.get("excerpt"))[:300], "set": {}, "review": ""}
+                          "excerpt": plain(p.get("excerpt"))[:300], "set": {}, "review": "", "email_link": link,
+                          "confirms_role": link not in NO_ROLE_CONFIRMATION}
+                # D6 (11 October 2026): an address from a risky source (a site whose robots.txt disallows crawling, read with a browser, or
+                # a person the source marks risky) is never filled; a person approves it first.
+                if email and (r.get("robots") == "disallowed" or p.get("pdpa_risk") == "risky"):
+                    change["risky_email"] = email
+                    stats["risky-source addresses sent to review"] += 1
+                    email = ""
+                # D3: an address found only on a third-party directory counts when it is on the organisation's domain and dated recently.
+                if email and p.get("source_type") == "directory":
+                    why = directory_ok(p, r, domains.get(oid, set()))
+                    if why:
+                        stats[f"directory addresses not used: {why}"] += 1
+                        email = ""
+                if email and link == "role inbox for role":
+                    if not (c["published_role_email"] or "").strip():
+                        change["set"]["published_role_email"] = email
+                    email = ""
                 if email and not (c["named_email"] or "").strip():
                     change["set"]["named_email"] = email
                 if phone and not (c["role_phone"] or "").strip():
@@ -124,7 +183,7 @@ def apply(con, files: list[Path], changes: list[dict], run_date: str, stats: Cou
                     (record, source_ids[ch["file"]], ch["source_url"] or f"contact {cid}", json.dumps(ch, ensure_ascii=False)))
         con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) SELECT 'contact',?,? WHERE NOT EXISTS "
                     "(SELECT 1 FROM entity_sources WHERE entity_type='contact' AND entity_id=? AND record_id=?)", (cid, record, cid, record))
-        before = dict(con.execute("SELECT role, named_email, role_phone FROM contacts WHERE contact_id=?", (cid,)).fetchone())
+        before = dict(con.execute("SELECT role, named_email, role_phone, published_role_email FROM contacts WHERE contact_id=?", (cid,)).fetchone())
         for field, value in ch["set"].items():
             con.execute(f"UPDATE contacts SET {field}=? WHERE contact_id=?", (value, cid))
             con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
@@ -133,18 +192,27 @@ def apply(con, files: list[Path], changes: list[dict], run_date: str, stats: Cou
                 con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
                             (hid("X", cid, "previous_role", before["role"]), "contact", cid, "previous_role", before["role"], record))
             stats[f"{field} filled"] += 1
+        new_email = ch["set"].get("named_email") or ch["set"].get("published_role_email")
         if ch["set"].get("named_email"):
             con.execute("UPDATE contacts SET contact_route='named_email' WHERE contact_id=?", (cid,))
+        if new_email:
             # The person's own draft goes to the address the source gives them when it had no email route.
             for mid, channel in con.execute("SELECT message_id, contact_channel FROM outreach_plans WHERE target_type='contact' AND target_id=?",
                                             (cid,)).fetchall():
                 if "@" not in str(channel or ""):
-                    new = "; ".join(x for x in (ch["set"]["named_email"], plain(channel)) if x)
+                    new = "; ".join(x for x in (new_email, plain(channel)) if x)
+                    what = "inbox for the person's role" if new_email == ch["set"].get("published_role_email") else "work email published with the person's name"
                     con.execute("UPDATE outreach_plans SET contact_channel=?, channel_attribution=? WHERE message_id=?",
-                                (new, f"Work email published with the person's name ({ch['source_url']})", mid))
+                                (new, f"{what[0].upper()}{what[1:]} ({ch['source_url']})", mid))
                     stats["plans pointed at a new work email"] += 1
+        if ch.get("risky_email"):
+            con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                        (hid("D", "contact-update-risky", cid, ch["risky_email"]), "Contact research: address from a risky source", ch["organisation_id"],
+                         cid, "named_email", f"{ch['name']}: {ch['risky_email']} | {ch['source_url']}"[:400],
+                         "The source is risky (robots.txt disallows crawling, or the person is marked risky). Approve the address before it is "
+                         "recorded through the update skill; until then it is not a route."))
         note = f"role confirmed {day} ({ch['source_url']})"
-        if ch["source_url"] and not ch["review"]:  # a differing title is not a confirmation
+        if ch["source_url"] and not ch["review"] and ch.get("confirms_role", True):  # a differing title is not a confirmation
             con.execute("UPDATE contacts SET verification = COALESCE(verification,'') || ? WHERE contact_id=? AND COALESCE(verification,'') NOT LIKE ?",
                         (f"; {note}", cid, f"%{note}%"))
             stats["roles confirmed"] += 1
@@ -175,8 +243,10 @@ def main() -> int:
     parser.add_argument("--date", default=date.today().isoformat(), help="the research wave's date (file suffix)")
     parser.add_argument("--database", type=Path, default=MASTER)
     parser.add_argument("--apply", action="store_true", help="write the changes in one transaction")
+    parser.add_argument("--only", nargs="+", default=[], metavar="FILE_NAME",
+                        help="use only these research files of the date (for example website_direct_<date>.jsonl), not every file of the wave")
     args = parser.parse_args()
-    files = files_for(args.date)
+    files = [f for f in files_for(args.date) if not args.only or f.name in args.only]
     if not files:
         raise SystemExit(f"No research files for {args.date}.")
     con = sqlite3.connect(args.database)

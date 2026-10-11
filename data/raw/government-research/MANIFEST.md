@@ -34,6 +34,7 @@ Evidence behind the government runs, most recently `arusha-government-2026-09`. 
 | `nbs_2022_councils_2026-09-23.json` | `52e4f7e8537e6804…` | Council totals, table references and the ward-sum reconciliation; report SHA-256 |
 | `nbs_2022_wards_2026-09-23.csv` | `03c4d8b9202bbfeb…` | 2022 census ward populations for the run's councils, with table, PDF page and row locators |
 | `office_contacts_2026-09-23.json` | `db00fc6cfdb2062c…` | Published office routes (email, phone, postal and physical address) with their sources |
+| `office_contacts_2026-10-11.json` | `29572aefa6c08a80…` | Published office routes (email, phone, postal and physical address) with their sources |
 | `osm_admin_level5_2026-09-23.json` | `370ac786179e8333…` | OpenStreetMap district boundaries (admin_level 5), simplified, with the query |
 | `osm_government_offices_2026-09-23.json` | `b093b0da23f437b6…` | OpenStreetMap government offices (tags and names), with both queries |
 | `osm_named_facilities_2026-09-23.json` | `4486e65e5b514e8a…` | OpenStreetMap schools and health facilities named after catchment wards, with the query; used only through reviewed ward_locations overrides |

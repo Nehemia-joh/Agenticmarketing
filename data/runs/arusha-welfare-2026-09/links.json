@@ -785,5 +785,15 @@
    "source_url": "https://www.inukacommunity.org/contact",
    "decided_on": "2026-10-10"
   }
- ]
+ ],
+ "recipient_exclusions": {
+  "TABASAMU AFRICA ORGANIZATION": [
+   {
+    "name": "Natalie Portman",
+    "reason": "A public figure quoted on the organisation's about page ('— Natalie Portman / Actress, Director and Producer'), read by the crawler as one of its people. She does not lead the organisation, so she is never its addressee or escalation contact; the draft goes to the organisation's inbox until its leader is found (high-direct plan D8, approved 11 October 2026).",
+    "source_url": "https://tabasamuafrica.org/about-tabasamu-africa/",
+    "decided_on": "2026-10-11"
+   }
+  ]
+ }
 }

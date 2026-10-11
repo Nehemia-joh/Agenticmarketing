@@ -15,9 +15,9 @@
   "override_routes": 0,
   "candidates_before": 938,
   "plans_changed": 462,
-  "plans_now_candidate": 163,
-  "plans_now_alternative": 299,
-  "named_contacts_now_candidate": 148
+  "plans_now_candidate": 162,
+  "plans_now_alternative": 300,
+  "named_contacts_now_candidate": 147
  },
  "clusters": [
   {
@@ -1295,12 +1295,6 @@
    "role": "Managing Director / Head Guide"
   },
   {
-   "message_id": "M4ecf7e23b23c",
-   "organisation": "Sunflag Tanzania Limited",
-   "recipient": "Key Contacts",
-   "role": "+255 27 254 9497 – Head of operations."
-  },
-  {
    "message_id": "Mb2ac6aa6e4c6",
    "organisation": "Precision Air",
    "recipient": "Patrick Mwanri",
@@ -2149,6 +2143,12 @@
    "role": "Organisation routing"
   },
   {
+   "message_id": "M0ffe7f0f5e8c",
+   "organisation": "Myriad Safari Limited",
+   "recipient": "Myriad Safari Limited",
+   "role": "Organisation routing"
+  },
+  {
    "message_id": "M7dc449aa264e",
    "organisation": "Ronjoo Safaris",
    "recipient": "Ronjoo Safaris",
@@ -2332,6 +2332,12 @@
    "message_id": "M7525b1662d76",
    "organisation": "Afrikabisa – Ethical Tours",
    "recipient": "Afrikabisa – Ethical Tours",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Mdeb75e5edb4d",
+   "organisation": "Altezza Travel",
+   "recipient": "Altezza Travel",
    "role": "Organisation routing"
   },
   {
@@ -3286,12 +3292,6 @@
    "message_id": "Mf8a90874b522",
    "organisation": "Summit Expeditions & Nomadic Experience",
    "recipient": "Summit Expeditions & Nomadic Experience",
-   "role": "Organisation routing"
-  },
-  {
-   "message_id": "Mef7ddd70a2aa",
-   "organisation": "Sunflag Tanzania Limited",
-   "recipient": "Sunflag Tanzania Limited",
    "role": "Organisation routing"
   },
   {

@@ -4,30 +4,29 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-11/ 
 
 | Segment | Contacts |
 |---|---|
-| companies-high | 245 |
-| companies-high-direct | 30 |
-| companies-high-indirect | 215 |
-| companies-medium | 370 |
+| companies-high | 255 |
+| companies-high-direct | 34 |
+| companies-high-indirect | 221 |
+| companies-medium | 360 |
 | companies-low | 52 |
 | introducers-high | 12 |
-| introducers-high-direct | 2 |
-| introducers-high-indirect | 10 |
+| introducers-high-direct | 3 |
+| introducers-high-indirect | 9 |
 | introducers-medium | 3 |
-| welfare-high | 67 |
+| welfare-high | 69 |
 | welfare-high-direct | 12 |
-| welfare-high-indirect | 55 |
+| welfare-high-indirect | 57 |
 | welfare-medium | 10 |
-| welfare-low | 118 |
+| welfare-low | 117 |
 
 Left out (no email address; use the call sheets):
 
 - companies: no email route (phone only or none): 567
 - welfare: no email route (phone only or none): 233
 
-Addresses shared by two rows, exported once (19):
+Addresses shared by two rows, exported once (18):
 
 - info@almc.or.tz: Arusha Lutheran Medical Center (welfare, high) kept as Arusha Lutheran Medical Centre (companies)
-- contact@cssc.or.tz: Christian Social Services Commission (welfare, high) kept as Christian Social Services Commission (introducers)
 - info@tz.ci.org: Compassion International Tanzania (welfare, high) kept as Compassion International Tanzania (welfare)
 - connie@karamaconnection.org: Karama Kids (Karama Care orphanage), Arusha (welfare, high) kept as Karama Connection (welfare)
 - office@africaaminialama.com: KinderVilla Momella (welfare, high) kept as Africa Amini Alama (welfare)

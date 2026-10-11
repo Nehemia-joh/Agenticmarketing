@@ -357,10 +357,18 @@ def welfare(con, now, run_cfg) -> dict:
             con.execute(f'ALTER TABLE outreach_plans ADD COLUMN "{column}" TEXT')
     # Reviewed decisions (links.json official_personal_inboxes): the organisation itself publishes this personal-domain address as its contact.
     links_path = ROOT / "data" / "runs" / run_cfg.get("run_id", "") / "links.json"
-    official_inboxes = json.loads(links_path.read_text(encoding="utf-8")).get("official_personal_inboxes", {}) if links_path.exists() else {}
+    links = json.loads(links_path.read_text(encoding="utf-8")) if links_path.exists() else {}
+    official_inboxes = links.get("official_personal_inboxes", {})
+    # Reviewed decisions (links.json recipient_exclusions, added 11 October 2026): a person recorded for an organisation who is never its
+    # addressee or escalation contact (a public figure listed on the site), by organisation name and person name.
+    key = lambda s: " ".join(re.findall(r"[a-z0-9]+", str(s or "").lower()))  # noqa: E731
+    excluded = {(key(org), key(x["name"])) for org, items in links.get("recipient_exclusions", {}).items() for x in items}
     org_payload, con_payload = payloads(con, "organisation"), payloads(con, "contact")
+    org_names = {r["organisation_id"]: r["name"] for r in con.execute("SELECT organisation_id, name FROM organisations")}
     contacts_by_org = {}
     for r in con.execute("SELECT * FROM contacts ORDER BY contact_id"):
+        if (key(org_names.get(r["organisation_id"], "")), key(r["name"])) in excluded:
+            continue
         contacts_by_org.setdefault(r["organisation_id"], []).append({**dict(r), **con_payload.get(r["contact_id"], {})})
     # Same-named twins (one body's funder record and its programme record) keep their own contacts in the run; its people lead both, so
     # each twin's draft chooses from the contacts of all of them (its own first on a tie).
@@ -650,7 +658,9 @@ def government(con, now, run_cfg) -> dict:
         elif level in ("ward", "village"):
             recipient_post = "ward_executive_officer" if level == "ward" else "village_executive_officer"
             unit = units.get(o.get("admin_unit_key") or "", {})
-            name = o["admin_unit_name"]
+            name = " ".join(str(o["admin_unit_name"] or "").split())
+            if not name:  # a letter needs the ward's or village's name; the build never imports an unnamed unit (fixed 11 October 2026)
+                issues.append({"message_id": o["organisation_id"], "issue": f"{level} office without a place name: no letter can be addressed"})
             place_sw = "kata yenu" if level == "ward" else "kijiji chenu"
             located = o.get("latitude") not in (None, "") and o.get("campus")
             key = L.campus_key(o.get("campus") or "")

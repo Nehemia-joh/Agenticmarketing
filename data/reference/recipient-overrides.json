@@ -1,5 +1,5 @@
 {
- "about": "Reviewed recipient choices for the company master, read by scripts/master/resolve_master_recipients.py. Each entry names the contact whose draft is the organisation's chosen recipient, whatever the ranking says, with the address the draft goes to ('route'), the source that ties that address to the person, the reason and the decision date. 'misattributed' names another contact that holds the same address by mistake; the resolver raises a review item for it and changes nothing on that contact.",
+ "about": "Reviewed recipient choices for the company master, read by scripts/master/resolve_master_recipients.py. Each entry names the contact whose draft is the organisation's chosen recipient, whatever the ranking says, with the address the draft goes to ('route'), the source that ties that address to the person, the reason and the decision date. 'misattributed' names another contact that holds the same address by mistake; the resolver raises a review item for it and changes nothing on that contact. 'excluded_contacts' (added 11 October 2026) lists contact records that are never a recipient or escalation contact, such as a page heading read as a person; the resolver raises a review item for each and changes nothing on the record.",
  "organisations": {
   "Of97bcc50b8b4": {
    "name": "HP Safaris (T) Limited",
@@ -40,6 +40,16 @@
    "source": "https://www.ajiriwa.net/view-job/marketing-officer-63fa11317dd71",
    "reason": "Role inbox for the recipient's role (companies research, 10 October 2026): DTB Tanzania's own vacancy notice (Ajiriwa, closing 20 January 2020) gives HR@diamondtrust.co.tz as the bank's HR inbox, and the bank's executive-committee page names Pamela Kieti as Head - Human Resources. The draft goes to the HR inbox on the bank's domain instead of customercare@ (a direct route under the high-split rule of 10 October 2026: the inbox for the HR head's role). The notice is from 2020: a bounce means the inbox has changed.",
    "decided": "2026-10-10"
+  }
+ },
+ "excluded_contacts": {
+  "C48e1f17096b9": {
+   "organisation_id": "Odf8ea5364d02",
+   "organisation": "Sunflag Tanzania Limited",
+   "name": "Key Contacts",
+   "reason": "A page heading read as a person by the 2026-09-23 crawl of sunflag-tz.com (its role field holds a phone number and 'Head of operations.'). It is not a named person, so it is never the recipient; the draft goes to the organisation's inbox until a named decision-maker is found (high-direct plan D8, approved 11 October 2026).",
+   "source": "http://www.sunflag-tz.com/",
+   "decided": "2026-10-11"
   }
  }
 }

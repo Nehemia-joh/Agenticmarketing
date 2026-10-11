@@ -1174,10 +1174,14 @@ def main() -> int:
                 target = next((o for o in offices if o["office_level"] == "district" and G.squash(o["admin_unit_name"]) in G.squash(name)), None)
             elif detail == "region":
                 target = next((o for o in offices if o["office_level"] == "region" and G.squash(o["admin_unit_name"]) in G.squash(name)), None)
-            if detail == "village" and fields["distance_km"] is not None and fields["distance_km"] <= cfg["catchment_km"]:
+            village = re.sub(r"(?i)village office|office ya kijiji|ofisi ya kijiji|ofisi|office", " ", name).strip()
+            if detail == "village" and not " ".join(village.split()):
+                # 'Village Office' alone names no village: not imported; a review item asks for the village's name (fixed 11 October 2026).
+                reviews.add("village_unnamed_not_imported", name, {"osm_id": el["osm_id"], "osm_district": district},
+                            "Name this village office's village (council village list, or links.json osm_office_links) before it can become a village office.")
+            elif detail == "village" and fields["distance_km"] is not None and fields["distance_km"] <= cfg["catchment_km"]:
                 council_name = link.get("council") or next((cn for cn, cc in councils.items() if cc["osm_district"] == district), "")
                 ward_name = link.get("ward", "")
-                village = re.sub(r"(?i)village office|office ya kijiji|ofisi ya kijiji|ofisi|office", " ", name).strip()
                 if not ward_name and council_name:
                     same_name = [u["name"] for u in ward_units if u["council"] == council_name and G.squash(u["name"]) == G.squash(village)]
                     near = sorted((W.hav(el["lat"], el["lon"], u["lat"], u["lon"]), u["name"]) for u in ward_units
@@ -1245,6 +1249,13 @@ def main() -> int:
                 continue
             fields = campus_fields(u["latitude"], u["longitude"], campuses, clusters)
             if fields["distance_km"] is None or fields["distance_km"] > cfg["catchment_km"]:
+                continue
+            if not " ".join(str(u.get("name") or "").split()):
+                # An OpenStreetMap place point with no name (place=village and nothing else): no letter can be addressed to it, so it is
+                # not imported (as unnamed office points are not); a review item asks for its name from the council's village list.
+                reviews.add("village_unnamed_not_imported", f"Unnamed village point {u['osm_id']} ({council_name})",
+                            {"osm_id": u["osm_id"], "council": council_name, "nearest_ward": u.get("ward", ""), "source_url": u.get("source_url", "")},
+                            "Name this village from the council's village list (and record it at the source) before it can become a village office.")
                 continue
             office_point = u.get("location_kind") == "office point"
             rec = {"record_key": f"GOFF_village_{slug(u['osm_id'])}", "slug": f"village-{slug(u['osm_id'])}",

@@ -17,8 +17,9 @@ Confidence (in the data and in the recipient):
 Rows without an email address (phone only, or no route) are left out and counted; they belong on the call sheets.
 High is split by route (decided 10 October 2026), for every track with email rows: <track>-high.csv keeps every high row, and
 each high row is also in exactly one sub-segment file, <track>-high-direct.csv or <track>-high-indirect.csv (property high_route):
-- direct: the named decision-maker's own address (the inbox carries their name), or the inbox for their role on the
-  organisation's domain (hr@ for the HR head, md@, ceo@, gm@, dg@, vc@, director@, principal@ and similar);
+- direct: the named decision-maker's own address (the inbox carries their name by the strict test of 11 October 2026: first name
+  at the start, the surname, or first initial and surname, and no other person of the organisation matches), or the inbox for their
+  role on the organisation's domain (hr@ for the HR head, md@, ceo@, gm@, dg@, vc@, director@, principal@ and similar);
 - indirect: a general inbox (info@, reservations@, customercare@, contactcenter@, marketing@, sales@, hello@, office@ ...) addressed
   to the named person; its confidence_reason says what would make it direct.
 Escalation (companies, introducers, welfare): escalation_recipient and escalation_email name the group, regional or global head to
@@ -65,7 +66,9 @@ import offer_lib as L
 
 ROOT = L.ROOT
 sys.path.insert(0, str(ROOT / "scripts" / "master"))
+sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
 import resolve_master_recipients as R  # noqa: E402  (address parsing, role ranking, verification)
+import contact_lib as C  # noqa: E402  (the strict whose-mailbox test)
 
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 FIELDS = ["email", "first_name", "last_name", "organisation", "track", "audience", "confidence", "high_route", "confidence_reason", "priority",
@@ -142,18 +145,19 @@ def org_named_inbox(address: str, organisation: str) -> bool:
 
 # A role inbox that belongs to the recipient's role (hr@ for the HR head, md@ for the managing director): a direct route.
 HR_LOCALS = re.compile(r"^(d?hr[a-z]{0,8}|humanresources?|people|peopleandculture|talent)$", re.I)  # hr@, hrm@, dhrma@ (Director of HR and Admin)
-HEAD_LOCALS = re.compile(r"^(md|ceo|gm|dg|vc|dvc|dvca|director|directorgeneral|principal|rector|headteacher|headmaster|head|ed|cd|countrydirector|"
+HEAD_LOCALS = re.compile(r"^(md|ceo|gm|dg|vc|dvc|dvca|director|directorgeneral|principal|rector|headteacher|headmaster|head|ed|edr|cd|countrydirector|"
                          r"president|chair|chairman|chairperson|secretary|executivesecretary|es|registrar|ded|das|ras|weo|veo|mkurugenzi|katibu)$", re.I)
 
 
-def high_route(address: str, name: str, role: str) -> tuple[str, str]:
-    """('direct' or 'indirect', the reason) for a high row. Direct: the person's own address (the inbox carries their name) or the role
-    inbox for their role on the organisation's domain. Indirect: a general inbox (info@, reservations@, customercare@ ...) addressed to them."""
+def high_route(address: str, name: str, role: str, others=()) -> tuple[str, str]:
+    """('direct' or 'indirect', the reason) for a high row. Direct: the person's own address (the inbox carries their name by the strict
+    test, contact_lib.mailbox_carries_name: first name at the start, the surname, or first initial and surname, and no other person of the
+    organisation in others matches it; decided 11 October 2026, D7) or the role inbox for their role on the organisation's domain.
+    Indirect: a general inbox (info@, reservations@, customercare@ ...) addressed to them. An inferred format candidate is never an input."""
     local = address.split("@")[0].lower()
     letters = re.sub(r"[^a-z]", "", local)
-    names = [n.lower() for n in re.findall(r"[A-Za-z]{3,}", L.greeting_name(name or "")) if not TITLE.match(n)]
-    if names and (any(n in letters for n in names) or (len(letters) >= 3 and any(n.startswith(letters) for n in names))
-                  or (len(names) > 1 and letters.startswith(names[0][0] + names[-1][:3]))):
+    person = L.greeting_name(name or "")
+    if person and C.mailbox_owner(address, [person, *[o for o in others if o and not C.same_person(o, person)]], person):
         return "direct", "direct: the person's own address"
     if HR_LOCALS.match(letters) and R.HR.search(role or ""):
         return "direct", f"direct: {local}@ is the inbox for their HR role"
@@ -163,10 +167,10 @@ def high_route(address: str, name: str, role: str) -> tuple[str, str]:
                         "(hr@, md@, ceo@ ...) on the organisation's domain is published")
 
 
-def with_route(row: dict, name: str, role: str) -> dict:
+def with_route(row: dict, name: str, role: str, others=()) -> dict:
     """Sets high_route and says it in confidence_reason (high rows only)."""
     if row["confidence"] == "high":
-        route, why = high_route(row["email"], name, role)
+        route, why = high_route(row["email"], name, role, others)
         row["high_route"], row["confidence_reason"] = route, f"{row['confidence_reason']}; {why}"
     else:
         row["high_route"] = ""
@@ -251,6 +255,10 @@ def company_rows(con):
     con.row_factory = sqlite3.Row
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
     contacts = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
+    people_at = defaultdict(list)  # the organisation's other named people, for the strict own-address test
+    for c in contacts.values():
+        if c["name"]:
+            people_at[c["organisation_id"]].append(c["name"])
     reach = {r["organisation_id"]: r["tier"] for r in con.execute("SELECT organisation_id, tier FROM employer_reach")}
     published = published_inbox_domains(con, orgs)
     rows, skipped = [], Counter()
@@ -296,7 +304,8 @@ def company_rows(con):
                                 "recipient": p["target_name"] if contact else f"{org['name']} team",
                                 "escalation_recipient": p.get("escalation_recipient") or "", "escalation_email": escalation_email(p.get("escalation_route")),
                                 "message_subject": subject or "", "message_body": body or "", "message_html": to_html(body or ""),
-                                "plan_id": p["message_id"]}, contact["name"] if contact else "", contact["role"] if contact else ""))
+                                "plan_id": p["message_id"]}, contact["name"] if contact else "", contact["role"] if contact else "",
+                               people_at.get(p["organisation_id"], [])))
     return rows, skipped
 
 

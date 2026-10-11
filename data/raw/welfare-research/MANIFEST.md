@@ -21,7 +21,7 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `coverage/T_routes_programmes_2026-10-03_coverage.md` | `33451386a0c91020…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/U_register_classification_2026-10-02_coverage.md` | `67e5ce1b9d4c7505…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/V_flag_location_checks_2026-10-03_coverage.md` | `ae5146f45e399a9a…` | Queries, blocked sources and gaps for one research slice |
-| `coverage/W_contact_profiles_coverage.md` | `06f1aeee24dc80d3…` | Queries, blocked sources and gaps for one research slice |
+| `coverage/W_contact_profiles_coverage.md` | `a8d42dbd03c65057…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/X_leaders_routes_2026-10-10_coverage.md` | `933772438c529140…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/Y_welfare_enrichment_2026-10-10_coverage.md` | `c41ad0c3502ef165…` | Queries, blocked sources and gaps for one research slice |
 | `coverage/Z_new_leads_2026-10-11_coverage.md` | `b9424530c5a3fa0a…` | Queries, blocked sources and gaps for one research slice |
@@ -50,7 +50,7 @@ Evidence behind the welfare runs, most recently `arusha-welfare-2026-09`. Resear
 | `research_U_register_classification_2026-10-02.jsonl` | `7744bf163c1f16ce…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_V_flag_location_checks_2026-10-03.jsonl` | `3f43372ce335e8ec…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_W_contact_profiles_2026-09-23.jsonl` | `dab5e1e0cc6afa0a…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
-| `research_W_contact_profiles_2026-10-11.jsonl` | `8d72f5d98414e0d3…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
+| `research_W_contact_profiles_2026-10-11.jsonl` | `48487ee08d69bb50…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_X_leaders_routes_2026-10-10.jsonl` | `3e2a5259bf9fd0c8…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_Y_welfare_enrichment_2026-10-10.jsonl` | `eed7941daf8ae1a7…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |
 | `research_Z_new_leads_2026-10-11.jsonl` | `a7b9d8b71c111dbd…` | Research-agent records (organisations, contacts, relationships, enquiries) with per-fact sources |

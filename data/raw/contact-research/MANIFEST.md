@@ -10,6 +10,7 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `browser_googlemaps_c_2026-10-11.jsonl` | `6212f8b989a7d37b…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_googlemaps_d_2026-10-11.jsonl` | `f10cdbdbfa1a0f62…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_robots_2026-09-23.jsonl` | `626d96b1a521e39a…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
+| `browser_sites_2026-10-11.jsonl` | `72a34d510aeac939…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_sites_a_2026-09-23.jsonl` | `f55dd70f46e6cb71…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_sites_b_2026-09-23.jsonl` | `013880dc9257d109…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
 | `browser_wave10_robots_2026-10-02.jsonl` | `ed6ed8f919784fc4…` | Pages read with a browser, one record per organisation: sites built by script, and sites whose robots.txt disallows crawling (read at the user's direction; everything from them tagged risky) |
@@ -25,6 +26,7 @@ Evidence behind the contact profiles and contact leads of all three databases. T
 | `coverage/browser_sites_b_2026-09-25_coverage.md` | `790874723a547aa4…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_sites_b_2026-09-26_coverage.md` | `7e837f9fd95cad1c…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_sites_b_coverage.md` | `c0ef0a56a05fbc40…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
+| `coverage/browser_sites_coverage.md` | `c1f367aced0fc65c…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_wave10_robots_coverage.md` | `19da2d2851ea809e…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/browser_wave10_script_coverage.md` | `f52f6b361d1b2569…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |
 | `coverage/C_master_employers_coverage.md` | `8c444cbe85b58afe…` | Searches, fetches, blocked sources and organisations not reached, for one agent slice |

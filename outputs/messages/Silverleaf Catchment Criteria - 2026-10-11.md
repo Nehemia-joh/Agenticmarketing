@@ -20,7 +20,7 @@ The method starts here: every distance in this document is measured from these f
 
 1. **The source is Silverleaf's own website.** Each campus page on silverleaf.co.tz (under *Our Schools*) embeds a map with a pin the school placed itself. The pin's coordinates are stored in the page's own data, in the map widget's `locations` entry (`latitude`, `longitude`, `title`). We read them on 2026-10-11.
 2. **Google Maps corroborates two.** The Usa River and Ilboru listings sit on the same points. The website's business location for Usa River is within 25 m of the pin. Google has no listing for Arusha City (Sakina) or Boma Ng'ombe. Its "Kijenge Campus" listing is pinned about 70 km away, so it was not used. (That Google listing needs correcting: parents searching it get wrong directions.)
-3. **The points are stored in the master database.** They sit in the `campuses` table, with the page used as the source. The welfare and government runs read them from there. `scripts/collection/build_partner_leads.py` carries the same points.
+3. **The points are stored in the master database.** They sit in the `campuses` table, with the page used as the source. Every script that measures distance reads them from there: the welfare and government runs, the company importer, the distance recompute and the lead map.
 4. **When a campus moves or a pin is corrected,** update the table and re-run:
    - `scripts/master/recompute_campus_distances.py --apply`
    - `scripts/master/rank_employer_reach.py --apply`
@@ -210,7 +210,16 @@ The full record is in `outputs/reports/campus-distance-recompute.json`.
 
    Correct or remove these, and add the missing ones using the website pins.
 3. **A correction should move leads, not drop them.** Re-running distances after a campus point changes can push a lead across the 25 km line. Keep any lead that was inside before, with the reason recorded (section 5), and review it on its merits.
-4. **Keep one source of truth for the campus points.** Every distance in all three lists now comes from the `campuses` table in the master database. The points are still written out a second time in the original importer (`build_partner_leads.py`), so a correction must be made in both places. Both now carry the website pins.
+4. **Keep one source of truth for the campus points (fixed 2026-10-11).** The points used to be written out in three places:
+   - the `campuses` table in the master database
+   - the original importer, `build_partner_leads.py`
+   - the TATO browser collector, `collect_partner_leads.js`, which had its own, different estimates
+
+   Now:
+   - The importer reads the table, like the welfare and government runs, the distance recompute and the lead map do.
+   - The browser collector runs inside a web page and cannot read the database. It keeps a marked preview copy, and its distances are recomputed from the table when the leads are built.
+
+   To correct a campus, change only the table.
 
 ---
 

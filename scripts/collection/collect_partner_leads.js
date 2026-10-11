@@ -17,15 +17,15 @@
    ========================================================================== */
 
 /* ---------- 1. Campus anchors -------------------------------------------- */
-/* APPROXIMATE — neighbourhood centroids, not surveyed GPS pins.
-   Replace with real coordinates from Silverleaf before using distances
-   for anything that matters (transport banding, fee quotes).            */
+/* A preview copy of the campuses table in the master database, the one source of truth (the map pins on the campus
+   pages of silverleaf.co.tz, read 2026-10-11). This script runs in a browser and cannot read the database, so the
+   distances it prints are a preview only: build_partner_leads.py recomputes them from the table.                  */
 const CAMPUS = {
-  'Usa River':            [-3.3714, 36.8582],
-  'Arusha City (Sakina)': [-3.3579, 36.6642],
-  'Kijenge':              [-3.3701, 36.7123],
-  'Ilboru':               [-3.3487, 36.6878],
-  'Boma Ngombe':          [-3.3342, 37.1383],
+  'Usa River':            [-3.361003, 36.8644524],
+  'Arusha City (Sakina)': [-3.3604966, 36.6609326],
+  'Kijenge':              [-3.382946, 36.710752],
+  'Ilboru':               [-3.3497598, 36.6822737],
+  'Boma Ngombe':          [-3.341456, 37.1457123],
 };
 
 /* ---------- 2. Locality gazetteer ---------------------------------------- */

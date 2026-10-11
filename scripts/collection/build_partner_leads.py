@@ -9,7 +9,7 @@ Inputs (pipe-delimited raw pulls in data/raw/lead-research):
   data/reference/lead-gazetteer.txt  Nominatim locality geocodes
 Output: runtime/artifacts/partner-leads-preview.xlsx
 """
-import re, math, csv, sys, os
+import re, math, csv, sys, os, sqlite3
 from pathlib import Path
 from collections import OrderedDict
 from openpyxl import Workbook
@@ -25,15 +25,15 @@ REFERENCE = ROOT / "data" / "reference" / "lead-gazetteer.txt"
 def P(f): return str(REFERENCE if f == "gazetteer.txt" else RAW / f)
 
 # ---------------------------------------------------------------- campuses
-# The map pins on the campus pages of Silverleaf's own website (read 2026-10-11; the master's campuses table holds the same points).
-# Until 2026-10-11 these were Nominatim ward/town centroids, 0.1-1.2 km off.
-CAMPUSES = OrderedDict([
-    ("Usa River",   (-3.361003, 36.8644524, "Momela Road, Usa River (Arusha) — primary + boarding")),
-    ("Arusha City", (-3.3604966, 36.6609326, "Sakina, Arusha–Nairobi Rd — primary")),
-    ("Ilboru",      (-3.3497598, 36.6822737, "Ilboru, Arusha — daycare/pre-primary")),
-    ("Kijenge",     (-3.382946, 36.710752, "Kijenge, Arusha — daycare/pre-primary")),
-    ("Boma Ng'ombe",(-3.341456, 37.1457123, "Mahakama Rd, Boma Ng'ombe (Hai, Kilimanjaro) — daycare/pre-primary")),
-])
+# Read from the master's campuses table, the one source of truth for the campus points (since 2026-10-11 the map pins on the
+# campus pages of Silverleaf's own website). Never copy the coordinates here.
+MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
+if not MASTER.exists():
+    raise SystemExit(f"Missing {MASTER}: the campus points come from its campuses table.")
+_con = sqlite3.connect(f"file:{MASTER.as_posix()}?mode=ro", uri=True)
+CAMPUSES = OrderedDict((name.replace("Boma Ngombe", "Boma Ng'ombe"), (lat, lon, desc or "", basis or ""))
+                       for name, lat, lon, desc, basis in _con.execute("SELECT name, latitude, longitude, description, geocode_basis FROM campuses"))
+_con.close()
 CORE_KM, OUTER_KM = 10, 25
 
 def hav(a, b, c, d):
@@ -304,7 +304,7 @@ ws = sheet("Decision-makers (published)", ["Organisation", "Locality", "Nearest 
        [34, 18, 14, 8, 26, 36, 30, 26, 50, 30, 10, 26, 30, 60, 14])
 
 ws = sheet("Campuses", ["Campus", "Lat", "Lon", "Description", "Geocode basis"],
-           [[c, v[0], v[1], v[2], "Nominatim ward/town centroid (approximate — replace with exact gate coordinates from Google Maps)"] for c, v in CAMPUSES.items()],
+           [[c, v[0], v[1], v[2], v[3]] for c, v in CAMPUSES.items()],
            [16, 10, 10, 60, 70])
 ws.append([]); ws.append(["Inter-campus distances (km)"])
 ws.append(["", *CAMPUSES.keys()])

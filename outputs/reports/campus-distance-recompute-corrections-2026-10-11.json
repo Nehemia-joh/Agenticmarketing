@@ -1,0 +1,46 @@
+{
+ "stats": {
+  "stored distance kept": 615,
+  "coordinates": 644,
+  "no location": 72,
+  "gazetteer point reproduced": 45,
+  "records to update": 16,
+  "nearest campus changed": 12
+ },
+ "nearest_campus_changed": [
+  "Mringa Estate: Usa River -> Arusha City (4.6 km)",
+  "Faraja Africa Foundation: Arusha City (Sakina) -> Kijenge (2.4 km)",
+  "Solidaridad Eastern And Central Africa Expertise Centre (Eca - Tanzania): Ilboru -> Kijenge (1.5 km)",
+  "Serving Friends International: Ilboru -> Kijenge (1.6 km)",
+  "Futuresense Foundation: Ilboru -> Usa River (3.3 km)",
+  "The Nature Conservancy: Kijenge -> Arusha City (3.5 km)",
+  "Somo Africa: Ilboru -> Kijenge (4.1 km)",
+  "Westerwelle Foundation Tanzania: Arusha City (Sakina) -> Ilboru (2.4 km)",
+  "The Girls Foundation Of Tanzania: Kijenge -> Arusha City (4.3 km)",
+  "Rikolto Tanzania: Arusha City (Sakina) -> Kijenge (0.3 km)",
+  "Inherit Your Rights: Ilboru -> Kijenge (2.5 km)",
+  "German Foundation For World Population (Dsw) Tanzania: Kijenge -> Usa River (8.6 km)"
+ ],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

@@ -29,6 +29,22 @@ What each list takes, through its own process:
 Every point must lie in Tanzania; a point outside the lead map's box is refused unless the line says allow_outside_box.
 Existing entries are never overwritten; a changed entry for the same key is reported as a conflict and left alone.
 Preview by default (runtime/geocode/apply-preview.json).
+
+Reviewed corrections (--replace, master only; decided 2026-10-11). A corrections file
+(data/raw/geocode-research/geocodes_corrections_<date>.jsonl, named with --file) replaces an estimated master point with
+the organisation's own pin. Each line carries the fields above plus replace: true and the stored point it replaces
+(old_latitude, old_longitude, old_precision, old_location_source, old_record_id). Only the organisation_ids named in the file
+are touched, and a line is applied only when:
+- the master still holds exactly that old point;
+- the stored point is an estimate: precision address, locality or city, and its location_source fact is the NGO register's
+  address text or the offline gazetteer (REPLACEABLE); anything else (an OpenStreetMap point, an own-site embed) is skipped;
+- the new point does not take a lead that was inside the 25 km catchment beyond it (a correction never removes a lead; such a
+  line is refused until a reviewed catchment record exists for it).
+In one transaction it registers the file and one source record per line, sets the new point with precision from the line,
+records the new facts and keeps the old point as a fact (superseded_location, with its source), and adds a review item
+'Location corrected' with both points. Then run recompute_campus_distances.py --apply (with its own --report),
+rank_employer_reach.py --apply, draft_master_messages.py (drafts that name the nearest campus), the workbook and verify_master.py.
+Without --replace nothing here changes: the default run never overwrites a point.
 """
 from __future__ import annotations
 
@@ -48,6 +64,11 @@ PREVIEW = ROOT / "runtime" / "geocode" / "apply-preview.json"
 SOUTH, WEST, NORTH, EAST = -3.75, 36.30, -2.95, 37.55
 REQUIRED = ("db", "organisation_id", "organisation_name", "status", "latitude", "longitude", "precision", "source_type", "source_url",
             "fetched_on", "as_found", "basis")
+# --replace: the stored point must be one of these estimates (location_source fact prefix, geocode_precision).
+REPLACEABLE = ("NGO register", "offline gazetteer")
+REPLACEABLE_PRECISION = ("address", "locality", "city")
+REPLACE_REQUIRED = ("old_latitude", "old_longitude", "old_precision", "old_location_source")
+CATCHMENT_KM = 25.0
 
 
 def hid(prefix: str, *parts) -> str:
@@ -130,6 +151,102 @@ def apply_master(path: Path, todo: list[dict]) -> None:
         con.close()
 
 
+def nearest_km(campuses: dict, lat: float, lon: float) -> tuple[str, float]:
+    from recompute_campus_distances import hav  # same directory; the distance the recompute will store
+    dists = {c: round(hav(lat, lon, *xy), 1) for c, xy in campuses.items()}
+    near = min(dists, key=dists.get)
+    return near, dists[near]
+
+
+def plan_replace(con, rows) -> tuple[list[dict], list[dict]]:
+    """--replace: the lines whose stored master point is still the estimate they name (see the module docstring)."""
+    campuses = {r["name"]: (r["latitude"], r["longitude"]) for r in con.execute("SELECT name, latitude, longitude FROM campuses")}
+    todo, skipped = [], []
+    for r in rows:
+        why = ""
+        o = con.execute("SELECT * FROM organisations WHERE organisation_id=?", (r["organisation_id"],)).fetchone()
+        missing = [k for k in REPLACE_REQUIRED if r.get(k) in (None, "")]
+        if missing:
+            why = f"a correction line needs {', '.join(missing)}"
+        elif o is None:
+            why = "no such organisation"
+        elif o["name"] != r["organisation_name"]:
+            why = f"name differs from the master ('{o['name']}')"
+        else:
+            try:
+                stored = (float(o["latitude"]), float(o["longitude"]))
+            except (TypeError, ValueError):
+                stored = None
+            if stored is None:
+                why = "has no stored point to replace (use the default run, which fills empty points)"
+            elif abs(stored[0] - float(r["old_latitude"])) > 1e-6 or abs(stored[1] - float(r["old_longitude"])) > 1e-6:
+                why = f"the stored point ({stored[0]}, {stored[1]}) is not the old point the line names"
+            elif (o["geocode_precision"] or "") not in REPLACEABLE_PRECISION:
+                why = f"the stored point has precision '{o['geocode_precision']}', not an estimate"
+            else:
+                source = con.execute(
+                    "SELECT value FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='location_source' AND record_id IN "
+                    "(SELECT record_id FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='latitude' AND value=?)",
+                    (o["organisation_id"], o["organisation_id"], str(o["latitude"]))).fetchone()
+                if source is None or not source[0].startswith(REPLACEABLE):
+                    why = f"the stored point's source is not the NGO register or the gazetteer ({source[0] if source else 'no location_source fact'})"
+                elif source[0] != r["old_location_source"]:
+                    why = f"the stored point's source differs from the line's old_location_source ({source[0]})"
+        if not why:
+            before = float(o["distance_km"]) if str(o["distance_km"] or "").replace(".", "", 1).isdigit() else None
+            campus, km = nearest_km(campuses, float(r["latitude"]), float(r["longitude"]))
+            if before is not None and before <= CATCHMENT_KM < km:
+                why = (f"the new point is {km} km from {campus}, beyond the {CATCHMENT_KM:g} km catchment the lead was in ({before} km): "
+                       "a correction never removes a lead, so record a reviewed catchment exception before replacing it")
+            else:
+                todo.append({**r, "_before": (o["campus"], before, o["transport_band"]), "_after": (campus, km)})
+                continue
+        skipped.append({"line": r["_line"], "name": r["organisation_name"], "why": why})
+    return todo, skipped
+
+
+def apply_replace(path: Path, todo: list[dict]) -> None:
+    con = sqlite3.connect(MASTER)
+    today = date.today().isoformat()
+    payload = path.read_bytes()
+    try:
+        con.execute("BEGIN")
+        source = hid("F", "geocodes", path.name)
+        con.execute("INSERT OR REPLACE INTO source_files (source_id, path, sha256, bytes, kind, encoding, content) VALUES (?,?,?,?,?,?,?)",
+                    (source, path.relative_to(ROOT).as_posix(), hashlib.sha256(payload).hexdigest(), len(payload), "jsonl", "utf-8", payload))
+        for r in todo:
+            oid = r["organisation_id"]
+            record = hid("R", "geocode-correction", path.name, oid)
+            keep = {k: v for k, v in r.items() if not k.startswith("_")}
+            con.execute("INSERT OR REPLACE INTO source_records (record_id, source_id, location, payload_json) VALUES (?,?,?,?)",
+                        (record, source, f"line {r['_line']}: {r['organisation_name']}", json.dumps(keep, ensure_ascii=False)))
+            if not con.execute("SELECT 1 FROM entity_sources WHERE entity_type='organisation' AND entity_id=? AND record_id=?", (oid, record)).fetchone():
+                con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) VALUES ('organisation', ?, ?)", (oid, record))
+            lat, lon = round(float(r["latitude"]), 6), round(float(r["longitude"]), 6)
+            con.execute("UPDATE organisations SET latitude=?, longitude=?, geocode_precision=? WHERE organisation_id=?", (lat, lon, r["precision"], oid))
+            where = f"{r['source_type']}: {r['source_url']} (fetched {r['fetched_on']})"
+            old = (f"{r['old_latitude']}, {r['old_longitude']} ({r['old_precision']}; {r['old_location_source']}; record {r.get('old_record_id') or 'not named'}), "
+                   f"replaced {today} by {where}, {r.get('km_moved', '')} km away")
+            for field, value in (("latitude", str(lat)), ("longitude", str(lon)), ("geocode_precision", r["precision"]), ("location_source", where),
+                                 ("superseded_location", old)):
+                con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                            (hid("X", oid, field, value, today), "organisation", oid, field, value, record))
+            con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                        (hid("D", "location-correction", oid, path.name), "Location corrected", oid, "", "latitude; longitude",
+                         f"{r['old_latitude']}, {r['old_longitude']} ({r['old_precision']}, {r['old_location_source'].split(':')[0]}) -> {lat}, {lon} "
+                         f"({r['precision']}, {r['source_type']} '{r.get('listing_name') or r['organisation_name']}'), {r.get('km_moved', '')} km",
+                         f"Applied from {path.relative_to(ROOT).as_posix()} line {r['_line']}: {r['basis']} The old point is kept as the fact "
+                         "superseded_location. Check drafts that name the nearest campus."))
+        if con.execute("PRAGMA foreign_key_check").fetchall() or con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
+            raise RuntimeError("integrity check failed")
+        con.execute("COMMIT")
+    except Exception:
+        con.execute("ROLLBACK")
+        raise
+    finally:
+        con.close()
+
+
 def entry_for(r: dict, db: str) -> dict:
     lat, lon = round(float(r["latitude"]), 6), round(float(r["longitude"]), 6)
     basis = f"{r['basis']} Source: {r['source_type']}, {r['source_url']} (fetched {r['fetched_on']}); as found: {r['as_found']}"
@@ -164,12 +281,42 @@ def main() -> int:
     parser.add_argument("--file", type=Path, help="default: the newest data/raw/geocode-research/geocodes_*.jsonl")
     parser.add_argument("--db", choices=["master", "welfare", "government"], action="append", help="default: all three")
     parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--replace", action="store_true",
+                        help="apply a reviewed corrections file (named with --file): replace estimated master points; see the docstring")
     args = parser.parse_args()
-    path = args.file or max(RAW.glob("geocodes_*.jsonl"))
+    if args.replace and not args.file:
+        parser.error("--replace needs --file data/raw/geocode-research/geocodes_corrections_<date>.jsonl")
+    path = args.file or max(p for p in RAW.glob("geocodes_*.jsonl") if not p.name.startswith("geocodes_corrections_"))
+    path = path.resolve()
     rows, problems = load(path)
     if problems:
         print("Refused: fix these lines first:\n  " + "\n  ".join(problems))
         return 1
+    if args.replace:
+        lines = [r for r in rows if r.get("status") == "placed" and r.get("replace") is True]
+        others = [r["_line"] for r in rows if r not in lines]
+        if others or any(r["db"] != "master" for r in lines):
+            print(f"Refused: a corrections file holds only master lines with status 'placed' and replace: true (lines {others or 'db'}).")
+            return 1
+        con = sqlite3.connect(f"file:{MASTER.as_posix()}?mode=ro", uri=True)
+        con.row_factory = sqlite3.Row
+        todo, skipped = plan_replace(con, lines)
+        con.close()
+        report = {"file": path.relative_to(ROOT).as_posix(), "mode": "replace", "lines": len(rows), "to_replace": len(todo), "skipped": skipped,
+                  "changes": [{"line": r["_line"], "organisation_id": r["organisation_id"], "name": r["organisation_name"],
+                               "old": [r["old_latitude"], r["old_longitude"], r["old_precision"]], "new": [r["latitude"], r["longitude"], r["precision"]],
+                               "km_moved": r.get("km_moved"), "campus_before": r["_before"], "nearest_after": r["_after"]} for r in todo]}
+        if args.apply and todo:
+            apply_replace(path, todo)
+            report["applied"] = len(todo)
+        PREVIEW.parent.mkdir(parents=True, exist_ok=True)
+        PREVIEW.write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
+        sys.stdout.reconfigure(encoding="utf-8")
+        print(json.dumps({k: v for k, v in report.items() if k != "changes"}, ensure_ascii=False, indent=1))
+        for c in report["changes"]:
+            print(f"  {c['name'][:40]:40} {c['km_moved']:>5} km  {c['campus_before'][0]} {c['campus_before'][1]} km -> {c['nearest_after'][0]} {c['nearest_after'][1]} km")
+        print((f"Applied {report.get('applied', 0)}." if args.apply else "Preview only; --apply writes.") + f" Details: {PREVIEW.relative_to(ROOT)}")
+        return 0
     dbs = args.db or ["master", "welfare", "government"]
     placed = [r for r in rows if r.get("status") == "placed"]
     report = {"file": path.relative_to(ROOT).as_posix(), "lines": len(rows), "placed": len(placed),

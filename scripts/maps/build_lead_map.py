@@ -560,7 +560,11 @@ def main() -> int:
     mapped = [l for l in leads if l["lat"] is not None]
     for l in leads + excluded:
         if l["lat"] is not None and not in_box(l["lat"], l["lon"]):
-            l["prec"], l["how"], l["lat"], l["lon"] = "outside", "located outside the map area", None, None
+            # A lead placed by its own point outside the map area is listed with how far it is (e.g. African Galleria, Karatu,
+            # kept on the map's list outside the catchment by the user's decision of 2026-10-11), not with an older check.
+            camp, km = nearest(campuses, l["lat"], l["lon"])
+            how = f"located outside the map area: its own point is {km:g} km from the nearest campus ({CAMPUS_LABEL.get(camp, camp)})"
+            l["prec"], l["how"], l["lat"], l["lon"], l["placed_outside"] = "outside", how, None, None, True
     spread([l for l in leads + excluded if l["lat"] is not None])
     seg_code = {"emp": 0, "int": 1, "wel": 2, "gov": 3}
     checked = location_checks()
@@ -573,7 +577,7 @@ def main() -> int:
         if l["seg"] == "gov":
             rec["k"] = l.get("council", "")
         if l["lat"] is None:
-            why = checked.get(l.get("key"), l["how"])
+            why = l["how"] if l.get("placed_outside") else checked.get(l.get("key"), l["how"])
             unmapped.append({"n": l["name"], "s": l["seg"], "c": l["conf"], "why": why})
             continue
         camp, km = nearest(campuses, l["lat"], l["lon"])

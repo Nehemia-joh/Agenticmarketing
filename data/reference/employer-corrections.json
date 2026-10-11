@@ -76,8 +76,9 @@
   "O59219a33cb30": {
    "name": "AFRICAN GALLERIA Ltd",
    "action": "hold",
-   "reason": "gallery and souvenir complex on the Karatu-Ngorongoro road, about 130 km from Arusha",
-   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10"
+   "reason": "gallery and souvenir complex at Kibaoni, on the Karatu-Ngorongoro road, 94.7 km from the nearest campus (OpenStreetMap way/476917459); kept on the map outside the catchment and ranked last, by the user's decision of 2026-10-11",
+   "source": "Contact-research review item ('segment to check' or 'location to check'), waves 8 to 10; location from the OpenStreetMap point https://www.openstreetmap.org/way/476917459 (data/raw/geocode-research/geocodes_user51_2026-10-11.jsonl line 18); the user decided on 2026-10-11 to show it outside the catchment, keep it on the map and deprioritise it for the distance",
+   "decided_on": "2026-10-11"
   },
   "Of12fd3f86fd8": {
    "name": "FANTASY ADVENTURES LIMITED",

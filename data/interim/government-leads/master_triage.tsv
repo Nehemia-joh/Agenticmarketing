@@ -1,11 +1,15 @@
 master_organisation_id	name	master_campus	master_distance_km	category	detail	group	proposed_treatment	matched_osm_id	linked_office
+O439848a24ae3	Moshi Urban Water Supply and Sanitation Authority (MUWSA)			agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
 O4724e35fbc8d	Maji Water & Irrigation Authority	Boma Ngombe	0.7	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/439156609	
 O9f2799d7c0f3	Njake Oil	Usa River	0.8	not_government	mistagged	Tagged as government but is not	Reclassify through review (silverleaf-update-lead-list)	node/282575937	
+O14259a760019	Losaa-KIA Water Supply	Boma Ng'ombe	1.2	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
+O4cffe71bdc12	Centre for Agricultural Mechanization and Rural Technology (CAMARTEC)	Kijenge	1.4	unclassified		Unclassified	Review		
 O16ea10d1a790	East African Community	Kijenge	1.7	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/248924655	
 Od9b9fad15a9c	Kituo cha Polisi Baraa	Kijenge	1.8	excluded	police	Excluded	Exclude from convening; never contact for this track	way/366925724	
 Od4203866e06b	NSSF	Kijenge	1.9	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/245717233	
 O1d5afbdb490e	Mwanama Village Office	Kijenge	1.9	convener	village	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/10862247616	GOFF_village_node-10862247616
 O7b642900be9a	Lutheran Center	Kijenge	1.9	not_government	religious	Tagged as government but is not	Reclassify through review (silverleaf-update-lead-list)	way/311751995	
+O0044a3ec3686	Tanzania Insurance Regulatory Authority (TIRA) – Northern Zone office	Ilboru	1.9	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
 O797e1cf1832d	Immigration office	Kijenge	2.0	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/3175392089	
 O848e641a1a5b	Ngorongoro Information Center	Kijenge	2.0	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/5285780321	
 Oe7bb73cd7c38	Arusha District Commissioner's Office	Kijenge	2.0	convener	district	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	way/281486939	GOFF_district_arusha

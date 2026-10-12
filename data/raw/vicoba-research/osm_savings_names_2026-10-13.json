@@ -1,0 +1,209 @@
+{
+ "retrieved": "2026-10-13",
+ "endpoints": {
+  "west": "https://overpass-api.de/api/interpreter",
+  "mid": "https://overpass.private.coffee/api/interpreter",
+  "east": "https://overpass-api.de/api/interpreter"
+ },
+ "boxes": {
+  "west": "-3.62,36.42,-3.10,36.78",
+  "mid": "-3.62,36.78,-3.10,37.05",
+  "east": "-3.62,37.05,-3.10,37.40"
+ },
+ "query": "[out:json][timeout:150];\n(\n  nwr[\"name\"~\"vicoba|vikoba|vsla|saving|akiba|kuweka|kukopa|kikundi|vikundi|microfinance|micro finance|community bank|benki ya jamii|chama cha\",i]({bbox});\n  nwr[\"description\"~\"vicoba|vikoba|vsla|saving|akiba|kuweka|kukopa|kikundi|vikundi|microfinance|micro finance|community bank|benki ya jamii|chama cha\",i]({bbox});\n  nwr[\"office\"=\"financial\"]({bbox});\n  nwr[\"amenity\"=\"microfinance\"]({bbox});\n  nwr[\"office\"=\"association\"]({bbox});\n);\nout center tags;",
+ "attribution": "OpenStreetMap contributors, ODbL",
+ "elements": [
+  {
+   "osm_id": "node/10862628995",
+   "lat": -3.3729265,
+   "lon": 36.6861596,
+   "tags": {
+    "check_date": "2023-05-02",
+    "internet_access": "no",
+    "name": "NMB Arusha Market",
+    "office": "financial",
+    "opening_hours": "24/7",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "wheelchair": "yes"
+   },
+   "nearest_campus": "Ilboru",
+   "distance_km": 2.61,
+   "box": "west"
+  },
+  {
+   "osm_id": "node/6237528886",
+   "lat": -3.3749406,
+   "lon": 36.6808437,
+   "tags": {
+    "amenity": "bank",
+    "check_date": "2023-06-19",
+    "name": "Akiba Commercial Bank"
+   },
+   "nearest_campus": "Arusha City",
+   "distance_km": 2.73,
+   "box": "west"
+  },
+  {
+   "osm_id": "node/8914337356",
+   "lat": -3.4041412,
+   "lon": 36.6963081,
+   "tags": {
+    "name": "Economists (T) Investment Group",
+    "office": "financial",
+    "wikipedia": "en:The Economists (T) Investment group was founded in 2018 as a group of friends who studied together at Institute of Accountancy Arusha (Tanzania). The Economists (T) Investment group launched its Shyn brand and entered personal care and cleanness market"
+   },
+   "nearest_campus": "Kijenge",
+   "distance_km": 2.85,
+   "box": "west"
+  },
+  {
+   "osm_id": "node/7084454667",
+   "lat": -3.3756032,
+   "lon": 36.7420855,
+   "tags": {
+    "addr:city": "Arusha",
+    "addr:housenumber": "16768",
+    "addr:street": "Baraa / kwa Mrefu",
+    "name": "@hockeyheartsorganaization",
+    "office": "association",
+    "opening_hours": "24/7"
+   },
+   "nearest_campus": "Kijenge",
+   "distance_km": 3.57,
+   "box": "west"
+  },
+  {
+   "osm_id": "way/71102738",
+   "lat": -3.4982916,
+   "lon": 36.9342534,
+   "tags": {
+    "highway": "tertiary",
+    "name": "Makiba Avenue",
+    "surface": "unpaved"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 17.12,
+   "box": "mid"
+  },
+  {
+   "osm_id": "node/7815949043",
+   "lat": -3.509516,
+   "lon": 36.9413686,
+   "tags": {
+    "country": "TZ",
+    "district": "Meru",
+    "name": "Patanumbe, Makiba",
+    "place": "hamlet",
+    "region": "Arusha",
+    "ward": "Makiba"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 18.59,
+   "box": "mid"
+  },
+  {
+   "osm_id": "node/9392133492",
+   "lat": -3.5130284,
+   "lon": 36.9423463,
+   "tags": {
+    "addr:district": "Arumeru District council",
+    "addr:region": "Arusha",
+    "addr:street": "Mabatini",
+    "addr:ward": "Makiba",
+    "government": "administrative",
+    "name": "Makiba Ward Building",
+    "name:en": "Makiba ward office",
+    "name:sw": "Ofisi ya kata ya Makiba",
+    "office": "government",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 18.99,
+   "box": "mid"
+  },
+  {
+   "osm_id": "way/661859268",
+   "lat": -3.5098939,
+   "lon": 36.9604477,
+   "tags": {
+    "amenity": "clinic",
+    "building": "yes",
+    "name": "Makiba Health Centre"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 19.69,
+   "box": "mid"
+  },
+  {
+   "osm_id": "node/846798947",
+   "lat": -3.5268734,
+   "lon": 36.951895,
+   "tags": {
+    "name": "Makiba, Makiba",
+    "place": "hamlet"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 20.84,
+   "box": "mid"
+  },
+  {
+   "osm_id": "node/9394141738",
+   "lat": -3.4956889,
+   "lon": 36.9998735,
+   "tags": {
+    "name": "Makiba Ward",
+    "place": "region"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 21.22,
+   "box": "mid"
+  },
+  {
+   "osm_id": "node/10837349554",
+   "lat": -3.5358365,
+   "lon": 36.9628622,
+   "tags": {
+    "addr:city": "Arusha",
+    "addr:district": "Arumeru District Council",
+    "addr:subward": "Makiba",
+    "addr:ward": "Makiba",
+    "amenity": "school",
+    "isced:level": "1",
+    "name": "Shule ya Msingi Makiba",
+    "name:en": "Makiba Primary School",
+    "name:sw": "Shule ya Msingi Makiba",
+    "operator:type": "government",
+    "source": "WFP Primary Schools Feeding Program Survey, 2023 by OMDTZ"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 22.3,
+   "box": "mid"
+  },
+  {
+   "osm_id": "node/9409523463",
+   "lat": -3.5792907,
+   "lon": 36.9845149,
+   "tags": {
+    "addr:district": "Simanjiro District Council",
+    "addr:region": "Manyara",
+    "addr:street": "Kilimahewa",
+    "addr:ward": "Endiamutu",
+    "craft": "grinding_mill",
+    "description": "Maize",
+    "flour_fortified": "no",
+    "industrial": "grinding_mill",
+    "man_made": "works",
+    "name": "Kikundi Cha Kiwatemisi Milling Machine",
+    "opening_hours": "Mo-Fr 8:00-20:00; Sa-Su 8:00-20:00",
+    "operator:type": "community",
+    "product": "food",
+    "source": "WFP Field Survey 2021, OMDTZ"
+   },
+   "nearest_campus": "Usa River",
+   "distance_km": 27.69,
+   "box": "mid"
+  }
+ ],
+ "note": "Slim extract for the VICOBA sourcing test. Contact tags (phone, email) removed; none of the 12 features is a savings group."
+}

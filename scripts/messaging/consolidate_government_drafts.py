@@ -20,7 +20,7 @@ from datetime import date
 import offer_lib as L
 
 ROOT = L.ROOT
-GENERIC = re.compile(r"^(Finance must confirm|Kiswahili draft: native-speaker|Letter on Silverleaf letterhead)")
+GENERIC = re.compile(rf"^({L.BOILERPLATE_NOTE}|Kiswahili draft: native-speaker|Letter on Silverleaf letterhead)")
 
 
 def band(km) -> str:

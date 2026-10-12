@@ -36,9 +36,17 @@ INTRO_SW = f"Jina langu ni {SENDER}, {SENDER_TITLE_SW} wa Silverleaf Academy, Ar
 MEETING_ASK = "Would it be possible to arrange a short meeting, either in person or by phone, to discuss this further?"
 MEETING_ASK_SW = "Je, itawezekana kupanga kikao kifupi, ana kwa ana au kwa simu, ili tuzungumze zaidi?"
 NATIVE_REVIEW = "Kiswahili draft: native-speaker review required before release."
-CONFIRM_2027 = "Finance must confirm that these offer terms apply to the 2027 school year before sending (2027 enrolment plan tasks A1 and A2)."
+# Where the offer terms come from, and the check before the first send (decided by the user on 12 October 2026: the terms are
+# Silverleaf's discount schedule, which the register matches). A note, not a hold: it never changes a draft's review status and
+# is never a reason a draft is held. It replaced the 2027 Finance condition (OLD_CONFIRM_2027).
+OFFER_TERMS_NOTE = ("Offer terms are taken from Silverleaf's discount schedule (2025 Proposed Fees & Discounts). "
+                    "Check with Finance before the first send.")
+OLD_CONFIRM_2027 = "Finance must confirm that these offer terms apply to the 2027 school year before sending (2027 enrolment plan tasks A1 and A2)."
+CONFIRM_2027 = OFFER_TERMS_NOTE  # back-compatible name; the note no longer holds anything
+# Notes every offer-stating draft carries, which are never a reason it is held (the old wording too, for databases not yet redrafted).
+BOILERPLATE_NOTE = r"The first message is a request|Offer terms are taken from Silverleaf's discount schedule|Finance must confirm that these offer terms"
 REQUEST_FIRST = ("The first message is a request and states no offer terms. The offer follows in follow-up 1, or in the reply once someone "
-                 "names the right colleague; the Finance condition applies from that message.")
+                 "names the right colleague; that message is the first to state terms.")
 
 
 def load_register() -> dict:

@@ -344,7 +344,7 @@ def welfare_rows(con):
             continue
         missing = p["missing_information"] or ""
         held = [s.strip() for s in re.split(r";\s+(?=[A-Z])", missing)
-                if s.strip() and not re.match(r"(The first message is a request|Finance must confirm|Personal-domain inbox confirmed|Then: one message to)", s.strip())]
+                if s.strip() and not re.match(rf"({L.BOILERPLATE_NOTE}|Personal-domain inbox confirmed|Then: one message to)", s.strip())]
         recipient = p["recipient"] or ""
         named = not re.search(r"team|organisation route|\(.*route\)", recipient, re.I) and bool(split_name(recipient.split("(")[0])[0])
         free_mail = bool(R.FREE_MAIL.search(address))

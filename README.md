@@ -412,7 +412,7 @@ On 23 September 2026, after the contact research below, the drafts were:
 - **Welfare:** 490, of which 73 are ready and 417 held with a reason.
 - **Government:** 149, of which the 4 council letters are ready and 145 are held. Council letters now carry the council's official postal address.
 
-All of them pass the offer-register checks, and no first message states offer terms. Finance must confirm that the 2025 terms apply to 2027 before any message that states them is sent. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
+All of them pass the offer-register checks, and no first message states offer terms. The terms come from Silverleaf's discount schedule (confirmed by the user on 12 October 2026); check with Finance before the first send. The consolidated master workbook shows the company-master drafts (Messages, Outreach plans, Sequences). `outputs/messages/Silverleaf Offer-Aligned Messages - 2026-09-23.xlsx` shows every draft in all three databases.
 
 ### Lead briefs and hooks for the named leads
 

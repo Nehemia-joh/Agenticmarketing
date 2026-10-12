@@ -187,7 +187,7 @@ def main() -> int:
               "Separate from the company-leads master in outputs/master/.", "sub"), ("", ""), ("Scope", "h"),
              (cfg.get("scope", "Welfare institutions near Silverleaf's campuses."), ""),
              ("Drafts only, request first: the Outreach Plans sheet holds a meeting request for each organisation (sponsorship requests for "
-              "funders only), signed by Mariam Haji, and the offer register v4 terms in the follow-up. Nothing was sent or scheduled, and every "
+              "funders only), signed by Mariam Haji, and the offer register's terms in the follow-up. Nothing was sent or scheduled, and every "
               "automation remains disabled.", ""), ("", ""),
              ("Coverage and accuracy", "h"),
              (f"Sources: {len(slices)} research slices (web), the NGOs Information System register ({counts['registry_ngos']} NGOs pinned within "
@@ -247,8 +247,8 @@ def main() -> int:
     outreach_rows = [row[:at] + ["" if v is None else v for v in escalations.get(row[0], [""] * len(ESCALATION_FIELDS))] + row[at:]
                      for row in outreach_rows]
     add_sheet(wb, "Outreach Plans", "Request-first drafts: body asks for a short meeting and states no offer terms; follow_up_1 states the offer "
-              "register v4 terms. One per in-scope organisation, plus replies to in-fit parent enquiries. Finance must confirm the 2027 terms before "
-              "a follow-up is sent; needs_review rows are held for the reason in conditions. The escalation_* columns name a more senior executive "
+              "register's terms, taken from Silverleaf's discount schedule (check with Finance before the first send). One per in-scope "
+              "organisation, plus replies to in-fit parent enquiries; needs_review rows are held for the reason in conditions. The escalation_* columns name a more senior executive "
               "to approach by hand if the country office stalls (escalation_trigger); they are not copied on the first message. Nothing is sent.",
               outreach_headers, outreach_rows, {"target": 36, "subject": 40, "body": 90, "follow_up_1": 70, "conditions": 70, "recipient": 30,
                                                 "escalation_recipient": 30, "escalation_trigger": 40})
@@ -270,7 +270,7 @@ def main() -> int:
                ["VM10", "Sponsor-ready reporting", "Termly progress summary in an approved format to the authorised institution", "Outcome guarantees; donor sharing without consent", "Academic and safeguarding approval"],
                ["VM11", "Safeguarding and wellbeing", "Share the child-protection policy; explain the wellness programme", "Certification or specialist therapy", "Policy confirmed current"],
                ["VM12", "Transport", "Published transport bands", "Route availability", "Operations confirms the route"],
-               ["VM13", "Documented partner rate", "NGO partner discount OF03 (3-18% per child when a home places all its primary-age children), from the offer register", "Any term not in the offer register", "Finance confirms the 2027 terms"]])
+               ["VM13", "Documented partner rate", "NGO partner discount OF03 (3-18% per child when a home places all its primary-age children), from the offer register", "Any term not in the offer register", "All primary-age children placed; check with Finance before the first send"]])
     add_sheet(wb, "Automation", note, ["flow_id", "status"], [["F14", "DISABLED — design only"]])
     workbook_path.parent.mkdir(parents=True, exist_ok=True)
     wb.save(workbook_path)

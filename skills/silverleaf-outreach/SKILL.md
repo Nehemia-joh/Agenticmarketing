@@ -38,7 +38,7 @@ Use this local role map as a starting hypothesis, then adjust to evidence:
 | Finance / SACCOS committee | Clear fee information and payment planning | Review the published schedule with the relevant coordinator |
 | CSR / education lead | An evidenced education programme or shared objective | Explore one specific collaboration |
 
-The partner circulates an invitation; interested parents contact Silverleaf directly. State discounts only as the offer register records them, with the condition that Finance confirms them for 2027 before sending. Treat payroll deductions, transport arrangements and employer subsidies as proposals requiring agreement. Confirm grade availability and campus fit. Do not promise retention gains, reduced absence or enrolment outcomes without evidence.
+The partner circulates an invitation; interested parents contact Silverleaf directly. State discounts only as the offer register records them. Its terms come from Silverleaf's discount schedule (confirmed by the user on 12 October 2026); check with Finance before the first send, as a note rather than a hold. Treat payroll deductions, transport arrangements and employer subsidies as proposals requiring agreement. Confirm grade availability and campus fit. Do not promise retention gains, reduced absence or enrolment outcomes without evidence.
 
 ## Draft and personalize
 

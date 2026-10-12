@@ -139,7 +139,8 @@ def main() -> int:
                 ["Enquiries", counts["enquiries"], "Historical public childcare and school enquiries. Use the one-reply review flow."],
                 ["Messages", counts["messages"], "Request-first drafts for every organisation and contact plan, signed by Mariam Haji: the message "
                  "asks for a short meeting and states no offer terms; offer_message (and AQ02's follow-up 1) states the offer, taken only from "
-                 "data/reference/silverleaf-offer-register.json. Finance must confirm the 2027 terms before the offer message is sent. lead_brief "
+                 "data/reference/silverleaf-offer-register.json, whose terms come from Silverleaf's discount schedule; check with Finance "
+                 "before the first send. lead_brief "
                  "summarises what research found about the lead. Earlier versions remain in SQLite message_versions."],
                 ["Lead briefs", len(data.get("lead_briefs", [])), "Facts about each researched lead, each with its source link, page title, "
                  "verbatim excerpt and the date it was read. Open the links to learn about a lead when they reply."],
@@ -213,8 +214,8 @@ def main() -> int:
 
     b.sheet("Messages", "Request-first drafts for every organisation and contact plan, signed by Mariam Haji. The message asks for a short meeting "
             "and states no offer terms; the offer message states the offer register's terms (AQ02 sends it as follow-up 1; on AQ01 it is the reply "
-            "once someone names the right colleague). Nothing is sent: Finance must confirm the terms apply to 2027 before the offer message goes "
-            "out, and each row's route, recipient and copy need review first. Hooks appear only where verified.",
+            "once someone names the right colleague). Nothing is sent: the terms come from Silverleaf's discount schedule, with a check with "
+            "Finance before the first send, and each row's route, recipient and copy need review first. Hooks appear only where verified.",
             ["message_id", "target_name", "organisation_name", "target_type", "segment", "acquisition_track_id", "review_status", "contact_channel",
              "subject", "message", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "offer_ids", "offer_version", "hook_status",
              "hook", "evidence_url", "lead_brief", "value_module_ids", "campaign_copy_status", "channel_attribution", "conditions",
@@ -336,7 +337,8 @@ def main() -> int:
     if offer:
         audit.append(["Offer-aligned messages (offer v4)", f"{outcomes.get('rewritten', 0)} rewritten; {new_plans} new plans", "Complete",
                       f"{offer.get('run_on', '')}: every draft states only offer-register terms ({offer.get('conformance_issues', 0)} conformance "
-                      "issues). Finance must confirm the 2027 terms before sending. Earlier versions remain in message_versions."])
+                      "issues); the terms come from the discount schedule, checked with Finance before the first send. Earlier versions "
+                      "remain in message_versions."])
     if merge:
         applications = merge.get("applications") or [merge]
         total = lambda key: sum(a.get(key, 0) for a in applications)  # noqa: E731

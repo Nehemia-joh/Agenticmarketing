@@ -148,8 +148,9 @@ def main() -> int:
               "home, the nearest campus and distance when the lead's location is precise, the recipient's role, and the wards nearest our campuses "
               "in council letters.", ""),
              ("", ""), ("Before anything is sent", "h"),
-             ("1. Finance confirms that the 2025 terms apply to the 2027 school year (2027 enrolment plan tasks A1 and A2) before any message that "
-              "states them. First messages state no terms.", ""),
+             ("1. The offer terms are taken from Silverleaf's discount schedule (2025 Proposed Fees & Discounts, 'Summary of discounts offered'), "
+              "as the user confirmed on 12 October 2026; check with Finance before the first send. The referral package has expired. First "
+              "messages state no terms.", ""),
              ("2. The 40% rate is Rivertrees' negotiated term only. The member-association rate is documented for KINEFA; Finance must agree to extend it.", ""),
              ("3. Tuition figures are not quoted in first messages; send the current fee schedule on request (the website's figures carry no school year).", ""),
              ("4. Kiswahili drafts need native-speaker review. Government letters also need the campaign C11 gates (session content, guide, privacy notice).", ""),

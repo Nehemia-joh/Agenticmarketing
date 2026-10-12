@@ -1,6 +1,6 @@
 {
  "run_on": "2026-10-12",
- "offer_version": "2026-09-23-offer-v4",
+ "offer_version": "2026-10-12-offer-v5",
  "outcomes": {
   "named-person fallout (case B): Corporate employers": 127,
   "rewritten": 2675,
@@ -32,7 +32,7 @@
  "counts_after": {
   "messages": 2675,
   "outreach_plans": 2675,
-  "message_versions": 8490,
+  "message_versions": 8493,
   "campaign_lead_assignments": 2707
  }
 }

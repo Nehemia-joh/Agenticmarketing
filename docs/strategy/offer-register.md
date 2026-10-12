@@ -1,15 +1,20 @@
 # Silverleaf offer register
 
-Version: 2026-09-23-offer-v4
+Version: 2026-10-12-offer-v5
 Machine-readable copy: `data/reference/silverleaf-offer-register.json`. The message scripts in `scripts/messaging/` read it, and verification checks every percentage and amount in a message against it.
 
 ## Status
 
 The terms come from two Silverleaf documents in `references/Offers & Discounts/`:
-- the 2025 summary of discounts
+- the discount schedule, *2025 Proposed Fees & Discounts* ("Summary of discounts offered")
 - the 2025 Rivertrees proposal
 
-The 2027 fee structure and discount approvals were still in progress on the 2027 enrolment plan (tasks A1 and A2, due 15 September 2026). **Finance confirms that each term applies to the 2027 school year before any message that states it is sent.** Every draft carries this condition. First messages state no terms.
+**Updated 12 October 2026.** The user confirmed that the offer terms come from the discount schedule, and the terms below match it. The earlier condition, that Finance confirm each term for the 2027 school year before any message stating it is sent, was removed that day. Every offer-stating draft now carries a note instead: *"Offer terms are taken from Silverleaf's discount schedule (2025 Proposed Fees & Discounts). Check with Finance before the first send."* The note never holds a draft or changes its review status. First messages state no terms.
+
+Conditions that still stand:
+- OF07 is documented for KINEFA only; Finance must agree to extend it to any other savings group.
+- OF03 applies only when a home places all its primary-age children.
+- Expired offers stay expired: the referral package (OF05) applied to enrolments before 30 November 2024.
 
 ## Terms
 
@@ -45,7 +50,7 @@ Checked on the admissions page on 23 September 2026:
 4. **OF08's 40% is for Rivertrees only.** OF07's group rate needs Finance to extend it.
 5. **Government convening letters** state no offer, fee or service (changed 1 October 2026: they read as too salesy); they describe a free talk and a parent booklet, and never offer officials or their staff a discount. A personal benefit to officials whose cooperation Silverleaf seeks could look like an inducement.
 6. **No offer guarantees** a place, transport route or capacity.
-7. **Record the offer IDs of every message** and the 2027 confirmation condition.
+7. **Record the offer IDs of every message** and the offer-terms note (terms from the discount schedule; check with Finance before the first send). The note is not a hold.
 
 ## How messages use the offer
 

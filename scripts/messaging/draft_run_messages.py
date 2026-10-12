@@ -427,7 +427,7 @@ def welfare(con, now, run_cfg) -> dict:
             continue
         model = p.get("care_model") or ""
         name = L.display_name(o["name"], oid)
-        missing = [L.REQUEST_FIRST, L.CONFIRM_2027]
+        missing = [L.REQUEST_FIRST, L.OFFER_TERMS_NOTE]
         # Route: the organisation's own published email or phone first; otherwise a low- or medium-risk contact; never a risky one.
         route, value, recipient = "", "", ""
         if p.get("email") and p.get("pdpa_risk") != "risky":
@@ -632,7 +632,7 @@ def welfare(con, now, run_cfg) -> dict:
                 "relevance_reason": "Public parent enquiry within Silverleaf's levels; one reviewed reply at most.", "cta_type": "Requalification reply",
                 "track": "C04", "modules": "VM04", "review_status": "needs_review",
                 "missing": ["pdpa_risk risky: a lawful basis approved by Silverleaf's data-protection owner is required before replying.",
-                            "Reply only on the original public thread; one reply maximum; no follow-up.", L.CONFIRM_2027],
+                            "Reply only on the original public thread; one reply maximum; no follow-up.", L.OFFER_TERMS_NOTE],
                 "contact_route": "source_url", "route_value": e["source_url"], "recipient": "Author of the public enquiry", "language": "English",
                 "offer_ids": FAMILY_OFFERS, "outcome": "drafted, held (risky)"}
         issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(body, FAMILY_OFFERS)]

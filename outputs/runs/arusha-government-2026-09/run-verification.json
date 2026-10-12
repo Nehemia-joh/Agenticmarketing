@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-11T21:41:54.039357+00:00",
+ "checked_at": "2026-10-12T01:35:24.146443+00:00",
  "run_id": "arusha-government-2026-09",
  "result": "passed",
  "checks": {
@@ -78,9 +78,9 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-12T00:41:43",
-   "master_db_sha256": "5d5411e42c54eb3fb1a2c7cca8fdfab9617af38ad1d35f99adc41d2604cfd256",
-   "master_workbook_sha256": "ccf4e3eb7b3d6a7151688061b365f3535834085d70198b869873d9c566dabaea"
+   "recorded_at": "2026-10-12T04:35:15",
+   "master_db_sha256": "da6ba4fb08260192a3fc399760cc5b6387a7b713861a4d3fbaf8a4b546e4d0e3",
+   "master_workbook_sha256": "a3335e172a89819ffe7b5d6a988f32583dc30646e55f9936e576e4ad8bf557fe"
   },
   "script_copies_out_of_sync": [],
   "catchment_wards_without_office": 0,

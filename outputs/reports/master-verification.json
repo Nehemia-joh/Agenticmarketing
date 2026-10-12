@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-11T21:41:13.205741+00:00",
+  "checked_at": "2026-10-12T01:34:40.126020+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "5d5411e42c54eb3fb1a2c7cca8fdfab9617af38ad1d35f99adc41d2604cfd256",
+  "database_sha256": "da6ba4fb08260192a3fc399760cc5b6387a7b713861a4d3fbaf8a4b546e4d0e3",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "ccf4e3eb7b3d6a7151688061b365f3535834085d70198b869873d9c566dabaea",
+  "workbook_sha256": "a3335e172a89819ffe7b5d6a988f32583dc30646e55f9936e576e4ad8bf557fe",
   "checks": {
     "integrity": true,
     "foreign_keys": true,

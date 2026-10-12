@@ -19,7 +19,8 @@ from datetime import date
 import offer_lib as L
 
 ROOT = L.ROOT
-BOILERPLATE = re.compile(r"^(The first message is a request|Finance must confirm)")
+# Notes every draft carries, never a reason it is held: the request-first note and the offer-terms note (offer_lib).
+BOILERPLATE = re.compile(rf"^({L.BOILERPLATE_NOTE})")
 
 
 def reasons_held(missing: str) -> list[str]:

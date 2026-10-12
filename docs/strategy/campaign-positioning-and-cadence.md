@@ -41,7 +41,7 @@ Open with the request, a short meeting about an education benefit for the childr
 
 ### SACCOS
 
-Open with a request to meet the committee about members' children's education. In the offer message, offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the member-association group rate, exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy. Finance must agree to extend the group rate, which is documented for KINEFA, and must confirm the terms for 2027 before sending.
+Open with a request to meet the committee about members' children's education. In the offer message, offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the member-association group rate, exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy. Finance must agree to extend the group rate, which is documented for KINEFA. The terms come from Silverleaf's discount schedule; check with Finance before the first send (12 October 2026).
 
 ### Existing Silverleaf families at early-years campuses
 
@@ -62,7 +62,7 @@ Treat progression to primary as a separate warm journey. Explain the transition 
 ## Claims held out of evergreen campaign copy
 
 - Fee figures for 2027 until the fee structure is approved. The current site and 2026 brochure publish figures, but the 2027 Gantt chart shows approval work in progress.
-- Discounts and partner terms other than those in the [offer register](offer-register.md). Register terms may appear in drafts, each with the condition that Finance confirms them for 2027 before sending.
+- Discounts and partner terms other than those in the [offer register](offer-register.md). Register terms may appear in drafts. They come from Silverleaf's discount schedule, and each draft notes a check with Finance before the first send (12 October 2026; this note replaced the condition that Finance confirm the terms for 2027).
 - Referral rewards, until the 2027 referral scheme is approved (2027 Gantt task A8).
 - Student counts, occupancy, retention, exam, social-emotional-learning or teacher-training statistics until the metric source of truth is reconciled.
 - Campus capacity, available places, transport coverage or a visit slot until admissions confirms it.

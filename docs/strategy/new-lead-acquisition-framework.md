@@ -48,7 +48,7 @@ Use only the modules that match the recipient and offer:
 - **VM05 School experience:** English-medium teaching, technology in learning, student wellness and co-curricular enrichment may support the message when relevant.
 - **VM06 SACCOS information:** Offer admissions and approved fee information without implying a loan, payroll deduction, subsidy or discount.
 - **VM07 Defined education collaboration:** Use only when a verified education or community remit supports a specific joint activity. Do not imply funding or endorsement.
-- **VM19 Documented Silverleaf offer:** The staff school-fee benefit for employers (20% for heads of department, 10% off the first year for other staff), the family offer for everyone (free uniform for full-year payment, sibling discount, four instalments) and, for savings groups, the member-association rate. Terms come only from the offer register; Finance confirms them for 2027 before sending.
+- **VM19 Documented Silverleaf offer:** The staff school-fee benefit for employers (20% for heads of department, 10% off the first year for other staff), the family offer for everyone (free uniform for full-year payment, sibling discount, four instalments) and, for savings groups, the member-association rate. Terms come only from the offer register, which takes them from Silverleaf's discount schedule; check with Finance before the first send (12 October 2026).
 
 ## Expansion workflow
 

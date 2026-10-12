@@ -453,7 +453,7 @@ There are two different things here, and they must not be mixed.
 
 ### Rules shared by every employer funnel
 
-- **Goal and offer.** Staff hear about Silverleaf through their employer and choose to sign up. The first message asks for a meeting and states no terms (section 4 sets how it reaches the right person). Follow-up 1 states the staff school-fee benefit at no cost to the employer (OF04), and the family offer (OF01, OF02, OF09). The employer may present the benefit as its own or add to it. Terms come only from the [offer register](../../skills/silverleaf-outreach/references/offer-register.md), and Finance confirms each for 2027 before it is sent. Incentives follow [section 6](#6-the-partnership-offer-and-incentives).
+- **Goal and offer.** Staff hear about Silverleaf through their employer and choose to sign up. The first message asks for a meeting and states no terms (section 4 sets how it reaches the right person). Follow-up 1 states the staff school-fee benefit at no cost to the employer (OF04), and the family offer (OF01, OF02, OF09). The employer may present the benefit as its own or add to it. Terms come only from the [offer register](../../skills/silverleaf-outreach/references/offer-register.md), which takes them from Silverleaf's discount schedule; check with Finance before the first send (12 October 2026). Incentives follow [section 6](#6-the-partnership-offer-and-incentives).
 - **The win (S7).** One of two forms:
   - **Circulation partner:** the employer agrees in writing (an email is enough) to circulate the invitation, pamphlet or QR code, and confirms the first circulation has gone out.
   - **Benefit partner:** an education-benefit agreement is signed by the CEO, modelled on the Rivertrees proposal (OF08) but with register terms only.
@@ -516,7 +516,7 @@ flowchart TD
 | Leads (ready) | 480 (432), of which 14 are variant A (E5) |
 | Tiers P1 / P2 / P3 / X | 36 / 8 / 421 / 15 |
 | First touch: high-direct / high-indirect / medium / low / call sheet | 22 / 166 / 227 / 40 / 25 |
-| Gates | Finance confirms OF04 before follow-up 1; session format by staff count |
+| Gates | Session format by staff count (OF04 comes from the discount schedule; check with Finance before the first send, a note since 12 October 2026) |
 | Win | S7: circulation confirmed, or benefit agreement signed |
 | Dormant | `dormant_no_route`, `dormant_no_response`, `dormant_after_meeting`, `dormant_after_session` |
 | Closed-lost | `declined`, `not_relevant`, `closed_or_moved`, `terms_not_agreed`, `suppressed` |
@@ -580,7 +580,7 @@ flowchart TD
 |---|---|
 | Leads (ready) | 437 (182) across six subsegments |
 | Biggest first-touch need | 339 have no email, so the front-desk call comes first (50 hotels and 18 hospitals and clinics publish a phone) |
-| Gates | Finance confirms OF04; session format by staff count; secure sites need the employer's clearance |
+| Gates | Session format by staff count; secure sites need the employer's clearance (OF04: check with Finance before the first send, a note since 12 October 2026) |
 | Win | S7: circulation confirmed, or benefit agreement signed |
 | Dormant | `dormant_no_route`, `dormant_no_response`, `dormant_after_meeting`, `dormant_after_session` |
 | Closed-lost | `declined`, `not_relevant`, `closed_or_moved`, `terms_not_agreed`, `suppressed` |
@@ -643,7 +643,7 @@ flowchart TD
 | Funnel facts | E3 |
 |---|---|
 | Leads (ready) | 182 (126) across four subsegments |
-| Gates | Finance confirms the terms; CEO signs any agreement; head-office approval for branch networks; an incentive only at S6 with Finance's written approval |
+| Gates | CEO signs any agreement (the terms come from the discount schedule; check with Finance before the first send, a note since 12 October 2026); head-office approval for branch networks; an incentive only at S6 with Finance's written approval |
 | Win | S7: circulation confirmed, or benefit agreement signed |
 | Dormant | `dormant_no_route`, `dormant_no_response`, `dormant_after_session`, `dormant_after_meeting` |
 | Closed-lost | `declined`, `terms_not_agreed`, `compliance_blocked`, `suppressed` |

@@ -34,6 +34,10 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   with the segment's redirect-style ask (first_touch.close), and a plan with an escalation contact notes 'Then: one message to <recipient>
   5 working days after the close'; nothing is drafted to them. Variant A sponsorship, case A, case C, savings groups and Rivertrees are
   unchanged. A copy this changes is saved first as '2026-10-11-before-named-fallout'.
+- Offer-terms note (12 October 2026): the user confirmed the terms come from Silverleaf's discount schedule, so every plan carries
+  offer_lib.OFFER_TERMS_NOTE (terms from the schedule; check with Finance before the first send) in place of the 2027 Finance
+  condition, which is dropped from the notes. The note holds nothing. A copy this changes after both earlier labels are taken is
+  saved as '2026-10-12-before-offer-note'.
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
   value module VM19, positioning evidence PE025-PE028 and the strategy records; everything in one transaction with
@@ -76,12 +80,15 @@ REDRAFT_BACKUP = "2026-10-01-before-partnership-wording"  # the copy before the 
 # The copy before the case B follow-ups followed the named-person fallout (11 October 2026); later changes are saved under this label too,
 # because message_versions keeps the first copy saved under a label and the 1 October label is already taken for these plans.
 FALLOUT_BACKUP = "2026-10-11-before-named-fallout"
+# The copy before the 2027 Finance condition became the offer-terms note (12 October 2026), for plans whose two labels above are taken.
+OFFER_NOTE_BACKUP = "2026-10-12-before-offer-note"
 OFFER_STRATEGY_ID = "S-offer-aligned-v4"
 STRATEGY_ID = "S-request-first-v5"
 COPY_VERSION = "request-first-v5"
 MESSAGE_STATUS = "Draft - not sent; request-first review"
 TODAY = "2026-09-23"
-OBSOLETE_NOTES = {"replace sender name"}  # the sender is Mariam Haji for every draft
+# The sender is Mariam Haji for every draft; the 2027 Finance condition became the offer-terms note (12 October 2026).
+OBSOLETE_NOTES = {"replace sender name", L.OLD_CONFIRM_2027}
 # Variant A (sponsorship) plans: the register approves no follow-up for a sponsorship ask before a reply.
 SPONSORSHIP_FOLLOW_UP_NOTE = ("Sponsorship follow-up awaiting approved copy (variant A: no staff-benefit follow-up, because the offer register "
                               "gives sponsorship rows no offer message until they reply).")
@@ -297,7 +304,7 @@ def rivertrees_copy(org: dict) -> dict:
     greet = "Dear Rivertrees team,"
     body = (f"{greet}\n\nIn 2025 Silverleaf Academy proposed a Corporate Education Benefit Partnership for Rivertrees staff. Applications for the "
             f"2027 school year are now open, and we would like to renew it.\n\n{L.INTRO}\n\nWould it be possible to arrange a short meeting, either "
-            f"in person or by phone, to confirm the 2027 terms and how you would like to share them with your staff?\n\n{L.SIGNATURE}")
+            f"in person or by phone, to go through the terms and how you would like to share them with your staff?\n\n{L.SIGNATURE}")
 
     def offer_text(opener: str) -> str:
         return (f"{greet}\n\n{opener} As proposed in 2025, the partnership gives employees' children 40% off tuition, waives the TZS 50,000 "
@@ -518,8 +525,10 @@ def main() -> int:
             label = REQUEST_FIRST_BACKUP
         else:
             changed = stored != tuple(copy[k] or "" for k in COPY_FIELDS)
-            exists = con.execute("SELECT 1 FROM message_versions WHERE version=? AND message_id=?", (REDRAFT_BACKUP, plan["message_id"])).fetchone()
-            label = (FALLOUT_BACKUP if exists else REDRAFT_BACKUP) if changed else ""
+            taken = {v for (v,) in con.execute("SELECT version FROM message_versions WHERE message_id=? AND version IN (?,?)",
+                                               (plan["message_id"], REDRAFT_BACKUP, FALLOUT_BACKUP))}
+            free = [v for v in (REDRAFT_BACKUP, FALLOUT_BACKUP) if v not in taken]
+            label = (free[0] if free else OFFER_NOTE_BACKUP) if changed else ""
         if label:
             backups.append((label, plan["message_id"], json.dumps({"outreach_plan": original, "message": messages.get(plan["message_id"])},
                                                                   ensure_ascii=False, default=str)))
@@ -742,14 +751,15 @@ def main() -> int:
                     ("VM19", "Employers, SACCOS and families", "Documented Silverleaf offer",
                      "The recipient sees concrete, documented savings: staff tuition discounts, the free uniform for full-year payment, sibling discounts and four instalments.",
                      "Offer terms exactly as recorded in data/reference/silverleaf-offer-register.json.", "Share the offer with staff or members.",
-                     "Every offer-aligned v4 draft.", "Do not present 2025 terms as confirmed for 2027 before Finance confirms; no guaranteed places, transport or "
+                     "Every offer-aligned v4 draft.", "No term beyond the discount schedule the register records; no guaranteed places, transport or "
                      "outcomes; no referral rewards; the 40% rate is Rivertrees' only; the member-association rate needs Finance to extend it.",
-                     "PE025; PE026; PE027; PE028", "Draft; confirm 2027 terms"))
+                     "PE025; PE026; PE027; PE028", "Draft; terms from the discount schedule (confirmed 12 October 2026); check with Finance before the first send"))
         for row in (
             ("PE025", "Offer terms", "Silverleaf's discount schedule: free uniform for full-year payment; sibling 10%/20%; NGO partner 3-18%; institutional 20% heads of department and 10% first-year for other staff; KINEFA member rates; expired referral package; ECD facilitation.",
              "All offer-aligned v4 drafts state these terms from the offer register.", "references/Offers & Discounts/2025 Proposed Fees & Discounts - 2025 Discounts.pdf",
-             "Summary of discounts offered, p.1 (sha256 c6125a41a129e7fd)", "Internal offer document (2025)", TODAY, "Usable with confirmation gate",
-             "Confirm with Finance that each term applies to 2027 (Gantt A1, A2) before sending."),
+             "Summary of discounts offered, p.1 (sha256 c6125a41a129e7fd)", "Internal offer document (2025)", TODAY, "Usable",
+             "The user confirmed on 12 October 2026 that the offer terms come from this schedule; check with Finance before the first send. "
+             "The referral package expired on 30 November 2024."),
             ("PE026", "Offer terms", "The 2025 Corporate Education Benefit Partnership proposal to Rivertrees: 40% tuition discount, admission fee waiver, monthly or quarterly instalments, facilities, parent events, priority enrolment; employer benefits including co-funding and employer branding.",
              "Rivertrees follow-up only; the proposal structure models later employer proposals.", "references/Offers & Discounts/RIVERTREES Offer_2025.pdf",
              "pp.1-3 (sha256 fc519c1589e80bb3)", "Internal negotiated proposal (2025)", TODAY, "Rivertrees only",
@@ -775,7 +785,7 @@ def main() -> int:
                      "follows in the offer message: follow-up 1 on AQ02, or the reply once an AQ01 route names the right colleague. A recipient "
                      "hook appears only when verified. Recommended by Kilusu for first-email response; adopted 23 September 2026. Terms: "
                      "data/reference/silverleaf-offer-register.json.",
-                     "Draft; the Finance condition applies from the offer message"))
+                     "Draft; the offer message states the discount schedule's terms; check with Finance before the first send"))
         con.execute("UPDATE acquisition_tracks SET initial_touch=? WHERE track_id='AQ02'",
                     ("Initial personalised request after human review; the documented offer follows in follow-up 1.",))
         # Case B (a named person reached only through a general inbox) joins AQ02 (11 October 2026): the Attn request, the offer, then a
@@ -812,7 +822,7 @@ def main() -> int:
 
 
 COPY_STATUS = ("Draft; request-first v5 (message 1 asks for a meeting and states no offer terms; the offer message states the offer "
-               "register v4 terms); no recipient hook unless verified; not sent")
+               "register's terms); no recipient hook unless verified; not sent")
 NO_HOOK = "No hook: request-first opening"
 OFFER_LED_NO_HOOK = "No hook: offer-led opening"
 # The hold note scripts/contacts/merge_master_contacts.py writes for an organisation that may have closed.
@@ -821,14 +831,14 @@ CLOSURE_NOTE = "Possible closure found by contact research; confirm the organisa
 
 def conditions_for(copy: dict) -> str:
     """The message's release conditions; the same whether the plan is new or rewritten."""
-    return (f"{L.REQUEST_FIRST} {L.CONFIRM_2027} Offer terms: {'; '.join(copy['offer_ids'])} (data/reference/silverleaf-offer-register.json). "
+    return (f"{L.REQUEST_FIRST} {L.OFFER_TERMS_NOTE} Offer terms: {'; '.join(copy['offer_ids'])} (data/reference/silverleaf-offer-register.json). "
             "Confirm the route, campus fit and organisation relevance before use. No guaranteed places, transport or outcomes. One active "
             "recipient per organisation.")
 
 
 def plan_notes(copy: dict, organisation_id: str, welfare_links: dict) -> list[str]:
     """The notes every offer-aligned plan carries, whether new or rewritten."""
-    notes = [L.CONFIRM_2027]
+    notes = [L.OFFER_TERMS_NOTE]  # a note, never a hold
     if "OF07" in copy["offer_ids"]:
         notes.append("The member-association rate is documented for KINEFA only; Finance must agree to extend it before sending.")
     if organisation_id in welfare_links:

@@ -1,8 +1,8 @@
 {
- "version": "2026-09-23-offer-v4",
- "prepared_on": "2026-09-23",
+ "version": "2026-10-12-offer-v5",
+ "prepared_on": "2026-10-12",
  "purpose": "Single source of the Silverleaf offer terms that outreach messages may state. Message scripts in scripts/messaging/ read this file; verification checks every percentage and amount in a message against it.",
- "status": "Terms come from Silverleaf's 2025 discount schedule and its 2025 Rivertrees proposal. The 2027 fee structure and discount approvals were in progress on the 2027 enrolment plan (tasks A1 and A2, due 15 September 2026). Confirm with Finance that each term applies to the 2027 school year before any message is sent.",
+ "status": "Terms come from Silverleaf's discount schedule (SRC-DISCOUNTS-2025, 'Summary of discounts offered') and its 2025 Rivertrees proposal. On 12 October 2026 the user confirmed that the offer terms come from the discount schedule, and the terms here match it; the earlier condition that Finance confirm each term for the 2027 school year before sending was removed that day. Check with Finance before the first send; this is a note, not a hold. Conditions that still stand: OF07 is documented for KINEFA only and Finance must agree to extend it to any other savings group; OF03 requires all primary-age children to be placed; expired offers (OF05, for enrolment before 30 November 2024) stay expired.",
  "sources": [
   {"id": "SRC-DISCOUNTS-2025", "path": "references/Offers & Discounts/2025 Proposed Fees & Discounts - 2025 Discounts.pdf",
    "sha256": "c6125a41a129e7fd75f46d768c9137989a463439a32ade95a9b0118b610e3bce", "title": "Summary of discounts offered (2025 proposed fees and discounts)", "pages": 1},
@@ -89,6 +89,6 @@
   "OF08's 40% applies to Rivertrees only. OF07's group rate is KINEFA's and needs Finance to extend it.",
   "Government convening letters describe the family offer for parents only (OF01, OF02, OF09). They never offer officials or their staff a discount (OF04 restriction).",
   "No offer guarantees a place, transport route or capacity; admissions confirms each family's level and campus.",
-  "Every message records its offer IDs and carries the condition that Finance confirms the terms for 2027 before sending."
+  "Every message records its offer IDs and carries the note that its terms come from Silverleaf's discount schedule (confirmed by the user on 12 October 2026), with a check with Finance before the first send. The note never holds a draft."
  ]
 }

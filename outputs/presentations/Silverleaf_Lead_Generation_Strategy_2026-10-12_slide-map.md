@@ -1,6 +1,6 @@
 # Sources: Partnership Lead Strategy, condensed deck (12 October 2026)
 
-Deck: `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12_condensed.pptx` (35 slides: a main body of 21, an appendix divider, appendix slides A1–A12 and a closing slide). It condenses `Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (44 slides), which is unchanged. Every figure is the same figure as in the full deck, with the same source; the queries and files are in `Silverleaf_Lead_Generation_Strategy_2026-10-12_sources.md`, under the heading named in the last column.
+Deck: `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (35 slides: a main body of 21, an appendix divider, appendix slides A1–A12 and a closing slide). It condenses `Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (44 slides), which is unchanged. Every figure is the same figure as in the full deck, with the same source; the queries and files are in `Silverleaf_Lead_Generation_Strategy_2026-10-12_sources.md`, under the heading named in the last column.
 
 | Condensed | Content | Full deck | Sources file heading |
 |---|---|---|---|

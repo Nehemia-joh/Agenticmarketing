@@ -1,34 +1,34 @@
 master_organisation_id	name	master_campus	master_distance_km	category	detail	group	proposed_treatment	matched_osm_id	linked_office
-O439848a24ae3	Moshi Urban Water Supply and Sanitation Authority (MUWSA)			agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
-O4724e35fbc8d	Maji Water & Irrigation Authority	Boma Ngombe	0.7	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/439156609	
+O4724e35fbc8d	Maji Water & Irrigation Authority	Boma Ngombe	0.5	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/439156609	
+O1d5afbdb490e	Mwanama Village Office	Kijenge	0.5	convener	village	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/10862247616	GOFF_village_node-10862247616
 O9f2799d7c0f3	Njake Oil	Usa River	0.8	not_government	mistagged	Tagged as government but is not	Reclassify through review (silverleaf-update-lead-list)	node/282575937	
 O14259a760019	Losaa-KIA Water Supply	Boma Ng'ombe	1.2	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
-O4cffe71bdc12	Centre for Agricultural Mechanization and Rural Technology (CAMARTEC)	Kijenge	1.4	unclassified		Unclassified	Review		
-O16ea10d1a790	East African Community	Kijenge	1.7	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/248924655	
-Od9b9fad15a9c	Kituo cha Polisi Baraa	Kijenge	1.8	excluded	police	Excluded	Exclude from convening; never contact for this track	way/366925724	
+O4cffe71bdc12	Centre for Agricultural Mechanization and Rural Technology (CAMARTEC)	Kijenge	1.5	unclassified		Unclassified	Review		
+O6838c213af49	Tanzania National Parks Authority (TANAPA)	Arusha City (Sakina)	1.8	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/483449839	
 Od4203866e06b	NSSF	Kijenge	1.9	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/245717233	
-O1d5afbdb490e	Mwanama Village Office	Kijenge	1.9	convener	village	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/10862247616	GOFF_village_node-10862247616
-O7b642900be9a	Lutheran Center	Kijenge	1.9	not_government	religious	Tagged as government but is not	Reclassify through review (silverleaf-update-lead-list)	way/311751995	
 O0044a3ec3686	Tanzania Insurance Regulatory Authority (TIRA) – Northern Zone office	Ilboru	1.9	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
-O797e1cf1832d	Immigration office	Kijenge	2.0	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/3175392089	
-O848e641a1a5b	Ngorongoro Information Center	Kijenge	2.0	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/5285780321	
-Oe7bb73cd7c38	Arusha District Commissioner's Office	Kijenge	2.0	convener	district	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	way/281486939	GOFF_district_arusha
+O7b642900be9a	Lutheran Center	Kijenge	2.1	not_government	religious	Tagged as government but is not	Reclassify through review (silverleaf-update-lead-list)	way/311751995	
+O848e641a1a5b	Ngorongoro Information Center	Kijenge	2.2	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/5285780321	
 Of5b0515ce078	Tanesco Regional Office	Kijenge	2.2	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
-O6838c213af49	Tanzania National Parks Authority (TANAPA)	Arusha City (Sakina)	2.2	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/483449839	
 O29fb108f708a	Ngorongoro Conservation Area Authority (NCAA)	Kijenge	2.3	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
+O16ea10d1a790	East African Community	Kijenge	2.4	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/248924655	
+O797e1cf1832d	Immigration office	Kijenge	2.4	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/3175392089	
+Oe7bb73cd7c38	Arusha District Commissioner's Office	Kijenge	2.4	convener	district	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	way/281486939	GOFF_district_arusha
 Oe38973bfd0d7	TRA (Tanzania Revenue Authority)	Ilboru	2.4	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	way/311809585	
 O6873cdd7071d	National Housing Association	Kijenge	2.5	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/6243895190	
 O48ae5516d641	Temesa	Ilboru	2.5	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/6243876485	
-O365fe3e30598	AUWASA	Arusha City (Sakina)	2.6	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/6243876486	
+O365fe3e30598	AUWASA	Ilboru	2.5	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/6243876486	
+Od9b9fad15a9c	Kituo cha Polisi Baraa	Kijenge	2.6	excluded	police	Excluded	Exclude from convening; never contact for this track	way/366925724	
 O78fc30589672	Tanzania Wildlife Management Authority	Kijenge	2.6	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
 Oa007fd38a288	Tumaini University Makumira Offices	Usa River	3.6	not_government	mistagged	Tagged as government but is not	Reclassify through review (silverleaf-update-lead-list)	way/312406111	
 O3b11fff2476d	Ofisi ya CCM Tawi la Engutoto	Kijenge	3.9	excluded	political_party	Excluded	Exclude from convening; never contact for this track	node/8533251327	
 Of8e94f2f1669	Tanzania Wildlife Authority (TAWA) Northern Zone HQ	Kijenge	4.6	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
-O48521b8d9903	National Identification Authority (NIDA)	Arusha City (Sakina)	5.3	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/7987336985	
-O955ceed32618	Office ya Kijiji Maji ya Chai	Usa River	5.7	convener	village	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/10828851090	GOFF_village_node-10828851090
-Oa67d9ccdb187	CCM office Kiserian	Kijenge	9.4	excluded	political_party	Excluded	Exclude from convening; never contact for this track	node/9889181553	
+O48521b8d9903	National Identification Authority (NIDA)	Arusha City (Sakina)	4.8	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)	node/7987336985	
+O955ceed32618	Office ya Kijiji Maji ya Chai	Usa River	5.0	convener	village	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/10828851090	GOFF_village_node-10828851090
+Oa67d9ccdb187	CCM office Kiserian	Kijenge	8.1	excluded	political_party	Excluded	Exclude from convening; never contact for this track	node/9889181553	
 Oc46a61fabed2	Tanzania Atomic Energy Commission (TAEC)	Kijenge	9.9	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		
-O3669aa57f493	Narumu Ward Office	Boma Ngombe	13.7	convener	ward	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/9392131139	GOFF_ward_hai-district-council_machame-narumu
+O3669aa57f493	Narumu Ward Office	Boma Ngombe	13.5	convener	ward	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/9392131139	GOFF_ward_hai-district-council_machame-narumu
 O88c3d82bbc37	Mahakama Ya Mwanzo Nduruma	Usa River	14.1	excluded	court	Excluded	Exclude from convening; never contact for this track	node/10827640700	
 O01ad41ed15c0	Ofisi Ya Kata Nduruma	Usa River	14.2	convener	ward	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/10827624377	GOFF_ward_arusha-district-council_nduruma
 O310f453a268f	Makiba Ward Building	Usa River	18.3	convener	ward	Local administration office	Move to government_convener after verification (through silverleaf-update-lead-list)	node/9392133492	GOFF_ward_meru-district-council_makiba
+O439848a24ae3	Moshi Urban Water Supply and Sanitation Authority (MUWSA)	Boma Ngombe	22.1	agency	agency_or_parastatal	Agency or parastatal	Remains a corporate employer (corporate track)		

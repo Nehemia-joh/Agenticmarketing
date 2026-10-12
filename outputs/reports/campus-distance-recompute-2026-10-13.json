@@ -1,0 +1,60 @@
+{
+ "stats": {
+  "stored distance kept": 423,
+  "coordinates": 845,
+  "no location": 65,
+  "gazetteer point reproduced": 43,
+  "records to update": 198,
+  "nearest campus changed": 26
+ },
+ "nearest_campus_changed": [
+  "Arusha Technical College: Arusha City (Sakina) -> Ilboru (1.7 km)",
+  "Easy Travel and Tours Ltd: Ilboru -> Kijenge (2.2 km)",
+  "Maasai Wanderings Limited: Ilboru -> Kijenge (2.7 km)",
+  "EWA Safari Outfitters (Extreme Wilderness Adventure): Arusha City -> Kijenge (1.7 km)",
+  "Extramile International Ltd: Ilboru -> Kijenge (4.1 km)",
+  "Sabrahm Safaris:  -> Kijenge (1.7 km)",
+  "Arusha Technical College: Arusha City (Sakina) -> Ilboru (1.7 km)",
+  "Mount Meru Regional Hospital: Kijenge -> Ilboru (2.1 km)",
+  "Graceland Hotel: Arusha City (Sakina) -> Ilboru (1.8 km)",
+  "Premier Palace Hotel: Arusha City (Sakina) -> Ilboru (2.1 km)",
+  "AUWASA: Arusha City (Sakina) -> Ilboru (2.5 km)",
+  "Meru House Inn: Arusha City (Sakina) -> Ilboru (2.7 km)",
+  "Arusha Tourist Inn: Arusha City (Sakina) -> Ilboru (2.7 km)",
+  "Davis & Shirtliff: Arusha City (Sakina) -> Ilboru (2.7 km)",
+  "Shree Hindu Hospital: Ilboru -> Kijenge (2.5 km)",
+  "TANZANIA POSTAL BANK: Arusha City (Sakina) -> Ilboru (2.8 km)",
+  "Arusha Backpackers: Arusha City (Sakina) -> Ilboru (2.8 km)",
+  "Arusha Meru International School: Arusha City (Sakina) -> Ilboru (2.8 km)",
+  "SIDAI DESIGNS (Safari Atelier): Ilboru -> Kijenge (2.0 km)",
+  "Enza Zaden Africa:  -> Kijenge (8.7 km)",
+  "East African Legislative Assembly (EALA): Kijenge -> Ilboru (2.3 km)",
+  "Eastern and Southern African Management Institute (ESAMI):  -> Kijenge (2.8 km)",
+  "World Vegetable Center (WorldVeg) – Eastern and Southern Africa, Arusha: Kijenge -> Usa River (6.7 km)",
+  "Friedkin Conservation Fund (FCF):  -> Kijenge (3.9 km)",
+  "Tanzania Coffee Research Institute (TaCRI):  -> Boma Ngombe (15.6 km)",
+  "Moshi Urban Water Supply and Sanitation Authority (MUWSA):  -> Boma Ngombe (22.1 km)"
+ ],
+ "campuses": {
+  "Usa River": [
+   -3.361003,
+   36.8644524
+  ],
+  "Arusha City": [
+   -3.3604966,
+   36.6609326
+  ],
+  "Ilboru": [
+   -3.3497598,
+   36.6822737
+  ],
+  "Kijenge": [
+   -3.382946,
+   36.710752
+  ],
+  "Boma Ngombe": [
+   -3.341456,
+   37.1457123
+  ]
+ }
+}

@@ -1,5 +1,5 @@
 {
- "checked_at": "2026-10-12T01:35:24.146443+00:00",
+ "checked_at": "2026-10-12T23:12:50.705734+00:00",
  "run_id": "arusha-government-2026-09",
  "result": "passed",
  "checks": {
@@ -47,7 +47,7 @@
   "office_triage": 42,
   "master_triage": 33,
   "convening_signals": 285,
-  "review": 125,
+  "review": 123,
   "source_records": 846,
   "source_files": 48
  },
@@ -64,7 +64,7 @@
   "Office Triage": 42,
   "Master Triage": 33,
   "Convening Signals": 285,
-  "Review Queue": 125,
+  "Review Queue": 123,
   "Outreach Plans": 228
  },
  "details": {
@@ -78,9 +78,9 @@
   "missing_sheets": [],
   "foreign_key_violations": [],
   "master_baseline": {
-   "recorded_at": "2026-10-12T04:35:15",
-   "master_db_sha256": "da6ba4fb08260192a3fc399760cc5b6387a7b713861a4d3fbaf8a4b546e4d0e3",
-   "master_workbook_sha256": "a3335e172a89819ffe7b5d6a988f32583dc30646e55f9936e576e4ad8bf557fe"
+   "recorded_at": "2026-10-13T02:12:41",
+   "master_db_sha256": "437e3298f2620c5e9090cc3a256815dea370275cd6cf0b252c290838b1a3fa59",
+   "master_workbook_sha256": "8e1abadc820fffd5d87cfb54f7e65e414af3ebeeb8a30f23ba9b5dd2960439fa"
   },
   "script_copies_out_of_sync": [],
   "catchment_wards_without_office": 0,

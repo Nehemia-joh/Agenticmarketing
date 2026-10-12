@@ -45,6 +45,12 @@ records the new facts and keeps the old point as a fact (superseded_location, wi
 'Location corrected' with both points. Then run recompute_campus_distances.py --apply (with its own --report),
 rank_employer_reach.py --apply, draft_master_messages.py (drafts that name the nearest campus), the workbook and verify_master.py.
 Without --replace nothing here changes: the default run never overwrites a point.
+Since 13 October 2026 (a draft states a campus distance only from a point) --replace also takes a stored estimate from Nominatim,
+own-site text placed with the gazetteer, a shared site or an OpenStreetMap address-level point, and an importer's point with no
+precision or source recorded (the line's old_location_source then reads NO_SOURCE). A correction that takes a lead beyond the
+catchment is applied only when its line carries a reviewed beyond_catchment note: the lead is kept and gets the review item
+'Beyond the catchment after geolocation' (the default fill path adds the same item). A line's geocode_source and confidence are
+kept as the facts geocode_source and geocode_confidence.
 """
 from __future__ import annotations
 
@@ -65,10 +71,15 @@ SOUTH, WEST, NORTH, EAST = -3.75, 36.30, -2.95, 37.55
 REQUIRED = ("db", "organisation_id", "organisation_name", "status", "latitude", "longitude", "precision", "source_type", "source_url",
             "fetched_on", "as_found", "basis")
 # --replace: the stored point must be one of these estimates (location_source fact prefix, geocode_precision).
-REPLACEABLE = ("NGO register", "offline gazetteer")
-REPLACEABLE_PRECISION = ("address", "locality", "city")
-REPLACE_REQUIRED = ("old_latitude", "old_longitude", "old_precision", "old_location_source")
+# Widened 13 October 2026 (drafts state a distance only from a point): a Nominatim street or locality result, the own-site text
+# placed with the gazetteer, a shared site's point and an OpenStreetMap address-level point are estimates too, and so is an
+# importer's point with no precision or source recorded (NO_SOURCE), whose line must say so.
+REPLACEABLE = ("NGO register", "offline gazetteer", "Nominatim", "own site text + repository gazetteer", "shared site", "OpenStreetMap")
+REPLACEABLE_PRECISION = ("address", "locality", "city", "town", "")
+NO_SOURCE = "none recorded (the importer's point)"
+REPLACE_REQUIRED = ("old_latitude", "old_longitude", "old_location_source")
 CATCHMENT_KM = 25.0
+EXTRA_FACTS = ("geocode_source", "confidence")   # recorded as facts when a line carries them (geocode_confidence for confidence)
 
 
 def hid(prefix: str, *parts) -> str:
@@ -102,9 +113,11 @@ def load(path: Path) -> tuple[list[dict], list[str]]:
 
 
 def plan_master(con, rows) -> tuple[list[dict], list[dict]]:
+    campuses = {c["name"]: (c["latitude"], c["longitude"]) for c in con.execute("SELECT name, latitude, longitude FROM campuses")}
     todo, skipped = [], []
     for r in rows:
-        o = con.execute("SELECT organisation_id, name, latitude, longitude, osm_id FROM organisations WHERE organisation_id=?", (r["organisation_id"],)).fetchone()
+        o = con.execute("SELECT organisation_id, name, latitude, longitude, osm_id, campus, distance_km FROM organisations WHERE organisation_id=?",
+                        (r["organisation_id"],)).fetchone()
         if o is None:
             skipped.append({"line": r["_line"], "name": r["organisation_name"], "why": "no such organisation"})
         elif o["name"] != r["organisation_name"]:
@@ -113,7 +126,10 @@ def plan_master(con, rows) -> tuple[list[dict], list[dict]]:
             skipped.append({"line": r["_line"], "name": r["organisation_name"], "why": f"already has coordinates ({o['latitude']}, {o['longitude']})"})
         else:
             osm = r.get("osm_id") if r["source_type"] == "OpenStreetMap" and not (o["osm_id"] or "").strip() else ""
-            todo.append({**r, "_osm": osm})
+            before = float(o["distance_km"]) if str(o["distance_km"] or "").replace(".", "", 1).isdigit() else None
+            campus, km = nearest_km(campuses, float(r["latitude"]), float(r["longitude"]))
+            beyond = ((o["campus"], before), (campus, km)) if before is not None and before <= CATCHMENT_KM < km else None
+            todo.append({**r, "_osm": osm, "_beyond": beyond})
     return todo, skipped
 
 
@@ -138,9 +154,12 @@ def apply_master(path: Path, todo: list[dict]) -> None:
             if r["_osm"]:
                 con.execute("UPDATE organisations SET osm_id=? WHERE organisation_id=?", (r["_osm"], oid))
             where = f"{r['source_type']}: {r['source_url']} (fetched {r['fetched_on']})"
-            for field, value in (("latitude", str(lat)), ("longitude", str(lon)), ("geocode_precision", r["precision"]), ("location_source", where)):
+            for field, value in (("latitude", str(lat)), ("longitude", str(lon)), ("geocode_precision", r["precision"]), ("location_source", where),
+                                 *extra_facts(r)):
                 con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
                             (hid("X", oid, field, value, today), "organisation", oid, field, value, record))
+            if r.get("_beyond"):
+                beyond_review(con, oid, r, path, *r["_beyond"])
         if con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             raise RuntimeError("integrity check failed")
         con.execute("COMMIT")
@@ -156,6 +175,28 @@ def nearest_km(campuses: dict, lat: float, lon: float) -> tuple[str, float]:
     dists = {c: round(hav(lat, lon, *xy), 1) for c, xy in campuses.items()}
     near = min(dists, key=dists.get)
     return near, dists[near]
+
+
+def stored_source(con, o) -> str | None:
+    """The location_source fact recorded with the organisation's stored latitude, or None when none was recorded."""
+    row = con.execute(
+        "SELECT value FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='location_source' AND record_id IN "
+        "(SELECT record_id FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='latitude' AND value=?)",
+        (o["organisation_id"], o["organisation_id"], str(o["latitude"]))).fetchone()
+    return row[0] if row else None
+
+
+def extra_facts(r: dict) -> list[tuple[str, str]]:
+    return [("geocode_confidence" if k == "confidence" else k, str(r[k])) for k in EXTRA_FACTS if r.get(k)]
+
+
+def beyond_review(con, oid: str, r: dict, path: Path, before, after) -> None:
+    """A lead the new point takes beyond the catchment is kept and labelled (user instruction, 13 October 2026)."""
+    con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
+                (hid("D", "beyond-catchment", oid, path.name), "Beyond the catchment after geolocation", oid, "", "distance_km",
+                 f"{before[0]} {before[1]} km -> {after[0]} {after[1]} km ({r['source_type']})",
+                 f"Kept and labelled: its own point ({path.relative_to(ROOT).as_posix()} line {r['_line']}) lies beyond the "
+                 f"{CATCHMENT_KM:g} km catchment. Distance never removes a lead; review its priority."))
 
 
 def plan_replace(con, rows) -> tuple[list[dict], list[dict]]:
@@ -183,21 +224,23 @@ def plan_replace(con, rows) -> tuple[list[dict], list[dict]]:
                 why = f"the stored point ({stored[0]}, {stored[1]}) is not the old point the line names"
             elif (o["geocode_precision"] or "") not in REPLACEABLE_PRECISION:
                 why = f"the stored point has precision '{o['geocode_precision']}', not an estimate"
+            elif (o["geocode_precision"] or "") != (r.get("old_precision") or ""):
+                why = f"the stored precision '{o['geocode_precision']}' is not the line's old_precision '{r.get('old_precision')}'"
             else:
-                source = con.execute(
-                    "SELECT value FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='location_source' AND record_id IN "
-                    "(SELECT record_id FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='latitude' AND value=?)",
-                    (o["organisation_id"], o["organisation_id"], str(o["latitude"]))).fetchone()
-                if source is None or not source[0].startswith(REPLACEABLE):
-                    why = f"the stored point's source is not the NGO register or the gazetteer ({source[0] if source else 'no location_source fact'})"
-                elif source[0] != r["old_location_source"]:
-                    why = f"the stored point's source differs from the line's old_location_source ({source[0]})"
+                source = stored_source(con, o)
+                if source is None:
+                    if r["old_location_source"] != NO_SOURCE:
+                        why = f"the stored point has no location_source fact; the line must name it '{NO_SOURCE}'"
+                elif not source.startswith(REPLACEABLE):
+                    why = f"the stored point's source is not an estimate this path replaces ({source})"
+                elif source != r["old_location_source"]:
+                    why = f"the stored point's source differs from the line's old_location_source ({source})"
         if not why:
             before = float(o["distance_km"]) if str(o["distance_km"] or "").replace(".", "", 1).isdigit() else None
             campus, km = nearest_km(campuses, float(r["latitude"]), float(r["longitude"]))
-            if before is not None and before <= CATCHMENT_KM < km:
+            if before is not None and before <= CATCHMENT_KM < km and not r.get("beyond_catchment"):
                 why = (f"the new point is {km} km from {campus}, beyond the {CATCHMENT_KM:g} km catchment the lead was in ({before} km): "
-                       "a correction never removes a lead, so record a reviewed catchment exception before replacing it")
+                       "a correction never removes a lead, so the line must carry a reviewed beyond_catchment note (the lead is kept and labelled)")
             else:
                 todo.append({**r, "_before": (o["campus"], before, o["transport_band"]), "_after": (campus, km)})
                 continue
@@ -228,9 +271,11 @@ def apply_replace(path: Path, todo: list[dict]) -> None:
             old = (f"{r['old_latitude']}, {r['old_longitude']} ({r['old_precision']}; {r['old_location_source']}; record {r.get('old_record_id') or 'not named'}), "
                    f"replaced {today} by {where}, {r.get('km_moved', '')} km away")
             for field, value in (("latitude", str(lat)), ("longitude", str(lon)), ("geocode_precision", r["precision"]), ("location_source", where),
-                                 ("superseded_location", old)):
+                                 ("superseded_location", old), *extra_facts(r)):
                 con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
                             (hid("X", oid, field, value, today), "organisation", oid, field, value, record))
+            if r.get("beyond_catchment"):
+                beyond_review(con, oid, r, path, r["_before"], r["_after"])
             con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
                         (hid("D", "location-correction", oid, path.name), "Location corrected", oid, "", "latitude; longitude",
                          f"{r['old_latitude']}, {r['old_longitude']} ({r['old_precision']}, {r['old_location_source'].split(':')[0]}) -> {lat}, {lon} "

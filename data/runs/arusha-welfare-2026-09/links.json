@@ -370,6 +370,26 @@
    "fetched": "2026-10-11",
    "as_found": "PAPU Tower at -3.3654366, 36.7058409; PAPU Tower, Plot 144, Block Z, Sekei, Arusha",
    "source_type": "Google Maps listing"
+  },
+  "Born to Learn (BTL)": {
+   "lat": -3.346101,
+   "lon": 37.333181,
+   "precision": "point",
+   "basis": "OpenStreetMap feature with the same name ('Born to Learn'); 1.2 km from Moshi (town), which the record's locality or address names. Source: OpenStreetMap, https://www.openstreetmap.org/way/529363434 (fetched 2026-10-11); as found: way/529363434 at -3.3461011, 37.3331807; tags {\"building\": \"yes\", \"name\": \"Karibú Hostel\", \"operator\": \"Born to Learn\", \"tourism\": \"hostel\", \"website\": \"https://www.borntolearnglobal.org/\"} (in data/raw/gap-census/osm_tourism_2026-10-11.json)",
+   "url": "https://www.openstreetmap.org/way/529363434",
+   "fetched": "2026-10-11",
+   "as_found": "way/529363434 at -3.3461011, 37.3331807; tags {\"building\": \"yes\", \"name\": \"Karibú Hostel\", \"operator\": \"Born to Learn\", \"tourism\": \"hostel\", \"website\": \"https://www.borntolearnglobal.org/\"} (in data/raw/gap-census/osm_tourism_2026-10-11.json)",
+   "source_type": "OpenStreetMap"
+  },
+  "Neema International": {
+   "lat": -3.278656,
+   "lon": 37.349046,
+   "precision": "point",
+   "basis": "OpenStreetMap feature with the same name ('Neema International'); 7.8 km from Moshi (town), which the record's locality or address names. Source: OpenStreetMap, https://www.openstreetmap.org/way/965351523 (fetched 2026-10-13); as found: way/965351523 at -3.2786564, 37.3490455; tags {\"amenity\": \"school\", \"name\": \"Uru Academy Pre and Primary School\", \"operator\": \"Neema International\", \"operator:type\": \"private\"} (in Overpass (https://overpass-api.de/api/interpreter))",
+   "url": "https://www.openstreetmap.org/way/965351523",
+   "fetched": "2026-10-13",
+   "as_found": "way/965351523 at -3.2786564, 37.3490455; tags {\"amenity\": \"school\", \"name\": \"Uru Academy Pre and Primary School\", \"operator\": \"Neema International\", \"operator:type\": \"private\"} (in Overpass (https://overpass-api.de/api/interpreter))",
+   "source_type": "OpenStreetMap"
   }
  },
  "nis_to_org_evidence": {

@@ -220,8 +220,9 @@ def place_master(org, orgs, dup_of, loc: Locator):
     """(lat, lon, precision, how) for a master organisation; precision exact, estimated, outside or none."""
     lat, lon = num(org.get("latitude")), num(org.get("longitude"))
     if lat is not None and lon is not None:
-        if str(org.get("geocode_precision") or "").lower() in ("locality", "town", "city"):  # a reviewed point placed only to a locality
-            return lat, lon, "estimated", f"the record's own point, placed to the {org['geocode_precision'].lower()}"
+        prec = str(org.get("geocode_precision") or "").lower()
+        if prec != "point":  # only a point is exact (13 October 2026): a geocoded street, locality, town or city is an estimate
+            return lat, lon, "estimated", f"the record's own point, placed to the {prec or 'unstated precision'}"
         return lat, lon, "exact", "the record's own map point"
     for d in dup_of.get(org["organisation_id"], []):
         o = orgs.get(d) or {}

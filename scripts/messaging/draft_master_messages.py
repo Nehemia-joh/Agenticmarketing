@@ -164,7 +164,10 @@ def sid(prefix: str, *parts) -> str:
 
 
 def precise(org: dict) -> bool:
-    return str(org.get("geocode_precision") or "") in ("point", "locality") and org.get("distance_km") not in (None, "")
+    """A draft states the nearest campus and its distance only from the organisation's own point (precision 'point').
+    A locality, town, city or ward centre, a geocoded street or a P.O. box town is not the recipient's location, so a
+    distance computed from it is not a fact about the recipient (13 October 2026): those drafts use the five-campus line."""
+    return str(org.get("geocode_precision") or "") == "point" and org.get("distance_km") not in (None, "")
 
 
 def campus_line(org: dict) -> str:

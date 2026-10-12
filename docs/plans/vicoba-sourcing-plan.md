@@ -10,6 +10,16 @@ Evidence files:
 
 All three were ingested into the research ledger as RL010691 to RL010722. The orchestrator's Google Maps pilot is logged separately in its pending file.
 
+## 0. Orchestrator review (13 October 2026)
+
+- **Confirmed in the browser.** The orchestrator read the IPP Media article of 9 July 2026 (ledger RL010730). It reports BoT registry figures: 74,534 Tier IV groups nationally, and 16,222 Tier IV groups in Arusha region out of 16,509 providers there.
+- **Kilimanjaro is far lower than §5 assumed.** The article says Kilimanjaro has fewer than 1,200 registered providers of all tiers, which is under 0.64 per 1,000 residents. That is below even the national rate this plan used as its low end.
+  - Boma Ng'ombe's estimate drops from 900–4,100 to **at most about 700**: under about 350 groups for the 549,000 Kilimanjaro residents, plus about 340 for the 50,000 residents on the Arusha side.
+  - The five-campus total becomes **about 10,000 registered groups**, almost all of them around the three Arusha campuses and Usa River.
+- **Reconciled with the integration plan.** That plan keeps VICOBAs in the master unless the records arrive mainly as council registers holding personal data or number well over 1,000 groups (its decision 1). The evidence here meets both conditions. The decisions put to the user are therefore:
+  - where group records live: a separate run reported as the employer segment's VICOBA subsegment, or the master;
+  - adding intermediaries to the master as introducers.
+
 ## 1. Summary
 
 1. **A register exists, but it is not public.** The September 2026 method (`partner-lead-generation.md` §5) said no VICOBA register exists. That is no longer right.

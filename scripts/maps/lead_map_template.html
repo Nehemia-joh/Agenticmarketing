@@ -1035,7 +1035,7 @@ const BASE = /*__BASEMAP__*/null;
         + `<dt>Subsegment</dt><dd>${subLine(l).map(esc).join(" · ")}</dd>`
         + `<dt>Confidence</dt><dd><span class="badge" style="color:var(--${l.s})">${esc(c.label)}</span><span class="why">${esc(l.y.charAt(0).toUpperCase() + l.y.slice(1))}</span></dd>`
         + (l.x ? `<dt>Catchment</dt><dd>Outside the catchment area: ${l.km} km from the nearest campus, ${esc(camp.label)} (straight line); deprioritised for the distance</dd>`
-          : `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.km} km (straight line)</dd>`)
+          : `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.e ? `about ${l.km} km from the estimated location (not stated in drafts)` : `${l.km} km (straight line)`}</dd>`)
         + `<dt>Route</dt><dd>${esc(l.r)}</dd>`
         + `<dt>Recipient</dt><dd>${esc(l.o || "Not set")}</dd>`
         + `<dt>Draft</dt><dd>${esc(l.d)}</dd>`

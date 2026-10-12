@@ -101,7 +101,9 @@ def add(con, now, plan: dict, subject: str, body: str, follow_up: str = "", tran
 
 # ------------------------------------------------------------------ welfare
 def precise(p: dict) -> bool:
-    return str(p.get("geocode_precision") or "") in ("address", "locality", "point") and p.get("distance_km") not in (None, "")
+    """The organisation's own point only: the run database calls a point 'address' (export_welfare_run.PRECISION maps the
+    consolidated 'point' to 'address'). A locality or estimated point is a centroid, never stated as a distance (13 October 2026)."""
+    return str(p.get("geocode_precision") or "") in ("address", "point") and p.get("distance_km") not in (None, "")
 
 
 greeting_name = L.greeting_name
@@ -741,14 +743,18 @@ def government(con, now, run_cfg) -> dict:
             if not name:  # a letter needs the ward's or village's name; the build never imports an unnamed unit (fixed 11 October 2026)
                 issues.append({"message_id": o["organisation_id"], "issue": f"{level} office without a place name: no letter can be addressed"})
             place_sw = "kata yenu" if level == "ward" else "kijiji chenu"
-            located = o.get("latitude") not in (None, "") and o.get("campus")
+            # The distance only from the office's own point (precision 'address' in the run database: an official map or a mapped
+            # office); a ward or village centre estimate is not the office's location, so the letter names the five campuses (13 October 2026).
+            located = o.get("latitude") not in (None, "") and o.get("campus") and o.get("geocode_precision") == "address"
             key = L.campus_key(o.get("campus") or "")
             near = bool(located and key and o.get("distance_km") not in (None, "") and float(o["distance_km"]) <= 25)
             km = round(float(o["distance_km"])) if near else 0
             campus_sw = (f"Kampasi yetu iliyo karibu zaidi ni {L.campus_display(key)} (takriban kilomita {km} kutoka {place_sw})." if near and km >= 1
-                         else (f"Kampasi yetu iliyo karibu zaidi ni {L.campus_display(key)}, chini ya kilomita 1 kutoka {place_sw}." if near else ""))
+                         else (f"Kampasi yetu iliyo karibu zaidi ni {L.campus_display(key)}, chini ya kilomita 1 kutoka {place_sw}." if near
+                               else L.network_line_sw()))
             campus_en = (f"Our nearest campus is {L.campus_display(key)}, about {km} km from your {level}." if near and km >= 1
-                         else (f"Our nearest campus is {L.campus_display(key)}, less than 1 km from your {level}." if near else ""))
+                         else (f"Our nearest campus is {L.campus_display(key)}, less than 1 km from your {level}." if near
+                               else L.network_line_en()))
             forum_sw = f"mkutano ujao wa wananchi wa Kata ya {name}" if level == "ward" else f"mkutano mkuu ujao wa Kijiji cha {name}"
             forum_en = f"the next community meeting of {name} ward" if level == "ward" else f"the next village assembly of {name}"
             head_sw = f"Afisa Mtendaji wa Kata ya {name}" if level == "ward" else f"Afisa Mtendaji wa Kijiji cha {name}"

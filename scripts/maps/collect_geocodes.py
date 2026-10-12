@@ -130,6 +130,10 @@ def targets_from_file(path: Path) -> list[dict]:
     rows = json.loads(Path(path).read_text(encoding="utf-8"))
     out = []
     for r in rows:
+        if r.get("db") and r.get("id"):  # an inventory row (runtime/geocode/inventory.json) is already a target, in any of the three lists
+            site = str(r.get("website") or "").split()[0] if str(r.get("website") or "").strip() else ""
+            out.append({**r, "website": site})
+            continue
         site = str(r.get("website") or "").split()[0] if str(r.get("website") or "").strip() else ""
         out.append({"db": "master", "seg": "emp", "id": r["organisation_id"], "name": r["name"], "tier": "", "prec": "none", "how": "named",
                     "website": site, "locality": r.get("locality", ""), "address": r.get("address", ""), "segment": "", "lat": None, "lon": None})
@@ -521,10 +525,556 @@ def cmd_nominatim(args) -> int:
     return 0
 
 
+# ------------------------------------------------------------------ point-level inventory, repository points, review, worklist
+# Added 13 October 2026: a draft states a campus distance only from the organisation's own point (precision 'point' in the
+# master, 'address' in the run databases), so every other lead is a geolocation target.
+LOCATION_TOOLS = {"gmaps", "overpass", "nominatim", "places"}
+RUN_POINT = "address"            # the run databases' name for a point (export_welfare_run.PRECISION, build_government_run)
+PO_BOX = re.compile(r"\b(?:p\.?\s*o\.?\s*box|s\.?\s*l\.?\s*p\.?|postal|box)\s*\.?\s*\d+", re.I)
+
+
+def ledger_location(tried, db: str, oid: str, name: str) -> tuple[list[dict], bool]:
+    """The research ledger's location attempts for a lead (Google Maps, Overpass, Nominatim, Places, own-site map scans and any
+    line whose target is 'location'), and whether its own website was crawled."""
+    loc, crawled = [], False
+    for e in tried.attempts(db, oid, name):
+        pattern = e.get("query_pattern", "")
+        if e["tool"] == "crawler":
+            crawled = True
+        if e["tool"] in LOCATION_TOOLS or e.get("target") == "location" or "map-embed" in pattern:
+            loc.append({"id": e.get("id"), "date": e.get("date"), "tool": e["tool"], "pattern": pattern, "query": str(e.get("query", ""))[:200],
+                        "outcome": e.get("outcome"), "found": str(e.get("found", ""))[:160], "source_file": e.get("source_file", "")})
+    return loc, crawled
+
+
+def cmd_inventory(args) -> int:
+    """Every lead whose stored location is not a point: all master organisations with geocode_precision other than 'point', and the
+    welfare and government run organisations with an outreach plan whose run precision is not 'address' (their drafts state distances).
+    Each with its precision, coordinates, address, locality, website and what the research ledger records for its location.
+    Writes runtime/geocode/inventory.json, a targets file the other collectors take with --targets-file."""
+    sys.path.insert(0, str(ROOT / "scripts" / "research"))
+    import build_lead_map as B
+    import ledger as LG
+    tried = LG.Tried(as_of=args.as_of)
+    out = []
+
+    def row(db, seg, r, stored, extra=None):
+        lat, lon = B.num(r["latitude"]), B.num(r["longitude"])
+        loc, crawled = ledger_location(tried, db, r["organisation_id"], r["name"])
+        prec = "none" if lat is None or lon is None else ("outside" if not in_box(lat, lon) else "estimated")
+        return {"db": db, "seg": seg, "id": r["organisation_id"], "name": r["name"], "stored_precision": stored, "prec": prec,
+                "how": stored, "lat": lat, "lon": lon, "campus": r["campus"] or "", "distance_km": r["distance_km"],
+                "address": r["address"] or "", "locality": r["locality"] or "", "website": (r["website"] or "").strip(),
+                "segment": r["segment"] or "", "po_box_only": bool(PO_BOX.search(r["address"] or "")) and not STREETISH.search(
+                    PO_BOX.sub(" ", r["address"] or "")), "ledger_location": loc, "site_crawled": crawled, **(extra or {})}
+
+    m = B.ro(B.MASTER)
+    plans = {r[0]: r[1] for r in m.execute("SELECT organisation_id, COUNT(*) FROM outreach_plans WHERE selection='Candidate for review' "
+                                           "GROUP BY organisation_id")}
+    for r in m.execute("SELECT * FROM organisations WHERE COALESCE(geocode_precision, '') != 'point' ORDER BY name"):
+        seg = "int" if str(r["segment"] or "").startswith("Introducer") else "emp"
+        out.append(row("master", seg, r, r["geocode_precision"] or "", {"plans": plans.get(r["organisation_id"], 0), "osm_id": r["osm_id"] or "",
+                                                                       "source_url": r["source_url"] or "", "verification": r["verification"] or ""}))
+    w = B.ro(ROOT / "outputs" / "runs" / B.WELFARE_RUN / "lead-database.sqlite")
+    for r in w.execute("SELECT * FROM organisations WHERE COALESCE(geocode_precision, '') != ? AND organisation_id IN "
+                       "(SELECT organisation_id FROM outreach_plans) ORDER BY name", (RUN_POINT,)):
+        out.append(row("welfare", "wel", r, r["geocode_precision"] or "", {"key": r["name"]}))
+    g = B.ro(ROOT / "outputs" / "runs" / B.GOVERNMENT_RUN / "lead-database.sqlite")
+    for r in g.execute("SELECT o.*, gp.office_level, gp.council_name, gp.admin_unit_name, gp.record_key FROM organisations o "
+                       "JOIN government_office_profiles gp USING(organisation_id) WHERE COALESCE(o.geocode_precision, '') != ? ORDER BY o.name",
+                       (RUN_POINT,)):
+        key = f"{r['council_name']}|{r['admin_unit_name']}" if r["office_level"] == "ward" else r["record_key"]
+        out.append(row("government", "gov", r, r["geocode_precision"] or "", {"level": r["office_level"], "council": r["council_name"],
+                                                                                "unit": r["admin_unit_name"], "key": key}))
+    WORK.mkdir(parents=True, exist_ok=True)
+    (WORK / "inventory.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    from collections import Counter
+    print(json.dumps({f"{k[0]} {k[1] or '(blank)'}": v for k, v in sorted(Counter((x["db"], x["stored_precision"]) for x in out).items())}, indent=1))
+    print(f"{len(out)} leads not at point level; {sum(1 for x in out if x['ledger_location'])} with a location attempt in the ledger")
+    return 0
+
+
+LEGAL_WORDS = {"ltd", "limited", "co", "company", "plc", "inc", "t", "tz", "the", "llc", "e", "v"}
+
+
+def name_key(name: str) -> str:
+    """A strict comparison key: lower case, accents and punctuation dropped, '&' read as 'and', legal suffixes and bracketed notes
+    dropped. Two names match only when their keys are equal."""
+    return " ".join(x for x in norm(re.sub(r"\(.*?\)", " ", str(name or "").split(" / ")[0])) if x not in LEGAL_WORDS)
+
+
+def repo_osm_features() -> list[dict]:
+    """Named OpenStreetMap features already in the repository: the gap census extracts (data/raw/gap-census/osm_*_<date>.json),
+    the OSM contact pulls (data/raw/contact-research/osm_contacts_*.json), the government office points, the basemap's points
+    of interest (data/reference/maps/arusha-catchment-basemap.geojson) and this collector's Overpass cache (runtime/geocode/overpass/)."""
+    feats, seen = [], set()
+
+    def add(osm, lat, lon, tags, src, fetched):
+        if not osm or lat is None or (osm in seen):
+            return
+        seen.add(osm)
+        feats.append({"osm": osm, "lat": float(lat), "lon": float(lon), "tags": tags, "file": src, "fetched": fetched})
+
+    for p in sorted((ROOT / "data" / "raw" / "gap-census").glob("osm_*_*.json")) + sorted((ROOT / "data" / "raw" / "contact-research").glob("osm_contacts_*.json")):
+        d = json.loads(p.read_text(encoding="utf-8"))
+        for el in d.get("elements", []):
+            osm = el.get("osm_id") or (f"{el['type']}/{el['id']}" if "type" in el else "")
+            lat = el.get("lat", (el.get("center") or {}).get("lat"))
+            lon = el.get("lon", (el.get("center") or {}).get("lon"))
+            add(osm, lat, lon, el.get("tags", {}), p.relative_to(ROOT).as_posix(), d.get("retrieved", ""))
+    gp = ROOT / "data" / "raw" / "gap-census" / "government_office_points_2026-10-11.json"
+    if gp.exists():
+        d = json.loads(gp.read_text(encoding="utf-8"))
+        for o in d.get("offices", []):
+            add(o.get("osm_id"), o.get("latitude"), o.get("longitude"), {"name": o.get("name") or "", "name:sw": o.get("name_sw") or "",
+                                                                          "office": "government"}, gp.relative_to(ROOT).as_posix(), d.get("retrieved", ""))
+    basemap = ROOT / "data" / "reference" / "maps" / "arusha-catchment-basemap.geojson"
+    d = json.loads(basemap.read_text(encoding="utf-8"))
+    for f in d["features"]:
+        p = f["properties"]
+        if p.get("layer") == "poi" and p.get("osm"):
+            add(p["osm"], f["geometry"]["coordinates"][1], f["geometry"]["coordinates"][0], {"name": p["name"], "kind": p.get("kind", "")},
+                basemap.relative_to(ROOT).as_posix(), "2026-10-11")
+    for p in sorted((WORK / "overpass").glob("*.json")):
+        d = json.loads(p.read_text(encoding="utf-8"))
+        for el in d.get("elements", []):
+            lat = el.get("lat", (el.get("center") or {}).get("lat"))
+            lon = el.get("lon", (el.get("center") or {}).get("lon"))
+            add(f"{el['type']}/{el['id']}", lat, lon, el.get("tags", {}), f"Overpass ({d.get('_endpoint', '')})", d.get("_fetched", ""))
+    return feats
+
+
+def reviewed_points() -> dict:
+    """Points a reviewer already accepted in the repository, by (db, organisation id): placed point-precision lines in
+    data/raw/geocode-research/*.jsonl and the coordinator's accepted Google Maps listings (data/raw/gap-census/google_maps_enrich_*.jsonl)."""
+    found = defaultdict(list)
+    for p in sorted((ROOT / "data" / "raw" / "geocode-research").glob("*.jsonl")):
+        for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if r.get("status", "placed") == "placed" and r.get("precision") == "point" and r.get("latitude") not in (None, ""):
+                found[(r.get("db") or "master", r.get("organisation_id") or "")].append(
+                    {"file": p.relative_to(ROOT).as_posix(), "line": n, "lat": float(r["latitude"]), "lon": float(r["longitude"]),
+                     "source_type": r.get("source_type", ""), "source_url": r.get("source_url", ""), "fetched_on": r.get("fetched_on", ""),
+                     "as_found": r.get("as_found", ""), "basis": r.get("basis", ""), "name_found": r.get("listing_name") or r.get("google_name") or ""})
+    for p in sorted((ROOT / "data" / "raw" / "gap-census").glob("google_maps_enrich_*.jsonl")):
+        for n, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            if r.get("verdict") == "accept" and r.get("latitude") not in (None, "") and r.get("organisation_id"):
+                found[("master", r["organisation_id"])].append(
+                    {"file": p.relative_to(ROOT).as_posix(), "line": n, "lat": float(r["latitude"]), "lon": float(r["longitude"]),
+                     "source_type": "Google Maps listing", "source_url": r.get("source_url", ""), "fetched_on": r.get("fetched_on", ""),
+                     "as_found": f"{r.get('listing_name', '')}; {r.get('category', '')}; {r.get('address', '')}; {r['latitude']}, {r['longitude']}",
+                     "basis": f"The coordinator's accepted Google Maps listing '{r.get('listing_name', '')}' ({p.name} line {n}, verdict accept).",
+                     "name_found": r.get("listing_name", "")})
+    return found
+
+
+def cmd_repo(args) -> int:
+    """For each inventory lead (runtime/geocode/inventory.json): reviewed points already in the repository for the same organisation,
+    and OpenStreetMap features in the repository's extracts whose name key equals the lead's. No network. Writes
+    runtime/geocode/repo_hits.json."""
+    inventory = json.loads((WORK / "inventory.json").read_text(encoding="utf-8"))
+    feats = repo_osm_features()
+    by_key = defaultdict(list)
+    for f in feats:
+        for k in ("name", "name:en", "name:sw", "alt_name", "official_name", "short_name", "brand", "operator"):
+            if f["tags"].get(k) and len(name_key(f["tags"][k])) >= 4:
+                by_key[name_key(f["tags"][k])].append({**f, "matched_tag": k, "matched_name": f["tags"][k]})
+    reviewed = reviewed_points()
+    out = []
+    for t in inventory:
+        keys = {name_key(t["name"])}
+        if t["db"] == "government" and t.get("unit"):  # 'Ofisi ya Kata ya <ward>', '<ward> ward office'; a village office only as a village office
+            words = {"ward": ("ofisi ya kata ya", "ofisi ya kata", "ward office", "ofisi ya mtendaji kata"),
+                     "village": ("ofisi ya kijiji cha", "ofisi ya kijiji", "office ya kijiji", "village office", "village government office")}
+            for word in words.get(t.get("level"), ()):
+                keys.add(name_key(f"{word} {t['unit']}"))
+                keys.add(name_key(f"{t['unit']} {word}"))
+        osm = [c for k in keys if len(k) >= 4 for c in by_key.get(k, [])]
+        uniq = {c["osm"]: c for c in osm}
+        rev = reviewed.get((t["db"], t["id"]), [])
+        if osm or rev:
+            out.append({"db": t["db"], "id": t["id"], "name": t["name"], "stored_precision": t["stored_precision"], "osm": list(uniq.values()),
+                        "reviewed": rev})
+    (WORK / "repo_hits.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{len(feats)} named OpenStreetMap features in the repository; {len(out)} of {len(inventory)} leads with a candidate "
+          f"({sum(1 for o in out if o['reviewed'])} with a reviewed point, {sum(1 for o in out if o['osm'])} with an exact-name feature)")
+    return 0
+
+
+PREVIOUS_CAMPUSES = {"Usa River": (-3.3645, 36.8632), "Arusha City": (-3.3528, 36.6613), "Ilboru": (-3.3465, 36.6922),
+                     "Kijenge": (-3.3837, 36.7100), "Boma Ngombe": (-3.3342, 37.1383)}  # recompute_campus_distances.PREVIOUS
+ADDR_TAGS = ("addr:city", "addr:place", "addr:suburb", "addr:district", "addr:hamlet", "addr:village", "addr:street", "is_in", "addr:full")
+LOCALITY_KM, TOWN_KM = 5.0, 12.0
+
+
+def hav(a, b, c, d) -> float:
+    import math
+    p1, p2 = math.radians(a), math.radians(c)
+    h = math.sin(math.radians(c - a) / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(math.radians(d - b) / 2) ** 2
+    return 2 * 6371.0 * math.asin(math.sqrt(h))
+
+
+TOWNS = {"moshi": (-3.3349, 37.3404), "arusha": (-3.3696, 36.6880), "usa river": (-3.3680, 36.8560)}
+
+
+NOT_PLACES_IN_NAMES = r"\b(?:arusha|moshi|meru|kilimanjaro|mahakama|mount|mt)\b"   # a mountain, a region or a word, not where the office is
+
+
+def guard(t: dict, lat: float, lon: float, loc, strong: bool = False) -> str:
+    """Why a same-name point cannot be this lead's ('' when nothing contradicts it): it lies more than 12 km from the record's own
+    estimated point; the record's locality or street address (never a P.O. box town) names Moshi but not Arusha and the point is more
+    than 15 km from Moshi, or the reverse; or, unless the point already has strong evidence (it reproduces the stored import distance
+    or its address tags agree), the organisation's name carries a place (Tengeru, Njiro, Machame ...) more than 8 km from the point."""
+    if t.get("lat") is not None and t.get("lon") is not None and t["prec"] != "outside":
+        km = hav(lat, lon, t["lat"], t["lon"])
+        if km > TOWN_KM:
+            return f"{km:.1f} km from the record's own estimated point"
+    text = f" {t.get('locality') or ''} {'' if t.get('po_box_only') else t.get('address') or ''} ".lower()
+    if "moshi" in text and "arusha" not in text and hav(lat, lon, *TOWNS["moshi"]) > 15:
+        return "the record places it in Moshi; the point is not"
+    if "arusha" in text and not re.search(r"moshi|kilimanjaro|\bhai\b|usa.?river|tengeru|karatu|\bkia\b|airport", text) and lon > 36.95:
+        return "the record places it in Arusha; the point is in Kilimanjaro"
+    in_name = None if strong else loc.text(re.sub(NOT_PLACES_IN_NAMES, " ", t["name"], flags=re.I), specific_only=True)
+    if in_name and hav(lat, lon, in_name[0], in_name[1]) > 8:
+        return f"the name names {in_name[2]}, {hav(lat, lon, in_name[0], in_name[1]):.1f} km from the point"
+    return ""
+
+
+def locality_evidence(t: dict, lat: float, lon: float, tags: dict, loc, campuses: dict) -> tuple[str, str]:
+    """(why this point lies where the lead's own record says it is, confidence); ('', '') when nothing agrees. A clear name match is
+    accepted only with one of: the record's locality or address names a place within 5 km (12 km for a town or city centre); the
+    feature's address tags name a place the record names; the point reproduces the record's stored distance to its stored campus
+    (the importer's own point); the record's estimated point lies within 5 km (12 km for a town or city estimate); or, for a record
+    imported from OpenStreetMap, the point has the stored nearest campus and lies within 1.5 km of the stored distance."""
+    text = f"{t.get('locality') or ''} {t.get('address') or ''} {t.get('unit') or ''}"
+    found = loc.text(t.get("unit") or "", t.get("locality") or "", PO_BOX.sub(" ", t.get("address") or ""))
+    if found:
+        km = hav(lat, lon, found[0], found[1])
+        town = found[3] != "locality" or found[2].lower() in ("usa river", "moshi", "hai", "tengeru", "arusha city", "kilimanjaro")
+        limit = TOWN_KM if town else LOCALITY_KM
+        if km <= limit:
+            return (f"{km:.1f} km from {found[2]} ({'town' if town and found[3] == 'locality' else found[3]}), which the record's "
+                    "locality or address names", "medium" if town else "high")
+    words = {w for w in norm(text) if len(w) >= 4} - GENERIC - {"road", "street", "plot", "block", "house", "box", "tanzania", "region"}
+    for k in ADDR_TAGS:
+        v = str(tags.get(k) or "")
+        shared = words & set(norm(v))
+        if shared:
+            return f"the feature's {k} '{v}' names {', '.join(sorted(shared))}, as the record does", "high"
+    try:
+        stored = float(t.get("distance_km"))
+    except (TypeError, ValueError):
+        stored = None
+    from recompute_campus_distances import campus_key  # noqa: E402  (scripts/master on the path)
+    camp = campus_key(t.get("campus") or "")
+    if stored is not None and camp:
+        for label, pts in (("previous", PREVIOUS_CAMPUSES), ("current", campuses)):
+            if camp in pts and abs(round(hav(lat, lon, *pts[camp]), 1) - stored) <= 0.2:
+                return f"reproduces the stored {stored} km to {camp} ({label} campus points): the point the record was imported from", "high"
+    if t.get("lat") is not None and t.get("lon") is not None and t["prec"] != "outside":
+        km = hav(lat, lon, t["lat"], t["lon"])
+        limit = TOWN_KM if t.get("stored_precision") in ("city", "town", "estimated") else LOCALITY_KM
+        if km <= limit:
+            return f"{km:.1f} km from the record's estimated point ({t.get('stored_precision') or 'unstated precision'})", (
+                "medium" if limit == TOWN_KM else "high")
+    imported = "openstreetmap.org" in str(t.get("source_url") or "") or str(t.get("verification") or "").startswith("OSM place")
+    if imported and stored is not None and camp in campuses:
+        dists = {c: hav(lat, lon, *xy) for c, xy in campuses.items()}
+        near = min(dists, key=dists.get)
+        if near == camp and abs(dists[camp] - stored) <= 1.5:
+            return (f"the record was imported from OpenStreetMap ({t.get('verification') or t.get('source_url')}); the only feature of this name "
+                    f"in the catchment has the stored nearest campus {camp}, {dists[camp]:.1f} km against the stored {stored} km"), "medium"
+    return "", ""
+
+
+def government_evidence(t: dict, c: dict, gov: dict) -> tuple[str, str]:
+    """A ward or village office: the feature's address tags or name give the same ward (or village), it lies inside the council's
+    OpenStreetMap district, and within 10 km of the run's ward (or village) reference point. ('', reason) when it fails."""
+    import gov_lib as G
+    tags = c.get("tags") or {}
+    unit = G.squash(t.get("unit") or "")
+    ward_tag = t.get("level") == "ward" and unit == G.squash(tags.get("addr:ward") or "")
+    named = bool(unit) and (ward_tag or unit in G.squash(c["name"]))
+    if not named:
+        return "", "the feature's name and addr:ward do not give this unit"
+    where = G.district_of(c["lat"], c["lon"], gov["districts"])
+    if where not in gov["zone"](t.get("council") or ""):
+        return "", f"the feature lies in the {where or 'no'} district, outside {t.get('council')}"
+    if t.get("lat") is not None:
+        km = hav(c["lat"], c["lon"], t["lat"], t["lon"])
+        if km > 10:
+            return "", f"{km:.1f} km from the run's reference point for the {t.get('level')}"
+    return (f"the feature is the {t.get('level')} office of {t.get('unit')} (addr:ward '{tags.get('addr:ward', '')}', source "
+            f"'{tags.get('source', '')}'), inside the council's district ({where})"), "high"
+
+
+def cmd_review(args) -> int:
+    """Proposes a verdict for every candidate the collectors found for the inventory (repo_hits.json, osm_hits.json, site_hits.json,
+    nominatim_hits.json, whichever exist): accept only a clear name match (equal name keys, or the organisation's own website)
+    with a matching locality (locality_evidence) and no second feature of the same name elsewhere; a reviewed point already in the
+    repository is accepted as reviewed. Writes runtime/geocode/review.json for a person to check; the accepted lines then go to
+    data/raw/geocode-research/geocodes_<label>_<date>.jsonl (--write) for scripts/master/apply_geocodes.py."""
+    sys.path.insert(0, str(ROOT / "scripts" / "master"))
+    import build_lead_map as B
+    inventory = {(t["db"], t["id"]): t for t in json.loads((WORK / "inventory.json").read_text(encoding="utf-8"))}
+    loc = B.Locator(json.loads(B.BASEMAP.read_text(encoding="utf-8")))
+    m = B.ro(B.MASTER)
+    from recompute_campus_distances import campus_key
+    campuses = {campus_key(r["name"]): (r["latitude"], r["longitude"]) for r in m.execute("SELECT name, latitude, longitude FROM campuses")}
+    today = args.date
+    cands = defaultdict(list)
+
+    def read(name):
+        p = WORK / name
+        return json.loads(p.read_text(encoding="utf-8")) if p.exists() else []
+    for h in read("repo_hits.json"):
+        for r in h["reviewed"]:
+            cands[(h["db"], h["id"])].append({"kind": "reviewed", "lat": r["lat"], "lon": r["lon"], "name": r["name_found"] or h["name"],
+                                              "source_type": r["source_type"], "source_url": r["source_url"], "fetched_on": r["fetched_on"],
+                                              "as_found": r["as_found"], "basis_in": r["basis"], "ref": f"{r['file']} line {r['line']}"})
+        for f in h["osm"]:
+            cands[(h["db"], h["id"])].append({"kind": "osm", "osm": f["osm"], "lat": f["lat"], "lon": f["lon"], "name": f["matched_name"],
+                                              "tags": f["tags"], "file": f["file"], "fetched_on": f["fetched"] or today})
+    for h in read("osm_hits.json"):  # the Overpass box collector: exact names only
+        for c in h["candidates"]:
+            if c.get("exact") or name_key(c["name"]) == name_key(h["name"]):
+                cands[(h["db"], h["id"])].append({"kind": "osm", "osm": c["osm"], "lat": c["lat"], "lon": c["lon"], "name": c["name"],
+                                                  "tags": c["tags"], "file": "Overpass (runtime/geocode/overpass)", "fetched_on": c.get("fetched") or today})
+    platform = defaultdict(set)   # a coordinate several unrelated sites share is a theme or platform default, not a pin
+    sites = read("site_hits.json")
+    for h in sites:
+        for x in h["hits"]:
+            if x.get("lat") is not None:
+                platform[(round(x["lat"], 4), round(x["lon"], 4))].add(host_of(h["website"]))
+    # A town's centre, or a listing platform's default for it (coverage log of 2026-10-11), is not a pin either.
+    defaults = list(TOWNS.values()) + [(-3.3869, 36.683), (-3.3713, 36.8583), (-3.3667, 36.6833)]
+    for h in sites:
+        pts = {(round(x["lat"], 5), round(x["lon"], 5)): x for x in h["hits"] if x.get("lat") is not None and x.get("in_box")
+               and len(platform[(round(x["lat"], 4), round(x["lon"], 4))]) == 1
+               and all(hav(x["lat"], x["lon"], *d) > 0.25 for d in defaults)}
+        for x in pts.values():
+            cands[(h["db"], h["id"])].append({"kind": "site", "lat": x["lat"], "lon": x["lon"], "name": h["name"], "how": x["how"],
+                                              "url": x["url"], "as_found": x["as_found"], "fetched_on": today, "n_points": len(pts)})
+    for h in read("nominatim_hits.json"):
+        for x in h.get("hits", []):
+            if x.get("in_box") and not re.match(r"(highway|place|boundary|landuse)/", x["type"]):
+                cands[(h["db"], h["id"])].append({"kind": "nominatim", "lat": x["lat"], "lon": x["lon"], "name": x["display_name"].split(",")[0],
+                                                  "osm": x["osm"], "display": x["display_name"], "url": h["url"], "type": x["type"],
+                                                  "fetched_on": today, "query": h["query"]})
+    # A master record imported from an OpenStreetMap feature, holding that feature's coordinates and id but no precision: its own point.
+    for t in inventory.values():
+        if (t["db"] == "master" and t.get("osm_id") and t["lat"] is not None and t["prec"] == "estimated" and not t["stored_precision"]
+                and t["osm_id"] in str(t.get("source_url") or "")):
+            cands[(t["db"], t["id"])].append({"kind": "own_osm", "osm": t["osm_id"], "lat": t["lat"], "lon": t["lon"], "name": t["name"],
+                                              "fetched_on": today})
+    gov = None
+    if any(t["db"] == "government" for t in inventory.values()):
+        sys.path.insert(0, str(ROOT / "scripts" / "government"))
+        import build_government_run as BG
+        import gov_lib as G
+        cfg = G.load_config(B.GOVERNMENT_RUN)
+        gov = {"districts": G.load_districts(cfg["paths"]["raw"], cfg["research_date"]), "zone": BG.zone_function(cfg)}
+    out = []
+    for key, cs in cands.items():
+        t = inventory.get(key)
+        if not t:
+            continue
+        decisions = []
+        for c in cs:
+            why_not, evidence, conf = "", "", "high"
+            if c["kind"] == "reviewed":
+                evidence = f"reviewed before: {c['ref']}"
+            elif c["kind"] == "own_osm":
+                evidence = (f"the record was imported from OpenStreetMap {c['osm']} ({t.get('source_url')}) and holds that feature's "
+                            "coordinates; only its precision was never recorded")
+            else:
+                if c["kind"] in ("osm", "nominatim") and name_key(c["name"]) != name_key(t["name"]) and not (
+                        t["db"] == "government" and t.get("unit") and name_key(t["unit"]) in name_key(c["name"])):
+                    why_not = f"name differs ('{c['name']}')"
+                is_office = t["db"] == "government" and t.get("level") in ("ward", "village")
+                same = [o for o in cs if o is not c and o["kind"] == c["kind"] and hav(o["lat"], o["lon"], c["lat"], c["lon"]) > 0.5
+                        and (not is_office or government_evidence(t, o, gov)[0])]   # an office: only same-name offices in the same council count
+                if not why_not and is_office:
+                    evidence, fail = government_evidence(t, c, gov)
+                    why_not = "" if evidence else fail
+                if not why_not and same:
+                    why_not = f"{len(same)} other {c['kind']} point(s) of the same name more than 0.5 km away (a chain or a duplicate)"
+                if not why_not and c["kind"] == "site" and c.get("n_points", 1) > 1:
+                    why_not = f"the site publishes {c['n_points']} different points (branches?)"
+                if not why_not and not evidence:
+                    evidence, conf = locality_evidence(t, c["lat"], c["lon"], c.get("tags") or {}, loc, campuses)
+                    strong = evidence.startswith(("reproduces", "the feature's"))
+                    why_not = guard(t, c["lat"], c["lon"], loc, strong) or (
+                        "" if evidence else "no locality evidence: the point does not agree with the record's locality, address or stored distance")
+            decisions.append({**c, "verdict": "reject" if why_not.startswith("name differs") else ("accept" if not why_not else "review"),
+                              "why": why_not or evidence, "confidence": conf if not why_not else ""})
+        accepted = [d for d in decisions if d["verdict"] == "accept"]
+        reviewed = [d for d in accepted if d["kind"] in ("reviewed", "own_osm")]
+        if reviewed:  # a reviewed or own point wins; a same-name point elsewhere is left for review
+            for d in accepted:
+                if d not in reviewed and hav(d["lat"], d["lon"], reviewed[0]["lat"], reviewed[0]["lon"]) > 0.5:
+                    d["verdict"], d["why"] = "review", f"{hav(d['lat'], d['lon'], reviewed[0]['lat'], reviewed[0]['lon']):.1f} km from the reviewed point"
+        else:
+            spread = max((hav(a["lat"], a["lon"], b["lat"], b["lon"]) for a in accepted for b in accepted), default=0)
+            if spread > 0.5:
+                for d in accepted:
+                    d["verdict"], d["why"] = "review", f"accepted candidates disagree by {spread:.1f} km"
+        out.append({"db": t["db"], "id": t["id"], "name": t["name"], "stored_precision": t["stored_precision"], "locality": t["locality"],
+                    "address": t["address"], "campus": t["campus"], "distance_km": t["distance_km"], "lat": t["lat"], "lon": t["lon"],
+                    "key": t.get("key", ""), "candidates": decisions})
+    (WORK / "review.json").write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    from collections import Counter
+    best = Counter()
+    for o in out:
+        vs = {d["verdict"] for d in o["candidates"]}
+        best[(o["db"], "accept" if "accept" in vs else "review" if "review" in vs else "reject")] += 1
+    print(json.dumps({f"{k[0]} {k[1]}": v for k, v in sorted(best.items())}, indent=1))
+    if args.write:
+        write_accepted(out, Path(args.write), today)
+    return 0
+
+
+SOURCE_LABEL = {"reviewed": None, "osm": "OpenStreetMap", "site": "own site embed", "nominatim": "Nominatim"}
+CONFIDENCE = {"reviewed": "high", "own_osm": "high", "osm": "high", "site": "high", "nominatim": "medium"}
+
+
+def write_accepted(review: list[dict], path: Path, today: str) -> None:
+    """One geocode-research line per lead with an accepted candidate (the first accepted, by kind: reviewed, own site, OpenStreetMap,
+    Nominatim), in apply_geocodes.py's format plus geocode_source and confidence. A master lead that already holds coordinates gets
+    a correction line (replace: true, with the stored point it replaces) for apply_geocodes.py --replace."""
+    order = {"reviewed": 0, "own_osm": 1, "site": 2, "osm": 3, "nominatim": 4}
+    lines = []
+    for o in review:
+        acc = sorted((d for d in o["candidates"] if d["verdict"] == "accept"), key=lambda d: order[d["kind"]])
+        if not acc:
+            continue
+        d = acc[0]
+        if d["kind"] == "reviewed":
+            source_type, url, as_found = d["source_type"], d["source_url"], d["as_found"]
+            basis = f"{d['basis_in']} Reviewed before ({d['ref']})."
+        elif d["kind"] == "own_osm":
+            source_type, url = "OpenStreetMap", f"https://www.openstreetmap.org/{d['osm']}"
+            as_found = f"{d['osm']} at {d['lat']}, {d['lon']} (the record's own import point)"
+            basis = f"{d['why'][0].upper()}{d['why'][1:]}."
+        elif d["kind"] == "osm":
+            source_type, url = "OpenStreetMap", f"https://www.openstreetmap.org/{d['osm']}"
+            tags = {k: v for k, v in (d.get("tags") or {}).items() if not k.startswith(("contact:", "phone", "email", "addr:postcode"))}
+            as_found = f"{d['osm']} at {d['lat']}, {d['lon']}; tags {json.dumps(tags, ensure_ascii=False)[:300]} (in {d['file']})"
+            basis = f"OpenStreetMap feature with the same name ('{d['name']}'); {d['why']}."
+        elif d["kind"] == "site":
+            source_type, url, as_found = "own site embed", d["url"], d["as_found"]
+            basis = f"The organisation's own website publishes this map point ({d['how']}); {d['why']}."
+        else:
+            source_type, url, as_found = "Nominatim", d["url"], f"{d['display']} ({d['type']}, {d['osm']}) at {d['lat']}, {d['lon']}"
+            basis = f"Nominatim result for the record's street address '{d['query']}', with the same name; {d['why']}."
+        as_found = re.sub(r"\+?\(?255\)?[\d\s-]{8,}\d", "[phone]", as_found)   # the excerpt locates the point; it never carries a number
+        line = {"db": o["db"], "organisation_id": o["id"], "organisation_name": o["name"], "key": o["key"] if o["db"] != "master" else "",
+                "status": "placed", "latitude": round(d["lat"], 7), "longitude": round(d["lon"], 7), "precision": "point",
+                "source_type": source_type, "source_url": url, "fetched_on": d.get("fetched_on") or today, "as_found": as_found, "basis": basis,
+                "geocode_source": f"{source_type}: {url}", "confidence": d.get("confidence") or CONFIDENCE.get(d["kind"], "medium")}
+        if d.get("osm"):
+            line["osm_id"] = d["osm"]
+        if o["db"] == "master" and o["lat"] is not None:
+            import apply_geocodes as AG
+            m = sqlite3_ro(AG.MASTER)
+            org = m.execute("SELECT * FROM organisations WHERE organisation_id=?", (o["id"],)).fetchone()
+            source = AG.stored_source(m, org)
+            line.update({"replace": True, "old_latitude": o["lat"], "old_longitude": o["lon"], "old_precision": o["stored_precision"],
+                         "old_location_source": source or AG.NO_SOURCE, "km_moved": round(hav(o["lat"], o["lon"], d["lat"], d["lon"]), 1)})
+            campuses = {r["name"]: (r["latitude"], r["longitude"]) for r in m.execute("SELECT name, latitude, longitude FROM campuses")}
+            km = min(hav(d["lat"], d["lon"], *xy) for xy in campuses.values())
+            try:
+                before = float(o["distance_km"])
+            except (TypeError, ValueError):
+                before = None
+            if before is not None and before <= 25 < km:
+                line["beyond_catchment"] = (f"Kept and labelled under the user's instruction of {today} (geolocate, keep outside-catchment "
+                                            f"leads labelled): {km:.1f} km from the nearest campus at its own point.")
+        lines.append(line)
+    fill = [x for x in lines if not x.get("replace")]
+    repl = [x for x in lines if x.get("replace")]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in fill), encoding="utf-8")
+    cpath = path.with_name(path.name.replace("geocodes_", "geocodes_corrections_", 1))
+    cpath.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in repl), encoding="utf-8")
+    print(f"{len(fill)} accepted lines -> {path}; {len(repl)} corrections of stored estimates -> {cpath} (apply_geocodes.py --replace)")
+
+
+def sqlite3_ro(path: Path):
+    import sqlite3
+    con = sqlite3.connect(f"file:{Path(path).as_posix()}?mode=ro", uri=True)
+    con.row_factory = sqlite3.Row
+    return con
+
+
+def cmd_worklist(args) -> int:
+    """The Google Maps worklist for the coordinator's browser (workers never use Google Maps): every inventory lead still not at
+    point level, with its locality, address, website, a suggested search and the ledger's earlier Google Maps attempts. A lead the
+    ledger shows was already looked up on Google Maps with no result is listed separately (it is not looked up again)."""
+    inventory = json.loads(Path(args.inventory or WORK / "inventory.json").read_text(encoding="utf-8"))
+    placed = set()
+    for p in args.placed or []:
+        for line in Path(p).read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                r = json.loads(line)
+                if r.get("status") == "placed" and r.get("precision") == "point":
+                    placed.add((r.get("db") or "master", r.get("organisation_id")))
+    todo, skipped = [], []
+    for t in inventory:
+        if (t["db"], t["id"]) in placed:
+            continue
+        gm = [a for a in t["ledger_location"] if a["tool"] == "gmaps"]
+        town = next((x for x in ("Usa River", "Moshi", "Arusha", "Hai", "Boma Ng'ombe", "Tengeru", "Karatu", "Mererani")
+                     if x.lower() in f"{t['locality']} {t['address']}".lower()), "Arusha")
+        place = t.get("unit") if t["db"] == "government" else ""
+        query = f"{t['name']} {place or town}".strip() if t["db"] != "government" else f"{t['name']} {t.get('council') or ''}".strip()
+        row = {"db": t["db"], "id": t["id"], "name": t["name"], "stored_precision": t["stored_precision"], "locality": t["locality"],
+               "address": t["address"], "website": t["website"], "segment": t["segment"], "campus": t["campus"], "distance_km": t["distance_km"],
+               "po_box_only": t["po_box_only"], "plans": t.get("plans", ""), "query": query, "prior_gmaps": [{k: a[k] for k in ("date", "query", "outcome", "found", "source_file")}
+                                                                                 for a in gm]}
+        if t["db"] == "government":
+            row.update({"level": t.get("level"), "council": t.get("council"), "unit": t.get("unit")})
+        if gm and all(a["outcome"] == "nothing" for a in gm):
+            skipped.append(row)
+        else:
+            todo.append(row)
+    # Leads whose drafts would state a distance first: master organisations with a plan for review, then the run offices and
+    # organisations, nearest stored campus distance first; master records without a plan last.
+    def km(r):
+        try:
+            return float(r["distance_km"])
+        except (TypeError, ValueError):
+            return 999.0
+    todo.sort(key=lambda r: (r["db"] == "master" and not r.get("plans"), {"master": 0, "government": 1, "welfare": 2}[r["db"]], km(r)))
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in todo), encoding="utf-8")
+    skip = out.with_name(out.stem + "_skipped_no_result.jsonl")
+    skip.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in skipped), encoding="utf-8")
+    from collections import Counter
+    print(f"worklist {len(todo)} ({dict(Counter(r['db'] for r in todo))}) -> {out}; already looked up with no result {len(skipped)} -> {skip}")
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="cmd", required=True)
     sub.add_parser("targets")
+    inv = sub.add_parser("inventory", help="every lead not at point level, with the ledger's location attempts (runtime/geocode/inventory.json)")
+    inv.add_argument("--as-of", default=None, help="the ledger's plan date (default today)")
+    sub.add_parser("repo", help="reviewed points and exact-name OpenStreetMap features already in the repository (no network)")
+    rv = sub.add_parser("review", help="propose accept / review / reject for every candidate (runtime/geocode/review.json)")
+    rv.add_argument("--date", default=time.strftime("%Y-%m-%d"))
+    rv.add_argument("--write", help="also write the accepted lines to this geocode-research file (check review.json first)")
+    wl = sub.add_parser("worklist", help="the Google Maps worklist for the coordinator's browser")
+    wl.add_argument("--inventory", type=Path)
+    wl.add_argument("--placed", nargs="*", type=Path, help="geocode files whose placed point lines are taken off the list")
+    wl.add_argument("--out", type=Path, required=True)
     pg = sub.add_parser("pages", help="scan named pages for map pins and Arusha-area mentions (prints JSON)")
     pg.add_argument("url", nargs="+")
     for name in ("sites", "osm", "osm-names", "nominatim"):
@@ -552,7 +1102,7 @@ def main() -> int:
     args = parser.parse_args()
     sys.stdout.reconfigure(encoding="utf-8")
     return {"targets": cmd_targets, "sites": cmd_sites, "osm": cmd_osm, "osm-names": cmd_osm_names, "nominatim": cmd_nominatim,
-            "pages": cmd_pages}[args.cmd](args)
+            "pages": cmd_pages, "inventory": cmd_inventory, "repo": cmd_repo, "review": cmd_review, "worklist": cmd_worklist}[args.cmd](args)
 
 
 if __name__ == "__main__":

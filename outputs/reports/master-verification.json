@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-12T01:38:33.747926+00:00",
+  "checked_at": "2026-10-12T23:16:01.700283+00:00",
   "result": "passed",
-  "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "da6ba4fb08260192a3fc399760cc5b6387a7b713861a4d3fbaf8a4b546e4d0e3",
-  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "a3335e172a89819ffe7b5d6a988f32583dc30646e55f9936e576e4ad8bf557fe",
+  "database": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-a4e539cd78cc460d2\\outputs\\master\\Silverleaf Master Database.sqlite",
+  "database_sha256": "a64fec5023b465ef27d326fe98cb5847a802d54e028698ca3fbfe86b139ee485",
+  "workbook": "C:\\Work\\silverleaf-agentic-marketing\\.claude\\worktrees\\agent-a4e539cd78cc460d2\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
+  "workbook_sha256": "31842e6aa45794f88ab1d884f5c91a6d4c6db2dfdf9b9dbc1e800eefe51c1c01",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -17,8 +17,8 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 162,
-    "source_records": 13492,
+    "source_files": 164,
+    "source_records": 13749,
     "organisations": 1376,
     "contacts": 1291,
     "enquiries": 32,

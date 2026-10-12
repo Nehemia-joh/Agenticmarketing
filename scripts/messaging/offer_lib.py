@@ -185,11 +185,15 @@ def network_line_en() -> str:
             "Usa River, and Boma Ng'ombe.")
 
 
+def network_line_sw() -> str:
+    return ("Tuna kampasi tano: Arusha City (Sakina), Kijenge na Ilboru jijini Arusha, Usa River, na Boma Ng'ombe, zinazotoa "
+            "elimu kuanzia daycare hadi darasa la saba kwa Kiingereza.")
+
+
 def campus_line_sw(campus: str, km=None, precise: bool = False, place_sw: str = "") -> str:
     key = campus_key(campus)
     if not key:
-        return ("Tuna kampasi tano: Arusha City (Sakina), Kijenge na Ilboru jijini Arusha, Usa River, na Boma Ng'ombe, zinazotoa "
-                "elimu kuanzia daycare hadi darasa la saba kwa Kiingereza.")
+        return network_line_sw()
     info = CAMPUSES[key]
     where = ""
     if precise and km not in (None, "") and float(km) <= 25:

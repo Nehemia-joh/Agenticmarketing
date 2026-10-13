@@ -178,6 +178,5 @@ python scripts/strategy/render_markdown_page.py docs/strategy/partnership-pipeli
 
 ## 17. Email-format candidates
 
-- **Re-run:** `infer_candidate_emails.py --apply` writes `candidate_emails` (master only). Then steps 4 to 6.
-- **Check:** no candidate address in any committed file. The high-direct check (`analyse_high_direct_pool.py --check`) finds no candidate among high rows.
-- **Unclear:** the 11 October tooling (`email_formats.py`, `email-formats.json`, the `-low-inferred` files) does not exist yet.
+- **Re-run:** `email_formats.py build --write` after a contact merge (review the `data/reference/email-formats.json` diff), then steps 4 to 6 (the workbook's `email_format_to_confirm` column) and step 10 (the `-low-inferred` files). `email_formats.py candidates` writes the review list to `runtime/` only.
+- **Check:** `email_formats.py check` exits 0: no generated address in any tracked file, draft route or the reference file. The high-direct check (`analyse_high_direct_pool.py --check`) finds no candidate among high rows.

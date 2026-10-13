@@ -83,6 +83,10 @@ def main() -> int:
         if not name:
             raise SystemExit(f"{path.name}: no segment for this file; pass --segment.")
         rows = list(csv.DictReader(path.open(encoding="utf-8")))
+        # Inferred candidates (email_formats.py) are never loaded: a person confirms each address first (rule of 11 October 2026).
+        if path.stem.endswith("-low-inferred") or any(r.get("inferred_label") for r in rows):
+            raise SystemExit(f"{path.name}: inferred from format, unverified; never loaded. Confirm each address by phone or the "
+                             "organisation's published route, record it as a route, and re-export.")
         jobs.append((path, name, rows))
         print(f"{path.name}: {len(rows)} contacts -> segment '{name}'")
     if not args.apply:

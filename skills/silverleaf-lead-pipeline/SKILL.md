@@ -209,7 +209,15 @@ python scripts/government/run_pipeline.py --run-id arusha-government-2026-09 --r
 
 - **Rule.** `docs/methodology/contact-research.md`, "Email formats" (11 October 2026). A format is recorded only from two or more published addresses of two named people at the organisation's own domain.
 - **The candidate.** Always low confidence, labelled "inferred from format, unverified". It is kept apart from every route and out of committed files. It is never a draft's route and never a high segment. A person confirms it before any use. One exact-address search may confirm it as published.
-- **Today's tool** is `scripts/contacts/infer_candidate_emails.py --apply`, which writes the master table `candidate_emails`. It follows the older 2 October rule. The tooling the 11 October rule names does not exist yet: `email_formats.py`, `data/reference/email-formats.json` and the `-low-inferred` export. See the known gaps.
+- **Commands.**
+  ```powershell
+  python scripts/contacts/email_formats.py build            # preview: runtime/contacts/email-formats-proposed.json
+  python scripts/contacts/email_formats.py build --write    # data/reference/email-formats.json; review the diff before committing
+  python scripts/contacts/email_formats.py candidates       # runtime/contacts/inferred-candidates.json (never committed)
+  python scripts/contacts/email_formats.py check            # no generated address in a tracked file, a route or the reference file
+  ```
+  `export_resend_contacts.py` (stage 17) writes the `<track>-low-inferred.csv` files from the same rules. The master workbook shows only the format (`email_format_to_confirm`). The 2 October script `infer_candidate_emails.py` is removed; `email_formats.py retire-table --apply` drops its old table `candidate_emails` from the master.
+- **Done when.** `check` exits 0 and the reference file's diff has been reviewed. Re-run `build --write` after a contact merge: new published addresses are new evidence.
 
 ## 12. Hooks and lead briefs
 

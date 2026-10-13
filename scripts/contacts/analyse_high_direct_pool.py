@@ -38,7 +38,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "master"))
 sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
 import export_resend_contacts as X  # noqa: E402
 import resolve_master_recipients as R  # noqa: E402
-import infer_candidate_emails as I  # noqa: E402
+import email_formats as I  # noqa: E402  (name and pattern helpers; the inferred candidates, runtime only)
 
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 WELFARE = ROOT / "outputs" / "runs" / "arusha-welfare-2026-09" / "lead-database.sqlite"
@@ -140,10 +140,12 @@ def check() -> int:
     master, welfare = ro(MASTER), ro(WELFARE)
     rows, _ = X.dedupe(X.company_rows(master)[0] + X.welfare_rows(welfare)[0])
     rejected = {str(x["value"]).lower() for x in json.loads(REJECTED.read_text(encoding="utf-8"))["routes"] if x["kind"] == "email"}
-    try:
-        inferred = {r[0].lower() for r in master.execute("SELECT address FROM candidate_emails")}
+    inferred = {c["address"] for c in I.candidates(master, welfare)[0]}  # generated live from the documented formats (runtime only)
+    try:  # the 2 October table, until it is retired (email_formats.py retire-table)
+        inferred |= {r[0].lower() for r in master.execute("SELECT address FROM candidate_emails")}
     except sqlite3.OperationalError:
-        inferred = set()
+        pass
+    master.row_factory = welfare.row_factory = sqlite3.Row
     plans = {r["message_id"]: dict(r) for r in master.execute("SELECT message_id, target_type, target_id FROM outreach_plans")}
     contacts = {r["contact_id"]: dict(r) for r in master.execute("SELECT contact_id, name, role, verification FROM contacts")}
     traced = {(r[0], str(r[1]).lower()) for r in master.execute(
@@ -217,8 +219,8 @@ def main() -> int:
         by_org[c["organisation_id"]].append(c)
     reach = {r["organisation_id"]: r["tier"] for r in master.execute("SELECT organisation_id, tier FROM employer_reach")}
     cands = defaultdict(list)
-    for r in master.execute("SELECT contact_id, organisation_id, address, confidence FROM candidate_emails"):
-        cands[r["contact_id"]].append(dict(r))
+    for c in I.candidates(master, welfare)[0]:  # inferred from the documented formats (email_formats.py), always low
+        cands[c["contact_id"]].append(c)
     published = X.published_inbox_domains(master, orgs)
     w_plans = {r["message_id"]: dict(r) for r in welfare.execute("SELECT * FROM outreach_plans")}
     w_orgs = {r["organisation_id"]: dict(r) for r in welfare.execute("SELECT * FROM organisations")}

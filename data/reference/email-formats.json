@@ -1,0 +1,2196 @@
+{
+ "about": "Organisation email formats (docs/methodology/contact-research.md, 'Email formats', 11 October 2026). Written by scripts/contacts/email_formats.py build --write from published addresses in committed sources; reviewed before commit. Evidence is stored as the pattern each published address shows, the person's record, the source URL and the date read, never as an address. Only 'confirmed' formats (two or more people, one pattern) generate candidates, and those are written to runtime/ only, labelled 'inferred from format, unverified', always low confidence.",
+ "updated_on": "2026-10-13",
+ "counts": {
+  "confirmed": 20,
+  "provisional": 50,
+  "ambiguous": 3
+ },
+ "formats": [
+  {
+   "domain": "asanteafrica.org",
+   "pattern": "flast",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_24f42a2f0cb1516e",
+     "source_url": "https://asanteafrica.org/global-team/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_4cae8840d390f559",
+     "source_url": "https://asanteafrica.org/contact-us/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_2ecaadc2bedfaa30",
+     "name": "ASANTE AFRICA TANZANIA"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "chelipeacock.com",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 9,
+   "people_count": 9,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C26c1597891f5",
+     "source_url": "https://chelipeacock.com/about/team",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C49decd3bc8be",
+     "source_url": "https://chelipeacock.com/about/team",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C70bbefad5b18",
+     "source_url": "https://chelipeacock.com/about/team",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C72472d21c3c2",
+     "source_url": "https://chelipeacock.com/about/team",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C72de494eda21",
+     "source_url": "https://chelipeacock.com/about/team",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O6b0bb1aea506",
+     "name": "CHELI & PEACOCK SAFARIS (T) LTD"
+    },
+    {
+     "db": "master",
+     "organisation_id": "O7d38a52691e3",
+     "name": "Cheli Peacock Safaris T Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "cssc.or.tz",
+   "pattern": "flast",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "master:C2ad12ee4bc0a",
+     "source_url": "https://www.cssc.or.tz/experts",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "master:Cf2a05ad8b47e",
+     "source_url": "https://www.cssc.or.tz/experts",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Ob21384549145",
+     "name": "Christian Social Services Commission (CSSC)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "dsw.org",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 12,
+   "people_count": 12,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L141",
+     "source_url": "https://www.dsw.org/en/contact/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L141",
+     "source_url": "https://www.dsw.org/en/contact/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L141",
+     "source_url": "https://www.dsw.org/en/organsation/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L141",
+     "source_url": "https://www.dsw.org/en/organsation/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L141",
+     "source_url": "https://www.dsw.org/en/organsation/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O3872c47d89bb",
+     "name": "German Foundation For World Population (Dsw) Tanzania"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "givingsmiles.org",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "search_hd1_welfare_introducers_2026-10-11.jsonl#L25",
+     "source_url": "https://givingsmiles.org/wp-content/uploads/2026/08/Giving-Smiles_Jahresbericht-2024.pdf",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "search_wave8_welfare_funders_specialised_2026-09-23.jsonl#L2",
+     "source_url": "https://givingsmiles.org/wp-content/uploads/2026/08/Giving-Smiles_Jahresbericht-2024.pdf",
+     "accessed_on": "2026-09-26",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_b77e34f1fcaef5aa",
+     "name": "Giving Smiles e.V."
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "hwb-intl.org",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 3,
+   "people_count": 3,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "welfare:CON_71cc2a7619e0dba1",
+     "source_url": "https://hwb-intl.org/contact",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "welfare:CON_b02de98dad4f1cbd",
+     "source_url": "https://hwb-intl.org/contact",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "welfare:CON_d0d955f8925516df",
+     "source_url": "https://hwb-intl.org/contact",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_92db36d36c15457e",
+     "name": "Hope Without Borders-USA Inc"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "innovobenefits.com",
+   "pattern": "flast",
+   "status": "confirmed",
+   "evidence_count": 13,
+   "people_count": 13,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "website_contacts_2026-10-10.jsonl#L312",
+     "source_url": "https://www.innovobenefits.com/our-difference/team/",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_1d7e187008e3e44c",
+     "source_url": "https://www.innovobenefits.com/our-difference/team/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_26c21f517530f7e3",
+     "source_url": "https://www.innovobenefits.com/our-difference/team/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_3b64ca591aa8fa2f",
+     "source_url": "https://www.innovobenefits.com/our-difference/team/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_3cec8bde7bcfb904",
+     "source_url": "https://www.innovobenefits.com/our-difference/team/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_53e04c20bac29e5b",
+     "name": "Innovo Benefits Group"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "kingsesafaris.com",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 3,
+   "people_count": 3,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C39a064ae08b3",
+     "source_url": "https://tatotz.org/portfolio/kingse-safaris/",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:C8d011dde3243",
+     "source_url": "https://kingsesafaris.com/team",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:Ce5665b7a9b83",
+     "source_url": "https://kingsesafaris.com/team",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Odce6122a61f4",
+     "name": "Kingse Safaris"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "lovefortheleast.org",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_39b7cbaeada7acf5",
+     "source_url": "https://lovefortheleast.org/",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_58deb3dddbca22e1",
+     "source_url": "https://lovefortheleast.org/contact-us/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_70f482fdddef4b73",
+     "name": "Love for the Least"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "matembezi.co.tz",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 3,
+   "people_count": 3,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C38a2223bb0ae",
+     "source_url": "https://matembezi.co.tz/about-us/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:C572b4a0ecc41",
+     "source_url": "https://matembezi.co.tz/contact-us/",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:Cb0a53a636048",
+     "source_url": "https://matembezi.co.tz/contact-us/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oeacd041c2d5f",
+     "name": "Matembezi Company Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "mocu.ac.tz",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C1ed2b8398a36",
+     "source_url": "https://www.mocu.ac.tz/moshi-co-operative-university-mocu/faculty-of-co-operative-and-community-development-fccd/fccd-academic-staff/cdm-academic-staff/fredy-t-kilima/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:Cc1b5436e4415",
+     "source_url": "https://www.mocu.ac.tz/moshi-co-operative-university-mocu/directorate-of-undergraduate-studies-dus/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Obc953f67aac6",
+     "name": "Moshi Co-operative University (MoCU)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "newhopeinitiative.org",
+   "pattern": "f.last",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "f.last",
+     "person_ref": "welfare:CON_75157021834b06f3",
+     "source_url": "https://newhopeinitiative.org/leadership",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "f.last",
+     "person_ref": "welfare:CON_ef24ef77bc4e312f",
+     "source_url": "https://newhopeinitiative.org/leadership",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_9b46fae3ec64077a",
+     "name": "New Hope Initiative, Inc"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "nm-aist.ac.tz",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C28fb27ed3c54",
+     "source_url": "https://nm-aist.ac.tz/wp-content/uploads/2024/04/prospectus-2024.pdf",
+     "accessed_on": "2026-09-10",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:Cf1932b99bc1b",
+     "source_url": "https://nm-aist.ac.tz/the-nelson-mandela-african-institution-of-science-and-technology-nm-aist/about-nm-aist/departments-and-units/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O63141c751979",
+     "name": "Nelson Mandela African Institution of Science and Technology (NM-AIST)"
+    },
+    {
+     "db": "master",
+     "organisation_id": "Ob130f68ba9de",
+     "name": "Nelson Mandela African Institution of Science and Technology"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "paradiessafaris.com",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 3,
+   "people_count": 3,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C2c16b8548f9b",
+     "source_url": "https://www.paradiessafaris.com/en/home/about-us",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:Cd2a1682733c2",
+     "source_url": "https://www.paradiessafaris.com/de/impressum",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:Cfeadaef90628",
+     "source_url": "https://www.paradiessafaris.com/en/home/about-us",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O98f2a93d24da",
+     "name": "Paradies Safaris Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "rikolto.org",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 7,
+   "people_count": 7,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L444",
+     "source_url": "https://www.rikolto.org/about-us/our-team",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L444",
+     "source_url": "https://www.rikolto.org/about-us/our-team",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L444",
+     "source_url": "https://www.rikolto.org/about-us/our-team",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L444",
+     "source_url": "https://www.rikolto.org/about-us/our-team",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "website_contacts_2026-10-11.jsonl#L444",
+     "source_url": "https://www.rikolto.org/contact-us",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O39377f77a5dd",
+     "name": "Rikolto Tanzania"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "safariswithaheart.com",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_74efa41b78b0ed2b",
+     "source_url": "https://safariswithaheart.com/contact/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_af8020779c3d150d",
+     "source_url": "https://safariswithaheart.com/contact/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_dc17765764b52a61",
+     "name": "SAFARIS WITH A HEART"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "smallstepsforcompassion.org",
+   "pattern": "flast",
+   "status": "confirmed",
+   "evidence_count": 4,
+   "people_count": 4,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "website_contacts_2026-09-23.jsonl#L492",
+     "source_url": "https://www.smallstepsforcompassion.org/ourteam",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_10c9e710603f7576",
+     "source_url": "https://www.smallstepsforcompassion.org/ourteam",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_bb354d067c68ec00",
+     "source_url": "https://www.smallstepsforcompassion.org/ourteam",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_d7f7f8c99ca0b615",
+     "source_url": "https://www.smallstepsforcompassion.org/ourteam",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_48995d3476257145",
+     "name": "Small Steps for Compassion"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "tncc.or.tz",
+   "pattern": "first.last",
+   "status": "confirmed",
+   "evidence_count": 8,
+   "people_count": 8,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C02ea91b1299f",
+     "source_url": "https://tncc.or.tz/about-us/",
+     "accessed_on": "2026-10-10",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C25d2c37e2dfe",
+     "source_url": "https://tncc.or.tz/about-us/",
+     "accessed_on": "2026-10-10",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C406b4e74431d",
+     "source_url": "https://tncc.or.tz/about-us/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C5c0bc72de1f5",
+     "source_url": "https://tncc.or.tz/about-us/",
+     "accessed_on": "2026-10-10",
+     "fetched": true
+    },
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C5e476863a706",
+     "source_url": "https://tncc.or.tz/about-us/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Od4edd499159a",
+     "name": "Tanzania National Chamber of Commerce (TNCC, formerly TCCIA)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "topnaturesafaris.com",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C5ea434a041f1",
+     "source_url": "https://tatotz.org/portfolio/top-nature-tanzania-safari/",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:Ca4b23da7d8c8",
+     "source_url": "https://topnaturesafaris.com/about%20us.html",
+     "accessed_on": "2026-09-24",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oebe90cd85d49",
+     "name": "Top Nature Tanzania Safari"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "truetotanzania.org",
+   "pattern": "first",
+   "status": "confirmed",
+   "evidence_count": 2,
+   "people_count": 2,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "search_wave8_welfare_funders_specialised_2026-09-23.jsonl#L23",
+     "source_url": "https://www.truetotanzania.org/",
+     "accessed_on": "2026-09-26",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "search_wave8_welfare_funders_specialised_2026-09-23.jsonl#L23",
+     "source_url": "https://www.truetotanzania.org/",
+     "accessed_on": "2026-09-26",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_497fd6360b909624",
+     "name": "TrueToTanzania"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "aafrinmedihealth.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C3d8ed2e97c0a",
+     "source_url": "https://tatotz.org/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O05cab09ad953",
+     "name": "Aafrin Medihealth Solutions Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "absfoundation.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_de21af675fb5b30c",
+     "source_url": "https://absfoundation.org/about-us/a-letter-from-the-executive-director/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_9c563bd0910582a2",
+     "name": "Arthur B Schultz Foundation"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "africaaminialama.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_d83e998037d7e17c",
+     "source_url": "https://www.africaaminialama.com/kontakt",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_8a9eb2eeaffcbb34",
+     "name": "Africa Amini Alama"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "african-court.org",
+   "pattern": "first.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C5450f3cf42f6",
+     "source_url": "https://www.african-court.org/afchpr/the-african-court-on-human-and-peoples-rights-afchpr-and-the-african-unions-economic-social-and-cultural-council-ecosocc-to-engage-citizens-on-the-courts-20th-anniversa/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O5673bb705977",
+     "name": "African Court on Human and Peoples' Rights"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "africanmoons.org",
+   "pattern": "flast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_aa96e7c5cb5462e7",
+     "source_url": "https://africanmoons.org/contact-us/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_a3983a987c112c11",
+     "name": "African Moons Tanzania"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "africanscenicsafaris.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C2ef0ceaf5648",
+     "source_url": "https://africanscenicsafaris.com/contact-us",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O5328bffd0133",
+     "name": "African Scenic Safaris Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "afroplanfoundation.com",
+   "pattern": "firstlast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "firstlast",
+     "person_ref": "welfare:CON_e8b24a6ce027840c",
+     "source_url": "https://www.passionprojectsintl.com/afroplan-foundation",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_729680a693e77baf",
+     "name": "Afroplan Foundation"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "amanikids.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_58f10ba7925baf81",
+     "source_url": "",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_ff086ad36bf5b583",
+     "name": "Friends of Amani US Inc"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "andersons.co.za",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Cb6cfed6c6006",
+     "source_url": "https://andersons.co.za/contact/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oe5bd1b3cf183",
+     "name": "Anderson's African Adventures Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "ascendtanzania.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C497ed145cc53",
+     "source_url": "https://tatotz.org/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O72e67a37acc8",
+     "name": "Ascend Tanzania"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "atc.ac.tz",
+   "pattern": "first.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C2fe3d6409dbe",
+     "source_url": "https://www.atc.ac.tz/management",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O6be0bd0c9352",
+     "name": "Arusha Technical College"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "autismbeyondborders.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_50d26e04a7144944",
+     "source_url": "https://autismbeyondborders.org/special-projects",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_61b5d4ac92500587",
+     "name": "AUTISM BEYOND BORDERS  TZ"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "betheliexpeditions.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C771253c0afe8",
+     "source_url": "https://betheliexpeditions.com/about/",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oe8876e3c95f6",
+     "name": "Betheli Expeditions"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "ely-school.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_f14055dc872690c4",
+     "source_url": "https://www.ely-school.org/team",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_f761a6f2fccaa8e3",
+     "name": "ELY EDUCATION VISION ORGANIZATION"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "endelea-africa.com",
+   "pattern": "f.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "f.last",
+     "person_ref": "master:C405555d80f46",
+     "source_url": "https://tatotz.org/portfolio/endelea/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Of2d804db7393",
+     "name": "Endelea"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "epicluxurysafaris.com",
+   "pattern": "flast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "master:C86f1eca0046e",
+     "source_url": "https://epicluxurysafaris.com/contact/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O54cf698f4d15",
+     "name": "Epic Luxury Safaris (Toya Limited)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "faune-flore.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C322db22f6e11",
+     "source_url": "https://www.faune-flore.com/pages/about_us.html",
+     "accessed_on": "2026-10-10",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O5949d6cb9379",
+     "name": "Faune & Flore Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "foresthill.co.tz",
+   "pattern": "first.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "search_wave11_public_b_2026-10-02.jsonl#L8",
+     "source_url": "https://kilifair-tanzania.com/hotel-partners",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Of318b17d919b",
+     "name": "Forest Hill Hotel"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "giveahearttoafrica.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Cf210b4d50e49",
+     "source_url": "https://www.giveahearttoafrica.org/",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Of7e562e7749c",
+     "name": "Give A Heart To Africa"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "hanspaul.co.tz",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "search_wave10_master_employers_b_2026-10-02.jsonl#L5",
+     "source_url": "https://tatotz.org/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oa7c6400ff33c",
+     "name": "HANSPAUL AUTOMECHS LTD"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "intrepidtravel.com",
+   "pattern": "first.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C5c336b7710f6",
+     "source_url": "https://tatotz.org/portfolio/intrepid-travel-tanzania-limited/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O6968a792722b",
+     "name": "INTREPID TRAVEL TANZANIA LIMITED"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "jafricasafari.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C2fec63e585d5",
+     "source_url": "https://jafricasafari.com/about/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O31664fbad51c",
+     "name": "Joash Africa Wilderness Insight Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "karamaconnection.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_fbf0007f5506ed1c",
+     "source_url": "https://www.karamaconnection.org/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_8c90415bbaa47c9c",
+     "name": "Karama Kids (Karama Care orphanage), Arusha"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "kiriwetravel.co.tz",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C6e776ce6bede",
+     "source_url": "https://tatotz.org/portfolio/kiriwe-travel-and-trekking-safari-ltd/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O137e0f50cfca",
+     "name": "Kiriwe Travel and Trekking Safari Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "kojuusafaris.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Cc088f49471d5",
+     "source_url": "https://kojuusafaris.com/meet-kojuu-team/",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Obf522b0efe57",
+     "name": "Kojuu Safaris Limited"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "maternityafrica.org",
+   "pattern": "firstlast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "firstlast",
+     "person_ref": "master:C47d46ce48849",
+     "source_url": "https://maternityafrica.org/",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Of98c6c86c3c8",
+     "name": "Maternity Africa Arusha"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "melia.com",
+   "pattern": "first.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C5705d305230b",
+     "source_url": "https://achpr.au.int/sites/default/files/files/2023-09/arusha-hotel-list.pdf",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Obf2f0abb3e36",
+     "name": "Gran Melia Arusha"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "moivaro.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C1aac6119425d",
+     "source_url": "https://kilifair-tanzania.com/hotel-partners",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O9c8b8f0aea8e",
+     "name": "Moivaro Coffee Lodge"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "myriadsafaris.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C8d7b399848b4",
+     "source_url": "https://myriadsafaris.com/community-engagement",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oaed106fce42b",
+     "name": "Myriad Safari Limited"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "newdayfoundation.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_c867e795c28f14be",
+     "source_url": "https://newdayfoundation.org/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_e89297d1b9880674",
+     "name": "New Day Foundation Inc"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "nnkosmith.com",
+   "pattern": "last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "last",
+     "person_ref": "master:C07d0cd038537",
+     "source_url": "https://tatotz.org/portfolio/nnko-smith-safaris-ltd/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O0506bda0252b",
+     "name": "Nnko & Smith Safaris Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "nyangeadventures.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C51b367ecbe4f",
+     "source_url": "https://www.openstreetmap.org/node/4468045705",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O92e0d6840692",
+     "name": "Nyange Adventures Ltd."
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "ozonlighttours.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Ced98c8ec1c8c",
+     "source_url": "https://ozonlighttours.com/about",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O6349e6e743df",
+     "name": "Ozon Light Tours"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "riverstonesafaris.co.tz",
+   "pattern": "flast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "flast",
+     "person_ref": "master:Cd9a007238662",
+     "source_url": "https://www.riverstonesafaris.co.tz/about/",
+     "accessed_on": "2026-09-24",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O201e20990155",
+     "name": "RiverStone Africa Safaris"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "safari.africa",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C15c472765640",
+     "source_url": "https://tatotz.org/portfolio-cats/dmc-tour-operators/page/6/",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O3ef6297075e2",
+     "name": "Safari.Africa"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "safariasap.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Cf15f0722f03a",
+     "source_url": "https://tatotz.org/portfolio/safari-asap/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O883af20d967d",
+     "name": "Safari Asap"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "serengeticlarity.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C92e0abbc3838",
+     "source_url": "https://www.tlto.org/members/serengeti-clarity",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O1f23ef9d42af",
+     "name": "Serengeti Clarity"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "shadowsofafrica.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Cffac1f0e10a9",
+     "source_url": "https://www.shadowsofafrica.com/team/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O13d6874ab549",
+     "name": "Shadows of Africa Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "standingvoice.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_3f7d383a3d76455e",
+     "source_url": "https://www.standingvoice.org/our-team",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_6e3408808b0df46b",
+     "name": "Standing Voice"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "summit2sandsafaris.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C2ff28219c873",
+     "source_url": "https://www.summit2sandsafaris.com/contact-details.html",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O923da4a684cd",
+     "name": "Summit 2 Sand Safaris"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "tawiri.or.tz",
+   "pattern": "first.last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first.last",
+     "person_ref": "master:C6486915e1545",
+     "source_url": "https://www.tawiri.or.tz/corporate_service/",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O62247d9f65ab",
+     "name": "Tanzania Wildlife Research Institute (TAWIRI)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "terrawatu.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "search_wave8_welfare_funders_specialised_2026-09-23.jsonl#L22",
+     "source_url": "https://terrawatu.org/assets/docs/Terrawatu-25-Years-Impact-Report-.pdf",
+     "accessed_on": "2026-09-26",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_1798337b5bb97fc7",
+     "name": "TerraWatu"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "thefarajifoundation.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_c51ac0fb0c4a770e",
+     "source_url": "https://www.thefarajifoundation.org/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_28c5663df342e71e",
+     "name": "The Faraji Foundation"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "thefoundationfortomorrow.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_5ff01a708845418e",
+     "source_url": "https://thefoundationfortomorrow.org/our-team-board-of-directors/",
+     "accessed_on": "2026-09-22",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_2abe4745ba1bc106",
+     "name": "The Foundation For Tomorrow"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "transcendentjourneystz.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C8f1a3c690302",
+     "source_url": "https://tatotz.org/portfolio/transcendent-journeys-tanzania/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O19bcb76e19dd",
+     "name": "Transcendent Journeys Tanzania Trading name: TJT"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "tumainimeanshope.org",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "welfare:CON_d45dbe218edf8a6b",
+     "source_url": "https://tumainimeanshope.org/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_1f50a73c8875fbda",
+     "name": "Tumaini Children's Foundation"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "uboratz.org",
+   "pattern": "firstlast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "firstlast",
+     "person_ref": "search_wave8_welfare_funders_specialised_2026-09-23.jsonl#L24",
+     "source_url": "https://www.uboratz.org/blog/the-long-viewfrom-k-to-jobs",
+     "accessed_on": "2026-09-26",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_32edee56fc8a6b69",
+     "name": "Uboratz Inc (UBORA)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "utopiafound.org",
+   "pattern": "firstlast",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "firstlast",
+     "person_ref": "search_wave3_welfare_funders_specialised_2026-09-23.jsonl#L21",
+     "source_url": "https://www.utopiafound.org/our-team",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_83ec59663af815cf",
+     "name": "Utopia Foundation Inc"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "victoryattorneys.co.tz",
+   "pattern": "last",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "last",
+     "person_ref": "master:Cbd537b978cc6",
+     "source_url": "https://victoryattorneys.co.tz/",
+     "accessed_on": "2026-09-24",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O8b59ea27ef7f",
+     "name": "Victory Attorneys & Consultants"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "wonderfultours.com",
+   "pattern": "first",
+   "status": "provisional",
+   "evidence_count": 1,
+   "people_count": 1,
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:Cdb47efeb85e4",
+     "source_url": "https://www.wonderfultours.com/about/team",
+     "accessed_on": "2026-09-23",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oafde97df57fe",
+     "name": "Wonders Of Creation Tours And Safaris Co Ltd"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "cti.co.tz",
+   "pattern": "",
+   "status": "ambiguous",
+   "evidence_count": 6,
+   "people_count": 6,
+   "votes": {
+    "first": 3,
+    "firstlast": 1,
+    "flast": 1,
+    "last": 1
+   },
+   "evidence": [
+    {
+     "pattern": "first",
+     "person_ref": "master:C0832b960403d",
+     "source_url": "https://cti.co.tz/cti-secretariat",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "firstlast",
+     "person_ref": "master:C0ae8201d9c8e",
+     "source_url": "https://cti.co.tz/cti-secretariat",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:C2d998b27844b",
+     "source_url": "https://cti.co.tz/cti-secretariat",
+     "accessed_on": "2026-10-02",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "master:C3f2f38497286",
+     "source_url": "https://cti.co.tz/cti-secretariat",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:C8eda260062e4",
+     "source_url": "https://cti.co.tz/cti-secretariat",
+     "accessed_on": "2026-10-11",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "Oa7bd74bc3e90",
+     "name": "Confederation of Tanzania Industries (CTI)"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "habarifoundationinternational.org",
+   "pattern": "",
+   "status": "ambiguous",
+   "evidence_count": 2,
+   "people_count": 1,
+   "votes": {
+    "firstl": 1,
+    "flast": 1
+   },
+   "evidence": [
+    {
+     "pattern": "firstl",
+     "person_ref": "welfare:CON_13b3367c14591549",
+     "source_url": "https://habarifoundationinternational.org",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "flast",
+     "person_ref": "welfare:CON_13b3367c14591549",
+     "source_url": "https://habarifoundationinternational.org/contact-page/",
+     "accessed_on": "2026-10-10",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "welfare",
+     "organisation_id": "ORG_1871bc53067e9795",
+     "name": "Habari Foundation International"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  },
+  {
+   "domain": "wildwaystanzania.com",
+   "pattern": "",
+   "status": "ambiguous",
+   "evidence_count": 3,
+   "people_count": 3,
+   "votes": {
+    "first": 2,
+    "last": 1
+   },
+   "evidence": [
+    {
+     "pattern": "last",
+     "person_ref": "master:C6b5a28442b2d",
+     "source_url": "https://wildwaystanzania.com/about-us/",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:Cc6360492028a",
+     "source_url": "https://wildwaystanzania.com/about-us/",
+     "accessed_on": "",
+     "fetched": true
+    },
+    {
+     "pattern": "first",
+     "person_ref": "master:Cee65bc7751d2",
+     "source_url": "https://tatotz.org/portfolio/wild-ways-tanzania-adventure/",
+     "accessed_on": "",
+     "fetched": true
+    }
+   ],
+   "organisations": [
+    {
+     "db": "master",
+     "organisation_id": "O0006f4c8d8c6",
+     "name": "Wild Ways Tanzania Adventure"
+    }
+   ],
+   "decided_on": "2026-10-13",
+   "reviewed_by": ""
+  }
+ ]
+}

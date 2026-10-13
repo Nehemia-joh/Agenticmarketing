@@ -26,6 +26,11 @@ Escalation (companies, introducers, welfare): escalation_recipient and escalatio
 write to only when the in-country recipient does not answer after the follow-up or defers to head office (outreach_plans
 escalation_* columns, set by scripts/master/resolve_master_recipients.py; read from the welfare run when it has them). It is not a CC.
 An address that two rows share is exported once (the higher-confidence row) and reported.
+Inferred candidates (the email-format rule of 11 October 2026; scripts/contacts/email_formats.py): <track>-low-inferred.csv holds one
+row per work-email candidate generated from the organisation's documented format (data/reference/email-formats.json) for its chosen
+recipient or escalation contact. Every row is confidence low and carries inferred_format, inferred_evidence and inferred_label
+("inferred from format, unverified"); a person confirms the address before any use. These rows never enter the other files, the
+high segments or the dedupe, and the summary reports them as counts only. The organisation's own row stays in its segment.
 
 Government track (--tracks government; the government run database, read-only). Every office is segmented, whatever the
 channel, because its letters go by hand or post (Tanzanian protocol: addressed by title, on letterhead). Two kinds of file:
@@ -69,6 +74,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "master"))
 sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
 import resolve_master_recipients as R  # noqa: E402  (address parsing, role ranking, verification)
 import contact_lib as C  # noqa: E402  (the strict whose-mailbox test)
+import email_formats as F  # noqa: E402  (inferred candidates: the -low-inferred files only)
 
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 FIELDS = ["email", "first_name", "last_name", "organisation", "track", "audience", "confidence", "high_route", "confidence_reason", "priority",
@@ -663,6 +669,15 @@ def main() -> int:
             writer.writerows(subset)
         if confidence == "high":
             write_high_routes(out, track, subset)
+    # Inferred candidates: their own files only, never in the rows above (an address already exported there is not inferred).
+    cands, cand_stats = F.candidates(master, welfare)
+    exported = {r["email"].lower() for r in c_rows + w_rows}
+    inferred = F.low_inferred_rows([c for c in cands if c["address"] not in exported], c_rows + w_rows, FIELDS)
+    for track, subset in sorted(inferred.items()):
+        with (out / f"{track}-low-inferred.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=FIELDS + F.INFERRED_FIELDS)
+            writer.writeheader()
+            writer.writerows(sorted(subset, key=lambda r: r["organisation"]))
     skipped = c_skip + w_skip
     lines = [f"# Resend segments, {today}", "",
              "Contact-import files for Resend, one per segment, in runtime/resend/" + today + "/ (not committed: they hold contact addresses). "
@@ -672,6 +687,9 @@ def main() -> int:
         lines.append(f"| {t}-{c} | {n} |")
         if c == "high":  # sub-segments: every high contact is also in exactly one of these
             lines += [f"| {t}-high-{route} | {sum(1 for r in rows if r['track'] == t and r['high_route'] == route)} |" for route in ROUTES]
+    lines += ["", f"Inferred candidates ({F.LABEL}; always low; a person confirms each before use; counts only, never in the "
+              "segments above or the dedupe):", "", "| File | Contacts |", "|---|---|"]
+    lines += [f"| {t}-low-inferred | {len(inferred.get(t, []))} |" for t in ("companies", "introducers", "welfare")]
     lines += ["", "Left out (no email address; use the call sheets):", ""] + [f"- {k}: {v}" for k, v in sorted(skipped.items())]
     lines += ["", f"Addresses shared by two rows, exported once ({len(dropped)}):", ""] + [f"- {d}" for d in dropped]
     lines += ["", "Confidence rules and promotion: see the docstring of scripts/messaging/export_resend_contacts.py. Each contact's "
@@ -681,6 +699,8 @@ def main() -> int:
     report.write_text("\n".join(lines) + "\n", encoding="utf-8")
     for (t, c), n in sorted(counts.items(), key=lambda kv: (kv[0][0], RANK[kv[0][1]])):
         print(f"{t}-{c}: {n}")
+    for t in sorted(inferred):
+        print(f"{t}-low-inferred: {len(inferred[t])}")
     print(f"skipped: {dict(skipped)}; shared addresses dropped: {len(dropped)}")
     print(f"{out}\n{report}")
     return 0

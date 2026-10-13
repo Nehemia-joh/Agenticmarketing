@@ -6,7 +6,9 @@ the review enrichment the workbook shows next to each record, all derived from t
 - organisations: route status, official social pages, named contacts and decision-makers, the contact-research methods
   and the research warnings raised as review items;
 - contacts: decision-maker flag, best route (own, else the organisation's published route), pdpa_risk and name_status (a name the
-  source gives only in part is kept and labelled).
+  source gives only in part is kept and labelled);
+- email_format_to_confirm: the organisation's documented email format (data/reference/email-formats.json) for a chosen recipient or
+  escalation contact without a published address. Never a generated address: those stay in runtime/ (email_formats.py).
 """
 
 from __future__ import annotations
@@ -16,7 +18,7 @@ import json
 import re
 import sqlite3
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import date
 from pathlib import Path
 
@@ -25,6 +27,21 @@ DEFAULT_DB = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 DEFAULT_OUTPUT = ROOT / "runtime" / "artifacts" / "workbook-input.json"
 sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
 import contact_lib as C  # noqa: E402  (decision-maker and personal-email rules shared with the contact research)
+import email_formats as F  # noqa: E402  (documented email formats; never a generated address)
+
+
+
+def email_format_by_contact(connection) -> dict:
+    """{contact_id: the documented format to confirm} for each chosen recipient or escalation contact a candidate could be made for.
+    Text only (pattern, domain, evidence count): the generated address stays in runtime/ (email_formats.py candidates)."""
+    factory = connection.row_factory
+    formats = F.load_formats()
+    try:
+        found = F.master_candidates(connection, formats, Counter())
+    finally:
+        connection.row_factory = factory
+    return {c["contact_id"]: F.format_text(formats[c["format_domain"]]) for c in found}
+
 
 RESEARCH_REVIEW = re.compile(r"^(Contact research|Possible closure|Website field holds no website|Phone field holds no phone number)")
 
@@ -101,11 +118,9 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
     duplicate_of = dict(connection.execute(
         "SELECT r.entity_id, p.name FROM review r JOIN organisations p ON p.organisation_id=r.related_id "
         "WHERE r.kind LIKE 'Duplicate organisation%' OR r.kind LIKE 'Shared inbox%' OR r.kind LIKE 'Branch of%'"))
-    # Candidate addresses (infer_candidate_emails.py): inferred from the company's own published pattern, unverified, kept apart from every route.
-    try:
-        candidates = {r[0]: r for r in connection.execute("SELECT contact_id, address, confidence, pattern, evidence FROM candidate_emails WHERE status LIKE 'candidate%' OR status LIKE 'approved%'")}
-    except sqlite3.OperationalError:
-        candidates = {}
+    # Email formats (email_formats.py, the rule of 11 October 2026): the workbook is committed, so it shows only the documented format
+    # (pattern, domain, evidence count) for a recipient a candidate could be made for, never a generated address.
+    formats = email_format_by_contact(connection)
     # An HR or recruitment desk the research found (for example hr@ or recruitment@): a better first route than a booking inbox for a staff benefit.
     hr_desk = {}
     for entity_id, value in connection.execute("SELECT entity_id, value FROM facts WHERE entity_type='organisation' AND field LIKE '%email%'"):
@@ -123,9 +138,7 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
         o["hr_desk_email"] = "; ".join(hr_desk.get(o["organisation_id"], []))
         o["message_variant"] = variant.get(o["organisation_id"]) or ""
         pick = chosen.get(o["organisation_id"])
-        cand = candidates.get(pick[7]) if pick else None
-        o["candidate_email"] = cand[1] if cand else ""
-        o["candidate_basis"] = f"{cand[2]} confidence, {cand[3]} pattern, unverified; evidence {cand[4]}" if cand else ""
+        o["email_format_to_confirm"] = formats.get(pick[7], "") if pick else ""
         o["chosen_recipient"], o["chosen_role"], o["chosen_route"] = (pick[1], pick[2], pick[3]) if pick else ("", "", "")
         # The escalation contact (resolve_master_recipients.py): a group, regional or global head to write to only when the in-country
         # recipient does not answer or defers to head office; not a CC and without a draft.
@@ -284,13 +297,9 @@ def main() -> int:
             ORDER BY o.name,c.name,c.contact_id
         """)
     enrich(connection, organisations, contacts)
-    try:
-        cands = {r[0]: f"{r[1]} ({r[2]} confidence, {r[3]} pattern, unverified; evidence {r[4]})" for r in connection.execute(
-            "SELECT contact_id, address, confidence, pattern, evidence FROM candidate_emails WHERE status LIKE 'candidate%' OR status LIKE 'approved%'")}
-    except sqlite3.OperationalError:
-        cands = {}
+    formats = email_format_by_contact(connection)
     for c in contacts:
-        c["candidate_email"] = cands.get(c["contact_id"], "")
+        c["email_format_to_confirm"] = formats.get(c["contact_id"], "")
     names = {("organisation", o["organisation_id"]): o["name"] for o in organisations}
     names |= {("contact", c["contact_id"]): c["name"] or c["role"] for c in contacts}
     names |= {("enquiry", r["enquiry_id"]): r["name"] for r in connection.execute("SELECT enquiry_id, name FROM enquiries")}
@@ -321,7 +330,7 @@ def main() -> int:
         "parent_enquiry_drafts": rows(connection, "SELECT * FROM parent_enquiry_drafts ORDER BY enquiry_id"),
         "automation_recipes": rows(connection, "SELECT * FROM automation_recipes ORDER BY flow_id,step"),
         "messages": rows(connection, "SELECT * FROM messages ORDER BY message_id"),
-        "outreach_plans": [{**p, "candidate_email": cands.get(p["target_id"], "") if p["target_type"] == "contact" else ""}
+        "outreach_plans": [{**p, "email_format_to_confirm": formats.get(p["target_id"], "") if p["target_type"] == "contact" else ""}
                            for p in rows(connection, "SELECT * FROM outreach_plans ORDER BY message_id")],
         "strategies": rows(connection, "SELECT * FROM strategies ORDER BY title,strategy_id"),
         "source_files": rows(connection, "SELECT source_id,path,sha256,bytes,kind,encoding FROM source_files ORDER BY path"),

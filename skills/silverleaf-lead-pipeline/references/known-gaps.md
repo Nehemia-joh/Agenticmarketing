@@ -4,12 +4,7 @@ These were found by comparing the scripts, `scripts/README.md`, the methodology 
 
 ## Tooling that a rule names but the repository lacks
 
-1. **Email-format track (stage 11).**
-   - `docs/methodology/contact-research.md` ("Email formats", 11 October 2026) and `.claude/CLAUDE.md` name three things: `scripts/contacts/email_formats.py`, `data/reference/email-formats.json` and the `<track>-low-inferred` export files. None exists. They were planned as task T4 in `docs/plans/high-direct-wave-2026-10-11.md` section 8.
-   - The only tool is `scripts/contacts/infer_candidate_emails.py`. It follows the 2 October rule:
-     - it gives medium confidence when two or more addresses show the pattern;
-     - it makes first-name-only candidates for partial names.
-   - Both conflict with the 11 October rule: always low, and never for a one-name or incomplete name. Do not run it as if it implemented the new rule.
+1. **Email-format track (stage 11). Fixed 13 October 2026.** `scripts/contacts/email_formats.py`, `data/reference/email-formats.json` and the `<track>-low-inferred` files now exist, and `infer_candidate_emails.py` is removed. Candidates live in `runtime/` only, and the master workbook shows the format, not the address. Left for the coordinator: `email_formats.py retire-table --apply` on the master (the 2 October table `candidate_emails`, 31 rows, some medium), then a workbook rebuild, which removes the 29 inferred addresses the committed workbook still holds. The call sheet has no format column yet (plan section 8.3).
 2. **Google Maps pins to geocode lines (stage 5).** `import_google_maps_lookups.py` turns a round into contact records and map matches, and never changes a point. The `geocodes_gmaps_<d><round>.jsonl` and `geocodes_corrections_gmaps_<d><round>.jsonl` files that `apply_geocodes.py` reads were written by the coordinator by hand. No catalogued script makes them.
 3. **The master's first import.** `scripts/collection/build_partner_leads.py` writes only a preview workbook (`runtime/artifacts/partner-leads-preview.xlsx`). The September consolidation that built the master is not in `scripts/`. New companies enter through the gap census or the introducer path.
 4. **Savings groups (VICOBA).** `docs/plans/vicoba-integration-plan.md` is approved as phase 1, but no intake, draft or export code exists for VICOBA groups yet.

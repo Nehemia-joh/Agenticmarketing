@@ -72,8 +72,8 @@ def main() -> int:
                 reviews.append((hid("D", "relation-phone", surv["organisation_id"], dup["organisation_id"]), "Duplicate record: phone conflict",
                                 surv["organisation_id"], dup["organisation_id"], "phone",
                                 f"{surv['name']}: {surv['phone']} | {dup['name']}: {dup['phone']}",
-                                "Two records of one facility publish different phones (data/reference/organisation-relations.json). Confirm which line "
-                                "the facility answers before relying on either; both are kept." + note))
+                                "Two records of one organisation publish different phones (data/reference/organisation-relations.json). Confirm which "
+                                "line the organisation answers before relying on either; both are kept." + note))
             for rv in con.execute("SELECT review_id FROM review WHERE kind='Contact research: possible duplicate' AND entity_id IN (?,?)",
                                   (dup["organisation_id"], surv["organisation_id"])):
                 closed.append((rv["review_id"], f"Closed: {r['decision']} (data/reference/organisation-relations.json)"))

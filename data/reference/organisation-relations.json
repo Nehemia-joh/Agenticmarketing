@@ -24,6 +24,204 @@
    "borrowed_fields": ["phone", "website", "address"],
    "borrowed_from": "the hospital's Google Maps listing 'NSK Hospital Arusha' (Industrial Rd), matched to this record in the gap census (data/raw/gap-census/osm_matches_2026-10-11.jsonl) and read again in data/raw/contact-research/browser_googlemaps_2026-10-11.jsonl",
    "confirm_operating": true
-  }
- ]
+  },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O4722dd9c1cd3",
+  "organisation_name": "Kiriwe Travel And Trekking Safaris Ltd",
+  "related_id": "O137e0f50cfca",
+  "related_name": "Kiriwe Travel and Trekking Safari Ltd",
+  "primary": "O137e0f50cfca",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Kiriwe Travel & Trekking Safaris Ltd' (place 0x185c4b1065503617:0x59c01a3dc75f4ff7), read for Kiriwe Travel and Trekking Safari Ltd (O137e0f50cfca) in round a and for Kiriwe Travel And Trekking Safaris Ltd (O4722dd9c1cd3) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13a.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O4722dd9c1cd3 ties the listing to the other record. Both records give the website kiriwetravel.co.tz and the same point (-3.375659, 36.719577).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Kiriwe Travel and Trekking Safari Ltd is the survivor because it holds 2 named people and 3 drafts with a route against none and 1, including the chosen recipient (the founder). Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O64dc36d1927f",
+  "organisation_name": "Karine & Kitanga Safaris Limited (K&K Safaris)",
+  "related_id": "O97e95eaae0be",
+  "related_name": "K&K Safaris",
+  "primary": "O97e95eaae0be",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'K&K Safaris' (place 0xa144622007e4ae29:0x35254ad7a487b068), read for K&K Safaris (O97e95eaae0be) in round b and for Karine & Kitanga Safaris Limited (K&K Safaris) (O64dc36d1927f) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13b.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O64dc36d1927f ties the listing to the other record. Both records give the website kandksafaris.com and the same point (-3.43799, 36.705551).",
+  "decision": "The user approved the merge on 2026-10-13: one company; K&K Safaris is the survivor because it holds 2 named people (both co-founders) and 3 drafts with a route against 1 and 2. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O13fac71333a1",
+  "organisation_name": "Miles to Smile",
+  "related_id": "Oc2da1647a7e3",
+  "related_name": "Miles To Smile Company Ltd",
+  "primary": "Oc2da1647a7e3",
+  "evidence": "Google Maps round d of 2026-10-13 found one listing for both names: 'Miles to Smile' (place 0x802aa5b89131c301:0x75c227baf4f34d61), read for Miles To Smile Company Ltd (Oc2da1647a7e3) (data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl). The search for Miles to Smile (O13fac71333a1) opened an unrelated directions view, so the round reused that listing for it, and its note records that the master holds this company twice. Both records give the website miles-to-smile.com and the same point (-3.325739, 37.342059).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Miles To Smile Company Ltd is the survivor because it holds 2 named people and 3 drafts with a route against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "Ocf1f889ff17e",
+  "organisation_name": "Serengeti Wakanda Tours Safaris",
+  "related_id": "O9075dcc975f1",
+  "related_name": "Serengeti Wakanda Tours & Safaris",
+  "primary": "O9075dcc975f1",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Serengeti Wakanda Tours and Safaris' (place 0x18371d961b4adfed:0xf3b319b1de9dbf05), read for Serengeti Wakanda Tours & Safaris (O9075dcc975f1) in round b and for Serengeti Wakanda Tours Safaris (Ocf1f889ff17e) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13b.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on Ocf1f889ff17e ties the listing to the other record. Both records give the website serengetiwakandatours.com and the same point (-3.43671, 36.706107).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Serengeti Wakanda Tours & Safaris is the survivor because its organisation draft has a route (the published inbox); the other record's draft has none and needs research. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O7350992422d9",
+  "organisation_name": "Shubhomis Adventure (Ronjoo Safaris)",
+  "related_id": "O16c4e7a99dcb",
+  "related_name": "Ronjoo Safaris",
+  "primary": "O16c4e7a99dcb",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Ronjoo Safaris' (place 0x18371b707f9c98a7:0x37773230f3bcd884), read for Ronjoo Safaris (O16c4e7a99dcb) in round c and for Shubhomis Adventure (Ronjoo Safaris) (O7350992422d9) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O7350992422d9 ties the listing to the other record. Both records give the website ronjoosafaris.co.tz and the same point (-3.41844, 36.709165).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Ronjoo Safaris is the survivor because it holds 1 named person and 2 drafts with a route against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O4c18d932b6ed",
+  "organisation_name": "Wakali Company Limited (Wakali Safaris)",
+  "related_id": "Od03dcea128a9",
+  "related_name": "Wakali Safaris",
+  "primary": "Od03dcea128a9",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Wakali Safaris' (place 0x18371be3bd3c1ac5:0x1ea2bcfaa90ee32b), read for Wakali Safaris (Od03dcea128a9) in round c and for Wakali Company Limited (Wakali Safaris) (O4c18d932b6ed) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O4c18d932b6ed ties the listing to the other record. Both records give the website wakalisafaris.co.tz and the same point (-3.435331, 36.704735).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Wakali Safaris is the survivor because it holds 1 named person (the founder) and 2 drafts with a route against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O0843c2f745ba",
+  "organisation_name": "Abercrombie and Kent (T) Ltd",
+  "related_id": "O35c962655ba3",
+  "related_name": "Abercrombie & Kent",
+  "primary": "O35c962655ba3",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Abercrombie & Kent Safaris' (place 0x183704b9a3f2a109:0x18d8525818bc395d), read for Abercrombie & Kent (O35c962655ba3) in round a and for Abercrombie and Kent (T) Ltd (O0843c2f745ba) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13a.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O0843c2f745ba ties the listing to the other record. Both records give the website abercrombiekent.com and the same point (-3.405781, 36.713573).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Abercrombie & Kent is the survivor because the two records hold the same evidence (one organisation draft each, the same point and published phone); it already carries the chosen draft, so the recipient does not change. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O5cfe7f0b8dbc",
+  "organisation_name": "Kilipath African Safaris",
+  "related_id": "O694a46db51f5",
+  "related_name": "Kilpath African Safaris",
+  "primary": "O694a46db51f5",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Kilipath African Safaris | Tanzania Safari Experts' (place 0x18371bf35eec1f31:0x55edda4f7c452a18), read for Kilpath African Safaris (O694a46db51f5) in round c and for Kilipath African Safaris (O5cfe7f0b8dbc) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O5cfe7f0b8dbc ties the listing to the other record. Both records give the website kilpathafricansafaris.com and the same point (-3.374096, 36.696543).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Kilpath African Safaris is the survivor because the two records hold the same evidence (one organisation draft each, the same point, inbox and phone); it already carries the chosen draft, so the recipient does not change. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "Oafdc286a337a",
+  "organisation_name": "WILDERSUN SAFARIS & TOURS (T) LTD",
+  "related_id": "O472b960097c8",
+  "related_name": "Wildersun Safaris Tours T Ltd",
+  "primary": "O472b960097c8",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Wildersun Safaris' (place 0x183704ae3e38a7c1:0xac72763cbb5e48d6), read for Wildersun Safaris Tours T Ltd (O472b960097c8) in round c and for WILDERSUN SAFARIS & TOURS (T) LTD (Oafdc286a337a) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on Oafdc286a337a ties the listing to the other record. Both records give the website wildersuntanzania.com and the same point (-3.406777, 36.704604).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Wildersun Safaris Tours T Ltd is the survivor because it holds 4 named people, 3 drafts with a route and the verified hook against 1 person and 2 drafts. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O430c3a3dac39",
+  "organisation_name": "MAULY TOURS & SAFARIS",
+  "related_id": "Oa70069647745",
+  "related_name": "Mauly Tours Safaris",
+  "primary": "Oa70069647745",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Mauly Tours & Safaris' (place 0x1839d9b4a537835f:0x8a013c78aeaf4042), read for Mauly Tours Safaris (Oa70069647745) in round d and for MAULY TOURS & SAFARIS (O430c3a3dac39) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O430c3a3dac39 ties the listing to the other record. Both records give the website mauly-tours.com and the same point (-3.347835, 37.340823).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Mauly Tours Safaris is the survivor because the two records hold the same evidence (one organisation draft each, the same point, inbox and phone); it already carries the chosen draft, so the recipient does not change. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "Oacdd2049005a",
+  "organisation_name": "Shah Tours & Travels Ltd",
+  "related_id": "O65efab68742b",
+  "related_name": "Shah Tours Travels Ltd",
+  "primary": "O65efab68742b",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Shah Tours' (place 0x1839d9b5af184c7d:0x4a30f24b14aecd12), read for Shah Tours Travels Ltd (O65efab68742b) in round d and for Shah Tours & Travels Ltd (Oacdd2049005a) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on Oacdd2049005a ties the listing to the other record. Both records give the website shah-tours.com and the same point (-3.344563, 37.334037).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Shah Tours Travels Ltd is the survivor because it holds 1 named person (the Managing Director) and 2 drafts with a route against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O98862e6d1351",
+  "organisation_name": "Summit Expeditions & Nomadic Experience",
+  "related_id": "O85ab7c9f2593",
+  "related_name": "Summit Expeditions Nomadic Experience",
+  "primary": "O85ab7c9f2593",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Summit Expeditions & Nomadic Experience' (place 0x1839df2fd8253ad7:0x18fe08133ca31c8a), read for Summit Expeditions Nomadic Experience (O85ab7c9f2593) in round d and for Summit Expeditions & Nomadic Experience (O98862e6d1351) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O98862e6d1351 ties the listing to the other record. Both records give the website nomadicexperience.com and the same point (-3.315881, 37.316275).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Summit Expeditions Nomadic Experience is the survivor because it holds 1 named person (the director) and 2 drafts with a route against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "Ob5939181e661",
+  "organisation_name": "Portfolio Kibo Slopes T Ltd",
+  "related_id": "O8c6896846d17",
+  "related_name": "KIBO SLOPES T LIMITED",
+  "primary": "O8c6896846d17",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Kibo Slopes Tanzania Ltd' (place 0x18371d13c79081bb:0xef5ee9564b46139c), read for KIBO SLOPES T LIMITED (O8c6896846d17) in round c and for Portfolio Kibo Slopes T Ltd (Ob5939181e661) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on Ob5939181e661 ties the listing to the other record. Both records give the website kiboslopes.com and the same point (-3.361475, 36.671318).",
+  "decision": "The user approved the merge on 2026-10-13: one company; KIBO SLOPES T LIMITED is the survivor because both hold 4 drafts with a route, the same routes and the same point; it carries the organisation inbox (the other record's organisation draft has no route) and the in-country Operations Manager chosen as recipient, while the other record's one extra person is kept as an alternative. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O94eabec4856b",
+  "organisation_name": "Pristine Trails Adventures Safaris Co Ltd",
+  "related_id": "Ob3b8b318c102",
+  "related_name": "Pristine Trails Adventures & Safaris Co Ltd",
+  "primary": "Ob3b8b318c102",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Pristine Trails Adventures & Safaris' (place 0x1839d9091633a293:0x595ea1004407a6b9), read for Pristine Trails Adventures & Safaris Co Ltd (Ob3b8b318c102) in round d and for Pristine Trails Adventures Safaris Co Ltd (O94eabec4856b) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O94eabec4856b ties the listing to the other record. Both records give the website pristinetrails.com and the same point (-3.350195, 37.345387).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Pristine Trails Adventures & Safaris Co Ltd is the survivor because it holds 4 named people and 5 drafts with a route against 3 and 4. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O87a8b6fda78a",
+  "organisation_name": "Serengeti Pride Safaris Tour Co",
+  "related_id": "Oa94c42988eac",
+  "related_name": "Serengeti Pride Safaris",
+  "primary": "Oa94c42988eac",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'serengeti Pride safaris' (place 0x1837117d8b05bd2b:0x30bf0f50042d0de1), read for Serengeti Pride Safaris (Oa94c42988eac) in round c and for Serengeti Pride Safaris Tour Co (O87a8b6fda78a) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O87a8b6fda78a ties the listing to the other record. Both records give the website serengetipridesafaris.com. The listing's pin was not taken as the office point (round verdict 'review': 'serengeti Pride safaris' is pinned on Tumaini University Makumira's own point (the address names Uraki-Makumira): not the company's office).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Serengeti Pride Safaris is the survivor because both hold 1 named person and 2 drafts; its drafts carry the verified hook (2026-10-02) and the chosen recipient. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O95fdbda4ae8b",
+  "organisation_name": "Grumeti Expeditions Ltd",
+  "related_id": "O260986e0bfff",
+  "related_name": "Grumeti Expeditions Ltd (Lemala Camps)",
+  "primary": "O260986e0bfff",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'GRUMETI EXPEDITIONS/LEMALA CAMPS' (place 0x18371be846321107:0x84dcc31c4d90f7e7), read for Grumeti Expeditions Ltd (Lemala Camps) (O260986e0bfff) in round a and for Grumeti Expeditions Ltd (O95fdbda4ae8b) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13a.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O95fdbda4ae8b ties the listing to the other record. Both records give the website lemalacamps.com. The listing's pin was not taken as the office point (round verdict 'review': Listing sits on a point shared with an unrelated listing ('E.M ADVENTURE TANZANIA') and has no street address: not a specific office point).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Grumeti Expeditions Ltd (Lemala Camps) is the survivor because it holds 2 named people (the Lemala CEO and head of sales) and 3 drafts with a route against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O9790b08e6804",
+  "organisation_name": "Legendary Expeditions",
+  "related_id": "O7f949d75cae7",
+  "related_name": "LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD)",
+  "primary": "O7f949d75cae7",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Legendary Expeditions' (place 0x18371dedcc355ca9:0x2f39aa241f4deb09), read for LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD) (O7f949d75cae7) in round c and for Legendary Expeditions (O9790b08e6804) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13c.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O9790b08e6804 ties the listing to the other record. Both records give the website legendaryexpeditions.co.tz. The listing's pin was not taken as the office point (round verdict 'review': 'Legendary Expeditions' listing is a lodge (Arusha, west of town); the record is the safari company (Mwiba Holdings): its lodge, not confirmed as the office).",
+  "decision": "The user approved the merge on 2026-10-13: one company; LEGENDARY EXPEDITIONS (MWIBA HOLDINGS LTD) is the survivor because it holds 1 named person (the CEO) and 2 drafts with a route against none and 1, and a campus distance (the other record is unlocated). Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ },
+ {
+  "kind": "duplicate",
+  "organisation_id": "O9e952fbeb04a",
+  "organisation_name": "Pure Afro Travels",
+  "related_id": "O7ad5c517e4a6",
+  "related_name": "Pure Afro Travels Tanzania",
+  "primary": "O7ad5c517e4a6",
+  "evidence": "The Google Maps rounds of 2026-10-13 opened one listing for both names: 'Pure Afro Travels' (place 0x8490433fa998fd09:0xcd9c1fb6265bc0d), read for Pure Afro Travels Tanzania (O7ad5c517e4a6) in round b and for Pure Afro Travels (O9e952fbeb04a) in round d (data/raw/gap-census/google_maps_enrich_2026-10-13b.jsonl; data/raw/gap-census/google_maps_enrich_2026-10-13d.jsonl): both lookups returned the same place ID, and the round-d note on O9e952fbeb04a ties the listing to the other record. Both records give the website pure-afro.com. The listing's pin was not taken as the office point (round verdict 'review': 'Pure Afro Travels' is pinned at Tanzania's country centre (-6.3728, 34.9899): no location).",
+  "decision": "The user approved the merge on 2026-10-13: one company; Pure Afro Travels Tanzania is the survivor because it holds 2 named people (both co-founders), 3 drafts with a route and the verified hook against none and 1. Both records are kept, the other record's source records are linked to the survivor, and only one message goes to the company.",
+  "decided": "2026-10-13"
+ }
+]
 }

@@ -13,11 +13,11 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-13/ 
 | introducers-high-direct | 4 |
 | introducers-high-indirect | 8 |
 | introducers-medium | 3 |
-| welfare-high | 69 |
+| welfare-high | 70 |
 | welfare-high-direct | 14 |
-| welfare-high-indirect | 55 |
-| welfare-medium | 10 |
-| welfare-low | 117 |
+| welfare-high-indirect | 56 |
+| welfare-medium | 11 |
+| welfare-low | 115 |
 
 Inferred candidates (inferred from format, unverified; always low; a person confirms each before use; counts only, never in the segments above or the dedupe):
 

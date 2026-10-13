@@ -340,10 +340,16 @@ def main() -> int:
         for k in keys:
             index.setdefault(k, hit)
     contact_rows = merged_contacts
+    # A personal-domain inbox that links.json official_personal_inboxes records as the organisation's own published inbox (a
+    # reviewed decision the drafting stage also reads) is the organisation's address, not a named individual's.
+    official = {W.name_key(n): str(v.get("address", "")).lower() for n, v in links.get("official_personal_inboxes", {}).items()}
     for c in contact_rows:
-        if c.get("contact_name") and any(W.PERSONAL_EMAIL.search(e) for e in c["emails"]) and c.get("pdpa_risk") != "risky":
+        personal = [e for e in c["emails"] if W.PERSONAL_EMAIL.search(e)]
+        if personal and all(e.lower() == official.get(W.name_key(c.get("linked_organisation"))) for e in personal):
+            continue
+        if c.get("contact_name") and personal and c.get("pdpa_risk") != "risky":
             c["pdpa_risk"] = "risky"
-            c["pdpa_risk_reason"] = "Named individual on a personal email domain (" + ", ".join(e for e in c["emails"] if W.PERSONAL_EMAIL.search(e)) + "); rubric sets risky."
+            c["pdpa_risk_reason"] = "Named individual on a personal email domain (" + ", ".join(personal) + "); rubric sets risky."
     by_org = defaultdict(list)
     for c in contact_rows:
         if c.get("contact_name"):  # same-named twins are checked together: one body's people

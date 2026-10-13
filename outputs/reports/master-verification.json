@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-13T10:49:48.371032+00:00",
+  "checked_at": "2026-10-13T11:19:08.572223+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "d0db291cf0cca4e7b3c0db506c3d81130a4e48f9b7d886fae79d3f44f5eefd60",
+  "database_sha256": "12eb8294195ff1d18b46e9ebd17528d8c56c8e78e013c6f096a598e949cd88ed",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "0e2ced8c7b670f4851c198f8a3f9b35b5bb9e1b332b02823430e49e5828875a8",
+  "workbook_sha256": "a7748d09e22d729d2e40b6f17438beec7c8ece8dbbeb3dcb74bfeb5aca258347",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -17,8 +17,8 @@
     "no_generated_dependency_debris": true
   },
   "counts": {
-    "source_files": 168,
-    "source_records": 13858,
+    "source_files": 170,
+    "source_records": 13921,
     "organisations": 1376,
     "contacts": 1291,
     "enquiries": 32,

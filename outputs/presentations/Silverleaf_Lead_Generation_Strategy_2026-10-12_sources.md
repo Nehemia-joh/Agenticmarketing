@@ -1,6 +1,6 @@
 # Sources and queries: Partnership Lead Strategy deck, 12 October 2026
 
-Deck: `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (44 slides: a main body of 30, an appendix divider, appendix slides A1â€“A12 and a closing slide), built on the master, layout, theme and media of `outputs/presentations/Silverleaf_Lead_Generation_Progress_2026-09-10_redesign.pptx`.
+Deck: `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx` (44 slides: a main body of 30, an appendix divider, appendix slides A1–A12 and a closing slide), built on the master, layout, theme and media of `outputs/presentations/Silverleaf_Lead_Generation_Progress_2026-09-10_redesign.pptx`.
 
 Every number in the deck comes from one of the queries or files below. No person's name, email address or phone number appears in the deck; sample messages use placeholders (`<Full Name>`, `<Role>`, `<Organisation>`, `<Sender name>`). Nothing is sent from the repository.
 
@@ -8,21 +8,21 @@ Every number in the deck comes from one of the queries or files below. No person
 
 | Slides | Content |
 |---|---|
-| 1â€“3 | Title, agenda, executive summary |
-| 4â€“9 | Section 01: catchment and lead capture (lead-map link in the footer of 3 and 5â€“9) |
-| 10â€“16 | Section 02: segments and confidence |
-| 17â€“25 | Section 03: drafting the first touch |
-| 26â€“29 | Section 04: pipelines: the spine (27), after the offer (28), tracking and reporting (29); pipeline-page link in the footer |
+| 1–3 | Title, agenda, executive summary |
+| 4–9 | Section 01: catchment and lead capture (lead-map link in the footer of 3 and 5–9) |
+| 10–16 | Section 02: segments and confidence |
+| 17–25 | Section 03: drafting the first touch |
+| 26–29 | Section 04: pipelines: the spine (27), after the offer (28), tracking and reporting (29); pipeline-page link in the footer |
 | 30 | Next steps (both links) |
 | 31 | Appendix divider |
-| A1â€“A7 | Overview and parent-funnel hand-off; funnels E1â€“E6, I1, W1â€“W3, G1â€“G3 |
-| A8â€“A11 | Fallout and re-activation; opt-in and data protection; pipeline decisions (two slides) |
+| A1–A7 | Overview and parent-funnel hand-off; funnels E1–E6, I1, W1–W3, G1–G3 |
+| A8–A11 | Fallout and re-activation; opt-in and data protection; pipeline decisions (two slides) |
 | A12 | Sources and data dates (both links, absolute and relative) |
 | Closing | Both links |
 
 ## Data snapshot
 
-Read-only copies of the three databases, taken from the main checkout on 12 October 2026 (files last written 00:39â€“00:41 that day, at commit 262f535) and opened with `mode=ro`:
+Read-only copies of the three databases, taken from the main checkout on 12 October 2026 (files last written 00:39–00:41 that day, at commit 262f535) and opened with `mode=ro`:
 
 | Database | Path in the main checkout |
 |---|---|
@@ -59,9 +59,9 @@ SELECT review_status, acquisition_track_id, COUNT(*) FROM outreach_plans GROUP B
 
 ### Map and distance bands (slides 1, 3, 5, 7)
 
-From the lead map payload (`DATA.leads`: organisation name, segment, map point, nearest campus and straight-line km; no person data): 1,864 leads drawn, 60 unmapped; bands by `km` (0â€“5, 6â€“10, 11â€“15, 16â€“20, 21â€“25, beyond 25), per segment:
+From the lead map payload (`DATA.leads`: organisation name, segment, map point, nearest campus and straight-line km; no person data): 1,864 leads drawn, 60 unmapped; bands by `km` (0–5, 6–10, 11–15, 16–20, 21–25, beyond 25), per segment:
 
-| Segment | 0â€“5 | 6â€“10 | 11â€“15 | 16â€“20 | 21â€“25 | >25 |
+| Segment | 0–5 | 6–10 | 11–15 | 16–20 | 21–25 | >25 |
 |---|---|---|---|---|---|---|
 | Employers | 768 | 131 | 46 | 64 | 177 | 35 |
 | Introducers | 9 | 0 | 0 | 0 | 1 | 0 |
@@ -72,7 +72,7 @@ Within 25 km: 1,805. Unmapped: welfare 33 (30 funders with no local point), empl
 
 Campus points: `SELECT name, latitude, longitude, geocode_basis FROM campuses;` (website pins, read 2026-10-11).
 
-### Employer subsegments (slides 12, A2â€“A4)
+### Employer subsegments (slides 12, A2–A4)
 
 ```sql
 SELECT p.segment, o.subtype, p.review_status, p.message_variant, r.tier
@@ -84,9 +84,9 @@ SELECT message_variant, COUNT(*) FROM outreach_plans
  WHERE selection = 'Candidate for review' GROUP BY 1;            -- A 14, B 1,104, introducer 16, n/a 117
 ```
 
-Kind = `build_company_audience_profile.kind_of`; the Corporate employers segment (152) is split by `organisations.subtype` into Manufacturing 19, Retail 17, Farms and estates 14, International organisations 10, Aviation 5 and Banks and other companies 87, as in the pipeline document. Leads (ready): safari 480 (432), hotels 194 (123), hospitals 188 (37), banks 87 (70), NGOs 62 (28), colleges 23 (19), public bodies 19 (12), manufacturing 19 (11), retail 17 (6), farms 14 (3), international 10 (9), aviation 5 (2); total 1,118 (752). SACCOS subtypes: employer-based 48, community 67, map-only 2. Introducer kinds from `organisations.segment` ('Introducer: â€¦'): chambers 3, employers' associations 5, sector associations 6, HR body 1, other 1.
+Kind = `build_company_audience_profile.kind_of`; the Corporate employers segment (152) is split by `organisations.subtype` into Manufacturing 19, Retail 17, Farms and estates 14, International organisations 10, Aviation 5 and Banks and other companies 87, as in the pipeline document. Leads (ready): safari 480 (432), hotels 194 (123), hospitals 188 (37), banks 87 (70), NGOs 62 (28), colleges 23 (19), public bodies 19 (12), manufacturing 19 (11), retail 17 (6), farms 14 (3), international 10 (9), aviation 5 (2); total 1,118 (752). SACCOS subtypes: employer-based 48, community 67, map-only 2. Introducer kinds from `organisations.segment` ('Introducer: …'): chambers 3, employers' associations 5, sector associations 6, HR body 1, other 1.
 
-Per-funnel first-touch bands on slides A2â€“A7 (high-direct / high-indirect / medium / low / no email) come from `company_rows` and `welfare_rows` after `dedupe`, grouped by the same kinds.
+Per-funnel first-touch bands on slides A2–A7 (high-direct / high-indirect / medium / low / no email) come from `company_rows` and `welfare_rows` after `dedupe`, grouped by the same kinds.
 
 ### Confidence and Resend segments (slides 1, 3, 15, 16)
 
@@ -98,7 +98,7 @@ Government: `government_rows(gov, '2026-10-12')`: high 4 (pilot councils), low 2
 
 ### First-touch cases (slides 3, 19, 20, 25)
 
-Each email row's `message_body` read by its first line (`first_touch.ROUTING_START` â†’ case B; `first_touch.is_redirect` â†’ case C; otherwise case A), before `dedupe`: companies A 40, B 246, C 380; introducers A 4, B 8, C 4; welfare A 19, B 154, C 39. Totals A 63, B 408, C 423. Case B drafts with ', or your HR lead.' in the routing line: 48 (companies). Master case B plans: 254; with follow-up 1 and the close (`first_touch.CLOSE_END` in `follow_up_2`): 247. Welfare plans with a follow-up 2 message: 154. Master plans recording an escalation contact: 8.
+Each email row's `message_body` read by its first line (`first_touch.ROUTING_START` → case B; `first_touch.is_redirect` → case C; otherwise case A), before `dedupe`: companies A 40, B 246, C 380; introducers A 4, B 8, C 4; welfare A 19, B 154, C 39. Totals A 63, B 408, C 423. Case B drafts with ', or your HR lead.' in the routing line: 48 (companies). Master case B plans: 254; with follow-up 1 and the close (`first_touch.CLOSE_END` in `follow_up_2`): 247. Welfare plans with a follow-up 2 message: 154. Master plans recording an escalation contact: 8.
 
 ### Hooks (slide 23)
 
@@ -121,7 +121,7 @@ SELECT COUNT(*) FROM outreach_plans WHERE target_type = 'organisation' AND COALE
 | 7 | Council data (council websites and official sources) | 148 offices: 9 councils, 7 districts, 3 regions, 129 wards | Government | `SELECT office_level, COUNT(*) FROM government_office_profiles GROUP BY 1;` (the 80 villages come from OpenStreetMap, source 3) |
 | 8 | Automated and manual searches | 1,960 web searches across 1,002 organisations, including the companies the team named | all three | `ledger.py stats --by tool` (websearch: 1,960 attempts); `research-playbook.md` (1,002 organisations searched); 14 team-named employers in `data/raw/gap-census/google_maps_user_named_2026-10-11.jsonl`, 51 named leads located (commit 4c065ae) |
 
-Lists on the slide: companies 1,251 (1,118 companies, 117 savings groups, 16 introducers), welfare 445, government 228.
+Lists on the slide: companies 1,251 (1,118 companies, 117 savings groups, 16 introducers), welfare 445, government 228. In the condensed deck (slide 6), rows 6 and 7 also feed the company list with the VICOBA records of 13 October: 4 savings-group introducers from the NGO register and VICOBA groups named in council news (see "VICOBA savings groups").
 
 ### Known gaps (slide 8)
 
@@ -135,11 +135,36 @@ SELECT COUNT(*) FROM outreach_plans p JOIN organisations o USING (organisation_i
  WHERE p.selection = 'Candidate for review' AND p.segment <> 'Introducers' AND COALESCE(o.campus, '') = '';
 ```
 
+The condensed deck's A12 adds a fifth gap, the absence of a public VICOBA register, with the figures under "VICOBA savings groups".
+
 The Catchment Criteria (11 October) gives 440 companies on a distance computed from the earlier campus points and 'about 50' without a nearest campus; the slide uses today's counts (225 town- or city-level placements, 30 without a campus) and keeps the earlier-points caveat without a number, because later recomputes changed it.
 
 ### Welfare and government (slide 14)
 
 Welfare bars: high / medium / low and ready per kind, from the welfare run query above (residential 23 / 20 / 57, ready 17; family-based 12 / 14 / 138, 25; specialised 3 / 6 / 61, 5; funders 3 / 7 / 94, 34; networks 0 / 0 / 7, 5), drawn to scale. Government ladder: councils 9 (4 pilot), district and regional 10, wards 129, villages 80; ward waves 58 / 35 / 32 / 4.
+
+### VICOBA savings groups (condensed deck: slides 6, 9, 15, A4 and A12; 13 October 2026)
+
+VICOBA groups and their introducers entered the master on 13 October 2026 (`docs/plans/vicoba-integration-plan.md`, real-merge order of section 4.3). Their figures come from a copy of the master after that merge, opened with `mode=ro`. The lead totals on the other slides remain the 12 October snapshot above (1,251 company-list leads); after the merge the company list holds 1,264 chosen leads: 1,118 companies, 117 SACCOS, 5 VICOBA groups, 16 introducers and 8 savings-group introducers.
+
+```sql
+-- VICOBA groups by subtype: VICOBA — women's group 2, VSLA — NGO-programme group 3 (slides 9, A4)
+SELECT subtype, COUNT(*) FROM organisations
+ WHERE segment = 'Savings group' AND (subtype LIKE 'VICOBA%' OR subtype LIKE 'VSLA%') GROUP BY 1;
+-- chosen plans and ready drafts: SACCOS members 117 (1), VICOBA members 5 (0), VICOBA introducers 8 (0)
+SELECT segment, COUNT(*), SUM(review_status = 'Draft review') FROM outreach_plans
+ WHERE selection = 'Candidate for review' AND segment IN ('SACCOS members', 'VICOBA members', 'VICOBA introducers') GROUP BY 1;
+-- savings-group introducers: 8, of which 1 publishes an email (slide 9)
+SELECT COUNT(*), SUM(email LIKE '%@%') FROM organisations WHERE segment = 'Introducer: savings-group network';
+-- introducer routes recorded as facts: 3 welfare-run NGOs; VICOBA group accounts at 4 banks (Akiba, CRDB, NMB, VisionFund; 9 records)
+SELECT entity_type, COUNT(DISTINCT entity_id) FROM facts WHERE field = 'introducer_role' GROUP BY 1;
+SELECT DISTINCT o.name FROM facts f JOIN organisations o ON o.organisation_id = f.entity_id WHERE f.field = 'group_account_product';
+```
+
+- **Bands** (`scripts/messaging/export_resend_contacts.py` `vicoba_rows()`, the band rule `first_touch.vicoba_case()`): high-direct 0, high-indirect 0, medium 0, low 5. Held because: the Kiswahili template is not yet approved 5, the introducer link is still to confirm 4, not confirmed within 12 months 3, no ward 1, no introducer route 1. Women's groups: 2. The introducer named by each group's source: an NGO programme for 4, none for 1.
+- **Where the records come from** (slide 6): NGO programme pages 4 groups and council news 1 group (Longido District Council), from `data/raw/vicoba/captures/` through `scripts/collection/build_vicoba_intake.py`. Five reports give totals only (16, 15, 10, 40 and 25 groups: 106), kept as counts in `data/raw/vicoba/aggregates_2026-10-13.jsonl`, never as records (slide A12). The NGO register supplied 4 of the savings-group introducers: the rows of `data/raw/vicoba/introducers_intake_2026-10-13.csv` whose `source_url` is on nis.jamii.go.tz.
+- **The offer** (slide 15): the VICOBA first message is the Kiswahili committee request (`first_touch.VICOBA_TEMPLATES`, `vicoba-group-request`), handed over by the introducer; follow-up 1 after the committee's reply gives the family offer (OF01, OF02, OF09) and the group rate (OF07, `offer_lib.VICOBA_OFFERS`, register `2026-10-13-offer-v6`); the condition is the Kiswahili review and an introducer route (`first_touch.vicoba_assess`).
+- **The funnel** (slide A4): E6's VICOBA branch, `docs/strategy/partnership-pipelines.md` (E6, VICOBA) and decision 4 of the integration plan: the introducer request first, the committee meeting, a 10–15 minute Kiswahili talk at a weekly meeting, sign-ups under the partner code VIC, dormant until the next savings cycle.
 
 ### Documents (wording, rules and decisions)
 
@@ -154,7 +179,7 @@ Welfare bars: high / medium / low and ready per kind, from the welfare run query
 ## Conflicts resolved
 
 - **Core Segments (11 Oct morning) counts are stale.** Replaced by today's counts: 1,118 companies (not 716), 445 welfare in scope (not 444), 228 government offices (not 150; the gap census added 80 villages), high-direct employers 36 (not 29), employers without email 569 including SACCOS (not 229).
-- **Pipeline document section 4 band-by-case table** (evening of 11 Oct: 34 / 221 / 360 â€¦) is superseded by the case counts above.
+- **Pipeline document section 4 band-by-case table** (evening of 11 Oct: 34 / 221 / 360 …) is superseded by the case counts above.
 - **Ward waves**: Core Segments 55 / 33 / 31 / 12 and the pipeline document 57 / 35 / 32 / 5 are superseded by 58 / 35 / 32 / 4.
 - **Employer distance table in the Catchment Criteria** (505 / 64 / 60 / 37 / 50 businesses, the 716-company list and stored distances) is replaced on slide 7 by the lead map's straight-line bands for all 1,924 leads; the rules themselves are unchanged.
 - **Variants**: the pipeline document's 'B 1,079, not assigned 25' is now B 1,104 (the 25 new leads have a variant).

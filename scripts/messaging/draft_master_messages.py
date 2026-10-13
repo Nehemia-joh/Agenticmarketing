@@ -25,7 +25,7 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   address keeps the letter (case A); a named decision-maker reached only through a general inbox gets the Attn subject and routing line
   (case B, with ', or your HR lead' under question 21's rule); no named decision-maker gets the short redirect request with blank
   follow-ups and the planned next touch as a note (case C). The segment row decides the wording: employers, variant A sponsors (their
-  content stays sponsorship), public bodies, introducers. Savings groups and Rivertrees are unchanged. A stored variant draft
+  content stays sponsorship), public bodies, introducers. SACCOS and Rivertrees are unchanged; VICOBA plans have their own kinds (below). A stored variant draft
   (variant_subject/variant_body, which the exporter sends) gets the same format; its untouched text is kept in variant_subject_base and
   variant_body_base, so run this after assign_message_variants.py.
 - Named-person fallout (pipeline draft section 5, applied 11 October 2026): a case B plan for an employer, public body or introducer is
@@ -42,6 +42,17 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   generally (SACCOS and VICOBAs), so the SACCOS offer message states it with all three steps, and the note that Finance must
   extend it is dropped from the plans (OBSOLETE_NOTES). A copy a register change alters is saved first under the label
   '<register date>-before-offer-v<n>' (offer_backup_label).
+- VICOBA savings groups (docs/plans/vicoba-integration-plan.md decisions 3 to 6, approved 13 October 2026): every 'VICOBA members'
+  plan (one per group, created by scripts/master/add_vicoba_groups.py) gets the Kiswahili group request, a check-in, a close and the
+  Kiswahili offer (the family offer and OF07 in the register's words), stored Kiswahili-first: subject, body and follow-ups in Kiswahili,
+  the English meaning in english_meaning, the Kiswahili offer in offer_message_sw and its meaning in offer_message, language 'sw'. The
+  campus line states no distance at 'ward' precision. The band comes from first_touch.vicoba_case (shared with the exporter): a plan is
+  'Draft review' only in a high band with nothing held, and every Kiswahili draft carries NATIVE_REVIEW until its template version is
+  approved in data/reference/kiswahili-reviews.json. One 'VICOBA introducers' plan per master introducer (NGO field office, bank branch,
+  or the employer of a workplace group) per wave (--vicoba-wave, default W1), in English with no terms, naming the groups it covers
+  (fact covers_groups on the introducer, '<wave>: <ids>'); an introducer already in an employer conversation is held until that
+  conversation's S4 meeting. Women's groups come first in wave order, and their notes carry the talk focus on mothers' questions.
+  CDO introducers are reached through the government run's ward letters (draft_run_messages.py, kind vicoba_introduction).
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
   value module VM19, positioning evidence PE025-PE028 and the strategy records; everything in one transaction with
@@ -69,6 +80,7 @@ import offer_lib as L
 
 sys.path.insert(0, str(L.ROOT / "scripts" / "master"))
 import resolve_master_recipients as R  # noqa: E402  (contact verification and role ranking)
+import add_vicoba_groups as V  # noqa: E402  (the VICOBA contract: next actions by record status)
 sys.path.insert(0, str(L.ROOT / "scripts" / "contacts"))
 from merge_master_contacts import BLOCKER, drop_note  # noqa: E402  (the same holds as the contact merge)
 import export_resend_contacts as X  # noqa: E402  (the route and recipient tests the segments use, for the first-touch case)
@@ -310,6 +322,252 @@ def saccos_copy(plan: dict, org: dict, track: str) -> dict:
             "follow_up_2": follow_2, "offer_message": offer_text(REPLY_OPENER), "offer_ids": SACCOS_OFFERS, "sw": sw}
 
 
+# ------------------------------------------------------------------ VICOBA (docs/plans/vicoba-integration-plan.md decisions 3 to 6)
+# Kiswahili is the message and English its meaning for review (decision 6): subject, body and the follow-ups hold Kiswahili,
+# english_meaning their English meaning, offer_message_sw the Kiswahili offer and offer_message its English meaning; language 'sw'.
+# Each Kiswahili template has an ID and a version (offer_lib.template_version of its text); a draft built from it carries NATIVE_REVIEW
+# until data/reference/kiswahili-reviews.json records that version as approved. Placeholders are filled from the record.
+RUN_CONFIG = ROOT / "data" / "runs" / "arusha-government-2026-09" / "run-config.json"
+COUNCILS_SW = ({c["name"]: c.get("name_sw") or c["name"] for c in json.loads(RUN_CONFIG.read_text(encoding="utf-8"))["councils"]}
+               if RUN_CONFIG.exists() else {})
+SIGN_SW = f"Kwa heshima,\n{L.SIGNATURE_SW}"
+SIGN_EN = f"With respect,\n{L.SENDER}\n{L.SENDER_TITLE}, Silverleaf Academy\nP.O. Box 14146, Usa River · +255 769 486 660 · info@silverleaf.co.tz"
+_, VICOBA_SUBJECT_SW, VICOBA_TOPIC_SW, VICOBA_ASK_SW = F.SEGMENTS_SW["vicoba"]
+VICOBA_TEMPLATES = {
+    "vicoba-group-request": (
+        VICOBA_SUBJECT_SW.replace("{org}", "{group}"),
+        "{address}Habari Kamati ya {group},\n\nNinaandika kuhusu " + VICOBA_TOPIC_SW.replace("{org}", "{group}") + ". " + VICOBA_ASK_SW
+        + "\n\n" + L.INTRO_SW + "\n\nJe, itawezekana kupanga kikao kifupi na kamati, ana kwa ana au kwa simu, ili tukubaliane siku inayofaa?"
+        + "\n\n" + SIGN_SW),
+    "vicoba-group-follow-up": (
+        "", "Habari Kamati ya {group},\n\nNinafuatilia barua yangu ya kuomba dakika 10 hadi 15 katika mojawapo ya vikao vyenu vya wiki, ili "
+        "kuzungumza kwa Kiswahili kuhusu maandalizi ya mtoto kuanza shule. Je, kamati ingependa hilo? Kama ndiyo, tujulisheni siku na saa "
+        "mnayokutana.\n\n" + SIGN_SW),
+    "vicoba-group-close": ("", "Habari Kamati ya {group},\n\n" + F.CLOSE_SW["vicoba"][0] + "\n\n" + SIGN_SW),
+    "vicoba-group-offer": (
+        "", "Habari Kamati ya {group},\n\nAsante kwa jibu lenu. Kwa familia zote za Silverleaf tunatoa: " + L.family_offer_sw() + ".\n\n"
+        "Vikundi vya kuweka akiba pia vina punguzo la kikundi. " + L.of07_sw() + "\n\n{campus}\n\nJe, tunaweza kukubaliana siku ya "
+        "kuzungumza na wanachama katika kikao chenu cha wiki?\n\n" + SIGN_SW),
+}
+# The English meaning of each template, for review only (never sent, so not versioned).
+VICOBA_MEANINGS = {
+    "vicoba-group-request": (
+        "Request for a short meeting with the committee of {group}",
+        "{address}Hello, Committee of {group},\n\nI am writing about the education of the children of {group}'s members. We would like to ask "
+        "for 10 to 15 minutes at one of your weekly meetings, to talk in Kiswahili about getting children ready for school and planning their "
+        "education.\n\n" + L.INTRO + "\n\nWould it be possible to arrange a short meeting with the committee, in person or by phone, so that we "
+        "can agree a suitable day?\n\n" + SIGN_EN),
+    "vicoba-group-follow-up": (
+        "", "Hello, Committee of {group},\n\nI am following up my letter asking for 10 to 15 minutes at one of your weekly meetings, to talk in "
+        "Kiswahili about getting children ready for school. Would the committee like that? If so, please let us know the day and time you "
+        "meet.\n\n" + SIGN_EN),
+    "vicoba-group-close": ("", "Hello, Committee of {group},\n\n" + F.CLOSE_SW["vicoba"][1] + "\n\n" + SIGN_EN),
+    "vicoba-group-offer": (
+        "", "Hello, Committee of {group},\n\nThank you for your reply. For every Silverleaf family we offer " + L.family_offer_en() + ".\n\n"
+        "Savings groups also have a group rate. " + L.of07_en() + "\n\n{campus}\n\nCan we agree a day to speak to members at your weekly "
+        "meeting?\n\n" + SIGN_EN),
+}
+GROUP_TEMPLATES = tuple(VICOBA_TEMPLATES)
+VICOBA_WAVE = "W1"
+VICOBA_GROUP_MODULES = "VM02; VM03; VM06; VM20; VM19"  # decision 4: VM19 once an offer message exists (every group draft has one)
+VICOBA_INTRODUCER_MODULES = "VM02; VM03; VM20"         # an introducer request states no terms
+VICOBA_TALK_NOTE = ("Talk focus (women's group, section 0): the talk is aimed at mothers' questions (the curriculum, children's safety, "
+                    "transport, and how fees are paid: OF09's four instalments, while due dates set to a share-out would need Finance, F2), "
+                    "with the same offer and drafts as every group.")
+VICOBA_WAITING = "Waiting on the introducer request "
+VICOBA_EMPLOYER_HOLD = ("The introducer is already in an employer conversation: raise the savings-group introduction at that conversation's "
+                        "S4 meeting, never as its first message or a second cold message (decision 4).")
+VICOBA_NO_GROUPS = "No group in this wave is complete yet: the request waits for a group whose record is complete."
+VICOBA_NO_ROUTE = "The introducer publishes no email or phone; find its route first."
+VICOBA_DRAFT_PENDING = "VICOBA draft pending: the Kiswahili group request is written by draft_master_messages.py."
+# Notes a VICOBA rewrite replaces (the plan notes too, so they always follow the VICOBA notes and a re-run keeps the same order).
+VICOBA_NOTE_PREFIXES = ("VICOBA band: ", "VICOBA wave ", "Talk focus (women's group", VICOBA_WAITING, "Record incomplete", "Record stale",
+                        "Record complete", "Also a welfare lead")
+VICOBA_NOTES = {L.NATIVE_REVIEW, L.OFFER_TERMS_NOTE, VICOBA_DRAFT_PENDING, VICOBA_EMPLOYER_HOLD, VICOBA_NO_GROUPS, VICOBA_NO_ROUTE,
+                F.NEXT_TOUCH["vicoba"], F.NEXT_TOUCH["vicoba_introducer"]}
+DISTANCE_CLAIM = re.compile(r"\bkm\b|\bkilomita\b|\bkilometres?\b", re.I)
+
+
+def template_versions() -> dict:
+    """{template_id: version} for the VICOBA Kiswahili templates; a version covers the template text and the fixed sentences it inserts."""
+    return {tid: L.template_version(subject, body, L.network_line_sw()) for tid, (subject, body) in VICOBA_TEMPLATES.items()}
+
+
+def vicoba_address(facts: dict, lang: str) -> str:
+    """The address block above a group letter: 'Kwa: Mwenyekiti na Kamati ya <group>,\\nKata ya <ward>, <council>.' (as published)."""
+    ward, council = F._last(facts, "ward"), F._last(facts, "council")
+    if lang == "sw":
+        place = ", ".join(x for x in (f"Kata ya {ward}" if ward else "", COUNCILS_SW.get(council, council)) if x)
+        return f"Kwa: Mwenyekiti na Kamati ya {{group}},\n{place}.\n\n" if place else "Kwa: Mwenyekiti na Kamati ya {group}.\n\n"
+    place = ", ".join(x for x in (f"{ward} ward" if ward else "", council) if x)
+    return f"To: the Chair and Committee of {{group}},\n{place}.\n\n" if place else "To: the Chair and Committee of {group}.\n\n"
+
+
+def vicoba_copy(plan: dict, org: dict, info: dict) -> dict:
+    """The Kiswahili group request, follow-up, close and offer for a VICOBA group (decision 6, samples a and e), with their English meaning.
+    The first message states no terms; the offer message states the family offer and the group rate (OF07) in the register's words. The
+    campus line names the nearest campus with a distance only from a public venue's point; at ward precision it is the five-campus line."""
+    group = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
+    facts = info["group"].get("facts", {})
+    if precise(org):
+        campus_sw = L.campus_line_sw(org.get("campus") or "", org.get("distance_km"), True, "mahali pa vikao vyenu")
+        campus_en = L.campus_line_en(org.get("campus") or "", org.get("distance_km"), True, "your meeting place")
+    else:
+        campus_sw, campus_en = L.network_line_sw(), L.network_line_en()
+
+    def fill(text: str, lang: str) -> str:
+        return text.replace("{address}", vicoba_address(facts, lang)).replace("{group}", group).replace("{campus}", campus_sw if lang == "sw" else campus_en)
+
+    sw = {tid: (fill(s, "sw"), fill(b, "sw")) for tid, (s, b) in VICOBA_TEMPLATES.items()}
+    en = {tid: (fill(s, "en"), fill(b, "en")) for tid, (s, b) in VICOBA_MEANINGS.items()}
+    first_en = en["vicoba-group-request"][1]
+    meaning = (f"Subject: {en['vicoba-group-request'][0]}\n\n{first_en}\n\n— Follow-up 1 —\n\n{en['vicoba-group-follow-up'][1]}"
+               f"\n\n— Follow-up 2 (the close) —\n\n{en['vicoba-group-close'][1]}")
+    return {"subject": sw["vicoba-group-request"][0], "body": sw["vicoba-group-request"][1], "follow_up_1": sw["vicoba-group-follow-up"][1],
+            "follow_up_2": sw["vicoba-group-close"][1], "offer_message": en["vicoba-group-offer"][1], "sw": sw["vicoba-group-offer"][1],
+            "english_meaning": meaning, "first_en": first_en, "language": "sw", "offer_ids": L.VICOBA_OFFERS,
+            "first_fields": ("body", "first_en"), "sw_approved": info["approved"], "value_module_ids": VICOBA_GROUP_MODULES,
+            "conditions": vicoba_conditions(L.VICOBA_OFFERS, kiswahili=True)}
+
+
+def vicoba_area(groups: list) -> str:
+    """Where the covered groups meet, as their records name it: one ward, else one council, else 'Arusha and Kilimanjaro'."""
+    wards = {(F._last(g["facts"], "ward"), F._last(g["facts"], "council")) for g in groups}
+    if len(wards) == 1 and next(iter(wards))[0]:
+        return f"{next(iter(wards))[0]} ward"
+    councils = {c for _, c in wards if c}
+    return next(iter(councils)) if len(councils) == 1 else "the Arusha and Kilimanjaro area"
+
+
+def name_list(names: list) -> str:
+    return names[0] if len(names) == 1 else f"{', '.join(names[:-1])} and {names[-1]}"
+
+
+def vicoba_introducer_copy(plan: dict, org: dict, request: str, groups: list) -> dict:
+    """The introducer request (decision 6, samples b and c; English; no terms): an NGO field office is asked to introduce Silverleaf to
+    one or two of the group committees its programme works with (named from the groups' sources); a bank branch to pass a note to group
+    committees, naming none (it cannot share customer information); an employer, at its S4 meeting, to introduce its staff group's
+    committee. None asks for a member list."""
+    org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
+    area = vicoba_area(groups)
+    names = [L.display_name(g["name"], g["organisation_id"]) for g in groups][:5]
+    if request == "bank":
+        subject = "Savings groups at your branch – a short note for their committees"
+        body = ("Dear Branch Manager,\n\nI am writing from Silverleaf Academy in Arusha. Many savings groups plan for their members' school costs, "
+                "and we would like to offer group committees a short talk in Kiswahili at one of their own meetings, on getting children ready "
+                "for school.\n\nWe understand the branch cannot share customer information, and we do not ask for any. Would you be willing to "
+                "pass a one-page note to group committees when they visit, or tell us who at the branch looks after group accounts?"
+                f"\n\n{L.SIGNATURE}")
+    elif request == "employer":
+        subject = "Your staff savings group – a short talk for its committee"
+        body = (f"Dear {org_name} team,\n\nAs part of our conversation about an education benefit for your staff, we would like to offer the "
+                f"committee of {name_list(names)} a short talk in Kiswahili at one of its own meetings, on getting children ready for school "
+                "and planning for their education.\n\nCould you introduce us to the group's committee, or tell us who looks after staff "
+                "welfare? We do not ask for member lists or any member's details; the group decides for itself."
+                f"\n\n{L.SIGNATURE}")
+    else:
+        subject = f"Savings groups in {area} – could you introduce us?"
+        known = f" The groups we know of from published sources include {name_list(names)}." if names else ""
+        body = (f"Hello,\n\nI am writing from Silverleaf Academy in Arusha. We would like to offer the savings groups your programme works with "
+                f"in {area} a short talk in Kiswahili, at one of their regular meetings, on getting children ready for school and planning for "
+                f"their education.{known}\n\n{F.SEGMENTS['vicoba_introducer'][3]}\n\n{F.SIGN_OFF}")
+    return {"subject": subject, "body": body, "follow_up_1": "", "follow_up_2": "", "offer_message": "", "sw": "", "english_meaning": "",
+            "language": "en", "offer_ids": [], "value_module_ids": VICOBA_INTRODUCER_MODULES,
+            "conditions": vicoba_conditions([], kiswahili=False)}
+
+
+def vicoba_conditions(offer_ids, kiswahili: bool) -> str:
+    """The release conditions of a VICOBA draft; the same on every run."""
+    terms = (f"{L.REQUEST_FIRST} {L.OFFER_TERMS_NOTE} Offer terms: {'; '.join(offer_ids)} (data/reference/silverleaf-offer-register.json). "
+             if offer_ids else "An introducer request: it states no offer terms; the offer goes to the group's committee after it replies. ")
+    return (terms + ("Kiswahili: native-speaker review of the template version before release. " if kiswahili else "")
+            + "Group-level only: never ask for or accept a member list, members' names or phones, savings or loans. No unannounced visit to a "
+              "meeting; no photographs, gifts or payments. No loan, subsidy or fee-financing claim. One request per introducer per wave.")
+
+
+def vicoba_plan_state(plan: dict, case: dict, info: dict, introducer_plan: str) -> tuple[str, list]:
+    """(review_status, notes) of a VICOBA group plan: 'Draft review' only in a high band (case A or B) with nothing held; the band
+    note, wave position and, for women's groups, the talk focus. A medium group waits on its introducer's request."""
+    # Each note is one '; '-free item, so the next run replaces it instead of keeping stale parts.
+    notes = [f"VICOBA band: {case['band']}" + (f" (case {case['case']}, channel {case['channel']})" if case["case"] else "")
+             + (f" · held: {' / '.join(case['holds'])}" if case["holds"] else "")
+             + (f" · once the template is approved: {case['band_after_review']}" if case["band_after_review"] != case["band"] else ""),
+             f"VICOBA wave {info['wave']}: position {info['position']} of {info['wave_size']} (women's groups first)"]
+    status = info["group"].get("record_status") or ""
+    if status and status != "complete":
+        notes.append(f"Record {status}: {V.NEXT_ACTION.get(status, '')}".rstrip(": "))
+    if info["group"].get("women_group"):
+        notes.append(VICOBA_TALK_NOTE)
+    if not info["approved"]:
+        notes.append(L.NATIVE_REVIEW)
+    if case["case"] == "C" and introducer_plan:
+        notes.append(f"{VICOBA_WAITING}({introducer_plan}).")
+    ready = case["band"] in ("high-direct", "high-indirect") and not case["holds"]
+    return ("Draft review" if ready else "Needs research"), notes
+
+
+def vicoba_channel(info: dict) -> str:
+    """The plan's channel attribution: the group has no route of its own, so this says how the first touch reaches it."""
+    intro, case = info["introducer"], info["case"]
+    how = {"A": "a Kiswahili call to the officer's published role route, then the letter 'as discussed'",
+           "B": "the Kiswahili letter to the committee, handed over by the introducer",
+           "C": "the introducer request first; the group letter follows the introduction"}.get(case["case"], "none yet (held)")
+    who = f"{intro['kind'] or 'no introducer'}" + (f": {intro['name']}" if intro.get("name") else "")
+    return f"VICOBA group-level record with no route of its own. First touch: {how}. Introducer: {who}."
+
+
+def vicoba_missing(existing: str, notes: list) -> str:
+    """The plan's notes with every VICOBA-managed note replaced by the current ones (so an approval or a new band takes effect)."""
+    kept = [n for n in str(existing or "").split("; ") if n.strip() and n.strip() not in VICOBA_NOTES
+            and not n.strip().startswith(VICOBA_NOTE_PREFIXES)]
+    return merge_notes("; ".join(kept), notes)
+
+
+def vicoba_context(con, wave: str) -> dict:
+    """Everything the VICOBA drafts need: each group's band (first_touch.vicoba_case, which the exporter shares), its introducer and wave
+    position, and one introducer plan per master introducer per wave (NGO, bank or employer), its groups in wave order."""
+    inputs = F.vicoba_inputs(con, GOVERNMENT_DB)
+    versions = template_versions()
+    reviews = L.kiswahili_reviews()
+    approved = all(L.kiswahili_approved(t, v, reviews) for t, v in versions.items())
+    groups, order = inputs["groups"], inputs["order"]
+    by_group, introducers = {}, {}
+    for position, gid in enumerate(order, 1):
+        intro = inputs["introducers"][gid]
+        case = F.vicoba_case(groups[gid], inputs["officers"].get(gid, []), intro, template_approved=approved)
+        by_group[gid] = {"group": groups[gid], "introducer": intro, "case": case, "approved": approved, "position": position,
+                         "wave_size": len(order), "wave": wave}
+        if intro["organisation_id"] and intro["request"]:
+            entry = introducers.setdefault(intro["organisation_id"], {"request": intro["request"], "groups": [], "women": False})
+            entry["groups"].append(groups[gid])
+            entry["women"] |= bool(groups[gid].get("women_group"))
+    # Introducers that cover a women's group come first, then the nearest group's distance (section 0).
+    ranked = sorted(introducers, key=lambda oid: (not introducers[oid]["women"],
+                                                  min((float(g.get("distance_km")) for g in introducers[oid]["groups"] if g.get("distance_km") not in (None, "")), default=9e9),
+                                                  inputs["orgs"][oid]["name"]))
+    for i, oid in enumerate(ranked, 1):
+        introducers[oid].update(message_id=sid("M", "vicoba-introducer", oid, wave), position=i, wave_size=len(ranked), wave=wave)
+    for info in by_group.values():
+        oid = info["introducer"]["organisation_id"]
+        info["introducer_plan"] = introducers[oid]["message_id"] if oid in introducers else ""
+    return {"groups": by_group, "introducers": introducers, "versions": versions, "approved": approved, "wave": wave, "orgs": inputs["orgs"]}
+
+
+def vicoba_introducer_state(oid: str, entry: dict, org: dict, other_plans: bool) -> tuple[str, list]:
+    """(review_status, notes) of an introducer plan: held while the introducer is in an employer conversation (decision 4), always for an
+    employer (the request belongs to its S4 meeting), without a route, or while none of its groups is complete."""
+    notes = [f"VICOBA wave {entry['wave']}: introducer {entry['position']} of {entry['wave_size']} (introducers of women's groups first), covering "
+             + ", ".join(f"{g['name']} ({g['organisation_id']})" for g in entry["groups"])]
+    if other_plans or entry["request"] == "employer":
+        notes.append(VICOBA_EMPLOYER_HOLD)
+    if not (org.get("email") or org.get("phone")):
+        notes.append(VICOBA_NO_ROUTE)
+    if not any(g.get("record_status") == "complete" for g in entry["groups"]):
+        notes.append(VICOBA_NO_GROUPS)
+    held = any(n in (VICOBA_EMPLOYER_HOLD, VICOBA_NO_ROUTE, VICOBA_NO_GROUPS) for n in notes)
+    return ("Needs research" if held else "Draft review"), notes
+
+
 def rivertrees_copy(org: dict) -> dict:
     greet = "Dear Rivertrees team,"
     body = (f"{greet}\n\nIn 2025 Silverleaf Academy proposed a Corporate Education Benefit Partnership for Rivertrees staff. Applications for the "
@@ -367,8 +625,13 @@ FIRST_TOUCH_NOTES = set(F.NEXT_TOUCH.values())
 
 
 def first_touch_kind(plan: dict, org: dict) -> str:
-    """The segment row of the first-touch rule (pipeline draft section 4), or '' for copy it leaves alone (savings groups, Rivertrees)."""
-    if plan.get("segment") == "SACCOS members" or str(org.get("name") or "").startswith("Rivertrees"):
+    """The segment row of the first-touch rule (pipeline draft section 4), or '' for copy it leaves alone (SACCOS, Rivertrees). VICOBA
+    plans have their own kinds, 'vicoba' and 'vicoba_introducer', whose case comes from first_touch.vicoba_case (decision 3b)."""
+    if plan.get("segment") == L.VICOBA_GROUP_SEGMENT:
+        return "vicoba"
+    if plan.get("segment") == L.VICOBA_INTRODUCER_SEGMENT:
+        return "vicoba_introducer"
+    if plan.get("segment") in L.SAVINGS_SEGMENTS or str(org.get("name") or "").startswith("Rivertrees"):
         return ""
     if plan.get("segment") == "Introducers":
         return "introducer"
@@ -383,6 +646,11 @@ def touch_case(plan: dict, org: dict, ctx: dict) -> tuple[str, dict | None, str]
     contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
     if not kind:
         return "", contact, ""
+    if kind == "vicoba":  # the group's band rule, not the email route (decision 3b)
+        info = ctx.get("vicoba", {}).get("groups", {}).get(plan["organisation_id"])
+        return kind, contact, info["case"]["case"] if info else ""
+    if kind == "vicoba_introducer":  # the introducer request is the case C equivalent
+        return kind, contact, "C"
     return kind, contact, X.first_touch_case(plan, org, contact, ctx["people_at"].get(plan["organisation_id"], []))
 
 
@@ -411,6 +679,8 @@ def apply_first_touch(plan: dict, org: dict, copy: dict, ctx: dict) -> tuple[dic
     kind, contact, case = touch_case(plan, org, ctx)
     if not kind:
         return copy, [], ""
+    if kind in F.VICOBA_KINDS:  # vicoba_copy and vicoba_introducer_copy already write the first touch; only the planned next touch is added
+        return copy, [F.NEXT_TOUCH[kind]], case
     org_name = L.display_name(plan.get("organisation_name") or org.get("name"), plan.get("organisation_id"))
     notes, out = [], dict(copy)
 
@@ -440,6 +710,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", default=str(MASTER))
     parser.add_argument("--dry-run", action="store_true", help="write runtime/messaging/master-preview.json and change nothing")
+    parser.add_argument("--vicoba-wave", default=VICOBA_WAVE, help="the VICOBA wave label: one introducer plan per introducer per wave")
     args = parser.parse_args()
     con = sqlite3.connect(args.database)
     con.row_factory = sqlite3.Row
@@ -460,6 +731,12 @@ def main() -> int:
     except sqlite3.OperationalError:
         reach = {}
     ctx = {"contacts": contacts_by_id, "people_at": people_at, "hr_on_file": hr_on_file, "reach": reach}
+    # VICOBA (decisions 3 to 6): each group's band, introducer and wave position, and one introducer plan per introducer per wave.
+    vicoba = vicoba_context(con, args.vicoba_wave)
+    con.row_factory = sqlite3.Row
+    ctx["vicoba"] = vicoba
+    vicoba_plans = {p["message_id"] for p in plans if p["segment"] in L.VICOBA_SEGMENTS}
+    other_plans = {p["organisation_id"] for p in plans if p["segment"] not in L.VICOBA_SEGMENTS}
     first_touch_cases = Counter()
     org_record = {}
     for r in con.execute("SELECT entity_id, record_id FROM entity_sources WHERE entity_type='organisation' ORDER BY record_id"):
@@ -487,6 +764,25 @@ def main() -> int:
             outcomes[f"stale creation holds dropped ({change})"] += 1
             if change == "released":
                 released[f"{plan['selection']}: {plan['segment']}"] += 1
+        # VICOBA (decisions 3 to 6): the band decides the status before the track does; the VICOBA notes are replaced, never repeated.
+        vicoba_entry = None
+        if plan["segment"] == L.VICOBA_GROUP_SEGMENT:
+            info = vicoba["groups"].get(plan["organisation_id"])
+            if not info:
+                outcomes["VICOBA group plan without a VICOBA group (left as stored)"] += 1
+                continue
+            status, vicoba_notes = vicoba_plan_state(plan, info["case"], info, info["introducer_plan"])
+            plan = {**plan, "review_status": status, "missing_information": vicoba_missing(plan.get("missing_information"), vicoba_notes),
+                    "channel_attribution": vicoba_channel(info)}
+            outcomes[f"VICOBA group: band {info['case']['band']}"] += 1
+        elif plan["segment"] == L.VICOBA_INTRODUCER_SEGMENT:
+            vicoba_entry = vicoba["introducers"].get(plan["organisation_id"])
+            if not vicoba_entry or vicoba_entry["message_id"] != plan["message_id"]:
+                outcomes["VICOBA introducer plan of another wave (left as stored)"] += 1
+                continue
+            status, vicoba_notes = vicoba_introducer_state(plan["organisation_id"], vicoba_entry, org, plan["organisation_id"] in other_plans)
+            plan = {**plan, "review_status": status, "missing_information": vicoba_missing(plan.get("missing_information"), vicoba_notes)}
+            outcomes[f"VICOBA introducer ({vicoba_entry['request']}): {status}"] += 1
         # Named-person fallout (11 October 2026): a case B plan's follow-ups are the offer and a close with a redirect-style ask, on AQ02.
         fallout = fallout_kind(plan, org, ctx)
         track = track_for(plan, fallout)
@@ -495,7 +791,11 @@ def main() -> int:
             track_moves.append((track, plan["message_id"]))
             plan = {**plan, "acquisition_track_id": track}
         contact = ctx["contacts"].get(plan.get("target_id")) if plan.get("target_type") == "contact" else None
-        if plan["segment"] == "SACCOS members":
+        if plan["segment"] == L.VICOBA_GROUP_SEGMENT:
+            copy = vicoba_copy(plan, org, vicoba["groups"][plan["organisation_id"]])
+        elif plan["segment"] == L.VICOBA_INTRODUCER_SEGMENT:
+            copy = vicoba_introducer_copy(plan, org, vicoba_entry["request"], vicoba_entry["groups"])
+        elif plan["segment"] == "SACCOS members":
             copy = saccos_copy(plan, org, track)
         elif plan["segment"] == "Introducers":
             copy = introducer_copy(plan, org, track, fallout)
@@ -597,11 +897,12 @@ def main() -> int:
 
     # Named contacts without a plan (for example leads added by contact research) get their own draft, kept as an
     # alternative to the organisation's draft: AQ02 when the person has a direct route, AQ01 otherwise.
-    segment_of = {p["organisation_id"]: p["segment"] for p in plans}
+    segment_of = {p["organisation_id"]: p["segment"] for p in plans if p["segment"] not in L.VICOBA_SEGMENTS}
     segment_of.update({p["organisation_id"]: p["segment"] for p, *_ in new_rows})
+    vicoba_orgs = set(vicoba["groups"])  # a group's officers are reached through the group plan, never a plan of their own
     planned_contacts = {p["target_id"] for p in plans if p["target_type"] == "contact"}
     for c in [dict(r) for r in con.execute("SELECT * FROM contacts ORDER BY contact_id")]:
-        if c["contact_id"] in planned_contacts or not c["name"] or c["organisation_id"] not in segment_of:
+        if c["contact_id"] in planned_contacts or not c["name"] or c["organisation_id"] not in segment_of or c["organisation_id"] in vicoba_orgs:
             continue
         org = orgs.get(c["organisation_id"], {})
         direct = c.get("named_email") or c.get("role_phone") or c.get("published_role_email")
@@ -639,31 +940,72 @@ def main() -> int:
         first_touch_cases[(False, case or "unchanged")] += 1
         new_rows[i] = (plan, org, track, route, copy, missing + touch_notes)
     outcomes.update({f"first touch: {'chosen' if chosen else 'alternative'} plans, {case}": n for (chosen, case), n in sorted(first_touch_cases.items())})
+    # One introducer plan per master introducer per wave (NGO field office, bank branch, employer), listing the groups it covers.
+    stored_ids = {p["message_id"] for p in plans}
+    vicoba_new = []
+    for oid, entry in vicoba["introducers"].items():
+        if entry["message_id"] in stored_ids:
+            continue
+        org = orgs[oid]
+        plan = {"message_id": entry["message_id"], "target_id": oid, "target_type": "organisation", "organisation_id": oid, "target_name": org["name"],
+                "organisation_name": org["name"], "segment": L.VICOBA_INTRODUCER_SEGMENT, "cta_type": "Introducer referral", "hook": "", "hook_status": "",
+                "selection": "Candidate for review"}
+        status, notes = vicoba_introducer_state(oid, entry, org, oid in other_plans)
+        copy = vicoba_introducer_copy(plan, org, entry["request"], entry["groups"])
+        # The same order a rewrite gives: the VICOBA notes, then the plan notes, then the planned next touch.
+        vicoba_new.append((plan, org, entry, status, copy, notes + plan_notes(copy, oid, welfare_links) + [F.NEXT_TOUCH["vicoba_introducer"]]))
+        outcomes[f"new VICOBA introducer plan ({entry['request']}): {status}"] += 1
     issues = []
     checked = [(plan, copy) for plan, copy, _ in updates] + [(plan, copy) for plan, _, _, _, copy, _ in new_rows]
+    checked += [(plan, copy) for plan, _, _, _, copy, _ in vicoba_new]
     checked += [(plan, {**copy, "body": copy["_variant"][1], "follow_up_1": "", "follow_up_2": "", "offer_message": "", "sw": ""})
                 for plan, copy, _ in updates if copy.get("_variant")]
     for plan, copy in checked:
         names = tuple(n for raw in (plan.get("organisation_name"), plan.get("target_name")) if raw for n in (raw, L.display_name(raw), L.greeting_name(raw)))
-        for field in ("body", "follow_up_1", "follow_up_2", "offer_message", "sw"):
-            for problem in L.check_message(copy[field], copy["offer_ids"], ignore=names):
+        for field in ("body", "follow_up_1", "follow_up_2", "offer_message", "sw", "english_meaning"):
+            for problem in L.check_message(copy.get(field, ""), copy["offer_ids"], ignore=names):
                 issues.append({"message_id": plan["message_id"], "field": field, "issue": problem})
-        for field in ("body", "sw"):  # the first message, in English and Kiswahili, is a request with no offer terms
+        # The first message, in English and Kiswahili, is a request with no offer terms. A VICOBA group's Kiswahili offer sits in 'sw'
+        # (offer_message_sw), so its first message is checked in Kiswahili (body) and in its English meaning (first_en).
+        for field in copy.get("first_fields", ("body", "sw")):
             for problem in L.check_first_message(copy[field], ignore=names):
                 issues.append({"message_id": plan["message_id"], "field": field, "issue": problem})
+        if plan["segment"] in L.VICOBA_SEGMENTS:
+            texts = {f: copy.get(f, "") for f in ("subject", "body", "follow_up_1", "follow_up_2", "offer_message", "sw", "english_meaning")}
+            for field, text in texts.items():
+                issues += [{"message_id": plan["message_id"], "field": field, "issue": i} for i in L.check_savings_message(text)]
+                if DISTANCE_CLAIM.search(text) and not precise(orgs.get(plan["organisation_id"], {})):
+                    issues.append({"message_id": plan["message_id"], "field": field, "issue": "distance claim without a point-level location"})
+    for plan, copy, notes in updates:  # every Kiswahili VICOBA draft carries NATIVE_REVIEW until its template version is approved
+        if plan["segment"] == L.VICOBA_GROUP_SEGMENT and not copy.get("sw_approved") and L.NATIVE_REVIEW not in merge_notes(plan["missing_information"], notes):
+            issues.append({"message_id": plan["message_id"], "field": "missing_information", "issue": "Kiswahili draft without NATIVE_REVIEW"})
+    # One introducer plan per introducer per wave: the wave's plans (stored and new) counted per introducer.
+    this_wave = {e["message_id"] for e in vicoba["introducers"].values()}
+    per_introducer = Counter(p["organisation_id"] for p in plans if p["segment"] == L.VICOBA_INTRODUCER_SEGMENT and p["message_id"] in this_wave)
+    per_introducer.update(p["organisation_id"] for p, *_ in vicoba_new)
+    for oid, n in per_introducer.items():
+        if n > 1:
+            issues.append({"message_id": oid, "field": "plans", "issue": f"{n} introducer plans for this introducer in wave {args.vicoba_wave}"})
     for d, body in parent_updates:
         for problem in L.check_message(body, PARENT_OFFERS):
             issues.append({"message_id": d["enquiry_id"], "field": "parent reply", "issue": problem})
     summary = {"outcomes": dict(outcomes), "conformance_issues": len(issues), "tracks_new": dict(Counter(t for _, _, t, _, _, _ in new_rows)),
-               "segments_new": dict(Counter(p["segment"] for p, *_ in new_rows)), "released_by_selection_and_kind": dict(released)}
+               "segments_new": dict(Counter(p["segment"] for p, *_ in new_rows)), "released_by_selection_and_kind": dict(released),
+               "vicoba": {"wave": args.vicoba_wave, "groups": len(vicoba["groups"]), "introducer_plans": len(vicoba["introducers"]),
+                          "bands": dict(Counter(i["case"]["band"] for i in vicoba["groups"].values())),
+                          "bands_once_templates_approved": dict(Counter(i["case"]["band_after_review"] for i in vicoba["groups"].values())),
+                          "kiswahili_templates": {t: {"version": v, "approved": L.kiswahili_approved(t, v)} for t, v in vicoba["versions"].items()}}}
     preview_dir = ROOT / "runtime" / "messaging"
     preview_dir.mkdir(parents=True, exist_ok=True)
     if args.dry_run or issues:
         sample = [{"message_id": p["message_id"], "segment": p["segment"], "track": p["acquisition_track_id"], "subject": c["subject"], "body": c["body"],
                    "follow_up_1": c["follow_up_1"], "follow_up_2": c["follow_up_2"], "offer_message": c["offer_message"], "sw": c["sw"],
-                   "offer_ids": c["offer_ids"], "notes": n} for p, c, n in updates]
+                   "english_meaning": c.get("english_meaning", ""), "language": c.get("language", ""), "review_status": p["review_status"],
+                   "offer_ids": c["offer_ids"], "notes": n, "missing_information": p.get("missing_information")} for p, c, n in updates]
         sample += [{"message_id": p["message_id"], "segment": p["segment"], "track": t, "subject": c["subject"], "body": c["body"],
                     "offer_message": c["offer_message"], "offer_ids": c["offer_ids"], "missing": m} for p, _, t, _, c, m in new_rows]
+        sample += [{"message_id": p["message_id"], "segment": p["segment"], "review_status": st, "subject": c["subject"], "body": c["body"],
+                    "language": c["language"], "missing": n} for p, _, _, st, c, n in vicoba_new]
         (preview_dir / "master-preview.json").write_text(json.dumps({"summary": summary, "issues": issues, "messages": sample,
                                                                      "parent_replies": [{"enquiry_id": d["enquiry_id"], "body": b} for d, b in parent_updates]},
                                                                     indent=1, ensure_ascii=False), encoding="utf-8")
@@ -683,14 +1025,18 @@ def main() -> int:
                         backups)
         evidence = "PE025; PE026; PE027; PE028"
         for plan, copy, notes in updates:
-            vm = plan["value_module_ids"] if "VM19" in str(plan["value_module_ids"]) else f"{plan['value_module_ids']}; VM19"
+            vm = copy.get("value_module_ids") or (plan["value_module_ids"] if "VM19" in str(plan["value_module_ids"]) else f"{plan['value_module_ids']}; VM19")
+            if plan["segment"] in L.VICOBA_SEGMENTS:  # Kiswahili in the message fields, English meaning apart (decision 6)
+                con.execute("UPDATE outreach_plans SET language=?, english_meaning=?, cta_type=? WHERE message_id=?",
+                            (copy["language"], copy["english_meaning"], plan.get("cta_type") or "", plan["message_id"]))
             missing = drop_notes(merge_notes(plan.get("missing_information"), notes), OBSOLETE_NOTES)
             hook_status = NO_HOOK if plan.get("hook_status") == OFFER_LED_NO_HOOK else plan.get("hook_status")
             con.execute("""UPDATE outreach_plans SET subject=?, body=?, follow_up_1=?, follow_up_2=?, offer_message=?, proposed_offer=?,
                            value_module_ids=?, missing_information=?, campaign_copy_status=?, offer_version=?, offer_ids=?, offer_evidence=?,
                            offer_message_sw=?, strategy_version=?, hook_status=? WHERE message_id=?""",
                         (copy["subject"], copy["body"], copy["follow_up_1"], copy["follow_up_2"], copy["offer_message"],
-                         offer_summary(copy["offer_ids"]), vm, missing, COPY_STATUS, L.OFFER_VERSION, "; ".join(copy["offer_ids"]), evidence,
+                         offer_summary(copy["offer_ids"]), vm, missing, COPY_STATUS, L.OFFER_VERSION, "; ".join(copy["offer_ids"]),
+                         evidence if copy["offer_ids"] else "",
                          copy["sw"], COPY_VERSION, hook_status, plan["message_id"]))
             # A plan whose creation-time holds were released (refresh_creation_holds): its status, track and route.
             con.execute("UPDATE outreach_plans SET review_status=?, acquisition_track_id=?, contact_channel=?, channel_attribution=? WHERE message_id=?",
@@ -750,6 +1096,38 @@ def main() -> int:
                                                                              else "Human review, then send the request" if track == "AQ02"
                                                                              else "Human review, then the AQ01 routing request"),
                          track, modules, "New-contact acquisition; track-selected and independent of the internal marketing calendar."))
+        # VICOBA introducer plans (one per introducer per wave) and, on each introducer, the groups it covers in wave order (fact
+        # covers_groups, '<wave>: <id>; <id>', women's groups first), sourced to the covered groups' own records.
+        for plan, org, entry, status, copy, notes in vicoba_new:
+            records = [org_record[g["organisation_id"]] for g in entry["groups"] if org_record.get(g["organisation_id"])]
+            missing = merge_notes("", notes)
+            con.execute("INSERT INTO messages (message_id, target_type, target_id, subject, body, strategy_id, status, conditions, source_record_id) "
+                        "VALUES (?,?,?,?,?,?,?,?,?)", (plan["message_id"], "organisation", plan["target_id"], copy["subject"], copy["body"],
+                                                       STRATEGY_ID, MESSAGE_STATUS, conditions_for(copy), records[0] if records else None))
+            con.execute("""INSERT INTO outreach_plans (message_id, target_id, target_type, organisation_id, target_name, organisation_name, strategy_version,
+                           segment, recipient_role, persona, contact_channel, channel_attribution, evidence_url, evidence_date, verified_on, evidence_basis,
+                           evidence_record_ids, relevance_reason, proposed_offer, cta_type, flow_id, review_status, missing_information, selection,
+                           subject, body, follow_up_1, follow_up_2, hook_status, campaign_copy_status, acquisition_version, acquisition_track_id,
+                           value_module_ids, strategy_scope, offer_version, offer_ids, offer_evidence, offer_message_sw, offer_message, message_variant,
+                           variant_reason, language, english_meaning)
+                           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                        (plan["message_id"], plan["target_id"], "organisation", plan["organisation_id"], org["name"], org["name"], COPY_VERSION,
+                         plan["segment"], {"ngo": "NGO field office", "bank": "Branch manager", "employer": "Employer (at its S4 meeting)"}[entry["request"]],
+                         "VICOBA introducer", org.get("email") or org.get("phone") or "", "Organisation's published route in the master",
+                         org.get("source_url") or "", "", TODAY, "derived_from_group_records", "; ".join(records),
+                         f"Introducer of {len(entry['groups'])} savings group(s) in wave {args.vicoba_wave}: a request to introduce Silverleaf to "
+                         "group committees; one request per introducer per wave; no member list.", "", plan["cta_type"], "F26", status, missing,
+                         plan["selection"], copy["subject"], copy["body"], "", "", NO_HOOK, COPY_STATUS, "2026-09-09-new-contact-acquisition-v4",
+                         "AQ00" if status == "Needs research" else "AQ01", copy["value_module_ids"],
+                         "New-contact acquisition. Approved Silverleaf positioning may be reused where relevant; the acquisition track controls cadence.",
+                         L.OFFER_VERSION, "", "", "", "", "n/a", "n/a: a VICOBA introducer request (an introduction to group committees).", "en", ""))
+        for oid, entry in vicoba["introducers"].items():
+            value = f"{args.vicoba_wave}: " + "; ".join(g["organisation_id"] for g in entry["groups"])
+            record = next((org_record[g["organisation_id"]] for g in entry["groups"] if org_record.get(g["organisation_id"])), None)
+            con.execute("DELETE FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='covers_groups' AND value LIKE ? AND value<>?",
+                        (oid, f"{args.vicoba_wave}: %", value))
+            con.execute("INSERT OR IGNORE INTO facts (fact_id, entity_type, entity_id, field, value, record_id) VALUES (?,?,?,?,?,?)",
+                        (sid("X", oid, "covers_groups", value), "organisation", oid, "covers_groups", value, record))
         # message_versions only accepts message IDs, so parent-reply history gets its own table.
         con.execute("CREATE TABLE IF NOT EXISTS parent_enquiry_draft_versions (version TEXT, enquiry_id TEXT REFERENCES enquiries(enquiry_id), "
                     "original_json TEXT NOT NULL, PRIMARY KEY(version, enquiry_id))")
@@ -842,18 +1220,21 @@ CLOSURE_NOTE = "Possible closure found by contact research; confirm the organisa
 
 
 def conditions_for(copy: dict) -> str:
-    """The message's release conditions; the same whether the plan is new or rewritten."""
+    """The message's release conditions; the same whether the plan is new or rewritten (a VICOBA draft carries its own)."""
+    if copy.get("conditions"):
+        return copy["conditions"]
     return (f"{L.REQUEST_FIRST} {L.OFFER_TERMS_NOTE} Offer terms: {'; '.join(copy['offer_ids'])} (data/reference/silverleaf-offer-register.json). "
             "Confirm the route, campus fit and organisation relevance before use. No guaranteed places, transport or outcomes. One active "
             "recipient per organisation.")
 
 
 def plan_notes(copy: dict, organisation_id: str, welfare_links: dict) -> list[str]:
-    """The notes every offer-aligned plan carries, whether new or rewritten."""
-    notes = [L.OFFER_TERMS_NOTE]  # a note, never a hold; OF07 carries no Finance condition since 13 October 2026
+    """The notes every offer-aligned plan carries, whether new or rewritten. A VICOBA introducer request states no terms, so it carries
+    no offer-terms note; a VICOBA Kiswahili draft whose template version is approved (sw_approved) no longer carries NATIVE_REVIEW."""
+    notes = [L.OFFER_TERMS_NOTE] if copy.get("offer_ids") else []  # a note, never a hold; OF07 carries no Finance condition since 13 October 2026
     if organisation_id in welfare_links:
         notes.append(f"Also a welfare lead ({welfare_links[organisation_id]}); contact the organisation once.")
-    if copy.get("sw"):
+    if copy.get("sw") and not copy.get("sw_approved"):
         notes.append(L.NATIVE_REVIEW)
     return notes
 

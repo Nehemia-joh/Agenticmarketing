@@ -1,0 +1,13 @@
+{
+ "purpose": "Native-speaker approvals of Kiswahili message templates. A draft built from a template carries offer_lib.NATIVE_REVIEW ('Kiswahili draft: native-speaker review required before release.') and stays held until this file records an approval of that exact template version (docs/plans/vicoba-integration-plan.md, decision 3b: per template version, not per lead; user decision of 13 October 2026, 'Kiswahili first').",
+ "how_versions_work": "A version is the first 12 hex characters of the SHA-256 of the template text and the fixed sentences it inserts (offer_lib.template_version). Any edit to the wording gives a new version, which needs a new approval. draft_master_messages.py and draft_run_messages.py read this file; draft_master_messages.template_versions() and draft_run_messages.government_template_versions() give the current versions, and the drafter's summary prints them.",
+ "how_to_approve": "Append one entry to 'reviews' per template version: template_id, version, decision ('approved' or 'changes requested'), reviewer_role (the reviewer the user names; a role, never a personal phone or email), reviewed_on (YYYY-MM-DD) and notes. Then re-run draft_master_messages.py (master) or the government run's pipeline. Only 'approved' entries with a reviewer role and a date release a draft.",
+ "templates": {
+  "vicoba-group-request": {"where": "scripts/messaging/draft_master_messages.py VICOBA_TEMPLATES", "use": "VICOBA group first message (subject and body): a request for 10-15 minutes at a weekly meeting; no terms", "version_on_2026_10_13": "fc25a3b72415"},
+  "vicoba-group-follow-up": {"where": "scripts/messaging/draft_master_messages.py VICOBA_TEMPLATES", "use": "VICOBA group follow-up 1: a short check-in", "version_on_2026_10_13": "9e10be1b6d73"},
+  "vicoba-group-close": {"where": "scripts/messaging/draft_master_messages.py VICOBA_TEMPLATES", "use": "VICOBA group follow-up 2: the close, then dormant until the next savings cycle", "version_on_2026_10_13": "1a65ee836d06"},
+  "vicoba-group-offer": {"where": "scripts/messaging/draft_master_messages.py VICOBA_TEMPLATES", "use": "VICOBA offer message after the committee replies: the family offer (OF01, OF02, OF09) and the group rate (OF07) in the register's words", "version_on_2026_10_13": "80ffc50e10fc"},
+  "gov-vicoba-introduction": {"where": "scripts/messaging/draft_run_messages.py CDO_SUBJECT_SW, CDO_BODY_SW", "use": "Government run: the ward community development officer's VICOBA introduction letter (kind vicoba_introduction), after the council's introduction", "version_on_2026_10_13": "8625f4a33306"}
+ },
+ "reviews": []
+}

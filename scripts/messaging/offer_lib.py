@@ -144,6 +144,54 @@ def family_offer_sw() -> str:
     return f"{SW['OF01']}; {SW['OF02']}; na {SW['OF09']}"
 
 
+# ------------------------------------------------------------------ savings groups (SACCOS and VICOBAs)
+# The outreach segments of savings-group plans (docs/plans/vicoba-integration-plan.md, section 4.1). Scripts that treat savings groups
+# apart from employers test membership of this set rather than the single 'SACCOS members' label, so VICOBA plans are never read as
+# employers. VICOBA_SEGMENTS adds the introducer plans (NGO field offices, bank branches, employers asked to introduce a group).
+SAVINGS_SEGMENTS = {"SACCOS members", "VICOBA members"}
+VICOBA_GROUP_SEGMENT = "VICOBA members"
+VICOBA_INTRODUCER_SEGMENT = "VICOBA introducers"
+VICOBA_SEGMENTS = {VICOBA_GROUP_SEGMENT, VICOBA_INTRODUCER_SEGMENT}
+# The family offer and the group rate for savings groups (the user's decision of 13 October 2026: OF07 applies to VICOBAs as to SACCOS).
+VICOBA_OFFERS = ["OF01", "OF02", "OF09", "OF07"]
+
+
+def of07_en() -> str:
+    """OF07 in the register's own words (its 'terms'): no rephrasing, no pooling across groups, no other term."""
+    return OFFERS["OF07"]["terms"]
+
+
+def of07_sw() -> str:
+    """OF07 in the register's own Kiswahili words ('terms_sw')."""
+    return OFFERS["OF07"]["terms_sw"]
+
+
+# ------------------------------------------------------------------ Kiswahili template reviews
+# A Kiswahili draft carries NATIVE_REVIEW until a native speaker approves its template version (vicoba-integration-plan.md, decision 3b:
+# per template version, not per lead). The approvals live in data/reference/kiswahili-reviews.json; a template's version is the
+# hash of its text (template_version), so any edit to the wording needs a new approval.
+KISWAHILI_REVIEWS_PATH = ROOT / "data" / "reference" / "kiswahili-reviews.json"
+
+
+def template_version(*texts: str) -> str:
+    """A template's version: the first 12 hex characters of the SHA-256 of its text and of the fixed sentences it inserts."""
+    import hashlib
+    return hashlib.sha256("\n\x1e\n".join(texts).encode("utf-8")).hexdigest()[:12]
+
+
+def kiswahili_reviews() -> dict:
+    return json.loads(KISWAHILI_REVIEWS_PATH.read_text(encoding="utf-8")) if KISWAHILI_REVIEWS_PATH.exists() else {"reviews": []}
+
+
+def kiswahili_approved(template_id: str, version: str, reviews: dict | None = None) -> bool:
+    """True only when the review file records an approval of exactly this template version by a named reviewer role."""
+    for r in (reviews or kiswahili_reviews()).get("reviews", []):
+        if (r.get("template_id") == template_id and r.get("version") == version and r.get("decision") == "approved"
+                and r.get("reviewer_role") and r.get("reviewed_on")):
+            return True
+    return False
+
+
 # ------------------------------------------------------------------ campus lines
 def campus_key(name: str) -> str:
     n = str(name or "").replace("’", "'")
@@ -217,6 +265,14 @@ ALLOWED_PLACEHOLDERS: set = set()  # the sender is known, so every placeholder l
 # What a first message may not state: percentages, amounts or the offers themselves. The offer belongs in message 2.
 OFFER_TERMS = re.compile(r"\d+(?:\.\d+)?\s?%|\basilimia\b|\b(?:TZS|Tsh|TSh)\s?\d|\bdiscount|\bpunguzo\b|\bfree uniform|\bsare\b|"
                          r"\binstal(?:l)?ments?\b|\bawamu\b|\bpartner rates?\b|\bgroup rate\b|\bnafuu\b", re.I)
+# Savings-group drafts (SACCOS and VICOBAs) never claim a loan, subsidy or fee financing (VM06; vicoba-integration-plan.md decision 6).
+SAVINGS_CLAIM = re.compile(r"mkopo wa ada|mikopo ya ada|school[- ]fee loans?|fee loans?|loan for (school )?fees|\bruzuku\b|\bsubsid(y|ies|ised|ized)\b|"
+                           r"fee financing|financ(e|ing) (your |the )?fees|payroll deduction", re.I)
+
+
+def check_savings_message(text: str) -> list[str]:
+    """Problems specific to a savings-group draft: a loan, subsidy or fee-financing claim."""
+    return [f"savings-group draft claims a loan, subsidy or fee financing ('{m.group(0)}')" for m in SAVINGS_CLAIM.finditer(text or "")]
 FORBIDDEN = {
     "referral reward": re.compile(r"referral (reward|discount|bonus|package)|zawadi ya rufaa|30,000", re.I),
     "commission": re.compile(r"\bcommission\b|\bkamisheni\b|facilitation fee", re.I),
@@ -298,7 +354,7 @@ def outreach_sheet_rows(con) -> list[list]:
                       (SELECT f.body FROM messages f WHERE f.message_id = p.message_id || '-F2'),
                       (SELECT t.body FROM messages t WHERE t.message_id = p.message_id || '-EN'), p.offer_ids, p.missing_information
                FROM outreach_plans p JOIN messages m ON m.message_id = p.message_id
-               LEFT JOIN organisations o ON o.organisation_id = p.target_id LEFT JOIN enquiries e ON e.enquiry_id = p.target_id
+               LEFT JOIN organisations o ON o.organisation_id = COALESCE(p.organisation_id, p.target_id) LEFT JOIN enquiries e ON e.enquiry_id = p.target_id
                ORDER BY CASE p.review_status WHEN 'draft_ready' THEN 0 ELSE 1 END, 3, 2"""
     return [["" if v is None else v for v in row] for row in con.execute(query)]
 
@@ -310,7 +366,7 @@ def run_message_checks(con, *, convening: bool = False) -> dict:
     issues = []
     rows = con.execute("""SELECT m.message_id, m.body, p.offer_ids, COALESCE(o.name, ''), m.message_id = p.message_id, p.target_type FROM messages m
                           JOIN outreach_plans p ON m.message_id IN (p.message_id, p.message_id || '-F1', p.message_id || '-F2', p.message_id || '-EN')
-                          LEFT JOIN organisations o ON o.organisation_id = p.target_id""").fetchall()
+                          LEFT JOIN organisations o ON o.organisation_id = COALESCE(p.organisation_id, p.target_id)""").fetchall()
     for mid, body, offer_ids, target, initial, target_type in rows:
         ids = [x.strip() for x in str(offer_ids or "").split(";") if x.strip()]
         names = (target, display_name(target))  # the message uses the display name, without the bracketed note

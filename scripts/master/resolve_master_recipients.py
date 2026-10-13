@@ -3,8 +3,9 @@
 
 Two steps, both on the selection of outreach plans (no record is merged or deleted):
 1. Collapse duplicate organisations. Records of one business (same website, same normalised name, or the same email or
-   phone with a similar name) form a cluster; records that only share an inbox form a "shared inbox" cluster. SACCOS and
-   employers are never clustered together. One record is the primary (curated record, usable route, verified hook,
+   phone with a similar name) form a cluster; records that only share an inbox form a "shared inbox" cluster. Savings groups
+   (offer_lib.SAVINGS_SEGMENTS) and employers are never clustered together; VICOBA groups are never clustered at all (their group
+   key tells them apart), and a VICOBA introducer request stays out of the choice (it waits behind the organisation's own conversation). One record is the primary (curated record, usable route, verified hook,
    verified decision-makers); the others keep their IDs, their plans become alternatives and a review item names the
    primary, so a person can merge them through the update skill.
 2. Choose the recipient. Across the cluster, the chosen draft goes to the best verified named decision-maker (human
@@ -41,6 +42,9 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "messaging"))
+import offer_lib as L  # noqa: E402  (SAVINGS_SEGMENTS and the VICOBA segments)
+
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 PREVIEW = ROOT / "runtime" / "master" / "recipient-selection-preview.json"
 RECORD = ROOT / "outputs" / "messages" / "master-recipient-selection.json"
@@ -174,10 +178,13 @@ def cluster(orgs, contacts, plans):
     """Union-find over organisations of one kind; returns {root: (members, kind)}."""
     kind_of = {}
     for p in plans:
-        kind_of.setdefault(p["organisation_id"], "saccos" if p["segment"] == "SACCOS members" else "employer")
+        if p["segment"] == L.VICOBA_INTRODUCER_SEGMENT:
+            continue  # an introducer request to an NGO, bank or employer: its kind is the organisation's own plans'
+        kind_of.setdefault(p["organisation_id"], "saccos" if p["segment"] in L.SAVINGS_SEGMENTS else "employer")
     # Introducers are curated one by one, and a regional office (ATE Northern Zone, the TNCC Arusha chamber) is a different route from its
-    # national body, so they are never clustered.
-    introducers = {p["organisation_id"] for p in plans if p["segment"] == "Introducers"}
+    # national body, so they are never clustered. Nor are VICOBA groups: groups are told apart by their group key (council, ward, name), so
+    # two groups called 'Upendo VICOBA' in different wards are two groups, and a VICOBA is never clustered with a SACCOS (13 October 2026).
+    introducers = {p["organisation_id"] for p in plans if p["segment"] in ("Introducers", L.VICOBA_GROUP_SEGMENT)}
     ids = [o for o in orgs if o in kind_of and o not in introducers]
     parent = {o: o for o in ids}
 
@@ -305,8 +312,8 @@ def eligible(plan, contacts, wide_orgs=frozenset()):
 def primary_of(members, orgs, plans, contacts, wide_orgs=frozenset()):
     def score(o):
         org = orgs[o]
-        mine = [p for p in plans if p["organisation_id"] == o]
-        curated = not re.match(r"^(amenity|office|tourism|guest_house):", str(org["segment"] or ""))
+        mine = [p for p in plans if p["organisation_id"] == o and p["segment"] != L.VICOBA_INTRODUCER_SEGMENT]
+        curated =not re.match(r"^(amenity|office|tourism|guest_house):", str(org["segment"] or ""))
         usable = any((p["review_status"] == "Draft review" and (p["contact_channel"] or "").strip()) for p in mine)
         hook = any(str(p["hook_status"] or "").startswith("Verified") for p in mine)
         named = sum(1 for p in mine if eligible(p, contacts, wide_orgs))
@@ -399,6 +406,10 @@ def decide(orgs, contacts, plans):
         info[root] = {"members": members, "kind": kind, "primary": primary, "reviewed": bool(pinned_primary)}
     groups = defaultdict(list)
     for p in plans:
+        # A VICOBA introducer request is not a candidate recipient of the organisation's own conversation: it waits behind it
+        # (decision 4), so draft_master_messages.py, not this choice, decides its status.
+        if p["segment"] == L.VICOBA_INTRODUCER_SEGMENT:
+            continue
         if p["selection"] in ("Candidate for review", "Alternative") and p["target_type"] in ("organisation", "contact"):
             groups[cluster_of.get(p["organisation_id"], p["organisation_id"])].append(p)
     changes, escalations = [], {}
@@ -579,7 +590,8 @@ def main() -> int:
                             (sid("collapse", m), kind, m, v["primary"], "organisation", values[:900], action))
         if con.execute("PRAGMA foreign_key_check").fetchall() or con.execute("PRAGMA integrity_check").fetchone()[0] != "ok":
             raise RuntimeError("integrity check failed")
-        candidates = con.execute("SELECT COUNT(*) FROM outreach_plans WHERE selection='Candidate for review'").fetchone()[0]
+        candidates = con.execute("SELECT COUNT(*) FROM outreach_plans WHERE selection='Candidate for review' AND segment<>?",
+                                 (L.VICOBA_INTRODUCER_SEGMENT,)).fetchone()[0]  # introducer requests stay out of the choice
         if candidates != summary["candidates_after"]:
             raise RuntimeError(f"expected {summary['candidates_after']} candidates, found {candidates}")
         con.execute("COMMIT")

@@ -5,7 +5,8 @@
   data/reference/employer-sponsorship-reasons.json).
 - B (a partnership on an education benefit for the children of staff): every other company. It is the catch-all: a company in
   the reasons file gets the personalised B draft; every other company keeps the staff-benefit request already held in its plan.
-- n/a: savings groups, which get their own request to the committee.
+- n/a: savings groups (SACCOS and VICOBAs, offer_lib.SAVINGS_SEGMENTS), which get their own request to the committee, and VICOBA
+  introducer requests, which never host the company's variant draft.
 A duplicate record held by scripts/master/resolve_master_recipients.py takes the variant of the record it duplicates.
 
 Writes to outreach_plans (columns added on first use): message_variant, variant_reason, and for the companies in the reasons file
@@ -29,10 +30,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "messaging"))
 import draft_employer_sponsorship as D  # noqa: E402  (the rule: variant_for; the drafts)
+import offer_lib as L  # noqa: E402  (SAVINGS_SEGMENTS: SACCOS and VICOBA plans are savings groups, never employers)
 
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 DEFAULT_B = "B: a partnership on an education benefit for staff (the catch-all). No published education giving on record."
 NOT_APPLICABLE = "n/a: a savings group, which gets its own request to the committee."
+VICOBA_INTRODUCER = "n/a: a VICOBA introducer request (an introduction to group committees)."  # as draft_master_messages.py writes it
 
 
 def main() -> int:
@@ -51,8 +54,10 @@ def main() -> int:
     drafts = {r["oid"]: r for r in rows if r["fit"] != "hold"}
 
     def decide(oid: str, segment: str) -> tuple[str, str]:
-        if segment == "SACCOS members":
+        if segment in L.SAVINGS_SEGMENTS:
             return "n/a", NOT_APPLICABLE
+        if segment == L.VICOBA_INTRODUCER_SEGMENT:
+            return "n/a", VICOBA_INTRODUCER
         if segment == "Introducers":
             return "introducer", "Introducer: a partnership so that the body shares the staff education benefit with its members."
         source = oid if oid in reasons else primary_of.get(oid)
@@ -69,7 +74,8 @@ def main() -> int:
     # The plan that holds each variant draft: the addressee's plan, else the company's own.
     host = {}
     for oid, r in drafts.items():
-        mine = [p for p in plans if p["organisation_id"] == oid]
+        # A VICOBA introducer request is a separate, later conversation (decision 4): it never hosts the company's variant draft.
+        mine = [p for p in plans if p["organisation_id"] == oid and p["segment"] not in L.VICOBA_SEGMENTS]
         addressee_plan = [p for p in mine if r["contact_id"] and p["target_type"] == "contact" and p["target_id"] == r["contact_id"]]
         company_plan = [p for p in mine if p["target_type"] == "organisation"]
         host[oid] = (addressee_plan or company_plan)[0]["message_id"]

@@ -13,8 +13,8 @@ the master records:
 Tiers: P1 the top 100 by score, P2 the next 150, P3 the rest; X for plans held as outside the catchment or not an employer. A record known
 only from the map (verification 'Raw OSM ...', such as the gap census's OpenStreetMap leads) ranks after every curated lead until it is
 matched to a curated organisation, so a batch of map points never displaces researched employers from P1 and P2.
-Writes the table employer_reach (organisation_id, score, tier, factors, ranked_on) for every company with a chosen draft (savings groups
-are left out). Preview by default; --apply replaces the table in one transaction. Afterwards run export_master_workbook_data.py,
+Writes the table employer_reach (organisation_id, score, tier, factors, ranked_on) for every company with a chosen draft (savings groups,
+SACCOS and VICOBAs alike, introducers and VICOBA introducer requests are left out; a savings group's member count is never read as staff). Preview by default; --apply replaces the table in one transaction. Afterwards run export_master_workbook_data.py,
 npm run build:workbook and verify_master.py.
 """
 from __future__ import annotations
@@ -29,7 +29,11 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "messaging"))
+import offer_lib as L  # noqa: E402  (SAVINGS_SEGMENTS and the VICOBA segments)
+
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
+SAVINGS_GROUP = "Savings group"  # the organisation segment of SACCOS and VICOBAs
 HOSPITALITY = re.compile(r"hotel|lodge|guest|camp|resort|villa", re.I)
 KIND_POINTS = {"Healthcare employers": 4, "Education employers": 4, "Corporate employers": 3, "NGO employers": 2, "Public-sector employers": 1}
 P1, P2 = 100, 150
@@ -46,7 +50,7 @@ def score_of(plan: dict, org: dict, hooked: set, people: Counter) -> tuple[float
         factors.append(f"{plan['segment'].replace(' employers', '').lower()} {points}")
     score = float(points)
     try:
-        head = float(org["headcount"] or 0)
+        head = float(org["headcount"] or 0) if org["segment"] != SAVINGS_GROUP else 0  # a member count is not a headcount
     except ValueError:
         head = 0
     if head:
@@ -82,7 +86,12 @@ def main() -> int:
     hooked = {r[0] for r in con.execute("SELECT DISTINCT organisation_id FROM outreach_plans WHERE hook_type IN ('workforce','staff_welfare') "
                                         "AND hook_status LIKE 'Verified%' AND COALESCE(hook,'')<>''")}
     people = Counter(r[0] for r in con.execute("SELECT organisation_id FROM contacts WHERE COALESCE(name,'')<>''"))
-    plans = [dict(r) for r in con.execute("SELECT * FROM outreach_plans WHERE selection='Candidate for review' AND segment NOT IN ('SACCOS members','Introducers')")]
+    left_out = sorted(L.SAVINGS_SEGMENTS | L.VICOBA_SEGMENTS | {"Introducers"})
+    plans = [dict(r) for r in con.execute(f"SELECT * FROM outreach_plans WHERE selection='Candidate for review' AND segment NOT IN "
+                                          f"({','.join('?' * len(left_out))})", left_out)]
+    # A savings group's headcount column holds its member count (scripts/master/add_vicoba_groups.py), never staff: such a record is
+    # never ranked, whatever plan it has.
+    plans = [p for p in plans if orgs[p["organisation_id"]]["segment"] != SAVINGS_GROUP]
     ranked = []
     for p in plans:
         org = orgs[p["organisation_id"]]

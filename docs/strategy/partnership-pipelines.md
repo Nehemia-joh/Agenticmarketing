@@ -220,6 +220,7 @@ Introducers feed employers and homes back into the spine. Welfare placements and
 | | Public bodies (HR route only) | 19 (12) | [E4](#e4-public-bodies) | An HR circular to staff, or an MOU signed through HR |
 | | Variant A: sponsorship | 14 (within safari operators) | [E5](#e5-sponsorship-variant-a) | A signed sponsorship agreement |
 | | Savings groups (SACCOS): employer-based 48, community 67, unclassified 2 | 117 (1) | [E6](#e6-savings-groups-saccos) | The committee circulates to members or gives a meeting slot; optionally a group rate |
+| | Savings groups (VICOBA): community savings-and-loan groups, reached through introducers, women's groups first (13 October 2026) | None yet | [E6 VICOBA](#e6-vicoba-community-savings-groups) | A talk is held at a weekly meeting, or the committee circulates the pamphlet; an introducer introduces at least one group |
 | Introducers | Chambers (3), employers' associations (5), sector associations (6), HR body (1), other (1) | 16 (16) | [I1](#i1-introducer-funnel) | At least one circulation to member employers |
 | Welfare | Residential care (children's homes) | 100 (17) | [W1](#w1-childrens-homes-and-specialised-centres) | A signed placement agreement |
 | | Specialised centres | 70 (5) | [W1](#w1-childrens-homes-and-specialised-centres), with a needs-fit gate | Same, for needs Silverleaf can support |
@@ -365,6 +366,7 @@ Any name or address the front desk gives, by reply, forward or phone, is recorde
 | Welfare funders | The programme officer for Tanzania | "– student sponsorship" | "Who is the programme officer for your work in Tanzania? We would like to send them a short note." |
 | Introducers and welfare networks | The executive secretary or CEO | "– an education benefit for your members" | "Who looks after member benefits and communications (the executive secretary or CEO)? We would like to send them a short note." |
 | SACCOS | The committee chair or secretary | Kiswahili wording, to be drafted and reviewed by a native speaker | The same request in Kiswahili, reviewed by a native speaker (most SACCOS have no email, so the call script carries it) |
+| VICOBA (13 October 2026) | The committee, through its introducer (ward CDO, NGO field office, bank branch or employer) | Does not apply: the band comes from the route to the group ([E6 VICOBA](#e6-vicoba-community-savings-groups)) | The introducer request: "Could you introduce us to one or two group committees, or tell us who works with the groups? We do not ask for member lists or any member's details; each group decides for itself." |
 | Government | **Does not apply.** Letters are delivered by hand and addressed to the office holder by title, under Tanzanian protocol | — | — |
 
 The case C opening line ("I am writing from Silverleaf Academy in Arusha about …") by segment: employers and public bodies, "a staff education benefit for the children of <Organisation>'s employees"; variant A sponsors and welfare funders, "sponsoring students' education at Silverleaf"; welfare homes and programmes, "the education of the children in <Organisation>'s care"; introducers and networks, "an education benefit for <Organisation>'s members" (approved 12 October 2026).
@@ -425,6 +427,7 @@ A warm route can reopen a dormant lead before the next window. It counts as a ne
 | Public bodies | The front-desk call goes to the HR office or registry. Never escalate to political or board heads. |
 | Variant A sponsors | No offer details in the follow-up. The register gives sponsorship no offer message until a reply, and T1 has blanked these follow-ups until approved copy exists (F20). |
 | SACCOS | A call to the chair or secretary, then a hand-delivered Kiswahili letter. The ward community development officer is a warm route. Dormant until the society's next members' meeting or AGM. |
+| VICOBA | Introducer silent: a call after 2 working days, then a letter by hand, then dormant (`dormant_no_route`). Committee silent: one check-in and a close, then dormant until the group's next cycle start (`dormant_no_response`), re-tried once. Never an unannounced visit to a meeting. A dissolved group is `closed_or_moved`. |
 | Welfare homes and programmes | A call to the home's office, then a letter left at the office. Never an unannounced visit inside a home: visits follow the safeguarding protocol. Dormant until the next intake window or the home's budget date. |
 | Welfare funders | Mostly abroad: email only, with no call or letter. The redirect asks for the programme officer. Dormant until the funder's next budget cycle. |
 | Introducers | A call to the secretariat. Warm route: an introduction from a member employer that is already a partner. |
@@ -820,6 +823,97 @@ flowchart TD
 | Unclassified | 2 | Treated as community until the type is known. |
 
 **Timing:** members' meetings and AGMs follow each society's own calendar. Ask the committee for the next date, and record it as the next-action date. Sign-ups are counted against the group-rate thresholds (50, 100 and 150 students) as totals.
+
+### E6 VICOBA community savings groups
+
+*Approved by the user on 13 October 2026. Design and contracts: `docs/plans/vicoba-integration-plan.md`.*
+
+**Subsegment.** VICOBAs (Village Community Banks) and VSLAs are community savings-and-loan groups of about 15 to 30 members. They meet weekly, buy shares, lend to members from the pooled fund and share out at the end of a 9 to 12 month cycle. They sit in the company master beside the SACCOS: organisation segment `Savings group`, outreach segment `VICOBA members`, one group-level record per group, with no member or officer data and no phone or email on the record. The subtypes are women's group, mixed or unspecified, youth group, group of people with disabilities (recorded only when a council or intermediary supplies the group as such) and VSLA NGO-programme group. SACCOS keep their own subsegment, and a VICOBA is never merged with one.
+
+**Where the groups come from.** Group names come from council registers, requested inside the council introduction (GA01) at group level only: the group's name, registration number, ward, village or mtaa, member count, public meeting place and supporting NGO. The request never asks for members' or leaders' names or phones. Organisations that run VICOBA programmes (NGO field offices, banks with a group product) are introducers in the master.
+
+**Women's groups first.** A group is tagged `women_group` only on source evidence: its name names women, the source calls it a women's group, or the council supplies it as a women's loan group. Tagged groups come first in every wave: the introduction request, the meeting slot and the talk. The offer and the drafts are the same for every group; the talk is aimed at mothers' questions (the curriculum, children's safety, transport and how fees are paid). The tag is recorded on every opt-in, so conversion for women's groups is compared with other groups once at least 3 groups exist on each side.
+
+**Offer.** The offer message, sent after the committee replies, and the talk give the family offer (OF01, OF02, OF09) and the group rate for savings groups (OF07): per primary-age student from one group's members, 7% once 50 students join, 12% at 100 and 17% at 150. A group of 15 to 30 members rarely reaches 50 students, so the rate is stated plainly and never promised. The first message and every introducer request state no terms. There is no loan, subsidy or fee-financing claim (VM06), and messages never name the association the discount schedule's row names.
+
+<!-- pair -->
+```mermaid
+flowchart TD
+  K{"Workplace group, and<br/>employer already in pipeline?"}
+  J["Join the employer's deal<br/>committee joins at S5"]
+  I1["S1-S2 Introducer request<br/>Coord · CDO letter (after GA01),<br/>NGO or bank request"]
+  I2["Introducer S7 'introduced'<br/>names or hands over to >=1 group"]
+  A["S2 Group officer call<br/>(case A only)"]
+  CM["S4 Committee meeting<br/>Coord · after a weekly meeting<br/>learn day, cycle, share-out"]
+  SL["S5 Slot at a weekly meeting<br/>Coord + Adm · 10-15 min Kiswahili talk,<br/>booklet, voluntary form, code VIC"]
+  W["S7 PARTNER<br/>talk held, or committee<br/>circulates the pamphlet"]
+  GR["S6 Group-rate proposal<br/>OF07 from 50 students"]
+  N["S8 Member opt-ins<br/>code VIC"]
+  PF["Parent funnel<br/>Inquiry to Enrolment"]
+  RN["S9 Return before the next<br/>share-out and intake window"]
+  DORM["Dormant<br/>until the next cycle start"]
+  LOST["SX Closed-lost<br/>declined, group dissolved,<br/>rate not approved"]
+  K -->|yes| J
+  K -->|no| I1 --> I2 --> CM
+  A --> CM --> SL --> W --> N --> PF
+  CM -->|asks for a rate| GR --> W
+  W --> RN
+  I1 & CM -.->|silent| DORM
+  GR -.->|rate not approved| LOST
+  classDef sl fill:#e6f0fb,stroke:#2f6db5,color:#0d2a4a
+  classDef pt fill:#fdf1dc,stroke:#c98a1b,color:#4a3205
+  classDef gate fill:#ffffff,stroke:#6b7280,stroke-dasharray:4 3,color:#1f2937
+  classDef win fill:#dcf3e2,stroke:#1f8a3b,stroke-width:3px,color:#0d3b1a
+  classDef hand fill:#ece6fa,stroke:#6b4fb3,color:#2a1a52
+  classDef dorm fill:#f1f2f4,stroke:#6b7280,stroke-dasharray:2 2,color:#374151
+  classDef lost fill:#fbe4e4,stroke:#b33a3a,color:#4a0d0d
+  class J,I1,A,CM,SL,GR,RN sl
+  class I2 pt
+  class K gate
+  class W win
+  class N,PF hand
+  class DORM dorm
+  class LOST lost
+```
+
+| Spine | VICOBA |
+|---|---|
+| S0 Held | Low band: the record is incomplete or stale, the CDO's council has no recorded introduction, the introducer or sponsor link is unverified, or the Kiswahili template version is not yet approved. The plan's notes say which |
+| S1 Ready | The introducer request is ready (cases B and C), or the officer call (case A). One introducer request per introducer per wave, naming the groups it covers |
+| S2 Contacted | The introducer request is delivered (a CDO letter by hand after GA01, addressed by title; an NGO or bank request by email or letter), or the officer is called |
+| S3 Responded | The introducer agrees, names a group officer with the officer's agreement, or declines; or the officer replies. An offered member list is refused and recorded as `list_refused`; the conversation continues |
+| S4 Meeting | A short meeting with the committee, usually just after its weekly meeting: meeting day, cycle length, share-out month and approximate membership (a range) |
+| S5 Activation | A 10-15 minute slot at a weekly meeting, after the group's own business: a Kiswahili talk on getting children ready for school and planning their education, the booklet, and a voluntary form or QR code with the group's `VIC-` code. No photographs, gifts or payments |
+| S6 Proposal | Only when the committee asks for the group rate (OF07, from 50 primary-age students of the group's members) |
+| **S7 Partner (win)** | **The talk is held at a group meeting, or the committee confirms it circulated the pamphlet to members.** For an introducer: it introduced Silverleaf to at least one group. Outcome codes `slot_held`, `circulation_partner`, `group_rate`, `introduced` |
+| S8 Results | Member opt-ins enter the parent funnel, counted per `VIC-` code; counts of 1 or 2 show as "fewer than 3" |
+| S9 Renewal | A return 4 to 8 weeks before the group's next share-out that falls before an intake window |
+
+**Bands.** A group rarely has an email, so its band comes from the route to the group, and the channel (letter, call or email) is a separate property. `scripts/messaging/first_touch.py` `vicoba_case()` holds the rule, and the drafter and the exporter share it.
+
+| Band | VICOBA | Case | First touch | If silent |
+|---|---|---|---|---|
+| **High, direct** | A group officer named for the role by the group or a public body, with a role route published for them and confirmed within 12 months, or an officer who agreed by phone to be contacted (consent recorded, the number kept outside the repository) | A | A Kiswahili call asking for a short committee meeting; the Kiswahili letter follows "as discussed" | One follow-up, a close, then dormant until the next cycle |
+| **High, indirect** | A named officer reachable only through an introducer, or an introducer that has introduced the group | B | The Kiswahili letter to the committee, handed over by the introducer | Ask the introducer once, then dormant until the next cycle |
+| **Medium** | Group identified, an introducer route ready (a CDO office after GA01, an NGO field office, a bank branch, the group's employer), no named officer | C | The introducer request; the group plan waits on it | A call after 2 working days, then a letter by hand, then dormant |
+| **Low (held, S0)** | Anything above not met, or the Kiswahili template version not yet approved | — | Not contacted | Promoted when the gap closes |
+
+**Drafts.** `scripts/messaging/draft_master_messages.py` writes them; `scripts/messaging/draft_run_messages.py` writes the CDO letters in the government run.
+- **Group request, check-in, close and offer message**, in Kiswahili, with the English meaning beside them (`outreach_plans.language` `sw`, `english_meaning`; the Kiswahili offer in `offer_message_sw` and its meaning in `offer_message`). A group placed at ward level gets the five-campus line and no distance.
+- **Introducer requests**, in English: an NGO field office is asked to introduce Silverleaf to one or two of its programme's group committees; a bank branch to pass a one-page note to group committees, naming none; the employer of a workplace group, at its own conversation's meeting, to introduce its staff group's committee. An introducer already in an employer conversation keeps that conversation first: the request is raised at its S4 meeting, never as a second cold message.
+- **Ward CDO letter** (`vicoba_introduction`), in Kiswahili with its English meaning: after the council's introduction, an introduction to the ward's savings groups for a free talk and a parent booklet, with no offer, fee or service and never a member list. Held until the council introduction is recorded and the post is verified within 90 days.
+- **Native-speaker review.** Every Kiswahili draft carries the review hold until a native speaker approves its template version in `data/reference/kiswahili-reviews.json`. The approval is per template version, not per lead.
+
+| Funnel facts | E6 VICOBA |
+|---|---|
+| Leads (ready) | None in the master yet; a 20-row fixture tests the path end to end |
+| First touch | Through an introducer, in Kiswahili for groups and English for NGO and bank introducers; women's groups first |
+| Gates | Record complete within 12 months; introducer linked; council introduction (GA01) for CDO routes; Kiswahili template version approved |
+| Win | S7: `slot_held` or `circulation_partner`; `group_rate` as a stronger optional form; `introduced` for an introducer |
+| Dormant | `dormant_no_route` (introducer silent), `dormant_no_response` (until the group's next cycle start, re-tried once) |
+| Closed-lost | `declined`, `closed_or_moved` (the group dissolved), `rate_not_approved` |
+| Hand-off | Each member opt-in goes to Adm with the group's `VIC-` code, then F06 and F04 steps 3–5 |
+| Flow, campaign, module | F26 VICOBA introduction to weekly-meeting talk, C12 VICOBA acquisition, VM20 Weekly-meeting talk (design only, disabled) |
 
 ---
 
@@ -1254,6 +1348,7 @@ The planned touch for each stall is in [section 5](#5-fallout-and-re-activation)
 | S2, named (AQ02 / F01) | Day 0, +4, +4 working days, then the escalation message | Built into the sequence | Dormant (`dormant_no_response`) |
 | S2, general inbox (AQ01) | Redirect request on Day 0; front-desk call after 2 working days; hand-delivered letter for the nearest P1/P2 leads | Built in | Dormant (`dormant_no_route`) |
 | S2, SACCOS (F03) | Day 0, +4, +4 working days (or call, then letter) | Built in | Dormant until the next members' meeting |
+| S2, VICOBA (F26) | Introducer request on Day 0; a call after 2 working days, then a letter by hand. Group letter after the introduction; check-in +4 and close +4 working days | Built in | Dormant until the group's next cycle start |
 | S2, call sheet | Two call attempts on different days, within 5 working days | A letter for the nearest P1/P2 leads | Dormant (`dormant_no_route`) |
 | S2, government | Call 5 working days after the letter, then a courtesy visit (F15) | Re-deliver once the next quarter | Dormant |
 | S3 → S4 | Answer the same or next working day (F02); details plus two meeting slots; meeting within 10 working days | One check-in | Dormant (`dormant_details_no_reply`) |
@@ -1293,6 +1388,7 @@ Change one thing at a time (acquisition framework, Measurement).
 | S2, named person | F01 | Step changes agreed on 11 October 2026: the Attn format, a redirect-style close and escalation, then dormant ([outreach flows](outreach-flows.md)) |
 | S2, general inbox | F13 / AQ01 | Step changes agreed on 11 October 2026: redirect request, front-desk call after 2 working days, letter for P1/P2. **F13 is not in the flows table** |
 | S2, SACCOS | F03 | |
+| S1–S7, VICOBA | F26, campaign C12, VM20 (13 October 2026) | Design only, disabled; in the master's flow and campaign tables and in [outreach flows](outreach-flows.md) |
 | S3 reply handling | F02 | Step changes agreed on 11 October 2026: details with two meeting slots; a referral restarts at S2, naming who referred |
 | S5 partner session to opt-in | F04 steps 1–2 | Its 21-day rule is too slow for routine sessions (conflict 3) |
 | Parent funnel | F06, then F04 steps 3–5 | |

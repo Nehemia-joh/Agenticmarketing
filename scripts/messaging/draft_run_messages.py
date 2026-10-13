@@ -26,6 +26,13 @@ Government (plans/b2b-government-leads-plan.md): one Kiswahili letter per office
 Councils get the GA01 introduction letter, wards and villages the convening request (held until GA01), district and
 regional offices a courtesy notice. Letters describe only the family offer (OF01, OF02, OF09) for parents and never
 offer officials a benefit.
+VICOBA (docs/plans/vicoba-integration-plan.md, approved 13 October 2026): the council introduction also asks for the council's register
+of savings and credit groups at group level only (name, registration number, ward, village or mtaa, member count, public meeting place,
+supporting NGO; never members' or leaders' names or phones), and every ward office with a ward community development officer post gets
+a second letter, kind 'vicoba_introduction', addressed to that post by title (its role desk is the plan's target): an introduction to the
+ward's savings groups for a free talk and a booklet, no offer, fee or service, never a member list. It is always held, like the ward
+convening letters, until the council introduction (GA01) is recorded and the post is verified within 90 days; it carries NATIVE_REVIEW
+until its template version is approved in data/reference/kiswahili-reviews.json.
 
 Nothing is sent; drafts stay 'draft_ready' or 'needs_review'.
 """
@@ -680,6 +687,43 @@ BOOKLET_SW = "Kila mzazi atapata kijitabu cha mzazi."
 BOOKLET_EN = "Every parent will receive a parent booklet."
 CLOSE_SW = f"Wako katika ujenzi wa Taifa,\n\n{L.SIGNATURE_SW}"
 CLOSE_EN = f"Yours in nation building,\n\n{L.SENDER}\n{L.SENDER_TITLE}, Silverleaf Academy"
+# VICOBA (docs/plans/vicoba-integration-plan.md, approved 13 October 2026). Group names come from council registers, requested inside
+# the council introduction (GA01) at group level only: the fields below, and never members' or leaders' names or phones.
+REGISTER_SW = ("Pia tunaomba, kama itawezekana, nakala ya rejista ya Halmashauri ya vikundi vya kuweka akiba na kukopa (VICOBA) "
+               "vilivyosajiliwa, yenye taarifa za kikundi tu: jina la kikundi, namba ya usajili, kata, kijiji au mtaa, idadi ya wanachama, "
+               "mahali pa wazi pa vikao, na asasi inayokisaidia. Hatuombi majina, namba za simu wala taarifa nyingine za wanachama au "
+               "viongozi wa vikundi.")
+REGISTER_EN = ("We would also ask, if possible, for a copy of the council's register of registered savings and credit groups (VICOBA), "
+               "with group-level details only: the group's name, registration number, ward, village or mtaa, number of members, public "
+               "meeting place and supporting organisation. We do not ask for the names, phone numbers or any other details of members or "
+               "group leaders.")
+# The ward community development officer's VICOBA introduction letter (kind 'vicoba_introduction'; decision 6, sample d): after the
+# council's introduction, by hand, addressed by title; a free talk and a booklet only, no offer, fee or service; never a member list.
+VICOBA_LETTER_KIND = "vicoba_introduction"
+CDO_POST = "ward_community_development_officer"
+CDO_SUBJECT_SW = "YAH: OMBI LA UTAMBULISHO KWA VIKUNDI VYA KUWEKA AKIBA NA KUKOPA (VICOBA) KATIKA KATA YA {WARD}"
+CDO_BODY_SW = ("Afisa Maendeleo ya Jamii wa Kata ya {ward},\n{council}.\n\n{subject}\n\nKufuatia utambulisho wa Halmashauri, Silverleaf Academy "
+               "inaomba ushauri wako na utambulisho kwa vikundi vya kuweka akiba na kukopa (VICOBA) vilivyopo katika kata yako, ambavyo "
+               "vingependa kupata elimu fupi bure ya dakika 10 hadi 15 kwa Kiswahili, katika kikao chao cha kawaida, kuhusu maandalizi ya "
+               "mtoto kuanza shule na ratiba ya udahili. Kila mwanachama atapata kijitabu cha mzazi.\n\nHatuombi orodha ya wanachama wala "
+               "taarifa zao. Kila kikundi kitaamua chenyewe kama kingependa kutukaribisha, na mwanachama atakayependa taarifa zaidi atajaza "
+               "fomu yetu kwa hiari yake. Hatutatoa malipo wala zawadi kwa mtu yeyote.\n\n" + MEETING_SW + "\n\n" + CLOSE_SW)
+CDO_SUBJECT_EN = "RE: REQUEST FOR AN INTRODUCTION TO SAVINGS AND CREDIT GROUPS (VICOBA) IN {WARD} WARD"
+CDO_BODY_EN = ("To the Ward Community Development Officer, {ward} ward, {council}.\n\n{subject}\n\nFollowing the council's introduction, "
+               "Silverleaf Academy asks for your advice and an introduction to the savings and credit groups (VICOBA) in your ward that would "
+               "like a free, short talk of 10 to 15 minutes in Kiswahili at their usual meeting, on getting children ready for school and the "
+               "admissions calendar. Every member will receive a parent booklet.\n\nWe do not ask for member lists or members' details. Each "
+               "group will decide for itself whether to welcome us, and a member who wants more information will fill in our form only if they "
+               "choose to. We will not offer payments or gifts to anyone.\n\n" + MEETING_EN + "\n\n" + CLOSE_EN)
+CDO_HOLD = "Held until the council introduction (GA01) is recorded and this post is verified within 90 days (GA02 gate)."
+CDO_RULE = ("VICOBA introduction (vicoba_introduction): by hand after the council's introduction, addressed by title; group-level only, "
+            "never a member list (a list offered is refused and recorded as list_refused).")
+CDO_WOMEN_FIRST = "Women's groups first: ask the officer first about the women's groups in the ward (section 0 of the VICOBA plan)."
+
+
+def government_template_versions() -> dict:
+    """{template_id: version} of the government run's VICOBA Kiswahili letter, for data/reference/kiswahili-reviews.json."""
+    return {"gov-vicoba-introduction": L.template_version(CDO_SUBJECT_SW, CDO_BODY_SW)}
 
 
 def government(con, now, run_cfg) -> dict:
@@ -723,12 +767,12 @@ def government(con, now, run_cfg) -> dict:
             body = (f"{title},\n{addressee}\n\n{subject}\n\n{ABOUT_SW}\n\nTunaomba ushauri wako na barua ya utambulisho "
                     f"kwa Watendaji wa Kata ili, pale itakapofaa, tupewe muda mfupi wa dakika 15 hadi 20 katika mikutano ya wananchi. Tutatoa "
                     f"{SESSION_SW}. {BOOKLET_SW}"
-                    f"{ward_sw}\n\n{SAFEGUARDS_SW}\n\n{MEETING_SW}\n\n{CLOSE_SW}")
+                    f"{ward_sw}\n\n{REGISTER_SW}\n\n{SAFEGUARDS_SW}\n\n{MEETING_SW}\n\n{CLOSE_SW}")
             english = (f"To the {'City Director' if 'City' in o['council_name'] else 'Municipal Director' if 'Municipal' in o['council_name'] else 'District Executive Director'}, "
                        f"{o['council_name']}{', ' + postal if postal else ''}.\n\nRE: REQUEST FOR AN INTRODUCTION TO GIVE PARENTS INFORMATION ON PREPARING CHILDREN TO START SCHOOL\n\n{ABOUT_EN}\n\n"
                        f"We ask for your advice and a letter introducing us to the ward executive officers so that, where appropriate, we can have a "
                        f"short 15 to 20 minutes at community meetings. We will give {SESSION_EN}. {BOOKLET_EN}"
-                       f"{ward_en}\n\n{SAFEGUARDS_EN}\n\n{MEETING_EN}\n\n{CLOSE_EN}")
+                       f"{ward_en}\n\n{REGISTER_EN}\n\n{SAFEGUARDS_EN}\n\n{MEETING_EN}\n\n{CLOSE_EN}")
             follow = (f"{title},\n{addressee}\n\nYAH: UFUATILIAJI WA BARUA YETU YA OMBI LA UTAMBULISHO\n\nTunafuatilia "
                       f"barua yetu kuhusu elimu kwa wazazi kuhusu maandalizi ya watoto kuanza shule. {MEETING_SW}"
                       f"\n\n{CLOSE_SW}")
@@ -807,6 +851,39 @@ def government(con, now, run_cfg) -> dict:
             issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, offer_ids, convening=True,
                                                                                              ignore=(o["name"], o.get("council_name") or ""))]
         add(con, now, plan, subject, body, follow, english)
+        outcomes[plan["outcome"]] += 1
+    # The ward CDO's VICOBA introduction letter (kind vicoba_introduction): one per ward office with a CDO post, addressed to the post by
+    # title (its role desk is the target, so the ward's convening letter stays the office's own plan). Always held: wards wait for the
+    # council introduction (GA01) and a post verified within 90 days, as the convening letters do.
+    approved = all(L.kiswahili_approved(t, v) for t, v in government_template_versions().items())
+    for o in offices:
+        post = posts.get(o["organisation_id"], {}).get(CDO_POST)
+        if o["office_level"] != "ward" or not post or not post.get("contact_id"):
+            continue
+        council = councils.get(o.get("council_name") or "", {})
+        name = " ".join(str(o["admin_unit_name"] or "").split())
+        council_sw = council.get("name_sw", o.get("council_name") or "")
+        subject = CDO_SUBJECT_SW.replace("{WARD}", name.upper())
+        body = CDO_BODY_SW.replace("{ward}", name).replace("{council}", council_sw).replace("{subject}", subject)
+        subject_en = CDO_SUBJECT_EN.replace("{WARD}", name.upper())
+        english = CDO_BODY_EN.replace("{ward}", name).replace("{council}", o.get("council_name") or "").replace("{subject}", subject_en)
+        track = o["proposed_government_track"] or "GA00 Hold"
+        missing = ([] if approved else [L.NATIVE_REVIEW]) + [
+            "Letter on Silverleaf letterhead, delivered by hand or to the official address; approve the session content, parent guide and "
+            "privacy notice first (campaign C11 gates).", CDO_HOLD, CDO_RULE, CDO_WOMEN_FIRST]
+        plan = {"message_id": sid("government", VICOBA_LETTER_KIND, o["organisation_id"]), "target_id": post["contact_id"], "target_type": "contact",
+                "organisation_id": o["organisation_id"],
+                "relevance_reason": (f"Ward community development officer: the route to the savings and credit groups (VICOBA) of {name} ward "
+                                     f"({o.get('council_name') or ''}); letter kind {VICOBA_LETTER_KIND}."),
+                "cta_type": VICOBA_LETTER_KIND, "track": track.split(" ")[0], "modules": "VM14; VM20", "review_status": "needs_review",
+                "missing": missing, "contact_route": "letter", "route_value": "Official office address (hand delivery)",
+                "recipient": f"{post.get('office_title_sw') or CDO_POST} ({post.get('office_title') or ''})".strip(),
+                "language": "Kiswahili (English meaning attached)", "offer_ids": [], "outcome": "drafted, held (VICOBA introduction)"}
+        for text in (body, english):
+            issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_message(text, [], convening=True,
+                                                                                             ignore=(o["name"], o.get("council_name") or ""))]
+            issues += [{"message_id": plan["message_id"], "issue": i} for i in L.check_first_message(text) + L.check_savings_message(text)]
+        add(con, now, plan, subject, body, "", english)
         outcomes[plan["outcome"]] += 1
     outcomes["named councillors: no direct message (engage through the forum they chair; plan decision 7)"] = con.execute(
         "SELECT COUNT(*) FROM official_posts WHERE post_key='ward_councillor' AND holder_name != ''").fetchone()[0]

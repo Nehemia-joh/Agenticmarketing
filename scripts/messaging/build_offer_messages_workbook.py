@@ -6,19 +6,25 @@ outputs/messages/Silverleaf Offer-Aligned Messages - <date>.xlsx and outputs/mes
 Every initial message, follow-up, Kiswahili version and English meaning is checked again with offer_lib.check_message;
 the script exits 1 if any draft fails. The company master's consolidated workbook (npm run build:workbook) shows the
 master drafts too; this workbook is the one view across all three databases.
+VICOBA drafts (docs/plans/vicoba-integration-plan.md, approved 13 October 2026) have their own sheet: the Kiswahili group request,
+follow-ups and offer with their English meaning, and the English introducer requests. Each is checked against the VICOBA rules too
+(vicoba_row_checks); the ward CDO letters (vicoba_introduction) are in Government Letters. --database and --out run it on a trial copy.
 """
 from __future__ import annotations
 
 import argparse
 import json
+import re
 import sqlite3
 from collections import Counter
 from datetime import datetime, timezone
+from pathlib import Path
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
+import draft_master_messages as D  # the VICOBA Kiswahili template versions
 import offer_lib as L
 
 ROOT = L.ROOT
@@ -63,9 +69,38 @@ def add_sheet(wb, title, subtitle, headers, rows, widths=None):
     return ws
 
 
+def vicoba_row_checks(r, names, versions_approved: bool, precise: bool) -> list[str]:
+    """The VICOBA rules a draft must meet (docs/plans/vicoba-integration-plan.md section 4.2, T4): the first message, in Kiswahili and in
+    its English meaning, states no terms; no loan, subsidy or fee-financing claim; no distance without a point-level location; Kiswahili
+    in the message fields with its English meaning beside them; NATIVE_REVIEW on every Kiswahili draft until its template is approved."""
+    problems = []
+    ids = [x.strip() for x in str(r["offer_ids"] or "").split(";") if x.strip()]
+    fields = ("subject", "body", "follow_up_1", "follow_up_2", "offer_message", "offer_message_sw", "english_meaning")
+    for field in fields:
+        problems += L.check_message(r[field], ids, ignore=names) + L.check_savings_message(r[field])
+        if not precise and re.search(r"\bkm\b|\bkilomita\b|\bkilometres?\b", r[field] or "", re.I):
+            problems.append(f"{field}: distance claim without a point-level location")
+    for field in ("body", "english_meaning"):
+        problems += L.check_first_message(r[field], ignore=names)
+    if r["segment"] == L.VICOBA_GROUP_SEGMENT:
+        if r["language"] != "sw" or not (r["english_meaning"] or "").strip() or not (r["offer_message_sw"] or "").strip():
+            problems.append("a VICOBA group draft needs language 'sw', its English meaning and the Kiswahili offer")
+        if set(ids) != set(L.VICOBA_OFFERS):
+            problems.append(f"offer IDs {ids} are not {L.VICOBA_OFFERS}")
+        if not versions_approved and L.NATIVE_REVIEW not in str(r["missing_information"] or ""):
+            problems.append("Kiswahili draft without the native-speaker review hold")
+        if not versions_approved and r["review_status"] != "Needs research":
+            problems.append("Kiswahili draft released before its template is approved")
+    elif ids:
+        problems.append("a VICOBA introducer request states no terms, so it carries no offer IDs")
+    return problems
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--date", default=datetime.now().strftime("%Y-%m-%d"))
+    parser.add_argument("--database", type=Path, default=MASTER, help="the company master (a copy for a trial)")
+    parser.add_argument("--out", type=Path, default=ROOT / "outputs" / "messages", help="where the workbook and summary go (runtime/ for a trial)")
     args = parser.parse_args()
     issues = []
 
@@ -73,7 +108,17 @@ def main() -> int:
         for problem in L.check_message(text, offer_ids, convening=convening, ignore=names):
             issues.append([scope, mid, problem])
 
-    m = ro(MASTER)
+    m = ro(args.database)
+    vicoba_versions = D.template_versions()
+    reviews = L.kiswahili_reviews()
+    vicoba_approved = all(L.kiswahili_approved(t, v, reviews) for t, v in vicoba_versions.items())
+    point = {r[0] for r in m.execute("SELECT organisation_id FROM organisations WHERE geocode_precision='point'")}
+    vicoba_headers = ["message_id", "organisation", "segment", "subtype", "women_group", "review_status", "track", "language", "subject", "body",
+                      "english_meaning", "follow_up_1", "follow_up_2", "offer_message_sw", "offer_message", "offer_ids", "channel_attribution",
+                      "conditions"]
+    vicoba = []
+    women = {r[0] for r in m.execute("SELECT entity_id FROM facts WHERE field='women_group' AND value='true'")}
+    subtypes = dict(m.execute("SELECT organisation_id, subtype FROM organisations").fetchall())
     corporate_headers = ["message_id", "organisation", "recipient", "recipient_role", "contact_channel", "segment", "track", "review_status", "selection",
                          "subject", "body", "follow_up_1", "follow_up_2", "offer_message", "kiswahili_version", "lead_brief", "offer_ids", "conditions"]
     # What research found about each lead, one line per fact with its source link (scripts/messaging/apply_hook_research.py).
@@ -86,6 +131,16 @@ def main() -> int:
                           ORDER BY CASE p.acquisition_track_id WHEN 'AQ02' THEN 0 WHEN 'AQ01' THEN 1 ELSE 2 END, p.segment, p.organisation_name"""):
         ids = [x.strip() for x in str(r["offer_ids"] or "").split(";") if x.strip()]
         names = tuple(n for raw in (r["organisation_name"], r["target_name"]) if raw for n in (raw, L.display_name(raw), L.greeting_name(raw)))
+        if r["segment"] in L.VICOBA_SEGMENTS:
+            # VICOBA drafts have their own sheet: Kiswahili in the message fields, the Kiswahili offer in offer_message_sw (so it is not
+            # read as a first message) and the English meaning beside them.
+            issues += [["vicoba", r["message_id"], p] for p in vicoba_row_checks(r, names, vicoba_approved, r["organisation_id"] in point)]
+            vicoba.append([r["message_id"], r["organisation_name"], r["segment"], subtypes.get(r["organisation_id"], ""),
+                           "yes" if r["organisation_id"] in women else "", r["review_status"], r["acquisition_track_id"], r["language"],
+                           r["subject"], r["body"], r["english_meaning"], r["follow_up_1"], r["follow_up_2"], r["offer_message_sw"],
+                           r["offer_message"], r["offer_ids"], r["channel_attribution"],
+                           "; ".join(x for x in (r["missing_information"], r["conditions"]) if x)])
+            continue
         for field in ("body", "follow_up_1", "follow_up_2", "offer_message", "offer_message_sw"):
             check("corporate", r["message_id"], r[field], ids, names)
         for field in ("body", "offer_message_sw"):  # the first message, in English and Kiswahili, is a request with no offer terms
@@ -119,7 +174,8 @@ def main() -> int:
     generated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     summary = {"generated": generated, "offer_version": L.OFFER_VERSION, "corporate_drafts": len(corporate), "corporate_by_track": dict(master_counts),
                "parent_replies_reviewable": sum(1 for p in parents if str(p[3]).startswith("Review only")), "welfare": run_counts["welfare"],
-               "government": run_counts["government"], "conformance_issues": len(issues)}
+               "government": run_counts["government"], "vicoba_drafts": dict(Counter(f"{r[2]}: {r[5]}" for r in vicoba)),
+               "vicoba_templates_approved": vicoba_approved, "conformance_issues": len(issues)}
     wb = Workbook()
     ws = wb.active
     ws.title = "Read Me"
@@ -155,6 +211,10 @@ def main() -> int:
              ("3. Tuition figures are not quoted in first messages; send the current fee schedule on request (the website's figures carry no school year).", ""),
              ("4. Kiswahili drafts need native-speaker review. Government letters also need the campaign C11 gates (session content, guide, privacy notice).", ""),
              ("5. Held drafts (AQ00, WA00, GA00, needs_review) state what is missing in their conditions column.", ""),
+             ("6. VICOBA savings groups: the first touch goes through an introducer (a ward community development officer after the council's "
+              "introduction, an NGO field office, a bank branch or the group's employer), one request per introducer per wave, women's groups "
+              "first. The group drafts are Kiswahili, with the English meaning beside them, and stay held until a native speaker approves each "
+              "template version (data/reference/kiswahili-reviews.json). No member list is ever asked for or accepted.", ""),
              ("", ""), ("Counts", "h"),
              (f"Corporate (company master): {len(corporate)} drafts, by track: " + "; ".join(f"{k} {v}" for k, v in sorted(master_counts.items())) +
               f". Historical parent replies reviewable: {summary['parent_replies_reviewable']}.", ""),
@@ -162,8 +222,11 @@ def main() -> int:
               ". Government run: " + "; ".join(f"{k} {v}" for k, v in sorted(run_counts["government"].items())) + ".", ""),
              (f"Conformance issues: {len(issues)} (every percentage and amount matches the register; no expired referral reward; no benefit to "
               f"officials; no offer terms in a first message).", ""),
+             ("VICOBA drafts: " + ("; ".join(f"{k} {v}" for k, v in sorted(summary["vicoba_drafts"].items())) or "none") +
+              f". Kiswahili templates approved: {'yes' if vicoba_approved else 'not yet'}.", ""),
              ("", ""), ("Sheets", "h"),
-             ("Offer Register · Offer Sources · Corporate Messages · Parent Replies · Welfare Messages · Government Letters · Conformance", "")]
+             ("Offer Register · Offer Sources · Corporate Messages · VICOBA Messages · Parent Replies · Welfare Messages · Government Letters · "
+              "Conformance", "")]
     for i, (text, kind) in enumerate(lines, 1):
         cell = ws.cell(row=i, column=1, value=text)
         cell.alignment = Alignment(wrap_text=True, vertical="top")
@@ -179,6 +242,11 @@ def main() -> int:
               "'2026-09-23-before-request-first').",
               corporate_headers, corporate, {"organisation": 34, "body": 80, "follow_up_1": 90, "offer_message": 90, "kiswahili_version": 80,
                                              "lead_brief": 80, "conditions": 70})
+    add_sheet(wb, "VICOBA Messages", "VICOBA savings groups and their introducers: the group request, follow-ups and offer in Kiswahili with "
+              "their English meaning (offer_message), and the English introducer requests. Held until each Kiswahili template version is "
+              "approved; women's groups first.",
+              vicoba_headers, vicoba, {"organisation": 34, "body": 80, "english_meaning": 90, "follow_up_1": 60, "follow_up_2": 60,
+                                       "offer_message_sw": 80, "offer_message": 80, "channel_attribution": 60, "conditions": 70})
     add_sheet(wb, "Parent Replies", "Historical public enquiries in the master: 'Review only' rows carry one reply with the family offer; the rest get none.",
               ["enquiry_id", "enquiry_date", "platform", "status", "route_status", "subject", "body"], parents, {"body": 90, "status": 50})
     add_sheet(wb, "Welfare Messages", "Welfare run drafts: a meeting request first (sponsorship requests for funders only), then the partner "
@@ -187,12 +255,13 @@ def main() -> int:
     add_sheet(wb, "Government Letters", "Government run letters in Kiswahili with an English meaning. GA01 councils first; everything else is held.",
               L.OUTREACH_HEADERS, run_rows["government"], {"target": 40, "body": 90, "english_meaning": 90, "conditions": 70})
     add_sheet(wb, "Conformance", "Any draft that fails the offer-register checks (expected: none).", ["scope", "message_id", "issue"], issues)
-    out = ROOT / "outputs" / "messages"
+    out = args.out
     out.mkdir(parents=True, exist_ok=True)
     path = out / f"Silverleaf Offer-Aligned Messages - {args.date}.xlsx"
     wb.save(path)
     (out / "offer-messages-summary.json").write_text(json.dumps(summary, indent=1) + "\n", encoding="utf-8")
-    print(json.dumps({"workbook": str(path.relative_to(ROOT)), **summary}, indent=1))
+    shown = path.resolve().relative_to(ROOT) if path.resolve().is_relative_to(ROOT) else path
+    print(json.dumps({"workbook": str(shown), **summary}, indent=1))
     return 0 if not issues else 1
 
 

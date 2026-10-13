@@ -4,6 +4,8 @@ Read `../AGENTS.md` and the relevant skill before changing data. Before writing 
 
 The canonical database is `../outputs/master/Silverleaf Master Database.sqlite`. The workbook beside it is generated for review. Create a new independent list with `../skills/silverleaf-create-lead-list/SKILL.md`; update the master with `../skills/silverleaf-update-lead-list/SKILL.md`; revise partnership copy with `../skills/silverleaf-outreach/SKILL.md`.
 
+For the stage order from segment definition to the first offer-carrying draft, with each stage's commands, rules and done-check, read `../skills/silverleaf-lead-pipeline/SKILL.md`. After any change, rebuild what it affects in the order given in `../skills/silverleaf-keep-outputs-current/SKILL.md`, and run its pre-commit checklist before committing.
+
 Required order for an update:
 
 ```powershell

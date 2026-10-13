@@ -148,7 +148,7 @@ Welfare bars: high / medium / low and ready per kind, from the welfare run query
 - `outputs/messages/Silverleaf Employer Sponsorship Drafts - 2026-10-02.md`, `Silverleaf Welfare Drafts - 2026-10-10.md`, `Silverleaf Government Drafts - 2026-10-11.md`
 - `docs/strategy/partnership-pipelines.md` (approved 12 October 2026: spine, funnels, first touch, fallout, incentives, tracking, metrics and the 22 decisions), and its review page `outputs/strategy/Silverleaf Partnership Pipelines.html`
 - `scripts/messaging/first_touch.py` (Attn and redirect templates, the six redirect wordings, the close and escalation note, `hr_lead`)
-- `data/reference/silverleaf-offer-register.json` and `skills/silverleaf-outreach/references/offer-register.md` (version 2026-10-12-offer-v5; terms from Silverleaf's 2025 Proposed Fees & Discounts schedule, "Summary of discounts offered"; Finance checks them before the first send)
+- `data/reference/silverleaf-offer-register.json` and `skills/silverleaf-outreach/references/offer-register.md` (version 2026-10-13-offer-v6, OF07 open to savings groups; terms from Silverleaf's 2025 Proposed Fees & Discounts schedule, "Summary of discounts offered"; Finance checks them before the first send)
 - `docs/strategy/hook-guidance.md`; `docs/methodology/research-playbook.md`
 
 ## Conflicts resolved

@@ -103,7 +103,7 @@ Every route below is an **organisation route**. None of these organisations will
 | Moshi Co-operative University (MoCU), with We Effect | Q19: community and cooperative group training | Boma Ng'ombe, 21.3 km; in the master | In the master | Kilimanjaro side. |
 | Yemco Vicoba, Magnet Vikoba, Kibaba Vicoba Solution, VICOBA Sustainable, Vicobank | The orchestrator's Google Maps pilot. Q13 found no web presence. | Arusha | Maps listing only | Candidate intermediaries. Check each listing's category and phone in the browser before use. |
 | SEDIT, CARE Tanzania, Heifer, ELCT dioceses, Archdiocese of Arusha or Caritas | Q6, Q7, Q10, Q15 | — | — | **Not confirmed in the catchment.** SEDIT has no web presence. CARE's VSLA work is national, with no catchment evidence. Drop them from the shortlist unless a CDO names them. |
-| KINEFA | Q8: no public source | — | — | Already the offer register's member association (OF07). Ask Silverleaf what it is: it may be the umbrella body the Akiba account refers to. |
+| KINEFA | Q8: no public source | — | — | Settled 13 October 2026: the user does not know KINEFA and dropped it. OF07 is now the group rate for savings groups (SACCOS and VICOBAs); KINEFA is not pursued as an introducer. |
 
 ### 3.4 Google Maps and Facebook
 
@@ -210,7 +210,7 @@ The route is always an office or an organisation. A group is contacted through t
    - check the category and phone of the five Maps-listed providers.
 
    Do not sign into the Wezesha or NeST portals.
-8. **KINEFA.** Recommended: ask Silverleaf what KINEFA is. If it is a VICOBA umbrella body, it is the first introducer, and OF07's extension to other groups (a Finance decision) becomes the offer lever.
+8. **KINEFA.** Settled 13 October 2026: dropped. The user does not know the organisation; OF07 became the group rate for savings groups generally, with no Finance extension needed.
 
 ## 9. Files and scripts for a phase-2 collector
 

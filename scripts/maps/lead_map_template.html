@@ -386,7 +386,8 @@ const BASE = /*__BASEMAP__*/null;
   const leads = DATA.leads.map((l, i) => {
     const u = l.u;
     if (l.s === "wel") u.cell = u.kind + "|" + u.priority;
-    return Object.assign(l, { i, key: fold(l.n) });
+    // A VICOBA ward marker (l.g) is found by its ward and by the names of its groups.
+    return Object.assign(l, { i, key: fold(l.n + (l.g ? " " + l.g.groups.join(" ") : "")) });
   });
   const excl = DATA.excluded.map((l, i) => Object.assign(l, { i, key: fold(l.n) }));
 
@@ -1013,8 +1014,20 @@ const BASE = /*__BASEMAP__*/null;
       + (approx ? `<span class="why">Approximate point: street-level imagery may show the general area rather than the building.</span>` : "")
       + `</div>`;
   }
+  const BAND_LABEL = { "high-direct": "High · direct", "high-indirect": "High · indirect", medium: "Medium", low: "Low (held)" };
+  // VICOBA ward marker: one marker per ward at the ward reference point; group counts by subtype and band, the group names (a name
+  // that embeds a person's name is withheld) and the introducer kinds. No meeting place, officer or phone.
+  function vicobaBlock(g) {
+    const parts = (o, lab) => Object.entries(o).map(([k, n]) => `${esc(lab ? lab[k] || k : k)} ${fmt(n)}`).join(" · ");
+    return `<dt>Groups</dt><dd>${fmt(g.n)} savings group${g.n === 1 ? "" : "s"}${g.women ? `, ${fmt(g.women)} of them women's group${g.women === 1 ? "" : "s"} (worked first)` : ""}</dd>`
+      + `<dt>By subtype</dt><dd>${parts(g.subtypes)}</dd>`
+      + `<dt>By band</dt><dd>${parts(g.bands, BAND_LABEL)}</dd>`
+      + `<dt>Group names</dt><dd>${g.groups.map(esc).join("; ")}</dd>`
+      + `<dt>Introducers</dt><dd>${g.introducers.map(esc).join(", ")}</dd>`;
+  }
   function subLine(l) {
     const u = l.u;
+    if (l.s === "emp" && l.g) return [u.kind, `${fmt(l.g.n)} group${l.g.n === 1 ? "" : "s"} in this ward`];
     if (l.s === "emp") return [u.kind, u.variant !== "none" ? "Variant " + LABELS.variant[u.variant] : "", u.tier !== "unranked" ? "Reach tier " + u.tier : ""].filter(Boolean);
     if (l.s === "int") return [u.kind];
     if (l.s === "wel") return [u.kind, u.priority + " priority"];
@@ -1033,6 +1046,7 @@ const BASE = /*__BASEMAP__*/null;
       const est = l.e ? `${esc(l.h)}${l.sp > 1 ? `; spread with ${l.sp - 1} other lead${l.sp > 2 ? "s" : ""} at the same spot` : ""}` : esc(l.h) + (l.sp > 1 ? "; nudged apart from a lead at the same point" : "");
       html += `<div class="tag">${swatch(l.s)}${esc(SEG[l.s].one)}</div>${lookLinks(l.la, l.lo, l.e)}<dl>`
         + `<dt>Subsegment</dt><dd>${subLine(l).map(esc).join(" · ")}</dd>`
+        + (l.g ? vicobaBlock(l.g) : "")
         + `<dt>Confidence</dt><dd><span class="badge" style="color:var(--${l.s})">${esc(c.label)}</span><span class="why">${esc(l.y.charAt(0).toUpperCase() + l.y.slice(1))}</span></dd>`
         + (l.x ? `<dt>Catchment</dt><dd>Outside the catchment area: ${l.km} km from the nearest campus, ${esc(camp.label)} (straight line); deprioritised for the distance</dd>`
           : `<dt>Nearest campus</dt><dd>${esc(camp.label)}, ${l.e ? `about ${l.km} km from the estimated location (not stated in drafts)` : `${l.km} km (straight line)`}</dd>`)
@@ -1073,6 +1087,7 @@ const BASE = /*__BASEMAP__*/null;
       + `<div class="col"><p class="eyebrow">Confidence</p>${confRows}</div>`
       + `<div class="full col"><div class="row">${markImg("emp", "medium", 1)}<span>Dashed outline: location estimated from a locality, town or ward centre. Leads at one spot are spread on a small spiral.</span></div>`
       + `<div class="row"><img class="mark" alt="" src="${iconURL("emp", "medium", 0, 1)}"><span>Faded, square outline: outside the catchment area (beyond the map area); under all campuses only</span></div>`
+      + `<div class="row">${markImg("emp", "low", 1)}<span>Savings groups (VICOBA): one marker per ward, at the ward reference point, in its groups' best band; open it for the groups by subtype and band</span></div>`
       + `<div class="row">${markImg("exc", "x", 0)}<span>Excluded record (layer off by default)</span></div></div>`;
   }
 

@@ -73,9 +73,13 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
     orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
     contacts = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
     plans = [dict(r) for r in con.execute("SELECT * FROM outreach_plans WHERE selection='Candidate for review'")]
-    companies = [p for p in plans if p["segment"] not in ("SACCOS members", "Introducers")]
+    # Savings groups (SACCOS and VICOBA, offer_lib.SAVINGS_SEGMENTS) and both kinds of introducer are not companies.
+    companies = [p for p in plans if p["segment"] not in L.SAVINGS_SEGMENTS | {"Introducers", L.VICOBA_INTRODUCER_SEGMENT}]
     introducers = [p for p in plans if p["segment"] == "Introducers"]
-    groups = [p for p in plans if p["segment"] == "SACCOS members"]
+    vicoba_introducers = [p for p in plans if p["segment"] == L.VICOBA_INTRODUCER_SEGMENT]
+    groups = [p for p in plans if p["segment"] in L.SAVINGS_SEGMENTS]
+    saccos = [p for p in groups if p["segment"] == "SACCOS members"]
+    vicoba = [p for p in groups if p["segment"] == L.VICOBA_GROUP_SEGMENT]
     total_orgs = len(orgs)
     no_plan = con.execute("SELECT COUNT(*) FROM organisations o WHERE NOT EXISTS (SELECT 1 FROM outreach_plans p WHERE p.organisation_id = o.organisation_id)").fetchone()[0]
     held_dups = con.execute("SELECT COUNT(DISTINCT entity_id) FROM review WHERE kind LIKE 'Duplicate organisation%' OR kind LIKE 'Shared inbox%' OR kind LIKE 'Branch of%'").fetchone()[0]
@@ -95,8 +99,10 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
              f"*As of {date.today().isoformat()}, from the master database. Every number below is counted from the database; the personas are working hypotheses to test, not findings.*", "",
              "## In one minute", "",
              f"- We start from **{total_orgs} organisations** on file. {no_plan} belong to the welfare or government runs or are excluded, and {held_dups} are duplicate "
-             f"records, so we write to **{N + len(groups)} separate businesses** ({N} companies and {len(groups)} savings groups)"
-             f"{f', plus {len(introducers)} introducers (associations, chambers and HR bodies)' if introducers else ''}.",
+             f"records, so we write to **{N + len(groups)} separate businesses** ({N} companies and {len(groups)} savings groups: "
+             f"{len(saccos)} SACCOS and {len(vicoba)} VICOBA)"
+             f"{f', plus {len(introducers)} introducers (associations, chambers and HR bodies)' if introducers else ''}"
+             f"{f' and {len(vicoba_introducers)} savings-group introducers (NGO programmes and VICOBA support bodies)' if vicoba_introducers else ''}.",
              f"- **{pct(len(ready), N)} of the companies are ready for review now** (a draft and a usable route). The rest are held, mostly for want of a published route.",
              f"- The audience is **overwhelmingly tourism**: {pct(kinds['Safari operators and travel agencies'] + kinds['Hotels, lodges and camps'], N)} are safari operators, travel agencies, hotels or lodges. "
              "The rest are banks and other companies, hospitals, colleges and NGOs.",
@@ -168,6 +174,9 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
         lines += ["## Introducers", "",
                   f"{len(introducers)} associations, chambers and HR bodies are asked to share the staff benefit with their members (a bulletin, a members' or "
                   "HR forum). One partnership can reach many employers' HR teams at once.", ""]
+    if vicoba_introducers:
+        lines += [f"{len(vicoba_introducers)} savings-group introducers (NGO programmes and VICOBA support bodies) are asked, once per wave, to "
+                  "introduce Silverleaf to the committees of the groups they work with. They are not companies and are counted apart.", ""]
     lines += ["## Personas (working hypotheses)", "",
               "Use these to talk about the audience, and to decide what to test. None of this claims that any staff member is a parent.", ""]
     persona = [
@@ -199,10 +208,15 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
          "Government agencies and parastatals, as employers.",
          "An employee benefit offered through the HR route only, after a compliance check; never combined with a request for official action.",
          "The HR route; held until the compliance check."),
-        ("Savings group (SACCOS)", len(groups),
+        ("Savings group (SACCOS)", len(saccos),
          "A member-owned group governed by a committee. Members, not employees.",
          "Information on schools for members' children, delivered through the committee; handled in a separate Kiswahili request.",
          "The committee; no individual published."),
+        ("Savings group (VICOBA)", len(vicoba),
+         "A community savings-and-loan group of about 15 to 30 members that meets weekly and shares out at the end of its cycle; "
+         "many are women's groups.",
+         "A short Kiswahili talk at a weekly meeting on getting children ready for school, timed before the group's share-out.",
+         "The committee, introduced by the NGO, bank branch or ward community development officer that works with the group."),
     ]
     for name, n, who, wants, door in persona:
         lines += [f"### {name} ({n})", "", f"- **Who they are:** {who}", f"- **What may matter to them:** {wants}", f"- **Who to write to:** {door}", ""]

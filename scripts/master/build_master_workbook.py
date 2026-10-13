@@ -8,7 +8,9 @@ fixed widths and wrapped text.
 - Messages, Outreach plans and Sequences show the current offer-aligned drafts (subject, message, follow-ups,
   Kiswahili version, offer IDs). Earlier versions remain in SQLite message_versions.
 - Organisations and Contacts carry the contact-research enrichment (route status, social pages, decision-makers,
-  best route, pdpa_risk, research warnings).
+  best route, pdpa_risk, research warnings). Organisations also carries the subtype and the VICOBA columns.
+- Savings groups shows SACCOS and VICOBA side by side (subsegment, band, introducer, women_group, the Kiswahili first message
+  and its English meaning); Outreach plans carries each plan's language and English meaning.
 Every sheet's row count is checked against the export; the result goes to outputs/reports/workbook-verification.json
 and the script exits 1 on any mismatch. Run `npm run build:workbook`, which exports first.
 """
@@ -134,6 +136,10 @@ def main() -> int:
                  "for each company; the chosen recipient runs the Tanzania or Arusha operation. escalation_recipient is a group, regional or global head to write to "
                  "only if there is no reply after the follow-up or the country office defers to head office: not a CC and without a draft. "
                  "Route status, social pages, decision-makers and research flags come from the contact research."],
+                ["Savings groups", counts.get("savings_groups", 0), "SACCOS and VICOBA savings groups side by side: subsegment, band, "
+                 "introducer and the women_group tag (women's groups are worked first), with each group's Kiswahili first message and its "
+                 "English meaning. A VICOBA group is reached through its introducer (an NGO programme, a bank branch or the ward community "
+                 "development officer) and is never contacted while its band is low."],
                 ["Contacts", counts["contacts"], "Business contacts only, each with decision_maker, best route and pdpa_risk. A named person is not "
                  "evidence that they are a parent."],
                 ["Enquiries", counts["enquiries"], "Historical public childcare and school enquiries. Use the one-reply review flow."],
@@ -178,19 +184,39 @@ def main() -> int:
                 ["Sending", "Disabled", "No campaign, broadcast, recurring job or delivery integration is active."],
             ], [34, 20, 110], 58, "TStartHere")
 
+    # (header, width). The VICOBA columns (decision 7 of docs/plans/vicoba-integration-plan.md) are blank for every other organisation.
+    org_columns = [
+        ("organisation_id", 20), ("name", 38), ("segment", 24), ("subtype", 30), ("reach_tier", 10), ("reach_score", 10), ("message_variant", 12),
+        ("send_status", 26), ("chosen_recipient", 30), ("chosen_role", 30), ("chosen_route", 34), ("escalation_recipient", 40),
+        ("escalation_route", 30), ("hr_desk_email", 30), ("email_format_to_confirm", 60), ("first_message_subject", 48), ("first_message", 100),
+        ("priority", 14), ("campus", 24), ("locality", 32), ("distance_km", 14), ("geocode_precision", 22), ("google_maps", 34),
+        ("women_group", 12), ("ward", 18), ("council", 26), ("sponsor", 36), ("introducer", 40), ("meeting_cadence", 20),
+        ("share_out_month", 16), ("members_as_published", 30), ("registration", 26), ("record_status", 30), ("last_confirmed", 14),
+        ("vicoba_band", 14),
+        ("route_status", 16), ("phone", 24), ("email", 34), ("website", 44), ("address", 48), ("social_pages", 60), ("named_contacts", 14),
+        ("decision_makers", 70), ("contact_research", 30), ("research_flags", 55), ("headcount", 14), ("size_evidence", 50),
+        ("education_angle", 70), ("desk_tier", 16), ("desk_score", 14), ("verification", 54), ("strategy_id", 28), ("owner", 18),
+        ("outreach_status", 25), ("next_action", 45), ("next_action_date", 20), ("message_ids", 35), ("source_record_ids", 80), ("source_url", 60)]
     b.sheet("Organisations", f"{counts['organisations']} organisations in the canonical database. Route status: 'direct route' means a published "
-            "email or phone for the organisation or one of its contacts. Check source records and verification before outreach.",
-            ["organisation_id", "name", "segment", "reach_tier", "reach_score", "message_variant", "send_status", "chosen_recipient", "chosen_role", "chosen_route", "escalation_recipient", "escalation_route", "hr_desk_email", "email_format_to_confirm", "first_message_subject", "first_message", "priority", "campus", "locality", "distance_km", "geocode_precision", "google_maps", "route_status", "phone",
-             "email", "website", "address", "social_pages", "named_contacts", "decision_makers", "contact_research", "research_flags", "headcount",
-             "size_evidence", "education_angle", "desk_tier", "desk_score", "verification", "strategy_id", "owner", "outreach_status", "next_action",
-             "next_action_date", "message_ids", "source_record_ids", "source_url"],
-            [[o["organisation_id"], o["name"], o["segment"], o.get("reach_tier", ""), o.get("reach_score", ""), o.get("message_variant", ""), o.get("send_status", ""), o.get("chosen_recipient", ""), o.get("chosen_role", ""), o.get("chosen_route", ""), o.get("escalation_recipient", ""), o.get("escalation_route", ""), o.get("hr_desk_email", ""), o.get("email_format_to_confirm", ""), o.get("first_message_subject", ""), o.get("first_message", ""), o["priority"], o["campus"], o["locality"], o["distance_km"], o["geocode_precision"], o.get("google_maps", ""),
-              o["route_status"], o["phone"], o["email"], o["website"], o["address"], o["social_pages"], o["named_contacts"], o["decision_makers"],
-              o["contact_research"], o["research_flags"], o["headcount"], o["size_evidence"], o["education_angle"], o["desk_tier"], o["desk_score"],
-              o["verification"], o["strategy_id"], o["owner"], o["outreach_status"], o["next_action"], o["next_action_date"], o["message_ids"],
-              o["source_record_ids"], o["source_url"]] for o in data["organisations"]],
-            [20, 38, 24, 10, 10, 12, 26, 30, 30, 34, 40, 30, 30, 60, 48, 100, 14, 24, 32, 14, 22, 34, 16, 24, 34, 44, 48, 60, 14, 70, 30, 55, 14, 50, 70, 16, 14, 54, 28, 18, 25, 45, 20, 35, 80, 60],
+            "email or phone for the organisation or one of its contacts. Check source records and verification before outreach. The columns "
+            "women_group to vicoba_band describe VICOBA savings groups (group-level records; see the Savings groups sheet).",
+            [h for h, _ in org_columns], [[o.get(h, "") for h, _ in org_columns] for o in data["organisations"]], [w for _, w in org_columns],
             82, "TOrganisations")
+
+    savings = data.get("savings_groups", [])
+    savings_columns = [
+        ("subsegment", 12), ("name", 36), ("organisation_id", 18), ("subtype", 34), ("women_group", 12), ("council", 26), ("ward", 18),
+        ("campus", 18), ("distance_km", 12), ("geocode_precision", 16), ("record_status", 30), ("band", 16), ("band_after_review", 16),
+        ("case", 8), ("channel", 14), ("held_because", 70), ("introducer", 44), ("meeting_cadence", 18), ("share_out_month", 16),
+        ("members_as_published", 30), ("plan_id", 18), ("review_status", 18), ("offer_ids", 22), ("language", 10), ("kiswahili_subject", 44),
+        ("kiswahili_message", 100), ("kiswahili_offer", 100), ("english_meaning", 100)]
+    b.sheet("Savings groups", f"{sum(1 for r in savings if r['subsegment'] == 'SACCOS')} SACCOS and "
+            f"{sum(1 for r in savings if r['subsegment'] == 'VICOBA')} VICOBA groups side by side. VICOBA rows come first, in wave order "
+            "(women's groups first, then nearest); band is the VICOBA band rule (high-direct, high-indirect, medium, low) and band_after_review "
+            "the band once the Kiswahili template is approved; a SACCOS row's band is its Resend confidence, or 'no email' for the call sheet. "
+            "The Kiswahili text is the message; english_meaning is its meaning for review. Group-level records only: no member, officer or number.",
+            [h for h, _ in savings_columns], [[r.get(h, "") for h, _ in savings_columns] for r in savings], [w for _, w in savings_columns],
+            150, "TSavingsGroups")
 
     b.sheet("Contacts", f"{counts['contacts']} published business contacts. Named people are professional routes only; they are not evidence "
             "of parent status. The best route is the person's own published route, else the organisation's; a personal-domain address "
@@ -279,16 +305,16 @@ def main() -> int:
             ["message_id", "target_name", "organisation_name", "segment", "acquisition_track_id", "value_module_ids", "acquisition_version",
              "strategy_scope", "recipient_role", "persona", "selection", "escalation_recipient", "escalation_route", "escalation_trigger", "message_variant", "variant_reason", "variant_subject", "variant_message", "review_status", "contact_channel", "email_format_to_confirm", "channel_attribution", "hook_status",
              "hook", "hook_evidence", "offer_version", "offer_ids", "offer_evidence", "subject", "message", "follow_up_1", "follow_up_2",
-             "offer_message", "kiswahili_version", "campaign_copy_status", "relevance_reason", "proposed_offer", "cta_type", "flow_id",
+             "offer_message", "kiswahili_version", "language", "english_meaning", "campaign_copy_status", "relevance_reason", "proposed_offer", "cta_type", "flow_id",
              "evidence_url", "evidence_date", "verified_on", "evidence_basis", "evidence_record_ids", "missing_information"],
             [[p["message_id"], p["target_name"], p["organisation_name"], p["segment"], p["acquisition_track_id"], p["value_module_ids"],
               p["acquisition_version"], p["strategy_scope"], p["recipient_role"], p["persona"], p["selection"], p.get("escalation_recipient"), p.get("escalation_route"), p.get("escalation_trigger"), p.get("message_variant"), p.get("variant_reason"), p.get("variant_subject"), p.get("variant_body"), p["review_status"],
               p["contact_channel"], p.get("email_format_to_confirm"), p["channel_attribution"], p["hook_status"], p["hook"], p["hook_evidence"], p["offer_version"], p["offer_ids"],
               p["offer_evidence"], p["subject"], p["body"], p["follow_up_1"], p["follow_up_2"], p.get("offer_message"), p["offer_message_sw"],
-              p["campaign_copy_status"], p["relevance_reason"], p["proposed_offer"], p["cta_type"], p["flow_id"], p["evidence_url"],
+              p.get("language") or "", p.get("english_meaning") or "", p["campaign_copy_status"], p["relevance_reason"], p["proposed_offer"], p["cta_type"], p["flow_id"], p["evidence_url"],
               p["evidence_date"], p["verified_on"], p["evidence_basis"], p["evidence_record_ids"], p["missing_information"]]
              for p in data["outreach_plans"]],
-            [22, 28, 42, 24, 20, 42, 40, 85, 28, 18, 23, 40, 30, 50, 12, 70, 48, 100, 22, 34, 40, 48, 30, 80, 75, 26, 22, 60, 48, 90, 105, 70, 105, 90, 48, 80, 75, 24, 12, 55,
+            [22, 28, 42, 24, 20, 42, 40, 85, 28, 18, 23, 40, 30, 50, 12, 70, 48, 100, 22, 34, 40, 48, 30, 80, 75, 26, 22, 60, 48, 90, 105, 70, 105, 90, 10, 100, 48, 80, 75, 24, 12, 55,
              18, 18, 50, 90, 100], 175, "TOutreachPlans")
 
     b.sheet("Sequences", "Acquisition-track sequences are independent of the internal marketing calendar. AQ00 holds, AQ01 routes with one "
@@ -415,7 +441,7 @@ def main() -> int:
 
     # Reconcile every sheet with the export before saving.
     plans = counts["outreach_plans"]
-    expected = {"Organisations": counts["organisations"], "Contacts": counts["contacts"], "Enquiries": counts["enquiries"], "Messages": plans,
+    expected = {"Organisations": counts["organisations"], "Savings groups": counts.get("savings_group_organisations", len(savings)), "Contacts": counts["contacts"], "Enquiries": counts["enquiries"], "Messages": plans,
                 "Lead Briefs": len(briefs),
                 "Campuses": counts["campuses"], "Review": counts["review"], "Facts": len(data["facts"]), "Source rows": counts["source_records"],
                 "Source files": counts["source_files"], "Outreach plans": plans, "Sequences": plans, "Segments": counts["outreach_segments"],

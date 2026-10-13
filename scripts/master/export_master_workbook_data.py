@@ -9,7 +9,11 @@ the review enrichment the workbook shows next to each record, all derived from t
   source gives only in part is kept and labelled);
 - google_maps: the latest Google Maps status (listed, not on Google Maps, review) and any open location discrepancy;
 - email_format_to_confirm: the organisation's documented email format (data/reference/email-formats.json) for a chosen recipient or
-  escalation contact without a published address. Never a generated address: those stay in runtime/ (email_formats.py).
+  escalation contact without a published address. Never a generated address: those stay in runtime/ (email_formats.py);
+- VICOBA (docs/plans/vicoba-integration-plan.md decision 7): the subtype and VICOBA_ORG_COLUMNS on every organisation (blank unless
+  it is a VICOBA group), and 'savings_groups', the Savings groups view: SACCOS and VICOBA side by side with subsegment, band
+  (first_touch.vicoba_assess for VICOBA; the Resend exporter's confidence for SACCOS), introducer, the women_group tag, and the
+  Kiswahili first message with its English meaning. No number, member or officer.
 """
 
 from __future__ import annotations
@@ -27,8 +31,90 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 DEFAULT_OUTPUT = ROOT / "runtime" / "artifacts" / "workbook-input.json"
 sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
+sys.path.insert(0, str(ROOT / "scripts" / "messaging"))
 import contact_lib as C  # noqa: E402  (decision-maker and personal-email rules shared with the contact research)
 import email_formats as F  # noqa: E402  (documented email formats; never a generated address)
+import add_vicoba_groups as V  # noqa: E402  (the VICOBA readers)
+import first_touch as FT  # noqa: E402  (the VICOBA band rule, shared with the drafter, the call sheet and the Resend export)
+import offer_lib as L  # noqa: E402  (SAVINGS_SEGMENTS)
+
+# The VICOBA columns on the Organisations sheet (vicoba-integration-plan.md decision 7), blank for every other organisation.
+VICOBA_ORG_COLUMNS = ("subtype", "women_group", "ward", "council", "sponsor", "introducer", "meeting_cadence", "share_out_month",
+                      "members_as_published", "registration", "record_status", "last_confirmed", "vicoba_band")
+
+
+def _last(facts: dict, field: str) -> str:
+    values = [v for v in facts.get(field, []) if v not in (None, "", "none")]
+    return str(values[-1]) if values else ""
+
+
+def savings_groups(connection, organisations: list[dict]) -> list[dict]:
+    """The VICOBA columns on each organisation (in place), and the 'Savings groups' view: every savings-group organisation (SACCOS
+    and VICOBA side by side) with its subsegment, band, introducer, the women_group tag, and its Kiswahili first message with the
+    English meaning. VICOBA bands come from first_touch.vicoba_assess(); a SACCOS row's band is the Resend exporter's confidence
+    for its chosen plan, or 'no email (call sheet)'. Group-level records only: no number, member or officer is listed."""
+    factory = connection.row_factory
+    try:
+        groups = V.load_vicoba_groups(connection)
+        connection.row_factory = sqlite3.Row
+        import export_resend_contacts as E  # the SACCOS confidence (company_rows); imported here, as only this view needs it
+        saccos_rows, _ = E.company_rows(connection)
+        connection.row_factory = sqlite3.Row
+        chosen = {}
+        for p in connection.execute("SELECT * FROM outreach_plans WHERE segment IN (%s) ORDER BY message_id" % ",".join("?" * len(L.SAVINGS_SEGMENTS)),
+                                    sorted(L.SAVINGS_SEGMENTS)):
+            p = dict(p)
+            if p["selection"] == "Candidate for review" or p["organisation_id"] not in chosen:
+                chosen[p["organisation_id"]] = p
+    finally:
+        connection.row_factory = factory
+    saccos_conf = {r["plan_id"]: r for r in saccos_rows}
+    approved = FT.vicoba_templates_approved()
+    order = {oid: i for i, oid in enumerate(V.wave_order(groups), 1)}
+    out = []
+    for o in organisations:
+        g = groups.get(o["organisation_id"])
+        for column in VICOBA_ORG_COLUMNS[1:]:
+            o[column] = ""
+        if g:
+            f = g["facts"]
+            a = FT.vicoba_assess(g, template_approved=approved)
+            link = a["introducer"]
+            o.update(women_group="yes" if g["women_group"] else "no", ward=_last(f, "ward"), council=_last(f, "council"),
+                     sponsor=_last(f, "sponsor_name"),
+                     introducer=(f"{link['name']} ({link['kind']})" if link["name"] else
+                                 f"{_last(f, 'sponsor_name') or _last(f, 'introducer_kind')} (proposed; link to confirm)" if (_last(f, "sponsor_name") or _last(f, "introducer_kind")) else ""),
+                     meeting_cadence=_last(f, "meeting_cadence"), share_out_month=_last(f, "share_out_month"),
+                     members_as_published=o.get("size_evidence") or _last(f, "member_count"),
+                     registration=" ".join(x for x in (_last(f, "registration_authority"), _last(f, "registration_number")) if x),
+                     record_status=g["record_status"], last_confirmed=g["last_confirmed"], vicoba_band=a["band"])
+        if o["segment"] != V.SEGMENT:
+            continue
+        p = chosen.get(o["organisation_id"], {})
+        if g:
+            band, after, case, channel, held = a["band"], a["band_after_review"], a["case"], a["channel"], "; ".join(a["holds"])
+            sw_subject, sw_body, sw_offer = p.get("subject") or "", p.get("body") or "", p.get("offer_message_sw") or ""
+            meaning = "\n\n".join(x for x in (p.get("english_meaning") or "", ("— Offer (follow-up after the reply) —\n\n" + p["offer_message"])
+                                                                               if p.get("offer_message") else "") if x)
+            sub, rank = "VICOBA", f"0-{order.get(o['organisation_id'], 0):04d}"
+        else:
+            r = saccos_conf.get(p.get("message_id"))
+            band = (r["confidence"] if r else "no email (call sheet)") if p else "no plan"
+            after, case, channel, held = "", "", "letter or call" if not r else "email", (r["confidence_reason"] if r else "")
+            sw_subject, sw_body, sw_offer = "", p.get("offer_message_sw") or "", ""
+            meaning = "\n\n".join(x for x in (f"Subject: {p['subject']}" if p.get("subject") else "", p.get("body") or "") if x)
+            sub, rank = "SACCOS", f"1-{o['name']}"
+        out.append({"subsegment": sub, "organisation_id": o["organisation_id"], "name": o["name"], "subtype": o.get("subtype") or "",
+                    "women_group": o["women_group"] or ("n/a" if sub == "SACCOS" else ""), "council": o["council"], "ward": o["ward"],
+                    "campus": o["campus"], "distance_km": o["distance_km"], "geocode_precision": o["geocode_precision"],
+                    "record_status": o["record_status"], "band": band, "band_after_review": after, "case": case, "channel": channel,
+                    "held_because": held, "introducer": o["introducer"], "meeting_cadence": o["meeting_cadence"],
+                    "share_out_month": o["share_out_month"], "members_as_published": o["members_as_published"] or o.get("size_evidence") or "",
+                    "plan_id": p.get("message_id") or "", "review_status": p.get("review_status") or "", "offer_ids": p.get("offer_ids") or "",
+                    "language": p.get("language") or ("sw" if sw_body else ""), "kiswahili_subject": sw_subject, "kiswahili_message": sw_body,
+                    "kiswahili_offer": sw_offer, "english_meaning": meaning, "_rank": rank})
+    out.sort(key=lambda r: r.pop("_rank"))
+    return out
 
 
 
@@ -197,6 +283,7 @@ def main() -> int:
         "source_files": count(connection, "source_files"),
         "source_records": count(connection, "source_records"),
         "organisations": count(connection, "organisations"),
+        "savings_group_organisations": connection.execute("SELECT COUNT(*) FROM organisations WHERE segment=?", (V.SEGMENT,)).fetchone()[0],
         "contacts": count(connection, "contacts"),
         "enquiries": count(connection, "enquiries"),
         "messages": count(connection, "messages"),
@@ -267,7 +354,7 @@ def main() -> int:
     }
     organisations = rows(connection, """
             SELECT
-              o.organisation_id,o.name,o.segment,o.priority,o.campus,o.locality,o.distance_km,
+              o.organisation_id,o.name,o.segment,o.subtype,o.priority,o.campus,o.locality,o.distance_km,
               o.geocode_precision,o.phone,o.email,o.website,o.address,o.headcount,o.size_evidence,
               o.education_angle,o.desk_tier,o.desk_score,o.verification,o.strategy_id,
               '' AS owner,o.outreach_status,o.next_action,o.next_action_date,
@@ -322,6 +409,9 @@ def main() -> int:
             ORDER BY o.name,c.name,c.contact_id
         """)
     enrich(connection, organisations, contacts)
+    savings = savings_groups(connection, organisations)
+    counts["savings_groups"] = len(savings)
+    counts["vicoba_groups"] = sum(1 for r in savings if r["subsegment"] == "VICOBA")
     formats = email_format_by_contact(connection)
     for c in contacts:
         c["email_format_to_confirm"] = formats.get(c["contact_id"], "")
@@ -355,6 +445,7 @@ def main() -> int:
         "parent_enquiry_drafts": rows(connection, "SELECT * FROM parent_enquiry_drafts ORDER BY enquiry_id"),
         "automation_recipes": rows(connection, "SELECT * FROM automation_recipes ORDER BY flow_id,step"),
         "messages": rows(connection, "SELECT * FROM messages ORDER BY message_id"),
+        "savings_groups": savings,
         "outreach_plans": [{**p, "email_format_to_confirm": formats.get(p["target_id"], "") if p["target_type"] == "contact" else ""}
                            for p in rows(connection, "SELECT * FROM outreach_plans ORDER BY message_id")],
         "strategies": rows(connection, "SELECT * FROM strategies ORDER BY title,strategy_id"),

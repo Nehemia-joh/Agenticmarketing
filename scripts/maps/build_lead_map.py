@@ -8,7 +8,13 @@ build_basemap.py). Nothing is fetched at runtime apart from the MapLibre script.
 Leads and their segments follow outputs/messages/Silverleaf Core Segments - <date>.md:
 - employers: the master's chosen first messages (outreach_plans selection 'Candidate for review', one per business), companies
   and savings groups; subsegments kind (build_company_audience_profile.kind_of), variant A/B, reach tier (employer_reach);
-- introducers: the master's introducer plans; subsegment kind (the organisation's 'Introducer: ...' segment);
+- VICOBA savings groups (decision 7 of docs/plans/vicoba-integration-plan.md): employer subsegment 'Savings groups (VICOBA)', one
+  marker per ward at the government run's ward reference point (estimated), with counts by subtype and band (the exporter's
+  vicoba_rows), the group names and the introducer kinds. No meeting place, officer, phone or group point; a group name that embeds
+  a person's name (an honorific followed by a name, or a contact name on file) is shown as 'VICOBA group (name withheld)'. A group
+  with no ward, or a ward without a reference point, is listed. The marker's confidence is its groups' best band;
+- introducers: the master's introducer plans; subsegment kind (the organisation's 'Introducer: ...' segment), with the
+  'VICOBA introducers' plans as 'Savings-group introducers' (their confidence from the exporter's vicoba_export);
 - welfare: the welfare run's organisation plans (in scope); subsegments kind and priority;
 - government: the government run's offices; subsegments office level and ward wave (distance band).
 Confidence comes from scripts/messaging/export_resend_contacts.py (company_rows, welfare_rows, dedupe, government_rows), not
@@ -253,6 +259,25 @@ def place_master(org, orgs, dup_of, loc: Locator):
 
 INTRO_KIND = {"chamber": "Chambers of commerce", "employers' association": "Employers' associations", "sector association": "Sector associations",
               "hr professional body": "HR body", "other": "Other"}
+VICOBA_INTRO_KIND = "Savings-group introducers"
+SAVINGS_KIND = {"SACCOS members": "Savings groups (SACCOS)", "VICOBA members": "Savings groups (VICOBA)"}
+VICOBA_KIND = SAVINGS_KIND["VICOBA members"]
+BAND_ORDER = ("high-direct", "high-indirect", "medium", "low")  # first_touch.VICOBA_BANDS, best first
+WITHHELD = "VICOBA group (name withheld)"
+# A group name that embeds a person's name: an honorific followed by a name ('Mama Neema Group'), never 'Akina Mama' or 'Kina Mama'
+# (women, not a person), or a contact name on file (decision 7).
+HONORIFIC = re.compile(r"(?<![a-z])(?<!akina )(?<!kina )(mama|baba|mzee|bibi|bwana|babu|mwalimu|dada|kaka)\s+([a-z']{3,})", re.I)
+NOT_A_NAME = {"group", "women", "wanawake", "vicoba", "vikoba", "kikundi", "savings", "club", "chama", "and", "wa", "ya", "na", "mama", "baba"}
+
+
+def withhold_name(name: str, person_names) -> bool:
+    """True when a VICOBA group's name embeds a person's name, so the map shows WITHHELD instead."""
+    if any(m.group(2).lower() not in NOT_A_NAME for m in HONORIFIC.finditer(name or "")):
+        return True
+    low = " ".join(str(name or "").lower().split())
+    return any(len(n.split()) >= 2 and " ".join(n.lower().split()) in low for n in person_names)
+
+
 WELFARE_KIND = {"Welfare residential care": "Residential care", "Welfare family-based programme": "Family-based and sponsorship programmes",
                 "Welfare specialised centre": "Specialised centres", "Welfare funder": "Funders", "Welfare network (introducer)": "Welfare networks"}
 
@@ -293,27 +318,45 @@ def build_leads(loc: Locator, today: str):
         return (f"high-{row['high_route']}" if c == "high" else c), row["confidence_reason"]
 
     row_by_plan = {r["plan_id"]: r for r in c_rows}
+    # VICOBA (export_resend_contacts.vicoba_export): groups are drawn per ward below; their introducers are introducer leads here.
+    vx = E.vicoba_export(m, c_rows, w_rows, today)
+    m.row_factory = sqlite3.Row
+    v_row = {r["plan_id"]: r for r in vx["intro"]}
+    v_shared = {r["plan_id"]: r for r in vx["dropped_rows"]}
     for p in plans:
+        if p["segment"] == E.L.VICOBA_GROUP_SEGMENT:
+            continue  # one marker per ward, not one per group (vicoba_ward_leads)
         org = orgs[p["organisation_id"]]
-        row = row_by_plan.get(p["message_id"])
-        conf, why = conf_of(row)
-        is_intro = p["segment"] == "Introducers"
+        vicoba_intro = p["segment"] == E.L.VICOBA_INTRODUCER_SEGMENT
+        if vicoba_intro:
+            row = v_row.get(p["message_id"])
+            if p["message_id"] in v_shared:
+                conf, why = "shared", ("the organisation's own company or welfare row carries the one conversation (one conversation per "
+                                       "organisation); the savings-group introduction is raised there")
+            elif row is not None:
+                conf, why = row["confidence"], row["confidence_reason"]
+            else:
+                conf, why = conf_of(None)
+        else:
+            row = row_by_plan.get(p["message_id"])
+            conf, why = conf_of(row)
+        is_intro = p["segment"] == "Introducers" or vicoba_intro
         seg = "int" if is_intro else "emp"
         contact = contacts.get(p["target_id"]) if p["target_type"] == "contact" else None
         role = drop_notes((contact or {}).get("role") or p.get("recipient_role") or "") or "Named contact (role not recorded)"
         if not contact:
             role = "Organisation team (no named person)" if is_intro else "Company team (no named person)"
-        if row is not None:
+        if row is not None or conf == "shared":
             route = "email"
         else:
             route = {"phone only": "phone only", "email": "email", "no route yet": "none"}[P.route_kind(p)]
         if is_intro:
-            kind = INTRO_KIND.get((org["segment"] or "").split(":", 1)[-1].strip().lower(), "Other")
+            kind = VICOBA_INTRO_KIND if vicoba_intro else INTRO_KIND.get((org["segment"] or "").split(":", 1)[-1].strip().lower(), "Other")
             sub = {"kind": kind}
             tier = ""
         else:
-            savings = p["segment"] == "SACCOS members"
-            kind = "Savings groups (SACCOS)" if savings else P.kind_of(p, org)
+            savings = p["segment"] in E.L.SAVINGS_SEGMENTS
+            kind = SAVINGS_KIND.get(p["segment"], P.kind_of(p, org)) if savings else P.kind_of(p, org)
             tier = reach.get(p["organisation_id"], "")
             sub = {"kind": kind, "variant": (p["message_variant"] if p["message_variant"] in ("A", "B") else "none"),
                    "tier": tier or "unranked"}
@@ -332,11 +375,13 @@ def build_leads(loc: Locator, today: str):
         label = ("duplicate of" if r["kind"].startswith("Duplicate") else "branch, at another site, of" if r["kind"].startswith("Branch")
                  else "shares an inbox with")
         dup_reason.setdefault(r["entity_id"], f"{label} {E.L.display_name(primary.get('name', ''), r['related_id'])}; one message goes to that record")
+    vicoba_ids = E.V.vicoba_ids(m)
     for oid, org in orgs.items():
         if oid in chosen:
             continue
         lat, lon, prec, how = place_master(org, orgs, dup_of, loc)
-        excluded.append({"seg": "exc", "name": E.L.display_name(org["name"], oid), "src": "master",
+        shown = WITHHELD if oid in vicoba_ids and withhold_name(org["name"], person_names) else E.L.display_name(org["name"], oid)
+        excluded.append({"seg": "exc", "name": shown, "src": "master",
                          "why": dup_reason.get(oid, "no first message chosen: not a lead for any segment (map record kept for reference)"),
                          "lat": lat, "lon": lon, "prec": prec, "how": how})
 
@@ -427,9 +472,65 @@ def build_leads(loc: Locator, today: str):
                       "role": letter_to, "draft": ("Letter ready" if d["draft_status"] == "draft_ready" else "Held") + f"; release order {d['release_order']}",
                       "tier": d["release_order"], "council": d["council"], "lat": lat, "lon": lon, "prec": prec, "how": how,
                       "key": ("government", o["organisation_id"])})
-    return campuses, leads, excluded, {n.strip() for n in person_names if n and len(n.strip()) >= 4}, {
+
+    # --- VICOBA savings groups: one marker per ward, at the government run's ward reference point
+    names = {n.strip() for n in person_names if n and len(n.strip()) >= 4}
+    ward_points = {(r["council"], r["name"]): (num(r["latitude"]), num(r["longitude"])) for r in g.execute(
+        "SELECT council, name, latitude, longitude FROM admin_units WHERE level='ward' AND latitude IS NOT NULL AND longitude IS NOT NULL")}
+    v_leads, v_private = vicoba_ward_leads(m, vx["delivery"], ward_points, names)
+    leads += v_leads
+    return campuses, leads, excluded, names, {
         "c_rows": c_rows, "w_rows": w_rows, "kept": kept, "dropped": dropped_strings, "c_skip": c_skip, "w_skip": w_skip,
-        "delivery": delivery, "plans": plans, "wplans": wplans}
+        "delivery": delivery, "plans": plans, "wplans": wplans, "vicoba": vx, "vicoba_private": v_private,
+        "vicoba_groups": E.V.load_vicoba_groups(m)}
+
+
+def vicoba_ward_leads(m, vdelivery, ward_points: dict, person_names) -> tuple[list, dict]:
+    """One employer lead per ward for the VICOBA groups (decision 7): drawn at the ward reference point from the government run
+    (marked estimated), with counts by subtype and band, the group names (a name that embeds a person's name withheld) and the
+    introducer kinds. No meeting place, officer, phone or group point is used. A group with no ward, or a ward with no reference
+    point, is listed under its council. Its confidence is the best band among the ward's groups (export_resend_contacts.vicoba_rows)."""
+    groups = E.V.load_vicoba_groups(m)
+    m.row_factory = sqlite3.Row
+    by_ward = defaultdict(list)
+    for d in vdelivery:
+        by_ward[(d["council"], d["ward"])].append(d)
+    leads, private = [], {"withheld": [], "places": [], "points": set()}
+    for g in groups.values():
+        private["places"] += [v for v in g["facts"].get("meeting_place_public", []) if v]
+    for (council, ward), items in sorted(by_ward.items()):
+        point = ward_points.get((council, ward)) if ward else None
+        bands = Counter(d["band"] for d in items)
+        best = next(b for b in BAND_ORDER if bands[b])
+        shown = []
+        for d in sorted(items, key=lambda d: d["release_order"]):
+            if withhold_name(d["group"], person_names):
+                private["withheld"].append(d["group"])
+                shown.append(WITHHELD)
+            else:
+                shown.append(E.L.display_name(d["group"], d["organisation_id"]))
+        intro = sorted({d["introducer_kind"].replace("_", " ") for d in items if d["introducer_kind"]})
+        women = sum(1 for d in items if d["women_group"] == "yes")
+        vg = {"n": len(items), "women": women, "subtypes": dict(Counter(d["subtype"] for d in items).most_common()),
+              "bands": {b: bands[b] for b in BAND_ORDER if bands[b]}, "groups": shown, "introducers": intro or ["none linked yet"]}
+        held = Counter(h.split(" (")[0] for d in items for h in d["held_because"].split("; ") if h)
+        why = (f"best band among the {len(items)} group{'s' if len(items) != 1 else ''} here: {best}"
+               + (f"; held because: {'; '.join(f'{h} ({n})' for h, n in held.most_common())}" if held else ""))
+        place = f"{ward} ward, {council}" if ward else f"{council} (ward not recorded)"
+        if point and point[0] is not None:
+            private["points"].add((round(point[0], 5), round(point[1], 5)))
+            how = "estimated: the ward reference point from the government run (no meeting place is shown)"
+            lat, lon = point
+        else:
+            lat = lon = None
+            how = "no ward recorded: the group is listed under its council" if not ward else "the ward has no reference point yet"
+        ready = sum(1 for d in items if d["draft_status"] == "Draft review")
+        leads.append({"seg": "emp", "name": f"VICOBA groups: {place}", "sub": {"kind": VICOBA_KIND, "variant": "none", "tier": "unranked"},
+                      "conf": best, "why": why, "names": [], "route": "through an introducer (a group has no route of its own)",
+                      "role": "The group's committee", "draft": f"Kiswahili drafts: {ready} of {len(items)} ready for review",
+                      "tier": "", "lat": lat, "lon": lon, "prec": "estimated" if lat is not None else "none", "how": how,
+                      "key": ("vicoba", f"{council}|{ward}"), "vg": vg})
+    return leads, private
 
 
 def location_checks() -> dict:
@@ -478,24 +579,46 @@ def verify(leads, extra, campuses_doc_ok: bool) -> list[str]:
     errors = []
     kept, c_rows, w_rows = extra["kept"], extra["c_rows"], extra["w_rows"]
     plans = extra["plans"]
-    exp = {"emp": sum(1 for p in plans if p["segment"] != "Introducers"), "int": sum(1 for p in plans if p["segment"] == "Introducers"),
-           "wel": len(extra["wplans"]), "gov": len(extra["delivery"])}
+    vx, vgroups = extra["vicoba"], extra["vicoba_groups"]
+    intro_segments = {"Introducers", E.L.VICOBA_INTRODUCER_SEGMENT}
+    # VICOBA groups are one marker per ward (council and ward as the groups' facts give them), not one lead per plan.
+    wards = {(E._fact(g, "council"), E._fact(g, "ward")) for g in vgroups.values()}
+    exp = {"emp": sum(1 for p in plans if p["segment"] not in intro_segments | {E.L.VICOBA_GROUP_SEGMENT}) + len(wards),
+           "int": sum(1 for p in plans if p["segment"] in intro_segments), "wel": len(extra["wplans"]), "gov": len(extra["delivery"])}
     got = Counter(l["seg"] for l in leads)
     for seg, n in exp.items():
         if got[seg] != n:
             errors.append(f"{seg}: {got[seg]} leads on the page, {n} in the database")
-    track = {"companies": "emp", "introducers": "int", "welfare": "wel"}
+    track = {"companies": "emp", "introducers": "int", "welfare": "wel", E.VICOBA_INTRODUCER_TRACK: "int"}
     want = Counter()
-    for r in kept:
+    for r in kept + vx["intro"]:
         want[(track[r["track"]], f"high-{r['high_route']}" if r["confidence"] == "high" else r["confidence"])] += 1
     kept_ids = {id(r) for r in kept}
     for r in c_rows + w_rows:
         if id(r) not in kept_ids:
             want[(track[r["track"]], "shared")] += 1
-    for k, n in extra["c_skip"].items():
+    want[("int", "shared")] += len(vx["dropped_rows"])
+    for k, n in list(extra["c_skip"].items()) + list(vx["skipped"].items()):
         want[("emp", "no-email")] += n  # company_rows counts introducers without email under the same key
     want[("wel", "no-email")] += sum(extra["w_skip"].values())
-    have = Counter((l["seg"], l["conf"]) for l in leads if l["seg"] != "gov")
+    # VICOBA ward markers: every group in exactly one marker, the band counts equal to the exporter's, the marker's confidence its
+    # groups' best band, and the marker at a ward reference point (or not drawn).
+    markers = [l for l in leads if l.get("vg")]
+    if sum(l["vg"]["n"] for l in markers) != len(vgroups) or len(vx["delivery"]) != len(vgroups):
+        errors.append(f"VICOBA: {sum(l['vg']['n'] for l in markers)} groups on the page, {len(vgroups)} in the master, "
+                      f"{len(vx['delivery'])} from the exporter")
+    page_bands = Counter()
+    for l in markers:
+        page_bands.update(l["vg"]["bands"])
+        if l["conf"] != next(b for b in BAND_ORDER if l["vg"]["bands"].get(b)):
+            errors.append(f"VICOBA {l['name']}: marker confidence {l['conf']} is not its groups' best band")
+        if l["lat"] is not None and (round(l["lat"], 5), round(l["lon"], 5)) not in extra["vicoba_private"]["points"]:
+            errors.append(f"VICOBA {l['name']}: drawn away from a ward reference point")
+    if page_bands != Counter(d["band"] for d in vx["delivery"]):
+        errors.append(f"VICOBA bands {dict(page_bands)} on the page, {dict(Counter(d['band'] for d in vx['delivery']))} from the exporter")
+    if vx["errors"]:
+        errors += [f"VICOBA exporter: {e}" for e in vx["errors"]]
+    have = Counter((l["seg"], l["conf"]) for l in leads if l["seg"] != "gov" and not l.get("vg"))
     no_email_emp_int = have[("emp", "no-email")] + have[("int", "no-email")]
     if no_email_emp_int != want[("emp", "no-email")]:
         errors.append(f"employers and introducers without email: {no_email_emp_int} on the page, {want[('emp', 'no-email')]} skipped by the exporter")
@@ -516,10 +639,22 @@ def verify(leads, extra, campuses_doc_ok: bool) -> list[str]:
     return errors
 
 
-def privacy_check(payload: dict, person_names: set) -> list[str]:
-    """No email address, phone number or contact name in any field the page shows apart from organisation names."""
+def privacy_check(payload: dict, person_names: set, vicoba_private: dict | None = None) -> list[str]:
+    """No email address, phone number or contact name in any field the page shows apart from organisation names. For VICOBA
+    (decision 7): no meeting place, and no group name that embeds a person's name (it is shown as WITHHELD)."""
     problems = []
     blob = json.dumps(payload["leads"] + payload["excluded"] + payload["unmapped"], ensure_ascii=False)
+    low_blob = blob.lower()
+    for place in set((vicoba_private or {}).get("places", [])):
+        if len(place) >= 10 and json.dumps(place, ensure_ascii=False)[1:-1].lower() in low_blob:
+            problems.append(f"VICOBA meeting place in the page data: {place[:40]}")
+    for name in set((vicoba_private or {}).get("withheld", [])):
+        if json.dumps(name, ensure_ascii=False)[1:-1].lower() in low_blob:
+            problems.append(f"withheld VICOBA group name in the page data: {name}")
+    for item in payload["leads"] + payload["unmapped"]:
+        for shown in (item.get("g") or {}).get("groups", []):
+            if shown != WITHHELD and withhold_name(shown, person_names):
+                problems.append(f"VICOBA group name that embeds a person's name in the page data: {shown}")
     for e in set(EMAIL.findall(blob)):
         problems.append(f"email address in the page data: {e}")
     for ph in set(PHONE.findall(blob)):
@@ -593,8 +728,12 @@ def main() -> int:
                "u": l["sub"], "h": l["how"]}
         if l["seg"] == "gov":
             rec["k"] = l.get("council", "")
+        if l.get("vg"):
+            rec["g"] = l["vg"]  # VICOBA ward marker: group counts, names (some withheld) and introducer kinds
         if l["lat"] is None:
             why = checked.get(l.get("key"), l["how"])
+            if l.get("vg"):
+                why = f"{l['how']}; {l['vg']['n']} group{'s' if l['vg']['n'] != 1 else ''}: {', '.join(l['vg']['groups'])}"
             unmapped.append({"n": l["name"], "s": l["seg"], "c": l["conf"], "why": why})
             continue
         camp, km = nearest(campuses, l["lat"], l["lon"])
@@ -618,7 +757,7 @@ def main() -> int:
     payload = {"built": today, "campuses": campuses, "leads": out_leads, "excluded": out_excluded, "unmapped": unmapped,
                "excludedTotal": len(excluded), "attribution": basemap.get("attribution", ""), "bbox": [WEST, SOUTH, EAST, NORTH],
                "extent": extent}
-    errors += privacy_check(payload, person_names)
+    errors += privacy_check(payload, person_names, extra["vicoba_private"])
 
     # Summary.
     seg_name = {"emp": "Employers", "int": "Introducers", "wel": "Welfare", "gov": "Government"}
@@ -634,6 +773,13 @@ def main() -> int:
     for s in ("emp", "int", "wel", "gov"):
         cnt = Counter(l["conf"] for l in leads if l["seg"] == s)
         print(f"  {seg_name[s]:<12} " + ", ".join(f"{k} {v}" for k, v in sorted(cnt.items())))
+    vmark = [l for l in leads if l.get("vg")]
+    vb = Counter()
+    for l in vmark:
+        vb.update(l["vg"]["bands"])
+    print(f"\nVICOBA: {sum(l['vg']['n'] for l in vmark)} groups in {len(vmark)} ward markers "
+          f"({sum(1 for l in vmark if l['lat'] is not None)} drawn); bands " + ", ".join(f"{b} {vb[b]}" for b in BAND_ORDER)
+          + f"; names withheld {len(extra['vicoba_private']['withheld'])}")
     print("\nUnmapped, by reason:")
     reasons = Counter((u["s"], re.sub(r"\s*\(.*\)$", "", u["why"])) for u in unmapped)
     for (s, why), n in sorted(reasons.items()):

@@ -13,7 +13,7 @@ Confidence (in the data and in the recipient):
 - medium: the draft is ready, but it goes to the organisation's inbox and needs routing, or the inbox is on a personal
   domain that the organisation publishes (companies) or that a reviewer confirmed as official (welfare);
 - low: the draft is held or needs research (red flags, possible closure, unconfirmed role, location, unconfirmed personal
-  inbox, a funder with no verified relationship, a savings group's Kiswahili and Finance checks, a public body's compliance check).
+  inbox, a funder with no verified relationship, a SACCOS's Kiswahili review, a public body's compliance check).
 Rows without an email address (phone only, or no route) are left out and counted; they belong on the call sheets.
 High is split by route (decided 10 October 2026), for every track with email rows: <track>-high.csv keeps every high row, and
 each high row is also in exactly one sub-segment file, <track>-high-direct.csv or <track>-high-indirect.csv (property high_route):
@@ -31,6 +31,18 @@ row per work-email candidate generated from the organisation's documented format
 recipient or escalation contact. Every row is confidence low and carries inferred_format, inferred_evidence and inferred_label
 ("inferred from format, unverified"); a person confirms the address before any use. These rows never enter the other files, the
 high segments or the dedupe, and the summary reports them as counts only. The organisation's own row stays in its segment.
+
+VICOBA savings groups (with the companies track; docs/plans/vicoba-integration-plan.md decision 3b, approved 13 October 2026). The
+'VICOBA members' and 'VICOBA introducers' plans are left out of the company rows and banded by vicoba_rows():
+  vicoba-delivery-<band>.csv     every VICOBA group in exactly one band (high-direct, high-indirect, medium, low), from
+                                 first_touch.vicoba_assess(), the rule the drafter and the VICOBA call sheet share: case, channel,
+                                 introducer, ward, council, distance band, why it is held, release order (women's groups first).
+                                 A group has no email of its own and is never a Resend contact; no number or meeting place is written.
+  vicoba-introducers-<band>.csv  Resend rows for introducers that publish an email only: medium once the introducer request is ready,
+                                 low while it is held; never high (the request goes to the organisation's inbox). An introducer that
+                                 has its own company or welfare row (an NGO or bank already in an employer conversation) or shares an
+                                 address with one is exported once, under that row (one conversation per organisation).
+High-direct needs a published or consented officer route; the script stops if any rule fails.
 
 Government track (--tracks government; the government run database, read-only). Every office is segmented, whatever the
 channel, because its letters go by hand or post (Tanzanian protocol: addressed by title, on letterhead). Two kinds of file:
@@ -75,6 +87,8 @@ sys.path.insert(0, str(ROOT / "scripts" / "contacts"))
 import resolve_master_recipients as R  # noqa: E402  (address parsing, role ranking, verification)
 import contact_lib as C  # noqa: E402  (the strict whose-mailbox test)
 import email_formats as F  # noqa: E402  (inferred candidates: the -low-inferred files only)
+import add_vicoba_groups as V  # noqa: E402  (the VICOBA readers: load_vicoba_groups, wave_order)
+import first_touch as FT  # noqa: E402  (the VICOBA band rule, vicoba_assess / vicoba_case, shared with the drafter and call sheet)
 
 MASTER = ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 FIELDS = ["email", "first_name", "last_name", "organisation", "track", "audience", "confidence", "high_route", "confidence_reason", "priority",
@@ -294,6 +308,8 @@ def company_rows(con):
     rows, skipped = [], Counter()
     for p in con.execute("SELECT * FROM outreach_plans WHERE selection='Candidate for review' ORDER BY organisation_name"):
         p = dict(p)
+        if p["segment"] in L.VICOBA_SEGMENTS:  # VICOBA groups and their introducers have their own bands: vicoba_rows()
+            continue
         org = orgs[p["organisation_id"]]
         contact = contacts.get(p["target_id"]) if p["target_type"] == "contact" else None
         track = "introducers" if p["segment"] == "Introducers" else "companies"
@@ -306,7 +322,7 @@ def company_rows(con):
         reasons = [label for pattern, label in LOW_COMPANY if re.search(pattern, missing)]
         if p["review_status"] != "Draft review":
             reasons.insert(0, "needs research: recheck the source, role and organisation")
-        if p["segment"] == "SACCOS members":
+        if p["segment"] in L.SAVINGS_SEGMENTS:
             reasons.append("savings group: native-speaker review of the Kiswahili version first")
         named = named_recipient(contact, p["segment"])
         direct = contact and address in R.emails(contact["named_email"], contact["published_role_email"])
@@ -379,6 +395,184 @@ def welfare_rows(con):
                                 "message_subject": p["msg_subject"] or "", "message_body": p["body"] or "", "message_html": to_html(p["body"] or ""),
                                 "plan_id": p["message_id"]}, recipient.split("(")[0], role))
     return rows, skipped
+
+
+# ------------------------------------------------------------------ VICOBA savings groups (master; vicoba-integration-plan.md decision 3b)
+VICOBA_DELIVERY_FIELDS = ["band", "release_order", "band_after_review", "case", "channel", "held_because", "women_group", "group", "subtype",
+                          "ward", "council", "village_or_mtaa", "campus", "distance_band", "record_status", "last_confirmed", "introducer_kind",
+                          "introducer", "introducer_status", "introducer_ready", "introducer_outcome", "officer_route", "meeting_cadence",
+                          "share_out_month", "draft_status", "introducer_plan_id", "organisation_id", "plan_id"]
+VICOBA_INTRODUCER_TRACK = "vicoba-introducers"
+
+
+def _fact(group: dict, field: str) -> str:
+    values = [v for v in group["facts"].get(field, []) if v not in (None, "", "none")]
+    return str(values[-1]) if values else ""
+
+
+def vicoba_rows(con, today: str):
+    """VICOBA savings groups and their introducers (decision 3b, approved 13 October 2026).
+    - Groups: every group in exactly one band, from first_touch.vicoba_assess() (the drafter and the call sheet use the same rule):
+      high-direct (case A: an officer route published for the role, confirmed within 12 months, or the officer's recorded consent),
+      high-indirect (case B: the introducer introduced the group, or named an officer with the officer's agreement), medium (case C:
+      a linked, ready introducer and no officer route: the introducer request goes first) or low (held, S0; held_because says why).
+      A group is a delivery row only (vicoba-delivery-<band>.csv): it has no email of its own, so it is never a Resend contact. The
+      rows carry no number, name or meeting place: the officer route is its kind only.
+    - Introducers: one Resend row per 'VICOBA introducers' plan whose organisation publishes an email (vicoba-introducers-<band>.csv):
+      medium once the request is ready for review (the introducer request is the case C equivalent, sent to the organisation's inbox),
+      low while it is held (no linked group, the introducer's state, no complete group). Never high: no named person receives it.
+    Returns (delivery rows, introducer email rows, skipped counts)."""
+    con.row_factory = sqlite3.Row
+    groups = V.load_vicoba_groups(con)
+    con.row_factory = sqlite3.Row
+    plans = defaultdict(list)
+    for p in con.execute("SELECT * FROM outreach_plans WHERE segment IN (?, ?) ORDER BY message_id",
+                         (L.VICOBA_GROUP_SEGMENT, L.VICOBA_INTRODUCER_SEGMENT)):
+        plans[p["organisation_id"]].append(dict(p))
+    intro_plan = {oid: ps[0]["message_id"] for oid, ps in plans.items() if any(p["segment"] == L.VICOBA_INTRODUCER_SEGMENT for p in ps)}
+    approved = FT.vicoba_templates_approved()
+    delivery = []
+    for position, oid in enumerate(V.wave_order(groups), 1):
+        g = groups[oid]
+        a = FT.vicoba_assess(g, template_approved=approved)
+        link = a["introducer"]
+        plan = next((p for p in plans.get(oid, []) if p["segment"] == L.VICOBA_GROUP_SEGMENT), {})
+        proposed = _fact(g, "sponsor_name")
+        introducer = link["name"] or (f"{proposed} (proposed by the source; link to confirm)" if proposed else "")
+        route = link["officer_route"]
+        delivery.append({
+            "band": a["band"], "release_order": f"{position:03d} " + ("women's group first" if g["women_group"] else "then nearest first"),
+            "band_after_review": a["band_after_review"], "case": a["case"], "channel": a["channel"], "held_because": "; ".join(a["holds"]),
+            "women_group": "yes" if g["women_group"] else "no", "group": g["name"] or "", "subtype": g.get("subtype") or "",
+            "ward": _fact(g, "ward"), "council": _fact(g, "council"), "village_or_mtaa": _fact(g, "village_or_mtaa"),
+            "campus": g.get("campus") or "", "distance_band": gov_wave("ward", g.get("distance_km")), "record_status": g["record_status"],
+            "last_confirmed": g["last_confirmed"],
+            "introducer_kind": link["kind"] or (f"{_fact(g, 'introducer_kind')} (proposed)" if _fact(g, "introducer_kind") else ""),
+            "introducer": introducer,
+            "introducer_status": link["status"], "introducer_ready": link["ready"], "introducer_outcome": link["outcome"],
+            "officer_route": route.split(" ")[0] if route else "", "meeting_cadence": _fact(g, "meeting_cadence"),
+            "share_out_month": _fact(g, "share_out_month"), "draft_status": plan.get("review_status") or "no plan",
+            "introducer_plan_id": intro_plan.get(link["organisation_id"], ""), "organisation_id": oid, "plan_id": plan.get("message_id") or ""})
+    orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT * FROM organisations")}
+    contacts = {r["contact_id"]: dict(r) for r in con.execute("SELECT * FROM contacts")}
+    rows, skipped = [], Counter()
+    for oid, ps in sorted(plans.items()):
+        for p in ps:
+            if p["segment"] != L.VICOBA_INTRODUCER_SEGMENT or p["selection"] != "Candidate for review":
+                continue
+            org = orgs[oid]
+            contact = contacts.get(p["target_id"]) if p["target_type"] == "contact" else None
+            address = company_route(p, org, contact)
+            if "@" not in address:
+                skipped[f"{VICOBA_INTRODUCER_TRACK}: no email route (phone only or none)"] += 1
+                continue
+            notes = [n.strip() for n in str(p["missing_information"] or "").split("; ") if n.strip()]
+            held = [n for n in notes if not n.startswith("VICOBA wave ") and not re.match(L.BOILERPLATE_NOTE, n)]
+            if p["review_status"] == "Draft review" and not held:
+                confidence, why = "medium", ("ready; the introducer request (case C equivalent) to the organisation's inbox, one per wave, naming "
+                                             "its groups; an introducer request is never high: no named person receives it")
+            else:
+                confidence, why = "low", "held: " + ("; ".join(held) or "needs research")
+            rows.append({"email": address, "first_name": "", "last_name": "", "organisation": L.display_name(org["name"], oid),
+                         "track": VICOBA_INTRODUCER_TRACK, "audience": p["segment"], "confidence": confidence, "high_route": "",
+                         "confidence_reason": why, "priority": "", "variant": "", "recipient": f"{org['name']} team",
+                         "escalation_recipient": "", "escalation_email": "", "message_subject": p["subject"] or "", "message_body": p["body"] or "",
+                         "message_html": to_html(p["body"] or ""), "plan_id": p["message_id"], "organisation_id": oid})
+    return delivery, rows, skipped
+
+
+def vicoba_introducer_dedupe(intro_rows, other_rows, orgs_with_company_row: set):
+    """One conversation per organisation (decision 4): an introducer that has its own company or welfare row (an NGO or bank already
+    in an employer conversation, for example SNV) keeps that row, and an address another row carries is exported once, under that row.
+    Returns (kept, dropped descriptions, dropped rows)."""
+    taken = {r["email"].lower(): r for r in other_rows}
+    kept, dropped, dropped_rows = [], [], []
+    for r in intro_rows:
+        if r["organisation_id"] in orgs_with_company_row:
+            dropped.append(f"{r['organisation']}: kept under its own company row (one conversation per organisation)")
+            dropped_rows.append(r)
+        elif r["email"].lower() in taken:
+            other = taken[r["email"].lower()]
+            dropped.append(f"{r['email']}: {r['organisation']} ({r['track']}) kept as {other['organisation']} ({other['track']})")
+            dropped_rows.append(r)
+        else:
+            taken[r["email"].lower()] = r
+            kept.append(r)
+    return kept, dropped, dropped_rows
+
+
+def vicoba_checks(con, delivery, intro_rows) -> list[str]:
+    """The T5 rules: every VICOBA group in exactly one band; high-direct only with a published or consented officer route; Resend rows
+    only for introducer emails (never a group)."""
+    groups = V.load_vicoba_groups(con)
+    errors = []
+    ids = [d["organisation_id"] for d in delivery]
+    if sorted(ids) != sorted(groups) or len(ids) != len(set(ids)):
+        errors.append(f"VICOBA groups banded {len(ids)} (unique {len(set(ids))}), in the master {len(groups)}")
+    for d in delivery:
+        if d["band"] not in FT.VICOBA_BANDS:
+            errors.append(f"{d['organisation_id']}: band {d['band']!r} is not a VICOBA band")
+        if d["band"] == "high-direct" and d["officer_route"] not in ("published_for_role", "consent_recorded"):
+            errors.append(f"{d['organisation_id']}: high-direct without a published or consented officer route")
+        if d["band"] != FT.vicoba_case(groups.get(d["organisation_id"], {"facts": {}})):
+            errors.append(f"{d['organisation_id']}: band differs from first_touch.vicoba_case()")
+    group_plans = {d["plan_id"] for d in delivery}
+    for r in intro_rows:
+        if r["audience"] != L.VICOBA_INTRODUCER_SEGMENT or r["plan_id"] in group_plans or "@" not in r["email"]:
+            errors.append(f"{r['plan_id']}: a VICOBA Resend row that is not an introducer email")
+    return errors
+
+
+def vicoba_export(master, c_rows, w_rows, today: str) -> dict:
+    """The VICOBA part of the export, as main() writes it and build_lead_map.py counts it: delivery rows, the introducer email rows
+    kept after the one-conversation dedupe against the company and welfare rows, those left out, and the rule checks."""
+    delivery, intro, skipped = vicoba_rows(master, today)
+    plan_org = {r[0]: r[1] for r in master.execute("SELECT message_id, organisation_id FROM outreach_plans")}
+    company_orgs = {plan_org.get(r["plan_id"]) for r in c_rows}
+    kept, dropped, dropped_rows = vicoba_introducer_dedupe(intro, c_rows + w_rows, company_orgs)
+    return {"delivery": delivery, "intro": kept, "skipped": skipped, "dropped": dropped, "dropped_rows": dropped_rows,
+            "errors": vicoba_checks(master, delivery, kept)}
+
+
+def write_vicoba_files(out: Path, delivery, intro_rows) -> None:
+    for old in list(out.glob("vicoba-*.csv")):
+        old.unlink()
+    for band in FT.VICOBA_BANDS:
+        with (out / f"vicoba-delivery-{band}.csv").open("w", encoding="utf-8", newline="") as fh:
+            writer = csv.DictWriter(fh, fieldnames=VICOBA_DELIVERY_FIELDS)
+            writer.writeheader()
+            writer.writerows(sorted((d for d in delivery if d["band"] == band), key=lambda d: d["release_order"]))
+    for confidence in ("medium", "low"):
+        subset = [{k: r[k] for k in FIELDS} for r in intro_rows if r["confidence"] == confidence]
+        if subset:
+            with (out / f"{VICOBA_INTRODUCER_TRACK}-{confidence}.csv").open("w", encoding="utf-8", newline="") as fh:
+                writer = csv.DictWriter(fh, fieldnames=FIELDS)
+                writer.writeheader()
+                writer.writerows(sorted(subset, key=lambda r: r["organisation"]))
+
+
+def vicoba_summary_lines(delivery, intro_rows, intro_skipped, intro_dropped) -> list[str]:
+    """The VICOBA section of the Resend segments document: counts only (no group, person or address)."""
+    bands = Counter(d["band"] for d in delivery)
+    after = Counter(d["band_after_review"] for d in delivery)
+    women = Counter(d["band"] for d in delivery if d["women_group"] == "yes")
+    holds = Counter(h.split(" (")[0] for d in delivery for h in d["held_because"].split("; ") if h)
+    lines = ["", "## VICOBA savings groups", "",
+             "Every VICOBA group is in exactly one band (first_touch.vicoba_case, the rule the drafter and the call sheet use). A group has "
+             "no email of its own: its row is a delivery row (`vicoba-delivery-<band>.csv`: band, case, channel, introducer, ward, council, "
+             "distance band, release order with women's groups first), never a Resend contact. Resend rows exist only for introducers that "
+             "publish an email (`vicoba-introducers-<band>.csv`).", "",
+             "| Band | Groups | Of which women's groups | Band once the Kiswahili template is approved |", "|---|---:|---:|---:|"]
+    lines += [f"| {b} | {bands[b]} | {women[b]} | {after[b]} |" for b in FT.VICOBA_BANDS]
+    lines += [f"| total | {len(delivery)} | {sum(women.values())} | {len(delivery)} |", "", "Why groups are held (a group can have several reasons):", ""]
+    lines += [f"- {h}: {n}" for h, n in holds.most_common()] or ["- none"]
+    icount = Counter(r["confidence"] for r in intro_rows)
+    lines += ["", "| Introducer segment | Contacts |", "|---|---:|"]
+    lines += [f"| {VICOBA_INTRODUCER_TRACK}-{c} | {icount[c]} |" for c in ("medium", "low")]
+    lines += ["", f"Introducers without an email (call or letter): {sum(intro_skipped.values())}. "
+              f"Introducer rows kept under another row (one conversation per organisation, or a shared inbox): {len(intro_dropped)}."]
+    lines += [f"- {d}" for d in intro_dropped]
+    return lines
 
 
 # ------------------------------------------------------------------ government (separate run database; letters, not email)
@@ -655,11 +849,17 @@ def main() -> int:
     c_rows, c_skip = company_rows(master)
     w_rows, w_skip = welfare_rows(welfare)
     rows, dropped = dedupe(c_rows + w_rows)
+    # VICOBA (master): delivery rows for every group, Resend rows for introducer emails only.
+    v = vicoba_export(master, c_rows, w_rows, today)
+    if v["errors"]:
+        raise SystemExit("VICOBA checks failed:\n  - " + "\n  - ".join(v["errors"]))
+    v_delivery, v_intro, v_skip, v_dropped = v["delivery"], v["intro"], v["skipped"], v["dropped"]
     out = ROOT / "runtime" / "resend" / today
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob("*.csv"):  # this script's own earlier files for the day (the government files have their own step)
         if not old.name.startswith("government-"):
             old.unlink()
+    write_vicoba_files(out, v_delivery, v_intro)
     counts = Counter((r["track"], r["confidence"]) for r in rows)
     for (track, confidence) in sorted(counts):
         subset = sorted((r for r in rows if r["track"] == track and r["confidence"] == confidence), key=lambda r: (str(r["priority"]), r["organisation"]))
@@ -692,6 +892,7 @@ def main() -> int:
     lines += [f"| {t}-low-inferred | {len(inferred.get(t, []))} |" for t in ("companies", "introducers", "welfare")]
     lines += ["", "Left out (no email address; use the call sheets):", ""] + [f"- {k}: {v}" for k, v in sorted(skipped.items())]
     lines += ["", f"Addresses shared by two rows, exported once ({len(dropped)}):", ""] + [f"- {d}" for d in dropped]
+    lines += vicoba_summary_lines(v_delivery, v_intro, v_skip, v_dropped)
     lines += ["", "Confidence rules and promotion: see the docstring of scripts/messaging/export_resend_contacts.py. Each contact's "
               "confidence_reason property says what would promote it.", "",
               "Custom contact properties to create in Resend before importing (all strings): " + ", ".join(FIELDS[3:]) + "."]
@@ -701,6 +902,10 @@ def main() -> int:
         print(f"{t}-{c}: {n}")
     for t in sorted(inferred):
         print(f"{t}-low-inferred: {len(inferred[t])}")
+    vb = Counter(d["band"] for d in v_delivery)
+    print("vicoba groups: " + ", ".join(f"{b} {vb[b]}" for b in FT.VICOBA_BANDS) + f" (total {len(v_delivery)}); "
+          + f"{VICOBA_INTRODUCER_TRACK}: " + ", ".join(f"{c} {sum(1 for r in v_intro if r['confidence'] == c)}" for c in ("medium", "low"))
+          + f"; without email {sum(v_skip.values())}; kept under another row {len(v_dropped)}")
     print(f"skipped: {dict(skipped)}; shared addresses dropped: {len(dropped)}")
     print(f"{out}\n{report}")
     return 0

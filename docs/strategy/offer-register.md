@@ -1,6 +1,6 @@
 # Silverleaf offer register
 
-Version: 2026-10-12-offer-v5
+Version: 2026-10-13-offer-v6
 Machine-readable copy: `data/reference/silverleaf-offer-register.json`. The message scripts in `scripts/messaging/` read it, and verification checks every percentage and amount in a message against it.
 
 ## Status
@@ -11,8 +11,10 @@ The terms come from two Silverleaf documents in `references/Offers & Discounts/`
 
 **Updated 12 October 2026.** The user confirmed that the offer terms come from the discount schedule, and the terms below match it. The earlier condition, that Finance confirm each term for the 2027 school year before any message stating it is sent, was removed that day. Every offer-stating draft now carries a note instead: *"Offer terms are taken from Silverleaf's discount schedule (2025 Proposed Fees & Discounts). Check with Finance before the first send."* The note never holds a draft or changes its review status. First messages state no terms.
 
+**Updated 13 October 2026.** OF07 is the group rate for savings groups. The discount schedule's row named one association ("KINEFA discount"); the user decided to keep the rate and apply it to savings groups generally: SACCOS and community savings groups (VICOBAs). It no longer needs Finance to extend it. The thresholds and percentages are the schedule's own, and messages never name the association.
+
 Conditions that still stand:
-- OF07 is documented for KINEFA only; Finance must agree to extend it to any other savings group.
+- OF07 counts primary-age students from one group's members and starts at 50 students; there is no pooling across groups.
 - OF03 applies only when a home places all its primary-age children.
 - Expired offers stay expired: the referral package (OF05) applied to enrolments before 30 November 2024.
 
@@ -26,7 +28,7 @@ Conditions that still stand:
 | OF04 | Institutional staff discount | Staff of organisations and government bodies | 20% for heads of department, for as long as the child studies at Silverleaf; 10% off the first year for all other staff | Employers only; never in a convening letter to officials |
 | OF05 | Referral uniform package | Referred students, 2025 intake | TZS 30,000 package for enrolment before 30 November 2024 | **No.** Expired; the 2027 referral scheme is under review (task A8). |
 | OF06 | ECD owner facilitation | Owners or managers of early-childhood centres | TZS 50,000 per Daycare or Pre-Primary student enrolled in January | Only for ECD-centre leads (none in the current lists) |
-| OF07 | Member association rate | KINEFA members | 7% per student at 50 students, 12% at 100, 17% at 150 | Savings groups, as a group rate Finance must agree to extend |
+| OF07 | Group rate for savings groups | Members of a SACCOS or a community savings group (VICOBA) who send their primary-age children | Per primary-age student from one group's members: 7% once 50 students join, 12% at 100, 17% at 150 | Savings groups only, from the offer message on (13 October 2026) |
 | OF08 | Corporate Education Benefit Partnership | Rivertrees employees | 40% off tuition; admission fee (TZS 50,000) waived; monthly or quarterly instalments; facilities, parent events, priority enrolment subject to availability | Rivertrees only. For other employers it is the model for the proposal after a meeting. |
 | OF09 | Four-instalment tuition | Every family | Tuition is paid in four instalments across the year | Yes |
 
@@ -47,7 +49,7 @@ Checked on the admissions page on 23 September 2026:
 1. **State terms exactly as recorded,** with their condition: all primary-age children for OF03, payment before the school year opens for OF01.
 2. **No offer terms in first messages.** The first message to an organisation is a request; the terms appear from the offer message on. Tuition figures are sent on request, never in a first message; offer the current fee schedule instead.
 3. **No referral rewards** of any kind until a 2027 scheme is approved.
-4. **OF08's 40% is for Rivertrees only.** OF07's group rate needs Finance to extend it.
+4. **OF08's 40% is for Rivertrees only.** OF07's group rate is for savings groups only (SACCOS and VICOBAs), counted from one group's members.
 5. **Government convening letters** state no offer, fee or service (changed 1 October 2026: they read as too salesy); they describe a free talk and a parent booklet, and never offer officials or their staff a discount. A personal benefit to officials whose cooperation Silverleaf seeks could look like an inducement.
 6. **No offer guarantees** a place, transport route or capacity.
 7. **Record the offer IDs of every message** and the offer-terms note (terms from the discount schedule; check with Finance before the first send). The note is not a hold.
@@ -64,7 +66,7 @@ Request first (decided 23 September 2026, on Kilusu's recommendation). The first
 |---|---|---|---|
 | Employer (AQ02) | A partnership to provide an education benefit for the children of its staff, and a short meeting | Follow-up 1: the staff school-fee benefit at no cost to the employer (OF04), the family offer (OF01, OF02, OF09), levels and campuses; the employer can present the benefit as its own or add to it | A close after 4 more working days |
 | Employer (AQ01 routing) | The same partnership request | The reply once someone names the right colleague | Second touch after 5 working days: who is best to speak to about staff welfare or benefits |
-| Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the member-association rate (OF07) | One check-in, or a close |
+| Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the group rate for savings groups (OF07) | One check-in, or a close |
 | Welfare home or programme | A partnership on the education of the children in its care, and a short meeting | Follow-up: the partner rate (OF03), the free uniform and instalments; admissions checks each child's level | None |
 | Welfare funder | Sponsorship of students, any size including textbooks, transport or meals, with its verified support for a home as the reason; held when the run has no verified reason | Follow-up: the partner rate as a way to stretch sponsorship | None |
 | Council (GA01) | Already a request: a free Kiswahili school-readiness talk at community meetings, plus a parent booklet; no offer, fee or service is stated | None | A written follow-up after 5 working days |

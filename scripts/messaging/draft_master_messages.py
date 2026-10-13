@@ -38,6 +38,10 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   offer_lib.OFFER_TERMS_NOTE (terms from the schedule; check with Finance before the first send) in place of the 2027 Finance
   condition, which is dropped from the notes. The note holds nothing. A copy this changes after both earlier labels are taken is
   saved as '2026-10-12-before-offer-note'.
+- Group rate (13 October 2026): the user decided that OF07, the discount schedule's group rate, applies to savings groups
+  generally (SACCOS and VICOBAs), so the SACCOS offer message states it with all three steps, and the note that Finance must
+  extend it is dropped from the plans (OBSOLETE_NOTES). A copy a register change alters is saved first under the label
+  '<register date>-before-offer-v<n>' (offer_backup_label).
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
   value module VM19, positioning evidence PE025-PE028 and the strategy records; everything in one transaction with
@@ -87,8 +91,11 @@ STRATEGY_ID = "S-request-first-v5"
 COPY_VERSION = "request-first-v5"
 MESSAGE_STATUS = "Draft - not sent; request-first review"
 TODAY = "2026-09-23"
-# The sender is Mariam Haji for every draft; the 2027 Finance condition became the offer-terms note (12 October 2026).
-OBSOLETE_NOTES = {"replace sender name", L.OLD_CONFIRM_2027}
+# The sender is Mariam Haji for every draft; the 2027 Finance condition became the offer-terms note (12 October 2026); the
+# group rate (OF07) applies to savings groups generally and needs no Finance extension (13 October 2026). The old OF07 note was
+# merged part by part, so its two parts are listed as well as the whole.
+OLD_GROUP_RATE_NOTE = "The member-association rate is documented for KINEFA only; Finance must agree to extend it before sending."
+OBSOLETE_NOTES = {"replace sender name", L.OLD_CONFIRM_2027, OLD_GROUP_RATE_NOTE, *OLD_GROUP_RATE_NOTE.split("; ")}
 # Variant A (sponsorship) plans: the register approves no follow-up for a sponsorship ask before a reply.
 SPONSORSHIP_FOLLOW_UP_NOTE = ("Sponsorship follow-up awaiting approved copy (variant A: no staff-benefit follow-up, because the offer register "
                               "gives sponsorship rows no offer message until they reply).")
@@ -286,7 +293,7 @@ def saccos_copy(plan: dict, org: dict, track: str) -> dict:
             f"would like to speak with your committee.{(' ' + hook) if hook else ''}\n\n{L.INTRO}\n\n{L.MEETING_ASK}\n\n{L.SIGNATURE}")
 
     def offer_text(opener: str) -> str:
-        return (f"{greet}\n\n{opener} Every Silverleaf family can get {L.family_offer_en()}. We also offer member associations "
+        return (f"{greet}\n\n{opener} Every Silverleaf family can get {L.family_offer_en()}. We also offer savings groups "
                 f"{L.EN['OF07']}.\n\n{campus_line(org)}\n\n{CTA['Committee referral']}\n\n{L.SIGNATURE}")
 
     if routing_plan(plan, track):
@@ -531,7 +538,8 @@ def main() -> int:
             taken = {v for (v,) in con.execute("SELECT version FROM message_versions WHERE message_id=? AND version IN (?,?)",
                                                (plan["message_id"], REDRAFT_BACKUP, FALLOUT_BACKUP))}
             free = [v for v in (REDRAFT_BACKUP, FALLOUT_BACKUP) if v not in taken]
-            label = (free[0] if free else OFFER_NOTE_BACKUP) if changed else ""
+            label = ((offer_backup_label() if plan.get("offer_version") != L.OFFER_VERSION else free[0] if free else OFFER_NOTE_BACKUP)
+                     if changed else "")
         if label:
             backups.append((label, plan["message_id"], json.dumps({"outreach_plan": original, "message": messages.get(plan["message_id"])},
                                                                   ensure_ascii=False, default=str)))
@@ -755,10 +763,11 @@ def main() -> int:
                      "The recipient sees concrete, documented savings: staff tuition discounts, the free uniform for full-year payment, sibling discounts and four instalments.",
                      "Offer terms exactly as recorded in data/reference/silverleaf-offer-register.json.", "Share the offer with staff or members.",
                      "Every offer-aligned v4 draft.", "No term beyond the discount schedule the register records; no guaranteed places, transport or "
-                     "outcomes; no referral rewards; the 40% rate is Rivertrees' only; the member-association rate needs Finance to extend it.",
+                     "outcomes; no referral rewards; the 40% rate is Rivertrees' only; the group rate (OF07) is for savings groups only, "
+                     "counted from one group's members.",
                      "PE025; PE026; PE027; PE028", "Draft; terms from the discount schedule (confirmed 12 October 2026); check with Finance before the first send"))
         for row in (
-            ("PE025", "Offer terms", "Silverleaf's discount schedule: free uniform for full-year payment; sibling 10%/20%; NGO partner 3-18%; institutional 20% heads of department and 10% first-year for other staff; KINEFA member rates; expired referral package; ECD facilitation.",
+            ("PE025", "Offer terms", "Silverleaf's discount schedule: free uniform for full-year payment; sibling 10%/20%; NGO partner 3-18%; institutional 20% heads of department and 10% first-year for other staff; group rates 7%/12%/17% at 50/100/150 primary-age students (the row 'KINEFA discount', applied to savings groups generally by the user's decision of 13 October 2026); expired referral package; ECD facilitation.",
              "All offer-aligned v4 drafts state these terms from the offer register.", "references/Offers & Discounts/2025 Proposed Fees & Discounts - 2025 Discounts.pdf",
              "Summary of discounts offered, p.1 (sha256 c6125a41a129e7fd)", "Internal offer document (2025)", TODAY, "Usable",
              "The user confirmed on 12 October 2026 that the offer terms come from this schedule; check with Finance before the first send. "
@@ -777,7 +786,7 @@ def main() -> int:
         con.execute("INSERT OR REPLACE INTO strategies VALUES (?,?,?,?,?)",
                     (OFFER_STRATEGY_ID, "Offer-aligned outreach (documented Silverleaf offer)", "All organisation and parent drafts",
                      "Messages lead with the documented offer for the audience: employers get the staff school-fee benefit (OF04) and the family offer; "
-                     "SACCOS get the family offer and the member-association rate; Rivertrees gets its 2025 terms. A recipient hook appears only when verified; "
+                     "SACCOS get the family offer and the group rate for savings groups; Rivertrees gets its 2025 terms. A recipient hook appears only when verified; "
                      "otherwise the message opens with the offer. Terms: data/reference/silverleaf-offer-register.json.",
                      "Superseded for first messages by S-request-first-v5 (23 September 2026); its offer copy is now the offer message"))
         con.execute("INSERT OR REPLACE INTO strategies VALUES (?,?,?,?,?)",
@@ -841,9 +850,7 @@ def conditions_for(copy: dict) -> str:
 
 def plan_notes(copy: dict, organisation_id: str, welfare_links: dict) -> list[str]:
     """The notes every offer-aligned plan carries, whether new or rewritten."""
-    notes = [L.OFFER_TERMS_NOTE]  # a note, never a hold
-    if "OF07" in copy["offer_ids"]:
-        notes.append("The member-association rate is documented for KINEFA only; Finance must agree to extend it before sending.")
+    notes = [L.OFFER_TERMS_NOTE]  # a note, never a hold; OF07 carries no Finance condition since 13 October 2026
     if organisation_id in welfare_links:
         notes.append(f"Also a welfare lead ({welfare_links[organisation_id]}); contact the organisation once.")
     if copy.get("sw"):
@@ -853,8 +860,11 @@ def plan_notes(copy: dict, organisation_id: str, welfare_links: dict) -> list[st
 
 RECIPE_CONFIGURATION = "automation-2026-09-23-offer-v4"
 SACCOS_V3_COPY = "Offer an optional member information session without a loan, subsidy or discount claim"
-SACCOS_V4_COPY = ("State the family offer and the member-association rate exactly as the offer register records them (Finance must extend "
-                  "the KINEFA rate first); no loan, subsidy or referral claim")
+SACCOS_V4_COPY = ("State the family offer and the group rate for savings groups (OF07) exactly as the offer register records them; "
+                  "no loan, subsidy or referral claim")
+# The step-2 copy before the group-rate decision (13 October 2026); align_recipes replaces it.
+SACCOS_V4_COPY_BEFORE_GROUP_RATE = ("State the family offer and the member-association rate exactly as the offer register records them (Finance must "
+                                    "extend the KINEFA rate first); no loan, subsidy or referral claim")
 SACCOS_V4_STEP2 = "Offer the one-page version using approved fee information without figures unless cleared"
 SACCOS_V5_STEP1 = "Ask for a short meeting with the committee about members' children's education; no offer terms"
 F01_V4_PRINCIPLE = "Offer-led, recipient-centred, one CTA; PE023 and PE024"
@@ -898,7 +908,8 @@ def align_recipes(con) -> None:
     for table, column, step in (("automation_recipes", "example_copy", "step"), ("outreach_flows", "example_copy", "step"),
                                 ("campaign_touchpoints", "draft_copy", "flow_step")):
         for flow, number, old, new in (("F01", 2, F01_V4_STEP2, F01_V5_STEP2), ("F03", 1, SACCOS_V4_COPY, SACCOS_V5_STEP1),
-                                       ("F03", 2, SACCOS_V4_STEP2, SACCOS_V4_COPY)):
+                                       ("F03", 1, SACCOS_V4_COPY_BEFORE_GROUP_RATE, SACCOS_V5_STEP1),
+                                       ("F03", 2, SACCOS_V4_STEP2, SACCOS_V4_COPY), ("F03", 2, SACCOS_V4_COPY_BEFORE_GROUP_RATE, SACCOS_V4_COPY)):
             con.execute(f'UPDATE {table} SET "{column}"=? WHERE flow_id=? AND "{step}"=? AND "{column}"=?', (new, flow, number, old))
 
 
@@ -915,6 +926,12 @@ def merge_notes(existing, notes) -> str:
     for note in notes:
         parts += [p for p in dict.fromkeys(x.strip() for x in str(note or "").split("; ") if x.strip()) if p not in parts]
     return "; ".join(parts)
+
+
+def offer_backup_label() -> str:
+    """The message_versions label for a copy a change of the offer register alters: '2026-10-13-before-offer-v6' for register
+    version '2026-10-13-offer-v6'. One label per register version, so each plan's copy before that version is kept once."""
+    return L.OFFER_VERSION.replace("-offer-", "-before-offer-")
 
 
 def offer_summary(ids) -> str:

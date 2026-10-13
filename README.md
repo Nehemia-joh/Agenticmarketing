@@ -575,7 +575,7 @@ The master's 598 also counted 21 organisations whose phone field holds a directo
 - **Flags:** the Flags sheet lists 396 research warnings for a person to check. They include five sites crawled with an unreachable robots.txt and five organisation records read with a browser although robots.txt disallows crawling.
 
 Still without a route:
-- savings groups, reached through KINEFA
+- savings groups, reached through council registers and introducers
 - register-only NGOs with no web presence
 - ward and village offices
 - organisations every wave searched without finding a route (the Gaps sheet lists them with what was tried)

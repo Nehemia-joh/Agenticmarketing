@@ -1,6 +1,6 @@
 # Silverleaf offer register
 
-Version: 2026-10-12-offer-v5
+Version: 2026-10-13-offer-v6
 Machine-readable copy: `data/reference/silverleaf-offer-register.json`. The message scripts in `scripts/messaging/` read it, and verification checks every percentage and amount in a message against it.
 
 ## Status
@@ -11,8 +11,10 @@ The terms come from two Silverleaf documents in `references/Offers & Discounts/`
 
 **Updated 12 October 2026.** The user confirmed that the offer terms come from the discount schedule, and the terms below match it. The earlier condition, that Finance confirm each term for the 2027 school year before any message stating it is sent, was removed that day. Every offer-stating draft now carries a note instead: *"Offer terms are taken from Silverleaf's discount schedule (2025 Proposed Fees & Discounts). Check with Finance before the first send."* The note never holds a draft or changes its review status. First messages state no terms.
 
+**Updated 13 October 2026.** OF07 is the group rate for savings groups. The discount schedule's row named one association ("KINEFA discount"); the user decided to keep the rate and apply it to savings groups generally: SACCOS and community savings groups (VICOBAs). It no longer needs Finance to extend it. The thresholds and percentages are the schedule's own, and messages never name the association.
+
 Conditions that still stand:
-- OF07 is documented for KINEFA only; Finance must agree to extend it to any other savings group.
+- OF07 counts primary-age students from one group's members and starts at 50 students; there is no pooling across groups.
 - OF03 applies only when a home places all its primary-age children.
 - Expired offers stay expired: the referral package (OF05) applied to enrolments before 30 November 2024.
 
@@ -26,7 +28,7 @@ Conditions that still stand:
 | OF04 | Institutional staff discount | Staff of organisations and government bodies | 20% for heads of department, for as long as the child studies at Silverleaf; 10% off the first year for all other staff | Employers only; never in a convening letter to officials |
 | OF05 | Referral uniform package | Referred students, 2025 intake | TZS 30,000 package for enrolment before 30 November 2024 | **No.** Expired; the 2027 referral scheme is under review (task A8). |
 | OF06 | ECD owner facilitation | Owners or managers of early-childhood centres | TZS 50,000 per Daycare or Pre-Primary student enrolled in January | Only for ECD-centre leads (none in the current lists) |
-| OF07 | Member association rate | KINEFA members | 7% per student at 50 students, 12% at 100, 17% at 150 | Savings groups, as a group rate Finance must agree to extend |
+| OF07 | Group rate for savings groups | Members of a SACCOS or a community savings group (VICOBA) who send their primary-age children | Per primary-age student from one group's members: 7% once 50 students join, 12% at 100, 17% at 150 | Savings groups only, from the offer message on (13 October 2026) |
 | OF08 | Corporate Education Benefit Partnership | Rivertrees employees | 40% off tuition; admission fee (TZS 50,000) waived; monthly or quarterly instalments; facilities, parent events, priority enrolment subject to availability | Rivertrees only. For other employers it is the model for the proposal after a meeting. |
 | OF09 | Four-instalment tuition | Every family | Tuition is paid in four instalments across the year | Yes |
 
@@ -47,7 +49,7 @@ Checked on the admissions page on 23 September 2026:
 1. **State terms exactly as recorded,** with their condition: all primary-age children for OF03, payment before the school year opens for OF01.
 2. **No offer terms in first messages.** The first message to an organisation is a request; the terms appear from the offer message on. Tuition figures are sent on request, never in a first message; offer the current fee schedule instead.
 3. **No referral rewards** of any kind until a 2027 scheme is approved.
-4. **OF08's 40% is for Rivertrees only.** OF07's group rate needs Finance to extend it.
+4. **OF08's 40% is for Rivertrees only.** OF07's group rate is for savings groups only (SACCOS and VICOBAs), counted from one group's members.
 5. **Government convening letters** state no offer, fee or service (changed 1 October 2026: they read as too salesy); they describe a free talk and a parent booklet, and never offer officials or their staff a discount. A personal benefit to officials whose cooperation Silverleaf seeks could look like an inducement.
 6. **No offer guarantees** a place, transport route or capacity.
 7. **Record the offer IDs of every message** and the offer-terms note (terms from the discount schedule; check with Finance before the first send). The note is not a hold.
@@ -57,7 +59,7 @@ Checked on the admissions page on 23 September 2026:
 Request first (decided 23 September 2026, on Kilusu's recommendation). The first message to an organisation makes a relevant request and states no offer terms. It gives its purpose, who is writing and asks for a short meeting, in person or by phone. The offer message states the terms. What Silverleaf offers comes second: it answers a reply or follows up, and never opens the conversation.
 
 **Promotional incentives (rule added 11 October 2026, approved by the user).** The partnership offer and a promotional incentive are different things:
-- **The partnership offer** is the terms above (OF04 staff discount, OF03 partner rate, OF07 member rate once extended, OF01, OF02, OF09). It is stated plainly once the conversation is open.
+- **The partnership offer** is the terms above (OF04 staff discount, OF03 partner rate, OF07 group rate for savings groups, OF01, OF02, OF09). It is stated plainly once the conversation is open.
 - **A promotional incentive** is anything extra used to tip a decision, such as discounted first months. It is not an offer in this register, and the rule adds none.
 - A promotional incentive never appears in any automated or standard flow, nor in a cold or early message, because it makes Silverleaf look desperate.
 - It may be used only at the proposal stage, for a specific employer that has already engaged, with Finance's written approval each time. It is time-limited, and only in terms this register records: it is entered here, with its approval and expiry, before any proposal states it.
@@ -73,7 +75,7 @@ See [partnership-pipelines.md](../../../docs/strategy/partnership-pipelines.md),
 |---|---|---|---|
 | Employer (AQ02) | A partnership to provide an education benefit for the children of its staff, and a short meeting | Follow-up 1: the staff school-fee benefit at no cost to the employer (OF04), the family offer (OF01, OF02, OF09), levels and campuses; the employer can present the benefit as its own or add to it | A close after 4 more working days; for a named person behind a general inbox (Attn format) the close asks who else to write to, such as HR or the welfare officer (11 October 2026) |
 | Employer (AQ01 routing; updated 11 October 2026) | No person named: a short redirect request asking who looks after staff welfare and benefits (HR, the welfare officer or the COO); no pitch, no terms. A named person behind a general inbox gets the AQ02 message in the Attn format | The reply once someone names the right colleague | A front-desk call after 2 working days asking for that person's name and email; a hand-delivered letter for the nearest P1/P2 leads; then dormant until the next intake window |
-| Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the member-association rate (OF07) | One check-in, or a close |
+| Savings group | A meeting with the committee about members' children's education; a Kiswahili version for review | The family offer and the group rate for savings groups (OF07) | One check-in, or a close |
 | Welfare home or programme | A partnership on the education of the children in its care, and a short meeting | Follow-up: the partner rate (OF03), the free uniform and instalments; admissions checks each child's level | For a named leader behind a general inbox (Attn format), a close asking who else to write to, such as the head of the home or programme (11 October 2026); otherwise none |
 | Employer that funds education (variant A) | Sponsorship of students, any size including textbooks, transport or meals, with its own published education giving as the reason (no offer terms) | None until it replies | None |
 | Every other employer (variant B, the catch-all) | A partnership on an education benefit for the children of staff, with its published giving as the reason where there is one (no offer terms) | The staff school-fee benefit (OF04) and the family offer, as above | A close after 4 more working days |

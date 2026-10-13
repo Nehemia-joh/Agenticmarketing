@@ -67,13 +67,16 @@ EN = {
     "OF09": "tuition in four instalments",
     "OF03": ("partner rates when a home places all its primary-age children with us: 3% off tuition per child for 10 children, "
              "rising to 6% for 20, 9% for 30, 12% for 40, 15% for 50 and 18% for 60 or more"),
-    "OF07": "a group rate, starting at 7% off tuition per student once 50 members' students join",
+    # OF07, the group rate for savings groups (SACCOS and VICOBAs; the user's decision of 13 October 2026), with all three steps.
+    "OF07": ("a group rate: for each primary-age student from one group's members, 7% off tuition once 50 students join, "
+             "12% at 100 and 17% at 150"),
 }
 SW = {
     "OF01": "sare kamili ya shule bure (yenye thamani ya TZS 110,000) kwa mzazi anayelipa ada ya mwaka mzima kabla shule haijafunguliwa",
     "OF02": "punguzo la asilimia 10 ya ada kwa mtoto wa tatu na asilimia 20 kwa mtoto wa nne",
     "OF09": "ada kulipwa kwa awamu nne kwa mwaka",
-    "OF07": "punguzo la kikundi, kuanzia asilimia 7 ya ada kwa kila mwanafunzi pale wanafunzi 50 wa wanachama watakapojiunga",
+    "OF07": ("punguzo la kikundi kwa kila mwanafunzi wa elimu ya msingi kutoka kwa wanachama wa kikundi kimoja: asilimia 7 ya ada "
+             "wanafunzi 50 wakijiunga, asilimia 12 kwa 100 na asilimia 17 kwa 150"),
 }
 
 

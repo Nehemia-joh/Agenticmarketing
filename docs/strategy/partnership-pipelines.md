@@ -102,7 +102,7 @@ flowchart TD
 
 | Spine | Employers (variant B) | Sponsorship (variant A) | SACCOS | Introducers and welfare networks | Welfare homes and programmes | Welfare funders | Government councils | Government wards and villages |
 |---|---|---|---|---|---|---|---|---|
-| S0 Held | AQ00 hold; public bodies before the compliance check | AQ00 | AQ00; Kiswahili and Finance checks pending | AQ00 | WA00 | WA00; no verified link to a home | GA00 (councils outside the pilot) | GA00 until the council introduction |
+| S0 Held | AQ00 hold; public bodies before the compliance check | AQ00 | AQ00; Kiswahili review pending | AQ00 | WA00 | WA00; no verified link to a home | GA00 (councils outside the pilot) | GA00 until the council introduction |
 | S1 Ready | Ready | Ready | Ready | Ready | Ready | Ready | Letter ready | Convening request ready |
 | S2 Contacted | Contacted: Attn message, redirect request or direct message | Contacted | Letter or call | Contacted | Contacted | Contacted | Letter delivered by hand | Request delivered by hand |
 | S3 Responded | Responded | Responded | Responded | Responded | Responded | Responded | Call after 5 working days | Acknowledged |
@@ -163,7 +163,7 @@ Two side states sit outside the stages:
 | `capacity` | Silverleaf cannot serve the request (level, place or need) |
 | `compliance_blocked` | A compliance, HR or protocol check failed |
 | `terms_not_agreed` | The proposal was explicitly rejected (silence after a proposal is dormant, not lost) |
-| `rate_not_approved` | SACCOS: Finance did not extend the member rate (OF07) |
+| `rate_not_approved` | Savings groups: the committee asked for terms beyond the group rate (OF07) and Finance did not approve them |
 | `safeguarding_stop`, `needs_not_supported` | Welfare only |
 | `payment_requested`, `lists_offered` | Government only: stop and escalate; offered lists are refused and recorded |
 
@@ -438,7 +438,7 @@ A warm route can reopen a dormant lead before the next window. It counts as a ne
 
 There are two different things here, and they must not be mixed.
 
-1. **The partnership offer.** These are the terms the offer register records: the staff school-fee benefit (OF04), the welfare partner rate (OF03), the member-association rate (OF07, once Finance extends it) and the family offer (OF01, OF02, OF09). They are stated plainly once the conversation is open: in the offer message (follow-up 1), in a reply, or in the meeting. They never appear in the first message.
+1. **The partnership offer.** These are the terms the offer register records: the staff school-fee benefit (OF04), the welfare partner rate (OF03), the group rate for savings groups (OF07) and the family offer (OF01, OF02, OF09). They are stated plainly once the conversation is open: in the offer message (follow-up 1), in a reply, or in the meeting. They never appear in the first message.
 2. **A promotional incentive.** This is anything extra used to tip a decision, such as discounted first months or a waived fee beyond what the register records.
    - It **never** appears in any automated or standard flow, nor in a cold or early message (S1–S5), because it makes Silverleaf look desperate.
    - It may be used **only at the proposal stage (S6)**, and only for a specific employer that has already engaged.
@@ -764,7 +764,7 @@ The staff benefit is offered as a separate conversation one month after the spon
 
 **Subsegments:** employer- or institution-based SACCOS (48), community or open-bond SACCOS (67), and 2 from map data with no type. The audience is members, reached through the committee chair or secretary, in Kiswahili (F03).
 
-The offer message gives the family offer and the member-association rate. That rate (OF07) is documented for KINEFA only, so Finance must agree to extend it before it is stated. There is no loan, payroll or subsidy claim (VM06).
+The offer message gives the family offer and the group rate for savings groups (OF07): per primary-age student from one group's members, 7% once 50 students join, 12% at 100 and 17% at 150. On 13 October 2026 the user decided the rate applies to savings groups generally, SACCOS and community savings groups (VICOBAs) alike, so it no longer waits for Finance to extend it; the terms-source note (check with Finance before the first send) still applies. Students are not pooled across groups. There is no loan, payroll or subsidy claim (VM06).
 
 <!-- pair -->
 ```mermaid
@@ -775,7 +775,7 @@ flowchart TD
   RS["S3 Responded<br/>Coord · member offer sheet"]
   CM["S4 Committee meeting<br/>Coord + Adm · short talk"]
   MM["S5 Members' meeting or AGM slot<br/>Adm · Kiswahili pamphlet, form"]
-  GR["S6 Group-rate proposal<br/>only if Fin extends OF07"]
+  GR["S6 Group-rate proposal<br/>OF07 from 50 students"]
   W["S7 PARTNER<br/>committee circulates<br/>or slot held"]
   N["S8 Member sign-ups<br/>code SAC"]
   PF["Parent funnel<br/>Inquiry to Enrolment"]
@@ -807,7 +807,7 @@ flowchart TD
 |---|---|
 | Leads (ready) | 117 (1): employer-based 48, community 67, unclassified 2 |
 | First touch | 116 have no email, so a call to the chair or secretary or a hand-delivered Kiswahili letter comes first; 1 is low (held) |
-| Gates | Kiswahili review and Finance approval of the member rate before S1 |
+| Gates | Kiswahili review before S1 |
 | Win | S7: the committee circulates to members, or a meeting slot is held; a group rate is a stronger optional form |
 | Dormant | `dormant_no_route`, `dormant_no_response` (until the society's next members' meeting or AGM) |
 | Closed-lost | `declined`, `rate_not_approved` |

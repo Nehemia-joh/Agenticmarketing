@@ -64,7 +64,7 @@ Read [campaign-positioning-and-cadence.md](campaign-positioning-and-cadence.md) 
 | Step | Trigger | Condition | Action | Delay | Database update | Example | Principle |
 |---:|---|---|---|---|---|---|---|
 | 1 | SACCOS and committee route selected | Current operation, committee route and locality verified; 2027 facts approved | Send the row's SACCOS request-first message (subject and body) | Day 0 after checks | awaiting_reply; audience=members; campaign_id=C02 | Ask for a short meeting with the committee about members' children's education; no offer terms | Qualification before enrichment; PE015 and PE024 |
-| 2 | Initial delivered; no reply | F01 stop checks pass | Send the SACCOS first follow-up in the same thread | 4 working days after actual delivery | last_step=2 | State the family offer and the member-association rate exactly as the offer register records them (Finance must extend the KINEFA rate first); no loan, subsidy or referral claim | Add practical value |
+| 2 | Initial delivered; no reply | F01 stop checks pass | Send the SACCOS first follow-up in the same thread | 4 working days after actual delivery | last_step=2 | State the family offer and the group rate for savings groups (OF07) exactly as the offer register records them; no loan, subsidy or referral claim | Add practical value |
 | 3 | First follow-up delivered; no reply | F01 stop checks pass | Send the final low-effort ask and stop | 4 working days after step 2 delivery | sequence_complete | Should I send the member-information outline for a quick review, or close this for now? | Limited pursuit |
 
 ## F04

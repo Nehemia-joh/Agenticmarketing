@@ -301,7 +301,7 @@ def company_rows(con):
         if p["review_status"] != "Draft review":
             reasons.insert(0, "needs research: recheck the source, role and organisation")
         if p["segment"] == "SACCOS members":
-            reasons.append("savings group: Kiswahili review and Finance's approval of the member rate first")
+            reasons.append("savings group: native-speaker review of the Kiswahili version first")
         named = named_recipient(contact, p["segment"])
         direct = contact and address in R.emails(contact["named_email"], contact["published_role_email"])
         if R.FREE_MAIL.search(address) and not direct and not org_named_inbox(address, org["name"]):

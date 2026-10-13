@@ -5,6 +5,46 @@ Companion: `docs/plans/vicoba-sourcing-plan.md` (sources and yield; written by a
 
 VICOBA (Village Community Banks, *vikoba*) are community savings-and-loan groups of roughly 15 to 30 members who meet weekly, save in shares, lend to each other and share out at the end of a cycle. They are close kin to VSLAs and to the community microfinance groups (CMGs) that councils register under the Microfinance Act 2018. The user wants them as a new subsegment under the employer/company segment, worked "the usual" way: inventory, enrichment, confidence bands, drafts and pipeline.
 
+## 0. Definition of the subsegment (user and orchestrator, 13 October 2026)
+
+The user asked the orchestrator to define VICOBAs. They noted that many are literally named VICOBA and that many are women-centred. Women's groups are a priority, on the hypothesis that women members care about quality education for their children.
+
+**A group is in the VICOBA subsegment when all of these hold:**
+
+1. **It is a community savings-and-loan group.**
+   - Members buy shares at regular meetings (usually weekly).
+   - The group lends to its members from the pooled fund.
+   - It shares out the savings at the end of a fixed cycle (usually 9–12 months).
+   - Most keep a small social (emergency) fund.
+   - A constitution and an elected committee (chair, secretary, treasurer) run it.
+2. **It is identified as one by a source.** At least one of:
+   - its name says so: *VICOBA*, *VIKOBA*, *Village Community Bank*, *VSLA*, *Village Savings and Loan*, *kikundi cha kuweka na kukopa*;
+   - a council register lists it as a Tier 4 community microfinance group;
+   - an intermediary (an NGO, a bank's group product, a ward officer) introduces it as a savings-and-loan group.
+3. **It meets in the catchment:** within 25 km of a campus, by its ward or meeting place.
+4. **It is supplied as a group.** It reaches us as a group record from a council register, an intermediary or the group itself, never from a list of loan recipients or members.
+
+**What it is not:**
+- **SACCOS** are registered co-operatives with a TCDC licence. They stay in their own SACCOS subsegment.
+- **Rotating groups** (*upatu*, *mchezo*) have no loans and no share-out, so they are out unless a source calls them a VICOBA.
+- **Microfinance companies and banks** (Tier 2 and 3, VisionFund, Akiba) are intermediaries and introducers, not groups.
+
+**Women's groups: tag them and work them first.**
+- A group is tagged `women_group` only on source evidence, never by inference:
+  - its name names women: *wanawake*, *akina mama*, *kina mama*, *women*, *mama*;
+  - the source calls it a women's group;
+  - it is a council 10% loan **women's group** supplied by the council as a group.
+- Nobody's sex or status is inferred from a member's or leader's name. The repository holds no member data.
+- Tagged groups come first in every wave: the introduction request, the meeting slot, the talk. The tag is a priority, not a different offer: the same family offer and the same drafts apply, with the talk aimed at mothers' questions (curriculum, safety, transport, instalments timed to the share-out).
+- The hypothesis is tested, not assumed. The pipeline records `women_group` on every opt-in and enrolment (S8), so partner reports can compare conversion for women's groups with other groups once at least 3 groups exist on each side. As usual, a count below 3 shows as "fewer than 3".
+
+**Subtypes** (they replace §2's six `VICOBA — …` labels where they differ):
+- `VICOBA — women's group`
+- `VICOBA — mixed or unspecified`
+- `VICOBA — youth group`
+- `VICOBA — group of people with disabilities`, recorded only when the council or intermediary supplies it as such. Membership of such a group is not recorded about any person.
+- `VSLA — NGO-programme group`
+
 ---
 
 ## 1. Evidence

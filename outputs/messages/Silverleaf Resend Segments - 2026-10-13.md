@@ -19,6 +19,14 @@ Contact-import files for Resend, one per segment, in runtime/resend/2026-10-13/ 
 | welfare-medium | 10 |
 | welfare-low | 117 |
 
+Inferred candidates (inferred from format, unverified; always low; a person confirms each before use; counts only, never in the segments above or the dedupe):
+
+| File | Contacts |
+|---|---|
+| companies-low-inferred | 1 |
+| introducers-low-inferred | 1 |
+| welfare-low-inferred | 4 |
+
 Left out (no email address; use the call sheets):
 
 - companies: no email route (phone only or none): 569

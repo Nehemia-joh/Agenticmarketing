@@ -30,7 +30,7 @@ Government offices are addressed by office title. Officials are named only from 
        - `decision-makers`: a named decision-maker, for organisations that already have a route and whose own website the crawler could not read (a site it read is left to the crawler)
        - `all`: either
      - with `--include-unclassified`, also plans the welfare run's register-only NGOs whose type is not yet known
-     - leaves out savings groups (reached through KINEFA), government offices, and closed or out-of-scope records
+     - leaves out savings groups (reached through council registers and introducers, not one by one; see `docs/plans/vicoba-sourcing-plan.md`), government offices, and closed or out-of-scope records
      - ranks the candidates nearest first and splits the budget over at most four slices; `--max-per-slice` keeps only the nearest so one agent's work stays manageable (about 35 to 45 organisations), and the rest wait for a later wave
      - with `--split` as well, a larger slice is divided into balanced parts (`<slice>_a`, `<slice>_b`, ...) of at most that size, each with its own agent, still at most four agents in all
      - `--include-crawled` also plans decision-makers for organisations whose own website the crawler read without finding one; an agent reads their about and team pages before searching

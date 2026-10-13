@@ -5,6 +5,12 @@ Companion: `docs/plans/vicoba-sourcing-plan.md` (sources and yield; written by a
 
 VICOBA (Village Community Banks, *vikoba*) are community savings-and-loan groups of roughly 15 to 30 members who meet weekly, save in shares, lend to each other and share out at the end of a cycle. They are close kin to VSLAs and to the community microfinance groups (CMGs) that councils register under the Microfinance Act 2018. The user wants them as a new subsegment under the employer/company segment, worked "the usual" way: inventory, enrichment, confidence bands, drafts and pipeline.
 
+## Decisions taken (13 October 2026)
+
+- **Where VICOBAs live: in the company list (master).** The user decided this: "No need to create a whole new cluster when we can just consider it a company." Groups go into the master as a subsegment of savings groups, as in decision 1 below. No separate run will be created. This settles the reconciliation question in the sourcing plan's section 0.
+- **Definition and women's-group priority:** see section 0.
+- **KINEFA is unknown to the user.** It appears only in Silverleaf's own discount schedule, as the row "KINEFA discount": "Applicable to KINEFA members only who send their primary aged students to Silverleaf", at 7/12/17% for 50/100/150 children. That row is the source of OF07. Nothing else in the repository says what KINEFA is. The earlier notes that savings groups are "reached through KINEFA" were an assumption and are withdrawn. KINEFA is not treated as an introducer until whoever drew up the schedule says what it is.
+
 ## 0. Definition of the subsegment (user and orchestrator, 13 October 2026)
 
 The user asked the orchestrator to define VICOBAs. They noted that many are literally named VICOBA and that many are women-centred. Women's groups are a priority, on the hypothesis that women members care about quality education for their children.

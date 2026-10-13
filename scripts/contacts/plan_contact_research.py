@@ -11,7 +11,7 @@ only fetched known pages and found nothing does not count) and that, by --target
 --second-pass also plans organisations an earlier wave searched only for a route: data/raw/contact-research/search-targets.json
 records what each search file looked for (the planner adds each new wave's files).
 Left out by rule:
-- company master savings groups (reached through KINEFA, not one by one) and government offices (the government run
+- company master savings groups (reached through council registers and introducers, not one by one) and government offices (the government run
   covers them);
 - welfare records out of scope, and unclassified register-only NGOs unless --include-unclassified;
 - organisations a search found closed.

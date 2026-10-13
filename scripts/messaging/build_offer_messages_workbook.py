@@ -151,7 +151,7 @@ def main() -> int:
              ("1. The offer terms are taken from Silverleaf's discount schedule (2025 Proposed Fees & Discounts, 'Summary of discounts offered'), "
               "as the user confirmed on 12 October 2026; check with Finance before the first send. The referral package has expired. First "
               "messages state no terms.", ""),
-             ("2. The 40% rate is Rivertrees' negotiated term only. The member-association rate is documented for KINEFA; Finance must agree to extend it.", ""),
+             ("2. The 40% rate is Rivertrees' negotiated term only. The group rate (OF07) is for savings groups only (SACCOS and VICOBAs), counted from one group's members.", ""),
              ("3. Tuition figures are not quoted in first messages; send the current fee schedule on request (the website's figures carry no school year).", ""),
              ("4. Kiswahili drafts need native-speaker review. Government letters also need the campaign C11 gates (session content, guide, privacy notice).", ""),
              ("5. Held drafts (AQ00, WA00, GA00, needs_review) state what is missing in their conditions column.", ""),

@@ -35,8 +35,9 @@ W = C.W
 MASTER = C.ROOT / "outputs" / "master" / "Silverleaf Master Database.sqlite"
 ROUTE_GAP_PARTS = {"No public email or phone", "find the organisation's route before any message.", "No contact channel recorded"}
 # Held-plan notes that are real blockers, not reminders: a new route does not release these.
-BLOCKER = re.compile(r"Raw OpenStreetMap place|organisation or branch overlap|Confirm current operation and committee|member-association rate|"
-                     r"Finance must agree to extend|Possible closure|Route unconfirmed|Outside the|excluded", re.I)
+# The group rate (OF07) note stopped being a hold on 13 October 2026, when the user applied the rate to savings groups generally.
+BLOCKER = re.compile(r"Raw OpenStreetMap place|organisation or branch overlap|Confirm current operation and committee|"
+                     r"Possible closure|Route unconfirmed|Outside the|excluded", re.I)
 CLOSURE_NOTE = "Possible closure found by contact research; confirm the organisation still operates before any message."
 NOTE_ACTIONS = {"hijacked or parked site": "The organisation's former website or inbox now belongs to someone else; never use it. Confirm the current route.",
                 "location to check": "Research places the organisation elsewhere than the database does; confirm its location before outreach.",

@@ -41,7 +41,7 @@ Open with the request, a short meeting about an education benefit for the childr
 
 ### SACCOS
 
-Open with a request to meet the committee about members' children's education. In the offer message, offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the member-association group rate, exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy. Finance must agree to extend the group rate, which is documented for KINEFA. The terms come from Silverleaf's discount schedule; check with Finance before the first send (12 October 2026).
+Open with a request to meet the committee about members' children's education. In the offer message, offer the family savings every Silverleaf family can use (the free uniform for full-year payment, the sibling discount and four instalments) and the group rate for savings groups (OF07: per primary-age student from one group's members, 7% once 50 students join, 12% at 100 and 17% at 150), exactly as recorded in the [offer register](offer-register.md). Do not imply a loan, payroll deduction or subsidy, and do not pool students across groups. The group rate applies to SACCOS and community savings groups (VICOBAs) alike (13 October 2026). The terms come from Silverleaf's discount schedule; check with Finance before the first send (12 October 2026).
 
 ### Existing Silverleaf families at early-years campuses
 

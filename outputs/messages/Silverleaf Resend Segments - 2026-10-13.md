@@ -53,6 +53,34 @@ Addresses shared by two rows, exported once (18):
 - loveourtanzaniafamily@gmail.com: Tumaini For Africa Orphanage (welfare, low) kept as Love Our Tanzania Family Inc (welfare)
 - sluokat@gmail.com: UPENDO: One Kid at a Time (welfare, low) kept as OKAT Children's Home (welfare)
 
+## VICOBA savings groups
+
+Every VICOBA group is in exactly one band (first_touch.vicoba_case, the rule the drafter and the call sheet use). A group has no email of its own: its row is a delivery row (`vicoba-delivery-<band>.csv`: band, case, channel, introducer, ward, council, distance band, release order with women's groups first), never a Resend contact. Resend rows exist only for introducers that publish an email (`vicoba-introducers-<band>.csv`).
+
+| Band | Groups | Of which women's groups | Band once the Kiswahili template is approved |
+|---|---:|---:|---:|
+| high-direct | 0 | 0 | 0 |
+| high-indirect | 0 | 0 | 0 |
+| medium | 0 | 0 | 0 |
+| low | 5 | 2 | 5 |
+| total | 5 | 2 | 5 |
+
+Why groups are held (a group can have several reasons):
+
+- Kiswahili template not yet approved by a native speaker: 5
+- introducer named by the intake, link to confirm: 4
+- record stale: not confirmed in 12 months: 3
+- record incomplete: no ward: 1
+- record incomplete: no introducer route: 1
+- no accepted introducer link: 1
+
+| Introducer segment | Contacts |
+|---|---:|
+| vicoba-introducers-medium | 0 |
+| vicoba-introducers-low | 1 |
+
+Introducers without an email (call or letter): 7. Introducer rows kept under another row (one conversation per organisation, or a shared inbox): 0.
+
 Confidence rules and promotion: see the docstring of scripts/messaging/export_resend_contacts.py. Each contact's confidence_reason property says what would promote it.
 
 Custom contact properties to create in Resend before importing (all strings): organisation, track, audience, confidence, high_route, confidence_reason, priority, variant, recipient, escalation_recipient, escalation_email, message_subject, message_body, message_html, plan_id.

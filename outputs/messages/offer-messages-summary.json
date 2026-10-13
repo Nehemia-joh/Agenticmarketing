@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-13 10:47 UTC",
+ "generated": "2026-10-13 14:06 UTC",
  "offer_version": "2026-10-13-offer-v6",
  "corporate_drafts": 2675,
  "corporate_by_track": {
@@ -9,12 +9,17 @@
  },
  "parent_replies_reviewable": 9,
  "welfare": {
-  "draft_ready": 86,
-  "needs_review": 361
+  "draft_ready": 88,
+  "needs_review": 359
  },
  "government": {
   "draft_ready": 4,
-  "needs_review": 224
+  "needs_review": 353
  },
+ "vicoba_drafts": {
+  "VICOBA introducers: Needs research": 8,
+  "VICOBA members: Needs research": 5
+ },
+ "vicoba_templates_approved": false,
  "conformance_issues": 0
 }

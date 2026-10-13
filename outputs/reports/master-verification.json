@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-13T12:16:18.204713+00:00",
+  "checked_at": "2026-10-13T14:06:18.045263+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "2d97b266346b0d5dcede4d7c061dd12c87dee2413a57cd114cc89304b470a9ea",
+  "database_sha256": "c01edf1ea3c120bad75f24b04c1df1f8db4a3396887f16d6377c6293f6784565",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "7418f9b96eb3f12e6f76052947cdfa6fa655847618519d0d98dceb02016e34bf",
+  "workbook_sha256": "7295acf261a6ab75f96e6933045e7d985c48208c5fd19fc0a8a23e8d370677bf",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -14,21 +14,28 @@
     "hooks_link_to_sources": true,
     "lead_briefs_traceable": true,
     "automations_disabled": true,
-    "no_generated_dependency_debris": true
+    "no_generated_dependency_debris": true,
+    "vicoba_labels_valid": true,
+    "vicoba_keyed_and_sourced": true,
+    "vicoba_keys_unique": true,
+    "vicoba_no_organisation_phone": true,
+    "vicoba_contact_phones_have_basis": true,
+    "vicoba_not_merged_with_saccos": true,
+    "vicoba_plans_valid": true
   },
   "counts": {
-    "source_files": 184,
-    "source_records": 14853,
-    "organisations": 1376,
+    "source_files": 188,
+    "source_records": 14881,
+    "organisations": 1389,
     "contacts": 1291,
     "enquiries": 32,
-    "messages": 2675,
-    "outreach_plans": 2675,
+    "messages": 2688,
+    "outreach_plans": 2688,
     "strategies": 141,
     "automation_recipes": 54,
-    "campaign_lead_assignments": 2707,
+    "campaign_lead_assignments": 2720,
     "acquisition_tracks": 3,
-    "value_proposition_modules": 8,
+    "value_proposition_modules": 9,
     "lead_intake_rules": 9
   },
   "hooks": {
@@ -41,9 +48,34 @@
     "untraceable": 0
   },
   "assignments": {
-    "plans": 2675,
-    "with_track": 2675
+    "plans": 2688,
+    "with_track": 2688
   },
   "enabled_automations": 0,
+  "vicoba": {
+    "groups": 5,
+    "by_subtype": {
+      "VICOBA \u2014 women's group": 2,
+      "VSLA \u2014 NGO-programme group": 3
+    },
+    "by_record_status": {
+      "incomplete: no ward": 1,
+      "incomplete: no introducer route": 1,
+      "stale: not confirmed in 12 months": 3
+    },
+    "women_groups": 2,
+    "group_plans": 5,
+    "introducer_plans": 8,
+    "organisation_emails": 0,
+    "review_items": {
+      "VICOBA introducer to confirm": 20,
+      "VICOBA record incomplete": 2,
+      "VICOBA stale": 3
+    },
+    "failing": {
+      "labels": [],
+      "keyed_and_sourced": []
+    }
+  },
   "unwanted_paths": []
 }

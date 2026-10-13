@@ -34,7 +34,7 @@ The template contains every accepted column. Empty values are allowed unless mar
 | `campus` | Canonical campus name or `Multiple`. |
 | `distance_km`, `latitude`, `longitude` | Decimal numbers. |
 | `radius_tier` | Project-defined band such as `0-3km`, `3-8km`, `8-15km`. |
-| `geocode_precision` | `rooftop`, `address`, `street`, `locality`, `estimated`, or blank. |
+| `geocode_precision` | `rooftop`, `address`, `street`, `locality`, `estimated`, or blank. The master also holds `point`, `city`, `town` and, for savings groups placed at their ward's reference point, `ward` (an estimate: no draft states a distance from it). |
 | `locality`, `address`, `website` | Published location and URL. |
 | `public_email`, `public_phone` | Public organisation route; never inferred. |
 | `size_evidence`, `headcount` | Source wording and integer estimate when explicitly supported. |
@@ -97,6 +97,56 @@ These fields are optional during research and required before a row enters a cam
 | `review_status` | `research_only`, `needs_review`, `draft_ready`, or `approved`. |
 | `missing_information` | Specific fact or route needed before the next state. |
 
+## VICOBA intake (savings groups, decided 13 October 2026)
+
+VICOBA and VSLA groups enter the company master as a subsegment of savings groups, as group-level records with no personal data (`docs/plans/vicoba-integration-plan.md`, "Decisions taken", section 0 and section 4.1). `scripts/collection/build_vicoba_intake.py` writes `data/raw/vicoba/master_intake_<date>.csv`, and `scripts/master/add_vicoba_groups.py` adds it after the validator and the preflight. Every row is an `organisation` row.
+
+### Controlled labels
+
+| Label | Values |
+|---|---|
+| `segment` | `Savings group` (shared with SACCOS) |
+| `subtype` | `VICOBA — women's group`, `VICOBA — mixed or unspecified`, `VICOBA — youth group`, `VICOBA — group of people with disabilities` (only when a council or intermediary supplies the group as such; membership is never recorded about any person), `VSLA — NGO-programme group` |
+| Outreach segments | `VICOBA members` (group plans), `VICOBA introducers` (NGO and bank introducer plans) |
+| `geocode_precision` | `ward` (the ward's reference point from the government run), or `point` for a published public venue |
+| Organisation ID | `hid("O", "vicoba", vicoba_group_key)`: `O` plus 12 hex characters, as for every master organisation. Partner code prefix for member opt-ins: `VIC-` |
+| Review kinds | `VICOBA record incomplete`, `VICOBA stale`, `VICOBA possible duplicate`, `VICOBA may be a registered SACCOS`, `VICOBA introducer to confirm`; conflicts between sources use `Multiple source values` |
+
+### Columns
+
+The intake carries the shared template's columns, then these. Each becomes a field-level fact of the same name on the group, linked to the row's source record.
+
+| Column | Meaning |
+|---|---|
+| `candidate_id` | The builder's capture ID (optional; kept in the notes). |
+| `vicoba_group_key` | `VIC|<council>|<ward>|<normalised name>`. Council and ward as the government run's `admin_units` spell them; the name in lower case without punctuation or spaces, and without the words VICOBA, VIKOBA, Kikundi cha, Kikundi, Group, Women Group, Wanawake and Vijana. The adder computes it when blank and uses the supplied key when given. |
+| `council`, `ward`, `village_or_mtaa` | The group's area. `locality` is `<village>, <ward> ward, <council>`; the adder builds it when blank. |
+| `meeting_place_public` | A public venue only (church hall, school, ward office, market, bank branch). A private home is never recorded. |
+| `meeting_cadence`, `cycle_start_month`, `share_out_month` | As published or as the committee states them; never inferred. |
+| `member_count` | Whole number, only when published or stated by the committee. |
+| `registration_number`, `registration_authority` | Only when published (council CMG register, LGA). |
+| `sponsor_name`, `sponsor_kind`, `sponsor_ref` | Kind: `ngo`, `bank`, `church`, `mosque`, `council`, `employer` or `other`. Ref: a master `organisation_id` or `welfare:<run-id>:<organisation_id>`. |
+| `introducer_kind`, `introducer_ref` | Kind: `cdo_ward`, `cdo_council`, `ngo_field_office`, `bank_branch`, `faith_office` or `group_published`. Ref: `gov:<run-id>:<ward office organisation_id>` for a CDO, a master `organisation_id` for an NGO or bank. |
+| `employer_ref` | A master employer whose name the workplace group carries; the group joins that employer's deal. |
+| `record_status` | `complete`, `incomplete: no ward`, `incomplete: no introducer route`, `incomplete: name only`, or `stale: not confirmed in 12 months`. Computed when blank. |
+| `last_confirmed` | `YYYY-MM-DD`; `verified_on` when blank. Older than 12 months makes the group stale. |
+| `women_group`, `women_group_basis` | `true` only on source evidence: the name names women (wanawake, akina mama, kina mama, women, mama), the source calls it a women's group, or the council supplies it as a 10% loan women's group. Basis: `name`, `source_says` or `council_women_loan_group`. Never inferred from a member's or leader's name. The adder records `women_group` on every group (`false` means not tagged); later tasks order waves by it and compare conversion with it. |
+| `phone_basis` | `published_for_role` or `consent_recorded <YYYY-MM-DD>`. Kept without the number. |
+| `vicoba_groups_reported` | Marks an aggregate row ("25 groups formed"): never an organisation. The count becomes a fact on the `sponsor_ref` organisation. |
+
+The adder also writes `sources_seen` (one fact per source). `covers_groups` is written on introducer plans by the drafter, not by the intake.
+
+### Privacy
+
+- A VICOBA organisation never has a phone or an email.
+- No contact rows, member names, member counts by person, members' phones, home meeting places, children, loans or savings balances.
+- The adder blanks phone, email, contact-name and enquiry columns, and any meeting place that reads as a home, in the stored source record and in the stored copy of the intake. It reports only their count.
+- A group leader's phone reaches the master only through the contact path, as `contacts.role_phone` with the fact `phone_basis = published_for_role` and its source. A consented number stays outside the repository.
+
+### Outreach plans
+
+`outreach_plans` has two columns for Kiswahili drafts, `language` (`sw`) and `english_meaning`. For a VICOBA plan, `subject` and `body` hold the Kiswahili first message and `english_meaning` its English meaning. `offer_message_sw` holds the Kiswahili offer and `offer_message` its English meaning. The adder creates one plan per new group (`VICOBA members`, `Needs research`, AQ00, flow F26, `VM02; VM03; VM06; VM20`, blank copy). The drafter writes its copy.
+
 ## Canonical tables
 
 The database may add campaign-specific fields, but it must keep these logical tables and relationships:
@@ -120,7 +170,7 @@ The current contact fields are `contact_id`, `organisation_id`, `name`, `role`, 
 
 The current enquiry fields are `enquiry_id`, `legacy_id`, `name`, `type`, `enquiry_date`, `date_qualification`, `locality`, `request`, `campus_fit`, `phone`, `email`, `contact_attribution`, `platform`, `source_url`, `current_relevance`, `source_record_id`, and `strategy_id`.
 
-The current outreach-plan fields are `message_id`, `target_id`, `target_type`, `organisation_id`, `target_name`, `organisation_name`, `strategy_version`, `segment`, `recipient_role`, `persona`, `contact_channel`, `channel_attribution`, `evidence_url`, `evidence_date`, `verified_on`, `evidence_basis`, `evidence_record_ids`, `relevance_reason`, `proposed_offer`, `cta_type`, `flow_id`, `review_status`, `missing_information`, `selection`, `subject`, `body`, `follow_up_1`, `follow_up_2`, `hook_version`, `hook_type`, `hook_quality`, `hook_status`, `hook_evidence`, `hook`, `first_message_v2`, `campaign_version`, `campaign_subject_v3`, `campaign_message_v3`, `campaign_follow_up_1_v3`, `campaign_follow_up_2_v3`, `campaign_evidence`, `campaign_copy_status`, `acquisition_version`, `acquisition_track_id`, `value_module_ids`, and `strategy_scope`.
+The current outreach-plan fields are `message_id`, `target_id`, `target_type`, `organisation_id`, `target_name`, `organisation_name`, `strategy_version`, `segment`, `recipient_role`, `persona`, `contact_channel`, `channel_attribution`, `evidence_url`, `evidence_date`, `verified_on`, `evidence_basis`, `evidence_record_ids`, `relevance_reason`, `proposed_offer`, `cta_type`, `flow_id`, `review_status`, `missing_information`, `selection`, `subject`, `body`, `follow_up_1`, `follow_up_2`, `hook_version`, `hook_type`, `hook_quality`, `hook_status`, `hook_evidence`, `hook`, `first_message_v2`, `campaign_version`, `campaign_subject_v3`, `campaign_message_v3`, `campaign_follow_up_1_v3`, `campaign_follow_up_2_v3`, `campaign_evidence`, `campaign_copy_status`, `acquisition_version`, `acquisition_track_id`, `value_module_ids`, and `strategy_scope`. Later scripts add their own columns when they first write. `add_vicoba_groups.py` adds `language` and `english_meaning` (13 October 2026); `--schema-only --apply` adds them without an intake.
 
 ## Identity and normalisation
 

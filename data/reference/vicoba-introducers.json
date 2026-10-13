@@ -33,8 +33,82 @@
    "status": "proposed | accepted | rejected",
    "reviewed_by": "a role",
    "reviewed_on": "YYYY-MM-DD"
+  },
+  "introducer_decisions": {
+   "id": "VD- plus a short name",
+   "candidate_id": "the intake's candidate_id (VIC-INT-..), or organisation_id for a master record or a welfare:<run-id>:<organisation_id> reference",
+   "organisation_name": "as the intake or the master names it",
+   "state": "active | to_confirm | outside_region | employer_conversation_first | welfare_conversation_first",
+   "reason": "what the check found; never a number",
+   "source_url": "the page or listing the decision rests on (recorded as a source record)",
+   "source_date": "YYYY-MM-DD, YYYY-MM or blank",
+   "evidence_excerpt": "25 words or fewer",
+   "latitude": "the listing's pin, or blank (a pin outside the catchment is kept: distance never removes a lead)",
+   "longitude": "as latitude",
+   "locality": "as the listing gives it",
+   "geocode_precision": "point for a listing pin, or blank",
+   "risky": "blank, or why the source is risky (for example a robots-disallowed site read with a browser)",
+   "status": "proposed | accepted | rejected",
+   "reviewed_by": "a role",
+   "reviewed_on": "YYYY-MM-DD"
   }
  },
  "links": [],
- "officer_routes": []
+ "officer_routes": [],
+ "introducer_decisions": [
+  {
+   "id": "VD-yemco-vicoba",
+   "candidate_id": "VIC-INT-07",
+   "organisation_name": "Yemco Vicoba",
+   "state": "outside_region",
+   "reason": "The Google Maps listing places it in Dar es Salaam (plus code 666H+W97), outside the catchment, with no local office listed: kept, held low, no introducer route in the catchment.",
+   "source_url": "https://www.google.com/maps/place/Yemco+Vicoba/data=!4m6!3m5!1s0x185c4ff8443aa04f:0x3e5ec7c11f98a743!8m2!3d-6.7877063!4d39.2284297",
+   "source_date": "2026-10-13",
+   "evidence_excerpt": "Google Maps listing: Yemco Vicoba, non-profit organisation, Dar es Salaam.",
+   "latitude": -6.7877063,
+   "longitude": 39.2284297,
+   "locality": "Dar es Salaam (Google Maps listing)",
+   "geocode_precision": "point",
+   "risky": "",
+   "status": "accepted",
+   "reviewed_by": "Orchestrator (browser check, in the research ledger)",
+   "reviewed_on": "2026-10-13"
+  },
+  {
+   "id": "VD-magnet-vikoba",
+   "candidate_id": "VIC-INT-08",
+   "organisation_name": "Magnet Vikoba",
+   "state": "outside_region",
+   "reason": "The Google Maps listing places it in Dar es Salaam, outside the catchment: kept, held low, no introducer route in the catchment.",
+   "source_url": "https://www.google.com/maps/place/Magnet+Vikoba/data=!4m6!3m5!1s0x821807821f443fd5:0x9a2dfd3b8268dfc2!8m2!3d-6.7695912!4d39.254291",
+   "source_date": "2026-10-13",
+   "evidence_excerpt": "Google Maps listing: Magnet Vikoba, economic development agency, Dar es Salaam.",
+   "latitude": -6.7695912,
+   "longitude": 39.254291,
+   "locality": "Dar es Salaam (Google Maps listing)",
+   "geocode_precision": "point",
+   "risky": "",
+   "status": "accepted",
+   "reviewed_by": "Orchestrator (browser check, in the research ledger)",
+   "reviewed_on": "2026-10-13"
+  },
+  {
+   "id": "VD-trias-tanzania",
+   "candidate_id": "VIC-INT-02",
+   "organisation_name": "Trias Tanzania",
+   "state": "to_confirm",
+   "reason": "trias.ngo/en/tanzania redirects to a November 2023 news item on climate-resilience work with farmers and herders (Monduli included, partners MVIWAMA and MVIWAARUSHA); no savings-group or VICOBA programme is stated. VICOBA programme unconfirmed: not an active introducer.",
+   "source_url": "https://www.trias.ngo/nl/nieuws/tanzaniaanse-landbouwers-beschermen-zich-tegen-klimaatverandering/",
+   "source_date": "2023-11",
+   "evidence_excerpt": "News item (Dutch, November 2023) on climate-resilience work with farmers and herders in Tanzania, Monduli included; no savings-group programme named.",
+   "latitude": "",
+   "longitude": "",
+   "locality": "",
+   "geocode_precision": "",
+   "risky": "robots.txt disallows crawling; read with a browser at the user's direction (13 October 2026)",
+   "status": "accepted",
+   "reviewed_by": "Orchestrator (browser check, in the research ledger)",
+   "reviewed_on": "2026-10-13"
+  }
+ ]
 }

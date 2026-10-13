@@ -233,8 +233,10 @@ def vicoba_rows(database: Path, government_db: str | None) -> list[list]:
                 rows.append([position[oid], "group_officer", "yes" if g["women_group"] else "", g["name"], oid, g["name"], oid,
                              L.last(g, "ward"), L.last(g, "council"), number, "published_for_role: role phone published for the role",
                              c["source_url"] or "", c["role"], "call", band(oid)])
+        # A welfare-run introducer is called within its own run's conversation, never from this sheet; an introducer that is not
+        # ready (council introduction pending, to confirm, outside the region, another conversation first) is not called.
         if p["introducer_status"] == "linked" and p["linked_introducer_kind"] not in ("employer", "group_published") \
-                and p["introducer_ready"] == "yes" and not p["introducer_outcome"].startswith("declined"):
+                and p["linked_introducer_db"] != "welfare" and p["introducer_ready"] == "yes" and not p["introducer_outcome"].startswith("declined"):
             introducers.setdefault(p["linked_introducer_ref"], []).append(oid)
     for ref, covered in introducers.items():
         covered.sort(key=position.get)

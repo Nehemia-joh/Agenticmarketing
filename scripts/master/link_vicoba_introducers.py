@@ -34,6 +34,22 @@ list is refused and recorded as list_refused.
 Band properties (one current value each, on the group, rewritten on every apply; the band itself is computed by
 scripts/messaging/first_touch.vicoba_case(), section 4.1). See BAND_FIELDS and docs/methodology/contact-research.md ("VICOBA").
 
+Introducers themselves (added 13 October 2026 for T1's files):
+- --add-introducers data/raw/vicoba/introducers_intake_<date>.csv runs validate_intake.py and preflight_update.py, then in one
+  transaction inserts each new introducer (segment 'Introducer: savings-group network', ID hid("O", "introducer", <name key>) as
+  add_introducers.py makes it), with only the routes the organisation publishes, one source record each, and one 'VICOBA introducers'
+  plan (Needs research, AQ00, F26, blank copy; draft_master_messages.py writes the request). An existing record is matched, never
+  duplicated. No contact rows: a row that carries a person's details is quarantined.
+- --apply-facts data/raw/vicoba/introducer_facts_<date>.jsonl records each fact (introducer_role, group_account_product) with one
+  source record per line, on the master organisation (and its also_ids), or, for a welfare-run organisation, on the reference
+  welfare:<run-id>:<organisation_id> (facts entity_type 'welfare_organisation'): the welfare run is read to confirm the organisation
+  and never written.
+- Each introducer has one current introducer_state (INTRODUCER_STATES): from an accepted entry of the reviewed file's
+  'introducer_decisions' (the orchestrator's or a reviewer's checks, with their source), else 'active' for a verified source and
+  'to_confirm' otherwise; 'employer_conversation_first' when the source says it is already an employer lead. When a group is linked,
+  an introducer that has an outreach plan in another segment (a master employer lead) or a plan in its welfare run takes the
+  conversation-first state, so its readiness is 'no' until the introducer outcome records 'introduced'.
+
 --propose writes runtime/master/vicoba-introducer-proposals.json from the groups' intake references, a group intake's published
 role phones (--intake) and an introducer intake (--introducer-intake, T1's data/raw/vicoba/introducers_intake_<date>.csv) for a
 person to review and copy into the reviewed file. Preview by default (runtime/master/vicoba-introducer-links-preview.json);
@@ -69,6 +85,7 @@ CALLS_DIR = ROOT / "data" / "raw" / "contact-research"
 CALLS_GLOB = "vicoba_calls_*.jsonl"
 WORK = ROOT / "runtime" / "master"
 DEFAULT_RUN = "arusha-government-2026-09"
+DEFAULT_WELFARE_RUN = "arusha-welfare-2026-09"
 
 KINDS = V.INTRODUCER_KINDS + ("employer",)
 CDO_KINDS = {"cdo_ward": ("ward", "Ward Community Development Officer"),
@@ -96,8 +113,29 @@ BAND_FIELDS = {
     "officer_route": "published_for_role | consent_recorded <YYYY-MM-DD> | known_through_introducer <YYYY-MM-DD> | refused <YYYY-MM-DD> | none",
     "officer_confirmed_on": "<YYYY-MM-DD> | none (when the officer route was last confirmed)",
     "channel": "call | letter | email",
+    "linked_introducer_db": "master | government | welfare | none (where the introducer's record lives; government and welfare are read only)",
+    "linked_introducer_state": "active | to_confirm | outside_region | employer_conversation_first | welfare_conversation_first | none (the introducer's introducer_state)",
 }
 NONE = "none"
+# The introducer's own state: one current value on the introducer (a master organisation, or a welfare-run organisation recorded in
+# the master by reference as entity_type 'welfare_organisation', entity_id 'welfare:<run-id>:<organisation_id>').
+INTRODUCER_STATES = {
+    "active": "a savings-group programme or product on record; usable once it has a published route",
+    "to_confirm": "its VICOBA or savings-group work is not confirmed: a 'VICOBA introducer to confirm' review item, never an active introducer",
+    "outside_region": "located outside the region with no introducer route in the catchment: kept and held low",
+    "employer_conversation_first": "already an employer lead: savings groups are raised at its S4 meeting, never in a second cold message",
+    "welfare_conversation_first": "a welfare-run organisation with its own plan there: savings groups are raised in that conversation",
+}
+# One conversation per organisation (vicoba-integration-plan.md decision 4): an introducer with an outreach plan in another segment
+# (an employer lead in the master, or a plan in its welfare run) takes the conversation-first state unless a reviewed decision says
+# otherwise; an 'introduced' outcome recorded for that conversation still links its groups as usual.
+VICOBA_PLAN_SEGMENTS = ("VICOBA introducers", "VICOBA members")
+STATE_FIELD = "introducer_state"
+INTRODUCER_SEGMENT = "Introducer: savings-group network"
+WELFARE_ENTITY = "welfare_organisation"
+WELFARE_REF = re.compile(r"^welfare:([a-z0-9\-]+):([A-Za-z0-9_\-]+)$")
+FREE_MAIL = re.compile(r"@(gmail|yahoo|hotmail|outlook|live|icloud|ymail)\.", re.I)
+INTRODUCER_VALUE_MODULES = "VM02; VM03; VM06; VM20"
 
 
 def hid(prefix: str, *parts) -> str:
@@ -162,12 +200,41 @@ def load_links(path: Path) -> dict:
     data = json.loads(path.read_text(encoding="utf-8"))
     data.setdefault("links", [])
     data.setdefault("officer_routes", [])
+    data.setdefault("introducer_decisions", [])
     return data
+
+
+def decision_issues(data: dict) -> list[str]:
+    issues = []
+    for i, e in enumerate(data.get("introducer_decisions", [])):
+        where = f"introducer_decisions[{i}] {e.get('id', '')}".strip()
+        if not (e.get("organisation_id") or e.get("candidate_id") or e.get("organisation_name")):
+            issues.append(f"{where}: names no introducer (organisation_id, candidate_id or organisation_name)")
+        if e.get("state") not in INTRODUCER_STATES:
+            issues.append(f"{where}: state must be one of {list(INTRODUCER_STATES)}")
+        if e.get("status") == "accepted" and not (e.get("reviewed_by") and DATE.match(str(e.get("reviewed_on") or "")) and e.get("source_url")):
+            issues.append(f"{where}: accepted without reviewed_by, reviewed_on and source_url")
+        if any(has_number(str(e.get(k) or "")) for k in ("reason", "evidence_excerpt", "notes")):
+            issues.append(f"{where}: a decision never carries a phone number")
+    return issues
+
+
+def accepted_decisions(data: dict) -> list[dict]:
+    return [e for e in data.get("introducer_decisions", []) if e.get("status") == "accepted"]
+
+
+def decision_for(decisions: list[dict], organisation_id: str = "", candidate_id: str = "", name: str = "") -> dict | None:
+    for e in decisions:
+        if (organisation_id and organisation_id in (e.get("organisation_id"), e.get("candidate_id"))) \
+                or (candidate_id and e.get("candidate_id") == candidate_id) \
+                or (name and norm(e.get("organisation_name")) == norm(name)):
+            return e
+    return None
 
 
 def file_issues(data: dict) -> list[str]:
     """Structure rules of the reviewed file, before anything is resolved against a database."""
-    issues, seen = [], set()
+    issues, seen = decision_issues(data), set()
     for section in ("links", "officer_routes"):
         for i, e in enumerate(data.get(section, [])):
             where = f"{section}[{i}] {e.get('id', '')}".strip()
@@ -255,6 +322,27 @@ class GovRuns:
         office["unit"] = dict(unit) if unit else None
         return office, ""
 
+    def welfare_org(self, ref: str) -> tuple[dict | None, str]:
+        """A welfare-run organisation by reference (read only), with whether the run holds a published route for it."""
+        m = WELFARE_REF.match(ref or "")
+        if not m:
+            return None, f"'{ref}' is not welfare:<run-id>:<organisation_id>"
+        run, oid = m.groups()
+        c = self.con(run)
+        if c is None:
+            return None, f"welfare run '{run}' not found at {self.path(run)} (pass --welfare-db {run}=<copy>)"
+        r = c.execute("SELECT organisation_id, name, segment, email, phone FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
+        if not r:
+            return None, f"{ref} is not an organisation in welfare run '{run}'"
+        org = dict(r) | {"run": run, "ref": ref}
+        routes = {"email": "@" in str(org.get("email") or ""), "phone": len(digits(org.get("phone"))) >= 9}
+        for c2 in c.execute("SELECT shared_email, published_role_email, named_email, organisation_phone FROM contacts WHERE organisation_id=?", (oid,)):
+            routes["email"] |= any("@" in str(c2[k] or "") for k in ("shared_email", "published_role_email", "named_email"))
+            routes["phone"] |= len(digits(c2["organisation_phone"])) >= 9
+        org["routes"] = routes
+        org["has_plan"] = bool(c.execute("SELECT 1 FROM outreach_plans WHERE organisation_id=? LIMIT 1", (oid,)).fetchone())
+        return org, ""
+
     def ward_unit(self, run: str, council: str, ward: str) -> dict | None:
         """The ward's admin unit (reference point) by council and ward name, with the run's reviewed ward aliases."""
         c = self.con(run)
@@ -275,7 +363,8 @@ class GovRuns:
 
 
 # --- Resolution ----------------------------------------------------------------------------------------------------------------------
-def master_index(con: sqlite3.Connection) -> tuple[dict, dict, set]:
+def master_index(con: sqlite3.Connection) -> tuple[dict, dict, set, dict]:
+    """Master organisations, their published routes, possible closures, and every introducer's current state."""
     con.row_factory = sqlite3.Row
     orgs = {r["organisation_id"]: dict(r) for r in con.execute(
         "SELECT organisation_id, name, segment, subtype, email, phone, campus, distance_km FROM organisations")}
@@ -284,8 +373,17 @@ def master_index(con: sqlite3.Connection) -> tuple[dict, dict, set]:
         d = routes.setdefault(r["organisation_id"], {"email": False, "phone": False})
         d["email"] |= any("@" in str(r[k] or "") for k in ("shared_email", "published_role_email", "named_email"))
         d["phone"] |= len(digits(r["organisation_phone"])) >= 9
+    for oid, o in orgs.items():
+        d = routes.setdefault(oid, {"email": False, "phone": False})
+        d["email"] |= "@" in str(o.get("email") or "")
+        d["phone"] |= len(digits(o.get("phone"))) >= 9
+    for oid, segment in con.execute("SELECT organisation_id, segment FROM outreach_plans"):
+        if oid in orgs:
+            orgs[oid].setdefault("plan_segments", set()).add(segment)
     closed = {r[0] for r in con.execute("SELECT entity_id FROM review WHERE kind='Possible closure'")}
-    return orgs, routes, closed
+    # One current value each (upserted): master organisations and welfare-run references alike.
+    states = {r[0]: r[1] for r in con.execute("SELECT entity_id, value FROM facts WHERE field=? ORDER BY rowid", (STATE_FIELD,))}
+    return orgs, routes, closed, states
 
 
 def find_group(ref: str, groups: dict, by_key: dict) -> str | None:
@@ -294,7 +392,10 @@ def find_group(ref: str, groups: dict, by_key: dict) -> str | None:
     return by_key.get(norm(ref))
 
 
-def resolve_link(e: dict, group: dict, orgs: dict, gov: GovRuns) -> tuple[dict | None, list[str]]:
+def resolve_link(e: dict, group: dict, orgs: dict, gov: GovRuns, routes: dict | None = None, states: dict | None = None) -> tuple[dict | None, list[str]]:
+    """The introducer an accepted link names, or why it does not resolve. A resolved link carries its database ('master',
+    'government' or 'welfare'), its state and whether a published route exists."""
+    routes, states = routes or {}, states or {}
     kind, ref, errors = e.get("introducer_kind"), str(e.get("introducer_ref") or ""), []
     council, ward = last(group, "council"), last(group, "ward")
     if kind in CDO_KINDS:
@@ -315,20 +416,46 @@ def resolve_link(e: dict, group: dict, orgs: dict, gov: GovRuns) -> tuple[dict |
                 unit = gov.ward_unit(office["run"], council, ward)
                 if not unit or unit.get("office_organisation_id") != office["organisation_id"]:
                     errors.append(f"{ref} is the office of {office['admin_unit_name']} ward, the group is in {ward}")
-        return (None if errors else {"kind": kind, "ref": ref, "name": office["name"], "office": office}), errors
+        link = {"kind": kind, "ref": ref, "name": office["name"], "office": office, "db": "government", "state": "active",
+                "routes": {"email": "@" in str(office.get("email") or ""), "phone": len(digits(office.get("phone"))) >= 9}}
+        return (None if errors else link), errors
+    if kind in MASTER_KINDS and WELFARE_REF.match(ref):
+        # A welfare-run organisation stays in its run: the link records the reference and reads the run (read only).
+        if kind not in ("ngo_field_office", "faith_office"):
+            return None, [f"a welfare-run reference can only be an ngo_field_office or faith_office introducer, not {kind}"]
+        org, why = gov.welfare_org(ref)
+        if not org:
+            return None, [why]
+        state = states.get(ref) or NONE
+        if state in ("active", NONE) and org["has_plan"]:
+            state = "welfare_conversation_first"
+        return {"kind": kind, "ref": ref, "name": org["name"], "welfare": org, "db": "welfare", "state": state,
+                "routes": org["routes"]}, []
     if kind in MASTER_KINDS:
         org = orgs.get(ref)
         if not V.MASTER_ID.match(ref) or not org:
-            return None, [f"introducer_ref '{ref}' is not a master organisation"]
+            return None, [f"introducer_ref '{ref}' is not a master organisation or a welfare:<run-id>:<organisation_id> reference"]
         if org["segment"] == V.SEGMENT:
             return None, [f"{ref} ({org['name']}) is a savings group, not an introducer"]
-        return {"kind": kind, "ref": ref, "name": org["name"], "org": org}, []
+        others = set(org.get("plan_segments") or ()) - set(VICOBA_PLAN_SEGMENTS)
+        state = states.get(ref) or NONE
+        if state in ("active", NONE) and others and kind != "employer":
+            state = "employer_conversation_first"
+        return {"kind": kind, "ref": ref, "name": org["name"], "org": org, "db": "master", "state": state,
+                "routes": routes.get(ref, {"email": "@" in str(org.get("email") or ""), "phone": len(digits(org.get("phone"))) >= 9})}, []
     if kind == "group_published":
-        return {"kind": kind, "ref": "", "name": group["name"] + " (route the group publishes)"}, []
+        return {"kind": kind, "ref": "", "name": group["name"] + " (route the group publishes)", "db": "master", "state": "active",
+                "routes": {}}, []
     return None, [f"introducer_kind '{kind}' is not one of {list(KINDS)}"]
 
 
-def readiness(link: dict | None, orgs: dict, routes: dict, closed: set, officer_route: str) -> str:
+STATE_NOT_READY = {"to_confirm": "no: introducer to confirm (its savings-group work is not confirmed)",
+                   "outside_region": "no: introducer outside the region (no introducer route in the catchment)",
+                   "employer_conversation_first": "no: already an employer lead (raise savings groups at its S4 meeting, never a second cold message)",
+                   "welfare_conversation_first": "no: in its welfare-run conversation (raise savings groups at its S4 meeting there, never a second cold message)"}
+
+
+def readiness(link: dict | None, closed: set, officer_route: str) -> str:
     if not link:
         return "no: no introducer linked"
     kind = link["kind"]
@@ -341,26 +468,25 @@ def readiness(link: dict | None, orgs: dict, routes: dict, closed: set, officer_
         return "no: council introduction (GA01) not recorded"
     if kind == "group_published":
         return "yes" if officer_route == "published_for_role" else "no: no route the group publishes is on record"
-    org = link["org"]
     if link["ref"] in closed:
         return "no: introducer possibly closed (review item)"
+    if link["state"] in STATE_NOT_READY:
+        return STATE_NOT_READY[link["state"]]
     if kind == "employer":
         return "yes"
-    r = routes.get(link["ref"], {})
-    if "@" in str(org.get("email") or "") or len(digits(org.get("phone"))) >= 9 or r.get("email") or r.get("phone"):
+    if link["routes"].get("email") or link["routes"].get("phone"):
         return "yes"
     return "no: introducer has no published route"
 
 
-def channel_for(link: dict | None, officer_route: str, routes: dict) -> str:
+def channel_for(link: dict | None, officer_route: str) -> str:
     if officer_route == "published_for_role" or officer_route.startswith("consent_recorded"):
         return "call"
     if not link or link["kind"] in CDO_KINDS or link["kind"] == "group_published":
         return "letter"
-    org, r = link["org"], routes.get(link["ref"], {})
-    if "@" in str(org.get("email") or "") or r.get("email"):
+    if link["routes"].get("email"):
         return "email"
-    if len(digits(org.get("phone"))) >= 9 or r.get("phone"):
+    if link["routes"].get("phone"):
         return "call"
     return "letter"
 
@@ -395,7 +521,7 @@ def call_issues(calls: list[dict]) -> list[str]:
 def build_plan(con: sqlite3.Connection, links: dict, calls: list[dict], gov: GovRuns, as_of: date) -> dict:
     groups = V.load_vicoba_groups(con)
     by_key = {norm(g["group_key"]): oid for oid, g in groups.items() if g["group_key"]}
-    orgs, routes, closed = master_index(con)
+    orgs, routes, closed, states = master_index(con)
     plan = {"errors": file_issues(links) + call_issues(calls), "groups": {}, "link_records": [], "officer_contacts": [], "reviews": [],
             "call_facts": [], "unknown_groups": [], "rejected": 0, "proposed_unreviewed": 0}
     accepted_links: dict[str, list] = {}
@@ -407,7 +533,7 @@ def build_plan(con: sqlite3.Connection, links: dict, calls: list[dict], gov: Gov
         if not oid:
             plan["errors"].append(f"link {e.get('id')}: group '{e['group']}' is not a VICOBA group in this database")
             continue
-        resolved, errors = resolve_link(e, groups[oid], orgs, gov)
+        resolved, errors = resolve_link(e, groups[oid], orgs, gov, routes, states)
         if errors:
             plan["errors"] += [f"link {e.get('id')} ({groups[oid]['name']}): {x}" for x in errors]
             continue
@@ -482,7 +608,7 @@ def build_plan(con: sqlite3.Connection, links: dict, calls: list[dict], gov: Gov
         confirmed = officer[-1][1] if route != "none" else NONE
         # Primary link: an employer first (the workplace group joins its deal), then a link that is ready, then by kind.
         ranked = sorted(group_links, key=lambda l: (l["kind"] != "employer",
-                                                    readiness(l, orgs, routes, closed, route_kind) != "yes",
+                                                    readiness(l, closed, route_kind) != "yes",
                                                     not any(o[0].startswith("introduced") and o[2] == l["ref"] for o in outcomes),
                                                     KIND_ORDER.index(l["kind"])))
         primary = ranked[0] if ranked else None
@@ -495,11 +621,13 @@ def build_plan(con: sqlite3.Connection, links: dict, calls: list[dict], gov: Gov
             "linked_introducer_kind": primary["kind"] if primary else NONE,
             "linked_introducer_ref": (primary["ref"] or NONE) if primary else NONE,
             "linked_introducer_name": primary["name"] if primary else NONE,
-            "introducer_ready": readiness(primary, orgs, routes, closed, route_kind),
+            "introducer_ready": readiness(primary, closed, route_kind),
             "introducer_outcome": outcome,
             "officer_route": route,
             "officer_confirmed_on": confirmed or NONE,
-            "channel": channel_for(primary, route_kind, routes),
+            "channel": channel_for(primary, route_kind),
+            "linked_introducer_db": primary["db"] if primary else NONE,
+            "linked_introducer_state": (primary["state"] or NONE) if primary else NONE,
         }
         # The record status follows the links: a group that now has an introducer route and is otherwise complete becomes complete.
         row = {"council": last(g, "council"), "ward": last(g, "ward"),
@@ -687,7 +815,7 @@ def propose(con: sqlite3.Connection, links: dict, gov: GovRuns, intake: Path | N
     """Draft entries for the reviewed file from the intake references; a person reviews them and copies the accepted ones."""
     groups = V.load_vicoba_groups(con)
     by_key = {norm(g["group_key"]): oid for oid, g in groups.items() if g["group_key"]}
-    orgs, routes, closed = master_index(con)
+    orgs, routes, closed, states = master_index(con)
     known = {e.get("id") for s in ("links", "officer_routes") for e in links.get(s, [])}
     by_name = {}
     for oid, o in orgs.items():
@@ -704,9 +832,9 @@ def propose(con: sqlite3.Connection, links: dict, gov: GovRuns, intake: Path | N
                  "reviewed_by": "", "reviewed_on": "", "notes": ""}
         if entry["id"] in known or any(x["id"] == entry["id"] for x in out_links):
             return
-        resolved, errors = resolve_link(entry, g, orgs, gov)
+        resolved, errors = resolve_link(entry, g, orgs, gov, routes, states)
         entry["_check"] = {"resolves": not errors, "errors": errors,
-                           "ready": readiness(resolved, orgs, routes, closed, "none") if resolved else ""}
+                           "ready": readiness(resolved, closed, "none") if resolved else ""}
         if resolved and kind in CDO_KINDS:
             entry["introducer_name"] = resolved["name"]
         elif resolved and kind in MASTER_KINDS:
@@ -724,7 +852,7 @@ def propose(con: sqlite3.Connection, links: dict, gov: GovRuns, intake: Path | N
             else:
                 unresolved.append({"group": g["group_key"], "group_name": g["name"], "what": f"introducer {kind} named without a reference"})
         for kind, ref in zip(f.get("sponsor_kind", []), f.get("sponsor_ref", [])):
-            if ref and V.MASTER_ID.match(ref) and sponsor_kind.get(kind):
+            if ref and (V.MASTER_ID.match(ref) or WELFARE_REF.match(ref)) and sponsor_kind.get(kind):
                 add(oid, sponsor_kind[kind], ref, "", "intake sponsor_ref", src, "", excerpt)
         for ref in f.get("employer_ref", []):
             add(oid, "employer", ref, "", "intake employer_ref", src, "", excerpt)
@@ -752,7 +880,7 @@ def propose(con: sqlite3.Connection, links: dict, gov: GovRuns, intake: Path | N
                     row.get("source_date", ""), row.get("evidence_excerpt", ""))
             else:
                 without_groups.append({"line": n, "introducer_name": name, "introducer_kind": kind, "master_match": ref,
-                                       "what": "no group named: add the introducer with add_introducers.py if it is new, and link groups when it names them"})
+                                       "what": "no group named: add the introducer with --add-introducers if it is new, and link groups when it names them"})
     if intake:
         # Published role phones in a group intake (the adder withholds them): proposals for officer routes, for review.
         for n, row in enumerate(csv.DictReader(intake.open(encoding="utf-8-sig", newline="")), 2):
@@ -782,6 +910,300 @@ def propose(con: sqlite3.Connection, links: dict, gov: GovRuns, intake: Path | N
             "file": str(out)}
 
 
+# --- Introducers and introducer facts (T1's files, 13 October 2026) ---------------------------------------------------------------
+def default_state(verification_status: str, review: str) -> str:
+    """The state an introducer takes when no reviewed decision names it."""
+    text = norm(review)
+    if text.startswith("already an employer lead"):
+        return "employer_conversation_first"
+    if text.startswith("vicoba introducer to confirm") or "is to confirm" in text or verification_status != "verified":
+        return "to_confirm"
+    return "active"
+
+
+def campus_point(con: sqlite3.Connection, lat: float, lon: float) -> tuple[str, float, str, str]:
+    import recompute_campus_distances as RC  # noqa: E402  (the one place bands and tiers are defined)
+    campuses = {r[0]: (r[1], r[2]) for r in con.execute("SELECT name, latitude, longitude FROM campuses")}
+    dists = {c: round(RC.hav(lat, lon, *xy), 1) for c, xy in campuses.items()}
+    near = min(dists, key=dists.get)
+    return near, dists[near], RC.band(dists[near]), RC.tier(dists[near])
+
+
+def state_review(oid, state, why, record) -> tuple:
+    return (hid("V", "vicoba-introducer-state", oid, state), "VICOBA introducer to confirm", oid, record, STATE_FIELD, f"{state}: {why}"[:500],
+            {"to_confirm": "Confirm the organisation's savings-group or VICOBA work from its own publication before it is used as an introducer.",
+             "outside_region": "Held low: the organisation is located outside the region with no introducer route in the catchment. Kept, never deleted.",
+             "employer_conversation_first": "Already an employer lead: raise savings groups at its S4 meeting; never a second cold message.",
+             "welfare_conversation_first": "In a welfare-run conversation: raise savings groups at its S4 meeting there; never a second cold message."}.get(state, ""))
+
+
+def plan_introducers(con: sqlite3.Connection, intake: Path, preflight: dict, decisions: list[dict]) -> dict:
+    con.row_factory = sqlite3.Row
+    rows = list(csv.DictReader(intake.open(encoding="utf-8-sig", newline="")))
+    by_name = {}
+    for r in con.execute("SELECT organisation_id, name, segment, website FROM organisations"):
+        by_name.setdefault(norm(re.sub(r"\([^)]*\)", "", r["name"] or "")), []).append(dict(r))
+    planned_segments = {r[0]: r[1] for r in con.execute("SELECT organisation_id, group_concat(DISTINCT segment) FROM outreach_plans GROUP BY organisation_id")}
+    pf = {a["row"]: a for a in preflight.get("actions", [])}
+    plan = {"inserts": [], "matches": [], "quarantined": [], "warnings": []}
+    for line, raw in enumerate(rows, 2):
+        row = {k: (v or "").strip() for k, v in raw.items() if k}
+        name = row.get("organisation_name", "")
+        issues = []
+        if row.get("record_type") != "organisation":
+            issues.append("not an organisation row")
+        if row.get("segment") != INTRODUCER_SEGMENT:
+            issues.append(f"segment '{row.get('segment')}' is not '{INTRODUCER_SEGMENT}'")
+        if any(row.get(c) for c in ("contact_name", "named_email", "role_phone", "enquiry_author", "enquiry_phone", "enquiry_email")):
+            issues.append("holds a person's details: an introducer row carries the organisation's published routes only")
+        if issues:
+            plan["quarantined"].append({"line": line, "name": name, "reason": "; ".join(issues)})
+            continue
+        email = row.get("public_email") or row.get("shared_email") or row.get("published_role_email") or ""
+        if email and (not EMAIL.fullmatch(email) or (FREE_MAIL.search(email) and norm(email.split("@")[0]).replace(".", "") not in norm(name).replace(" ", ""))):
+            plan["warnings"].append({"line": line, "warning": "the email is not a published organisation inbox (free mail not named after it): not used"})
+            email = ""
+        phone = row.get("public_phone") or row.get("organisation_phone") or ""
+        if phone and len(digits(phone)) < 9:
+            phone = ""
+        decision = decision_for(decisions, candidate_id=row.get("candidate_id", ""), name=name)
+        state = decision["state"] if decision else default_state(row.get("verification_status", ""), "")
+        pfa = pf.get(line) or {}
+        match = pfa.get("organisation_id") if pfa.get("action") == "match" else None
+        same = [o for o in by_name.get(norm(re.sub(r"\([^)]*\)", "", name)), []) if o["segment"] != V.SEGMENT]
+        if not match and len(same) == 1:
+            match = same[0]["organisation_id"]
+        entry = {"line": line, "row": row, "name": name, "email": email, "phone": phone, "state": state, "decision": decision,
+                 "record_id": hid("R", "vicoba-introducer", intake.name, line, name), "new": False}
+        if match:
+            entry["organisation_id"] = match
+            entry["other_plans"] = planned_segments.get(match, "")
+            if entry["other_plans"] and "VICOBA introducers" not in entry["other_plans"] and state == "active":
+                entry["state"] = "employer_conversation_first"
+            plan["matches"].append(entry)
+        else:
+            entry["organisation_id"] = hid("O", "introducer", AI_norm(name))
+            if entry["organisation_id"] in {r[0] for r in con.execute("SELECT organisation_id FROM organisations WHERE organisation_id=?", (entry["organisation_id"],))}:
+                plan["matches"].append(entry | {"other_plans": planned_segments.get(entry["organisation_id"], "")})
+            else:
+                entry["new"] = True
+                plan["inserts"].append(entry)
+    return plan
+
+
+def AI_norm(name: str) -> str:
+    """add_introducers.norm: the master's introducer ID key (no bracketed text, letters and digits only)."""
+    return re.sub(r"[^a-z0-9]", "", re.sub(r"\([^)]*\)", "", str(name or "").lower()))
+
+
+def apply_introducers(con: sqlite3.Connection, plan: dict, intake: Path, label: str) -> dict:
+    con.row_factory = None
+    tables = ("organisations", "contacts", "outreach_plans", "messages", "source_records", "entity_sources", "facts", "review")
+    before = {t: con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0] for t in tables}
+    raw = intake.read_bytes()
+    sid = hid("F", "vicoba-introducers-intake", intake.name, hashlib.sha256(raw).hexdigest())
+    written = {"facts": 0, "reviews": 0}
+    try:
+        con.execute("BEGIN")
+        con.execute("INSERT OR IGNORE INTO source_files (source_id, path, sha256, bytes, kind, encoding, content) VALUES (?,?,?,?,?,?,?)",
+                    (sid, rel(intake), hashlib.sha256(raw).hexdigest(), len(raw), "csv; VICOBA introducer intake", "utf-8", raw))
+        for entry in plan["inserts"] + plan["matches"]:
+            r, oid, record, d = entry["row"], entry["organisation_id"], entry["record_id"], entry["decision"]
+            add_record(con, record, sid, f"line {entry['line']}: {entry['name']}", r)
+            add_entity_source(con, "organisation", oid, record)
+            if d:
+                drec = hid("R", "vicoba-introducer-decision", d.get("id"), json.dumps(d, sort_keys=True))
+                add_record(con, drec, sid, f"introducer decision {d.get('id')} (data/reference/vicoba-introducers.json)", d)
+                add_entity_source(con, "organisation", oid, drec)
+            else:
+                drec = record
+            source_url = (d or {}).get("source_url") or r.get("source_url") or r.get("website") or ""
+            lat = float(d["latitude"]) if d and d.get("latitude") not in (None, "") else (float(r["latitude"]) if r.get("latitude") else None)
+            lon = float(d["longitude"]) if d and d.get("longitude") not in (None, "") else (float(r["longitude"]) if r.get("longitude") else None)
+            if entry["new"]:
+                campus, km, tband, rtier = r.get("campus", ""), float(r["distance_km"]) if r.get("distance_km") else None, r.get("transport_band", ""), r.get("radius_tier", "")
+                precision = r.get("geocode_precision", "")
+                if d and d.get("latitude") not in (None, ""):
+                    campus, km, tband, rtier = campus_point(con, lat, lon)
+                    precision = d.get("geocode_precision") or "point"
+                locality = (d or {}).get("locality") or r.get("locality", "")
+                notes = " ".join(x for x in [f"VICOBA introducer intake {label} ({r.get('candidate_id')}).", r.get("notes", ""),
+                                             f"Reviewed {d['reviewed_on']} ({d['reviewed_by']}): {d.get('reason', '')}" if d else ""] if x)
+                con.execute("""INSERT INTO organisations (organisation_id, name, segment, priority, campus, distance_km, size_evidence, address,
+                               education_angle, source_url, verification, strategy_id, outreach_status, next_action, email, phone, subtype, radius_tier,
+                               geocode_precision, website, notes, transport_band, locality, latitude, longitude)
+                               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                            (oid, entry["name"], INTRODUCER_SEGMENT, r.get("priority", ""), campus, km, r.get("size_evidence", ""), r.get("address", ""),
+                             r.get("education_angle") or "Introducer: could introduce Silverleaf to the savings groups it works with; never a member list",
+                             source_url, f"VICOBA introducer intake {label}: {r.get('evidence_basis')} source ({r.get('verification_status')}); state {entry['state']}",
+                             V.STRATEGY_ID, "Not contacted", STATE_NEXT[entry["state"]], entry["email"], entry["phone"], r.get("subtype", ""), rtier,
+                             precision, r.get("website", ""), notes[:2000], tband, locality, lat, lon))
+                mid = hid("M", "vicoba-introducer", oid)
+                missing = "; ".join(x for x in [r.get("missing_information", ""), STATE_NEXT[entry["state"]],
+                                                "Introducer request pending: draft_master_messages.py writes it (no terms in the request)."] if x)
+                con.execute("INSERT INTO messages (message_id, target_type, target_id, subject, body, strategy_id, status, conditions, source_record_id) "
+                            "VALUES (?,?,?,?,?,?,?,?,?)", (mid, "organisation", oid, "", "", V.MESSAGE_STRATEGY, V.MESSAGE_STATUS,
+                                                           "Held: VICOBA introducer draft pending", record))
+                con.execute("""INSERT INTO outreach_plans (message_id, target_id, target_type, organisation_id, target_name, organisation_name, strategy_version,
+                               segment, recipient_role, persona, contact_channel, channel_attribution, evidence_url, evidence_date, verified_on, evidence_basis,
+                               evidence_record_ids, relevance_reason, proposed_offer, cta_type, flow_id, review_status, missing_information, selection, subject,
+                               body, follow_up_1, follow_up_2, hook_status, hook, acquisition_version, acquisition_track_id, value_module_ids, strategy_scope,
+                               message_variant, variant_reason, language, english_meaning)
+                               VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+                            (mid, oid, "organisation", oid, entry["name"], entry["name"], "vicoba-introducers-v1", "VICOBA introducers",
+                             "Programme or field office (introducer)", "Savings-group introducer", entry["email"] or entry["phone"],
+                             "Organisation's published route in the master" if (entry["email"] or entry["phone"]) else "No recorded channel",
+                             source_url, r.get("source_date", ""), r.get("verified_on", ""), r.get("evidence_basis", ""), record,
+                             f"Works with savings groups ({r.get('subtype', '')}): could introduce Silverleaf to group committees for a short Kiswahili talk.",
+                             "", "Introduction to group committees", "F26", "Needs research", missing[:1500], "Candidate for review", "", "", "", "",
+                             "No hook: request-first opening", "", V.ACQUISITION_VERSION, "AQ00", INTRODUCER_VALUE_MODULES,
+                             "New-contact acquisition: one introducer request per introducer per wave, naming the groups it covers.", "n/a",
+                             "n/a: a savings-group introducer, which gets its own introduction request.", "en", ""))
+            for field, value in (("introducer_role", f"{INTRODUCER_SEGMENT} ({r.get('subtype', '')})"), ("candidate_id", r.get("candidate_id", "")),
+                                 ("introducer_evidence", r.get("evidence_excerpt", "")), ("missing_information", r.get("missing_information", ""))):
+                written["facts"] += add_fact(con, oid, field, value, record)
+            if d and d.get("risky"):
+                written["facts"] += add_fact(con, oid, "source_risk", d["risky"], drec)
+                cur = con.execute('INSERT OR IGNORE INTO review (review_id, kind, entity_id, related_id, field, "values", action) VALUES (?,?,?,?,?,?,?)',
+                                  (hid("V", "vicoba-introducer-robots", oid), "Contact research: robots.txt disallows (read with a browser)", oid, drec,
+                                   "source_url", f"{d['source_url']}: {d['risky']}"[:500], "Read with a browser at the user's direction and tagged risky; "
+                                   "approve before any route from it is used."))
+                written["reviews"] += cur.rowcount
+            if d and d.get("latitude") not in (None, ""):
+                written["facts"] += add_fact(con, oid, "maps_location", f"{d['latitude']}, {d['longitude']} ({d.get('locality', '')}; {d['source_url']})", drec)
+            written["facts"] += upsert_fact(con, oid, STATE_FIELD, entry["state"], drec)
+            if entry["state"] != "active":
+                why = (d or {}).get("reason") or r.get("missing_information") or r.get("notes", "")
+                cur = con.execute('INSERT OR IGNORE INTO review (review_id, kind, entity_id, related_id, field, "values", action) VALUES (?,?,?,?,?,?,?)',
+                                  state_review(oid, entry["state"], why, drec))
+                written["reviews"] += cur.rowcount
+        checks = {"integrity": con.execute("PRAGMA integrity_check").fetchone()[0] == "ok",
+                  "foreign_keys": not con.execute("PRAGMA foreign_key_check").fetchall(),
+                  "organisations_conserved": con.execute("SELECT COUNT(*) FROM organisations").fetchone()[0] == before["organisations"] + len(plan["inserts"]),
+                  "plans_conserved": con.execute("SELECT COUNT(*) FROM outreach_plans").fetchone()[0] == before["outreach_plans"] + len(plan["inserts"]),
+                  "no_contacts_written": con.execute("SELECT COUNT(*) FROM contacts").fetchone()[0] == before["contacts"],
+                  "every_introducer_sourced": all(con.execute("SELECT 1 FROM entity_sources WHERE entity_id=? AND record_id=?",
+                                                              (e["organisation_id"], e["record_id"])).fetchone() for e in plan["inserts"] + plan["matches"]),
+                  "plans_have_messages": not con.execute("SELECT COUNT(*) FROM outreach_plans p WHERE NOT EXISTS (SELECT 1 FROM messages m WHERE m.message_id=p.message_id)").fetchone()[0],
+                  "automations_disabled": not con.execute("SELECT COUNT(*) FROM automation_configuration WHERE enabled=1").fetchone()[0]}
+        if not all(checks.values()):
+            raise RuntimeError(f"checks failed: {[k for k, ok in checks.items() if not ok]}")
+        con.execute("COMMIT")
+    except Exception:
+        con.execute("ROLLBACK")
+        raise
+    after = {t: con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0] for t in tables}
+    return {"before": before, "after": after, "written": written, "checks": checks}
+
+
+STATE_NEXT = {"active": "Introducer: one request per wave naming the groups it covers, once a published route is on record.",
+              "to_confirm": "Confirm its savings-group or VICOBA work from its own publication before it is used as an introducer.",
+              "outside_region": "Held low: located outside the region, with no introducer route in the catchment.",
+              "employer_conversation_first": "Already an employer lead: raise savings groups at its S4 meeting, never a second cold message.",
+              "welfare_conversation_first": "In a welfare-run conversation: raise savings groups at its S4 meeting there, never a second cold message."}
+
+
+def plan_facts(con: sqlite3.Connection, path: Path, gov: GovRuns, decisions: list[dict]) -> dict:
+    orgs = {r[0]: r[1] for r in con.execute("SELECT organisation_id, name FROM organisations")}
+    plan = {"facts": [], "errors": [], "states": {}}
+    for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        f = json.loads(line)
+        targets = []
+        if f.get("db") == "master":
+            for oid in [f.get("organisation_id"), *(f.get("also_ids") or [])]:
+                if oid not in orgs:
+                    plan["errors"].append(f"line {n}: {oid} is not a master organisation")
+                else:
+                    targets.append(("organisation", oid))
+        elif f.get("db") == "welfare":
+            run = f.get("run") or "arusha-welfare-2026-09"
+            ref = f"welfare:{run}:{f.get('organisation_id')}"
+            org, why = gov.welfare_org(ref)
+            if not org:
+                plan["errors"].append(f"line {n}: {why}")
+            else:
+                targets.append((WELFARE_ENTITY, ref))
+        else:
+            plan["errors"].append(f"line {n}: db must be master or welfare")
+        if not f.get("field") or not f.get("value") or not f.get("source_url"):
+            plan["errors"].append(f"line {n}: a fact needs field, value and source_url")
+        if has_number(f.get("value", "")) or has_number(f.get("excerpt", "")):
+            plan["errors"].append(f"line {n}: a fact never carries a phone number")
+        if not targets:
+            continue
+        record = hid("R", "vicoba-introducer-fact", path.name, n, f.get("field"), f.get("value"))
+        review = f.get("review") or ""
+        needs = norm(review).startswith("vicoba introducer to confirm") or f.get("verification_status") == "needs_review"
+        plan["facts"].append({"line": n, "fact": f, "targets": targets, "record_id": record, "review": review, "needs_review": needs})
+        primary = targets[0][1]
+        d = decision_for(decisions, organisation_id=primary)
+        if d:
+            plan["states"][primary] = (targets[0][0], d["state"], d.get("reason", ""), record, d)
+        elif f.get("field") == "introducer_role" or norm(review).startswith("already an employer lead"):
+            state = default_state(f.get("verification_status", ""), review)
+            current = plan["states"].get(primary)
+            rank = {"to_confirm": 0, "employer_conversation_first": 1, "welfare_conversation_first": 1, "outside_region": 2, "active": 3}
+            if not current or rank[state] < rank[current[1]]:
+                plan["states"][primary] = (targets[0][0], state, review, record, None)
+    return plan
+
+
+def apply_facts(con: sqlite3.Connection, plan: dict, path: Path) -> dict:
+    con.row_factory = None
+    tables = ("organisations", "contacts", "outreach_plans", "source_records", "entity_sources", "facts", "review")
+    before = {t: con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0] for t in tables}
+    raw = path.read_bytes()
+    sid = hid("F", "vicoba-introducer-facts", path.name, hashlib.sha256(raw).hexdigest())
+    written = {"records": 0, "facts": 0, "reviews": 0, "states": 0}
+    try:
+        con.execute("BEGIN")
+        con.execute("INSERT OR IGNORE INTO source_files (source_id, path, sha256, bytes, kind, encoding, content) VALUES (?,?,?,?,?,?,?)",
+                    (sid, rel(path), hashlib.sha256(raw).hexdigest(), len(raw), "jsonl; VICOBA introducer facts", "utf-8", raw))
+        for item in plan["facts"]:
+            f = item["fact"]
+            written["records"] += add_record(con, item["record_id"], sid, f"line {item['line']}: {f.get('organisation_name')} {f['field']}", f)
+            for etype, eid in item["targets"]:
+                add_entity_source(con, etype, eid, item["record_id"])
+                written["facts"] += add_fact(con, eid, f["field"], f["value"], item["record_id"], entity_type=etype)
+                if item["review"] and not item["needs_review"]:
+                    written["facts"] += add_fact(con, eid, "introducer_note", item["review"], item["record_id"], entity_type=etype)
+            if item["needs_review"]:
+                etype, eid = item["targets"][0]
+                cur = con.execute('INSERT OR IGNORE INTO review (review_id, kind, entity_id, related_id, field, "values", action) VALUES (?,?,?,?,?,?,?)',
+                                  (hid("V", "vicoba-introducer-fact", eid, f["field"], f["value"]), "VICOBA introducer to confirm", eid, item["record_id"],
+                                   f["field"], f"{f['value']}; {item['review']}"[:500], "Confirm with the organisation's own publication (or at its S4 meeting) "
+                                   "before it is used as an introducer."))
+                written["reviews"] += cur.rowcount
+        for eid, (etype, state, why, record, d) in plan["states"].items():
+            if d:
+                drec = hid("R", "vicoba-introducer-decision", d.get("id"), json.dumps(d, sort_keys=True))
+                add_record(con, drec, sid, f"introducer decision {d.get('id')} (data/reference/vicoba-introducers.json)", d)
+                add_entity_source(con, etype, eid, drec)
+                record = drec
+            written["states"] += upsert_fact(con, eid, STATE_FIELD, state, record, entity_type=etype)
+            if state != "active":
+                cur = con.execute('INSERT OR IGNORE INTO review (review_id, kind, entity_id, related_id, field, "values", action) VALUES (?,?,?,?,?,?,?)',
+                                  state_review(eid, state, why, record))
+                written["reviews"] += cur.rowcount
+        checks = {"integrity": con.execute("PRAGMA integrity_check").fetchone()[0] == "ok",
+                  "foreign_keys": not con.execute("PRAGMA foreign_key_check").fetchall(),
+                  "organisations_unchanged": con.execute("SELECT COUNT(*) FROM organisations").fetchone()[0] == before["organisations"],
+                  "no_contacts_written": con.execute("SELECT COUNT(*) FROM contacts").fetchone()[0] == before["contacts"],
+                  "one_source_record_per_fact": all(con.execute("SELECT 1 FROM source_records WHERE record_id=?", (i["record_id"],)).fetchone()
+                                                    for i in plan["facts"]),
+                  "automations_disabled": not con.execute("SELECT COUNT(*) FROM automation_configuration WHERE enabled=1").fetchone()[0]}
+        if not all(checks.values()):
+            raise RuntimeError(f"checks failed: {[k for k, ok in checks.items() if not ok]}")
+        con.execute("COMMIT")
+    except Exception:
+        con.execute("ROLLBACK")
+        raise
+    after = {t: con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0] for t in tables}
+    return {"before": before, "after": after, "written": written, "checks": checks}
+
+
 # --- Self-test ------------------------------------------------------------------------------------------------------------------------
 def self_test(args) -> int:
     """T3's checks (vicoba-integration-plan.md section 4.2) on temporary copies of the given master and government run."""
@@ -798,13 +1220,63 @@ def self_test(args) -> int:
             shutil.copyfile(path, gov_overrides[run])
         gov_arg = ",".join(f"{k}={v}" for k, v in gov_overrides.items())
         run = next(iter(gov_overrides))
+        welfare_copy = None
+        for wrun, path in parse_gov(args.welfare_db, DEFAULT_WELFARE_RUN).items():
+            welfare_copy = gov_overrides[wrun] = tmp / f"{wrun}.sqlite"
+            shutil.copyfile(path, welfare_copy)
+        welfare_sha = hashlib.sha256(welfare_copy.read_bytes()).hexdigest() if welfare_copy else ""
         gov = GovRuns(gov_overrides)
         con = sqlite3.connect(db, isolation_level=None)
-        fixture = ROOT / "data" / "raw" / "vicoba" / "fixtures" / "t2_intake_fixture.csv"
-        if not V.vicoba_ids(con):
-            subprocess.run([sys.executable, "-B", str(ROOT / "scripts" / "master" / "add_vicoba_groups.py"), "--intake", str(fixture),
+        raw_dir = ROOT / "data" / "raw" / "vicoba"
+        fixture = raw_dir / "fixtures" / "t2_intake_fixture.csv"
+        group_intakes = [fixture] + sorted(raw_dir.glob("master_intake_*.csv")) if not V.vicoba_ids(con) else []
+        for intake in group_intakes:
+            subprocess.run([sys.executable, "-B", str(ROOT / "scripts" / "master" / "add_vicoba_groups.py"), "--intake", str(intake),
                             "--database", str(db), "--work", str(tmp / "work"), "--as-of", as_of.isoformat(), "--apply"],
                            check=True, capture_output=True, text=True, encoding="utf-8")
+        results["group_intakes_applied"] = [rel(p) for p in group_intakes]
+        # 0. T1's introducers and introducer facts, with the reviewed introducer decisions of the committed file.
+        decisions = accepted_decisions(load_links(LINKS_FILE))
+        intro_files, fact_files = sorted(raw_dir.glob("introducers_intake_*.csv")), sorted(raw_dir.glob("introducer_facts_*.jsonl"))
+        tusonge = None
+        if intro_files:
+            _, preflight = V.run_checks(intro_files[-1], db, tmp / "work")
+            ip = plan_introducers(con, intro_files[-1], preflight, decisions)
+            ra = apply_introducers(con, ip, intro_files[-1], intro_files[-1].stem)
+            again = apply_introducers(con, plan_introducers(con, intro_files[-1], V.run_checks(intro_files[-1], db, tmp / "work")[1], decisions),
+                                      intro_files[-1], intro_files[-1].stem)
+            con.row_factory = None
+            added = {e["organisation_id"]: e for e in ip["inserts"]}
+            states = {oid: last_state(con, oid) for oid in added}
+            by_name = {e["name"]: oid for oid, e in added.items()}
+            tusonge = next((oid for name, oid in by_name.items() if name.startswith("Tusonge")), None)
+            rows = {r[0]: r for r in con.execute("SELECT organisation_id, segment, email, phone FROM organisations")}
+            plans = {r[0]: r[1] for r in con.execute("SELECT organisation_id, segment FROM outreach_plans")}
+            reviews = {(r[0], r[1]) for r in con.execute("SELECT entity_id, kind FROM review")}
+            intake_rows = {r["organisation_name"]: r for r in csv.DictReader(intro_files[-1].open(encoding="utf-8-sig"))}
+            trias, yemco, magnet = by_name.get("Trias Tanzania"), by_name.get("Yemco Vicoba"), by_name.get("Magnet Vikoba")
+            results["introducers_added"] = {
+                "inserted": len(ip["inserts"]), "checks": all(ra["checks"].values()), "rerun_adds_nothing": again["before"] == again["after"],
+                "segment_and_plan": all(rows[o][1] == INTRODUCER_SEGMENT and plans.get(o) == "VICOBA introducers" for o in added),
+                "published_routes_only": all((rows[o][2] or "") in ("", intake_rows[e["name"]].get("public_email", ""))
+                                             and (rows[o][3] or "") in ("", intake_rows[e["name"]].get("public_phone", "")) for o, e in added.items()),
+                "one_source_record_each": all(con.execute("SELECT COUNT(*) FROM entity_sources WHERE entity_id=? AND record_id=?",
+                                                          (o, e["record_id"])).fetchone()[0] == 1 for o, e in added.items()),
+                "yemco_magnet_outside_region": bool(yemco and magnet) and states[yemco] == states[magnet] == "outside_region",
+                "trias_to_confirm_and_risky": bool(trias) and states[trias] == "to_confirm" and (trias, "VICOBA introducer to confirm") in reviews
+                                              and (trias, "Contact research: robots.txt disallows (read with a browser)") in reviews,
+                "tusonge_active": bool(tusonge) and states[tusonge] == "active"}
+        if fact_files and welfare_copy:
+            fp = plan_facts(con, fact_files[-1], gov, decisions)
+            rf = apply_facts(con, fp, fact_files[-1]) if not fp["errors"] else {"checks": {"no_errors": False}}
+            con.row_factory = None
+            welfare_facts = con.execute("SELECT COUNT(DISTINCT entity_id) FROM facts WHERE entity_type=?", (WELFARE_ENTITY,)).fetchone()[0]
+            results["introducer_facts"] = {"facts": len(fp["facts"]), "errors": fp["errors"] == [], "checks": all(rf["checks"].values()),
+                                           "one_source_record_per_fact": rf["checks"].get("one_source_record_per_fact", False),
+                                           "welfare_references_recorded_by_reference": welfare_facts == len({e for i in fp["facts"] for t, e in i["targets"]
+                                                                                                             if t == WELFARE_ENTITY})}
+            rerun = apply_facts(con, plan_facts(con, fact_files[-1], gov, decisions), fact_files[-1])
+            results["introducer_facts"]["rerun_adds_nothing"] = rerun["before"] == rerun["after"] and not any(rerun["written"].values())
         groups = V.load_vicoba_groups(con)
         intake_ngo = [oid for oid, g in groups.items() if set(g["facts"].get("introducer_kind", [])) & {"ngo_field_office", "bank_branch"}
                       and any(V.MASTER_ID.match(r) for r in g["facts"].get("introducer_ref", []))]
@@ -820,6 +1292,14 @@ def self_test(args) -> int:
         for e in proposals["officer_routes"]:
             e.update(status="accepted", reviewed_by="self-test reviewer", reviewed_on=as_of.isoformat())
             reviewed["officer_routes"].append(e)
+        moshi = next((g for g in groups.values() if g["group_key"] == "VIC|Moshi District Council|Kindi|maendeleovsla"), None)
+        if tusonge and moshi:
+            # A reviewer links the fixture's Moshi group to Tusonge (an active introducer with a published office line).
+            reviewed["links"].append({"id": link_id(moshi["group_key"], "ngo_field_office", tusonge), "group": moshi["group_key"], "group_name": moshi["name"],
+                                      "introducer_kind": "ngo_field_office", "introducer_ref": tusonge, "introducer_name": "Tusonge Community Development Organization",
+                                      "basis": "self-test", "source_url": "https://example.org/vicoba-fixture/20", "source_date": "", "evidence_excerpt": "",
+                                      "introducer_outcome": "", "officer_known_through_introducer": "", "status": "accepted",
+                                      "reviewed_by": "self-test reviewer", "reviewed_on": as_of.isoformat(), "notes": ""})
         links_path = tmp / "vicoba-introducers.json"
         links_path.write_text(json.dumps(reviewed, ensure_ascii=False, indent=1), encoding="utf-8")
         results["proposals"] = stats
@@ -868,6 +1348,14 @@ def self_test(args) -> int:
             office, _ = gov.office(p["linked_introducer_ref"])
             resolved.append(bool(office) and office["office_level"] == "ward" and "Ward Community Development Officer" in office["posts"]
                             and place_key(office["admin_unit_name"]) == place_key(last(groups[oid], "ward")))
+        welfare_linked = [band_properties(g) for g in groups.values() if band_properties(g)["linked_introducer_db"] == "welfare"]
+        if welfare_copy:
+            results["welfare_introducers"] = {
+                "groups": len(welfare_linked), "linked_by_reference": bool(welfare_linked) and all(p["linked_introducer_ref"].startswith("welfare:")
+                                                                                                    for p in welfare_linked),
+                "conversation_first_not_ready": all(p["linked_introducer_state"] == "welfare_conversation_first" and p["introducer_ready"].startswith("no:")
+                                                    for p in welfare_linked),
+                "welfare_run_unchanged": hashlib.sha256(welfare_copy.read_bytes()).hexdigest() == welfare_sha}
         results["cdo_links_resolve_to_ward_offices"] = {"links": len(cdo), "all_resolve": bool(cdo) and all(resolved),
                                                         "held_until_council_introduction": all(p["introducer_ready"].startswith("no: council")
                                                                                                for _, p in cdo)}
@@ -983,6 +1471,11 @@ def self_test(args) -> int:
     return 0 if ok else 1
 
 
+def last_state(con: sqlite3.Connection, entity_id: str) -> str:
+    row = con.execute("SELECT value FROM facts WHERE entity_id=? AND field=? ORDER BY rowid DESC LIMIT 1", (entity_id, STATE_FIELD)).fetchone()
+    return row[0] if row else NONE
+
+
 def number_in_database(con: sqlite3.Connection, number_digits: str) -> bool:
     """Whether a number (its digits) appears in any text the master holds about people, facts or sources."""
     d = number_digits
@@ -1029,13 +1522,58 @@ def planner_check(db: Path, tmp: Path) -> dict:
 
 
 # --- Main -----------------------------------------------------------------------------------------------------------------------------
-def parse_gov(value) -> dict[str, Path]:
-    """--government-db: '<path>' (the default run) or '<run-id>=<path>[,<run-id>=<path>]'."""
+def parse_gov(value, default_run: str = DEFAULT_RUN) -> dict[str, Path]:
+    """--government-db / --welfare-db: '<path>' (the default run) or '<run-id>=<path>[,<run-id>=<path>]'."""
     out = {}
     for part in [p for p in str(value or "").split(",") if p]:
-        run, _, path = part.rpartition("=") if "=" in part else (DEFAULT_RUN, "", part)
-        out[run or DEFAULT_RUN] = Path(path)
+        run, _, path = part.rpartition("=") if "=" in part and not re.match(r"^[A-Za-z]:[\/]", part.split("=")[0] + "/") else ("", "", part)
+        out[run or default_run] = Path(path)
     return out
+
+
+def run_overrides(args) -> dict[str, Path]:
+    return parse_gov(getattr(args, "government_db", None)) | parse_gov(getattr(args, "welfare_db", None), DEFAULT_WELFARE_RUN)
+
+
+def add_introducers_main(con: sqlite3.Connection, args, links: dict) -> int:
+    intake = args.add_introducers if args.add_introducers.is_absolute() else ROOT / args.add_introducers
+    validation, preflight = V.run_checks(intake, args.database, args.work)
+    plan = plan_introducers(con, intake, preflight, accepted_decisions(links))
+    summary = {"intake": rel(intake), "validated_rows": validation["row_count"], "inserted": len(plan["inserts"]), "matched": len(plan["matches"]),
+               "quarantined": plan["quarantined"], "warnings": plan["warnings"],
+               "conservation": validation["row_count"] == len(plan["inserts"]) + len(plan["matches"]) + len(plan["quarantined"]),
+               "by_state": {}, "with_published_route": sum(1 for e in plan["inserts"] + plan["matches"] if e["email"] or e["phone"]),
+               "introducers": [{"line": e["line"], "organisation_id": e["organisation_id"], "name": e["name"], "state": e["state"], "new": e["new"],
+                                "route": "email and phone" if e["email"] and e["phone"] else "email" if e["email"] else "phone" if e["phone"] else "none",
+                                "decision": (e["decision"] or {}).get("id", "")} for e in plan["inserts"] + plan["matches"]]}
+    for e in plan["inserts"] + plan["matches"]:
+        summary["by_state"][e["state"]] = summary["by_state"].get(e["state"], 0) + 1
+    print(json.dumps(summary, indent=1, ensure_ascii=False))
+    if not summary["conservation"]:
+        raise SystemExit("Row conservation failed; nothing was written.")
+    if not args.apply:
+        print("Preview only.")
+        return 0
+    print(json.dumps(apply_introducers(con, plan, intake, intake.stem), indent=1))
+    return 0
+
+
+def apply_facts_main(con: sqlite3.Connection, args, links: dict, gov: GovRuns) -> int:
+    path = args.apply_facts if args.apply_facts.is_absolute() else ROOT / args.apply_facts
+    plan = plan_facts(con, path, gov, accepted_decisions(links))
+    summary = {"file": rel(path), "facts": len(plan["facts"]), "targets": sum(len(i["targets"]) for i in plan["facts"]),
+               "welfare_references": sorted({eid for i in plan["facts"] for t, eid in i["targets"] if t == WELFARE_ENTITY}),
+               "review_items": sum(1 for i in plan["facts"] if i["needs_review"]),
+               "states": {eid: s[1] for eid, s in plan["states"].items()}, "errors": plan["errors"]}
+    print(json.dumps(summary, indent=1, ensure_ascii=False))
+    if plan["errors"]:
+        print("Problems in the facts file; nothing was written.")
+        return 1
+    if not args.apply:
+        print("Preview only.")
+        return 0
+    print(json.dumps(apply_facts(con, plan, path), indent=1))
+    return 0
 
 
 def main() -> int:
@@ -1050,6 +1588,12 @@ def main() -> int:
     parser.add_argument("--propose", action="store_true", help="write proposals for the reviewed file to runtime/master/")
     parser.add_argument("--intake", type=Path, help="with --propose: a group intake whose published role phones become officer-route proposals")
     parser.add_argument("--introducer-intake", type=Path, help="with --propose: T1's data/raw/vicoba/introducers_intake_<date>.csv")
+    parser.add_argument("--welfare-db", help="a welfare run database copy, <path> or <run-id>=<path> (default outputs/runs/<run-id>/"
+                                             "lead-database.sqlite, read only): resolves welfare:<run-id>:<organisation_id> introducers")
+    parser.add_argument("--add-introducers", type=Path, metavar="INTAKE", help="add introducer organisations from T1's "
+                        "data/raw/vicoba/introducers_intake_<date>.csv (validator and preflight first; preview unless --apply)")
+    parser.add_argument("--apply-facts", type=Path, metavar="JSONL", help="record T1's data/raw/vicoba/introducer_facts_<date>.jsonl "
+                        "(one source record per fact; preview unless --apply)")
     parser.add_argument("--check", action="store_true", help="validate the reviewed file against the databases; write nothing")
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--apply", action="store_true")
@@ -1059,9 +1603,15 @@ def main() -> int:
         return self_test(args)
     if not args.database.is_file():
         raise SystemExit(f"No database at {args.database}.")
-    gov = GovRuns(parse_gov(args.government_db))
+    gov = GovRuns(run_overrides(args))
     links = load_links(args.links)
     con = sqlite3.connect(args.database, isolation_level=None)
+    if decision_issues(links):
+        raise SystemExit(f"The reviewed file's introducer decisions have problems: {decision_issues(links)}")
+    if args.add_introducers:
+        return add_introducers_main(con, args, links)
+    if args.apply_facts:
+        return apply_facts_main(con, args, links, gov)
     if args.propose:
         print(json.dumps(propose(con, links, gov, args.intake, args.introducer_intake, args.work / "vicoba-introducer-proposals.json"), indent=1))
         return 0

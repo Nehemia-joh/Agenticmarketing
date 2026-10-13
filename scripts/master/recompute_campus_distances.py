@@ -9,6 +9,12 @@ locality (scripts/collection/build_partner_leads.py, data/reference/lead-gazette
   the stored distance from the stored campus under the previous campus points (to 0.2 km): proof it is the point the
   importer used;
 - otherwise the stored distance is kept, and only its band and tier are recomputed from it (fixing stale bands).
+Ward precision (geocode_precision 'ward', VICOBA savings groups, decided 13 October 2026): the point is the ward's reference point in
+the government run (admin_units latitude/longitude), found by the group's linked ward CDO office (fact linked_introducer_ref) or by
+its council and ward facts; the campus, distance, band and tier are computed from it, and a stored point that differs from the
+ward's current reference point is replaced by it (the precision stays 'ward'). A ward the government run does not place keeps the
+stored point. A ward-precision distance is an estimate: drafts never state it (scripts/messaging/, T4). --government-db names a
+copy of the run (default outputs/runs/arusha-government-2026-09/lead-database.sqlite, read only).
 Bands: 0-5, 6-10, 11-15, 16-20, 21-25, 26-40, >40 km. Tiers: Core (<=10 km), Outer (<=25 km), >25 km.
 Distance never removes a company from the master: the reach rank reads the band (scripts/master/rank_employer_reach.py).
 Preview by default; --apply writes in one transaction and records outputs/reports/campus-distance-recompute.json.
@@ -80,10 +86,48 @@ def candidates(text: str, gaz: dict) -> list:
     return out
 
 
+def ward_points(con: sqlite3.Connection, government_db: str | None) -> tuple[dict, Counter]:
+    """organisation_id -> (lat, lon, admin unit key) for ward-precision organisations, from the government run's ward reference points."""
+    ward = [r["organisation_id"] for r in con.execute("SELECT organisation_id FROM organisations WHERE geocode_precision='ward'")]
+    stats, out = Counter(), {}
+    if not ward:
+        return out, stats
+    import sys
+    sys.path.insert(0, str(ROOT / "scripts" / "master"))
+    import link_vicoba_introducers as L  # noqa: E402  (the government-run reader shared with the introducer links)
+    facts: dict[str, dict] = {}
+    marks = ",".join("?" * len(ward))
+    for r in con.execute(f"SELECT entity_id, field, value FROM facts WHERE entity_type='organisation' AND entity_id IN ({marks}) "
+                         "AND field IN ('council','ward','linked_introducer_kind','linked_introducer_ref') ORDER BY rowid", ward):
+        facts.setdefault(r["entity_id"], {})[r["field"]] = r["value"]  # the last value recorded
+    runs = L.parse_gov(government_db)
+    run = next(iter(runs), L.DEFAULT_RUN)
+    gov = L.GovRuns(runs)
+    for oid in ward:
+        f = facts.get(oid, {})
+        unit = None
+        if f.get("linked_introducer_kind") == "cdo_ward":
+            office, _ = gov.office(f.get("linked_introducer_ref", ""))
+            unit = office["unit"] if office else None
+        if unit is None:
+            unit = gov.ward_unit(run, f.get("council", ""), f.get("ward", ""))
+        if gov.con(run) is None:
+            stats["government run not found (stored points kept)"] += 1
+        elif unit and unit.get("latitude") is not None and unit.get("longitude") is not None:
+            out[oid] = (float(unit["latitude"]), float(unit["longitude"]), unit["unit_key"])
+            stats["from ward reference point"] += 1
+        elif unit:
+            stats["ward has no reference point yet (stored point kept)"] += 1
+        else:
+            stats["ward not found in the government run"] += 1
+    return out, stats
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--database", default=str(MASTER))
+    ap.add_argument("--government-db", help="a copy of the government run for ward reference points: <path> or <run-id>=<path> (read only)")
     ap.add_argument("--report", default=str(REPORT), help="where --apply records the run (keep the campus-correction record of "
                                                           "2026-10-11 by giving a later run its own file)")
     args = ap.parse_args()
@@ -94,12 +138,18 @@ def main() -> int:
     for r in con.execute("SELECT entity_id, field, value FROM facts WHERE entity_type='organisation' AND field IN ('latitude','longitude')"):
         facts.setdefault(r["entity_id"], {})[r["field"]] = r["value"]
     gaz = gazetteer()
-    updates, stats, moved = [], Counter(), []
+    wards, ward_stats = ward_points(con, args.government_db)
+    updates, stats, moved, ward_moves = [], Counter(), [], []
     for o in con.execute("SELECT organisation_id, name, campus, distance_km, transport_band, radius_tier, latitude, longitude, locality, address FROM organisations"):
         stored = float(o["distance_km"]) if str(o["distance_km"] or "").replace(".", "", 1).isdigit() else None
         point, basis = None, ""
         f = facts.get(o["organisation_id"], {})
-        for lat, lon in ((o["latitude"], o["longitude"]), (f.get("latitude"), f.get("longitude"))):
+        if o["organisation_id"] in wards:
+            lat, lon, unit_key = wards[o["organisation_id"]]
+            point, basis = (lat, lon), "ward reference point"
+            if o["latitude"] is None or o["longitude"] is None or abs(o["latitude"] - lat) > 1e-6 or abs(o["longitude"] - lon) > 1e-6:
+                ward_moves.append((lat, lon, o["organisation_id"]))
+        for lat, lon in (() if point else ((o["latitude"], o["longitude"]), (f.get("latitude"), f.get("longitude")))):
             try:
                 point, basis = (float(lat), float(lon)), "coordinates"
                 break
@@ -131,11 +181,14 @@ def main() -> int:
                 stats["moved beyond 25 km (kept; distance never removes a company)"] += 1
     stats["records to update"] = len(updates)
     stats["nearest campus changed"] = len(moved)
-    report = {"stats": dict(stats), "nearest_campus_changed": moved, "campuses": campuses}
+    ward_stats["stored point replaced by the ward reference point"] = len(ward_moves)
+    report = {"stats": dict(stats), "nearest_campus_changed": moved, "campuses": campuses,
+              "ward_precision": {**dict(ward_stats), "note": "ward-precision distances are estimates: drafts never state them"}}
     print(json.dumps(report, ensure_ascii=False, indent=1)[:4000])
     if args.apply:
         with con:
             con.executemany("UPDATE organisations SET campus=?, distance_km=?, transport_band=?, radius_tier=? WHERE organisation_id=?", updates)
+            con.executemany("UPDATE organisations SET latitude=?, longitude=? WHERE organisation_id=? AND geocode_precision='ward'", ward_moves)
         Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=1), encoding="utf-8")
         print("applied", len(updates))
     return 0

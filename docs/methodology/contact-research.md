@@ -77,6 +77,87 @@ Government offices are addressed by office title. Officials are named only from 
 - **Introducers.** Associations, chambers and HR bodies whose members are employers are researched as organisations (`introducers_*_<date>.jsonl`) and added with `scripts/master/add_introducers.py`; their first message asks them to share the staff benefit with members.
 - **Calls.** `scripts/contacts/build_call_sheet.py` lists the P1 and P2 employers still without a named staff-benefits contact; the answers come back through `import_call_results.py` and the normal merge, with the person's agreement to receive the email recorded.
 
+## VICOBA savings groups (decided 13 October 2026)
+
+VICOBA and VSLA groups are group-level records in the company master (`docs/plans/vicoba-integration-plan.md`, decisions taken, section 0 and decision 3). Groups are reached through introducers, never researched one by one: `plan_contact_research.py` plans no web search for a savings group, and the playbook records why (the public web gave no VICOBA groups).
+
+**Routes, in order of use.**
+1. **The introducer.** This is the usual route. It is one of:
+   - an NGO field office, bank branch, faith office or employer in the master;
+   - an NGO in the welfare run, referenced there;
+   - the ward or council Community Development Officer, referenced in the government run.
+2. **A route the group or a public body publishes for the role**, such as a chair's or secretary's phone on a council page or in an NGO report.
+3. **The meeting place, at meeting time.** This is used only after an introduction or the committee's agreement, and never as an unannounced visit.
+
+**Introducers.**
+- **Adding them.** `scripts/master/link_vicoba_introducers.py --add-introducers data/raw/vicoba/introducers_intake_<date>.csv` adds them.
+  - The validator and the preflight run first; the insert is one transaction.
+  - Each new introducer gets segment `Introducer: savings-group network`, a `VICOBA introducers` plan and one source record.
+  - It carries only the routes it publishes. A row with a person's details is quarantined.
+  - An existing record is matched, never duplicated.
+- **Recording what T1 found.** `--apply-facts data/raw/vicoba/introducer_facts_<date>.jsonl` records each fact with its own source record: a savings-group programme (`introducer_role`) or a VICOBA group-account product (`group_account_product`).
+  - A welfare-run organisation stays in its run. The master records the fact on the reference `welfare:<run-id>:<organisation_id>` (facts `entity_type` `welfare_organisation`).
+  - The welfare run is read, never written.
+- **The introducer's state.** Every introducer has one current `introducer_state`:
+
+  | State | Meaning |
+  |---|---|
+  | `active` | A verified programme or product is on record. |
+  | `to_confirm` | Its savings-group work is unconfirmed. It gets a `VICOBA introducer to confirm` review item and is never an active introducer. |
+  | `outside_region` | Kept and held low: no introducer route in the catchment. |
+  | `employer_conversation_first` / `welfare_conversation_first` | It already has a conversation, as an employer lead or in its welfare run. Savings groups are raised at that conversation's S4 meeting, never in a second cold message. |
+
+  - The orchestrator's and reviewers' checks are accepted entries in the `introducer_decisions` section of `data/reference/vicoba-introducers.json`, with their source. On 13 October 2026 these were:
+    - Yemco Vicoba and Magnet Vikoba: Dar es Salaam Maps listings, so `outside_region`;
+    - Trias Tanzania: its Tanzania page names no savings-group programme, so `to_confirm`. The page is robots-disallowed and was read in the browser, so it is tagged risky.
+- **Links.** A group is linked to its introducer only through an accepted entry in `data/reference/vicoba-introducers.json` ("links").
+  - An intake's `introducer_ref`, `sponsor_ref` or `employer_ref` is only a proposal: `link_vicoba_introducers.py --propose` drafts the entries in `runtime/master/vicoba-introducer-proposals.json` for a person to review.
+  - A CDO link must resolve to a ward office (or a council office) in the government run that holds the Community Development post, in the group's council and ward.
+  - A CDO route is held until the council's introduction (GA01) is recorded there.
+  - A link is a reference, never a copy of the office.
+- **Applying.** `link_vicoba_introducers.py` (preview), then `--apply` (one transaction), then `recompute_campus_distances.py --apply`.
+
+**Phones and privacy.**
+- A group leader's personal mobile counts only when a public body or the group publishes it for the role. It then enters the reviewed file's `officer_routes` and becomes a role-only contact (no name) with `contacts.role_phone` and the contact fact `phone_basis = published_for_role`. `verify_master.py` fails on a VICOBA contact phone without that basis.
+- A number given with consent never enters the repository. It stays in the partnerships call log. The master records only the group fact `phone_basis = consent_recorded <date>`.
+- No member names, phones, savings, loans or children are recorded. An offered member list is refused and recorded as `list_refused`.
+
+**Calls.**
+- `build_call_sheet.py --vicoba` lists, women's groups first, complete groups only:
+  - introducer office lines;
+  - group officers' role phones published for the role.
+
+  Each number carries its basis and source, and the builder fails on any other number.
+- It skips:
+  - welfare-run introducers (called within their own run's conversation);
+  - introducers that are not ready.
+- The sheet has no column for a name or a number.
+- `import_call_results.py --vicoba` writes `data/raw/contact-research/vicoba_calls_<date>.jsonl` with no number and no name. It stops, writing nothing, if any answer holds a phone number, an email or a person's name.
+- `link_vicoba_introducers.py --apply` then records the results:
+  - consent;
+  - a refusal, which suppresses the officer route;
+  - the introducer's outcome;
+  - the meeting day the committee states;
+  - a refused member list.
+
+**Location.** A group's point is its ward's reference point in the government run (`geocode_precision` `ward`). `recompute_campus_distances.py` computes the campus, distance, band and tier from it. A ward-precision distance is an estimate, and drafts never state it.
+
+**Band properties.** The band is computed by `first_touch.vicoba_case()`. It reads these facts on each group, each with one current value, all written by `link_vicoba_introducers.py`:
+
+| Fact | Values |
+|---|---|
+| `introducer_status` | `linked`, `to_confirm` (named in the intake, no accepted link), `none` |
+| `linked_introducer_kind`, `linked_introducer_ref`, `linked_introducer_name` | The primary accepted link (an employer first, then a ready introducer, then by kind), or `none` |
+| `linked_introducer_db` | `master`, `government`, `welfare` or `none` |
+| `linked_introducer_state` | The introducer's `introducer_state`, or `none` |
+| `introducer_ready` | `yes`, or `no: <reason>` (council introduction not recorded, to confirm, outside the region, another conversation first, no published route, possibly closed) |
+| `introducer_outcome` | `introduced <date>`, `declined <date>` or `none` |
+| `officer_route` | `published_for_role`, `consent_recorded <date>`, `known_through_introducer <date>`, `refused <date>` or `none` |
+| `officer_confirmed_on` | A date or `none` |
+| `channel` | `call`, `letter` or `email` |
+
+The group's `record_status` follows its links: a group that gains an introducer route and is otherwise complete becomes `complete`.
+
 ## Rules the scripts enforce
 
 - **Only what a source publishes for contact purposes.** No contact detail is recorded or presented as found unless a source publishes it, and a person's name is never searched across other sites (a query limited to the organisation's own site, `site:<own domain>`, is not "another site"; decided 11 October 2026). Two decisions of 2 October 2026 widen this:

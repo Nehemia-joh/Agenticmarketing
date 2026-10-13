@@ -6,10 +6,20 @@ line of data/raw/contact-research/search_calls_<date>.jsonl in the research agen
 phone as the person on the phone gave them, the source "tel:<number called>", and an excerpt that records who answered, the caller, the date
 and whether they agreed to receive the email. A contact who did not agree is recorded with pdpa_risk "risky", so no draft uses that route.
 Then run build_contact_profiles.py --date <date> and merge_master_contacts.py (preflight, then --apply), as for any research wave.
+
+--vicoba reads a filled-in VICOBA call sheet (build_call_sheet.py --vicoba) and writes
+data/raw/contact-research/vicoba_calls_<date>.jsonl: one record per answered row with the organisation ID, the groups it covers, the
+role reached, the outcome, whether the committee agreed to a meeting or to a letter or SMS, whether the introducer will introduce
+groups, the meeting day and time as the committee stated them, a refused member list, the date and the caller. It never holds a
+number or a name: if any answer cell holds a phone number or an email, or the notes name someone (an honorific followed by a name),
+the import stops and writes nothing, so a consented number can never enter the repository (it belongs in the partnerships call log).
+scripts/master/link_vicoba_introducers.py --apply then records the results: consent as the group fact phone_basis
+'consent_recorded <date>' (no number), a refusal suppresses the officer route, an introducer's answer becomes its outcome.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 import sys
@@ -20,6 +30,75 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw" / "contact-research"
+PHONE = re.compile(r"\+?\d[\d ()./-]{7,}\d")
+EMAIL = re.compile(r"[^@\s]+@[^@\s]+\.[A-Za-z]{2,}")
+# An honorific or title followed by a capitalised word reads as a person's name ("Mama Neema", "Bw. Juma", "Mr Peter").
+NAMED = re.compile(r"\b(Mama|Baba|Bibi|Mzee|Bwana|Bw|Bi|Mhe|Mheshimiwa|Dada|Kaka|Mr|Mrs|Ms|Miss|Dr|Pastor|Mchungaji|Sheikh)\.?\s+[A-Z][a-z]+")
+OUTCOMES = {"reached": "reached", "call back": "call_back", "wrong number": "wrong_number", "not interested": "not_interested", "no answer": "no_answer"}
+VICOBA_ANSWERS = ("reached", "outcome", "committee_meeting_agreed", "letter_or_sms_agreed", "introduces_groups", "meeting_day", "meeting_time",
+                  "member_list_offered", "call_date", "caller", "notes")
+
+
+def has_number(text: str) -> bool:
+    text = re.sub(r"\d{4}-\d{2}-\d{2}", " ", text)
+    return any(len(re.sub(r"\D", "", m.group())) >= 9 for m in PHONE.finditer(text))
+
+
+def vicoba(args) -> int:
+    """VICOBA call results: no number and no name ever leaves the sheet; one problem stops the import with nothing written."""
+    ws = load_workbook(args.workbook, read_only=True, data_only=True)["Calls"]
+    rows = ws.iter_rows(values_only=True)
+    headers = [str(h or "") for h in next(rows)]
+    col = {h.split(" (")[0]: i for i, h in enumerate(headers)}
+    missing = [c for c in ("row_kind", "organisation_id", "group_ids", *VICOBA_ANSWERS) if c not in col]
+    if missing:
+        raise SystemExit(f"Not a VICOBA call sheet (build_call_sheet.py --vicoba): columns missing {missing}.")
+    problems, out, skipped = [], [], 0
+    for n, r in enumerate(rows, 2):
+        get = lambda k: str(r[col[k]] if col[k] < len(r) and r[col[k]] is not None else "").strip()  # noqa: E731
+        if not get("organisation_id"):
+            continue
+        for k in VICOBA_ANSWERS:
+            v = get(k)
+            if k != "call_date" and (has_number(v) or EMAIL.search(v)):
+                problems.append(f"row {n}, column '{k}': a phone number or an email (write it only in the partnerships call log outside the repository)")
+            if NAMED.search(v):
+                problems.append(f"row {n}, column '{k}': reads as a person's name (record the role only)")
+        outcome = OUTCOMES.get(get("outcome").lower())
+        if not outcome:
+            skipped += 1
+            if get("outcome"):
+                problems.append(f"row {n}: outcome '{get('outcome')}' is not one of {list(OUTCOMES)}")
+            continue
+        when = get("call_date")[:10] or args.date
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", when):
+            problems.append(f"row {n}: call_date must be YYYY-MM-DD")
+            continue
+        yes = lambda k: get(k).lower().startswith("y")  # noqa: E731
+        cadence = ", ".join(x for x in (get("meeting_day"), get("meeting_time")) if x)
+        rec = {"db": "master", "kind": "vicoba_call", "row_kind": get("row_kind"), "organisation_id": get("organisation_id"),
+               "organisation_name": get("organisation"), "covers_groups": [g for g in get("group_ids").split("; ") if g],
+               "call_date": when, "caller": get("caller") or "Silverleaf", "reached_role": get("reached"), "outcome": outcome,
+               "committee_meeting_agreed": yes("committee_meeting_agreed"), "letter_or_sms_agreed": yes("letter_or_sms_agreed"),
+               "introduces_groups": yes("introduces_groups"),
+               "meeting_cadence": f"{cadence} (stated by the committee on {when})" if cadence and get("row_kind") == "group_officer" else "",
+               "list_refused": yes("member_list_offered"), "notes": get("notes"),
+               "source": f"call sheet {args.workbook.name} row {n}"}
+        rec["record_id"] = hashlib.sha256(json.dumps(rec, sort_keys=True).encode()).hexdigest()[:16]
+        out.append(rec)
+    if problems:
+        print(json.dumps({"refused": True, "problems": problems, "written": 0}, indent=1, ensure_ascii=False))
+        return 2
+    path = (args.out_dir or RAW) / f"vicoba_calls_{args.date}.jsonl"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    seen = {json.loads(line).get("record_id") for line in path.read_text(encoding="utf-8").splitlines() if line.strip()} if path.exists() else set()
+    new = [rec for rec in out if rec["record_id"] not in seen]
+    with path.open("a", encoding="utf-8") as f:
+        for rec in new:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    print(json.dumps({"rows_used": len(out), "new_records": len(new), "rows_skipped": skipped, "file": str(path),
+                      "next": "python scripts/master/link_vicoba_introducers.py, then --apply"}, indent=1))
+    return 0
 
 
 def main() -> int:
@@ -28,7 +107,12 @@ def main() -> int:
     parser.add_argument("--date", default=date.today().isoformat(), help="the research date the merge will use")
     parser.add_argument("--welfare", action="store_true", help="a welfare call sheet: write welfare research contact records "
                         "(data/raw/welfare-research/research_K_calls_<date>.jsonl), add its glob to the run's run-config research_files if the date is new, then run the welfare pipeline with --rebuild-db")
+    parser.add_argument("--vicoba", action="store_true", help="a VICOBA call sheet: write data/raw/contact-research/vicoba_calls_<date>.jsonl "
+                        "(no numbers, no names) for link_vicoba_introducers.py")
+    parser.add_argument("--out-dir", type=Path, help="with --vicoba: write the call records here instead (tests)")
     args = parser.parse_args()
+    if args.vicoba:
+        return vicoba(args)
     ws = load_workbook(args.workbook, read_only=True, data_only=True)["Calls"]
     rows = ws.iter_rows(values_only=True)
     headers = [str(h or "") for h in next(rows)]

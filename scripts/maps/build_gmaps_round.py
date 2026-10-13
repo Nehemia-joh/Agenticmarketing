@@ -18,6 +18,23 @@ Inputs:
   This is the export of localStorage.slres from the browser extractor (below).
 - --notes: one verdict per line: 'A <id>' accept, 'R <id>[|note]' reject, 'V <id>|note' review, 'O <id>|note' accept as
   outside the catchment (the note is the basis). A reject without a note gets "Top listing '<n>' is not this organisation."
+  An optional '#n' after the ID picks the listing explicitly, counting from 0 in the results list: 'A O19f15b52b37e#1|note'
+  accepts the second result (this replaces the separate pick file of round 4). Without '#n' the first result is the pick.
+
+Multi-hit matching (the user's rule of 13 October 2026: an organisation can have two or three offices). For an accepted lead,
+every listing in its results whose name matches the lead's name or the picked listing's name (significant words, ignoring
+words such as Ltd, Safaris, Tours, Tanzania, Bank or Branch) is a candidate:
+- a lead with a stored point (any source): a candidate within the agreement distance is the match (the nearest one); the
+  status is listed, "confirmed at stored point", and the stored point follows the precedence below. The other candidates are
+  recorded as other offices (facts other_office: name, point, URL, distance). When no candidate is within the distance, the
+  lead is a discrepancy listing every candidate with its distance, whatever the stored point's rank;
+- a lead with no stored point and several candidates: accepted only when exactly one candidate lies in the record's
+  locality (its locality words appear in the listing's address or name), or when the notes pick one with '#n'. A chain
+  (a bank, insurer, microfinance, pharmacy, fuel station, mobile network or a 'branch') is accepted only when exactly one
+  candidate's address shares a street word with the record's address. Otherwise the verdict becomes review, with every
+  candidate listed in the line's candidates field and the note.
+A lead with one candidate is built exactly as before. The enrich line carries the extra fields candidates and match only
+when there were several candidates, so a round with single results is unchanged.
 - --db: the master as it was before the round (the pre-round backup), read-only. A lead with no stored point gets a fill; a
   lead with a stored point is decided by the location precedence below.
 
@@ -72,6 +89,15 @@ la and lo come from the listing URL's !3d<lat>!4d<lon>. Export with JSON.stringi
 as the --results file. Each lookup is a navigate to https://www.google.com/maps/search/<query>/@<lat>,<lon>,11z?hl=en (the
 area's centre: -3.37,36.69 for Arusha, -3.33,37.20 for Moshi and Hai), a few seconds' wait, then the call. Lookups run signed
 out; never pass a bot check or sign in on the user's behalf.
+
+Up to 5 results (requested 13 October 2026). Today both functions keep the top 3 results of the feed; multi-hit matching needs up
+to 5, because an organisation can have two or three offices and the right one may rank fourth or fifth. The functions live only
+in the coordinator's browser (their source is not in the repository), so make this change there, in both slfn and slsync:
+  the limit on the feed's result links, .slice(0, 3)  ->  .slice(0, 5)
+  (or, if the function counts in a loop, i < 3  ->  i < 5)
+Check it after saving: localStorage.slfn.includes("slice(0, 5)") (or the loop bound) and the same for slsync. The
+single place panel (Maps opening one listing directly) still yields one listing. The results format is unchanged: a list of up to
+5 listings per ID, top first. Then save both functions in scripts/maps/gmaps_extractor.js, so the extractor is versioned.
 """
 from __future__ import annotations
 
@@ -118,6 +144,45 @@ def street_address(address: str) -> bool:
     return any(STREET.search(p) or re.search(r"\d", p) for p in parts)
 
 
+NAME_NOISE = {"ltd", "limited", "co", "company", "tz", "t", "inc", "the", "and", "of", "safari", "safaris", "tour", "tours", "travel",
+              "travels", "expedition", "expeditions", "adventure", "adventures", "holiday", "holidays", "arusha", "moshi", "tanzania", "africa",
+              "african", "group", "plc", "bank", "branch", "office", "offices", "investment", "investments", "enterprise", "enterprises",
+              "services", "solutions", "international", "trekking", "treks", "agency", "agencies", "transport", "east", "head", "hq"}
+CHAIN = re.compile(r"\b(bank|insurance|assurance|microfinance|micro finance|pharmac\w*|supermarket|fuel|petrol|filling station|vodacom|airtel|"
+                   r"tigo|halotel|branch|nmb|crdb|nbc|exim|stanbic|absa|equity|dtb|azania|akiba|amana|kcb|ecobank)\b", re.I)
+PLACE_NOISE = {"tanzania", "city", "centre", "center", "unspecified", "region", "district", "town", "ward", "road", "street", "p.o.", "box"}
+
+
+def name_words(name: str) -> set[str]:
+    return {w for w in re.findall(r"[a-z0-9]+", (name or "").lower()) if w not in NAME_NOISE and len(w) > 1}
+
+
+def same_business(a: str, b: str) -> bool:
+    """The two names name the same business: one's significant words contain the other's (Kitulano Investment / Kitulano
+    tours; NBC Moshi / NBC Bank Moshi), or the normalised names are equal when either has no significant word."""
+    wa, wb = name_words(a), name_words(b)
+    if not wa or not wb:
+        return bool(name_key(a)) and name_key(a) == name_key(b)
+    return wa <= wb or wb <= wa
+
+
+def place_words(text: str) -> set[str]:
+    text = re.sub(r"\([^)]*\)", " ", text or "")
+    return {w for w in re.findall(r"[a-z]{4,}", text.lower()) if w not in PLACE_NOISE}
+
+
+def in_locality(row: dict, listing: dict) -> bool:
+    words = place_words(row.get("locality", ""))
+    hay = f"{listing.get('a') or ''} {listing.get('n') or ''}".lower()
+    return bool(words) and any(w in hay for w in words)
+
+
+def at_address(row: dict, listing: dict) -> bool:
+    words = place_words(PLUS_CODE.sub(" ", row.get("address", ""))) - place_words(row.get("locality", "")) - {"arusha", "moshi", "kilimanjaro"}
+    hay = (listing.get("a") or "").lower()
+    return bool(words) and any(w in hay for w in words)
+
+
 def read_rows(path: Path) -> list[dict]:
     text = path.read_text(encoding="utf-8")
     if path.suffix == ".jsonl":
@@ -132,14 +197,68 @@ def read_notes(path: Path) -> dict:
             continue
         code, _, rest = line.partition(" ")
         oid, _, note = rest.partition("|")
-        if code not in VERDICTS or not oid.strip():
-            raise SystemExit(f"{path.name} line {n}: expected 'A <id>', 'R <id>[|note]', 'V <id>|note' or 'O <id>|note'")
+        oid, _, pick = oid.strip().partition("#")
+        if code not in VERDICTS or not oid or (pick and not pick.isdigit()):
+            raise SystemExit(f"{path.name} line {n}: expected 'A <id>[#n]', 'R <id>[|note]', 'V <id>|note' or 'O <id>[#n]|note'")
         if code in ("V", "O") and not note.strip():
             raise SystemExit(f"{path.name} line {n}: a '{code}' verdict needs a note")
-        if oid.strip() in notes:
-            raise SystemExit(f"{path.name} line {n}: {oid.strip()} has two verdicts")
-        notes[oid.strip()] = (code, note)
+        if oid in notes:
+            raise SystemExit(f"{path.name} line {n}: {oid} has two verdicts")
+        notes[oid] = (code, note, int(pick) if pick else None)
     return notes
+
+
+def candidate(i: int, listing: dict, role: str, distance_m=None, row=None) -> dict:
+    c = {"index": i, "name": listing.get("n") or "", "latitude": listing.get("la"), "longitude": listing.get("lo"),
+         "address": listing.get("a") or "", "url": listing.get("u") or "", "role": role}
+    if distance_m is not None:
+        c["distance_m"] = distance_m
+    if row is not None:
+        c["in_locality"] = in_locality(row, listing)
+    return c
+
+
+def multi_hit(row: dict, listings: list[dict], pick: int, explicit: bool, stored, agreement_m: int) -> dict:
+    """Chooses among the same-name candidates (see the docstring). Returns {chosen, verdict_review, note, candidates, match,
+    force_discrepancy}; for a single candidate it returns the pick unchanged."""
+    top = listings[pick] if pick < len(listings) else {}
+    idx = [pick] + [i for i, l in enumerate(listings) if i != pick and l.get("la") is not None and
+                    (same_business(row["name"], l.get("n")) or same_business(top.get("n"), l.get("n")))]
+    out = {"chosen": pick, "review": "", "candidates": [], "match": "", "force_discrepancy": False}
+    if stored is not None and top.get("la") is not None:
+        dist = {i: metres(stored[0], stored[1], float(listings[i]["la"]), float(listings[i]["lo"])) for i in idx}
+        near = sorted((d, i) for i, d in dist.items() if d <= agreement_m)
+        if explicit:  # the coordinator's pick stands; the precedence then decides as for a single listing
+            near = [(dist[pick], pick)] if dist[pick] <= agreement_m else []
+            out["match"] = "confirmed at stored point" if near else f"picked by the coordinator (#{pick})"
+            if len(idx) > 1:
+                out["candidates"] = [candidate(i, listings[i], "match" if i == pick else "other office", dist[i]) for i in idx]
+            return out
+        if near:
+            out["chosen"], out["match"] = near[0][1], "confirmed at stored point"
+        elif len(idx) > 1:
+            out["force_discrepancy"] = True
+        if len(idx) > 1:
+            out["candidates"] = [candidate(i, listings[i], "match" if i == out["chosen"] and near else ("other office" if near else "candidate"),
+                                           dist[i]) for i in idx]
+        return out
+    if len(idx) < 2 or explicit:
+        if len(idx) > 1:
+            out["candidates"] = [candidate(i, listings[i], "match" if i == pick else "other office", row=row) for i in idx]
+            out["match"] = f"picked by the coordinator (#{pick})"
+        return out
+    chain = bool(CHAIN.search(f"{row['name']} {row.get('segment', '')}"))
+    fit = [i for i in idx if (at_address(row, listings[i]) if chain else in_locality(row, listings[i]))]
+    if len(fit) == 1:
+        out["chosen"] = fit[0]
+        out["match"] = "the only candidate at the record's address" if chain else "the only candidate in the record's locality"
+        out["candidates"] = [candidate(i, listings[i], "match" if i == fit[0] else "other office", row=row) for i in idx]
+        return out
+    out["candidates"] = [candidate(i, listings[i], "candidate", row=row) for i in idx]
+    out["review"] = (f"{len(idx)} listings named like this lead ({'a chain: none or several at the record address' if chain else 'none or several in the record locality'}): "
+                     + "; ".join(f"#{c['index']} '{c['name']}' {c['latitude']}, {c['longitude']} ({c['address'] or 'no address'})" for c in out["candidates"])
+                     + ". Pick one with 'A <id>#n' after checking.")
+    return out
 
 
 def load_geocodes():
@@ -274,13 +393,37 @@ def build(args) -> int:
     checks_path = root / "data" / "raw" / "geocode-research" / f"location_checks_gmaps_{label}.jsonl"
     disc_path = root / "data" / "raw" / "geocode-research" / f"location_discrepancies_{args.date}.jsonl"
 
-    enrich, codes = [], {}
+    con = sqlite3.connect(f"file:{args.db.as_posix()}?mode=ro", uri=True)
+    con.row_factory = sqlite3.Row
+
+    def stored_point(oid):
+        o = con.execute("SELECT latitude, longitude FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
+        try:
+            return (float(o["latitude"]), float(o["longitude"])) if o else None
+        except (TypeError, ValueError):
+            return None
+
+    enrich, codes, chosen, forced = [], {}, {}, {}
     for oid, row in rows.items():
         if oid not in notes:
             continue
-        code, note = notes[oid]
-        top = (results.get(oid) or [{}])[0]
+        code, note, pick = notes[oid]
+        listings = results.get(oid) or []
+        if pick is not None and pick >= len(listings):
+            raise SystemExit(f"{oid}#{pick}: the results hold only {len(listings)} listings")
+        p = pick or 0
+        extra = {}
         verdict = VERDICTS[code]
+        if code in ("A", "O") and listings:
+            m = multi_hit(row, listings, p, pick is not None, stored_point(oid) if code == "A" else None, args.agreement_m)
+            p = m["chosen"]
+            forced[oid] = m["force_discrepancy"]
+            if m["review"]:
+                verdict, note = "review", m["review"] + (f" Coordinator: {note}" if note else "")
+            if m["candidates"]:
+                extra = {"candidates": m["candidates"], "match": m["match"] or ("no candidate within the agreement distance" if m["force_discrepancy"] else "")}
+        top = listings[p] if p < len(listings) else {}
+        chosen[oid] = top
         if code == "R" and not note:
             note = f"Top listing '{top.get('n')}' is not this organisation."
         codes[oid] = code
@@ -288,7 +431,7 @@ def build(args) -> int:
                        "listing_name": top.get("n") or "", "latitude": top.get("la"), "longitude": top.get("lo"), "category": top.get("c") or "",
                        "address": top.get("a") or "", "phone": top.get("p") or "", "phone_note": "", "website": top.get("w") or "",
                        "website_note": "", "source_type": "Google Maps listing", "source_url": top.get("u") or "", "fetched_on": args.date,
-                       "query": row["query"], "note": note})
+                       "query": row["query"], "note": note, **extra})
 
     report = {"round": label, "downgraded": [], "kept_as_one_building": [], "kept_by_reviewer": []}
     if not args.no_pin_check:
@@ -296,19 +439,17 @@ def build(args) -> int:
         report = pin_check([e for e in enrich if codes[e["organisation_id"]] != "O"], other_listings(exclude), label, set(args.keep))
 
     gc = load_geocodes()
-    con = sqlite3.connect(f"file:{args.db.as_posix()}?mode=ro", uri=True)
-    con.row_factory = sqlite3.Row
     fills, corr, checks = [], [], []
     for e in enrich:
         oid, code = e["organisation_id"], codes[e["organisation_id"]]
         if e["verdict"] != "accept" or e["latitude"] is None:
             continue
-        top, row = (results.get(oid) or [{}])[0], rows[oid]
+        top, row = chosen[oid], rows[oid]
         o = con.execute("SELECT * FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
         if o is None:
             raise SystemExit(f"{oid} is not in {args.db}")
         addr = top.get("a") or ""
-        note = notes[oid][1]
+        note = e["note"]
         line = {"db": "master", "organisation_id": oid, "organisation_name": o["name"], "key": "",
                 "status": "outside_confirmed" if code == "O" else "placed", "latitude": top["la"], "longitude": top["lo"], "precision": "point",
                 "source_type": "Google Maps listing", "source_url": top["u"], "fetched_on": args.date,
@@ -329,12 +470,18 @@ def build(args) -> int:
         rank, slabel = source_rank(src, o["geocode_precision"] or "")
         dist = metres(stored[0], stored[1], float(top["la"]), float(top["lo"]))
         outcome = "replaced" if args.no_precedence else decide(rank, slabel, dist, args.agreement_m, args.estimates_beyond)
+        if forced.get(oid) and not args.no_precedence:
+            outcome = "discrepancy"   # several same-name listings, none at the stored point: a second office or a wrong point
         if outcome == "replaced":
             if rank == 3 and not args.no_precedence:
                 correction.update({"rank_replace": True, "agreement_m": args.agreement_m})
             corr.append(correction)
-        checks.append(check_line(label, args.date, o, e, top, stored, src if src is not None else gc.NO_SOURCE, o["geocode_precision"] or "",
-                                 rank, slabel, dist, args.agreement_m, outcome))
+        line_ = check_line(label, args.date, o, e, top, stored, src if src is not None else gc.NO_SOURCE, o["geocode_precision"] or "",
+                           rank, slabel, dist, args.agreement_m, outcome)
+        line_["match"] = "confirmed at stored point" if dist <= args.agreement_m else e.get("match", "")
+        if e.get("candidates"):
+            line_["candidates"] = e["candidates"]
+        checks.append(line_)
     con.close()
 
     def write(path: Path, lines: list[dict]) -> None:

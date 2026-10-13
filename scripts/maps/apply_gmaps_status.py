@@ -17,6 +17,9 @@ For each round <date><tag> it reads:
     not_found <date>: not registered on Google Maps ...   no matching listing (the lead keeps whatever point it has);
     review <date>: <reason>                               default pin, wrong place, name unconfirmed ...
   The workbook shows the latest status per lead in the Organisations sheet's google_maps column.
+  A listed lead whose listing lies within the agreement distance of its stored point reads "listed <date>: confirmed at
+  stored point; ..." (from the location checks file). Same-name listings that build_gmaps_round.py recorded as other offices
+  (the enrich line's candidates with role 'other office') become the facts other_office: name, point, URL and distance.
 - data/raw/geocode-research/location_checks_gmaps_<date><tag>.jsonl (when it exists): each 'corroborates' line becomes the fact
   location_corroboration (the listing, its point and its distance from the kept point).
 - data/raw/geocode-research/location_discrepancies_<date>.jsonl (the round's lines): the review item
@@ -57,7 +60,7 @@ def lines(path: Path) -> list[tuple[int, dict]]:
 
 def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
     names = {r[0]: r[1] for r in con.execute("SELECT organisation_id, name FROM organisations")}
-    files, statuses, corroborations, discrepancies, missing = {}, [], [], [], []
+    files, statuses, corroborations, discrepancies, missing, offices = {}, [], [], [], [], []
     for label in rounds:
         m = LABEL.match(label)
         if not m:
@@ -67,15 +70,21 @@ def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
         if not enrich.exists():
             raise SystemExit(f"no {enrich.relative_to(ROOT)}")
         files[enrich] = None
+        checks = GEO / f"location_checks_gmaps_{label}.jsonl"
+        confirmed = {c["organisation_id"] for _, c in lines(checks) if c.get("match") == "confirmed at stored point"} if checks.exists() else set()
         for n, e in lines(enrich):
             oid = e.get("organisation_id")
             if oid not in names:
                 missing.append(f"{enrich.name} line {n}: {oid} {e.get('organisation_name')}")
                 continue
             status, detail = B.status_of(e)
+            if status == "listed" and oid in confirmed:
+                detail = f"confirmed at stored point; {detail}"
+            if status == "listed":
+                offices += [{"file": enrich, "line": n, "organisation_id": oid, "name": names[oid], "date": e.get("fetched_on") or day, **c}
+                            for c in e.get("candidates", []) if c.get("role") == "other office"]
             statuses.append({"file": enrich, "line": n, "organisation_id": oid, "name": names[oid], "status": status,
                              "value": f"{status} {e.get('fetched_on') or day}: {detail}", "payload": e})
-        checks = GEO / f"location_checks_gmaps_{label}.jsonl"
         if checks.exists():
             files[checks] = None
             for n, c in lines(checks):
@@ -91,7 +100,8 @@ def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
         files[path.resolve()] = None
         discrepancies += [{"file": path.resolve(), "line": n, **d} for n, d in lines(path)
                           if d.get("outcome", "discrepancy") == "discrepancy" and d["organisation_id"] in names]
-    return {"files": list(files), "statuses": statuses, "corroborations": corroborations, "discrepancies": discrepancies, "missing": missing}
+    return {"files": list(files), "statuses": statuses, "corroborations": corroborations, "discrepancies": discrepancies, "missing": missing,
+            "offices": offices}
 
 
 def fact(con, oid, field, value, record) -> None:
@@ -132,6 +142,11 @@ def apply(database: Path, p: dict) -> None:
 
         for s in p["statuses"]:
             fact(con, s["organisation_id"], "google_maps_status", s["value"], record("gmaps-status", s, s["payload"]))
+        for f in p["offices"]:
+            value = (f"Google Maps listing '{f['name']}' at {f['latitude']}, {f['longitude']} ({f['address'] or 'no address'}); {f['url']}"
+                     + (f"; {f['distance_m']} m from the stored point" if f.get("distance_m") is not None else "") + f" ({f['date']})")
+            rid = hid("R", "gmaps-status", f["file"].name, f["line"], f["organisation_id"])  # the status record of the same enrich line
+            fact(con, f["organisation_id"], "other_office", value, rid)
         for c in p["corroborations"]:
             payload = {k: v for k, v in c.items() if k not in ("file", "line")}
             value = (f"Google Maps listing '{c['google_listing']}' at {c['google_latitude']}, {c['google_longitude']} is {c['distance_m']} m from the "
@@ -143,6 +158,9 @@ def apply(database: Path, p: dict) -> None:
             rid = record("gmaps-discrepancy", d, payload)
             both = (f"{d['stored_source_label']} {d['stored_latitude']}, {d['stored_longitude']} ({d['stored_precision']}; {d['stored_source']}) vs "
                     f"Google Maps '{d['google_listing']}' {d['google_latitude']}, {d['google_longitude']} ({d['google_url']}): {d['distance_m']} m apart")
+            if d.get("candidates"):
+                both += ("; every same-name listing (a second office or a wrong point?): "
+                         + "; ".join(f"#{c['index']} '{c['name']}' {c['latitude']}, {c['longitude']}, {c.get('distance_m')} m" for c in d["candidates"]))
             fact(con, d["organisation_id"], "location_discrepancy", f"{both} ({d.get('date') or d.get('file').name})", rid)
             con.execute("INSERT OR REPLACE INTO review (review_id, kind, entity_id, related_id, field, \"values\", action) VALUES (?,?,?,?,?,?,?)",
                         (hid("D", "location-discrepancy", d["organisation_id"], d["google_latitude"], d["google_longitude"]),
@@ -171,7 +189,8 @@ def main() -> int:
     con.close()
     report = {"rounds": args.round, "files": [rel(f) for f in p["files"]],
               "google_maps_status": dict(Counter(s["status"] for s in p["statuses"])),
-              "corroborations": len(p["corroborations"]), "discrepancies": len(p["discrepancies"]), "not_in_master": p["missing"],
+              "corroborations": len(p["corroborations"]), "other_offices": len(p["offices"]), "discrepancies": len(p["discrepancies"]),
+              "not_in_master": p["missing"],
               "discrepancy_list": [f"{d['organisation_name']} ({d['organisation_id']}): {d['stored_source_label']} vs Google Maps, {d['distance_m']} m"
                                    for d in p["discrepancies"]]}
     if args.apply:

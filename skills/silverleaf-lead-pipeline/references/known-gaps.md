@@ -11,6 +11,8 @@ These were found by comparing the scripts, `scripts/README.md`, the methodology 
 5. **Strategy deck.** No script builds `outputs/presentations/Silverleaf_Lead_Generation_Strategy_2026-10-12.pptx`. Its counts come from the queries in `..._sources.md`, and its slide map is in `..._slide-map.md`.
 6. **Segment and catchment documents.** `Silverleaf Core Segments - <date>.md` and `Silverleaf Catchment Criteria - <date>.md` are written by hand. Their counts go stale after every rebuild.
 
+6a. **Google Maps verification of placed leads.** Deferred (user, 13 October 2026): a verification pass that cross-checks leads already placed by their website or OpenStreetMap against Google Maps. Leads are placed; do it much later. No worklist command exists for it yet; `collect_geocodes.py worklist` lists only leads not at point level.
+
 ## Copies that should match but do not
 
 7. **`docs/strategy/` and `skills/silverleaf-outreach/references/`. Fixed 13 October 2026.** Every pair is now identical, and `scripts/docs/check_doc_pairs.py` checks them with the run script copies (the pre-commit checklist runs it). The offer register took the skill copy (current on all three points below). Hook guidance merged both: the skill copy's guidance, plus the docs copy's examples and field list, without its stale 7 September status line. The flows file took the docs copy, with the 11 October proposal; `outreach-flows.md` and `flows-and-automations.md` are one document under two names. As found:

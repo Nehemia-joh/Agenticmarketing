@@ -117,7 +117,8 @@ The welfare and government runs do stages 3, 4 and 13 to 16 inside one command, 
   python scripts/maps/collect_geocodes.py worklist --out <worklist.json>
   ```
 - **Google Maps lookups.** Only the coordinator does these, in its own browser pane, which must be visible (a hidden pane does not finish rendering and the extractor records nothing). The user signs in when a sign-in is needed. Each lookup navigates to the search and runs the extractor (`eval(localStorage.slsync)("<id>")`); the results collect in localStorage `slres` (format in the docstring of `build_gmaps_round.py`).
-  - Write one verdict line per lead: `A <id>`, `R <id>[|note]`, `V <id>|note` or `O <id>|note`. An exact name pinned far from the lead's town is `V`.
+  - Write one verdict line per lead: `A <id>`, `R <id>[|note]`, `V <id>|note` or `O <id>|note`. An exact name pinned far from the lead's town is `V`. `#n` after the ID picks a result explicitly, counting from 0 (`A O19f15b52b37e#1|note` accepts the second result).
+  - Multi-hit matching (13 October 2026; the extractor keeps up to 5 results): every result named like the lead is a candidate, because an organisation can have several offices. With a stored point, the candidate within the agreement distance is the match ("confirmed at stored point") and the others become `other_office` facts; with none within it, the lead is a discrepancy listing every candidate. Without a stored point, several candidates are accepted only when exactly one lies in the record's locality (a chain such as a bank: at the record's address) or the notes pick one with `#n`; otherwise the lead goes to `review` with every candidate listed.
   - Build the round's files:
     ```powershell
     python scripts/maps/build_gmaps_round.py --date <d> --tag <round> --rows <worklist slice> --results <slres export> --notes <notes.txt> --db <pre-round master backup>

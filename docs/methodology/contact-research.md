@@ -239,7 +239,7 @@ The group's `record_status` follows its links: a group that gains an introducer 
 - **Research warnings become review items:** possible closure, hijacked or parked site, website gone, location to check, possible duplicate, fit to check, segment to check (a record filed under the wrong kind of business, such as a hospital recorded as a tour operator), and check before outreach.
   - A possible closure also holds every draft for the organisation, including drafts written after the merge.
   - Nothing is deleted.
-- **Held drafts are released only when the route was their sole gap.** Other blockers keep them held: an unmatched map point, a branch overlap, a savings group awaiting Finance, or a possible closure.
+- **Held drafts are released only when the route was their sole gap.** Other blockers keep them held: an unmatched map point, a branch overlap, or a possible closure.
 - **Try the master changes on a copy first.** `merge_master_contacts.py --apply --database <copy>` and `draft_master_messages.py --database <copy>` write their reports to `runtime/`. Then take a temporary copy of the master, apply, verify, and remove the copy.
 - **Sending and automations stay disabled.** New routes only move held drafts to review.
 

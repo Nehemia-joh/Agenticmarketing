@@ -97,6 +97,24 @@ Statements marked **Hypothesis** are not proven by the ledger; test them in a sm
 - Name searches for welfare family-based programmes and small homes with no website (6 of 156): plan a call instead.
 - NGO register profiles (`nis.jamii.go.tz/ngo_profile/<id>`) for contact data: they publish no email, phone or address (welfare coverage log A, 23 September 2026).
 - Re-reading pages a crawl or an earlier wave already read: the ledger lists them (`tried --org`), and `read_page.py` serves the cache.
+- **Google Maps by name for SACCOS** (13 October 2026, rounds a and b): 59 lookups gave 3 accepted, 12 review and 44 rejected. Maps returns the same few listed SACCOS (Arusha Club, Embesi, AAIDRO) for almost any SACCOS name. Staff SACCOS resolve only to the employer's office, which stays "review". Locate SACCOS from the TCDC or council registers instead. The other leads in the same rounds were accepted 107 of 181 times (59%).
+- **Searching for VICOBA groups on the public web** (13 October 2026, `data/raw/vicoba-research/`):
+  - 19 searches, 12 page reads and 3 Overpass queries gave 6 group names in the catchment, none of them a VICOBA.
+  - Google Maps gave 0 groups in 7 lookups ("VICOBA", "vikoba", "VSLA", "village community bank", "kikundi cha kuweka na kukopa", "vicoba arusha", "vicoba moshi"). It lists only support providers: Yemco Vicoba, Magnet Vikoba, Kibaba Vicoba Solution, Vicobank.
+  - OpenStreetMap had 0 savings groups, Facebook had no indexed group pages, and the councils' 10% loan notices are calls for applications, never lists of recipients.
+  - Groups come from council registers and introducers (`docs/plans/vicoba-sourcing-plan.md`).
+
+## Google Maps traps (13 October 2026)
+
+- **Default pins.** Some listings carry no real location; Google places them on a shared default point that several unrelated businesses also use. Never accept a listing on one of these points; mark it "review" with the reason.
+  - JM7M+65 in central Arusha (about -3.38689, 36.68296, also -3.38693, 36.68299): Gifted African Adventures, Sundown African Adventures, gemuka adventures, Golos of Africa, Precious Moments Safaris, Natured Safaris, African Dream Adventure Safaris.
+  - -3.35877, 36.66606 (Namanga road, address only "Arusha"): Safari Kings Tanzania, Wildbite Adventures, GameDrive Africa.
+  - -3.39814, 36.67721: Kiboko Safari, Small World of Travellers.
+  - -3.36392, 35.38430 (Ngorongoro area): The Map's Edge, Lapwings Safaris.
+  - -6.37283, 34.98990 (Tanzania's country centre): Josh DreamLand Safari, Safaris Tanzania (SATA), Makisala, Pure Afro Travels.
+- **Check for shared points before applying a round.** Group the round's results by coordinates rounded to four decimals. A point shared by different listing names is a default pin. A point shared because Maps returned the same listing for several searches is fine, but only the matching lead is accepted.
+- **Exact name, wrong place.** An exact-name listing pinned far from the lead's town (Serengeti, Karatu, 115 km south) is a camp or a stray pin, not the office: "review".
+- **Signed-out view.** Lookups ran in the limited, signed-out view of Google Maps. It shows the top result for a name search, which is enough for a lookup, but a category search (such as "VICOBA") returns only a few results.
 
 ## Never or rarely tried (may pay)
 
@@ -115,6 +133,10 @@ Statements marked **Hypothesis** are not proven by the ledger; test them in a sm
 - **Hosts that blocked page reads most often:** achpr.au.int (8), facebook.com (6, login wall), atta.travel (3), tatotz.org (3). Facebook pages are recorded as URLs, never read.
 - **Rate-limited registers:** ProPublica full-text search answered HTTP 429 on about 40% of calls in the first welfare run, and its search is disallowed by robots.txt; use filing pages reached from known EINs. The UK Charity Commission register answered 403 on 22 September 2026.
 - **The search cap** (200 per session, shared by all agents) refused 17 logged searches. Never work around it.
+- **Found 13 October 2026 (VICOBA sourcing):**
+  - ippmedia.co.tz answers HTTP 520 to page reads, but the orchestrator's browser reads it.
+  - The Bank of Tanzania's CMG registration portal (cmg.bot.go.tz) no longer resolves.
+  - The Wezesha (council loan groups) and NeST portals are behind a login: off-limits.
 
 ## How the ledger grows
 
@@ -129,7 +151,7 @@ Statements marked **Hypothesis** are not proven by the ledger; test them in a sm
 ## Backfill coverage (11 October 2026)
 
 - **Files examined:** 252. Of these, 224 gave ledger lines, 8 gave none (no searches logged: `G_funders_registers` ran after the cap was spent, `hooks_b` and two other hook logs used no searches, `wave8_funder_pages` lists pages only, `W_contact_profiles` is an export, `research_H_parent_enquiries` holds enquiries only and `research_GC_welfare` cites snippets only), and 20 were skipped as derived or duplicate records:
-  - `browser_googlemaps_*.jsonl` (4), `geocodes_corrections_*` and `geocodes_gmaps_newleads_*`: derived from the Google Maps lookup files, which are ingested themselves (`osm_matches_*` and `geocodes_gap_census_*`, derived the same way, are not read at all);
+  - `browser_googlemaps_*.jsonl` (4), `geocodes_corrections_*`, `geocodes_gmaps_*`, `geocodes_unplaced14_*` and `geocodes_pointfix_*` (since 13 October 2026): derived from the Google Maps lookup files or from a pending file already ingested, which are ingested themselves (`osm_matches_*` and `geocodes_gap_census_*`, derived the same way, are not read at all);
   - `research_W_contact_profiles_*` (2): exports of the contact profiles;
   - `website_direct_2026-10-11.jsonl`: offline extraction from cached pages, no network;
   - the 11 browser pass coverage logs: their `browser_*.jsonl` records the same pages.

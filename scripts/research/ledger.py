@@ -632,7 +632,7 @@ def with_orgs(index: OrgIndex, db: str, pairs, **kw) -> dict:
 
 # ------------------------------------------------------------------ run, agent and target of a file
 AREA = {"contact-research": "contact", "welfare-research": "welfare", "hook-research": "hooks", "gap-census": "gap-census",
-        "geocode-research": "geocode", "government-research": "government"}
+        "geocode-research": "geocode", "government-research": "government", "vicoba-research": "vicoba"}
 WELFARE_TARGET = {"A": "discovery", "B": "discovery", "C": "discovery", "D": "discovery", "E": "discovery", "F": "discovery",
                   "G": "relationship", "H": "discovery", "I": "discovery", "N": "discovery", "P": "route", "Q": "decision-maker",
                   "R": "relationship", "S": "route", "T": "route", "U": "verification", "V": "verification", "W": "route",
@@ -689,7 +689,7 @@ def target_of(path: Path, paired: Path | None = None) -> str:
         return "hook"
     if area == "geocode":
         return "location"
-    if area == "gap-census":
+    if area in ("gap-census", "vicoba"):
         return "discovery"
     if area == "government":
         return "decision-maker"
@@ -1279,7 +1279,9 @@ SKIPPED_DERIVED = {
     "osm_matches_": "derived from the Google Maps lookups",
     "geocodes_gap_census_": "points derived from the gap census's OpenStreetMap collection",
     "geocodes_corrections_": "corrections derived from the Google Maps lookups (ingested from the lookups)",
-    "geocodes_gmaps_newleads_": "points derived from the Google Maps lookups (ingested from the lookups)",
+    "geocodes_gmaps_": "points derived from the Google Maps lookups (ingested from the lookups; covers geocodes_gmaps_newleads_)",
+    "geocodes_unplaced14_": "points derived from the Google Maps lookups of 11 October 2026 (ingested from the lookups)",
+    "geocodes_pointfix_": "points from the 13 October 2026 point fix, whose attempts were ingested from its pending ledger file",
 }
 
 
@@ -1388,7 +1390,8 @@ def backfill_paths() -> list[Path]:
              "gap-census/*coverage*.md", "gap-census/google_maps_*.jsonl", "gap-census/research_*.jsonl", "gap-census/osm_*_*.json",
              "geocode-research/*coverage*.md", "geocode-research/*.jsonl", "government-research/*coverage*.md",
              "government-research/council_sites/*.json", "government-research/osm_*.json", "government-research/wikipedia_*.json",
-             "government-research/nbs_*.json", "contact-research/browser_googlemaps_*.jsonl", "contact-research/website_direct_*.jsonl"]
+             "government-research/nbs_*.json", "contact-research/browser_googlemaps_*.jsonl", "contact-research/website_direct_*.jsonl",
+             "vicoba-research/research_*.jsonl", "vicoba-research/osm_*.json"]  # the VICOBA coverage log repeats its research file
     seen, out = set(), []
     for g in globs:
         for p in sorted(RAW.glob(g)):

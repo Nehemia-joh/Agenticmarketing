@@ -26,7 +26,16 @@ For each round <date><tag> it reads:
   "Location discrepancy: <website | OpenStreetMap | Google Maps | estimate> vs Google Maps" with both points, both sources and the
   distance, and the fact location_discrepancy. The point is not changed; the user and the orchestrator decide.
 --discrepancies <file> takes discrepancy lines from another file (for example a reviewed list from build_gmaps_round.py --retro).
-Master only. Afterwards: export_master_workbook_data.py, npm run build:workbook and verify_master.py.
+Afterwards: export_master_workbook_data.py, npm run build:workbook and verify_master.py.
+
+Run leads (enrich lines with db welfare or government) go to the run's links.json, which each run's rebuild reads:
+- google_maps_status, keyed as the run's other overrides (welfare: the organisation name; government: the office record key), one
+  entry per lead: status, date, detail, the source line, other offices, a corroboration or a discrepancy, and the sentence that
+  the rebuild adds to the organisation's notes (and so to the run workbook's notes column);
+- welfare discrepancies also become links.json review_flags ("Location discrepancy: <source> vs Google Maps"), which the welfare
+  build turns into review items; the government run has no review-flag section, so its discrepancy is in the notes sentence.
+--welfare-db and --government-db name read-only copies for resolving keys; --links-root writes another folder's data/runs/
+(a trial). Then run scripts/welfare/run_pipeline.py and scripts/government/run_pipeline.py with --rebuild-db.
 """
 from __future__ import annotations
 
@@ -58,9 +67,14 @@ def lines(path: Path) -> list[tuple[int, dict]]:
     return [(n, json.loads(x)) for n, x in enumerate(path.read_text(encoding="utf-8").splitlines(), 1) if x.strip()]
 
 
-def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
+def plan(con, rounds: list[str], extra_disc: list[Path], runs: dict | None = None) -> dict:
     names = {r[0]: r[1] for r in con.execute("SELECT organisation_id, name FROM organisations")}
     files, statuses, corroborations, discrepancies, missing, offices = {}, [], [], [], [], []
+    run_items = {"welfare": {}, "government": {}}
+
+    def run_item(db, oid):
+        lead = runs[db].get(oid)
+        return run_items[db].setdefault(lead["status_key"], {"organisation_id": oid, "name": lead["name"], "override_key": lead["key"]})
     for label in rounds:
         m = LABEL.match(label)
         if not m:
@@ -74,6 +88,15 @@ def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
         confirmed = {c["organisation_id"] for _, c in lines(checks) if c.get("match") == "confirmed at stored point"} if checks.exists() else set()
         for n, e in lines(enrich):
             oid = e.get("organisation_id")
+            if (e.get("db") or "master") != "master":
+                status, detail = B.status_of(e)
+                item = run_item(e["db"], oid)
+                item.update({"status": status, "date": e.get("fetched_on") or day, "detail": detail, "source": f"{rel(enrich)} line {n}",
+                             "confirmed_at_stored_point": oid in confirmed and status == "listed"})
+                if status == "listed":
+                    item["other_offices"] = [f"'{c['name']}' {c['latitude']}, {c['longitude']} {c['url']}" for c in e.get("candidates", [])
+                                             if c.get("role") == "other office"]
+                continue
             if oid not in names:
                 missing.append(f"{enrich.name} line {n}: {oid} {e.get('organisation_name')}")
                 continue
@@ -88,11 +111,26 @@ def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
         if checks.exists():
             files[checks] = None
             for n, c in lines(checks):
+                if (c.get("db") or "master") != "master":
+                    if c["outcome"] == "corroborates":
+                        run_item(c["db"], c["organisation_id"])["corroboration"] = (
+                            f"Google Maps listing '{c['google_listing']}' {c['distance_m']} m from the kept {c['stored_source_label'].removesuffix(' point')} point")
+                    continue
                 if c["outcome"] == "corroborates" and c["organisation_id"] in names:
                     corroborations.append({"file": checks, "line": n, **c})
         disc = GEO / f"location_discrepancies_{day}.jsonl"
         if disc.exists():
             mine = [(n, d) for n, d in lines(disc) if d.get("round") == label]
+            for n, d in mine:
+                if (d.get("db") or "master") != "master":
+                    run_item(d["db"], d["organisation_id"])["discrepancy"] = {
+                        "kind": f"Location discrepancy: {d['stored_source_label']} vs Google Maps",
+                        "detail": (f"{d['stored_source_label']} {d['stored_latitude']}, {d['stored_longitude']} ({d['stored_source']}) vs Google Maps "
+                                   f"'{d['google_listing']}' {d['google_latitude']}, {d['google_longitude']} ({d['google_url']}): {d['distance_m']} m apart"
+                                   + ("; every same-name listing: " + "; ".join(f"#{c['index']} '{c['name']}' {c.get('distance_m')} m" for c in d["candidates"])
+                                      if d.get("candidates") else "")),
+                        "distance_m": d["distance_m"], "source": f"{rel(disc)} line {n}"}
+            mine = [(n, d) for n, d in mine if (d.get("db") or "master") == "master"]
             if mine:
                 files[disc] = None
                 discrepancies += [{"file": disc, "line": n, **d} for n, d in mine if d["organisation_id"] in names]
@@ -100,8 +138,49 @@ def plan(con, rounds: list[str], extra_disc: list[Path]) -> dict:
         files[path.resolve()] = None
         discrepancies += [{"file": path.resolve(), "line": n, **d} for n, d in lines(path)
                           if d.get("outcome", "discrepancy") == "discrepancy" and d["organisation_id"] in names]
+    for db in run_items:
+        for item in run_items[db].values():
+            item["text"] = run_text(item)
     return {"files": list(files), "statuses": statuses, "corroborations": corroborations, "discrepancies": discrepancies, "missing": missing,
-            "offices": offices}
+            "offices": offices, "runs": run_items}
+
+
+def run_text(item: dict) -> str:
+    """The sentence a run's rebuild adds to the organisation's notes."""
+    status, day = item.get("status", ""), item.get("date", "")
+    text = {"listed": f"Google Maps: listed ({day})" + (", confirmed at the stored point" if item.get("confirmed_at_stored_point") else ""),
+            "not_found": f"Google Maps: not on Google Maps ({day}); the lead keeps its point",
+            "review": f"Google Maps: review ({day}): {str(item.get('detail', ''))[:160]}"}.get(status, "")
+    if item.get("other_offices"):
+        text += f"; other offices on Google Maps: {len(item['other_offices'])}"
+    if item.get("corroboration"):
+        text += f"; {item['corroboration']}"
+    if item.get("discrepancy"):
+        text += f"; {item['discrepancy']['kind']}, {item['discrepancy']['distance_m']} m: the user and the orchestrator decide"
+    return text
+
+
+def apply_runs(p: dict, links_root: Path) -> dict:
+    """Writes each run's links.json: google_maps_status entries and, for welfare, review_flags for the discrepancies."""
+    done = {}
+    for db, items in p["runs"].items():
+        if not items:
+            continue
+        path = links_root / "data" / "runs" / B.RUNS[db] / "links.json"
+        links = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+        section = links.setdefault("google_maps_status", {})
+        for key, item in items.items():
+            section[key] = {k: v for k, v in item.items() if k != "organisation_id"} | {"organisation_id": item["organisation_id"]}
+            d = item.get("discrepancy")
+            if db == "welfare" and d:
+                flags = links.setdefault("review_flags", {}).setdefault(key, [])
+                flags[:] = [f for f in flags if not (f.get("kind") == d["kind"] and f.get("source") == d["source"])]
+                flags.append({"kind": d["kind"], "related": "", "detail": d["detail"], "source": d["source"],
+                              "action": "Not changed. The user and the orchestrator decide which point to keep (rule of 13 October 2026)."})
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(links, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        done[db] = len(items)
+    return done
 
 
 def fact(con, oid, field, value, record) -> None:
@@ -182,19 +261,28 @@ def main() -> int:
     parser.add_argument("--round", action="append", required=True, help="<date><tag>, for example 2026-10-13d (repeat for several)")
     parser.add_argument("--discrepancies", type=Path, action="append", default=[], help="extra discrepancy lines (a reviewed retro list)")
     parser.add_argument("--database", type=Path, default=MASTER, help="the master (default) or a trial copy")
+    parser.add_argument("--welfare-db", type=Path, help="the welfare run database, read-only (default: the run's own)")
+    parser.add_argument("--government-db", type=Path, help="the government run database, read-only (default: the run's own)")
+    parser.add_argument("--links-root", type=Path, default=ROOT, help="write the runs' links.json under this folder (default: the repository)")
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
     con = sqlite3.connect(f"file:{args.database.as_posix()}?mode=ro", uri=True)
-    p = plan(con, args.round, args.discrepancies)
+    run_rounds = any((e.get("db") or "master") != "master" for label in args.round
+                     for _, e in lines(ENRICH / f"google_maps_enrich_{label}.jsonl") if (ENRICH / f"google_maps_enrich_{label}.jsonl").exists())
+    p = plan(con, args.round, args.discrepancies, B.run_leads(args) if run_rounds else {})
     con.close()
     report = {"rounds": args.round, "files": [rel(f) for f in p["files"]],
               "google_maps_status": dict(Counter(s["status"] for s in p["statuses"])),
               "corroborations": len(p["corroborations"]), "other_offices": len(p["offices"]), "discrepancies": len(p["discrepancies"]),
               "not_in_master": p["missing"],
+              "runs": {db: {"leads": len(items), "status": dict(Counter(i.get("status") for i in items.values())),
+                            "discrepancies": sum(1 for i in items.values() if i.get("discrepancy"))} for db, items in p["runs"].items() if items},
               "discrepancy_list": [f"{d['organisation_name']} ({d['organisation_id']}): {d['stored_source_label']} vs Google Maps, {d['distance_m']} m"
                                    for d in p["discrepancies"]]}
     if args.apply:
-        apply(args.database, p)
+        if p["statuses"] or p["corroborations"] or p["discrepancies"] or p["offices"]:
+            apply(args.database, p)
+        report["runs_written"] = apply_runs(p, args.links_root)
         report["applied"] = True
     PREVIEW.parent.mkdir(parents=True, exist_ok=True)
     PREVIEW.write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")

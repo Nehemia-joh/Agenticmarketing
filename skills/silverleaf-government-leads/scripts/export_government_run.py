@@ -79,6 +79,8 @@ def main() -> int:
     cfg = G.load_config(args.run_id)
     date, work, interim, raw = cfg["research_date"], cfg["paths"]["work"], cfg["paths"]["interim"], cfg["paths"]["raw"]
     final = json.loads((work / "final.json").read_text(encoding="utf-8"))
+    # Google Maps status (scripts/maps/apply_gmaps_status.py, 13 October 2026), keyed by office record key: one sentence in the notes.
+    gmaps = {k: v.get("text", "") for k, v in G.load_links(cfg).get("google_maps_status", {}).items()}
     headers = next(csv.reader(open(W.TEMPLATE, encoding="utf-8-sig")))
     rows = []
     for o in final["offices"]:
@@ -90,7 +92,7 @@ def main() -> int:
             "record_type": "organisation", "source_path": o.get("source_path", ""), "source_location": o.get("source_location") or o["record_key"],
             "source_url": o.get("source_url", ""), "acquired_on": date, "verified_on": date, "verification_status": o["verification_status"],
             "evidence_basis": o["evidence_basis"], "evidence_excerpt": G.W.norm_text(excerpt)[:300],
-            "notes": o.get("location_note", ""), "organisation_name": o["name"], "organisation_domain": o.get("domain", ""),
+            "notes": " | ".join(x for x in (o.get("location_note", ""), gmaps.get(o["record_key"], "")) if x), "organisation_name": o["name"], "organisation_domain": o.get("domain", ""),
             "segment": o["segment"], "subtype": o["office_level"], "priority": priority, "campus": o.get("campus", ""),
             "distance_km": fmt(o.get("distance_km")), "radius_tier": o.get("transport_band", ""), "geocode_precision": o.get("geocode_precision", ""),
             "latitude": fmt(o.get("lat")), "longitude": fmt(o.get("lon")), "locality": o.get("locality", ""), "address": o.get("po_box", ""),

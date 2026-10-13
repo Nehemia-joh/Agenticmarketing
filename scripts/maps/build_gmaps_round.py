@@ -33,7 +33,24 @@ words such as Ltd, Safaris, Tours, Tanzania, Bank or Branch) is a candidate:
   (a bank, insurer, microfinance, pharmacy, fuel station, mobile network or a 'branch') is accepted only when exactly one
   candidate's address shares a street word with the record's address. Otherwise the verdict becomes review, with every
   candidate listed in the line's candidates field and the note.
-A lead with one candidate is built exactly as before. The enrich line carries the extra fields candidates and match only
+A lead with one candidate is built exactly as before.
+
+The welfare and government runs (13 October 2026). A worklist row whose db is welfare or government names the run's organisation
+ID (ORG_...). The run's database (outputs/runs/<run>/lead-database.sqlite, read-only; --welfare-db, --government-db) gives the
+name, the stored point and its precision; the run's links.json gives its reviewed overrides. The run lines take the key that
+apply_geocodes.py defines: welfare, the organisation name (links.json geo_overrides); government, 'Council|Ward' for a ward office
+(ward_locations) or the office record key (office_locations). The enrich line carries db for a run lead (a master line has none).
+- Stored point and its rank: a reviewed override ranks by its source_type (own site embed or official site 1, Google Maps 2,
+  OpenStreetMap 3); without one, welfare 'address' is the run's point (OpenStreetMap when the record has an osm_id, else a
+  research or register point, kept like a Google point), and 'estimated' and 'locality' are estimates; government ranks by the
+  record's location_source ('official website map' 1, a reviewed Google point 2, an OpenStreetMap office 3) and every
+  'estimated' ward or village reference point is an estimate.
+- The same precedence, agreement distance, multi-hit matching and shared-pin check as the master.
+- A run is never corrected with --replace (master only). A run correction is an override: when the listing replaces a lower-
+  ranked point, the line goes to the round's fills file (geocodes_gmaps_<date><tag>.jsonl) with the run's db and key, and
+  apply_geocodes.py (its default path, preview then --apply) adds the override to the run's links.json; the run's rebuild then
+  uses it instead of its own point. A lead that already has a reviewed override is never overwritten: within the agreement
+  distance the override is kept and the listing corroborates it; beyond it the lead is a discrepancy. The enrich line carries the extra fields candidates and match only
 when there were several candidates, so a round with single results is unchanged.
 - --db: the master as it was before the round (the pre-round backup), read-only. A lead with no stored point gets a fill; a
   lead with a stored point is decided by the location precedence below.
@@ -312,10 +329,83 @@ def band(distance_m: int) -> str:
 def distribution(checks: list[dict]) -> dict:
     out = defaultdict(Counter)
     for c in checks:
-        kind = {1: "website pin", 2: "Google Maps", 3: "OpenStreetMap"}.get(c["stored_rank"]) or (
+        kind = {1: "website pin", 2: c["stored_source_label"], 3: "OpenStreetMap"}.get(c["stored_rank"]) or (
             "website text estimate" if c["stored_source_label"] == "website" else "other estimate")
         out[kind][band(c["distance_m"])] += 1
     return {k: {name: v[name] for _, name in BANDS if v[name]} for k, v in out.items()}
+
+
+# ------------------------------------------------------------------ the welfare and government runs
+RUNS = {"welfare": "arusha-welfare-2026-09", "government": "arusha-government-2026-09"}
+RUN_SOURCE = (("own site embed", 1, "website"), ("official", 1, "website"), ("Google Maps", 2, "Google Maps"), ("OpenStreetMap", 3, "OpenStreetMap"))
+
+
+class RunLeads:
+    """A run's leads, read-only: {organisation_id: {name, key, stored, precision, source, rank, label, override}}."""
+
+    def __init__(self, db: str, path: Path, links_path: Path):
+        self.db, self.path = db, path
+        links = json.loads(links_path.read_text(encoding="utf-8")) if links_path.exists() else {}
+        con = sqlite3.connect(f"file:{Path(path).as_posix()}?mode=ro", uri=True)
+        con.row_factory = sqlite3.Row
+        self.leads = {}
+        payload = {}
+        for eid, p in con.execute("SELECT es.entity_id, sr.payload_json FROM entity_sources es JOIN source_records sr "
+                                  "ON sr.source_record_id = es.source_record_id WHERE es.entity_type = 'organisation'"):
+            payload.setdefault(eid, json.loads(p))
+        profiles = {}
+        if db == "government":
+            profiles = {r["organisation_id"]: dict(r) for r in con.execute(
+                "SELECT organisation_id, record_key, office_level, council_name, admin_unit_name FROM government_office_profiles")}
+        for o in con.execute("SELECT * FROM organisations"):
+            o = dict(o)
+            try:
+                stored = (float(o["latitude"]), float(o["longitude"]))
+            except (TypeError, ValueError):
+                stored = None
+            prec = o.get("geocode_precision") or ""
+            pay = payload.get(o["organisation_id"], {})
+            if db == "welfare":
+                key = o["name"]
+                override = (links.get("geo_overrides") or {}).get(key)
+                source = (override or {}).get("source_type") or ("reviewed override" if override else "")
+                if override:
+                    rank, label = next(((r, l) for pre, r, l in RUN_SOURCE if source.startswith(pre)), (0, ""))
+                    if not rank:
+                        rank, label = (4, "estimate") if override.get("precision") in ("locality", "town", "city") else (2, "research or register")
+                elif prec == "address":
+                    rank, label = (3, "OpenStreetMap") if (o.get("osm_id") or "").strip() else (2, "research or register")
+                    source = "OpenStreetMap" if rank == 3 else "the run's research or register point"
+                else:
+                    rank, label, source = 4, "estimate", f"the run's {prec or 'unstated'} estimate"
+            else:
+                prof = profiles.get(o["organisation_id"], {})
+                ward = prof.get("office_level") == "ward"
+                key = f"{prof.get('council_name')}|{prof.get('admin_unit_name')}" if ward else (prof.get("record_key") or pay.get("record_key") or "")
+                override = (links.get("ward_locations" if ward else "office_locations") or {}).get(key)
+                source = pay.get("location_source") or ""
+                if prec == "estimated" or not prec:
+                    rank, label = 4, "estimate"
+                else:
+                    rank, label = next(((r, l) for pre, r, l in RUN_SOURCE if pre.lower() in source.lower()), (2, "research or register"))
+            self.leads[o["organisation_id"]] = {"name": o["name"], "key": key, "stored": stored, "precision": prec, "source": source,
+                                                "rank": rank, "label": label, "override": bool(override),
+                                                # the key the run's notes read (apply_gmaps_status.py): welfare the name, government the record key
+                                                "status_key": key if db == "welfare" else (prof.get("record_key") or pay.get("record_key") or key)}
+        con.close()
+
+    def get(self, oid: str) -> dict:
+        if oid not in self.leads:
+            raise SystemExit(f"{oid} is not in the {self.db} run database {self.path}")
+        return self.leads[oid]
+
+
+def run_leads(args) -> dict:
+    out = {}
+    for db, run in RUNS.items():
+        path = getattr(args, f"{db}_db", None) or ROOT / "outputs" / "runs" / run / "lead-database.sqlite"
+        out[db] = RunLeads(db, Path(path), ROOT / "data" / "runs" / run / "links.json")
+    return out
 
 
 # ------------------------------------------------------------------ the shared-pin check
@@ -396,7 +486,12 @@ def build(args) -> int:
     con = sqlite3.connect(f"file:{args.db.as_posix()}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
 
+    runs = run_leads(args) if any((r.get("db") or "master") != "master" for r in rows.values()) else {}
+
     def stored_point(oid):
+        db = rows[oid].get("db") or "master"
+        if db != "master":
+            return runs[db].get(oid)["stored"]
         o = con.execute("SELECT latitude, longitude FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
         try:
             return (float(o["latitude"]), float(o["longitude"])) if o else None
@@ -427,7 +522,7 @@ def build(args) -> int:
         if code == "R" and not note:
             note = f"Top listing '{top.get('n')}' is not this organisation."
         codes[oid] = code
-        enrich.append({"organisation_id": oid, "organisation_name": row["name"], "kind": row.get("segment", ""), "verdict": verdict,
+        enrich.append({**({"db": row["db"]} if (row.get("db") or "master") != "master" else {}), "organisation_id": oid, "organisation_name": row["name"], "kind": row.get("segment", ""), "verdict": verdict,
                        "listing_name": top.get("n") or "", "latitude": top.get("la"), "longitude": top.get("lo"), "category": top.get("c") or "",
                        "address": top.get("a") or "", "phone": top.get("p") or "", "phone_note": "", "website": top.get("w") or "",
                        "website_note": "", "source_type": "Google Maps listing", "source_url": top.get("u") or "", "fetched_on": args.date,
@@ -445,6 +540,9 @@ def build(args) -> int:
         if e["verdict"] != "accept" or e["latitude"] is None:
             continue
         top, row = chosen[oid], rows[oid]
+        if (row.get("db") or "master") != "master":
+            run_line(args, label, e, top, row, code, runs[row["db"]].get(oid), forced.get(oid), fills, checks)
+            continue
         o = con.execute("SELECT * FROM organisations WHERE organisation_id=?", (oid,)).fetchone()
         if o is None:
             raise SystemExit(f"{oid} is not in {args.db}")
@@ -522,8 +620,43 @@ def status_of(e: dict) -> tuple[str, str]:
         f"; top result '{e['listing_name']}' is another organisation)" if e.get("listing_name") else ")")
 
 
-def check_line(label, day, o, e, top, stored, source, precision, rank, slabel, dist, agreement_m, outcome) -> dict:
-    return {"round": label, "date": day, "db": "master", "organisation_id": o["organisation_id"], "organisation_name": o["name"],
+def run_line(args, label, e, top, row, code, lead, forced, fills, checks) -> None:
+    """A run lead's accepted listing: a fill (an override for apply_geocodes.py) or a location check (see the docstring)."""
+    oid, addr, note = e["organisation_id"], top.get("a") or "", e["note"]
+    line = {"db": row["db"], "organisation_id": oid, "organisation_name": lead["name"], "key": lead["key"],
+            "status": "outside_confirmed" if code == "O" else "placed", "latitude": top["la"], "longitude": top["lo"], "precision": "point",
+            "source_type": "Google Maps listing", "source_url": top["u"], "fetched_on": args.date,
+            "as_found": f"Google Maps listing '{top['n']}' at {top['la']}, {top['lo']}" + (f"; {addr}" if addr else ""),
+            "basis": note or f"Google Maps listing named '{top['n']}' for the search '{row['query']}': same organisation, in the record's area.",
+            "geocode_source": f"Google Maps: {top['u']}", "confidence": "high"}
+    stored = lead["stored"]
+    if stored is None or code == "O":
+        if not lead["override"]:
+            fills.append(line)
+        return
+    dist = metres(stored[0], stored[1], float(top["la"]), float(top["lo"]))
+    outcome = "replaced" if args.no_precedence else decide(lead["rank"], lead["label"], dist, args.agreement_m, args.estimates_beyond)
+    if forced and not args.no_precedence:
+        outcome = "discrepancy"
+    decision = None
+    if outcome == "replaced" and lead["override"]:
+        outcome, decision = "corroborates", "the run's reviewed override is kept (an override is never overwritten); the listing corroborates it"
+    if outcome == "replaced":
+        fills.append({**line, "replaces": {"latitude": stored[0], "longitude": stored[1], "precision": lead["precision"], "source": lead["source"],
+                                           "km_moved": km(stored[0], stored[1], top["la"], top["lo"])}})
+    c = check_line(label, args.date, {"organisation_id": oid, "name": lead["name"]}, e, top, stored, lead["source"], lead["precision"],
+                   lead["rank"], lead["label"], dist, args.agreement_m, outcome, db=row["db"])
+    c["key"] = lead["key"]
+    if decision:
+        c["decision"] = decision
+    c["match"] = "confirmed at stored point" if dist <= args.agreement_m else e.get("match", "")
+    if e.get("candidates"):
+        c["candidates"] = e["candidates"]
+    checks.append(c)
+
+
+def check_line(label, day, o, e, top, stored, source, precision, rank, slabel, dist, agreement_m, outcome, db="master") -> dict:
+    return {"round": label, "date": day, "db": db, "organisation_id": o["organisation_id"], "organisation_name": o["name"],
             "status": outcome, "outcome": outcome, "distance_m": dist, "agreement_m": agreement_m,
             "stored_latitude": stored[0], "stored_longitude": stored[1], "stored_precision": precision, "stored_source": source,
             "stored_rank": rank, "stored_source_label": slabel,
@@ -660,6 +793,8 @@ def main() -> int:
                         help="an estimate (not from the organisation's own website) beyond the agreement distance: replaced (default) or a discrepancy")
     parser.add_argument("--no-precedence", action="store_true",
                         help="build corrections as the 13 October 2026 rounds were built (every stored point replaced), to reproduce them")
+    parser.add_argument("--welfare-db", type=Path, help="the welfare run database (read-only; default outputs/runs/<run>/lead-database.sqlite)")
+    parser.add_argument("--government-db", type=Path, help="the government run database (read-only; default as for welfare)")
     parser.add_argument("--retro", nargs="+", type=Path, help="report the precedence over these committed enrich files (needs --db); writes runtime/ only")
     args = parser.parse_args()
     if args.audit:

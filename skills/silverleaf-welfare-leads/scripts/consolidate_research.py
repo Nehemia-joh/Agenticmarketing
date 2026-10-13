@@ -288,6 +288,12 @@ def main() -> int:
                             "source": item.get("source", "")})
     print(f"rejected routes removed: {drop_rejected(merged, contacts, rejected_routes(links))}")
     geocode(merged, gaz, campuses, links.get("geo_overrides", {}))
+    # Google Maps status (scripts/maps/apply_gmaps_status.py, 13 October 2026): listed, not on Google Maps or review, and any location
+    # discrepancy, as one sentence in the organisation's notes. It never changes a point.
+    for o in merged:
+        text = (links.get("google_maps_status", {}).get(o["organisation_name"]) or {}).get("text")
+        if text:
+            o["notes"] = " | ".join(x for x in (o.get("notes"), text) if x)
     out = {"organisations": merged, "contacts": contacts, "relationships": relations, "enquiries": enquiries, "reviews": reviews}
     (work / "consolidated.json").write_text(json.dumps(out, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     print(f"reviews: {len(reviews)}")

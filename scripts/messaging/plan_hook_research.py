@@ -2,7 +2,8 @@
 """Plan a research wave for first-message hooks and lead briefs, one slice per research agent.
 
 Reads the company master (read-only) and selects the outreach plans on one acquisition track (AQ02, the named
-decision-makers, by default). Groups them by organisation and splits the organisations into slices. Writes, per slice,
+decision-makers, by default), never a VICOBA group or VICOBA introducer plan (offer_lib.VICOBA_SEGMENTS: groups are reached through
+introducers, not researched one by one). Groups them by organisation and splits the organisations into slices. Writes, per slice,
 runtime/hooks/<slice>/leads.json and the agent's prompt runtime/hooks/<slice>/prompt.md.
 
 Each agent does three things per organisation. It confirms each named contact's role on the page it came from. It
@@ -145,7 +146,9 @@ def unverified_senior_contacts(con) -> dict:
     import sys
     sys.path.insert(0, str(ROOT / "scripts" / "master"))
     import resolve_master_recipients as R
-    chosen = {oid for (oid,) in con.execute("SELECT organisation_id FROM outreach_plans WHERE selection='Candidate for review' AND segment<>'SACCOS members'")}
+    left_out = sorted(L.SAVINGS_SEGMENTS | L.VICOBA_SEGMENTS)  # savings groups (SACCOS and VICOBAs) and VICOBA introducer requests
+    chosen = {oid for (oid,) in con.execute(f"SELECT organisation_id FROM outreach_plans WHERE selection='Candidate for review' AND segment NOT IN "
+                                            f"({','.join('?' * len(left_out))})", left_out)}
     people = {}
     for oid, cid, name, role, verification, source in con.execute("SELECT organisation_id, contact_id, name, role, verification, source_url FROM contacts"):
         if oid in chosen and R.role_rank(role) is not None and len(L.greeting_name(name).split()) >= 2:
@@ -192,6 +195,9 @@ def main() -> int:
     if args.only_unresearched and con.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='lead_briefs'").fetchone():
         researched = {oid for (oid,) in con.execute("SELECT DISTINCT organisation_id FROM lead_briefs")}
         rows = [r for r in rows if r["organisation_id"] not in researched]
+    # VICOBA groups are group-level records reached through introducers, never researched one by one, and a VICOBA introducer request
+    # is not a first message with a hook (decided 13 October 2026): neither is ever planned for a hook web search.
+    rows = [r for r in rows if r["segment"] not in L.VICOBA_SEGMENTS]
     orgs = {}
     for r in rows:
         name = L.display_name(r["name"], r["organisation_id"])
@@ -199,7 +205,7 @@ def main() -> int:
             "organisation_id": r["organisation_id"], "organisation_name": r["name"], "website": domain(r["website"]),
             "locality": r["locality"] or "", "segment": r["segment"], "contacts": [], "organisation_route_message_ids": [],
             "purpose": (f"I am writing to explore how Silverleaf Academy could support the education of {name} members' children, and would "
-                        f"like to speak with your committee." if r["segment"] == "SACCOS members" else
+                        f"like to speak with your committee." if r["segment"] in L.SAVINGS_SEGMENTS else
                         f"We are looking to set up a partnership with {name} to provide an education benefit for the children of your staff.")})
         if r["name"].startswith("Rivertrees"):
             o["purpose"] = "Existing relationship: the first email renews the 2025 staff education partnership. Brief only; the hook must be null."

@@ -5,7 +5,8 @@ Reads the run database (outputs/runs/<run-id>/lead-database.sqlite, read-only) a
 outputs/messages/Silverleaf Government Drafts - <date>.md:
 1. councils (the protocol introduction, GA01): the four pilot councils first, then the rest;
 2. district and regional offices (courtesy notice);
-3. wards and villages (convening request), by council and by distance from the nearest campus, so the first wave is the nearest wards.
+3. wards and villages (convening request), by council and by distance from the nearest campus, so the first wave is the nearest wards;
+   a ward's VICOBA introduction to its community development officer (vicoba_introduction) follows as its own item (3.<n>b).
 Each entry has the Kiswahili letter, the English meaning for review, and the follow-up where there is one. Nothing is sent: the letters go on
 letterhead, by hand or to the official address, after the Kiswahili is reviewed by a native speaker. Run draft_run_messages.py --track
 government first.
@@ -20,6 +21,7 @@ from datetime import date
 import offer_lib as L
 
 ROOT = L.ROOT
+VICOBA_KIND = "vicoba_introduction"  # draft_run_messages.VICOBA_LETTER_KIND, the plan's cta_type
 GENERIC = re.compile(rf"^({L.BOILERPLATE_NOTE}|Kiswahili draft: native-speaker|Letter on Silverleaf letterhead)")
 
 
@@ -76,7 +78,11 @@ def main() -> int:
                            "WHERE organisation_id = ? AND holder_name != '' AND post_key NOT IN ('ward_councillor', 'council_chair', 'village_chair') "
                            "ORDER BY post_key", (r["organisation_id"],)).fetchall()
         r["holders"] = "; ".join(f"{t}: {n}" + (f" (source dated {d})" if d else "") for t, n, d in held)
-    councils = sorted((r for r in rows if r["office_level"] == "council"), key=lambda r: (r["review_status"] != "draft_ready", r["name"]))
+    # A ward office has two letters: its own convening request (the office is the plan's target) and, since 13 October 2026, the ward
+    # community development officer's VICOBA introduction (kind vicoba_introduction, targeted at that post). They are listed as two items.
+    vicoba = {r["organisation_id"]: r for r in rows if r["cta_type"] == VICOBA_KIND}
+    rows = [r for r in rows if r["cta_type"] != VICOBA_KIND]
+    councils =sorted((r for r in rows if r["office_level"] == "council"), key=lambda r: (r["review_status"] != "draft_ready", r["name"]))
     higher = sorted((r for r in rows if r["office_level"] in ("district", "region")), key=lambda r: (r["office_level"], r["name"]))
     local = [r for r in rows if r["office_level"] in ("ward", "village")]
     pilot = {r["council_name"] for r in councils if r["review_status"] == "draft_ready"}
@@ -117,6 +123,9 @@ def main() -> int:
             lines += [f"## {r['council_name']}" + (" (pilot council)" if r["council_name"] in pilot else ""), ""]
         k += 1
         lines += entry(f"3.{k}", r, messages)
+        if r["organisation_id"] in vicoba:
+            lines += entry(f"3.{k}b", {**vicoba[r["organisation_id"]], "name": f"{r['name']}: VICOBA introduction to the ward community "
+                                                                           "development officer"}, messages)
     out = ROOT / "outputs" / "messages" / f"Silverleaf Government Drafts - {today}.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"{len(rows)} offices ({sum(r['review_status'] == 'draft_ready' for r in rows)} ready): {out}")

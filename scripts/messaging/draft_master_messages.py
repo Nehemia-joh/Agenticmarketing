@@ -46,12 +46,14 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   plan (one per group, created by scripts/master/add_vicoba_groups.py) gets the Kiswahili group request, a check-in, a close and the
   Kiswahili offer (the family offer and OF07 in the register's words), stored Kiswahili-first: subject, body and follow-ups in Kiswahili,
   the English meaning in english_meaning, the Kiswahili offer in offer_message_sw and its meaning in offer_message, language 'sw'. The
-  campus line states no distance at 'ward' precision. The band comes from first_touch.vicoba_case (shared with the exporter): a plan is
-  'Draft review' only in a high band with nothing held, and every Kiswahili draft carries NATIVE_REVIEW until its template version is
-  approved in data/reference/kiswahili-reviews.json. One 'VICOBA introducers' plan per master introducer (NGO field office, bank branch,
-  or the employer of a workplace group) per wave (--vicoba-wave, default W1), in English with no terms, naming the groups it covers
-  (fact covers_groups on the introducer, '<wave>: <ids>'); an introducer already in an employer conversation is held until that
-  conversation's S4 meeting. Women's groups come first in wave order, and their notes carry the talk focus on mothers' questions.
+  campus line states no distance at 'ward' precision. The band comes from first_touch.vicoba_assess/vicoba_case, which read the band
+  properties scripts/master/link_vicoba_introducers.py writes (never the intake's proposed introducer; a group the linker has not run
+  for is low) and which the exporter and the call sheet share: a plan is 'Draft review' only in a high band with nothing held, and every
+  Kiswahili draft carries NATIVE_REVIEW until its template version is approved in data/reference/kiswahili-reviews.json. One 'VICOBA
+  introducers' plan per master introducer (NGO field office, bank branch, or the employer of a workplace group), reusing the plan
+  link_vicoba_introducers.py --add-introducers created, in English with no terms, naming its linked groups (fact covers_groups on the
+  introducer, '<wave>: <ids>', --vicoba-wave, default W1); it is held while no group is linked, while its introducer_state is not
+  'active', and while it is in an employer conversation (until that conversation's S4 meeting). Women's groups come first in wave order, and their notes carry the talk focus on mothers' questions.
   CDO introducers are reached through the government run's ward letters (draft_run_messages.py, kind vicoba_introduction).
 - The nine reviewable historical parent replies gain the family offer.
 - Adds offer columns to outreach_plans (offer_version, offer_ids, offer_evidence, offer_message, offer_message_sw),
@@ -330,25 +332,8 @@ def saccos_copy(plan: dict, org: dict, track: str) -> dict:
 RUN_CONFIG = ROOT / "data" / "runs" / "arusha-government-2026-09" / "run-config.json"
 COUNCILS_SW = ({c["name"]: c.get("name_sw") or c["name"] for c in json.loads(RUN_CONFIG.read_text(encoding="utf-8"))["councils"]}
                if RUN_CONFIG.exists() else {})
-SIGN_SW = f"Kwa heshima,\n{L.SIGNATURE_SW}"
 SIGN_EN = f"With respect,\n{L.SENDER}\n{L.SENDER_TITLE}, Silverleaf Academy\nP.O. Box 14146, Usa River · +255 769 486 660 · info@silverleaf.co.tz"
-_, VICOBA_SUBJECT_SW, VICOBA_TOPIC_SW, VICOBA_ASK_SW = F.SEGMENTS_SW["vicoba"]
-VICOBA_TEMPLATES = {
-    "vicoba-group-request": (
-        VICOBA_SUBJECT_SW.replace("{org}", "{group}"),
-        "{address}Habari Kamati ya {group},\n\nNinaandika kuhusu " + VICOBA_TOPIC_SW.replace("{org}", "{group}") + ". " + VICOBA_ASK_SW
-        + "\n\n" + L.INTRO_SW + "\n\nJe, itawezekana kupanga kikao kifupi na kamati, ana kwa ana au kwa simu, ili tukubaliane siku inayofaa?"
-        + "\n\n" + SIGN_SW),
-    "vicoba-group-follow-up": (
-        "", "Habari Kamati ya {group},\n\nNinafuatilia barua yangu ya kuomba dakika 10 hadi 15 katika mojawapo ya vikao vyenu vya wiki, ili "
-        "kuzungumza kwa Kiswahili kuhusu maandalizi ya mtoto kuanza shule. Je, kamati ingependa hilo? Kama ndiyo, tujulisheni siku na saa "
-        "mnayokutana.\n\n" + SIGN_SW),
-    "vicoba-group-close": ("", "Habari Kamati ya {group},\n\n" + F.CLOSE_SW["vicoba"][0] + "\n\n" + SIGN_SW),
-    "vicoba-group-offer": (
-        "", "Habari Kamati ya {group},\n\nAsante kwa jibu lenu. Kwa familia zote za Silverleaf tunatoa: " + L.family_offer_sw() + ".\n\n"
-        "Vikundi vya kuweka akiba pia vina punguzo la kikundi. " + L.of07_sw() + "\n\n{campus}\n\nJe, tunaweza kukubaliana siku ya "
-        "kuzungumza na wanachama katika kikao chenu cha wiki?\n\n" + SIGN_SW),
-}
+VICOBA_TEMPLATES = F.VICOBA_TEMPLATES  # the reviewed Kiswahili templates live with the band rule (first_touch.py)
 # The English meaning of each template, for review only (never sent, so not versioned).
 VICOBA_MEANINGS = {
     "vicoba-group-request": (
@@ -378,19 +363,21 @@ VICOBA_WAITING = "Waiting on the introducer request "
 VICOBA_EMPLOYER_HOLD = ("The introducer is already in an employer conversation: raise the savings-group introduction at that conversation's "
                         "S4 meeting, never as its first message or a second cold message (decision 4).")
 VICOBA_NO_GROUPS = "No group in this wave is complete yet: the request waits for a group whose record is complete."
-VICOBA_NO_ROUTE = "The introducer publishes no email or phone; find its route first."
+VICOBA_NO_ROUTE = "The introducer publishes no email or phone: find its route first."
+# The placeholder note link_vicoba_introducers.py --add-introducers writes on a new introducer plan; it goes once the request is drafted.
+VICOBA_INTRODUCER_PENDING = "Introducer request pending: draft_master_messages.py writes it (no terms in the request)."
 VICOBA_DRAFT_PENDING = "VICOBA draft pending: the Kiswahili group request is written by draft_master_messages.py."
 # Notes a VICOBA rewrite replaces (the plan notes too, so they always follow the VICOBA notes and a re-run keeps the same order).
 VICOBA_NOTE_PREFIXES = ("VICOBA band: ", "VICOBA wave ", "Talk focus (women's group", VICOBA_WAITING, "Record incomplete", "Record stale",
-                        "Record complete", "Also a welfare lead")
-VICOBA_NOTES = {L.NATIVE_REVIEW, L.OFFER_TERMS_NOTE, VICOBA_DRAFT_PENDING, VICOBA_EMPLOYER_HOLD, VICOBA_NO_GROUPS, VICOBA_NO_ROUTE,
+                        "Record complete", "Also a welfare lead", "Introducer state: ", "No group is linked to this introducer yet")
+VICOBA_NOTES = {L.NATIVE_REVIEW, L.OFFER_TERMS_NOTE, VICOBA_DRAFT_PENDING, VICOBA_INTRODUCER_PENDING, VICOBA_EMPLOYER_HOLD, VICOBA_NO_GROUPS, VICOBA_NO_ROUTE,
                 F.NEXT_TOUCH["vicoba"], F.NEXT_TOUCH["vicoba_introducer"]}
 DISTANCE_CLAIM = re.compile(r"\bkm\b|\bkilomita\b|\bkilometres?\b", re.I)
 
 
 def template_versions() -> dict:
     """{template_id: version} for the VICOBA Kiswahili templates; a version covers the template text and the fixed sentences it inserts."""
-    return {tid: L.template_version(subject, body, L.network_line_sw()) for tid, (subject, body) in VICOBA_TEMPLATES.items()}
+    return F.vicoba_template_versions()
 
 
 def vicoba_address(facts: dict, lang: str) -> str:
@@ -524,47 +511,82 @@ def vicoba_missing(existing: str, notes: list) -> str:
 
 
 def vicoba_context(con, wave: str) -> dict:
-    """Everything the VICOBA drafts need: each group's band (first_touch.vicoba_case, which the exporter shares), its introducer and wave
-    position, and one introducer plan per master introducer per wave (NGO, bank or employer), its groups in wave order."""
-    inputs = F.vicoba_inputs(con, GOVERNMENT_DB)
-    versions = template_versions()
-    reviews = L.kiswahili_reviews()
-    approved = all(L.kiswahili_approved(t, v, reviews) for t, v in versions.items())
-    groups, order = inputs["groups"], inputs["order"]
+    """Everything the VICOBA drafts need: each group's band (first_touch.vicoba_assess, from the band properties
+    scripts/master/link_vicoba_introducers.py writes; the exporter and call sheet share the rule), its introducer and wave position, and
+    one introducer plan per master introducer per wave (NGO field office, bank branch or employer), its linked groups in wave order. An
+    introducer plan another script created (link_vicoba_introducers.py --add-introducers) is the introducer's plan: it is rewritten,
+    never doubled."""
+    row_factory = con.row_factory
+    con.row_factory = sqlite3.Row
+    try:
+        groups = V.load_vicoba_groups(con)
+        con.row_factory = sqlite3.Row
+        orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT organisation_id, name, segment, email, phone FROM organisations")}
+        existing = {}
+        for oid, mid in con.execute("SELECT organisation_id, message_id FROM outreach_plans WHERE segment=? ORDER BY message_id",
+                                    (L.VICOBA_INTRODUCER_SEGMENT,)):
+            existing.setdefault(oid, mid)
+        org_facts = {}
+        for oid, field, value in con.execute("SELECT entity_id, field, value FROM facts WHERE entity_type='organisation' AND field IN "
+                                             "('introducer_state', 'group_account_product') ORDER BY rowid"):
+            org_facts.setdefault(oid, {})[field] = value
+    finally:
+        con.row_factory = row_factory
+    order = V.wave_order(groups)
+    approved = F.vicoba_templates_approved()
     by_group, introducers = {}, {}
     for position, gid in enumerate(order, 1):
-        intro = inputs["introducers"][gid]
-        case = F.vicoba_case(groups[gid], inputs["officers"].get(gid, []), intro, template_approved=approved)
+        case = F.vicoba_assess(groups[gid], template_approved=approved)
+        intro = case["introducer"]
         by_group[gid] = {"group": groups[gid], "introducer": intro, "case": case, "approved": approved, "position": position,
                          "wave_size": len(order), "wave": wave}
-        if intro["organisation_id"] and intro["request"]:
+        if intro["status"] == "linked" and intro["organisation_id"] in orgs and intro["request"]:
             entry = introducers.setdefault(intro["organisation_id"], {"request": intro["request"], "groups": [], "women": False})
             entry["groups"].append(groups[gid])
             entry["women"] |= bool(groups[gid].get("women_group"))
+    for oid in existing:  # an introducer with a plan but no linked group yet keeps its plan, held
+        if oid in orgs and oid not in introducers:
+            introducers[oid] = {"request": "bank" if org_facts.get(oid, {}).get("group_account_product") else "ngo", "groups": [], "women": False}
     # Introducers that cover a women's group come first, then the nearest group's distance (section 0).
     ranked = sorted(introducers, key=lambda oid: (not introducers[oid]["women"],
                                                   min((float(g.get("distance_km")) for g in introducers[oid]["groups"] if g.get("distance_km") not in (None, "")), default=9e9),
-                                                  inputs["orgs"][oid]["name"]))
+                                                  orgs[oid]["name"]))
     for i, oid in enumerate(ranked, 1):
-        introducers[oid].update(message_id=sid("M", "vicoba-introducer", oid, wave), position=i, wave_size=len(ranked), wave=wave)
+        introducers[oid].update(message_id=existing.get(oid) or sid("M", "vicoba-introducer", oid), position=i, wave_size=len(ranked), wave=wave,
+                                state=org_facts.get(oid, {}).get("introducer_state", ""))
     for info in by_group.values():
         oid = info["introducer"]["organisation_id"]
         info["introducer_plan"] = introducers[oid]["message_id"] if oid in introducers else ""
-    return {"groups": by_group, "introducers": introducers, "versions": versions, "approved": approved, "wave": wave, "orgs": inputs["orgs"]}
+    return {"groups": by_group, "introducers": introducers, "versions": template_versions(), "approved": approved, "wave": wave, "orgs": orgs}
+
+
+INTRODUCER_STATE_HOLDS = {
+    "to_confirm": "Introducer state: to confirm (its savings-group work is not confirmed).",
+    "outside_region": "Introducer state: outside the region (no introducer route in the catchment).",
+    "employer_conversation_first": VICOBA_EMPLOYER_HOLD,
+    "welfare_conversation_first": "Introducer state: in its welfare-run conversation (raise savings groups there, never a second cold message).",
+}
+VICOBA_NO_LINK = "No group is linked to this introducer yet (data/reference/vicoba-introducers.json)."
 
 
 def vicoba_introducer_state(oid: str, entry: dict, org: dict, other_plans: bool) -> tuple[str, list]:
-    """(review_status, notes) of an introducer plan: held while the introducer is in an employer conversation (decision 4), always for an
+    """(review_status, notes) of an introducer plan: held while no group is linked to it, while its introducer_state is not 'active'
+    (to confirm, outside the region, another conversation first), while it is in an employer conversation (decision 4), always for an
     employer (the request belongs to its S4 meeting), without a route, or while none of its groups is complete."""
-    notes = [f"VICOBA wave {entry['wave']}: introducer {entry['position']} of {entry['wave_size']} (introducers of women's groups first), covering "
-             + ", ".join(f"{g['name']} ({g['organisation_id']})" for g in entry["groups"])]
-    if other_plans or entry["request"] == "employer":
+    covered = ", ".join(f"{g['name']} ({g['organisation_id']})" for g in entry["groups"]) or "no group yet"
+    notes = [f"VICOBA wave {entry['wave']}: introducer {entry['position']} of {entry['wave_size']} (introducers of women's groups first), "
+             f"covering {covered}"]
+    if not entry["groups"]:
+        notes.append(VICOBA_NO_LINK)
+    if entry.get("state") in INTRODUCER_STATE_HOLDS:
+        notes.append(INTRODUCER_STATE_HOLDS[entry["state"]])
+    if (other_plans or entry["request"] == "employer") and VICOBA_EMPLOYER_HOLD not in notes:
         notes.append(VICOBA_EMPLOYER_HOLD)
     if not (org.get("email") or org.get("phone")):
         notes.append(VICOBA_NO_ROUTE)
-    if not any(g.get("record_status") == "complete" for g in entry["groups"]):
+    if entry["groups"] and not any(g.get("record_status") == "complete" for g in entry["groups"]):
         notes.append(VICOBA_NO_GROUPS)
-    held = any(n in (VICOBA_EMPLOYER_HOLD, VICOBA_NO_ROUTE, VICOBA_NO_GROUPS) for n in notes)
+    held = len(notes) > 1
     return ("Needs research" if held else "Draft review"), notes
 
 
@@ -710,7 +732,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--database", default=str(MASTER))
     parser.add_argument("--dry-run", action="store_true", help="write runtime/messaging/master-preview.json and change nothing")
-    parser.add_argument("--vicoba-wave", default=VICOBA_WAVE, help="the VICOBA wave label: one introducer plan per introducer per wave")
+    parser.add_argument("--vicoba-wave", default=VICOBA_WAVE, help="the VICOBA wave label in the notes and covers_groups: one introducer "
+                                                                   "plan per introducer, rewritten for each wave")
     args = parser.parse_args()
     con = sqlite3.connect(args.database)
     con.row_factory = sqlite3.Row

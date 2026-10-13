@@ -889,7 +889,7 @@ flowchart TD
 | S8 Results | Member opt-ins enter the parent funnel, counted per `VIC-` code; counts of 1 or 2 show as "fewer than 3" |
 | S9 Renewal | A return 4 to 8 weeks before the group's next share-out that falls before an intake window |
 
-**Bands.** A group rarely has an email, so its band comes from the route to the group, and the channel (letter, call or email) is a separate property. `scripts/messaging/first_touch.py` `vicoba_case()` holds the rule, and the drafter and the exporter share it.
+**Bands.** A group rarely has an email, so its band comes from the route to the group, and the channel (letter, call or email) is a separate property. `scripts/messaging/first_touch.py` `vicoba_case()` holds the rule, and the drafter, the exporter and the VICOBA call sheet share it. It reads the band properties `scripts/master/link_vicoba_introducers.py` records on each group from the reviewed links file (`introducer_status`, `introducer_ready`, `introducer_outcome`, `officer_route`, `channel` and the rest); an intake's own introducer is a proposal only, and a group the linker has not run for is low. An introducer outcome `introduced` moves the group on even when its introducer is in another conversation first.
 
 | Band | VICOBA | Case | First touch | If silent |
 |---|---|---|---|---|

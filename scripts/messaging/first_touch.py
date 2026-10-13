@@ -179,10 +179,47 @@ def hr_lead(role: str, hr_on_file: bool, tier: str = "", headcount=None, kind_te
 VICOBA_BANDS = ("high-direct", "high-indirect", "medium", "low")
 VICOBA_CHANNELS = ("letter", "call", "email")
 TEMPLATE_HOLD = "Kiswahili template not yet approved by a native speaker (data/reference/kiswahili-reviews.json)"
-# Introducer kinds that are master organisations (one introducer plan per introducer per wave) and the request each gets.
+NOT_LINKED_HOLD = "introducer links not recorded yet (run scripts/master/link_vicoba_introducers.py)"
+FAITH_HOLD = "faith offices are not approached as introducers until the user decides (vicoba-integration-plan.md decision 5, F6)"
+# The band properties scripts/master/link_vicoba_introducers.py writes on each group, one current value each ('none' = not known).
+# The intake's own introducer_kind and introducer_ref are proposals only and are never read here.
+LINK_FIELDS = ("introducer_status", "linked_introducer_kind", "linked_introducer_ref", "linked_introducer_name", "linked_introducer_db",
+               "linked_introducer_state", "introducer_ready", "introducer_outcome", "officer_route", "officer_confirmed_on", "channel")
+# Master introducer kinds that get a 'VICOBA introducers' request, and the request each gets (draft_master_messages.py).
 MASTER_INTRODUCER = {"ngo_field_office": "ngo", "bank_branch": "bank", "employer": "employer"}
-GOV_REF = re.compile(r"^gov:([a-z0-9\-]+):([A-Za-z0-9_\-]+)$")
 MASTER_REF = re.compile(r"^O[0-9a-f]{12}$")
+
+# The Kiswahili group templates (decision 6, samples a and e). Placeholders {address}, {group} and {campus} are filled per group;
+# a template's version (offer_lib.template_version) covers its text and the fixed sentences it inserts, so a review approves exactly
+# this wording. draft_master_messages.py writes the drafts and their English meaning from these.
+SIGN_SW = f"Kwa heshima,\n{L.SIGNATURE_SW}"
+VICOBA_TEMPLATES = {
+    "vicoba-group-request": (
+        SEGMENTS_SW["vicoba"][1].replace("{org}", "{group}"),
+        "{address}Habari Kamati ya {group},\n\nNinaandika kuhusu " + SEGMENTS_SW["vicoba"][2].replace("{org}", "{group}") + ". "
+        + SEGMENTS_SW["vicoba"][3] + "\n\n" + L.INTRO_SW + "\n\nJe, itawezekana kupanga kikao kifupi na kamati, ana kwa ana au kwa simu, ili "
+        "tukubaliane siku inayofaa?" + "\n\n" + SIGN_SW),
+    "vicoba-group-follow-up": (
+        "", "Habari Kamati ya {group},\n\nNinafuatilia barua yangu ya kuomba dakika 10 hadi 15 katika mojawapo ya vikao vyenu vya wiki, ili "
+        "kuzungumza kwa Kiswahili kuhusu maandalizi ya mtoto kuanza shule. Je, kamati ingependa hilo? Kama ndiyo, tujulisheni siku na saa "
+        "mnayokutana.\n\n" + SIGN_SW),
+    "vicoba-group-close": ("", "Habari Kamati ya {group},\n\n" + CLOSE_SW["vicoba"][0] + "\n\n" + SIGN_SW),
+    "vicoba-group-offer": (
+        "", "Habari Kamati ya {group},\n\nAsante kwa jibu lenu. Kwa familia zote za Silverleaf tunatoa: " + L.family_offer_sw() + ".\n\n"
+        "Vikundi vya kuweka akiba pia vina punguzo la kikundi. " + L.of07_sw() + "\n\n{campus}\n\nJe, tunaweza kukubaliana siku ya "
+        "kuzungumza na wanachama katika kikao chenu cha wiki?\n\n" + SIGN_SW),
+}
+
+
+def vicoba_template_versions() -> dict:
+    """{template_id: version} of the VICOBA group templates."""
+    return {tid: L.template_version(subject, body, L.network_line_sw()) for tid, (subject, body) in VICOBA_TEMPLATES.items()}
+
+
+def vicoba_templates_approved(reviews: dict | None = None) -> bool:
+    """True when data/reference/kiswahili-reviews.json approves the current version of every VICOBA group template."""
+    reviews = reviews if reviews is not None else L.kiswahili_reviews()
+    return all(L.kiswahili_approved(t, v, reviews) for t, v in vicoba_template_versions().items())
 
 
 def _last(facts: dict, field: str) -> str:
@@ -190,143 +227,87 @@ def _last(facts: dict, field: str) -> str:
     return str(values[-1]) if values else ""
 
 
-def _route(org: dict) -> str:
-    return "email" if "@" in str(org.get("email") or "") else "call" if str(org.get("phone") or "").strip() else ""
+def _value(facts: dict, field: str) -> str:
+    """A band property's current value, '' for 'none' or absent."""
+    value = _last(facts, field)
+    return "" if value == "none" else value
 
 
-def vicoba_introducer(group: dict, orgs: dict, gov_offices: dict, planned: set) -> dict:
-    """The route through which a group is first reached, from the contract's facts (section 4.1: introducer_kind, introducer_ref,
-    sponsor_name, sponsor_kind, sponsor_ref, employer_ref), which the adder and scripts/master/link_vicoba_introducers.py record.
-    A workplace group whose employer is already in a conversation joins that employer's deal (decision 4), so the employer is its
-    introducer. Returns the kind, ref, master organisation (NGO, bank or employer), name, whether the route is ready, why not, its channel
-    and the request a master introducer gets ('ngo', 'bank', 'employer')."""
-    f = group.get("facts", {})
-    kind, ref = _last(f, "introducer_kind"), _last(f, "introducer_ref")
-    sponsor_kind, sponsor_ref, sponsor_name = _last(f, "sponsor_kind"), _last(f, "sponsor_ref"), _last(f, "sponsor_name")
-    employer = _last(f, "employer_ref")
-    if employer in orgs and employer in planned:
-        kind, ref = "employer", employer
-    elif not kind and sponsor_kind in ("ngo", "bank") and sponsor_ref in orgs:
-        kind, ref = ("ngo_field_office" if sponsor_kind == "ngo" else "bank_branch"), sponsor_ref
-    out = {"kind": kind, "ref": ref, "organisation_id": "", "name": "", "ready": False, "why": "", "channel": "", "request": "", "gov_office": ""}
-    if sponsor_name and not sponsor_ref:
-        out["why"] = f"the sponsor link is unverified ({sponsor_name}): link it through data/reference/vicoba-introducers.json"
-        return out
-    if kind in ("cdo_ward", "cdo_council"):
-        m = GOV_REF.match(ref)
-        office = gov_offices.get(m.group(2)) if m else None
-        if not office:
-            out["why"] = "the community development office is not linked to a government-run office"
-            return out
-        out.update(gov_office=m.group(2), name=office["name"], channel="letter")
-        out["ready"] = office["council_introduced"]
-        out["why"] = "" if out["ready"] else (f"the council ({office['council'] or 'unknown'}) has no recorded introduction (GA01) yet: the "
-                                               "ward CDO letter in the government run waits for it")
-        return out
-    if kind in MASTER_INTRODUCER:
-        org = orgs.get(ref) if MASTER_REF.match(ref or "") else None
-        if not org:
-            out["why"] = "the introducer is not linked to a master organisation (data/reference/vicoba-introducers.json)"
-            return out
-        out.update(organisation_id=ref, name=org.get("name") or "", request=MASTER_INTRODUCER[kind], channel=_route(org))
-        out["ready"] = bool(out["channel"])
-        out["why"] = "" if out["ready"] else "the introducer publishes no email or phone"
-        return out
-    if kind == "faith_office":
-        out["why"] = "faith offices are not approached as introducers until the user decides (vicoba-integration-plan.md decision 5, F6)"
-    elif kind == "group_published":
-        out["why"] = "the group's own route has no officer named for it on file"
-    else:
-        out["why"] = "no introducer route (ward CDO, NGO field office, bank branch or a route the group publishes)"
-    return out
-
-
-def vicoba_officer(contact: dict, bases: list, as_of: date, last_confirmed: str) -> dict:
-    """A group officer as the band rule sees one: a name, and whether a role route is published for them (phone_basis
-    published_for_role, with a route, confirmed within 12 months) or they agreed to be contacted (phone_basis consent_recorded <date>)."""
-    basis = bases[-1] if bases else ""
+def _recent(value: str, as_of: date) -> bool:
     try:
-        recent = (as_of - date.fromisoformat(str(last_confirmed)[:10])).days <= 365
+        return (as_of - date.fromisoformat(str(value)[:10])).days <= 365
     except ValueError:
-        recent = False
-    route = any(str(contact.get(k) or "").strip() for k in ("role_phone", "published_role_email", "named_email"))
-    direct = basis.startswith("consent_recorded") or (basis == "published_for_role" and route and recent)
-    return {"contact_id": contact.get("contact_id"), "name": contact.get("name") or "", "role": contact.get("role") or "", "direct": direct}
+        return False
 
 
-def vicoba_case(group: dict, officers=(), introducer: dict | None = None, *, template_approved: bool = False, introduced: bool = False) -> dict:
-    """The band, first-touch case and channel of a VICOBA group (decision 3b, approved 13 October 2026).
+def vicoba_link(group: dict) -> dict:
+    """The group's introducer as link_vicoba_introducers.py recorded it (its band properties), for the band rule and the drafter."""
+    f = group.get("facts", {})
+    p = {field: _value(f, field) for field in LINK_FIELDS}
+    ran = any(f.get(field) for field in LINK_FIELDS)
+    kind, ref, db = p["linked_introducer_kind"], p["linked_introducer_ref"], p["linked_introducer_db"]
+    master = db == "master" and bool(MASTER_REF.match(ref)) and kind in MASTER_INTRODUCER
+    return {"ran": ran, "status": p["introducer_status"], "kind": kind, "ref": ref, "name": p["linked_introducer_name"], "db": db,
+            "state": p["linked_introducer_state"], "ready": p["introducer_ready"], "outcome": p["introducer_outcome"],
+            "officer_route": p["officer_route"], "officer_confirmed_on": p["officer_confirmed_on"], "channel": p["channel"],
+            "organisation_id": ref if master else "", "request": MASTER_INTRODUCER[kind] if master else ""}
 
-    - low (held, S0): any record_status other than 'complete'; no ready route (the CDO's council has no GA01 introduction yet, the
-      sponsor link is unverified, the introducer is not linked or publishes no route); or the Kiswahili template is not yet approved;
-    - high-direct, case A, channel call: a group officer with a role route published for them and confirmed within 12 months, or who
-      agreed by phone to be contacted (consent recorded): a Kiswahili call, then the letter 'as discussed';
-    - high-indirect, case B, channel letter: a named officer reachable only through the introducer, or an introducer that has introduced
-      the group (outcome 'introduced'): the Kiswahili letter to the committee, handed over by the introducer;
-    - medium, case C, the introducer's channel: group identified and an introducer route ready, no named officer: the introducer request.
-    'band_after_review' is the band once the template is approved, so a reviewer sees what the review alone would unlock. The channel
-    is a property apart from the band; a group on the call sheet keeps its band."""
-    introducer = introducer or {"kind": "", "ready": False, "why": "no introducer route", "channel": ""}
-    status = group.get("record_status") or ""
-    officers = list(officers)
-    direct = [o for o in officers if o.get("direct")]
-    named = [o for o in officers if o.get("name")]
+
+def vicoba_assess(group: dict, *, template_approved: bool | None = None, as_of: date | None = None) -> dict:
+    """The band, first-touch case and channel of a VICOBA group (decision 3b, approved 13 October 2026), from the band properties
+    link_vicoba_introducers.py writes (LINK_FIELDS):
+    - low (held, S0): the linker has not run for the group; the record is not 'complete'; no usable route (no accepted link, the
+      introducer not ready: the council's introduction not recorded, to confirm, outside the region, another conversation first, no
+      published route; the introducer declined; a faith office, F6); or the Kiswahili template version not yet approved;
+    - high-direct, case A: officer_route published_for_role confirmed within 12 months, or consent_recorded <date>; a Kiswahili call,
+      then the letter 'as discussed';
+    - high-indirect, case B: introducer_outcome 'introduced <date>' (it overrides a conversation-first state: the existing conversation
+      produced the introduction) or officer_route known_through_introducer <date>; the letter handed over by the introducer;
+    - medium, case C: an accepted link whose introducer is ready (introducer_ready 'yes'), no officer route: the introducer request.
+    The channel is the linker's 'channel' (call, letter, email), with call for case A and letter for case B when it gives none.
+    'band_after_review' is the band once the template is approved."""
+    as_of = as_of or date.today()
+    link = vicoba_link(group)
+    route, outcome = link["officer_route"], link["outcome"]
+    direct = route.startswith("consent_recorded") or (route == "published_for_role" and _recent(link["officer_confirmed_on"], as_of))
+    introduced = outcome.startswith("introduced") or route.startswith("known_through_introducer")
     holds = []
+    if not link["ran"]:
+        holds.append(NOT_LINKED_HOLD)
+    status = group.get("record_status") or ""
     if status != "complete":
         holds.append(f"record {status or 'without a status'}")
-    if not direct and not introduced and not introducer.get("ready"):
-        holds.append(introducer.get("why") or "no ready introducer route")
+    usable = link["status"] == "linked" and link["ready"] == "yes" and not outcome.startswith("declined")
+    if link["kind"] == "faith_office" and not introduced:
+        usable = False
     if direct:
-        band, case, channel = "high-direct", "A", "call"
-    elif named or introduced:
-        band, case, channel = "high-indirect", "B", "letter"
+        band, case, channel = "high-direct", "A", link["channel"] or "call"
+    elif introduced and link["status"] == "linked":
+        band, case, channel = "high-indirect", "B", link["channel"] or "letter"
+    elif usable:
+        band, case, channel = "medium", "C", link["channel"]
     else:
-        band, case, channel = "medium", "C", introducer.get("channel") or ""
+        band, case, channel = "low", "", ""
+        if link["ran"]:
+            if outcome.startswith("declined"):
+                holds.append(f"the introducer {outcome}")
+            elif link["kind"] == "faith_office":
+                holds.append(FAITH_HOLD)
+            elif link["status"] != "linked":
+                holds.append("no accepted introducer link (data/reference/vicoba-introducers.json)" if link["status"] != "to_confirm"
+                             else "introducer named by the intake, link to confirm (data/reference/vicoba-introducers.json)")
+            else:
+                holds.append(f"introducer {link['ready'] or 'not ready'}")
     after_review = "low" if holds else band
-    if not template_approved:
+    if not (vicoba_templates_approved() if template_approved is None else template_approved):
         holds.append(TEMPLATE_HOLD)
     if holds:
         band, case, channel = "low", "", ""
-    return {"band": band, "case": case, "channel": channel, "introducer_kind": introducer.get("kind") or "", "holds": holds,
+    return {"band": band, "case": case, "channel": channel, "introducer_kind": link["kind"], "introducer": link, "holds": holds,
             "band_after_review": after_review, "women_group": bool(group.get("women_group"))}
 
 
-def vicoba_inputs(con, government_db=None, as_of: date | None = None) -> dict:
-    """What the band rule reads, from the master and (read-only) the government run, for the CDO offices and whether their council's
-    introduction is recorded (protocol_status 'introduced'): {'groups', 'officers', 'introducers', 'order', 'orgs'}, where 'order' is the
-    wave order, women's groups first (section 0). The exporter can call this and vicoba_case() to band exactly as the drafter does."""
-    import sqlite3
-    import sys
-    from pathlib import Path
-    sys.path.insert(0, str(L.ROOT / "scripts" / "master"))
-    import add_vicoba_groups as V  # the contract's reader: load_vicoba_groups, wave_order
-    as_of = as_of or date.today()
-    row_factory = con.row_factory
-    con.row_factory = sqlite3.Row
-    try:
-        groups = V.load_vicoba_groups(con)
-        orgs = {r["organisation_id"]: dict(r) for r in con.execute("SELECT organisation_id, name, segment, email, phone FROM organisations")}
-        planned = {r[0] for r in con.execute("SELECT organisation_id FROM outreach_plans WHERE segment NOT IN (?, ?)",
-                                             (L.VICOBA_GROUP_SEGMENT, L.VICOBA_INTRODUCER_SEGMENT))}
-        bases, contacts = {}, {}
-        for r in con.execute("SELECT entity_id, value FROM facts WHERE entity_type='contact' AND field='phone_basis' ORDER BY rowid"):
-            bases.setdefault(r["entity_id"], []).append(r["value"])
-        if groups:
-            marks = ",".join("?" * len(groups))
-            for r in con.execute(f"SELECT * FROM contacts WHERE organisation_id IN ({marks})", tuple(groups)):
-                contacts.setdefault(r["organisation_id"], []).append(dict(r))
-    finally:
-        con.row_factory = row_factory
-    gov_offices = {}
-    if government_db and Path(government_db).exists():
-        g = sqlite3.connect(f"file:{Path(government_db).as_posix()}?mode=ro", uri=True)
-        introduced = {c for (c,) in g.execute("SELECT council_name FROM government_office_profiles WHERE office_level='council' "
-                                              "AND protocol_status='introduced'")}
-        for oid, name, council in g.execute("SELECT o.organisation_id, o.name, p.council_name FROM organisations o JOIN "
-                                            "government_office_profiles p USING(organisation_id)"):
-            gov_offices[oid] = {"name": name, "council": council or "", "council_introduced": (council or "") in introduced}
-        g.close()
-    officers = {gid: [vicoba_officer(c, bases.get(c["contact_id"], []), as_of, groups[gid].get("last_confirmed") or "")
-                      for c in contacts.get(gid, []) if c.get("name")] for gid in groups}
-    introducers = {gid: vicoba_introducer(groups[gid], orgs, gov_offices, planned) for gid in groups}
-    return {"groups": groups, "officers": officers, "introducers": introducers, "order": V.wave_order(groups), "orgs": orgs}
+def vicoba_case(group: dict, *, template_approved: bool | None = None, as_of: date | None = None) -> str:
+    """The group's band ('high-direct', 'high-indirect', 'medium' or 'low'), for the call sheet and the exporter. The group is a
+    row of add_vicoba_groups.load_vicoba_groups(); vicoba_assess() gives the case, channel and why it is held."""
+    return vicoba_assess(group, template_approved=template_approved, as_of=as_of)["band"]

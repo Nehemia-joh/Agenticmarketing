@@ -112,7 +112,7 @@ Statements marked **Hypothesis** are not proven by the ledger; test them in a sm
   - -3.39814, 36.67721: Kiboko Safari, Small World of Travellers.
   - -3.36392, 35.38430 (Ngorongoro area): The Map's Edge, Lapwings Safaris.
   - -6.37283, 34.98990 (Tanzania's country centre): Josh DreamLand Safari, Safaris Tanzania (SATA), Makisala, Pure Afro Travels.
-- **Check for shared points before applying a round.** Group the round's results by coordinates rounded to four decimals. A point shared by different listing names is a default pin. A point shared because Maps returned the same listing for several searches is fine, but only the matching lead is accepted.
+- **Check for shared points before applying a round.** Group the round's results by coordinates rounded to four decimals. A point shared by different listing names is a default pin. A point shared because Maps returned the same listing for several searches is fine, but only the matching lead is accepted. `scripts/maps/build_gmaps_round.py` runs this check across every round when it builds a round's files (`--audit` re-checks committed rounds): a shared point without a street address goes to review; two listings with street addresses on one point are one building and stay.
 - **Exact name, wrong place.** An exact-name listing pinned far from the lead's town (Serengeti, Karatu, 115 km south) is a camp or a stray pin, not the office: "review".
 - **Signed-out view.** Lookups ran in the limited, signed-out view of Google Maps. It shows the top result for a name search, which is enough for a lookup, but a category search (such as "VICOBA") returns only a few results.
 

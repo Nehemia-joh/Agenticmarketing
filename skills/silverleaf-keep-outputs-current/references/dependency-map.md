@@ -50,7 +50,7 @@ python scripts/master/rank_employer_reach.py --apply
 ## 4. A geocode or a location correction
 
 1. Ingest the source of the points: `python scripts/research/ledger.py ingest data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`. Ingest a geocode research file the same way.
-2. Run the default-pin check on any Google Maps round (`docs/methodology/research-playbook.md`, "Google Maps traps").
+2. Build a Google Maps round with `scripts/maps/build_gmaps_round.py`, which runs the shared-pin check (`docs/methodology/research-playbook.md`, "Google Maps traps") and reports every downgrade; `--audit <enrich files>` re-checks committed rounds.
 3. Apply, previewing first:
    - `apply_geocodes.py --file <file>`, then the same with `--apply`;
    - for corrections, `--replace --file data/raw/geocode-research/geocodes_corrections_<...>.jsonl --apply`.

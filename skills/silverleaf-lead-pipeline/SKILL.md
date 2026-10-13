@@ -116,11 +116,15 @@ The welfare and government runs do stages 3, 4 and 13 to 16 inside one command, 
   python scripts/maps/collect_geocodes.py review --write data/raw/geocode-research/geocodes_<label>_<d>.jsonl
   python scripts/maps/collect_geocodes.py worklist --out <worklist.json>
   ```
-- **Google Maps lookups.** Only the coordinator does these, in its own browser. The user signs in when a sign-in is needed.
-  - Record one row per lead in `data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`, with the verdict `accept`, `review` or `reject`.
-  - Default-pin check: group the round by coordinates rounded to four decimals. A point shared by different listing names is a default pin, so mark it `review`. An exact name pinned far from the lead's town is also `review`. The known default pins are in `docs/methodology/research-playbook.md`, "Google Maps traps".
+- **Google Maps lookups.** Only the coordinator does these, in its own browser pane, which must be visible (a hidden pane does not finish rendering and the extractor records nothing). The user signs in when a sign-in is needed. Each lookup navigates to the search and runs the extractor (`eval(localStorage.slsync)("<id>")`); the results collect in localStorage `slres` (format in the docstring of `build_gmaps_round.py`).
+  - Write one verdict line per lead: `A <id>`, `R <id>[|note]`, `V <id>|note` or `O <id>|note`. An exact name pinned far from the lead's town is `V`.
+  - Build the round's files:
+    ```powershell
+    python scripts/maps/build_gmaps_round.py --date <d> --tag <round> --rows <worklist slice> --results <slres export> --notes <notes.txt> --db <pre-round master backup>
+    ```
+    It writes `data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`, the fills `geocodes_gmaps_<d><round>.jsonl` and the replacements `geocodes_corrections_gmaps_<d><round>.jsonl`.
+  - Shared-pin check (by default): every listing of this round and every other round is grouped by coordinates rounded to four decimals. An accepted listing on a point shared with a differently named listing and without a street address, or on a known default pin (`docs/methodology/research-playbook.md`, "Google Maps traps"), goes to `review` with the reason. Two listings with street addresses on one point are one building and stay. Read every downgrade; `--keep <id>` keeps one a person has checked.
   - Ingest the round: `python scripts/research/ledger.py ingest data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`.
-  - The accepted pins go into `geocodes_gmaps_<d><round>.jsonl`, and replacements of stored estimates into `geocodes_corrections_gmaps_<d><round>.jsonl`. No script converts the lookup file into these; see the known gaps.
 - **Apply.**
   ```powershell
   python scripts/master/apply_geocodes.py --file data/raw/geocode-research/<file>.jsonl                 # preview

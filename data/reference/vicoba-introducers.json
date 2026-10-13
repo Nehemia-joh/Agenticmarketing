@@ -1,0 +1,40 @@
+{
+ "_about": "Reviewed links between VICOBA savings groups and their introducers (scripts/master/link_vicoba_introducers.py; docs/methodology/contact-research.md, 'VICOBA savings groups'). Only entries with status 'accepted', a reviewer role (reviewed_by) and a review date (reviewed_on) are used; an intake's introducer_ref, sponsor_ref or employer_ref is a proposal until it is accepted here. 'link_vicoba_introducers.py --propose' drafts entries in runtime/master/vicoba-introducer-proposals.json for review. A CDO link is a reference to the government run (gov:<run-id>:<ward or council office organisation_id>), never a copy. An officer route holds a role phone that a public body or the group publishes for the role (phone_basis 'published_for_role'), never a name; a number given with consent is never written here.",
+ "version": "2026-10-13-v1",
+ "fields": {
+  "links": {
+   "id": "VL- plus 10 hex characters (link_vicoba_introducers.link_id: group, kind, reference)",
+   "group": "the group's vicoba_group_key (preferred) or master organisation_id",
+   "group_name": "for the reviewer",
+   "introducer_kind": "cdo_ward | cdo_council | ngo_field_office | bank_branch | faith_office | employer | group_published",
+   "introducer_ref": "gov:<run-id>:<office organisation_id> for a CDO; a master organisation_id otherwise; blank for group_published",
+   "introducer_name": "as the master or the government run holds it",
+   "basis": "where the link came from (intake introducer_ref, introducer intake <file> line <n>, council extract, the introducer said so)",
+   "source_url": "the source that ties the group to the introducer",
+   "source_date": "YYYY-MM-DD or blank",
+   "evidence_excerpt": "25 words or fewer; never a number or a member's details",
+   "introducer_outcome": "blank | introduced YYYY-MM-DD | declined YYYY-MM-DD",
+   "officer_known_through_introducer": "blank | YYYY-MM-DD: the introducer named an officer with the officer's agreement (no name is kept)",
+   "status": "proposed | accepted | rejected",
+   "reviewed_by": "a role, for example 'Marketing and Partnership Coordinator'",
+   "reviewed_on": "YYYY-MM-DD",
+   "notes": "free text; never a number or a name"
+  },
+  "officer_routes": {
+   "id": "VO- plus 10 hex characters (link_vicoba_introducers.route_id: group, role)",
+   "group": "vicoba_group_key or master organisation_id",
+   "role": "Mwenyekiti (chair) | Katibu (secretary) | Mweka Hazina (treasurer)",
+   "phone": "the role phone as the source publishes it",
+   "phone_basis": "published_for_role (nothing else is accepted)",
+   "source_url": "the page or document that publishes the number for the role",
+   "source_date": "YYYY-MM-DD or blank",
+   "evidence_excerpt": "25 words or fewer",
+   "confirmed_on": "YYYY-MM-DD: when the route was last confirmed",
+   "status": "proposed | accepted | rejected",
+   "reviewed_by": "a role",
+   "reviewed_on": "YYYY-MM-DD"
+  }
+ },
+ "links": [],
+ "officer_routes": []
+}

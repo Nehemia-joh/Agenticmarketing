@@ -180,16 +180,16 @@ def main() -> int:
 
     b.sheet("Organisations", f"{counts['organisations']} organisations in the canonical database. Route status: 'direct route' means a published "
             "email or phone for the organisation or one of its contacts. Check source records and verification before outreach.",
-            ["organisation_id", "name", "segment", "reach_tier", "reach_score", "message_variant", "send_status", "chosen_recipient", "chosen_role", "chosen_route", "escalation_recipient", "escalation_route", "hr_desk_email", "email_format_to_confirm", "first_message_subject", "first_message", "priority", "campus", "locality", "distance_km", "geocode_precision", "route_status", "phone",
+            ["organisation_id", "name", "segment", "reach_tier", "reach_score", "message_variant", "send_status", "chosen_recipient", "chosen_role", "chosen_route", "escalation_recipient", "escalation_route", "hr_desk_email", "email_format_to_confirm", "first_message_subject", "first_message", "priority", "campus", "locality", "distance_km", "geocode_precision", "google_maps", "route_status", "phone",
              "email", "website", "address", "social_pages", "named_contacts", "decision_makers", "contact_research", "research_flags", "headcount",
              "size_evidence", "education_angle", "desk_tier", "desk_score", "verification", "strategy_id", "owner", "outreach_status", "next_action",
              "next_action_date", "message_ids", "source_record_ids", "source_url"],
-            [[o["organisation_id"], o["name"], o["segment"], o.get("reach_tier", ""), o.get("reach_score", ""), o.get("message_variant", ""), o.get("send_status", ""), o.get("chosen_recipient", ""), o.get("chosen_role", ""), o.get("chosen_route", ""), o.get("escalation_recipient", ""), o.get("escalation_route", ""), o.get("hr_desk_email", ""), o.get("email_format_to_confirm", ""), o.get("first_message_subject", ""), o.get("first_message", ""), o["priority"], o["campus"], o["locality"], o["distance_km"], o["geocode_precision"],
+            [[o["organisation_id"], o["name"], o["segment"], o.get("reach_tier", ""), o.get("reach_score", ""), o.get("message_variant", ""), o.get("send_status", ""), o.get("chosen_recipient", ""), o.get("chosen_role", ""), o.get("chosen_route", ""), o.get("escalation_recipient", ""), o.get("escalation_route", ""), o.get("hr_desk_email", ""), o.get("email_format_to_confirm", ""), o.get("first_message_subject", ""), o.get("first_message", ""), o["priority"], o["campus"], o["locality"], o["distance_km"], o["geocode_precision"], o.get("google_maps", ""),
               o["route_status"], o["phone"], o["email"], o["website"], o["address"], o["social_pages"], o["named_contacts"], o["decision_makers"],
               o["contact_research"], o["research_flags"], o["headcount"], o["size_evidence"], o["education_angle"], o["desk_tier"], o["desk_score"],
               o["verification"], o["strategy_id"], o["owner"], o["outreach_status"], o["next_action"], o["next_action_date"], o["message_ids"],
               o["source_record_ids"], o["source_url"]] for o in data["organisations"]],
-            [20, 38, 24, 10, 10, 12, 26, 30, 30, 34, 40, 30, 30, 60, 48, 100, 14, 24, 32, 14, 22, 16, 24, 34, 44, 48, 60, 14, 70, 30, 55, 14, 50, 70, 16, 14, 54, 28, 18, 25, 45, 20, 35, 80, 60],
+            [20, 38, 24, 10, 10, 12, 26, 30, 30, 34, 40, 30, 30, 60, 48, 100, 14, 24, 32, 14, 22, 34, 16, 24, 34, 44, 48, 60, 14, 70, 30, 55, 14, 50, 70, 16, 14, 54, 28, 18, 25, 45, 20, 35, 80, 60],
             82, "TOrganisations")
 
     b.sheet("Contacts", f"{counts['contacts']} published business contacts. Named people are professional routes only; they are not evidence "

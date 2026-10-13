@@ -8,6 +8,7 @@ visible: Google Maps does not finish rendering results in a hidden pane, and the
   python scripts/maps/build_gmaps_round.py --date 2026-10-13 --tag c \
       --rows <rows.json|.jsonl> --results <results.json> --notes <notes.txt> --db <master.sqlite> [--no-pin-check] [--out-root <dir>]
   python scripts/maps/build_gmaps_round.py --audit data/raw/gap-census/google_maps_enrich_<d><tag>.jsonl ...   # check only, writes nothing
+  python scripts/maps/build_gmaps_round.py --retro data/raw/gap-census/google_maps_enrich_*.jsonl --db <master copy>  # precedence, report only
 
 Inputs:
 - --rows: the round's worklist rows (a JSON array, or JSON lines), each with id, name, segment and query. Only rows with a
@@ -18,14 +19,39 @@ Inputs:
 - --notes: one verdict per line: 'A <id>' accept, 'R <id>[|note]' reject, 'V <id>|note' review, 'O <id>|note' accept as
   outside the catchment (the note is the basis). A reject without a note gets "Top listing '<n>' is not this organisation."
 - --db: the master as it was before the round (the pre-round backup), read-only. A lead with no stored point gets a fill; a
-  lead with a stored point gets a correction carrying the old point, its precision and source, and km_moved.
+  lead with a stored point is decided by the location precedence below.
 
 Outputs (the formats of the 13 October 2026 rounds), under --out-root (default: the repository):
 - data/raw/gap-census/google_maps_enrich_<date><tag>.jsonl                one line per lead: verdict, top listing, note;
 - data/raw/geocode-research/geocodes_gmaps_<date><tag>.jsonl             the fills (accepted, no stored point; or 'O');
 - data/raw/geocode-research/geocodes_corrections_gmaps_<date><tag>.jsonl the replacements (old_* fields, km_moved);
-- runtime/geocode/gmaps_round_<date><tag>_check.json                     the shared-pin check's report.
-Then: ledger.py ingest the enrich file, apply_geocodes.py (preview, then --apply; --replace for the corrections file).
+- data/raw/geocode-research/location_checks_gmaps_<date><tag>.jsonl      one line per accepted listing whose lead already had a
+  point: the outcome (replaced, corroborates, discrepancy), both points, both sources and the distance;
+- data/raw/geocode-research/location_discrepancies_<date>.jsonl          the discrepancies of every round of that date (this
+  round's lines are replaced, other rounds' kept);
+- runtime/geocode/gmaps_round_<date><tag>_check.json                     the shared-pin check and the distance distribution.
+Then: ledger.py ingest the enrich file; apply_geocodes.py (preview, then --apply) for the fills and with --replace for the
+corrections; scripts/maps/apply_gmaps_status.py --round <date><tag> (preview, then --apply) for the Google Maps status of every
+lead, the corroborations and the discrepancy review items.
+
+Location precedence (the user's rule of 13 October 2026), for an accepted listing whose lead already has a stored point:
+- Coordinates found another way are never lost: a lead Google Maps does not list keeps its point (status not_found).
+- Source rank: 1 the organisation's own website pin (own site embed, JSON-LD or plus code on its site; official site);
+  2 a Google Maps listing; 3 an OpenStreetMap feature at point precision; 4 an estimate (own-site text placed with the gazetteer,
+  Nominatim, the NGO register, the offline gazetteer, a shared site, an OpenStreetMap address, a town centroid, no source).
+- Within the agreement distance (--agreement-m, default 500 m): the higher-ranked point is kept. A website pin or an earlier
+  Google listing stays and the new listing is recorded as a corroborating fact with the distance (outcome corroborates). An
+  OpenStreetMap point or an estimate is replaced by the listing (a correction line; an OpenStreetMap point's line carries
+  rank_replace and agreement_m, which apply_geocodes.py --replace checks).
+- Beyond it: no correction. The lead goes to the discrepancies file with both points, both sources and the distance, and
+  apply_gmaps_status.py adds the review item "Location discrepancy: <source> vs Google Maps"; the user and the orchestrator
+  decide. This includes an estimate from the organisation's own website text. Any other estimate (a centroid or a geocoded
+  text) is replaced at any distance, as before, unless --estimates-beyond discrepancy.
+- --no-precedence builds the corrections as the rounds of 13 October 2026 were built (every stored point replaced), to
+  reproduce those files.
+--retro <enrich files> --db <master copy> runs the precedence over committed rounds against the master as it is now (an applied
+listing is compared with the superseded_location it replaced) and writes only runtime/geocode/gmaps_retro_<today>.json and
+gmaps_retro_discrepancies_<today>.jsonl (for apply_gmaps_status.py --discrepancies, once the orchestrator has reviewed it).
 
 The shared-pin check (default; docs/methodology/research-playbook.md, "Google Maps traps"):
 - Every listing of this round and of every other google_maps_enrich_*.jsonl file is grouped by its point rounded to 4 decimals.
@@ -123,6 +149,56 @@ def load_geocodes():
     return module
 
 
+# ------------------------------------------------------------------ location precedence
+WEBSITE_PIN = ("own site embed", "official site")
+WEBSITE_TEXT = ("own site text",)
+RANK_LABEL = {1: "website", 2: "Google Maps", 3: "OpenStreetMap", 4: "estimate"}
+BANDS = [(100, "0-100 m"), (250, "100-250 m"), (500, "250-500 m"), (1000, "500 m-1 km"), (2000, "1-2 km"), (5000, "2-5 km"),
+         (float("inf"), "over 5 km")]
+
+
+def metres(a, b, c, d) -> int:
+    a, b, c, d = map(math.radians, (a, b, c, d))
+    h = math.sin((c - a) / 2) ** 2 + math.cos(a) * math.cos(c) * math.sin((d - b) / 2) ** 2
+    return int(round(2 * 6371000 * math.asin(math.sqrt(h))))
+
+
+def source_rank(source: str | None, precision: str) -> tuple[int, str]:
+    """(rank, label) of a stored point from its location_source fact and precision; the label names it in a review item."""
+    source = (source or "").strip()
+    if source.startswith(WEBSITE_PIN):
+        return 1, "website"
+    if source.startswith("Google Maps"):
+        return 2, "Google Maps"
+    if source.startswith("OpenStreetMap") and (precision or "") == "point":
+        return 3, "OpenStreetMap"
+    if source.startswith(WEBSITE_TEXT):
+        return 4, "website"   # an estimate from the organisation's own website text: the user prefers the website
+    return 4, "estimate"
+
+
+def decide(rank: int, label: str, distance_m: int, agreement_m: int, estimates_beyond: str = "replace") -> str:
+    """replaced | corroborates | discrepancy, for an accepted Google listing against a stored point of this rank."""
+    if distance_m <= agreement_m:
+        return "corroborates" if rank <= 2 else "replaced"
+    if rank == 4 and label == "estimate" and estimates_beyond == "replace":
+        return "replaced"
+    return "discrepancy"
+
+
+def band(distance_m: int) -> str:
+    return next(name for limit, name in BANDS if distance_m <= limit)
+
+
+def distribution(checks: list[dict]) -> dict:
+    out = defaultdict(Counter)
+    for c in checks:
+        kind = {1: "website pin", 2: "Google Maps", 3: "OpenStreetMap"}.get(c["stored_rank"]) or (
+            "website text estimate" if c["stored_source_label"] == "website" else "other estimate")
+        out[kind][band(c["distance_m"])] += 1
+    return {k: {name: v[name] for _, name in BANDS if v[name]} for k, v in out.items()}
+
+
 # ------------------------------------------------------------------ the shared-pin check
 def other_listings(exclude: set[Path]) -> list[dict]:
     out = []
@@ -195,6 +271,8 @@ def build(args) -> int:
     fills_path = root / "data" / "raw" / "geocode-research" / f"geocodes_gmaps_{label}.jsonl"
     corr_path = root / "data" / "raw" / "geocode-research" / f"geocodes_corrections_gmaps_{label}.jsonl"
     check_path = root / "runtime" / "geocode" / f"gmaps_round_{label}_check.json"
+    checks_path = root / "data" / "raw" / "geocode-research" / f"location_checks_gmaps_{label}.jsonl"
+    disc_path = root / "data" / "raw" / "geocode-research" / f"location_discrepancies_{args.date}.jsonl"
 
     enrich, codes = [], {}
     for oid, row in rows.items():
@@ -220,7 +298,7 @@ def build(args) -> int:
     gc = load_geocodes()
     con = sqlite3.connect(f"file:{args.db.as_posix()}?mode=ro", uri=True)
     con.row_factory = sqlite3.Row
-    fills, corr = [], []
+    fills, corr, checks = [], [], []
     for e in enrich:
         oid, code = e["organisation_id"], codes[e["organisation_id"]]
         if e["verdict"] != "accept" or e["latitude"] is None:
@@ -243,11 +321,20 @@ def build(args) -> int:
             stored = None
         if stored is None or code == "O":
             fills.append(line)
-        else:
-            src = gc.stored_source(con, o)
-            corr.append({**line, "replace": True, "old_latitude": stored[0], "old_longitude": stored[1], "old_precision": o["geocode_precision"] or "",
-                         "old_location_source": src if src is not None else gc.NO_SOURCE,
-                         "km_moved": km(stored[0], stored[1], top["la"], top["lo"])})
+            continue
+        src = gc.stored_source(con, o)
+        correction = {**line, "replace": True, "old_latitude": stored[0], "old_longitude": stored[1], "old_precision": o["geocode_precision"] or "",
+                      "old_location_source": src if src is not None else gc.NO_SOURCE,
+                      "km_moved": km(stored[0], stored[1], top["la"], top["lo"])}
+        rank, slabel = source_rank(src, o["geocode_precision"] or "")
+        dist = metres(stored[0], stored[1], float(top["la"]), float(top["lo"]))
+        outcome = "replaced" if args.no_precedence else decide(rank, slabel, dist, args.agreement_m, args.estimates_beyond)
+        if outcome == "replaced":
+            if rank == 3 and not args.no_precedence:
+                correction.update({"rank_replace": True, "agreement_m": args.agreement_m})
+            corr.append(correction)
+        checks.append(check_line(label, args.date, o, e, top, stored, src if src is not None else gc.NO_SOURCE, o["geocode_precision"] or "",
+                                 rank, slabel, dist, args.agreement_m, outcome))
     con.close()
 
     def write(path: Path, lines: list[dict]) -> None:
@@ -257,13 +344,54 @@ def build(args) -> int:
     write(enrich_path, enrich)
     write(fills_path, fills)
     write(corr_path, corr)
+    write(checks_path, checks)
+    earlier = [json.loads(x) for x in disc_path.read_text(encoding="utf-8").splitlines() if x.strip()] if disc_path.exists() else []
+    write(disc_path, [d for d in earlier if d.get("round") != label] + [c for c in checks if c["outcome"] == "discrepancy"])
+    report["agreement_m"] = args.agreement_m
+    report["location_outcomes"] = dict(Counter(c["outcome"] for c in checks))
+    report["distance_distribution"] = distribution(checks)
+    report["google_maps_status"] = dict(Counter(status_of(e)[0] for e in enrich))
     check_path.parent.mkdir(parents=True, exist_ok=True)
     check_path.write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
     print(f"{label}: verdicts {dict(Counter(e['verdict'] for e in enrich))}; fills {len(fills)}; corrections {len(corr)}"
           + (f"; {len(unnoted)} rows without a verdict were left out" if unnoted else ""))
+    print(f"Google Maps status: {report['google_maps_status']}")
+    print(f"stored points against accepted listings (agreement {args.agreement_m} m): {report['location_outcomes']}")
+    print(f"distance distribution: {json.dumps(report['distance_distribution'])}")
+    print_discrepancies([c for c in checks if c["outcome"] == "discrepancy"])
     print_report(report)
-    print("\n".join(str(p) for p in (enrich_path, fills_path, corr_path, check_path)))
+    print("\n".join(str(p) for p in (enrich_path, fills_path, corr_path, checks_path, disc_path, check_path)))
     return 0
+
+
+def status_of(e: dict) -> tuple[str, str]:
+    """(google_maps_status, detail) of one enrich line: listed (an accepted listing, with its URL), not_found (no matching
+    listing: the lead is not registered on Google Maps) or review (with the reason)."""
+    if e.get("verdict") == "accept":
+        return "listed", f"'{e.get('listing_name', '')}' {e.get('source_url', '')}".strip()
+    if e.get("verdict") == "review":
+        return "review", e.get("note") or "listing to confirm"
+    return "not_found", f"not registered on Google Maps (search '{e.get('query', '')}'" + (
+        f"; top result '{e['listing_name']}' is another organisation)" if e.get("listing_name") else ")")
+
+
+def check_line(label, day, o, e, top, stored, source, precision, rank, slabel, dist, agreement_m, outcome) -> dict:
+    return {"round": label, "date": day, "db": "master", "organisation_id": o["organisation_id"], "organisation_name": o["name"],
+            "status": outcome, "outcome": outcome, "distance_m": dist, "agreement_m": agreement_m,
+            "stored_latitude": stored[0], "stored_longitude": stored[1], "stored_precision": precision, "stored_source": source,
+            "stored_rank": rank, "stored_source_label": slabel,
+            "google_latitude": top["la"], "google_longitude": top["lo"], "google_listing": top.get("n", ""), "google_address": top.get("a") or "",
+            "google_url": top.get("u", ""), "enrich_file": f"data/raw/gap-census/google_maps_enrich_{label}.jsonl",
+            "decision": {"replaced": "the listing replaces the lower-ranked stored point (correction line)",
+                         "corroborates": f"the stored {RANK_LABEL[rank]} point is kept; the listing corroborates it",
+                         "discrepancy": "no correction: the user and the orchestrator decide which point to keep"}[outcome]}
+
+
+def print_discrepancies(items: list[dict]) -> None:
+    for c in items:
+        print(f"DISCREPANCY ({c['round']}): {c['organisation_name']} ({c['organisation_id']}): stored {c['stored_source_label']} point "
+              f"{c['stored_latitude']}, {c['stored_longitude']} ({c['stored_source'][:70]}) vs Google '{c['google_listing']}' "
+              f"{c['google_latitude']}, {c['google_longitude']}: {c['distance_m']} m")
 
 
 def print_report(report: dict) -> None:
@@ -292,6 +420,81 @@ def audit(paths: list[Path]) -> int:
     return 1 if found else 0
 
 
+SUPERSEDED = re.compile(r"^(-?\d+(?:\.\d+)?), (-?\d+(?:\.\d+)?) \(([^;]*); (.*?); record .*?\), replaced (\d{4}-\d\d-\d\d)")
+
+
+def retro(paths: list[Path], db: Path, agreement_m: int, estimates_beyond: str) -> int:
+    """The precedence over committed rounds, against the master as it is now; report only (runtime/geocode/gmaps_retro_<today>.json).
+    A listing already applied is compared with the superseded_location it replaced; a listing that filled an empty point has
+    nothing to compare."""
+    from datetime import date
+    gc = load_geocodes()
+    con = sqlite3.connect(f"file:{db.as_posix()}?mode=ro", uri=True)
+    con.row_factory = sqlite3.Row
+    items, outcomes = [], Counter()
+    for path in paths:
+        for n, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            if not line.strip():
+                continue
+            e = json.loads(line)
+            if e.get("verdict") != "accept" or e.get("latitude") in (None, "") or "outside" in (e.get("note") or "").lower():
+                continue
+            o = con.execute("SELECT * FROM organisations WHERE organisation_id=?", (e["organisation_id"],)).fetchone()
+            if o is None:
+                outcomes["organisation no longer in the master"] += 1
+                continue
+            try:
+                current = (float(o["latitude"]), float(o["longitude"]))
+            except (TypeError, ValueError):
+                outcomes["no point in the master (listing not applied)"] += 1
+                continue
+            g = (float(e["latitude"]), float(e["longitude"]))
+            src = gc.stored_source(con, o)
+            applied = metres(*current, *g) <= 1 and (src or "").startswith("Google Maps")
+            other, how = None, "current"
+            if applied:
+                olds = []
+                for (value,) in con.execute("SELECT value FROM facts WHERE entity_type='organisation' AND entity_id=? AND field='superseded_location'",
+                                            (o["organisation_id"],)):
+                    m = SUPERSEDED.match(value)
+                    if m:
+                        olds.append((m.group(5), float(m.group(1)), float(m.group(2)), m.group(3), m.group(4)))
+                if not olds:
+                    outcomes["filled an empty point (nothing to compare)"] += 1
+                    continue
+                _, la, lo, prec, osrc = max(olds)
+                other, how = (la, lo, prec, osrc), "superseded"
+            else:
+                other = (current[0], current[1], o["geocode_precision"] or "", src if src is not None else gc.NO_SOURCE)
+            rank, slabel = source_rank(other[3], other[2])
+            dist = metres(other[0], other[1], *g)
+            outcome = decide(rank, slabel, dist, agreement_m, estimates_beyond)
+            state = ("applied: " if applied else "not applied: ") + outcome
+            outcomes[state] += 1
+            items.append({"file": path.name, "line": n, "organisation_id": o["organisation_id"], "organisation_name": o["name"],
+                          "compared_with": how, "applied": applied, "outcome": outcome, "distance_m": dist,
+                          "stored_latitude": other[0], "stored_longitude": other[1], "stored_precision": other[2], "stored_source": other[3],
+                          "stored_rank": rank, "stored_source_label": slabel, "google_latitude": g[0], "google_longitude": g[1],
+                          "google_listing": e.get("listing_name", ""), "google_url": e.get("source_url", "")})
+    con.close()
+    out = ROOT / "runtime" / "geocode" / f"gmaps_retro_{date.today().isoformat()}.json"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    report = {"agreement_m": agreement_m, "estimates_beyond": estimates_beyond, "files": [p.name for p in paths], "outcomes": dict(outcomes),
+              "distance_distribution": distribution(items), "discrepancies": [i for i in items if i["outcome"] == "discrepancy"], "items": items}
+    out.write_text(json.dumps(report, indent=1, ensure_ascii=False), encoding="utf-8")
+    disc = out.with_name(f"gmaps_retro_discrepancies_{date.today().isoformat()}.jsonl")  # for apply_gmaps_status.py --discrepancies
+    disc.write_text("".join(json.dumps({**i, "agreement_m": agreement_m}, ensure_ascii=False) + "\n" for i in report["discrepancies"]),
+                    encoding="utf-8", newline="\n")
+    print(json.dumps({k: report[k] for k in ("agreement_m", "outcomes", "distance_distribution")}, indent=1))
+    for i in report["discrepancies"]:
+        print(f"DISCREPANCY ({i['file']}, {'applied as a correction' if i['applied'] else 'not applied'}): {i['organisation_name']} "
+              f"({i['organisation_id']}): {i['stored_source_label']} point {i['stored_latitude']}, {i['stored_longitude']} "
+              f"[{i['stored_source'][:80]}] vs Google '{i['google_listing']}' {i['google_latitude']}, {i['google_longitude']}: {i['distance_m']} m")
+    print(out)
+    print(disc)
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--audit", nargs="+", type=Path, help="run only the shared-pin check on these enrich files")
@@ -305,9 +508,19 @@ def main() -> int:
     parser.add_argument("--keep", nargs="+", default=[], metavar="ID",
                         help="organisation IDs a person reviewed after the check flagged them: they stay accepted (listed in the report)")
     parser.add_argument("--out-root", type=Path, default=ROOT, help="write under this folder instead of the repository (for a trial)")
+    parser.add_argument("--agreement-m", type=int, default=500, help="the agreement distance in metres (default 500)")
+    parser.add_argument("--estimates-beyond", choices=["replace", "discrepancy"], default="replace",
+                        help="an estimate (not from the organisation's own website) beyond the agreement distance: replaced (default) or a discrepancy")
+    parser.add_argument("--no-precedence", action="store_true",
+                        help="build corrections as the 13 October 2026 rounds were built (every stored point replaced), to reproduce them")
+    parser.add_argument("--retro", nargs="+", type=Path, help="report the precedence over these committed enrich files (needs --db); writes runtime/ only")
     args = parser.parse_args()
     if args.audit:
         return audit(args.audit)
+    if args.retro:
+        if not args.db:
+            parser.error("--retro needs --db (a read-only copy of the master as it is now)")
+        return retro(args.retro, args.db, args.agreement_m, args.estimates_beyond)
     for need in ("date", "rows", "results", "notes", "db"):
         if not getattr(args, need):
             parser.error(f"--{need} is required")

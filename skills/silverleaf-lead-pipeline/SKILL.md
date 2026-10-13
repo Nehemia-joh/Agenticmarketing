@@ -122,7 +122,8 @@ The welfare and government runs do stages 3, 4 and 13 to 16 inside one command, 
     ```powershell
     python scripts/maps/build_gmaps_round.py --date <d> --tag <round> --rows <worklist slice> --results <slres export> --notes <notes.txt> --db <pre-round master backup>
     ```
-    It writes `data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`, the fills `geocodes_gmaps_<d><round>.jsonl` and the replacements `geocodes_corrections_gmaps_<d><round>.jsonl`.
+    It writes `data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`, the fills `geocodes_gmaps_<d><round>.jsonl`, the replacements `geocodes_corrections_gmaps_<d><round>.jsonl`, the location checks `location_checks_gmaps_<d><round>.jsonl` and the round's lines in `location_discrepancies_<d>.jsonl`. It prints the Google Maps status counts, the outcomes against stored points, the distance distribution (to tune `--agreement-m`) and every discrepancy.
+  - **Location precedence (the user's rule, 13 October 2026).** Coordinates found another way are never lost: a lead Google Maps does not list keeps its point and is flagged "not registered on Google Maps" (status `not_found`). Source rank: 1 the organisation's own website pin (embed, JSON-LD, plus code on its site), 2 a Google Maps listing, 3 an OpenStreetMap feature, 4 an estimate (own-site text placed with the gazetteer, Nominatim, the NGO register, a town centroid). Within the agreement distance (500 m by default) the higher-ranked point is kept: a website pin stays and the listing corroborates it; an OpenStreetMap point or an estimate is replaced by the listing. Beyond it, no correction: the lead goes to `location_discrepancies_<date>.jsonl` and gets the review item "Location discrepancy: <source> vs Google Maps", and the user and the orchestrator decide. That includes an estimate from the organisation's own website text.
   - Shared-pin check (by default): every listing of this round and every other round is grouped by coordinates rounded to four decimals. An accepted listing on a point shared with a differently named listing and without a street address, or on a known default pin (`docs/methodology/research-playbook.md`, "Google Maps traps"), goes to `review` with the reason. Two listings with street addresses on one point are one building and stay. Read every downgrade; `--keep <id>` keeps one a person has checked.
   - Ingest the round: `python scripts/research/ledger.py ingest data/raw/gap-census/google_maps_enrich_<d><round>.jsonl`.
 - **Apply.**
@@ -130,9 +131,11 @@ The welfare and government runs do stages 3, 4 and 13 to 16 inside one command, 
   python scripts/master/apply_geocodes.py --file data/raw/geocode-research/<file>.jsonl                 # preview
   python scripts/master/apply_geocodes.py --file data/raw/geocode-research/<file>.jsonl --apply
   python scripts/master/apply_geocodes.py --replace --file data/raw/geocode-research/geocodes_corrections_<...>.jsonl --apply   # master only
+  python scripts/maps/apply_gmaps_status.py --round <d><round>            # preview; then --apply: status facts, corroborations, discrepancy review items
   ```
+  `apply_gmaps_status.py` never moves a point. It stores `google_maps_status` (`listed`, `not_found` or `review`, with the date) for every lead of the round, which the workbook shows in the Organisations sheet's `google_maps` column.
   The master's empty points are filled. Welfare gets `geo_overrides`, and government gets `ward_locations` and `office_locations` in their `links.json`. `--db master|welfare|government` limits the run to one list.
-- **Rules.** Never overwrite a point except with `--replace` and a reviewed corrections file. A correction that moves a lead beyond 25 km needs a reviewed `beyond_catchment` note; the lead is kept and gets a review item.
+- **Rules.** Never overwrite a point except with `--replace` and a reviewed corrections file. Never resolve a location discrepancy alone. A correction that moves a lead beyond 25 km needs a reviewed `beyond_catchment` note; the lead is kept and gets a review item.
 - **Done when.** The preview shows no conflicts. Every applied line has a source URL, a date, `as_found` and a basis. The round is in the ledger.
 
 ## 6. Distances, bands and reach tiers

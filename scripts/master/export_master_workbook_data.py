@@ -7,6 +7,7 @@ the review enrichment the workbook shows next to each record, all derived from t
   and the research warnings raised as review items;
 - contacts: decision-maker flag, best route (own, else the organisation's published route), pdpa_risk and name_status (a name the
   source gives only in part is kept and labelled);
+- google_maps: the latest Google Maps status (listed, not on Google Maps, review) and any open location discrepancy;
 - email_format_to_confirm: the organisation's documented email format (data/reference/email-formats.json) for a chosen recipient or
   escalation contact without a published address. Never a generated address: those stay in runtime/ (email_formats.py).
 """
@@ -41,6 +42,28 @@ def email_format_by_contact(connection) -> dict:
     finally:
         connection.row_factory = factory
     return {c["contact_id"]: F.format_text(formats[c["format_domain"]]) for c in found}
+
+
+GMAPS_STATUS = re.compile(r"^(listed|not_found|review) (\d{4}-\d\d-\d\d): ?(.*)$", re.S)
+
+
+def google_maps_column(connection) -> dict:
+    """{organisation_id: the latest Google Maps status} from the facts google_maps_status (scripts/maps/apply_gmaps_status.py):
+    'listed (date)', 'not on Google Maps (date)' (the lead keeps whatever point it has) or 'review (date): reason', plus a note
+    when a location discrepancy waits for a decision."""
+    latest = {}
+    for oid, value, path in connection.execute(
+            "SELECT f.entity_id, f.value, COALESCE(sf.path, '') FROM facts f LEFT JOIN source_records sr ON sr.record_id = f.record_id "
+            "LEFT JOIN source_files sf ON sf.source_id = sr.source_id WHERE f.entity_type='organisation' AND f.field='google_maps_status'"):
+        m = GMAPS_STATUS.match(value or "")
+        if m and (oid not in latest or (m.group(2), path) >= latest[oid][0]):
+            latest[oid] = ((m.group(2), path), m.group(1), m.group(3))
+    out = {}
+    for oid, ((day, _), status, detail) in latest.items():
+        out[oid] = {"listed": f"listed ({day})", "not_found": f"not on Google Maps ({day})"}.get(status) or f"review ({day}): {detail}"
+    for (oid,) in connection.execute("SELECT DISTINCT entity_id FROM facts WHERE entity_type='organisation' AND field='location_discrepancy'"):
+        out[oid] = (out.get(oid, "") + "; " if out.get(oid) else "") + "location discrepancy: see Review"
+    return out
 
 
 RESEARCH_REVIEW = re.compile(r"^(Contact research|Possible closure|Website field holds no website|Phone field holds no phone number)")
@@ -133,12 +156,14 @@ def enrich(connection: sqlite3.Connection, organisations: list[dict], contacts: 
         reach = {r[0]: (r[1], r[2]) for r in connection.execute("SELECT organisation_id, tier, score FROM employer_reach")}
     except sqlite3.OperationalError:
         reach = {}
+    gmaps = google_maps_column(connection)
     for o in organisations:
         o["reach_tier"], o["reach_score"] = reach.get(o["organisation_id"], ("", ""))
         o["hr_desk_email"] = "; ".join(hr_desk.get(o["organisation_id"], []))
         o["message_variant"] = variant.get(o["organisation_id"]) or ""
         pick = chosen.get(o["organisation_id"])
         o["email_format_to_confirm"] = formats.get(pick[7], "") if pick else ""
+        o["google_maps"] = gmaps.get(o["organisation_id"], "")
         o["chosen_recipient"], o["chosen_role"], o["chosen_route"] = (pick[1], pick[2], pick[3]) if pick else ("", "", "")
         # The escalation contact (resolve_master_recipients.py): a group, regional or global head to write to only when the in-country
         # recipient does not answer or defers to head office; not a CC and without a draft.

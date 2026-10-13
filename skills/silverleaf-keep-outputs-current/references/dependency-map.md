@@ -53,7 +53,9 @@ python scripts/master/rank_employer_reach.py --apply
 2. Build a Google Maps round with `scripts/maps/build_gmaps_round.py`, which runs the shared-pin check (`docs/methodology/research-playbook.md`, "Google Maps traps") and reports every downgrade; `--audit <enrich files>` re-checks committed rounds.
 3. Apply, previewing first:
    - `apply_geocodes.py --file <file>`, then the same with `--apply`;
-   - for corrections, `--replace --file data/raw/geocode-research/geocodes_corrections_<...>.jsonl --apply`.
+   - for corrections, `--replace --file data/raw/geocode-research/geocodes_corrections_<...>.jsonl --apply`;
+   - for a Google Maps round, `scripts/maps/apply_gmaps_status.py --round <d><tag>`, then `--apply`: the `google_maps_status` facts, the corroborations and the "Location discrepancy" review items. It changes no point, so a round with only status changes needs steps 4 to 6 only (the workbook's `google_maps` column).
+   - Location precedence (13 October 2026): a website pin beats Google Maps, which beats OpenStreetMap, which beats an estimate, within the agreement distance (500 m by default); beyond it the lead is a discrepancy for the user and the orchestrator, never a correction.
 4. R+R (give the recompute its own `--report` for a named round). Then steps 1 to 10.
 
 - **Readers:**

@@ -51,6 +51,11 @@ precision or source recorded (the line's old_location_source then reads NO_SOURC
 catchment is applied only when its line carries a reviewed beyond_catchment note: the lead is kept and gets the review item
 'Beyond the catchment after geolocation' (the default fill path adds the same item). A line's geocode_source and confidence are
 kept as the facts geocode_source and geocode_confidence.
+Location precedence (the user's rule of 13 October 2026; scripts/maps/build_gmaps_round.py): a Google Maps listing outranks an
+OpenStreetMap feature, so a corrections line with rank_replace: true and agreement_m may replace a point-precision OpenStreetMap
+point, but only when the new point lies within agreement_m of it (checked here from both points). A Google listing farther
+from a stored point is never a correction: build_gmaps_round.py writes it to location_discrepancies_<date>.jsonl, and
+scripts/maps/apply_gmaps_status.py raises the review item for the user and the orchestrator to decide.
 """
 from __future__ import annotations
 
@@ -222,7 +227,7 @@ def plan_replace(con, rows) -> tuple[list[dict], list[dict]]:
                 why = "has no stored point to replace (use the default run, which fills empty points)"
             elif abs(stored[0] - float(r["old_latitude"])) > 1e-6 or abs(stored[1] - float(r["old_longitude"])) > 1e-6:
                 why = f"the stored point ({stored[0]}, {stored[1]}) is not the old point the line names"
-            elif (o["geocode_precision"] or "") not in REPLACEABLE_PRECISION:
+            elif (o["geocode_precision"] or "") not in REPLACEABLE_PRECISION and not rank_replace(r, stored):
                 why = f"the stored point has precision '{o['geocode_precision']}', not an estimate"
             elif (o["geocode_precision"] or "") != (r.get("old_precision") or ""):
                 why = f"the stored precision '{o['geocode_precision']}' is not the line's old_precision '{r.get('old_precision')}'"
@@ -233,6 +238,8 @@ def plan_replace(con, rows) -> tuple[list[dict], list[dict]]:
                         why = f"the stored point has no location_source fact; the line must name it '{NO_SOURCE}'"
                 elif not source.startswith(REPLACEABLE):
                     why = f"the stored point's source is not an estimate this path replaces ({source})"
+                elif (o["geocode_precision"] or "") not in REPLACEABLE_PRECISION and not source.startswith("OpenStreetMap"):
+                    why = f"rank_replace replaces only an OpenStreetMap point ({source})"
                 elif source != r["old_location_source"]:
                     why = f"the stored point's source differs from the line's old_location_source ({source})"
         if not why:
@@ -246,6 +253,14 @@ def plan_replace(con, rows) -> tuple[list[dict], list[dict]]:
                 continue
         skipped.append({"line": r["_line"], "name": r["organisation_name"], "why": why})
     return todo, skipped
+
+
+def rank_replace(r: dict, stored: tuple[float, float]) -> bool:
+    """A Google listing replacing a point-precision OpenStreetMap point (it ranks higher), only within the line's agreement distance."""
+    from recompute_campus_distances import hav  # same directory
+    if r.get("rank_replace") is not True or not r.get("agreement_m"):
+        return False
+    return hav(stored[0], stored[1], float(r["latitude"]), float(r["longitude"])) * 1000 <= float(r["agreement_m"])
 
 
 def apply_replace(path: Path, todo: list[dict]) -> None:

@@ -78,7 +78,7 @@ Short form. The full table, with the evidence for each dependency and the checks
 | Government `links.json` | — | Steps 8, 9, 10; government review file |
 | Campus points | The `campuses` table | Recompute (with `--report`) and rank, steps 1 to 10; Catchment Criteria doc |
 | Ledger or playbook | `ledger.py ingest`, then `ledger.py check` | Nothing downstream rebuilds; planners read it next time |
-| Docs or skill copies | Copy so the pair matches | Steps 7 and 8 if a run script copy changed (sync check) |
+| Docs or skill copies | Copy so the pair matches; `check_doc_pairs.py` | Steps 7 and 8 if a run script copy changed (sync check) |
 | Strategy deck | Recount from read-only copies | Sources and slide-map files |
 | Pipelines page | `render_markdown_page.py` | Mirror any decision into the docs that state it |
 
@@ -150,9 +150,7 @@ All of these hold, from the last run of each:
 - [ ] Drafter `conformance_issues` 0; the offers workbook builds (when drafts changed).
 - [ ] `build_lead_map.py` passed; the Resend summary counts are as expected, and any change is explained.
 - [ ] `ledger.py check`: 0 duplicates; every new research file, Maps round and browser pass is ingested.
-- [ ] Copies match:
-  - `diff -r scripts/welfare skills/silverleaf-welfare-leads/scripts` and the same for government (`.py` files);
-  - the `docs/strategy/` and `skills/silverleaf-outreach/references/` pairs you touched.
+- [ ] Copies match: `python scripts/docs/check_doc_pairs.py` exits 0 (the five `docs/strategy/` documents and their `skills/silverleaf-outreach/references/` copies, and every welfare and government script and its skill copy).
 - [ ] The welfare and government `MANIFEST.md` were reverted unless a raw file in that folder changed.
 - [ ] Report paths point to the main checkout.
 - [ ] `git status` shows no `.sqlite`, `runtime/`, `chats/`, `references/`, `__pycache__` or inferred addresses staged.

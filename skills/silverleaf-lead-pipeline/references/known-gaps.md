@@ -1,6 +1,6 @@
 # Known gaps and inconsistencies (13 October 2026)
 
-These were found by comparing the scripts, `scripts/README.md`, the methodology documents and `git log`. Where they disagree, the pipeline follows the scripts. Each gap is a candidate for its own task; none is fixed here.
+These were found by comparing the scripts, `scripts/README.md`, the methodology documents and `git log`. Where they disagree, the pipeline follows the scripts. Each gap is a candidate for its own task. Items marked "Fixed" were closed later on 13 October 2026 and are kept for the record.
 
 ## Tooling that a rule names but the repository lacks
 
@@ -13,7 +13,7 @@ These were found by comparing the scripts, `scripts/README.md`, the methodology 
 
 ## Copies that should match but do not
 
-7. **`docs/strategy/` and `skills/silverleaf-outreach/references/`.** Only two pairs are byte-identical: `campaign-positioning-and-cadence.md` and `new-lead-acquisition-framework.md`.
+7. **`docs/strategy/` and `skills/silverleaf-outreach/references/`. Fixed 13 October 2026.** Every pair is now identical, and `scripts/docs/check_doc_pairs.py` checks them with the run script copies (the pre-commit checklist runs it). The offer register took the skill copy (current on all three points below). Hook guidance merged both: the skill copy's guidance, plus the docs copy's examples and field list, without its stale 7 September status line. The flows file took the docs copy, with the 11 October proposal; `outreach-flows.md` and `flows-and-automations.md` are one document under two names. As found:
    - `offer-register.md`: both copies were updated for register v6 on 13 October 2026, but the docs copy is behind on three points.
      - It lacks the promotional-incentive rule (11 October 2026).
      - It still says sponsorship is asked "of welfare funders only, never of employers", though variant A has existed since 1 October.
@@ -24,9 +24,9 @@ These were found by comparing the scripts, `scripts/README.md`, the methodology 
 
 ## Catalogue and docstrings out of date
 
-8. `scripts/README.md` says `verify_government_run.py` runs 27 checks. It runs 30, as the government skill says.
-9. `scripts/README.md` has no row for `scripts/messaging/build_company_audience_profile.py` or `scripts/messaging/load_resend_contacts.py`.
-10. These still cite the old draft paths:
+8. Fixed 13 October 2026: `scripts/README.md` said `verify_government_run.py` runs 27 checks. It runs 30, as the government skill says.
+9. Fixed 13 October 2026: `scripts/README.md` had no row for `scripts/messaging/build_company_audience_profile.py` or `scripts/messaging/load_resend_contacts.py`.
+10. Fixed 13 October 2026 (also `draft_master_messages.py` and `export_resend_contacts.py`). These cited the old draft paths:
     - the `render_markdown_page.py` docstring and its catalogue example use `docs/strategy/partnership-pipelines-draft.md` and `Silverleaf Partnership Pipelines - Draft.html`;
     - the `first_touch.py` and `draft_run_messages.py` docstrings cite `partnership-pipelines-draft.md` section 4.
 

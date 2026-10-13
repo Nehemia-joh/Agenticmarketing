@@ -270,7 +270,7 @@ def named_recipient(contact, segment: str) -> bool:
 
 
 def first_touch_case(plan, org, contact, others=()) -> str:
-    """The first-touch case of docs/strategy/partnership-pipelines-draft.md section 4 for a company plan: 'A' a named decision-maker at
+    """The first-touch case of docs/strategy/partnership-pipelines.md section 4 for a company plan: 'A' a named decision-maker at
     their own or their role's address, 'B' a named decision-maker reached only through a general inbox, 'C' no named decision-maker and
     an email route, '' no email route (a phone or nothing: the call sheet)."""
     address = company_route(plan, org, contact)

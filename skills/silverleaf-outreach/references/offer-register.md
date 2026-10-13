@@ -65,7 +65,7 @@ Request first (decided 23 September 2026, on Kilusu's recommendation). The first
 - It may be used only at the proposal stage, for a specific employer that has already engaged, with Finance's written approval each time. It is time-limited, and only in terms this register records: it is entered here, with its approval and expiry, before any proposal states it.
 - It is never offered to a public body or a government office.
 
-See [partnership-pipelines.md](../../../docs/strategy/partnership-pipelines.md), section 6.
+See `docs/strategy/partnership-pipelines.md`, section 6.
 
 **Sender:** Mariam Haji, Marketing and Partnership Coordinator, signs every draft in all three databases. The Kiswahili title (Mratibu wa Masoko na Ushirikiano) is a draft translation for native-speaker review.
 

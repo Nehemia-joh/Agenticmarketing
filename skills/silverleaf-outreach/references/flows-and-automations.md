@@ -1,8 +1,29 @@
 # New-contact intake and track selection
 
-Newly acquired organisation and business-contact leads use F12 for intake and AQ00/AQ01/AQ02 for cadence. Marketing calendar and event timing do not control this acquisition path. AQ01 uses F13: one routing request and one check-in after five working days. AQ02 retains the Day 0, +4 working days and +4 working days test. All are design-only and stop on any response or suppression event.
+Newly acquired organisation and business-contact leads use F12 for intake and AQ00/AQ01/AQ02 for cadence. Marketing calendar and event timing do not control this acquisition path. AQ01 uses F13: one routing request and one check-in after five working days (a change is proposed below, 11 October 2026). AQ02 retains the Day 0, +4 working days and +4 working days test. All are design-only and stop on any response or suppression event.
 
 See `new-lead-acquisition-framework.md` for the full record, message-module and expansion rules.
+
+## Proposed step changes: first-touch rule and fallout (11 October 2026)
+
+The user approved these on 11 October 2026. They are **proposals against the flows below**, not yet applied to the flow tables or to `automation-recipes.json`. Flows stay design-only and sending stays disabled. The full rule is in `docs/strategy/partnership-pipelines.md`, sections 4 and 5.
+
+**Why:** reach the person who decides on staff benefits (HR, the welfare officer, the COO). An ambiguous request to a general inbox is likely to be ignored.
+
+| Flow and step | Proposed change |
+|---|---|
+| F01 step 1 | When the named recipient is reachable only through a general inbox, use the subject "Attn: <Full Name>, <Role> – staff education benefit". Put a routing line set apart at the top ("For the attention of <Full Name>, <Role>. If this inbox does not reach them, we would be grateful if it could be forwarded."), then the letter as if to the person's own address. No honorifics unless a source states them. |
+| F01 step 2 | Unchanged: the follow-up gives a few offer details from the offer register. |
+| F01 step 3 | The close becomes a redirect-style ask: "If this sits with HR, who should I write to?" |
+| F01, after step 3 | One message to the escalation contact, if one is recorded. Then the lead is dormant (`dormant_no_response`) and is re-tried once at the next intake window. The three-message limit per sequence is unchanged. |
+| F13 / AQ01 step 1 | When no person is named, send a short redirect request instead of the partnership request. It has one line on the subject (a staff education benefit for employees' children) and the ask: "Who looks after staff welfare and benefits (HR, the welfare officer or the COO)? We would like to send them a short note." |
+| F13 / AQ01 step 2 | A front-desk call after 2 working days, asking for the HR or welfare officer's name and email. This replaces the email check-in after 5 working days, which is kept only where no phone is published. |
+| F13 / AQ01 step 3 | A hand-delivered letter, for the nearest P1/P2 leads only. Then the lead is dormant (`dormant_no_route`), re-tried once at the next intake window. A name obtained at any step is recorded with its source and date, and the lead moves to F01. |
+| F02 step 3 | Details requested: send the one-page outline plus two proposed meeting slots; one check-in; then dormant. |
+| F02 step 4 | Referral: restart at Contacted with the new person, and mention who referred us. |
+| F02, all steps | No promotional incentive in any reply. Incentives are allowed only at the proposal stage, with Finance's written approval each time (offer register, "Promotional incentives"). |
+
+**Applied to the drafts (11 October 2026):** F01 steps 2 and 3 and the escalation step above now hold for every case B draft (the Attn format). Case B plans are on AQ02, whose Day 0, +4 and +4 working days match the three touches. Follow-up 1 is the offer message; follow-up 2 is the close: "If this sits with someone else at <Organisation>, such as HR or the welfare officer, who should I write to? Otherwise I will close this for now." Public bodies ask for the head of human resources, introducers for whoever handles member benefits and communications, welfare homes and programmes for the head of the home or programme, and funders for the programme officer. A plan with an escalation contact carries the note "Then: one message to <escalation recipient> 5 working days after the close"; no message to them is drafted. Variant A sponsorship, case A, case C, savings groups and government are unchanged.
 
 # Silverleaf outreach flows
 

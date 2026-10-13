@@ -148,10 +148,10 @@ Then steps 1 to 10, rank again (named-people count and routes change the score),
 |---|---|---|
 | `scripts/welfare/*.py` and `skills/silverleaf-welfare-leads/scripts/` | Edit `scripts/` first, then `Copy-Item scripts/welfare/*.py skills/silverleaf-welfare-leads/scripts/` | `skill_script_copies_in_sync` in step 7 |
 | `scripts/government/*.py` and `skills/silverleaf-government-leads/scripts/` | The same | `skill_script_copies_in_sync` in step 8 |
-| `docs/strategy/campaign-positioning-and-cadence.md`, `new-lead-acquisition-framework.md`, `offer-register.md`, `hook-guidance.md` and `skills/silverleaf-outreach/references/` files of the same name | Keep identical; edit both in one commit | No automated check: compare with `git diff --no-index` |
-| `docs/strategy/outreach-flows.md` and `skills/silverleaf-outreach/references/flows-and-automations.md` | Same opening; the docs copy holds proposals | By eye |
+| `docs/strategy/campaign-positioning-and-cadence.md`, `new-lead-acquisition-framework.md`, `offer-register.md`, `hook-guidance.md` and `skills/silverleaf-outreach/references/` files of the same name | Keep identical; edit `docs/strategy/` first and copy it over, in one commit | `python scripts/docs/check_doc_pairs.py` |
+| `docs/strategy/outreach-flows.md` and `skills/silverleaf-outreach/references/flows-and-automations.md` | One document under two names; keep identical the same way | `check_doc_pairs.py` |
 
-Today the offer-register, hook-guidance and flows pairs differ (`../../silverleaf-lead-pipeline/references/known-gaps.md`, item 7). Reconciling them is its own task.
+All the pairs were made identical on 13 October 2026. A relative link in a paired document must resolve from both folders; use a repository path in backticks otherwise. `check_doc_pairs.py` runs every pair (the welfare and government script copies too) and exits 1 on any difference.
 
 ## 15. The partnership pipelines page
 

@@ -1,4 +1,4 @@
-"""First touch: reach the right person (docs/strategy/partnership-pipelines-draft.md, section 4, approved by the user on 11 October 2026).
+"""First touch: reach the right person (docs/strategy/partnership-pipelines.md, section 4, approved by the user on 11 October 2026).
 
 Why: relevance, not ambiguity. An ambiguous request to a general inbox (info@, admin@) is more likely to be ignored and may never reach
 the person who decides. So the first message depends on who it can reach:

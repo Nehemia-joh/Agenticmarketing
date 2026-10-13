@@ -6,7 +6,7 @@ See `new-lead-acquisition-framework.md` for the full record, message-module and 
 
 ## Proposed step changes: first-touch rule and fallout (11 October 2026)
 
-The user approved these on 11 October 2026. They are **proposals against the flows below**, not yet applied to the flow tables or to `automation-recipes.json`. Flows stay design-only and sending stays disabled. The full rule is in [partnership-pipelines.md](partnership-pipelines.md), sections 4 and 5.
+The user approved these on 11 October 2026. They are **proposals against the flows below**, not yet applied to the flow tables or to `automation-recipes.json`. Flows stay design-only and sending stays disabled. The full rule is in `docs/strategy/partnership-pipelines.md`, sections 4 and 5.
 
 **Why:** reach the person who decides on staff benefits (HR, the welfare officer, the COO). An ambiguous request to a general inbox is likely to be ignored.
 

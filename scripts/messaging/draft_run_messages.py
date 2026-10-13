@@ -12,7 +12,7 @@ for a home as the reason when the run records one. The follow-up states the offe
 free uniform (OF01) and four instalments (OF09). One neutral reply goes to each current, in-fit public parent enquiry.
 Routes come from the organisation or a low- or medium-risk contact, never a risky one. WA01 organisations with a route
 are 'draft_ready'; everything else is held.
-First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11 October 2026; first_touch.py): a named leader at their
+First touch (docs/strategy/partnership-pipelines.md section 4, approved 11 October 2026; first_touch.py): a named leader at their
 own or role address keeps the letter; a named leader reached only through a general inbox gets the Attn subject and routing line; an
 organisation with no named leader gets the short redirect request (homes and programmes: who leads the home; funders: the programme
 officer for Tanzania; networks: the executive secretary or CEO), with no follow-up and the planned next touch as a note.
@@ -585,7 +585,7 @@ def welfare(con, now, run_cfg) -> dict:
                 "recipient": recipient or f"{o['name']} (organisation route)", "language": "English", "offer_ids": WELFARE_OFFERS,
                 "outcome": "drafted" if ready else "drafted, held",
                 **({"hook": hook, "hook_source_url": reason["url"], "hook_verified_on": reason["verified_on"]} if reason else {})}
-        # First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11 October 2026; first_touch.py): the named leader's
+        # First touch (docs/strategy/partnership-pipelines.md section 4, approved 11 October 2026; first_touch.py): the named leader's
         # own or role address keeps the letter; a named leader reached only through a general inbox gets the Attn format; no named leader
         # gets the short redirect request, with no follow-up and the planned next touch as a note.
         touch_kind = "funder" if funder else ("introducer" if network else "welfare_home")

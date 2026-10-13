@@ -28,6 +28,29 @@ When comparing two first-message versions, assign one version per resolved organ
 
 For batch work, treat role-led, locality-led and value-led opening ideas as research candidates until their exact claims are verified. No hook is preferable to an inaccurate one.
 
+## Examples
+
+- Education evidence: “Africa Dream Safaris publishes its support for the School of St Jude and other local education projects. That made a practical school-information resource for your own team feel like a relevant conversation.”
+- Workforce evidence: “Published information from the University of Arusha describes 150 active staff. A shared school-information option could help interested families navigate the first questions consistently.”
+- Operations role, only with a current source: “Your published role in operations puts you close to the practical question: would staff find a short session or a shareable guide easier to use?”
+- Finance role, only with a current source: “School choices become easier when families can see fees and payment dates clearly. Your published finance role makes that a more relevant starting point than a broad admissions pitch.”
+
+Each example is usable only while its cited page supports the exact claim.
+
+## Fields
+
+The master's `outreach_plans` records each hook:
+
+- `hook_type` identifies the basis.
+- `hook_quality` distinguishes specific evidence from role, locality or a baseline value statement.
+- `hook_status` says whether the hook is verified or removed.
+- `hook_evidence` records the source text behind the hook.
+- `evidence_url` and `verified_on` show where and when the exact claim was checked.
+
+The workbook's Outreach plans sheet shows `hook_status`, `hook`, `hook_evidence`, `evidence_url` and `verified_on`.
+
+The database uses a verified-only rule. A plan without a verified hook opens directly with the request (request-first, 23 September 2026).
+
 ## Research waves and lead briefs
 
 Hooks for a batch of leads are researched in waves. Each lead's facts are kept as a brief, so a person can learn about the lead quickly if they reply.

@@ -1,37 +1,55 @@
-# Silverleaf first-message hooks
+# First-message hooks
 
-Version 7 September 2026.
-
-A hook is useful when it answers the recipient's silent question: “Why is this relevant to me or my organisation?” It should take one or two sentences. It does not need to be witty. Use one only when the exact claim has a traceable source URL and a verification date.
-
-Use this pattern:
+A hook answers the recipient's silent question: “Why is this relevant to me or my organisation?” Use one or two sentences built as:
 
 > Observed fact or role → practical relevance → low-effort benefit
 
-Examples:
+An active hook must have both a traceable source URL and a verification date. Prefer the strongest verified basis:
+
+1. A specific education programme, workforce fact or team structure with a cited source.
+2. The recipient's current role and the decision they can reasonably make, when a current source confirms that role.
+3. Verified local relevance, subject to actual grade and travel fit.
+
+Label the basis, quality, evidence, source URL and verification date. If the exact claim is not independently supported, leave the active hook blank and use a no-hook first message. Generic value statements belong in the offer; they are not research-backed hooks. Do not manufacture a personal connection, praise without relevance, infer that the recipient is a parent, or turn vehicle, bed or customer counts into employee counts.
+
+Put the benefit before the mechanics. For Silverleaf, the partner decides whether to share one invitation; Silverleaf supplies the Q&A and written guide, and interested parents contact admissions directly.
+
+Adjust the closing request to the recipient:
+
+- Executive: ask where the proposal belongs or who owns staff welfare.
+- Operations: ask whether a short session or written guide is easier.
+- Finance: offer a clear fee and payment-date outline.
+- Administration or HR: offer the outline before requesting a planning call.
+- Community or CSR: keep the staff resource separate from external programmes.
+- Unknown role: ask where to send the one-page outline.
+- SACCOS committee: offer the member-information outline without assuming credit, subsidy or payroll arrangements.
+
+When comparing two first-message versions, assign one version per resolved organisation. Do not send different variants to multiple contacts at the same organisation. Compare positive replies and meetings only after source and channel quality are similar across the groups.
+
+For batch work, treat role-led, locality-led and value-led opening ideas as research candidates until their exact claims are verified. No hook is preferable to an inaccurate one.
+
+## Examples
 
 - Education evidence: “Africa Dream Safaris publishes its support for the School of St Jude and other local education projects. That made a practical school-information resource for your own team feel like a relevant conversation.”
 - Workforce evidence: “Published information from the University of Arusha describes 150 active staff. A shared school-information option could help interested families navigate the first questions consistently.”
 - Operations role, only with a current source: “Your published role in operations puts you close to the practical question: would staff find a short session or a shareable guide easier to use?”
 - Finance role, only with a current source: “School choices become easier when families can see fees and payment dates clearly. Your published finance role makes that a more relevant starting point than a broad admissions pitch.”
 
-If the claim is not independently supported, leave the active hook blank and use the no-hook first message. Generic value statements belong in the offer, not in the hook. Role and locality claims count only when the cited source confirms them. Do not manufacture a personal connection to make the line appear bespoke.
+Each example is usable only while its cited page supports the exact claim.
 
-Avoid praise without relevance, personal-life details, generic references to a website, references to vehicle or bed counts as employee counts, and any implication that the recipient is a parent. Do not lead with Silverleaf's growth objective. Describe the benefit and the limited burden first: Silverleaf supplies the Q&A and written guide, parents contact the school directly, and the organisation decides only whether to share the invitation.
+## Fields
 
-Use the workbook fields as follows:
+The master's `outreach_plans` records each hook:
 
 - `hook_type` identifies the basis.
 - `hook_quality` distinguishes specific evidence from role, locality or a baseline value statement.
 - `hook_status` says whether the hook is verified or removed.
 - `hook_evidence` records the source text behind the hook.
 - `evidence_url` and `verified_on` show where and when the exact claim was checked.
-- `hook_v2` shows the opening alone.
-- `first_message_v2` shows the full alternate message.
 
-Compare message versions at the organisation level. Do not send version 1 to one contact and version 2 to another person in the same organisation. Count one organisation once, and compare positive replies and meetings only after source and channel quality are similar across the test groups.
+The workbook's Outreach plans sheet shows `hook_status`, `hook`, `hook_evidence`, `evidence_url` and `verified_on`.
 
-This database uses a verified-only rule. As of 7 September 2026, six message variants across two organisations have an active hook. The other hook fields are blank, and those messages open directly with the request (request-first, 23 September 2026).
+The database uses a verified-only rule. A plan without a verified hook opens directly with the request (request-first, 23 September 2026).
 
 ## Research waves and lead briefs
 

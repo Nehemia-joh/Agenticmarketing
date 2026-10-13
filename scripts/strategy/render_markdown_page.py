@@ -14,7 +14,7 @@ Relative links are rewritten so they still resolve from the output folder. Headi
 in-document links work in both the Markdown and the page. The page has a print style. Without an internet connection the
 diagrams show their source text instead.
 
-    python scripts/strategy/render_markdown_page.py docs/strategy/partnership-pipelines-draft.md "outputs/strategy/Silverleaf Partnership Pipelines - Draft.html"
+    python scripts/strategy/render_markdown_page.py docs/strategy/partnership-pipelines.md "outputs/strategy/Silverleaf Partnership Pipelines.html"
 """
 from __future__ import annotations
 

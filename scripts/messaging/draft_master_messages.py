@@ -20,7 +20,7 @@ Reads data/reference/silverleaf-offer-register.json and the master (outputs/mast
   'Raw OSM', add_gap_census_leads.py --matches), and the no-route note goes once the organisation has a published email or
   phone (the contact merge). A plan held by nothing else returns to 'Draft review' on its track (AQ01 or AQ02, as
   refresh_acquisition_metadata.py sets it), with the organisation's route as its channel; any other hold stays.
-- First touch (docs/strategy/partnership-pipelines-draft.md section 4, approved 11 October 2026; scripts/messaging/first_touch.py):
+- First touch (docs/strategy/partnership-pipelines.md section 4, approved 11 October 2026; scripts/messaging/first_touch.py):
   by the route each plan can reach (export_resend_contacts.first_touch_case), a named decision-maker at their own or their role's
   address keeps the letter (case A); a named decision-maker reached only through a general inbox gets the Attn subject and routing line
   (case B, with ', or your HR lead' under question 21's rule); no named decision-maker gets the short redirect request with blank

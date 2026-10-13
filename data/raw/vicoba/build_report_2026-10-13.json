@@ -1,0 +1,28 @@
+{
+ "date": "2026-10-13",
+ "as_of": "2026-10-13",
+ "captures": 10,
+ "groups": 5,
+ "intake_rows": 10,
+ "aggregates": 5,
+ "excluded": [],
+ "skipped_files": [],
+ "master": "read-only copy of the master (master.sqlite): 117 SACCOS, 1221 employers compared",
+ "by_status": {
+  "stale: not confirmed in 12 months": 3,
+  "incomplete: no ward": 1,
+  "incomplete: no introducer route": 1
+ },
+ "by_subtype": {
+  "VSLA — NGO-programme group": 3,
+  "VICOBA — women's group": 2
+ },
+ "women_groups": 2,
+ "rejections": 0,
+ "review_signals": 5,
+ "outputs": [
+  "data/raw/vicoba/master_intake_2026-10-13.csv",
+  "data/raw/vicoba/groups_2026-10-13.jsonl",
+  "data/raw/vicoba/aggregates_2026-10-13.jsonl"
+ ]
+}

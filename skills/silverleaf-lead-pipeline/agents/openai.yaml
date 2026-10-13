@@ -1,0 +1,6 @@
+interface:
+  display_name: "Silverleaf Lead Pipeline"
+  short_description: "The stages from inception to the first offer-carrying draft"
+  default_prompt: "Use $silverleaf-lead-pipeline to find the stage a Silverleaf lead task belongs to, its commands, rules and done-check, and the skill that owns the detail."
+policy:
+  allow_implicit_invocation: true

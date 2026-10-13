@@ -632,7 +632,7 @@ def with_orgs(index: OrgIndex, db: str, pairs, **kw) -> dict:
 
 # ------------------------------------------------------------------ run, agent and target of a file
 AREA = {"contact-research": "contact", "welfare-research": "welfare", "hook-research": "hooks", "gap-census": "gap-census",
-        "geocode-research": "geocode", "government-research": "government", "vicoba-research": "vicoba"}
+        "geocode-research": "geocode", "government-research": "government", "vicoba-research": "vicoba", "vicoba": "vicoba"}
 WELFARE_TARGET = {"A": "discovery", "B": "discovery", "C": "discovery", "D": "discovery", "E": "discovery", "F": "discovery",
                   "G": "relationship", "H": "discovery", "I": "discovery", "N": "discovery", "P": "route", "Q": "decision-maker",
                   "R": "relationship", "S": "route", "T": "route", "U": "verification", "V": "verification", "W": "route",

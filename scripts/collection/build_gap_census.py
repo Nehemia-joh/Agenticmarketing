@@ -19,6 +19,8 @@ Writes:
 - data/raw/gap-census/research_GC_welfare_<date>.jsonl       new welfare candidates in the welfare research format
 - data/raw/gap-census/government_subward_units_<date>.json   villages and mitaa in the pilot councils, with their ward
 - data/raw/gap-census/faith_candidates_<date>.json           places of worship by campus (candidate list only)
+- data/raw/gap-census/vicoba_candidates_<date>.json          VICOBA-named features, for scripts/collection/build_vicoba_intake.py
+                                                             (SACCOS stay excluded: the master's TCDC list covers them)
 - outputs/reports/campus-gap-census-<date>.md                the census per campus and category, and the largest gaps
 Distances and bands come from the master's campuses table. Nothing is written to any database.
 """
@@ -87,6 +89,8 @@ SCHOOL = re.compile(r"\b(school|academy|shule|nursery|pre-?school|pre-?primary|k
 NOT_SCHOOL = re.compile(r"college|universit|institute|chuo|polytechnic|training cent|veta", re.I)
 CLOSED = re.compile(r"\b(closed|zamani|former|defunct|abandoned)\b|\(old\)", re.I)
 SILVERLEAF = re.compile(r"silver ?leaf", re.I)
+# Community savings groups (VICOBA, VSLA): routed to scripts/collection/build_vicoba_intake.py, not matched against the employer lists.
+VICOBA_NAME = re.compile(r"\b(vicoba|vikoba|vsla|village community bank|kikundi cha kuweka na kukopa)\b", re.I)
 CHILD = re.compile(r"orphan|yatima|child|watoto|kids|baby|babies|rescue|street|girls|boys|youth home|makao|vulnerable|malaika|neema|upendo|tumaini", re.I)
 GENERIC = {"farm", "shamba", "office", "ofisi", "hotel", "lodge", "church", "kanisa", "mosque", "msikiti", "supermarket", "clinic", "hospital",
            "zahanati", "bank", "atm", "factory", "kiwanda", "industry", "industries", "warehouse", "store", "godown", "greenhouse", "nursery",
@@ -350,6 +354,10 @@ def classify(cat: str, tags: dict) -> dict:
         return excluded("generic name, no organisation named")
     if PART_OF_SITE.search(name) and cat in ("education", "tourism", "offices", "banks", "health"):
         return excluded("a building or room of a larger site")
+    if VICOBA_NAME.search(name) and not re.search(r"\bsaccos?\b", low):
+        # Community savings groups are a master subsegment since 13 October 2026 (docs/plans/vicoba-integration-plan.md); the master's
+        # savings-group list covers only TCDC-licensed SACCOS, so a VICOBA-named feature goes to scripts/collection/build_vicoba_intake.py.
+        return {"segment": "vicoba-candidate", "subsegment": "VICOBA", "org_segment": "", "note": "VICOBA-named map feature"}
     if cat == "worship" or tags.get("amenity") == "place_of_worship" or tags.get("office") == "religion":
         return {"segment": "faith-candidate", "subsegment": tags.get("religion", "") or "unknown", "org_segment": "", "note": ""}
     school = SCHOOL.search(name) and not NOT_SCHOOL.search(name)
@@ -463,8 +471,8 @@ def classify(cat: str, tags: dict) -> dict:
     if office in ("ngo", "charity", "foundation", "association", "non_profit", "union", "cooperative"):
         if CHILD.search(low):
             return welfare("Unclassified child-focused", "an office whose name names children; welfare review")
-        if office == "cooperative" or re.search(r"\bsaccos?\b|\bvicoba\b", low):
-            return excluded("savings or co-operative group (the master's savings-group list covers them)")
+        if office == "cooperative" or re.search(r"\bsaccos?\b", low):
+            return excluded("registered co-operative or SACCOS (the master's TCDC SACCOS list covers them)")
         return employer("NGOs and research bodies", "office:ngo")
     if office in ("research", "educational_institution"):
         return employer("NGOs and research bodies" if office == "research" else "Colleges and universities",
@@ -614,6 +622,7 @@ def main() -> int:
     candidates: dict[str, dict] = {}       # candidate_id -> record
     faith = []
     places = []
+    vicoba = []                            # VICOBA-named features for build_vicoba_intake.py
 
     def campus_counts(f, field):
         for c, d in f["dists"].items():
@@ -642,6 +651,12 @@ def main() -> int:
             point = gov.match_office(f, name, cls, campus, dist)
             gov_points.append(point)
             campus_counts(f, point["status"])
+            continue
+        if cls["segment"] == "vicoba-candidate":
+            district = G.district_of(f["lat"], f["lon"], districts)
+            vicoba.append({"name": name, "osm_id": f["osm_id"], "source_url": OSM_URL.format(f["osm_id"]), "council": district_council.get(district, ""),
+                           "district": district, "campus": campus, "distance_km": dist, "category": f["category"]})
+            campus_counts(f, "new")
             continue
         if cls["segment"] == "faith-candidate":
             m = matcher.match(name, f["lat"], f["lon"], f["osm_id"])
@@ -839,6 +854,11 @@ def main() -> int:
     print(f"dropped {len(dropped)} features mapped twice")
     cands.sort(key=lambda r: (r["segment"], r["subsegment"], r["distance_km"] if r["distance_km"] is not None else 999, r["name"]))
     write_outputs(date, cands, census, census_all, excluded_reasons, faith, places, campuses, districts, district_council, gconf, meta, leads, gov_points)
+    vicoba.sort(key=lambda r: (r["council"], r["name"]))
+    (RAW / f"vicoba_candidates_{date}.json").write_text(json.dumps(
+        {"retrieved": date, "note": "VICOBA-named OpenStreetMap features, read by scripts/collection/build_vicoba_intake.py as map-feature captures "
+                                    "(held for review; the mapped point is not carried, because a group's point may be a home).",
+         "features": vicoba}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8", newline="\n")
     return 0
 
 

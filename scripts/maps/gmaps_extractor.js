@@ -1,6 +1,8 @@
 // Google Maps lookup extractor for the coordinator's browser rounds (scripts/maps/build_gmaps_round.py).
 //
-// Saved from the browser's localStorage on 13 October 2026 so the source lives in the repository. The functions run in the
+// Saved from the browser's localStorage on 13 October 2026 so the source lives in the repository. On 14 October 2026 a place
+// page's name falls back to the page title: the heading often has not rendered when slsync reads the page, which left the name
+// blank and broke the name matching in build_gmaps_round.py. The functions run in the
 // coordinator's own browser pane on google.com/maps; no other agent looks up on Google Maps.
 //
 // Install once (on a google.com tab), storing each function's source as a string:
@@ -31,7 +33,7 @@
   } else {
     const m = location.href.match(/!3d(-?[\d.]+)!4d(-?[\d.]+)/); const M = document.querySelector('[role=main]');
     const g = s => (M && [...M.querySelectorAll(s)].map(b => (b.innerText || '').trim())[0] || '').replace(/^\W+/, '');
-    res = [{ name: (document.querySelector('h1') || {}).innerText || '', lat: m && +m[1], lon: m && +m[2], cat: g('button[jsaction*="category"]'), addr: g('[data-item-id="address"]'), phone: g('[data-item-id^="phone"]'), web: (M && [...M.querySelectorAll('a[data-item-id="authority"]')].map(b => b.href)[0]) || '', url: location.href.split('?')[0].replace(/\/@[^/]+/, '') }];
+    res = [{ name: ((document.querySelector('h1') || {}).innerText || '').trim() || document.title.replace(/ - Google Maps$/, ''), lat: m && +m[1], lon: m && +m[2], cat: g('button[jsaction*="category"]'), addr: g('[data-item-id="address"]'), phone: g('[data-item-id^="phone"]'), web: (M && [...M.querySelectorAll('a[data-item-id="authority"]')].map(b => b.href)[0]) || '', url: location.href.split('?')[0].replace(/\/@[^/]+/, '') }];
   }
   const all = JSON.parse(localStorage.getItem('slres') || '{}'); all[q] = res; localStorage.setItem('slres', JSON.stringify(all));
   return q + ' => ' + res.map(r => (r.name || '?') + ' @' + r.lat + ',' + r.lon + ' ' + (r.cat || r.info || '') + (r.addr ? ' | ' + r.addr : '')).join(' || ');
@@ -47,7 +49,7 @@
     const m = location.href.match(/!3d(-?[\d.]+)!4d(-?[\d.]+)/); const M = document.querySelector('[role=main]');
     if (!m) { if ((document.body.innerText || '').includes("Google Maps can't find")) { const all0 = JSON.parse(localStorage.getItem('slres') || '{}'); all0[q] = []; localStorage.setItem('slres', JSON.stringify(all0)); return q + ' => NO RESULTS'; } return q + ' => NOT READY'; }
     const g = s => (M && [...M.querySelectorAll(s)].map(b => (b.innerText || '').trim())[0] || '').replace(/^\W+/, '');
-    res = [{ name: (document.querySelector('h1') || {}).innerText || '', lat: +m[1], lon: +m[2], cat: g('button[jsaction*="category"]'), addr: g('[data-item-id="address"]'), phone: g('[data-item-id^="phone"]'), web: (M && [...M.querySelectorAll('a[data-item-id="authority"]')].map(b => b.href)[0]) || '', url: location.href.split('?')[0].replace(/\/@[^/]+/, '') }];
+    res = [{ name: ((document.querySelector('h1') || {}).innerText || '').trim() || document.title.replace(/ - Google Maps$/, ''), lat: +m[1], lon: +m[2], cat: g('button[jsaction*="category"]'), addr: g('[data-item-id="address"]'), phone: g('[data-item-id^="phone"]'), web: (M && [...M.querySelectorAll('a[data-item-id="authority"]')].map(b => b.href)[0]) || '', url: location.href.split('?')[0].replace(/\/@[^/]+/, '') }];
   }
   const all = JSON.parse(localStorage.getItem('slres') || '{}'); all[q] = res; localStorage.setItem('slres', JSON.stringify(all));
   return q + ' => ' + res.map(r => (r.name || '?') + ' @' + r.lat + ',' + r.lon + ' ' + (r.cat || r.info || '') + (r.addr ? ' | ' + r.addr : '')).join(' || ');

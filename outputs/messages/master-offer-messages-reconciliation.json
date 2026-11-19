@@ -1,14 +1,16 @@
 {
- "run_on": "2026-10-13",
+ "run_on": "2026-11-19",
  "offer_version": "2026-10-13-offer-v6",
  "outcomes": {
   "named-person fallout (case B): Corporate employers": 127,
-  "rewritten": 2675,
+  "rewritten": 2960,
   "named-person fallout (case B): Tourism employers": 318,
   "named-person fallout (case B): NGO employers": 21,
   "named-person fallout (case B): Healthcare employers": 28,
   "named-person fallout (case B): Introducers": 33,
   "named-person fallout (case B): Education employers": 12,
+  "VICOBA group: band low": 5,
+  "VICOBA introducer (ngo): Needs research": 8,
   "named-person fallout (case B): Public-sector employers": 8,
   "decision-maker drafts moved from a phone to an email route": 0,
   "government track (government run)": 6,
@@ -18,21 +20,50 @@
   "parent enquiries without a draft (unchanged)": 23,
   "first touch: alternative plans, A": 24,
   "first touch: alternative plans, B": 310,
-  "first touch: alternative plans, C": 1062,
-  "first touch: alternative plans, unchanged": 28,
+  "first touch: alternative plans, C": 1063,
+  "first touch: alternative plans, unchanged": 29,
   "first touch: chosen plans, A": 42,
   "first touch: chosen plans, B": 254,
-  "first touch: chosen plans, C": 384,
-  "first touch: chosen plans, unchanged": 571
+  "first touch: chosen plans, C": 473,
+  "first touch: chosen plans, unchanged": 765
  },
  "conformance_issues": 0,
  "tracks_new": {},
  "segments_new": {},
  "released_by_selection_and_kind": {},
+ "vicoba": {
+  "wave": "W1",
+  "groups": 5,
+  "introducer_plans": 8,
+  "bands": {
+   "low": 5
+  },
+  "bands_once_templates_approved": {
+   "low": 5
+  },
+  "kiswahili_templates": {
+   "vicoba-group-request": {
+    "version": "fc25a3b72415",
+    "approved": false
+   },
+   "vicoba-group-follow-up": {
+    "version": "9e10be1b6d73",
+    "approved": false
+   },
+   "vicoba-group-close": {
+    "version": "1a65ee836d06",
+    "approved": false
+   },
+   "vicoba-group-offer": {
+    "version": "80ffc50e10fc",
+    "approved": false
+   }
+  }
+ },
  "counts_after": {
-  "messages": 2675,
-  "outreach_plans": 2675,
-  "message_versions": 9809,
-  "campaign_lead_assignments": 2707
+  "messages": 2960,
+  "outreach_plans": 2960,
+  "message_versions": 9836,
+  "campaign_lead_assignments": 2992
  }
 }

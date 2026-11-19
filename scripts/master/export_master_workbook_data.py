@@ -14,6 +14,9 @@ the review enrichment the workbook shows next to each record, all derived from t
   it is a VICOBA group), and 'savings_groups', the Savings groups view: SACCOS and VICOBA side by side with subsegment, band
   (first_touch.vicoba_assess for VICOBA; the Resend exporter's confidence for SACCOS), introducer, the women_group tag, and the
   Kiswahili first message with its English meaning. No number, member or officer.
+- national_leads (19 November 2026): the national leads table from the association-members merge (add_association_members.py), one row
+  per deduplicated member or association with its flag, organisation, published routes and source rows, and its counts in
+  report['national_leads'] for the top of the National leads sheet. These are not organisations.
 """
 
 from __future__ import annotations
@@ -41,6 +44,48 @@ import offer_lib as L  # noqa: E402  (SAVINGS_SEGMENTS)
 # The VICOBA columns on the Organisations sheet (vicoba-integration-plan.md decision 7), blank for every other organisation.
 VICOBA_ORG_COLUMNS = ("subtype", "women_group", "ward", "council", "sponsor", "introducer", "meeting_cadence", "share_out_month",
                       "members_as_published", "registration", "record_status", "last_confirmed", "vicoba_band")
+
+
+NATIONAL_COLUMNS = ("national_lead_id", "kind", "name", "flag", "flag_detail", "organisation_id", "organisation_name", "associations",
+                    "member_categories", "licence_numbers", "status", "operating", "district", "region", "phone", "email", "personal_inbox",
+                    "website", "whatsapp", "physical_address", "postal_address", "source_rows", "source_refs", "notes")
+
+
+def national_leads(connection) -> list[dict]:
+    """The national leads table (scripts/master/add_association_members.py): every deduplicated association member and Index association
+    with its flag ('in master', 'in catchment', 'national only'), its organisation when it has one, and its source rows (tab and sheet
+    row). Never organisations: no plan, draft, segment, map pin or reach tier. Empty when the table does not exist."""
+    if not connection.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='national_leads'").fetchone():
+        return []
+    factory = connection.row_factory
+    connection.row_factory = sqlite3.Row
+    refs = defaultdict(list)
+    for r in connection.execute("SELECT national_lead_id, source_tab, sheet_row FROM national_lead_sources ORDER BY source_tab, sheet_row"):
+        refs[r["national_lead_id"]].append(f"{r['source_tab']}!{r['sheet_row']}")
+    out = []
+    for r in connection.execute("SELECT n.*, o.name AS organisation_name FROM national_leads n LEFT JOIN organisations o USING(organisation_id) "
+                                "ORDER BY CASE n.flag WHEN 'national only' THEN 2 WHEN 'in catchment' THEN 1 ELSE 0 END, n.kind DESC, n.name"):
+        row = dict(r)
+        row["source_refs"] = "; ".join(refs.get(row["national_lead_id"], []))
+        out.append({c: row.get(c) if row.get(c) is not None else "" for c in NATIONAL_COLUMNS})
+    connection.row_factory = factory
+    return out
+
+
+def national_summary(rows: list[dict]) -> dict:
+    """The counts the National leads sheet states at the top."""
+    flags = Counter(r["flag"] for r in rows)
+    details = Counter(d.strip() for r in rows if r["flag"] == "national only" for d in str(r["flag_detail"]).split(";")
+                      if d.strip().split(" (")[0] in ("in region, beyond catchment", "in region, district not given", "outside the region",
+                                                      "region not given", "association outside the approved list of introducers (listed, not added)",
+                                                      "planned introducer skipped: no website and no published route in the source")
+                      or d.strip().startswith(("non-operating", "licence revoked")))
+    return {"leads": len(rows), "members": sum(1 for r in rows if r["kind"] == "member"), "associations": sum(1 for r in rows if r["kind"] == "association"),
+            "source_rows": sum(int(r["source_rows"] or 0) for r in rows), "flags": dict(flags),
+            "in_region_beyond_catchment": sum(1 for r in rows if r["flag"] == "national only" and "in region, beyond catchment" in str(r["flag_detail"])),
+            "in_region_district_not_given": sum(1 for r in rows if r["flag"] == "national only" and "in region, district not given" in str(r["flag_detail"])),
+            "non_operating": sum(1 for r in rows if r["operating"] == "no"),
+            "personal_inbox": sum(1 for r in rows if r["personal_inbox"] == "yes"), "details": dict(details.most_common(12))}
 
 
 def _last(facts: dict, field: str) -> str:
@@ -429,8 +474,12 @@ def main() -> int:
             "GROUP BY entity_type, entity_id, field, value ORDER BY entity_type, entity_id, field, value"):
         facts.append({"entity_type": entity_type, "entity_name": names.get((entity_type, entity_id), ""), "entity_id": entity_id, "field": field,
                       "value": value, "source_record_ids": "; ".join(sorted(str(records or "").split(",")))})
+    national = national_leads(connection)
+    counts["national_leads"] = len(national)
+    report["national_leads"] = national_summary(national)
     payload = {
         "report": report,
+        "national_leads": national,
         "organisations": organisations,
         "contacts": contacts,
         "enquiries": rows(connection, "SELECT * FROM enquiries ORDER BY enquiry_date DESC, enquiry_id"),

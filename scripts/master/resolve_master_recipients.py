@@ -197,7 +197,7 @@ def cluster(orgs, contacts, plans):
     by_email, by_phone, by_site, by_name = defaultdict(set), defaultdict(set), defaultdict(set), defaultdict(set)
     for o in ids:
         org = orgs[o]
-        mails = emails(org["email"], *[c["shared_email"] for c in contacts.values() if c["organisation_id"] == o],
+        mails = emails(org["email"], *[c["shared_email"] for c in contacts.values() if c["organisation_id"] == o and not head_office_desk(c)],
                        *[p["contact_channel"] for p in plans if p["organisation_id"] == o and p["target_type"] == "organisation"])
         for m in mails:
             by_email[(kind_of[o], m)].add(o)
@@ -366,12 +366,40 @@ def wide_organisations(contacts) -> set:
     return {oid for oid, cs in by_org.items() if multinational(cs)}
 
 
+HEAD_OFFICE_ROLE = "Head office (escalation)"  # the role desk scripts/master/add_association_members.py writes for a bank branch
+
+
+def head_office_desk(c) -> bool:
+    """A bank branch's head-office role desk (TBA list, 19 November 2026): an escalation route only, never a recipient, and its inbox never
+    joins the branch to another record when clustering."""
+    return str(c.get("role") or "").startswith(HEAD_OFFICE_ROLE) and not c.get("name")
+
+
+def head_office_escalation(chosen, members, contacts):
+    """The bank head office as the escalation contact of a branch draft, when no named group head is on file: the branch stays the
+    primary (on-the-ground rule); the head office's published inbox (else its phone) is the escalation route. None when that route is
+    the one the branch draft already uses."""
+    for c in sorted(contacts.values(), key=lambda c: c["contact_id"]):
+        if c["organisation_id"] in members and head_office_desk(c):
+            route = c["shared_email"] or c["organisation_phone"] or ""
+            if route and route.lower() not in str(chosen.get("contact_channel") or "").lower():
+                return {"escalation_contact_id": c["contact_id"], "escalation_recipient": c["role"].split(": ", 1)[-1], "escalation_route": route,
+                        "escalation_trigger": ESCALATION_TRIGGER}
+    return None
+
+
 def escalation_for(chosen, members, contacts, plans, wide_orgs):
     """The group, regional or global head to escalate to when the in-country recipient does not answer: a verified named senior person
-    whose role is wider than the Tanzania operation. None when the recipient is already that person. Board roles never qualify."""
+    whose role is wider than the Tanzania operation. None when the recipient is already that person. Board roles never qualify.
+    Without such a person, a bank branch's head office (head_office_escalation) is the escalation contact."""
     target = contacts.get(chosen["target_id"]) if chosen["target_type"] == "contact" else None
     if target and location(target, target["organisation_id"] in wide_orgs) != 0:
         return None
+    person = escalation_person(chosen, members, contacts, plans, wide_orgs, target)
+    return person or head_office_escalation(chosen, members, contacts)
+
+
+def escalation_person(chosen, members, contacts, plans, wide_orgs, target):
     pool = []
     for c in contacts.values():
         if c["organisation_id"] not in members or (target and c["contact_id"] == target["contact_id"]) or not verified_person(c):

@@ -1,0 +1,672 @@
+{
+ "source": "references/Tanzania Sector Associations and Members (1).xlsx",
+ "tab": "TBA (Bankers)",
+ "checked_on": "2026-10-12",
+ "rule": "A bank's head office (TBA tab: the Bank of Tanzania register's phone and email) is the escalation contact of its branch records in the master; the branch stays the primary recipient (on-the-ground rule).",
+ "banks": [
+  {
+   "bank": "Absa Bank",
+   "type": "Bank",
+   "row_id": "TBA:5",
+   "sheet_row": 5,
+   "head_office_phone": "+255 746 882 000 / +255 22 212 9381",
+   "head_office_email": "talktous.tz@absa.africa",
+   "other_emails": [],
+   "website": "https://www.absa.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "website domain absa.co.tz",
+   "branch_organisation_ids": [
+    "O592537caad8f"
+   ],
+   "branch_names": [
+    "Barclays"
+   ]
+  },
+  {
+   "bank": "Access Bank",
+   "type": "Bank",
+   "row_id": "TBA:6",
+   "sheet_row": 6,
+   "head_office_phone": "+255 22 211 9422",
+   "head_office_email": "info@bancabc.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "ACB Bank",
+   "type": "Bank",
+   "row_id": "TBA:7",
+   "sheet_row": 7,
+   "head_office_phone": "+255 22 211 8430",
+   "head_office_email": "info@acbtz.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Amana Bank",
+   "type": "Bank",
+   "row_id": "TBA:8",
+   "sheet_row": 8,
+   "head_office_phone": "+255 22 212 9007",
+   "head_office_email": "info@amanabank.co.tz",
+   "other_emails": [],
+   "website": "https://www.amanabank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "website domain amanabank.co.tz",
+   "branch_organisation_ids": [
+    "Oa5791dd7a4e4"
+   ],
+   "branch_names": [
+    "Amana Bank"
+   ]
+  },
+  {
+   "bank": "Azania Bank",
+   "type": "Bank",
+   "row_id": "TBA:9",
+   "sheet_row": 9,
+   "head_office_phone": "+255 22 241 2025",
+   "head_office_email": "info@azaniabank.co.tz",
+   "other_emails": [],
+   "website": "https://www.azaniabank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "website domain azaniabank.co.tz",
+   "branch_organisation_ids": [
+    "O365f39095d9b"
+   ],
+   "branch_names": [
+    "Azania Bank"
+   ]
+  },
+  {
+   "bank": "Bank of Africa Tanzania",
+   "type": "Bank",
+   "row_id": "TBA:10",
+   "sheet_row": 10,
+   "head_office_phone": "+255 22 211 0104",
+   "head_office_email": "marketing@boatanzania.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Bank of India",
+   "type": "Bank",
+   "row_id": "TBA:11",
+   "sheet_row": 11,
+   "head_office_phone": "+255 22 213 5358",
+   "head_office_email": "boitanzania@bankofindia.co.in",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "China Dasheng Bank",
+   "type": "Bank",
+   "row_id": "TBA:12",
+   "sheet_row": 12,
+   "head_office_phone": "+255 22 212 7586",
+   "head_office_email": "info@cdbbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Citibank",
+   "type": "Bank",
+   "row_id": "TBA:13",
+   "sheet_row": 13,
+   "head_office_phone": "+255 22 211 1200",
+   "head_office_email": "info@citibank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Cooperative Bank",
+   "type": "Bank",
+   "row_id": "TBA:14",
+   "sheet_row": 14,
+   "head_office_phone": "+255 27 275 4470",
+   "head_office_email": "info@cbtbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dodoma",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "CRDB Bank",
+   "type": "Bank",
+   "row_id": "TBA:15",
+   "sheet_row": 15,
+   "head_office_phone": "+255 22 211 7441",
+   "head_office_email": "info@crdbbank.co.tz",
+   "other_emails": [],
+   "website": "https://www.crdbbank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "website domain crdbbank.co.tz",
+   "branch_organisation_ids": [
+    "O55618c520bc5",
+    "O2b1d23beff67",
+    "O9a7ec2dc8754"
+   ],
+   "branch_names": [
+    "CRDB Bank Plc",
+    "CRDB Bank branch",
+    "CRDB Bank"
+   ]
+  },
+  {
+   "bank": "DCB Bank",
+   "type": "Bank",
+   "row_id": "TBA:16",
+   "sheet_row": 16,
+   "head_office_phone": "+255 22 217 2200",
+   "head_office_email": "info@dcb.co.tz",
+   "other_emails": [],
+   "website": "https://www.dcb.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "DTB Bank",
+   "type": "Bank",
+   "row_id": "TBA:17",
+   "sheet_row": 17,
+   "head_office_phone": "+255 22 211 4888",
+   "head_office_email": "customercentre@diamondtrust.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "email domain diamondtrust.co.tz",
+   "branch_organisation_ids": [
+    "Odadd47c95eee"
+   ],
+   "branch_names": [
+    "Diamond Trust Bank"
+   ]
+  },
+  {
+   "bank": "Ecobank Tanzania",
+   "type": "Bank",
+   "row_id": "TBA:18",
+   "sheet_row": 18,
+   "head_office_phone": "+255 22 213 7447",
+   "head_office_email": "ecobank@ecobank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "email ecobank@ecobank.co.tz",
+   "branch_organisation_ids": [
+    "Ofc9b426cb0b9"
+   ],
+   "branch_names": [
+    "Ecobank"
+   ]
+  },
+  {
+   "bank": "Equity Bank",
+   "type": "Bank",
+   "row_id": "TBA:19",
+   "sheet_row": 19,
+   "head_office_phone": "+255 768 985 500",
+   "head_office_email": "infotz@equitybank.co.ke",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "bank name (generic words dropped)",
+   "branch_organisation_ids": [
+    "Occecf08e5aca"
+   ],
+   "branch_names": [
+    "Equity Bank"
+   ]
+  },
+  {
+   "bank": "Exim Bank",
+   "type": "Bank",
+   "row_id": "TBA:20",
+   "sheet_row": 20,
+   "head_office_phone": "+255 22 229 3400",
+   "head_office_email": "customercare@eximbank.co.tz",
+   "other_emails": [],
+   "website": "https://www.eximbank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "website domain eximbank.co.tz",
+   "branch_organisation_ids": [
+    "O7f9e52ba429c",
+    "O51f72d538488"
+   ],
+   "branch_names": [
+    "Exim bank",
+    "Exim Bank (T) Ltd"
+   ]
+  },
+  {
+   "bank": "FINCA Bank",
+   "type": "Microfinance bank",
+   "row_id": "TBA:21",
+   "sheet_row": 21,
+   "head_office_phone": "+255 22 221 2200",
+   "head_office_email": "info@fincatz.org",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "First Housing",
+   "type": "Mortgage finance",
+   "row_id": "TBA:22",
+   "sheet_row": 22,
+   "head_office_phone": "+255 22 211 3456",
+   "head_office_email": "info@firsthousing.co.tz",
+   "other_emails": [],
+   "website": "https://www.firsthousing.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "GTCO Bank",
+   "type": "Bank",
+   "row_id": "TBA:23",
+   "sheet_row": 23,
+   "head_office_phone": "+255 22 277 2533",
+   "head_office_email": "beatrice.njau@gtbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Habib African Bank",
+   "type": "Bank",
+   "row_id": "TBA:24",
+   "sheet_row": 24,
+   "head_office_phone": "+255 22 211 1107",
+   "head_office_email": "info@habibafricanbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "I&M Bank",
+   "type": "Bank",
+   "row_id": "TBA:25",
+   "sheet_row": 25,
+   "head_office_phone": "+255 22 212 7330",
+   "head_office_email": "customercare@imbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "normalised name",
+   "branch_organisation_ids": [
+    "O7ac3337cad3a"
+   ],
+   "branch_names": [
+    "I&M Bank"
+   ]
+  },
+  {
+   "bank": "ICB Bank",
+   "type": "Bank",
+   "row_id": "TBA:26",
+   "sheet_row": 26,
+   "head_office_phone": "+255 22 215 0361",
+   "head_office_email": "pohbeng.gan@icbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "KCB Bank",
+   "type": "Bank",
+   "row_id": "TBA:27",
+   "sheet_row": 27,
+   "head_office_phone": "+255 22 266 4388",
+   "head_office_email": "customercare@kcbgroup.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "email customercare@kcbgroup.com",
+   "branch_organisation_ids": [
+    "O911659e30dbc"
+   ],
+   "branch_names": [
+    "KCB"
+   ]
+  },
+  {
+   "bank": "Letshego Bank",
+   "type": "Bank",
+   "row_id": "TBA:28",
+   "sheet_row": 28,
+   "head_office_phone": "+255 22 240 1174",
+   "head_office_email": "info.tz@letshego.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Maendeleo Bank",
+   "type": "Bank",
+   "row_id": "TBA:29",
+   "sheet_row": 29,
+   "head_office_phone": "+255 22 211 0518",
+   "head_office_email": "info@maendeleobank.co.tz",
+   "other_emails": [],
+   "website": "https://www.maendeleobank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Mkombozi Bank",
+   "type": "Bank",
+   "row_id": "TBA:30",
+   "sheet_row": 30,
+   "head_office_phone": "+255 22 213 7806",
+   "head_office_email": "info@mkombozibank.co.tz",
+   "other_emails": [],
+   "website": "https://www.mkombozibank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Mwalimu Commercial Bank",
+   "type": "Bank",
+   "row_id": "TBA:31",
+   "sheet_row": 31,
+   "head_office_phone": "+255 22 277 5131",
+   "head_office_email": "info@mcb.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Mwanga Hakika Bank",
+   "type": "Bank",
+   "row_id": "TBA:32",
+   "sheet_row": 32,
+   "head_office_phone": "+255 747 666 511",
+   "head_office_email": "info@mhbbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "NBC Bank",
+   "type": "Bank",
+   "row_id": "TBA:33",
+   "sheet_row": 33,
+   "head_office_phone": "+255 22 211 3914",
+   "head_office_email": "contactcentre@nbctz.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "bank name (generic words dropped)",
+   "branch_organisation_ids": [
+    "O6d705d505610",
+    "Ob2ec027a1fb7"
+   ],
+   "branch_names": [
+    "National Bank of Commerce (NBC)",
+    "NBC Bank Tanzania"
+   ]
+  },
+  {
+   "bank": "NCBA Bank",
+   "type": "Bank",
+   "row_id": "TBA:34",
+   "sheet_row": 34,
+   "head_office_phone": "+255 22 229 5000",
+   "head_office_email": "tanzaniainfo@nic-bank.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "NMB Bank",
+   "type": "Bank",
+   "row_id": "TBA:35",
+   "sheet_row": 35,
+   "head_office_phone": "+255 22 232 2008 / +255 22 232 2000",
+   "head_office_email": "info@nmbbank.co.tz",
+   "other_emails": [],
+   "website": "https://www.nmbbank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "website domain nmbbank.co.tz",
+   "branch_organisation_ids": [
+    "Oac4e9b66f049",
+    "O0bbdb67730d3",
+    "Obd04b9954e18"
+   ],
+   "branch_names": [
+    "NMB Bank",
+    "NMB Bank Tanzania",
+    "NMB Arusha Market"
+   ]
+  },
+  {
+   "bank": "PBZ Bank",
+   "type": "Bank",
+   "row_id": "TBA:36",
+   "sheet_row": 36,
+   "head_office_phone": "+255 24 223 1118",
+   "head_office_email": "info@pbzbank.co.tz",
+   "other_emails": [],
+   "website": "https://www.pbzbank.co.tz",
+   "head_office_region": "Mjini Magharibi",
+   "head_office_district": "Mjini",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Selcom",
+   "type": "Payments",
+   "row_id": "TBA:37",
+   "sheet_row": 37,
+   "head_office_phone": "+255 22 277 4355",
+   "head_office_email": "info@accessbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Stanbic Bank",
+   "type": "Bank",
+   "row_id": "TBA:38",
+   "sheet_row": 38,
+   "head_office_phone": "0800 751 111 / +255 22 266 6430",
+   "head_office_email": "info@stanbicbank.co.tz",
+   "other_emails": [],
+   "website": "https://www.stanbicbank.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "Kinondoni",
+   "match_basis": "bank name (generic words dropped)",
+   "branch_organisation_ids": [
+    "Oe8d5c4da1b56"
+   ],
+   "branch_names": [
+    "Stanbic Bank"
+   ]
+  },
+  {
+   "bank": "Standard Chartered Bank",
+   "type": "Bank",
+   "row_id": "TBA:39",
+   "sheet_row": 39,
+   "head_office_phone": "+255 22 212 2160",
+   "head_office_email": "callcentre@sc.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Tanzania Agricultural Development Bank",
+   "type": "Development bank",
+   "row_id": "TBA:40",
+   "sheet_row": 40,
+   "head_office_phone": "+255 22 292 3501",
+   "head_office_email": "info@tadb.co.tz",
+   "other_emails": [],
+   "website": "https://www.tadb.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "TCB Bank",
+   "type": "Bank",
+   "row_id": "TBA:41",
+   "sheet_row": 41,
+   "head_office_phone": "+255 22 216 2940",
+   "head_office_email": "info@tpbbank.co.tz",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "TMRC (Tanzania Mortgage Refinance Company)",
+   "type": "Mortgage refinance",
+   "row_id": "TBA:42",
+   "sheet_row": 42,
+   "head_office_phone": "+255 22 213 3868",
+   "head_office_email": "info@tmrc.co.tz",
+   "other_emails": [],
+   "website": "https://www.tmrc.co.tz",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "UBA",
+   "type": "Bank",
+   "row_id": "TBA:43",
+   "sheet_row": 43,
+   "head_office_phone": "+255 22 286 4468",
+   "head_office_email": "customerservicetz@ubagroup.com",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "Dar es Salaam",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  },
+  {
+   "bank": "Umoja",
+   "type": "Bank",
+   "row_id": "TBA:44",
+   "sheet_row": 44,
+   "head_office_phone": "",
+   "head_office_email": "",
+   "other_emails": [],
+   "website": "",
+   "head_office_region": "",
+   "head_office_district": "",
+   "match_basis": "",
+   "branch_organisation_ids": [],
+   "branch_names": []
+  }
+ ]
+}

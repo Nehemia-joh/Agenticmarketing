@@ -11,6 +11,8 @@ fixed widths and wrapped text.
   best route, pdpa_risk, research warnings). Organisations also carries the subtype and the VICOBA columns.
 - Savings groups shows SACCOS and VICOBA side by side (subsegment, band, introducer, women_group, the Kiswahili first message
   and its English meaning); Outreach plans carries each plan's language and English meaning.
+- National leads (19 November 2026) lists the national leads table: every association member from the team's association workbook,
+  deduplicated, with its flag (in master, in catchment, national only), the counts and the dedupe rule at the top.
 Every sheet's row count is checked against the export; the result goes to outputs/reports/workbook-verification.json
 and the script exits 1 on any mismatch. Run `npm run build:workbook`, which exports first.
 """
@@ -140,6 +142,10 @@ def main() -> int:
                  "introducer and the women_group tag (women's groups are worked first), with each group's Kiswahili first message and its "
                  "English meaning. A VICOBA group is reached through its introducer (an NGO programme, a bank branch or the ward community "
                  "development officer) and is never contacted while its band is low."],
+                ["National leads", counts.get("national_leads", 0), "Every member of the national associations and regulator registers in the team's "
+                 "association workbook, deduplicated, with its flag: in master (an existing organisation), in catchment (added to the master in the "
+                 "19 November 2026 merge) or national only (beyond the catchment, outside the region, region not given, or non-operating). Kept "
+                 "for later and for introducer work; not organisations, so no plan, draft or map pin."],
                 ["Contacts", counts["contacts"], "Business contacts only, each with decision_maker, best route and pdpa_risk. A named person is not "
                  "evidence that they are a parent."],
                 ["Enquiries", counts["enquiries"], "Historical public childcare and school enquiries. Use the one-reply review flow."],
@@ -217,6 +223,26 @@ def main() -> int:
             "The Kiswahili text is the message; english_meaning is its meaning for review. Group-level records only: no member, officer or number.",
             [h for h, _ in savings_columns], [[r.get(h, "") for h, _ in savings_columns] for r in savings], [w for _, w in savings_columns],
             150, "TSavingsGroups")
+
+    national = data.get("national_leads", [])
+    ns = report.get("national_leads") or {}
+    flags = ns.get("flags", {})
+    national_columns = [
+        ("national_lead_id", 18), ("kind", 12), ("name", 40), ("flag", 14), ("flag_detail", 44), ("organisation_id", 18), ("organisation_name", 34),
+        ("associations", 22), ("member_categories", 30), ("licence_numbers", 20), ("status", 24), ("operating", 10), ("district", 18),
+        ("region", 18), ("phone", 26), ("email", 34), ("personal_inbox", 12), ("website", 34), ("whatsapp", 18), ("physical_address", 36),
+        ("postal_address", 28), ("source_rows", 10), ("source_refs", 40), ("notes", 60)]
+    b.sheet("National leads", f"{ns.get('leads', len(national))} national leads from the team's association workbook (references/Tanzania Sector "
+            f"Associations and Members (1).xlsx, checked 12 Oct 2026): {ns.get('members', 0)} members and {ns.get('associations', 0)} associations "
+            f"from {ns.get('source_rows', 0)} source rows. Flags: in master {flags.get('in master', 0)} (an existing organisation), in catchment "
+            f"{flags.get('in catchment', 0)} (became an organisation in this merge), national only {flags.get('national only', 0)} (of them "
+            f"{ns.get('in_region_beyond_catchment', 0)} in region, beyond catchment; {ns.get('in_region_district_not_given', 0)} in region, district "
+            f"not given); {ns.get('non_operating', 0)} non-operating licences. Dedupe rule: one row per normalised name (legal suffixes such as Ltd "
+            "and Limited dropped) whose regions agree (a row with no region joins); rows matched to one organisation are one row; every source "
+            "row is listed in source_refs. These are not organisations: no plan, draft, segment, map pin or reach tier. personal_inbox 'yes': a "
+            "free-mail inbox not named after the business (personal data, never a route until confirmed).",
+            [h for h, _ in national_columns], [[r.get(h, "") for h, _ in national_columns] for r in national], [w for _, w in national_columns],
+            30, "TNationalLeads")
 
     b.sheet("Contacts", f"{counts['contacts']} published business contacts. Named people are professional routes only; they are not evidence "
             "of parent status. The best route is the person's own published route, else the organisation's; a personal-domain address "
@@ -441,7 +467,8 @@ def main() -> int:
 
     # Reconcile every sheet with the export before saving.
     plans = counts["outreach_plans"]
-    expected = {"Organisations": counts["organisations"], "Savings groups": counts.get("savings_group_organisations", len(savings)), "Contacts": counts["contacts"], "Enquiries": counts["enquiries"], "Messages": plans,
+    expected = {"Organisations": counts["organisations"], "Savings groups": counts.get("savings_group_organisations", len(savings)),
+                "National leads": counts.get("national_leads", len(national)), "Contacts": counts["contacts"], "Enquiries": counts["enquiries"], "Messages": plans,
                 "Lead Briefs": len(briefs),
                 "Campuses": counts["campuses"], "Review": counts["review"], "Facts": len(data["facts"]), "Source rows": counts["source_records"],
                 "Source files": counts["source_files"], "Outreach plans": plans, "Sequences": plans, "Segments": counts["outreach_segments"],

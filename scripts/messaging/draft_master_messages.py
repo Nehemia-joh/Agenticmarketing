@@ -896,6 +896,8 @@ def main() -> int:
             segment = "Tourism employers"
         elif group == "Tagged as government but is not":
             segment = "Education employers" if re.search(r"universit", org["name"], re.I) else "Corporate employers"
+        elif str(org["segment"] or "") == "Savings group" and str(org.get("subtype") or "").startswith("SACCOS"):
+            segment = "SACCOS members"  # a SACCOS added after the first import (association-members merge, 19 November 2026)
         else:
             segment = next((s for pattern, s in SEGMENT_MAP if re.search(pattern, str(org["segment"] or ""), re.I)), "Corporate employers")
         route = org.get("email") or org.get("phone")
@@ -903,9 +905,11 @@ def main() -> int:
         rivertrees = org["name"].startswith("Rivertrees")
         track = "AQ02" if rivertrees else ("AQ01" if route and not raw_osm else "AQ00")
         plan = {"message_id": sid("M", "offer-v4", oid), "target_id": oid, "target_type": "organisation", "organisation_id": oid,
-                "target_name": org["name"], "organisation_name": org["name"], "segment": segment, "cta_type": "Planning conversation" if rivertrees else "Welfare referral",
+                "target_name": org["name"], "organisation_name": org["name"], "segment": segment,
+                "cta_type": "Planning conversation" if rivertrees else ("Committee referral" if segment == "SACCOS members" else "Welfare referral"),
                 "hook": "", "hook_status": ""}
-        copy = rivertrees_copy(org) if rivertrees else (introducer_copy(plan, org, "AQ01") if segment == "Introducers" else employer_copy(plan, org, "AQ01"))
+        copy = rivertrees_copy(org) if rivertrees else (introducer_copy(plan, org, "AQ01") if segment == "Introducers" else
+                                                         saccos_copy(plan, org, "AQ01") if segment == "SACCOS members" else employer_copy(plan, org, "AQ01"))
         missing = []
         if not route:
             missing.append("No public email or phone; find the organisation's route before any message.")

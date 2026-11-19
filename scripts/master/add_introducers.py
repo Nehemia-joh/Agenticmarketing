@@ -9,6 +9,8 @@ first; a match is reused, never duplicated. Then, in one transaction:
 - a new body becomes an organisation with segment "Introducer: <kind>" (draft_master_messages.py files its plans under "Introducers" and writes
   the introducer request, so its first message asks for a partnership with the members in mind and states no offer terms);
 - its named secretariat people become contacts, with an email only when the same source gave it for that person or role.
+A body with no email, phone or named person is skipped, unless --keep-website-only and it publishes a website: then it is added with
+its website and the note that the route is still to find, and draft_master_messages.py holds its draft for the missing route.
 Nothing is sent. Preview by default (runtime/master/introducers-preview.json); --apply writes. Afterwards run draft_master_messages.py,
 refresh_acquisition_metadata.py, assign_message_variants.py --apply, export_master_workbook_data.py, npm run build:workbook and verify_master.py.
 """
@@ -75,6 +77,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--date", default=date.today().isoformat())
     parser.add_argument("--database", type=Path, default=MASTER)
+    parser.add_argument("--keep-website-only", action="store_true",
+                        help="add a body that publishes only a website (no email, phone or named person) instead of skipping it; its draft is "
+                             "held until a route is found (the association-members merge of 19 November 2026)")
     parser.add_argument("--apply", action="store_true")
     args = parser.parse_args()
     files, records = load(args.date)
@@ -99,8 +104,9 @@ def main() -> int:
             skipped.append(name)
             continue
         if not (rec.get("emails") or rec.get("phones") or rec.get("people")):
-            skipped.append(f"{name} (no route and no named person)")
-            continue
+            if not (args.keep_website_only and rec.get("website")):
+                skipped.append(f"{name} (no route and no named person)")
+                continue
         match = by_name.get(norm(name)) or by_domain.get(domain(rec.get("website")))
         oid = match or hid("O", "introducer", norm(name))
         email = first([e for e in rec.get("emails") or [] if not FREE.search(e.get("value") or "")])
@@ -154,7 +160,8 @@ def main() -> int:
                             (oid, p["name"], f"Introducer: {rec.get('kind') or 'other'}", "", "",
                              f"{rec.get('member_count')} members (as published)" if rec.get("member_count") else "", " / ".join(x for x in [address, postal] if x),
                              "Introducer: could share the staff education benefit with its members", source_url,
-                             f"Published by the organisation (search, fetched) {args.date}", p["email"], p["phone"], rec.get("website") or "", notes[:2000],
+                             rec.get("verification") or f"Published by the organisation (search, fetched) {args.date}", p["email"], p["phone"],
+                             rec.get("website") or "", notes[:2000],
                              rec.get("area") or ""))
             con.execute("INSERT INTO entity_sources (entity_type, entity_id, record_id) SELECT 'organisation', ?, ? WHERE NOT EXISTS "
                         "(SELECT 1 FROM entity_sources WHERE entity_type='organisation' AND entity_id=? AND record_id=?)", (oid, record, oid, record))

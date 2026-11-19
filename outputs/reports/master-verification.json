@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-10-13T14:06:18.045263+00:00",
+  "checked_at": "2026-11-19T12:22:02.321779+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "c01edf1ea3c120bad75f24b04c1df1f8db4a3396887f16d6377c6293f6784565",
+  "database_sha256": "1aa72a245b0ff39f3691d018acaff0a4f7af137728ab503c2d50330166cc3a07",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "7295acf261a6ab75f96e6933045e7d985c48208c5fd19fc0a8a23e8d370677bf",
+  "workbook_sha256": "e7871e5a0d70f2c74bb44d87388b496a01cad6ae155593c617aa1d2cc7fd9a7b",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -21,19 +21,23 @@
     "vicoba_no_organisation_phone": true,
     "vicoba_contact_phones_have_basis": true,
     "vicoba_not_merged_with_saccos": true,
-    "vicoba_plans_valid": true
+    "vicoba_plans_valid": true,
+    "national_source_rows_accounted": true,
+    "national_master_rows_linked": true,
+    "national_leads_not_organisations": true,
+    "national_flags_consistent": true
   },
   "counts": {
-    "source_files": 188,
-    "source_records": 14881,
-    "organisations": 1389,
-    "contacts": 1291,
+    "source_files": 193,
+    "source_records": 21105,
+    "organisations": 1661,
+    "contacts": 1308,
     "enquiries": 32,
-    "messages": 2688,
-    "outreach_plans": 2688,
+    "messages": 2960,
+    "outreach_plans": 2960,
     "strategies": 141,
     "automation_recipes": 54,
-    "campaign_lead_assignments": 2720,
+    "campaign_lead_assignments": 2992,
     "acquisition_tracks": 3,
     "value_proposition_modules": 9,
     "lead_intake_rules": 9
@@ -48,8 +52,8 @@
     "untraceable": 0
   },
   "assignments": {
-    "plans": 2688,
-    "with_track": 2688
+    "plans": 2960,
+    "with_track": 2960
   },
   "enabled_automations": 0,
   "vicoba": {
@@ -75,6 +79,31 @@
     "failing": {
       "labels": [],
       "keyed_and_sourced": []
+    }
+  },
+  "national_leads": {
+    "national_leads": 6191,
+    "flags": {
+      "in master": 582,
+      "in catchment": 266,
+      "national only": 5343
+    },
+    "conservation": {
+      "source_rows": 6218,
+      "member_rows": 6195,
+      "index_rows": 23,
+      "members_to_master_new": 266,
+      "members_to_master_matched": 571,
+      "members_to_national": 5358,
+      "index_in_master": 14,
+      "index_national": 6,
+      "index_skipped": 3,
+      "linked_to_a_national_lead": 6215,
+      "check": "6218 source rows = 6215 linked to a national lead + 3 Index register rows skipped; 6195 member rows = 266 new + 571 matched + 5358 national"
+    },
+    "failing": {
+      "flags": [],
+      "national_only_linked_to_an_organisation": []
     }
   },
   "unwanted_paths": []

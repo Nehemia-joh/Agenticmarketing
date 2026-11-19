@@ -72,6 +72,7 @@ The welfare and government runs do stages 3, 4 and 13 to 16 inside one command, 
   - The first list (September) came from `scripts/collection/collect_partner_leads.js` (browser console on tatotz.org) and `build_partner_leads.py`. The import that built the master is not in `scripts/`.
   - The gap census: `collect_gap_census.py --date <d>`, the coordinator's Google Maps pins (`data/raw/gap-census/google_maps_named_<d>.jsonl`), targeted records (`research_targeted_<d>.jsonl`), then `build_gap_census.py --date <d>`. It writes `master_intake_<d>.csv`, the welfare records, village points and `outputs/reports/campus-gap-census-<d>.md`.
   - Introducers: a research agent writes `data/raw/contact-research/introducers_*_<d>.jsonl`.
+  - Association members (19 November 2026): `scripts/collection/build_association_members_intake.py --date <d>` reads the team's association workbook offline and writes `data/raw/association-members/` (intake, every row's decision, bank head offices) and the introducer file of the Index associations the master lacks.
 - **Welfare.** `fetch_ngo_register.py --run-id <r>`, `collect_osm_welfare.py --run-id <r>`, then discovery agents planned by `plan_research.py` (stage 7).
 - **Government.** `collect_census_wards.py`, `collect_ward_locations.py`, `collect_osm_government.py` and `collect_council_sites.py`, each with `--run-id <r>`; then `scan_official_documents.py --run-id <r> --date <d>`. A scanned roster is transcribed by hand into `data/raw/government-research/transcriptions/`.
 - **Rules.** Collectors reuse their cache unless `--refresh`. Overpass runs one query at a time with a mirror fallback. The census collector fails unless wards add up to council totals.
@@ -95,7 +96,8 @@ The welfare and government runs do stages 3, 4 and 13 to 16 inside one command, 
 - **Purpose.** Add new leads without losing an ID, a source or an earlier value.
 - **Master scripts** (each previews by default; `--apply` writes in one transaction):
   - `scripts/master/add_gap_census_leads.py --date <d> --apply`. Add `--geocodes` to write the points file for stage 5.
-  - `scripts/master/add_introducers.py --date <d> --apply`.
+  - `scripts/master/add_introducers.py --date <d> --apply` (`--keep-website-only` adds a body that publishes only a website, held for its route).
+  - `scripts/master/add_association_members.py --date <d> --apply`: catchment members (tour operators, hotels, microfinance lenders, SACCOS), enrichment of matched records, bank head offices as escalation desks, and the `national_leads` table (never organisations; the lead-list data contract).
   - `scripts/master/apply_employer_corrections.py --apply`, from `data/reference/employer-corrections.json`: refile a segment, correct a website or phone, or hold a lead outside the catchment.
   - `scripts/master/repair_shifted_fields.py --apply` for TATO rows imported one column out.
   - `scripts/master/apply_organisation_relations.py --apply`, from `data/reference/organisation-relations.json`: reviewed duplicates and branches.

@@ -1,0 +1,23 @@
+{
+  "file": "C:\\Work\\silverleaf-agentic-marketing\\data\\raw\\association-members\\master_intake_2026-11-19.csv",
+  "status": "valid",
+  "row_count": 837,
+  "counts": {
+    "organisation": 837
+  },
+  "error_count": 0,
+  "warning_count": 2,
+  "errors": [],
+  "warnings": [
+    {
+      "row": 14,
+      "field": "identity",
+      "message": "Exact duplicate of row 2."
+    },
+    {
+      "row": 441,
+      "field": "identity",
+      "message": "Exact duplicate of row 287."
+    }
+  ]
+}

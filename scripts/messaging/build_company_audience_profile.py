@@ -42,8 +42,17 @@ def table(headers: list[str], rows: list[list]) -> list[str]:
     return out + ["| " + " | ".join(str(c) for c in r) + " |" for r in rows] + [""]
 
 
+MICROFINANCE_SEGMENT = "Microfinance lender"  # organisations.segment of a Tier 2 microfinance service provider (BoT licence)
+MICROFINANCE_KIND = "Microfinance lenders"
+
+
 def kind_of(plan: dict, org: dict) -> str:
+    """The employer subsegment of a chosen plan. 'Microfinance lenders' (added 19 November 2026, the association-members merge) are the
+    Bank of Tanzania's Tier 2 microfinance service providers: employers asked for the staff benefit like other companies. Some lend for
+    school fees, so they are also candidate introducers, but they are not asked to introduce anyone yet."""
     seg = plan["segment"]
+    if str((org or {}).get("segment") or "") == MICROFINANCE_SEGMENT and seg not in ("Introducers", "SACCOS members", "VICOBA members", "VICOBA introducers"):
+        return MICROFINANCE_KIND
     if seg == "Tourism employers":
         return "Hotels, lodges and camps" if HOSPITALITY.search(f"{org['name']} {org['segment'] or ''}") else "Safari operators and travel agencies"
     return {"Corporate employers": "Banks and other companies", "Healthcare employers": "Hospitals and clinics",
@@ -105,7 +114,7 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
              f"{f' and {len(vicoba_introducers)} savings-group introducers (NGO programmes and VICOBA support bodies)' if vicoba_introducers else ''}.",
              f"- **{pct(len(ready), N)} of the companies are ready for review now** (a draft and a usable route). The rest are held, mostly for want of a published route.",
              f"- The audience is **overwhelmingly tourism**: {pct(kinds['Safari operators and travel agencies'] + kinds['Hotels, lodges and camps'], N)} are safari operators, travel agencies, hotels or lodges. "
-             "The rest are banks and other companies, hospitals, colleges and NGOs.",
+             f"The rest are banks and other companies, {kinds[MICROFINANCE_KIND]} microfinance lenders, hospitals, colleges and NGOs.",
              f"- **Founders and owners are the largest named role group in our contact list** ({roles['Founder, owner or co-founder']} of {len(contacts)} people), and HR contacts are rare "
              f"({roles['HR or people']}). So the person who decides is usually the founder, managing director or general manager, not an HR department.",
              "- We ask **one of two things** of a company. A strong fit (it already funds education) is asked to sponsor students. Every other company is asked to set up a partnership "
@@ -192,6 +201,11 @@ def profile_lines(con: sqlite3.Connection) -> list[str]:
          "Offices with an HR function and a corporate-benefits process.",
          "A structured, low-effort benefit the HR team can offer; clarity on process.",
          "HR head or the managing director; regional offices often defer to head office."),
+        ("Microfinance lender", kinds[MICROFINANCE_KIND],
+         "A small licensed lender (Bank of Tanzania Tier 2 microfinance service provider) with a few loan officers, run by its owner; many publish "
+         "only the owner's personal phone or free-mail inbox, which is not a route until confirmed.",
+         "A staff benefit at no cost to the company. Some lend for school fees, so later they may also introduce Silverleaf to borrowers (not asked yet).",
+         "The owner or managing director, through the licensee's published phone."),
         ("Hospital or clinic", kinds["Hospitals and clinics"],
          "Large, shift-working teams on site, and a hospital director or administrator.",
          "Staff welfare for people who work long and irregular hours.",

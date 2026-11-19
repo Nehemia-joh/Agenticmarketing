@@ -147,6 +147,41 @@ The adder also writes `sources_seen` (one fact per source). `covers_groups` is w
 
 `outreach_plans` has two columns for Kiswahili drafts, `language` (`sw`) and `english_meaning`. For a VICOBA plan, `subject` and `body` hold the Kiswahili first message and `english_meaning` its English meaning. `offer_message_sw` holds the Kiswahili offer and `offer_message` its English meaning. The adder creates one plan per new group (`VICOBA members`, `Needs research`, AQ00, flow F26, `VM02; VM03; VM06; VM20`, blank copy). The drafter writes its copy.
 
+## Association members and national leads (decided 19 November 2026)
+
+The team's association workbook (`references/Tanzania Sector Associations and Members (1).xlsx`, checked 12 October 2026) lists the members of national associations and two regulator registers: the Tanzania Chamber of Mines, TBA banks, ACT agriculture, TATO tour operators, TAFFA freight forwarders, the Bank of Tanzania's Tier 2 microfinance service providers (14 August 2026) and TCDC's licensed SACCOS (30 June 2022). `scripts/collection/build_association_members_intake.py` writes `data/raw/association-members/master_intake_<date>.csv` (the shared columns, then `source_row`, `source_tab`, `sheet_row`, `association`, `association_acronym`, `member_category`, `licence_no`, `status`, `district`, `region`, `catchment_council`, `council_core`, `placement_basis`, `decision`, `match_organisation_id`, `match_basis`, `new_organisation_id`, `national_lead_id`, `other_emails`, `personal_inbox_count`, `whatsapp`, `contact_person_published`, `similar_master_ids`) and `members_<date>.jsonl` (every source row with its decision). `scripts/master/add_association_members.py` merges them after the validator and the preflight.
+
+### Placement and labels
+
+| Rule | Value |
+|---|---|
+| To the master | District is a council of `data/runs/arusha-government-2026-09/run-config.json` (`councils`), or the district is blank, the region is Arusha or Kilimanjaro and the physical or postal address names a catchment town; operating; no exact master match |
+| National only | Anything else: in region, beyond catchment (Karatu, Ngorongoro, Same, Mwanga, Rombo, Manyara); in region, district not given; outside the region; region not given; non-operating (Tier 2 licences listed as non-operating, a revoked SACCOS) |
+| Exact match | Website domain, then a non-free-mail email, then a free-mail email with the same or a similar name, then the normalised name (legal suffixes dropped). A register row (SACCOS, Tier 2 lender) matches by name only at its place. A similar name is a review item (`Association list: possible duplicate`), never a merge |
+| `segment` of a new organisation | `Safari / tour operator`, `Hotel`, `Company (TATO affiliate member)`, `Airline / aviation (TATO member)`, `Microfinance lender`, `Savings group` (SACCOS) |
+| `subtype` | `TATO member (licensed)`, `TATO member (hotel / lodge)`, `Tier 2 microfinance service provider (BoT licence)`, `SACCOS — <employer/institution-based or community/open-bond> (TCDC licence class <A or B>)` |
+| Facts | `member_of`, `licence_no`, `licence_class`, `licence_status` or `membership_status`, `district`, `region`, `catchment_council`, `postal_address`, `physical_address`, `email`, `phone`, `website`, `whatsapp`, `services`; `email_personal_domain` for a free-mail inbox not named after the organisation (pdpa_risk risky; never a route until confirmed) |
+| Review kinds | `Association list: possible duplicate`, `Association list: confirm membership` (TATO), `Association list: named contact on the member profile`, `Personal-domain inbox to confirm`, `Licence non-operating (regulator list)`, `Branch record carries the head office's route`; conflicts use `Multiple source values` |
+| Bank head office | A role-desk contact on each matched bank branch, role `Head office (escalation): <bank> head office, <region>`, with the TBA tab's inbox in `shared_email` and phone in `organisation_phone`. It is never a recipient and never joins records when clustering; `resolve_master_recipients.py` makes it the branch plan's escalation contact when no named group head is on file |
+
+A matched organisation is enriched, never overwritten: an empty email, phone or website is filled only from a row placed in the catchment (or with no place given) and never from a bank's head office; a differing value is a fact and a `Multiple source values` review item.
+
+### National leads tables
+
+`national_leads` and `national_lead_sources` hold every deduplicated member and Index association. They are not organisations: no outreach plan, draft, segment, map pin or reach tier refers to them.
+
+| `national_leads` column | Meaning |
+|---|---|
+| `national_lead_id` | `N` plus 12 hex characters, from the normalised name and region (members) or the acronym (associations) |
+| `kind` | `member` or `association` |
+| `name`, `associations`, `member_categories`, `licence_numbers`, `status`, `operating` | As published, joined across the lead's rows |
+| `phone`, `email`, `website`, `whatsapp`, `physical_address`, `postal_address`, `district`, `region` | As published; `personal_inbox` is `yes` when an inbox is free mail not named after the business |
+| `flag` | `in master` (an existing organisation, `organisation_id` set), `in catchment` (became an organisation in this merge, `organisation_id` set) or `national only` (`organisation_id` empty) |
+| `flag_detail` | The decision behind the flag, such as `in region, beyond catchment` or `non-operating (...)` |
+| `source_rows`, `source_file`, `added_on`, `notes` | Row count, the workbook path, the merge date, and review signals (same website or name as a master record elsewhere) |
+
+`national_lead_sources` links each lead to its source records (`record_id`, `source_tab`, `sheet_row`, `decision`): every source row of the workbook has one source record and one link, except the Index rows that describe a regulator register (skipped). Dedupe rule: rows join on the normalised name when their regions agree (a row with no region joins any), and rows matched to one organisation always join. `verify_master.py` checks that every source row is accounted for, that no national lead is an organisation and that the flags agree with the rows behind them.
+
 ## Canonical tables
 
 The database may add campaign-specific fields, but it must keep these logical tables and relationships:
@@ -163,6 +198,7 @@ The database may add campaign-specific fields, but it must keep these logical ta
 - `outreach_plans`: recipient, evidence, offer, CTA, hook, sequence, status, and acquisition state.
 - `strategies`, `segments`, `campaigns`, `campaign_touchpoints`, `campaign_assignments`: reusable campaign definitions and assignment history.
 - `automation_recipes`, `automation_steps`: disabled-by-default operational blueprints.
+- `national_leads`, `national_lead_sources`: the national leads table of the association-members merge (above); never organisations.
 
 The current Silverleaf master may contain these detailed organisation fields: `organisation_id`, `name`, `segment`, `priority`, `campus`, `distance_km`, `size_evidence`, `headcount`, `address`, `education_angle`, `source_url`, `verification`, `strategy_id`, `outreach_status`, `next_action`, `next_action_date`, `email`, `phone`, `subtype`, `radius_tier`, `geocode_precision`, `website`, `notes`, `desk_tier`, `desk_score`, `transport_band`, `locality`, `founded`, `licence_class`, `osm_id`, `latitude`, and `longitude`.
 

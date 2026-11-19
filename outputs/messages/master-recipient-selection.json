@@ -3,20 +3,20 @@
  "method": "scripts/master/resolve_master_recipients.py",
  "note": "No record was merged or deleted. The baseline is the selection before the first run; the lists compare the database with it.",
  "summary": {
-  "clusters": 96,
-  "organisations_in_clusters": 204,
+  "clusters": 98,
+  "organisations_in_clusters": 208,
   "cluster_kinds": {
-   "same organisation": 92,
-   "shared inbox": 4
+   "same organisation": 93,
+   "shared inbox": 5
   },
-  "duplicate_organisations_held": 108,
-  "candidates_after": 1251,
-  "escalation_contacts": 8,
+  "duplicate_organisations_held": 110,
+  "candidates_after": 1526,
+  "escalation_contacts": 17,
   "override_routes": 0,
   "candidates_before": 938,
-  "plans_changed": 462,
+  "plans_changed": 463,
   "plans_now_candidate": 160,
-  "plans_now_alternative": 302,
+  "plans_now_alternative": 303,
   "named_contacts_now_candidate": 146
  },
  "clusters": [
@@ -604,6 +604,13 @@
   },
   {
    "kind": "same organisation",
+   "primary": "Tumaini SACCOS Ltd (Oec586e8f7b02)",
+   "duplicates": [
+    "Tumaini SACCOS Ltd (O666d0fcd2fce)"
+   ]
+  },
+  {
+   "kind": "same organisation",
    "primary": "Exim bank (O7f9e52ba429c)",
    "duplicates": [
     "Exim Bank (T) Ltd (O51f72d538488)"
@@ -702,6 +709,13 @@
    "primary": "Total Care Health Center (Oc5f0be6c043d)",
    "duplicates": [
     "Total Care Medical Center (Oba580e04150c)"
+   ]
+  },
+  {
+   "kind": "shared inbox",
+   "primary": "Rida Financial Services (Oa9f591ab9d02)",
+   "duplicates": [
+    "Rise Financial Services Limited (O77dd13a9e129)"
    ]
   }
  ],
@@ -2596,6 +2610,12 @@
    "message_id": "Mbec2f40771ce",
    "organisation": "Arusha Technical College Staff SACCOS Ltd",
    "recipient": "Arusha Technical College Staff SACCOS Ltd",
+   "role": "Organisation routing"
+  },
+  {
+   "message_id": "Mf608150d7d9b",
+   "organisation": "Tumaini SACCOS Ltd",
+   "recipient": "Tumaini SACCOS Ltd",
    "role": "Organisation routing"
   },
   {

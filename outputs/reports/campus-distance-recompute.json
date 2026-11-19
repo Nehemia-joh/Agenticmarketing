@@ -1,14 +1,35 @@
 {
  "stats": {
-  "coordinates": 1065,
+  "coordinates": 1085,
   "stored distance kept": 263,
-  "no location": 316,
+  "no location": 296,
   "gazetteer point reproduced": 14,
   "ward reference point": 3,
-  "records to update": 0,
-  "nearest campus changed": 0
+  "records to update": 20,
+  "nearest campus changed": 20
  },
- "nearest_campus_changed": [],
+ "nearest_campus_changed": [
+  "ASILIA LODGES AND CAMPS LTD:  -> Arusha City (3.5 km)",
+  "Bushland Camps and lodges Ltd:  -> Kijenge (5.8 km)",
+  "EAST AFRICA CAMPS (TYCHE LIMITED):  -> Arusha City (3.1 km)",
+  "EAST SAFARIS:  -> Arusha City (4.1 km)",
+  "Keys Tours:  -> Boma Ngombe (22.2 km)",
+  "KIGELIA AFRICANA LIMITED:  -> Arusha City (4.4 km)",
+  "King Mufasa Expeditions:  -> Ilboru (2.4 km)",
+  "Kinga Homes Boutique Hotel:  -> Boma Ngombe (19.1 km)",
+  "Materuni Village Experience:  -> Boma Ngombe (29.0 km)",
+  "Nyumbu Luxury Collection Limited:  -> Kijenge (6.5 km)",
+  "RYDER Signature:  -> Boma Ngombe (21.3 km)",
+  "Safari Goats Adventure:  -> Arusha City (0.9 km)",
+  "Tropic Helicopters Tanzania:  -> Usa River (4.7 km)",
+  "Zondela House:  -> Kijenge (4.1 km)",
+  "Anza Growth Fund Microfinance:  -> Boma Ngombe (22.5 km)",
+  "Cashcrown Microfinance Limited:  -> Kijenge (2.3 km)",
+  "Noda Microfinance Limited:  -> Kijenge (0.9 km)",
+  "Shab Financial Services Express Limited:  -> Arusha City (1.3 km)",
+  "Step Up Financial Services Limited:  -> Kijenge (3.9 km)",
+  "Tunakuvusha Microfinance Limited:  -> Arusha City (2.6 km)"
+ ],
  "campuses": {
   "Usa River": [
    -3.361003,

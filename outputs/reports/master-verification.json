@@ -1,10 +1,10 @@
 {
-  "checked_at": "2026-11-19T12:22:02.321779+00:00",
+  "checked_at": "2026-11-19T13:37:53.384621+00:00",
   "result": "passed",
   "database": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database.sqlite",
-  "database_sha256": "1aa72a245b0ff39f3691d018acaff0a4f7af137728ab503c2d50330166cc3a07",
+  "database_sha256": "868954ec78bae78e44d28728aab5831450f9a7fc5d09104b4a7455f205992d01",
   "workbook": "C:\\Work\\silverleaf-agentic-marketing\\outputs\\master\\Silverleaf Master Database - Consolidated.xlsx",
-  "workbook_sha256": "e7871e5a0d70f2c74bb44d87388b496a01cad6ae155593c617aa1d2cc7fd9a7b",
+  "workbook_sha256": "7a95be72951d69450089dfc7dbe558c9a6ddb816481aa5105ac5840b2fe39659",
   "checks": {
     "integrity": true,
     "foreign_keys": true,
@@ -28,8 +28,8 @@
     "national_flags_consistent": true
   },
   "counts": {
-    "source_files": 193,
-    "source_records": 21105,
+    "source_files": 196,
+    "source_records": 21391,
     "organisations": 1661,
     "contacts": 1308,
     "enquiries": 32,
@@ -59,13 +59,13 @@
   "vicoba": {
     "groups": 5,
     "by_subtype": {
-      "VICOBA \u2014 women's group": 2,
-      "VSLA \u2014 NGO-programme group": 3
+      "VSLA \u2014 NGO-programme group": 3,
+      "VICOBA \u2014 women's group": 2
     },
     "by_record_status": {
+      "stale: not confirmed in 12 months": 3,
       "incomplete: no ward": 1,
-      "incomplete: no introducer route": 1,
-      "stale: not confirmed in 12 months": 3
+      "incomplete: no introducer route": 1
     },
     "women_groups": 2,
     "group_plans": 5,

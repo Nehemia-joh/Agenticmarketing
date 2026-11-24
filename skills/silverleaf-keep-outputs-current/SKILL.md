@@ -32,6 +32,8 @@ python scripts/messaging/export_resend_contacts.py            # 10 segments: CSV
 git checkout -- data/raw/welfare-research/MANIFEST.md         # revert hash churn (see below)
 ```
 
+When the lead map changed, push it to the marketing app's Leads Map tab afterwards (needs `LEAD_MAP_SYNC_SECRET`; `--dry-run` sends nothing): `python scripts/maps/push_lead_map.py`. See `scripts/maps/README.md`.
+
 **Before step 1, when locations or ranks changed.** After a geocode, a campus move or a correction, run these first:
 
 ```powershell

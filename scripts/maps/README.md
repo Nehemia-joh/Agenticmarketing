@@ -7,6 +7,18 @@ python scripts/maps/build_basemap.py     # only when the basemap needs refreshin
 python scripts/maps/build_lead_map.py    # read-only on the databases; prints counts and fails on a mismatch
 ```
 
+## Pushing the map to the marketing app
+
+The Leads Map tab of the Silverleaf marketing app (`/marketing/leads-map`) shows the newest build pushed to it. After a rebuild:
+
+```powershell
+python scripts/maps/push_lead_map.py --dry-run          # checks and counts; sends nothing
+$env:LEAD_MAP_SYNC_SECRET = '<the value set on the marketing API>'
+python scripts/maps/push_lead_map.py
+```
+
+It reads the built page and its private sidecar `runtime/maps/lead-map-sidecar.json` (both written only when the build's checks pass; `build_lead_map.py` writes the sidecar beside the page, with each drawn lead's stable id and the address `export_resend_contacts.py` would send to). It sends the fields the tab uses, refuses any contact detail in the map part, and sends the sendable addresses and contact names in a separate `contacts` section: the app keeps them apart, never shows them on the map and releases them only through its CSV export for Instantly (CEO and global marketing heads, every export logged). Shared inboxes, addresses inferred from a format and government offices get no contact. The app refuses anything outside its contract (`SLA-HUB/desks/marketing/backend/lib/leadMap.js`). Pushing the same build twice changes nothing. A new segment, confidence level or campus is a change to that contract first. The sidecar holds personal data: it stays in `runtime/`, which Git ignores. Docs: `SLA-HUB/desks/marketing/docs/lead-map/README.md`.
+
 ## What goes on the map
 
 - **Leads and segments** follow `outputs/messages/Silverleaf Core Segments - <date>.md`:

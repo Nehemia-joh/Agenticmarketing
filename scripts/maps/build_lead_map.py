@@ -60,6 +60,8 @@ WELFARE_RUN, GOVERNMENT_RUN = "arusha-welfare-2026-09", "arusha-government-2026-
 BASEMAP = ROOT / "data" / "reference" / "maps" / "arusha-catchment-basemap.geojson"
 TEMPLATE = HERE / "lead_map_template.html"
 OUT = ROOT / "outputs" / "maps" / "Silverleaf Lead Map.html"
+# Stable lead ids and sendable contacts, in page order, for the marketing app's CSV export (scripts/maps/push_lead_map.py).
+SIDECAR = ROOT / "runtime" / "maps" / "lead-map-sidecar.json"
 WORK = ROOT / "runtime" / "maps"
 SOUTH, WEST, NORTH, EAST = -3.75, 36.30, -2.95, 37.55   # the basemap box (welfare_lib.in_catchment_box)
 CAMPUS_LABEL = {"Arusha City": "Arusha City (Sakina)", "Kijenge": "Kijenge", "Ilboru": "Ilboru", "Usa River": "Usa River",
@@ -317,6 +319,14 @@ def build_leads(loc: Locator, today: str):
         c = row["confidence"]
         return (f"high-{row['high_route']}" if c == "high" else c), row["confidence_reason"]
 
+    def contact_of(row, conf):
+        """The address the exporter would send to, for the marketing app's CSV export (push_lead_map.py): only a kept,
+        published row (never shared, never an inferred candidate, which never reaches these rows). It goes to the private
+        sidecar in runtime/maps/, never to the page."""
+        if row is None or conf in ("shared", "no-email") or not row.get("email"):
+            return None
+        return {"email": row["email"], "first_name": row.get("first_name") or "", "last_name": row.get("last_name") or ""}
+
     row_by_plan = {r["plan_id"]: r for r in c_rows}
     # VICOBA (export_resend_contacts.vicoba_export): groups are drawn per ward below; their introducers are introducer leads here.
     vx = E.vicoba_export(m, c_rows, w_rows, today)
@@ -364,7 +374,8 @@ def build_leads(loc: Locator, today: str):
         leads.append({"seg": seg, "name": E.L.display_name(org["name"], org["organisation_id"]), "sub": sub, "conf": conf,
                       "why": why, "names": [contact["name"]] if contact else [], "route": route, "role": role,
                       "draft": "Draft ready for review" if p["review_status"] == "Draft review" else (p["review_status"] or ""),
-                      "tier": tier, "lat": lat, "lon": lon, "prec": prec, "how": how, "key": ("master", p["organisation_id"])})
+                      "tier": tier, "lat": lat, "lon": lon, "prec": prec, "how": how, "key": ("master", p["organisation_id"]),
+                      "contact": contact_of(row, conf)})
 
     # Master records with no chosen plan: excluded layer.
     chosen = {p["organisation_id"] for p in plans}
@@ -431,7 +442,8 @@ def build_leads(loc: Locator, today: str):
                       "sub": {"kind": WELFARE_KIND.get(p["segment"], p["segment"]), "priority": p["priority"] or "Low"}, "conf": conf, "why": why,
                       "names": [recipient.split("(")[0].strip()], "route": route, "role": role,
                       "draft": "Draft ready for review" if p["review_status"] == "draft_ready" else "Needs review",
-                      "tier": p["priority"] or "", "lat": lat, "lon": lon, "prec": prec, "how": how, "key": ("welfare", p["organisation_id"])})
+                      "tier": p["priority"] or "", "lat": lat, "lon": lon, "prec": prec, "how": how, "key": ("welfare", p["organisation_id"]),
+                      "contact": contact_of(row, conf)})
     for o in w.execute("SELECT * FROM organisations WHERE segment='Out of scope'"):
         lat, lon = num(o["latitude"]), num(o["longitude"])
         ok = lat is not None and in_box(lat, lon)
@@ -721,6 +733,7 @@ def main() -> int:
     seg_code = {"emp": 0, "int": 1, "wel": 2, "gov": 3}
     checked = location_checks()
     out_leads, unmapped = [], []
+    side = []  # private sidecar, one entry per drawn lead in page order: its stable id and sendable contact (push_lead_map.py)
     by_length = sorted(person_names, key=len, reverse=True)
     for i, l in enumerate(sorted(leads, key=lambda l: (seg_code[l["seg"]], l["name"].lower()))):
         why = scrub(l["why"], l["names"] + by_length, notes=l["seg"] == "gov")
@@ -742,6 +755,7 @@ def main() -> int:
         if l.get("outside"):
             rec["x"] = 1  # outside the catchment area: drawn muted, under the others, and left out of the campus counts
         out_leads.append(rec)
+        side.append({"n": rec["n"], "id": f"{l['key'][0]}:{l['key'][1]}", "contact": l.get("contact")})
     out_excluded = []
     for x in excluded:
         if x["lat"] is None:
@@ -800,6 +814,11 @@ def main() -> int:
     html = html.replace("/*__DATA__*/null", data_js.replace("</", "<\\/")).replace("/*__BASEMAP__*/null", base_js.replace("</", "<\\/"))
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(html, encoding="utf-8")
+    # The sidecar holds email addresses and contact names, so it lives in runtime/ (ignored by Git), never in the page.
+    SIDECAR.parent.mkdir(parents=True, exist_ok=True)
+    SIDECAR.write_text(json.dumps({"built": today, "page": str(args.out.name), "leads": side}, ensure_ascii=False), encoding="utf-8")
+    print(f"Wrote the private sidecar {SIDECAR.relative_to(ROOT)}: {len(side)} leads, "
+          f"{sum(1 for x in side if x['contact'])} with a sendable email (for push_lead_map.py; never committed)")
     size = args.out.stat().st_size
     print(f"\nChecks passed: counts match the databases and the exporter; no contact name, email address or phone number in the page.")
     print(f"Wrote {args.out.relative_to(ROOT) if args.out.is_relative_to(ROOT) else args.out}: {size / 1e6:.2f} MB "
